@@ -59,23 +59,71 @@ var list_currentBalance = Observable(0);
 function ReloadHistories(){
 	if(data.length!=0){
 		histories.clear();
-		temp1=MakeConditionalTemp();
-		temp2=MakeAtThatTimeBalanceAddedTemp(temp1);
-		MakeDateTimeCategory(temp2);
+		temp1=MakeConditionalTemp1(data);// 현재 가계부,현금보기or카드보기, 를 체크해서 data 일부 채취
+		temp2=MakeAtThatTimeBalanceAddedTemp(temp1);// 채취된 data로 attb계산(새로운 row를 추가한 matrix를 반환)
+		temp3=MakeConditionalTemp2(temp2);// temp2(attb row가 추가됨)를 기반으로 년 월 체크해서 data 일부 채취.
+		MakeDateTimeCategory(temp3);
 	}else if(data.length==0){
 		histories.clear();
 	}
  }
 
-function MakeConditionalTemp(){
+function MakeConditionalTemp1(data){
 	newArray=Observable();
 	for (var i = data.length - 1; i >= 0; i--) {
 		item=data.getAt(i);
 		if (item.account_id==AccountList.currentAccountId.value){
+			if (list_cash_show.value==true&&list_card_show.value==true){
+				newArray.add({
+				db_id: (item.db_id),
+				account_id: (item.account_id),
+				amount: (item.amount),
+				data_time: (item.data_time),
+				usage: (item.usage),
+				payType: (item.payType),
+				pmType: (item.pmType),
+				group_id: (item.group_id),
+				}); 
+			}else if(list_cash_show.value==true&&list_card_show.value==false){
+				if(item.payType==1){
+					newArray.add({
+					db_id: (item.db_id),
+					account_id: (item.account_id),
+					amount: (item.amount),
+					data_time: (item.data_time),
+					usage: (item.usage),
+					payType: (item.payType),
+					pmType: (item.pmType),
+					group_id: (item.group_id),			
+					});
+				}
+			}else if((list_cash_show.value==false)&&(list_card_show.value==true)){
+				if(item.payType==0){
+					newArray.add({
+					db_id: (item.db_id),
+					account_id: (item.account_id),
+					amount: (item.amount),
+					data_time: (item.data_time),
+					usage: (item.usage),
+					payType: (item.payType),
+					pmType: (item.pmType),
+					group_id: (item.group_id),		
+					});
+				}
+			}else if(list_cash_show.value==false&&list_card_show.value==false){
+			}
+		}
+	};
+	return newArray;
+}
+function MakeConditionalTemp2(data){
+	newArray=Observable();
+	for (var i = 0; i <= data.length - 1; i++) {
+		item=data.getAt(i);
+		if (item.account_id==AccountList.currentAccountId.value){
 			if (screenYear.value*1==(moment(item.data_time,'YYYYMMDDHHmm',true).format('YYYY'))*1){
 				if (screenMonth.value*1==(moment(item.data_time,'YYYYMMDDHHmm',true).format('MM'))*1){
-					if (list_cash_show.value==true&&list_card_show.value==true){
-						newArray.add({
+					newArray.add({
 						db_id: (item.db_id),
 						account_id: (item.account_id),
 						amount: (item.amount),
@@ -83,50 +131,23 @@ function MakeConditionalTemp(){
 						usage: (item.usage),
 						payType: (item.payType),
 						pmType: (item.pmType),
+						attb: (item.attb),
 						group_id: (item.group_id),
-						}); 
-					}else if(list_cash_show.value==true&&list_card_show.value==false){
-						if(item.payType==1){
-							newArray.add({
-							db_id: (item.db_id),
-							account_id: (item.account_id),
-							amount: (item.amount),
-							data_time: (item.data_time),
-							usage: (item.usage),
-							payType: (item.payType),
-							pmType: (item.pmType),
-							group_id: (item.group_id),			
-							});
-						}
-					}else if((list_cash_show.value==false)&&(list_card_show.value==true)){
-						if(item.payType==0){
-							newArray.add({
-							db_id: (item.db_id),
-							account_id: (item.account_id),
-							amount: (item.amount),
-							data_time: (item.data_time),
-							usage: (item.usage),
-							payType: (item.payType),
-							pmType: (item.pmType),
-							group_id: (item.group_id),		
-							});
-						}
-					}else if(list_cash_show.value==false&&list_card_show.value==false){
-					}
+					}); 
 				}
 			}
 		}
 	};
 	return newArray;
 }
-
 function MakeAtThatTimeBalanceAddedTemp(data1){
 	newArray=Observable();
-	for (var i = 0; i <= data1.length - 1; i++) {
+	for (var i = 0; i <= data1.length - 1; i++)
+	{
 		item=data1.getAt(i);
 		tempATTB=0; 
-
-		for (var j = data1.length - 1; j >= i; j--) {
+		for (var j = data1.length - 1; j >= i; j--)
+		{
 			item2=data1.getAt(j);
 			tempATTB=tempATTB+item2.amount;
 		};

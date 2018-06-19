@@ -151,7 +151,7 @@ module.exports ={
 	AddToTempUsageList: AddToTempUsageList,
 	removeItem: removeItem,
 	SelectUsage: SelectUsage,
-	SelectDefault: SelectDefault,
+	SelectDefault: SelectDefault
 	// for popup
 
 };

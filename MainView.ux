@@ -108,7 +108,7 @@
 		clicked_Account_title: clicked_Account_title,
 		index: index,
 		SelectAccount: SelectAccount,
-		editTitle,
+		editTitle
 	}
 
 	</JavaScript>

@@ -466,7 +466,7 @@ void InputPage::InitializeUX()
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp58, uCRef(true));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp5->Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), temp60);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp5->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp61);
-    temp62->Text(uString::Const("\342\227\200"));
+    temp62->Text(uString::Const("<"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp62, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb12)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp62->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb12);
     ::g::Fuse::Controls::Grid::SetColumnSpan(temp6, 2);

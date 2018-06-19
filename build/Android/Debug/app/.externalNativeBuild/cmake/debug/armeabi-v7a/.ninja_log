@@ -209,3 +209,6 @@
 51388	56106	0	CMakeFiles/AccountBook.dir/jni/Fuse.Drawing.g.cpp.o	1fbe6dec5a5bb5ba
 54203	58622	0	CMakeFiles/AccountBook.dir/jni/Fuse.Reactive.g.cpp.o	22991a73dbfe3093
 58623	59510	0	C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/build/Android/Debug/app/.externalNativeBuild/cmake/debug/obj/armeabi-v7a/libAccountBook.so	e94f2892fcd6e74f
+19	1803	0	CMakeFiles/AccountBook.dir/jni/_root.InputPage.cpp.o	42170ef6219603fc
+317	1840	0	CMakeFiles/AccountBook.dir/jni/_root.MainView.cpp.o	256cf30c4918d705
+1840	2820	0	C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/build/Android/Debug/app/.externalNativeBuild/cmake/debug/obj/armeabi-v7a/libAccountBook.so	e94f2892fcd6e74f

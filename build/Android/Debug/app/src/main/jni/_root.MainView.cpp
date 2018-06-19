@@ -627,7 +627,7 @@ void MainView::InitializeUX()
         "\t\tclicked_Account_title: clicked_Account_title,\n"
         "\t\tindex: index,\n"
         "\t\tSelectAccount: SelectAccount,\n"
-        "\t\teditTitle,\n"
+        "\t\teditTitle\n"
         "\t}\n"
         "\n"
         "\t"));

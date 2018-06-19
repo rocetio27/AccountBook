@@ -40,7 +40,7 @@
 			<Each Items="{numSet}">
 				<wbButton Text="{}" Clicked="{BalanceAdd}" />
 			</Each>
-			<wbButton Text="◀" Clicked="{Backspace}"/>
+			<wbButton Text="<" Clicked="{Backspace}"/>
 			<pmButton ColumnSpan="2" Text="{pmTypeText}"/>
 			<wbButton Text="PUT" Clicked="{Submit}" ColumnSpan="2" />
 		</Grid>

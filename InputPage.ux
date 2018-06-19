@@ -1,0 +1,110 @@
+<Panel ux:Class="InputPage">
+	<Router ux:Dependency="router"/>
+	<JavaScript File="Modules/InputPage.js"/>
+	<Panel ux:Name="FullWindo" Layer="Overlay" />
+	<Grid RowCount="100"> 
+		<Panel RowSpan="21"/> 
+		<Text RowSpan="3" Alignment="Center" Value="{cashOrCardText}" Color="#000"/>
+		<Text RowSpan="3" Alignment="Center" Value="Current Balance" Color="#000"/>
+		<Text RowSpan="7" FontSize="45" Alignment="Center" Value="{currentBalance}" Color="#000"/>
+		<Text RowSpan="2" FontSize="30" Alignment="Center" TextColor="{addingValueColor}" Value="{inputVars.pmType} {addingValue}"/>
+		<Panel RowSpan="15"/>
+		<Each Count="2">
+		<Panel RowSpan="3">
+			<Rectangle Color="{Resource Col_type3}">
+				<DropShadow Angle="90" Distance="1" Spread="0.2" Size="0.4" Color="#00000060" />
+			</Rectangle>
+		</Panel>
+		<Panel RowSpan="3" />
+		</Each>
+		<!--  -->
+		<Panel RowSpan="3">
+			<Rectangle Color="{Resource Col_type3}">
+			</Rectangle>
+		</Panel>
+		<!--  -->
+		<Grid Row="66" RowSpan="35" Alignment="Bottom" Color="{Resource Col_type3}" Padding="5,10,5,10" Height="100%" RowCount="4" ColumnCount="5">
+			<!-- <DropShadow Angle="270" Distance="1" Spread="0.2" Size="4" Color="#00000060" /> -->
+			<wbButton Text="{payTypeText}" Clicked="{PayTypeChange}" ColumnSpan="3" >
+				<DropShadow Angle="90" Distance="1" Spread="0.2" Size="4" Color="#00000060" />
+			</wbButton>
+			
+			<Grid RowCount="1" ColumnCount="8" ColumnSpan="2">
+			<wbButton ux:Name="usage_button" ColumnSpan="8" Text="{selected}">
+				<Clicked>
+				<Set ModalConfirm.IsEnabled="true"/>
+				</Clicked>
+			</wbButton>
+			</Grid>
+			
+			<Each Items="{numSet}">
+				<wbButton Text="{}" Clicked="{BalanceAdd}" />
+			</Each>
+			<wbButton Text="◀" Clicked="{Backspace}"/>
+			<pmButton ColumnSpan="2" Text="{pmTypeText}"/>
+			<wbButton Text="PUT" Clicked="{Submit}" ColumnSpan="2" />
+		</Grid>
+	</Grid>
+	<ResourceObject Key="FullWindow" Value="FullWindo"/>
+	<AlternateRoot ux:Name="ModalConfirm" IsEnabled="false" ParentNode="{Resource FullWindow}">
+		<Panel Layer="Overlay" Color="1,1,1,0">
+			<StackPanel Alignment="Center" Padding="10">
+				<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
+					<Stroke Width="2" Color="{Resource Col_type3}"/>
+				</Rectangle>
+
+				<ScrollView>
+					<Rectangle CornerRadius="8" Color="{Resource Col_type3}">
+						<Grid ColumnCount="8">
+							<TextInput ux:Name="popup_input" TextColor="#000" TextAlignment="Center" Height="30" PlaceholderText="add your usage" Value="{usageListAddInput}" ColumnSpan="6"/>
+							<wbButton Text="ADD" ColumnSpan="2" Clicked="{AddToTempUsageList}" >
+							</wbButton>
+						</Grid>
+					</Rectangle>
+				</ScrollView>
+				
+				<DockPanel>
+					<ScrollView Height="150" Width="200">
+						<StackPanel>
+							<Each Items="{tempUsageList}" Offset="{offset}" Limit="{limit}">
+								<Grid ColumnCount="10">
+									<ScrollView AllowedScrollDirections="Horizontal" ColumnSpan="7">
+										<wbButton_Left Clicked="{SelectUsage}" Text="{name}">
+												<Clicked>
+													<Set ModalConfirm.IsEnabled="false"/>
+													<PlaySound File="Click.wav" />
+												</Clicked>
+										</wbButton_Left>
+									</ScrollView>
+									<wbButton Text="Delete" Clicked="{removeItem}" ColumnSpan="3" Margin="7"/>
+									<LayoutAnimation>
+		                            	<Move RelativeTo="LayoutChange" Y="1" Duration="0.4" Easing="ElasticIn" />
+			                        </LayoutAnimation>
+
+			                        <AddingAnimation>
+			                            <Move RelativeTo="Size" X="1" Duration="0.3" Easing="CircularIn" />
+			                        </AddingAnimation>
+
+			                        <RemovingAnimation>
+			                            <Move RelativeTo="Size" X="-1" Duration="0.4" Easing="CircularOut" />
+			                        </RemovingAnimation>
+								</Grid>
+							</Each>
+						</StackPanel>
+					</ScrollView>
+				</DockPanel>
+
+				<Button>
+					<Text Value="OK" Color="#000" Alignment="Center" TextAlignment="Center"/>
+					<Rectangle CornerRadius="5">
+						<Stroke Width="2" Color="{Resource Col_type3}"/>
+					</Rectangle>
+					<Clicked>
+						<Set ModalConfirm.IsEnabled="false"/>
+						<PlaySound File="Click.wav" />
+					</Clicked>
+				</Button>
+			</StackPanel>
+		</Panel>
+	</AlternateRoot>
+</Panel>

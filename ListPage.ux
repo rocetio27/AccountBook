@@ -1,0 +1,243 @@
+<Panel Alignment="Bottom" Height="86%" Background="#fff" ux:Class="ListPage">
+	<Panel ux:Name="EditOrDeletePopup" Layer="Overlay" />
+	<Panel ux:Name="ListEditPopup" Layer="Overlay" />
+	<Panel ux:Name="YearMonthEditPopup" Layer="Overlay" />
+	<Font File="NotoSans-hinted/NotoSans-Bold.ttf" ux:Global="Bold" />
+	<Image File="images/lArrow.png" ux:Global="lArrow" />
+	<Image File="images/rArrow.png" ux:Global="rArrow" />
+	<Button  Width="100%" ux:Class="dayButton">
+		<string ux:Property="text"/>
+		<float4 ux:Property="textcolor"/>
+		<int ux:Property="fontsize"/>
+		<Text Alignment="Center" FontSize="{ReadProperty fontsize}" Color="{ReadProperty textcolor}" Value="{ReadProperty text}"/>
+		<WhilePressed>
+			<Change this.textcolor="#999" Duration="0.05" DurationBack=".2" />
+		</WhilePressed>
+		<Clicked>
+			<PlaySound File="Click.wav" />
+		</Clicked>
+	</Button>
+
+	<Button ux:Class="ccButton">
+		<string ux:Property="text"/>
+		<float4 ux:Property="textcolor"/>
+		<int ux:Property="fontsize"/>
+		<Text Font="Bold" Alignment="Center" FontSize="{ReadProperty fontsize}" Color="{ReadProperty textcolor}" Value="{ReadProperty text}"/>
+		<WhilePressed>
+			<Change this.textcolor="#999" Duration="0.05" DurationBack=".2" />
+		</WhilePressed>
+		<Clicked>
+			<PlaySound File="Click.wav" />
+		</Clicked>
+	</Button>
+	<Router ux:Dependency="router"/>
+	<JavaScript File="Modules/ListPage.js"/>
+	<Grid RowCount="100">
+		<Panel RowSpan="1"/>
+		<Text Value="CurrentBalance" Alignment="Center" RowSpan="2" FontSize="12"/>
+		<Text Alignment="Center" RowSpan="12" Value="{currentBalance}" Color="#000" FontSize="32"/>
+		<Grid Color="#fff" RowSpan="5" ColumnCount="2">
+			<ccButton Height="100%" Width="100%" Clicked="{ChangeListCashShow}" ux:Name="cash" Alignment="Center" text="CASH" textcolor="#eee" Color="{list_cash_show_color}" fontsize="18">
+				<WhilePressed>
+					<Change cash.Color="#999" Duration="0.05" DurationBack=".2" />
+				</WhilePressed>
+			</ccButton>
+			<ccButton Height="100%" Width="100%" Clicked="{ChangeListCardShow}" ux:Name="card" Alignment="Center" text="CARD" textcolor="#eee" Color="{list_card_show_color}" fontsize="18">
+				<WhilePressed>
+					<Change card.Color="#999" Duration="0.05" DurationBack=".2" />
+				</WhilePressed>
+			</ccButton>
+		</Grid>
+		<Button ux:Name="yearmonth" RowSpan="7">
+			<Grid RowCount="7">
+			<Text TextAlignment="Center" Width="100%" Height="100%" Font="Bold" FontSize="12" Value="{screenYear}" Color="White" Background="#FFBD00" />
+			<StackPanel Width="100%" Height="100%" Color="#FFBD00" Alignment="Center" RowSpan="6" Orientation="Horizontal">
+				<ccButton Clicked="{Click_lArrow}" Alignment="Center">
+					<Image ux:Name="lbutton" Height="80%" File="images/lArrow.png"/>
+					<WhilePressed>
+						<Change lbutton.Color="#999" Duration="0.05" DurationBack=".2" />
+					</WhilePressed> 
+				</ccButton> 
+				<Text Alignment="Center" Value="{screenMonth}" Font="Bold" Color="White" FontSize="30">
+					<Clicked>
+						<Set ModalConfirm3.IsEnabled="true"/>
+					</Clicked>
+				</Text>
+				<ccButton  Clicked="{Click_rArrow}" Alignment="Center">
+					<Image ux:Name="rbutton" Height="80%" File="images/rArrow.png"/>
+				</ccButton>
+			</StackPanel>
+			</Grid>
+		</Button>
+		<ScrollView Background="#FFBD00" Padding="10,10,10,0" RowSpan="75">
+			<StackPanel>
+				<Match Value="{grouping_activation}">
+					<Case Bool="true">
+					<Text Value="Group : uniting lists to unit list" />
+					<Button Clicked="{GroupingConfirm}" Text="OK"/>
+					</Case>
+					<Case Bool="false">
+					</Case>
+				</Match>
+				<Each Items="{histories}">
+					<Rectangle CornerRadius="5" Color="#fff">
+						<StackPanel Padding="0,5,0,5">
+							<dayButton Alignment="Center" Visibility="{day_visibility}" text="DAY {day}" textcolor="#444" fontsize="12" Clicked="{ClickDay}" />
+							<Each Items="{histOfTheDay}">
+								<Grid ux:Name="grid" ColumnCount="3" Height="24" Color="{vars_color}"  Visibility="{vars_visibility}" >
+									<Tapped Handler="{ClickNormal}">
+										<PlaySound File="Click.wav" />
+									</Tapped>
+									<LongPressed Handler="{LongClickNormal}">
+										<Set ModalConfirm.IsEnabled="true"/>
+										<Rotate Degrees="2" Duration=".4" DurationBack=".2" />
+									</LongPressed>
+									<!-- <WhilePressed>
+										<Change grid.Color="#999" Duration="0.05" DurationBack=".2" />
+									</WhilePressed> -->
+									<Each Items="{vars}">
+									<Each Items="{normal}">
+									<Match Value="{pmType}">
+									    <Case String="+">
+											<Text Alignment="Center" Color="#006600" Value="+{amount}" />
+									    </Case>
+									    <Case String="-">
+									        <Text Alignment="Center" Color="#EE0000" Value="{amount}" />
+									    </Case>
+									</Match>
+									<Text Alignment="Center" Value="{usage}" Color="Black" />
+									<Text Alignment="Center" Value="{data_time}" Color="Black" />
+									<Text Row="1" ColumnSpan="3" Alignment="Center" Value="group:{group_id}" Opacity="0.2" Color="{group_color}"/>
+									</Each>
+									</Each>
+								</Grid>
+								<Each Items="{vars}">
+								<Grid ColumnCount="3">
+									<Text Alignment="Center" Visibility="{attb_visibility}" Value="{attb}" />
+								</Grid>
+								</Each>
+							</Each>
+						</StackPanel>
+					</Rectangle>
+					<Panel Height="5"/>
+				</Each>
+			</StackPanel>
+		</ScrollView>
+	</Grid>
+	<ResourceObject Key="FullWindow" Value="EditOrDeletePopup"/>
+	<ResourceObject Key="FullWindow2" Value="ListEditPopup"/>
+	<ResourceObject Key="FullWindow3" Value="YearMonthEditPopup"/>
+	<AlternateRoot ux:Name="ModalConfirm" IsEnabled="false" ParentNode="{Resource FullWindow}">
+		<Panel Layer="Overlay" Color="1,1,1,0">
+			<Clicked>
+				<Set ModalConfirm.IsEnabled="false"/>
+			</Clicked>
+			<StackPanel Width="150" Height="90" Alignment="Center" Padding="10">
+				<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
+					<Stroke Width="2" Color="{Resource Col_type3}"/>
+				</Rectangle>
+				<ccButton Clicked="{PushListEditPage}" Width="100%" text="EDIT" textcolor="Black" fontsize="18">
+					<Clicked>
+						<Set ModalConfirm2.IsEnabled="true"/>
+					</Clicked>
+				</ccButton>
+				<ccButton Clicked="{Delete}" Width="100%" text="DELETE" textcolor="Black" fontsize="18"/>
+				<ccButton Clicked="{GetInGroupingMode}" Width="100%" text="Grouping" textcolor="Black" fontsize="18"/>
+			</StackPanel>
+		</Panel>
+	</AlternateRoot>
+	<TextInput ux:Class="EditTextBox" TextAlignment="Center" TextColor="Black">
+		<Rectangle CornerRadius="5" Color="White">
+			<DropShadow Angle="90" Distance="1" Spread="0.2" Size="0.5" Color="#00000060" />
+		</Rectangle>
+	</TextInput>
+	<Text ux:Class="EditTitleText" Alignment="BottomCenter" Color="Black"/>
+	<Button ux:Class="EditButton">
+		<WhilePressed>
+			<Change back.Color="#999" Duration="0.05" DurationBack=".2" />
+			<PlaySound File="Click.wav" />
+		</WhilePressed>
+		<string ux:Property="text"/>
+		<float4 ux:Property="textcolor"/>
+		<int ux:Property="fontsize"/>
+		<Rectangle ux:Name="back" Layer="Background" Color="White" CornerRadius="5">
+			<Stroke Color="#888"/>
+		</Rectangle>
+		<Text Value="{ReadProperty text}" Alignment="Center"  Color="{ReadProperty textcolor}" FontSize="{ReadProperty fontsize}">
+		</Text>
+	</Button>
+	<AlternateRoot ux:Name="ModalConfirm2" IsEnabled="false" ParentNode="{Resource FullWindow2}">
+		<Panel Layer="Overlay" Color="#ffbd00" Padding="10">
+			<ClientPanel>
+			<Grid Width="100%" Height="70%" RowCount="11" Padding="10">
+				<Text Value="EDIT PAGE" TextColor="Black" Alignment="TopCenter" FontSize="30"/>
+				<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
+					<Stroke Width="1" Color="Black"/>
+				</Rectangle>
+				<Grid ColumnCount="3">
+					<EditTitleText Value="Year"/>
+					<EditTitleText Value="Month"/>
+					<EditTitleText Value="Day"/>
+				</Grid>
+				<Grid ColumnCount="3">
+					<EditTextBox Value="{editVars.year}" InputHint="Integer"/>
+					<EditTextBox ValueChanged="{EditMonthHandler}" Value="{editVars.month}" InputHint="Integer"/>
+					<EditTextBox ValueChanged="{EditDayHandler}" Value="{editVars.day}" InputHint="Integer"/>
+				</Grid>
+				<Grid ColumnCount="3">
+					<Text/>
+					<EditTitleText Value="Hour"/>
+					<EditTitleText Value="Minute"/>
+				</Grid>
+				<Grid ColumnCount="3">
+					<EditButton  Clicked="{ClickEditabstractButton}" fontsize="14" textcolor="Black" text="{editVars.abstract}"/>
+					<EditTextBox ValueChanged="{EditHourHandler}" Value="{editVars.hour}" InputHint="Integer"/>
+					<EditTextBox ValueChanged="{EditMinuteHandler}" Value="{editVars.minute}" InputHint="Integer"/>
+				</Grid>
+				<Grid ColumnCount="2">
+					<EditTitleText Value="Amount"/>
+					<EditTitleText Value="Usage"/>
+				</Grid>
+				<Grid ColumnCount="8">
+					<EditButton  Clicked="{ClickEditpmtypeButton}" fontsize="16" textcolor="Black" text="{editVars.pmType}"/>
+					<EditTextBox ColumnSpan="3" Value="{editVars.amount}" InputHint="Number"/>
+					<EditTextBox ColumnSpan="4" Value="{editVars.usage}"/>
+				</Grid>
+				<EditTitleText Value="PayType"/>
+				<EditButton  Clicked="{ClickEditpaytypeButton}" fontsize="16" textcolor="Black" text="{editVars.payType}"/>
+				<Text/>
+				<EditButton Clicked="{EditConfirm}" fontsize="16" textcolor="Black" text="OK">
+					<Clicked>
+						<Set ModalConfirm2.IsEnabled="false"/>
+					</Clicked>
+				</EditButton>
+			</Grid>
+		</ClientPanel>
+		</Panel>
+	</AlternateRoot>
+	<AlternateRoot ux:Name="ModalConfirm3" IsEnabled="false" ParentNode="{Resource FullWindow2}">
+		<Panel Height="20%" Width="50%" Layer="Overlay" Color="#ffbd00" Padding="10">
+				<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
+					<Stroke Width="2" Color="#ffbd00"/>
+				</Rectangle>
+				<Grid Height="100%" Width="100%" RowCount="4">
+					<Text Value="EDIT PAGE" TextColor="Black" Alignment="TopCenter" FontSize="20"/>
+					<Grid RowSpan="3" RowCount="2" ColumnCount="4">
+						<Text Value="Year" Alignment="Center"/>
+						<TextInput ValueChanged="{ScreenEditYearHandler}" ColumnSpan="3" Value="{screenYear}" InputHint="Integer" Alignment="Center">
+							<DropShadow Angle="90" Distance="1" Spread="0.2" Size="0.5" Color="#00000060" />
+						</TextInput>
+						<Text Value="Month" Alignment="Center"/>
+						<TextInput ColumnSpan="3" Value="{screenMonth}" InputHint="Integer" ValueChanged="{ScreenEditMonthHandler}" Alignment="Center">
+							<DropShadow Angle="90" Distance="1" Spread="0.2" Size="0.5" Color="#00000060" />
+						</TextInput>
+						<EditButton ColumnSpan="4" Clicked="{YearMonthEditConfirm}" fontsize="16" textcolor="Black" text="OK">
+							<Clicked>
+								<Set ModalConfirm3.IsEnabled="false"/>
+							</Clicked>
+						</EditButton>
+					</Grid>
+				</Grid>
+		</Panel>
+	</AlternateRoot>
+</Panel>

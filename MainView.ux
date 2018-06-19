@@ -1,0 +1,471 @@
+<App>
+	<SQLite ux:Global="SQLite" />
+	<JavaScript>
+	var moment=require("Modules/moment");
+	var Observable=require("FuseJS/Observable");
+	var Show=require("Modules/Show");
+	var TempDB=require("Modules/tempDB");
+	var sqlite = require('SQLite');
+	var db = sqlite.open("file.sqlite");
+	//get currentDateTime
+
+	// for swipe navigation Start;
+	router.bookmark({
+		name: "input",
+		path: ["inputPanel",{}]
+	})
+	router.bookmark({
+		name: "list",
+		path: ["listPanel",{}]
+	})
+	router.bookmark({
+		name: "statistic",
+		path: ["statisticPanel",{}]
+	})
+	router.bookmark({
+		name: "budget",
+		path: ["budgetPanel",{}]
+	})
+
+
+	//for swipe navigation End 
+
+	//for AccountList Start 
+	var AccountList=require("Modules/AccountList");
+	var tempList=AccountList.tempAccountList;
+
+	var clicked_Account = Observable();
+	var clicked_Account_id=clicked_Account.map(function(x){return x.db_id.value;});
+	var clicked_Account_title=clicked_Account.map(function(x){return x.title.value;}); // list click시여기에 id를 담음
+	var index = clicked_Account.map(function(x){return tempList.indexOf(x)});
+	var tempListLastIndex=AccountList.idCount;
+	
+	var currentTitle=Observable(tempList.getAt(0).title.value);
+	 
+	// currentTitleId는 AccountList.js에 저장되어있음 Edge에서 list 선택시 current title과 current id 둘 다 수정해주어야함.
+	function editTitle(arg){
+		console.log("arg.data.title.value:"+arg.data.title.value);
+		TempDB.EditAccountListDB_byID(arg.data.db_id.value,arg.data.title.value);
+	}
+
+	function goToInput(){
+		router.goto("inputPanel");
+	}
+ 
+	function goToList(){
+		router.goto("listPanel");
+	}
+
+	function goToStatistic(){ 
+		router.goto("statisticPanel");
+	}
+	function goToBudget(){ 
+		router.goto("budgetPanel");
+	}
+	function tempListAdd(){
+		db.execute("insert into ACCOUNTLIST (title) values('"+"default"+"')");
+		TempDB.getAccountListDB();
+	}
+
+	function DeleteAccount(arg){
+		TempDB.DeleteAccountListDB_byID(arg.data.db_id.value);
+		AccountList.currentAccountId.value=1;
+		currentTitle.value=TempDB.tempAccountList.getAt(0).title.value;
+		Show.RenewInputCurrentBalance();
+		Show.ReloadHistories();
+		Show.CalculateSpcfTotal();
+		Show.CalculateIntervalTotal();
+		Show.CalculateIntervalItemTotal();
+		Show.RenewOutputTable();
+	}
+
+	function SelectAccount(arg){
+		AccountList.currentAccountId.value=arg.data.db_id.value;
+		currentTitle.value=arg.data.title.value;
+		Show.RenewInputCurrentBalance();
+		Show.ReloadHistories();
+		Show.CalculateSpcfTotal();
+		Show.CalculateIntervalTotal();
+		Show.CalculateIntervalItemTotal();
+		Show.RenewOutputTable();
+	}
+
+	//for AccountList End
+	module.exports={  
+		goToInput: goToInput,
+		goToList: goToList,
+		goToStatistic: goToStatistic,
+		goToBudget,
+
+		tempListAdd: tempListAdd,
+		tempList: tempList,
+		tempListLastIndex: tempListLastIndex,
+
+		currentTitle: currentTitle,
+		DeleteAccount: DeleteAccount,
+
+		clicked_Account_id: clicked_Account_id,
+		clicked_Account_title: clicked_Account_title,
+		index: index,
+		SelectAccount: SelectAccount,
+		editTitle,
+	}
+
+	</JavaScript>
+
+	<float4 ux:Key="Col_type1" ux:Value="#f4d300" />
+	<float4 ux:Key="Col_type2" ux:Value="#FFF3A6" />
+	<float4 ux:Key="Col_type3" ux:Value="#FFBD00" />
+	<float4 ux:Key="Col_type4" ux:Value="#FFFFEE" />
+
+<!-- Button Design  -->
+	<Button Height="100%" Width="100%" ux:Class="wbButton" Margin="2" TextCol="#000">
+		<float4 ux:Property="TextCol" />
+		<DropShadow Angle="90" Distance="1" Spread="0.2" Size="0.5" Color="#00000060" />
+		<Text Color="{ReadProperty TextCol}" Value="{ReadProperty Text}" Alignment="Center" />
+		    <Rectangle CornerRadius="5">
+		    	<SolidColor ux:Name="wbRecCol" Color="#fff"/>
+		    	<Stroke ux:Name="border" Width="1" Color="#fff"/>
+		    </Rectangle>
+		    <WhilePressed>
+			     <Change wbRecCol.Color="#999" Duration="0.05" DurationBack=".2" />
+			     <Change border.Color= "#999" Duration="0.05" DurationBack=".2"/>
+			</WhilePressed>
+			<Clicked>
+				<PlaySound File="Click.wav" />
+			</Clicked>
+	</Button>
+
+	<Button Height="100%" Width="100%" ux:Class="wbButton_Left" Margin="2">
+	    <Text Value="{ReadProperty Text}" Color="#000" Alignment="CenterLeft" TextAlignment="Left" />
+	    <Rectangle CornerRadius="10">
+	    	<SolidColor ux:Name="wbRecCol" Color="#fff"/>
+	    	<Stroke ux:Name="border" Width="1" Color="#fff"/>
+	    </Rectangle>
+	    <WhilePressed>
+		     <Change wbRecCol.Color="#999" Duration="0.05" DurationBack=".2" />
+		     <Change border.Color= "#999" />
+		</WhilePressed>
+		<Clicked>
+			<PlaySound File="Click.wav" />
+		</Clicked>
+	</Button>
+
+
+	<Button Height="100%" Width="100%" ux:Class="pmButton" Margin="1" Clicked="{PM_TypeChange}">
+		    <string ux:Property="Text" />
+		    <Text Value="{ReadProperty Text}" Color="#fff" Alignment="Center" />
+		    <Rectangle CornerRadius="10" Color="{addingValueColor}">
+		    	<Stroke Width="1" Color="{Resource Col_type3}"/>
+		    </Rectangle>
+		    <Clicked>
+				<PlaySound File="Click.wav" />
+			</Clicked>
+	</Button>
+
+	<Button ux:Class="TabButton" ClipToBounds="false" Margin="0,0,0,4" Color="{Resource Col_type3}">
+		<Clicked>
+			<PlaySound File="Click.wav" />
+		</Clicked>
+	</Button>
+<!-- Button Design End -->
+<!-- TopBanner -->
+	<Panel ux:Class="Banner">
+		<DockPanel>
+			<Text Alignment="Center" Value="{currentTitle}" Color="Black"/>
+			<Rectangle Color="{Resource Col_type3}" Height="100%">
+				<DropShadow Angle="0" Distance="1" Spread="0.2" Size="2" Color="#00000060" />
+			</Rectangle>
+		</DockPanel>
+	</Panel>
+<!-- TopBanner End -->
+<!-- Router start -->
+<!-- Router End -->
+<EdgeNavigator >	
+	<!-- EdgePage Start -->
+	<Grid RowCount="100" ux:Name="sidebar" Edge="Left" Height="100%" Width="80%" Background="#fff">
+		<Shadow ux:Name="shadow" Angle="180" Distance="8" Size="16" Color="#0000" />
+		<ActivatingAnimation>
+			<Change shadow.Color="#0004" />
+		</ActivatingAnimation> 
+
+		<Text Alignment="Center" RowSpan="18" FontSize="45" Value="Book List"/> <!-- 18 -->
+		<Text Value="Selected : {currentTitle}"/> <!-- 19 -->
+		<Rectangle RowSpan="5" /><!-- 24 -->
+
+		<Each Items="{tempList}" Limit="1">
+			<Grid RowSpan="8" Height="50" ColumnCount="10"><!-- 32 -->
+				<DockPanel ColumnSpan="8">
+					<wbButton Clicked="{SelectAccount}" ux:Name="aBtn" Text="{title}">
+						<DropShadow Angle="0" Distance="1" Spread="0.2" Size="2" Color="#00000060"/>
+					</wbButton>
+					<TextBox ux:Name="bTBox" Visibility="Hidden" Value="{title}"/>
+				</DockPanel>
+				<DockPanel ColumnSpan="2" >
+					<wbButton ux:Name="bEdit" Text="EDIT" >
+						<Clicked>
+							<Set bTBox.Visibility="Visible"/>
+							<Set bEdit.Visibility="Hidden"/>
+							<Set aBtn.Visibility="Hidden" />
+							<Set OK.Visibility="Visible" />
+						</Clicked>
+					</wbButton> 
+					<Grid RowCount="2">
+					<Panel/>
+					<wbButton Clicked="{editTitle}" ux:Name="OK" TextCol="#000" Text="OK" Height="100%">
+						<Clicked>
+							<Set OK.Visibility="Visible"/>
+							<Set bTBox.Visibility="Hidden"/>
+							<Set bEdit.Visibility="Visible"/>
+							<Set aBtn.Visibility="Visible" />
+						</Clicked>
+					</wbButton>
+					</Grid>
+				</DockPanel>
+			</Grid>
+		</Each>
+		<ScrollView RowSpan="41"><!-- 73 -->
+			<Grid ColumnCount="1">
+				<Each Items="{tempList}" Offset="1" Limit="10000" >
+					<Grid Height="50" ColumnCount="10">
+					<DockPanel ColumnSpan="8">
+						<wbButton Clicked="{SelectAccount}" ux:Name="aBtn" Text="{title}">
+								<DropShadow Angle="0" Distance="1" Spread="0.2" Size="2" Color="#00000060"/>	
+						</wbButton>
+						<TextBox ux:Name="bTBox" Visibility="Hidden" Height="50" Value="{title}"/>
+					</DockPanel>
+
+					<DockPanel ColumnSpan="2">
+						<wbButton ux:Name="aEdit" Text="EDIT">
+							<DropShadow Angle="0" Distance="1" Spread="0.2" Size="2" Color="#00000060"/>
+							<Clicked>
+								<Set aEdit.Visibility="Hidden"/>
+								<Set aBtn.Visibility="Hidden"/>
+
+								<Set bGrid.Visibility="Visible"/>
+								<Set bTBox.Visibility="Visible"/>
+								<Set bDel.Visibility="Visible"/>
+								<Set bComp.Visibility="Visible"/>
+								
+								<Set cGrid.Visibility="Hidden"/>
+								<Set cCancel.Visibility="Hidden"/>
+								<Set cCancel.Visibility="Hidden"/>
+							</Clicked>
+						</wbButton>
+						<Grid ux:Name="bGrid" Visibility="Hidden" RowCount="2">
+							<wbButton ux:Name="bDel" Text="DELETE" TextCol="#EE0000">
+								<Clicked>
+								<Set aEdit.Visibility="Hidden"/>
+								<Set aBtn.Visibility="Hidden"/>
+
+								<Set bGrid.Visibility="Hidden"/>
+								<Set bTBox.Visibility="Visible"/>
+								<Set bDel.Visibility="Hidden"/>
+								<Set bComp.Visibility="Hidden"/>
+								
+								<Set cGrid.Visibility="Visible"/>
+								<Set cCancel.Visibility="Visible"/>
+								<Set cCancel.Visibility="Visible"/>
+								</Clicked>
+							</wbButton>
+							<wbButton Clicked="{editTitle}" ux:Name="bComp" Text="OK">
+								<Clicked>
+								<Set aEdit.Visibility="Visible"/>
+								<Set aBtn.Visibility="Visible"/>
+
+								<Set bGrid.Visibility="Hidden"/>
+								<Set bTBox.Visibility="Hidden"/>
+								<Set bDel.Visibility="Hidden"/>
+								<Set bComp.Visibility="Hidden"/>
+								
+								<Set cGrid.Visibility="Hidden"/>
+								<Set cCancel.Visibility="Hidden"/>
+								<Set cCancel.Visibility="Hidden"/>
+								</Clicked>
+							</wbButton>
+						</Grid>
+						<Grid ux:Name="cGrid" Visibility="Hidden" RowCount="2">
+							<wbButton ux:Name="cCancel" Text="CANCEL">
+								<Clicked>
+								<Set aEdit.Visibility="Visible"/>
+								<Set aBtn.Visibility="Visible"/>
+
+								<Set bGrid.Visibility="Hidden"/>
+								<Set bTBox.Visibility="Hidden"/>
+								<Set bDel.Visibility="Hidden"/>
+								<Set bComp.Visibility="Hidden"/>
+								
+								<Set cGrid.Visibility="Hidden"/>
+								<Set cCancel.Visibility="Hidden"/>
+								<Set cCancel.Visibility="Hidden"/>
+								</Clicked>
+							</wbButton>
+							<wbButton Clicked="{DeleteAccount}" ux:Name="cDel" Text="DELETE" TextCol="#EE0000">
+								<Clicked>
+								<Set aEdit.Visibility="Visible"/>
+								<Set aBtn.Visibility="Visible"/>
+
+								<Set bGrid.Visibility="Hidden"/>
+								<Set bTBox.Visibility="Hidden"/>
+								<Set bDel.Visibility="Hidden"/>
+								<Set bComp.Visibility="Hidden"/>
+								
+								<Set cGrid.Visibility="Hidden"/>
+								<Set cCancel.Visibility="Hidden"/>
+								<Set cCancel.Visibility="Hidden"/>
+								</Clicked>
+							</wbButton>
+						</Grid>
+					</DockPanel>
+					</Grid>
+
+					<LayoutAnimation>
+                    	<Move RelativeTo="LayoutChange" Y="1" Duration="0.4" Easing="ElasticIn" />
+                    </LayoutAnimation>
+
+                    <AddingAnimation>
+                        <Move RelativeTo="Size" X="1" Duration="0.3" Easing="CircularIn" />
+                    </AddingAnimation>
+
+                    <RemovingAnimation>
+                        <Move RelativeTo="Size" X="-1" Duration="0.4" Easing="CircularOut" />
+                    </RemovingAnimation>
+				</Each>	
+			</Grid>
+		</ScrollView>
+		<wbButton RowSpan="8" Row="74" Clicked="{tempListAdd}" Text="ADD" Height="50" >
+		</wbButton>
+	</Grid>
+	<!-- EdgePage End -->
+
+	<!-- MainView Start -->
+	<Router ux:Name="router"/>
+	<DockPanel>
+		<StatusBarBackground Background="#888" Dock="Top">
+		</StatusBarBackground>
+	  		<!-- TabRectangle -->
+		<Rectangle ux:Name="indicator" LayoutMaster="InputTab" Alignment="Bottom" Height="4" Color="{Resource Col_type3}">
+			<LayoutAnimation>
+				<Move RelativeTo="WorldPositionChange" X="1" Duration="0" Easing="CircularIn" EasingBack="CircularIn"/>
+			</LayoutAnimation>
+		</Rectangle>
+		<!-- TabRectangle End -->
+		<Grid RowCount="100">
+		<Banner RowSpan="5">
+			<Button Layer="Overlay" Width="30" Alignment="Left">
+				<!-- EdgeNavigator소환-->
+				<Clicked>
+					<NavigateToggle Target="sidebar" />
+				</Clicked>
+				<Grid Padding="4" ux:Name="Hamburger" RowCount="7">
+					<Rectangle Color="#ffbd00" />
+					<Rectangle CornerRadius="4" Color="#fff"/>
+					<Rectangle Color="#ffbd00"/>
+					<Rectangle CornerRadius="4" Color="#fff"/>
+					<Rectangle Color="#ffbd00"/>
+					<Rectangle CornerRadius="4" Color="#fff"/>
+					<Rectangle Color="#ffbd00"/>
+				</Grid>
+				<WhilePressed>
+					<Change Hamburger.Color="#888" Duration="0.05" DurationBack=".2"/>
+				</WhilePressed>
+			</Button>
+		</Banner>
+		<Grid RowSpan="8" Dock="Top" ColumnCount="4" Height="100%">
+			<Panel ux:Name="InputTab">
+				<TabButton ux:Name="Tab1" Clicked="{goToInput}">
+					<Text  Value="INPUT" FontSize="15" Color="#000" Alignment="Center"/>
+				</TabButton>
+			</Panel>
+			<Panel ux:Name="ListTab">
+				<TabButton ux:Name="Tab2" Clicked="{goToList}">
+					<Text  Value="LIST" FontSize="15" Color="#000" Alignment="Center"/>
+				</TabButton>
+			</Panel>
+			<Panel ux:Name="StatisticTab">
+				<TabButton ux:Name="Tab3" Clicked="{goToStatistic}">
+					<Text  Value="STATISTIC" FontSize="15" Color="#000" Alignment="Center"/>
+				</TabButton>
+			</Panel>
+			<Panel ux:Name="BudgetTab">
+				<TabButton ux:Name="Tab4" Clicked="{goToBudget}">
+					<Text  Value="BUDGET" FontSize="15" Color="#000" Alignment="Center"/>
+				</TabButton>
+			</Panel>
+		</Grid>
+		</Grid>
+
+		<Navigator DefaultPath="inputPanel">
+			<InputPage ux:Template="inputPanel" router="router">
+				<Transition To="budgetPanel">
+        			<Move X="1" RelativeTo="ParentSize" Duration="1"/>
+    			</Transition>
+    			<Transition From="listPanel">
+        			<Move X="-1" RelativeTo="ParentSize" Duration="1"/>
+    			</Transition>
+    			<NavigatorSwipe How="GotoBookmark" Bookmark="list" Direction="Left"/>
+				<NavigatorSwipe How="GotoBookmark" Bookmark="budget" Direction="Right"/>
+				<WhileActive >
+					<Set indicator.LayoutMaster="InputTab" />
+					<Set InputTab.Margin="0,5,0,0"/>
+					<Set ListTab.Margin="0"/>
+					<Set StatisticTab.Margin="0"/>
+					<Set BudgetTab.Margin="0"/>
+				</WhileActive>
+			</InputPage>
+			<ListPage ux:Template="listPanel" router="router">
+				<Transition To="inputPanel">
+        			<Move X="1" RelativeTo="ParentSize" Duration="1"/>
+    			</Transition>
+    			<Transition From="statisticPanel">
+        			<Move X="-1" RelativeTo="ParentSize" Duration="1"/>
+    			</Transition>
+				<NavigatorSwipe How="GotoBookmark" Bookmark="statistic" Direction="Left"/>
+				<NavigatorSwipe How="GotoBookmark" Bookmark="input" Direction="Right"/>
+				<WhileActive >	
+					<Set indicator.LayoutMaster="ListTab" />
+					<Set InputTab.Margin="0"/>
+					<Set ListTab.Margin="0,5,0,0"/>
+					<Set StatisticTab.Margin="0"/>
+					<Set BudgetTab.Margin="0"/>
+				</WhileActive>
+			</ListPage>
+			<StatisticPage ux:Template="statisticPanel" router="router">
+				<Transition To="listPanel">
+        			<Move X="1" RelativeTo="ParentSize" Duration="1"/>
+    			</Transition>
+    			<Transition From="budgetPanel">
+        			<Move X="-1" RelativeTo="ParentSize" Duration="1"/>
+    			</Transition>
+				<NavigatorSwipe How="GotoBookmark" Bookmark="budget" Direction="Left"/>
+				<NavigatorSwipe How="GotoBookmark" Bookmark="list" Direction="Right"/>
+				<WhileActive >
+					<Set indicator.LayoutMaster="StatisticTab" />
+					<Set InputTab.Margin="0"/>
+					<Set ListTab.Margin="0"/>
+					<Set StatisticTab.Margin="0,5,0,0"/>
+					<Set BudgetTab.Margin="0"/>
+				</WhileActive>
+			</StatisticPage>
+			<BudgetPage ux:Template="budgetPanel" router="router">
+				<Transition To="statisticPanel">
+        			<Move X="1" RelativeTo="ParentSize" Duration="1"/>
+    			</Transition>
+    			<Transition From="inputPanel">
+        			<Move X="-1" RelativeTo="ParentSize" Duration="1"/>
+    			</Transition>
+				<NavigatorSwipe How="GotoBookmark" Bookmark="input" Direction="Left"/>
+				<NavigatorSwipe How="GotoBookmark" Bookmark="statistic" Direction="Right"/>
+				<WhileActive >
+					<Set indicator.LayoutMaster="BudgetTab" />
+					<Set InputTab.Margin="0"/>
+					<Set ListTab.Margin="0"/>
+					<Set StatisticTab.Margin="0"/>
+					<Set BudgetTab.Margin="0,5,0,0"/>
+				</WhileActive>
+			</BudgetPage>
+			</Navigator>
+	</DockPanel>
+	<!-- MainView End -->
+</EdgeNavigator>
+</App>

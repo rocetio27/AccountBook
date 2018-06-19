@@ -1,0 +1,190 @@
+<Panel Color="#ffbd00" Width="100%" Height="86%" Alignment="BottomCenter" ux:Class="BudgetPage">
+	<Panel ux:Name="FullWindo" Layer="Overlay" />
+	<TextInput ux:Class="wbTextInput" TextAlignment="Center" Margin="1">
+		<Rectangle Color="#ffffff" CornerRadius="5">
+		</Rectangle>
+	</TextInput>
+	<Button ux:Class="wbButtonB" Margin="1" textcolor="Black">
+		<float4 ux:Property="textcolor"/>
+		<Rectangle ux:Name="wbRec" Color="White" CornerRadius="5">
+			<Text Value="{ReadProperty Text}" Color="{ReadProperty textcolor}" Alignment="Center"/>
+		</Rectangle>
+		<WhilePressed>
+		     <Change wbRec.Color="#999" Duration="0.05" DurationBack=".2" />
+		</WhilePressed>
+		<Clicked>
+			<PlaySound File="Click.wav" />
+		</Clicked>
+	</Button>
+	<Router ux:Dependency="router"/>
+	<JavaScript File="Modules/BudgetPage.js"/>
+
+	<ScrollView Margin="10,10,10,0" >
+		<StackPanel Height="100%" Width="100%">
+			<Panel>
+				<Rectangle CornerRadius="5">
+					<Stroke Color="White" Width="2"/>
+				</Rectangle>	
+				<Grid Height="150" RowCount="5" ColumnCount="3">
+					<Text Value="TITLE" ColumnSpan="3" Color="Black" Alignment="Center"/>
+					<Match Value="{title_entrymode}">
+						<Case Bool="false">
+							<wbButtonB ColumnSpan="3" textcolor="Black" Text="{title}" Clicked="{ChangeTitleEntryMode}"/>
+						</Case>
+						<Case Bool="true">
+							<Grid ColumnSpan="3" ColumnCount="6">
+								<wbTextInput ColumnSpan="5" Value="{title}"/>
+								<wbButtonB Clicked="{TitleEntryOk}" Text="OK"/>
+							</Grid>
+						</Case>
+					</Match>
+					<wbButtonB Clicked="{Click_budget_out_datetime_left}" Text="{screen_out_budget_datetime_left_string}">
+						<Clicked>
+							<Set ModalConfirm.IsEnabled=true />
+						</Clicked>
+					</wbButtonB>
+					<Rectangle Color="#ffffff" Margin="1"  CornerRadius="5">
+						<Text Alignment="Center" Value="{budget_today_datetime_string}"/>
+					</Rectangle>
+					<wbButtonB Clicked="{Click_budget_out_datetime_right}" Text="{screen_out_budget_datetime_right_string}">
+						<Clicked>
+							<Set ModalConfirm.IsEnabled=true />
+						</Clicked>
+					</wbButtonB>
+					<Text Value="GOAL" ColumnSpan="3" Color="Black" Alignment="Center"/>
+				<Match Value="{goal_output_entrymode}">
+					<Case Bool="false">
+						<wbButtonB ColumnSpan="3" textcolor="#ee0000" Text="{goal_output}" Clicked="{ChangeGoalOutputEntryMode}"/>
+					</Case>
+					<Case Bool="true">
+						<Grid ColumnSpan="3" ColumnCount="6">
+							<wbTextInput InputHint="Number" ColumnSpan="5" Value="{goal_output}"/>
+							<wbButtonB Clicked="{GoalOutputEntryOk}" Text="OK"/>
+						</Grid>
+					</Case>
+				</Match>
+				</Grid>
+			</Panel>
+
+			<Panel>
+				<Rectangle CornerRadius="5">
+					<Stroke Color="White" Width="2"/>
+				</Rectangle>
+			<Grid Height="160" ColumnCount="5" RowCount="5">
+				<Text/>
+				<Text ColumnSpan="2" Value="remained period" TextColor="Black" Alignment="Center"/>
+				<Text ColumnSpan="2" Value="unit output limit" TextColor="Black" Alignment="Center"/>
+
+				<Panel Margin="1" RowSpan="4">
+					<Rectangle Color="#fff" CornerRadius="5">
+						<Grid RowCount="4">
+							<Rectangle Color="#fff" CornerRadius="5">
+								<Text Color="Black" Value="day" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+							</Rectangle>
+							<Rectangle Color="#fff" CornerRadius="5">
+								<Text Color="Black" Value="week" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+							</Rectangle>
+							<Rectangle Color="#fff" CornerRadius="5">
+								<Text Color="Black" Value="month" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+							</Rectangle>
+							<Text Color="Black" Value="year" Alignment="Center"/>
+						</Grid>
+					</Rectangle>
+				</Panel>
+				<Panel Margin="1" RowSpan="4" ColumnSpan="2">
+					<Rectangle Color="#fff" CornerRadius="5">
+						<Grid RowCount="4">
+							<Rectangle Color="#fff" CornerRadius="5">
+								<Text Color="Black" Value="{now_to_right}" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+							</Rectangle>
+							<Rectangle Color="#fff" CornerRadius="5">
+								<Text Color="Black" Value="{week_left}" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+							</Rectangle>
+							<Rectangle Color="#fff" CornerRadius="5">
+								<Text Color="Black" Value="{month_left}" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+							</Rectangle>
+							<Text Color="Black" Value="{year_left}" Alignment="Center"/>
+						</Grid>
+					</Rectangle>
+				</Panel>
+
+				<Panel Margin="1" RowSpan="4" ColumnSpan="2">
+					<Rectangle Color="#fff" CornerRadius="5">
+						<Grid RowCount="4">
+							<Rectangle Color="#fff" CornerRadius="5">
+								<Text Color="#ee0000" Value="{day_out_limit}" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+							</Rectangle>
+							<Rectangle Color="#fff" CornerRadius="5">
+								<Text Color="#ee0000" Value="{week_out_limit}" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+							</Rectangle>
+							<Rectangle Color="#fff" CornerRadius="5">
+								<Text Color="#ee0000" Value="{month_out_limit}" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+							</Rectangle>
+							<Text Color="#ee0000" Value="{year_out_limit}" Alignment="Center"/>
+						</Grid>
+					</Rectangle>
+				</Panel>
+			</Grid>
+		</Panel>
+		<TextView Value="{screen_out_budget_datetime_left_string}부터 {screen_out_budget_datetime_right_string}까지 {goal_output}을 지출 목표액으로 설정하셨습니다. {screen_out_budget_datetime_left_string}부터 당일 이전까지 {output_so_far}만큼을 지출 하셨으며, 목표 달성을 위해선 오늘을 포함한 {now_to_right}일 동안 하루에 최대 {day_out_limit}만큼 사용하셔야 합니다." TextWrapping="Wrap" />
+		</StackPanel>
+	</ScrollView>
+	<ResourceObject Key="FullWindow" Value="FullWindo"/>
+	<AlternateRoot ux:Name="ModalConfirm" IsEnabled="false" ParentNode="{Resource FullWindow}">
+		<Panel Layer="Overlay" Color="1,1,1,0">
+			<StackPanel Alignment="Center" Padding="10">
+				<Rectangle Width="250" Height="300" CornerRadius="10" Layer="Background"  Color="#fff">
+					<Stroke Width="2" Color="{Resource Col_type3}"/>
+				</Rectangle>
+				<StackPanel Alignment="Center" Height="20" Orientation="Horizontal">
+					<ccButton Margin="2,0,2,0" Clicked="{Click_calendar_lArrow}" Alignment="Center">
+						<Image ux:Name="calendar_lbutton" Height="100%" File="images/lArrow.png"/>
+						<WhilePressed>
+							<Change calendar_lbutton.Color="#999" Duration="0.05" DurationBack=".2" />
+						</WhilePressed>
+						<DropShadow Color="Black" Distance="0.02"/>
+					</ccButton> 
+					<Text Alignment="Center" Value="{calendarDateTime}"/>
+					<ccButton Margin="2,0,2,0"  Clicked="{Click_calendar_rArrow}" Alignment="Center">
+						<Image ux:Name="calendar_rbutton" Height="100%" File="images/rArrow.png"/>
+						<WhilePressed>
+							<Change calendar_rbutton.Color="#999" Duration="0.05" DurationBack=".2" />
+						</WhilePressed>
+						<DropShadow Color="Black" Distance="0.02"/>
+					</ccButton>
+				</StackPanel>
+				<Grid Width="220" Height="200" RowCount="7" ColumnCount="7">
+					<Each Items="{dayNameMatrix}">
+						<Text Alignment="Center" Value="{}" />
+					</Each>
+					<Each Items="{calendarMatrix}">
+						<myButton Visibility="{visibility}" Width="100%" Height="100%" text="{value}" textcolor="Black" fontsize="15" font="Bold" Clicked="{Click_calendar_number}">
+							<Rectangle Color="White" CornerRadius="5">
+
+							</Rectangle>
+						</myButton>
+					</Each>
+				</Grid>
+				<Button Clicked="{Ok_click}">
+					<Text Value="OK" Color="#000" Alignment="Center" TextAlignment="Center"/>
+					<Rectangle CornerRadius="5">
+						<Stroke Width="2" Color="{Resource Col_type3}"/>
+					</Rectangle>
+					<Clicked>
+						<Set ModalConfirm.IsEnabled="false"/>
+						<PlaySound File="Click.wav" />
+					</Clicked>
+				</Button>
+			</StackPanel>
+		</Panel>
+	</AlternateRoot>
+</Panel>

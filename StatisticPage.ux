@@ -1,0 +1,178 @@
+<Panel ux:Class="StatisticPage" >
+	<Router ux:Dependency="router" />
+	<Panel ux:Name="FullWindo" Layer="Overlay" />
+	<Panel ux:Name="FullWindo2" Layer="Overlay" />
+	<JavaScript File="Modules/StatisticPage.js"/>
+	<Button ux:Class="myButton">
+		<string ux:Property="text"/>
+		<Font ux:Property="font"/>
+		<float4 ux:Property="textcolor"/>
+		<int ux:Property="fontsize"/>
+		<Text Alignment="Center" Font="{ReadProperty font}" FontSize="{ReadProperty fontsize}" Color="{ReadProperty textcolor}" Value="{ReadProperty text}"/>
+		<WhilePressed>
+			<Change this.textcolor="#888" Duration="0.05" DurationBack="5" />
+		</WhilePressed>
+		<Clicked>
+			<PlaySound File="Click.wav" />
+		</Clicked>
+	</Button>
+	<Grid RowCount="100">
+		<Rectangle RowSpan="14"/>
+		<ScrollView RowSpan="86">
+			<StackPanel Background="#ffbd00">
+				<Text Alignment="Center" Value="SPECIFIC DATE TOTAL" Margin="5" FontSize="15" Font="Bold" Color="White"/>
+				<StackPanel Alignment="Center" Width="100%" Height="22" Orientation="Horizontal" >
+				<myButton Clicked="{Click_spcf_total_date}" text="{screen_spcf_datetime_string}" textcolor="White" fontsize="15" font="Bold" Margin="5,0,5,0">
+					<Clicked>
+						<Set ModalConfirm.IsEnabled="true"/>
+					</Clicked>
+				</myButton>
+				</StackPanel>
+				<Rectangle Height="50%" Width="100%" Color="White" CornerRadius="5" Margin="50,0,50,20">
+					<Grid RowCount="2" ColumnCount="3">
+						<Text Alignment="Center" Value="Input" Font="Bold" FontSize="15" Margin="0,5,0,5"/>
+						<Text Alignment="Center" ColumnSpan="2" Color="#006600" Value="{spcf_input_total}" FontSize="17" Margin="0,5,0,5"/>
+						<Text Alignment="Center" Value="Output" Font="Bold" FontSize="15" Margin="0,5,0,5"/>
+						<Text Alignment="Center" ColumnSpan="2" Color="#ee0000" Value="{spcf_output_total}" FontSize="17" Margin="0,5,0,5"/>
+					</Grid>
+				</Rectangle>
+				<Text Alignment="Center" Value="INTERVAL DATE TOTAL" Margin="5" FontSize="15" Font="Bold" Color="White"/>
+				<StackPanel Alignment="Center" Orientation="Horizontal">
+					<myButton Clicked="{Click_intv_tot_date_left}" text="{screen_intv_tot_datetime_left_string}" textcolor="White" fontsize="15" font="Bold">
+						<Clicked>
+							<Set ModalConfirm.IsEnabled="true"/>
+						</Clicked>
+					</myButton>
+					<Text Value="~" Margin="5" FontSize="15" Font="Bold" Color="White"/>
+					<myButton Clicked="{Click_intv_tot_date_right}" text="{screen_intv_tot_datetime_right_string}" textcolor="White" fontsize="15" font="Bold">
+						<Clicked>
+							<Set ModalConfirm.IsEnabled="true"/>
+						</Clicked>
+					</myButton>
+				</StackPanel>
+				<Rectangle Height="50%" Width="100%" Color="White" CornerRadius="5" Margin="50,0,50,20">
+					<Grid RowCount="2" ColumnCount="3">
+						<Text Alignment="Center" Value="Input" Font="Bold" FontSize="15" Margin="0,5,0,5"/>
+						<Text Alignment="Center" ColumnSpan="2" Color="#006600" Value="{intv_tot_input_total}" FontSize="17" Margin="0,5,0,5"/>
+						<Text Alignment="Center" Value="Output" Font="Bold" FontSize="15" Margin="0,5,0,5"/>
+						<Text Alignment="Center" ColumnSpan="2" Color="#ee0000" Value="{intv_tot_output_total}" FontSize="17" Margin="0,5,0,5"/>
+					</Grid>
+				</Rectangle>
+				<Text Alignment="Center" Value="ITEM TOTAL" Margin="5" FontSize="15" Font="Bold" Color="White"/>
+				<StackPanel Alignment="Center" Orientation="Horizontal">
+					<myButton Clicked="{Click_item_tot_date_left}" text="{screen_item_tot_datetime_left_string}" textcolor="White" fontsize="15" font="Bold">
+						<Clicked>
+							<Set ModalConfirm.IsEnabled="true"/>
+						</Clicked>
+					</myButton>
+					<Text Value="~" Margin="5" FontSize="15" Font="Bold" Color="White"/>
+					<myButton  Clicked="{Click_item_tot_date_right}" text="{screen_item_tot_datetime_right_string}" textcolor="White" fontsize="15" font="Bold">
+						<Clicked>
+							<Set ModalConfirm.IsEnabled="true"/>
+						</Clicked>
+					</myButton>
+				</StackPanel>
+				<Rectangle Height="50%" Width="100%" Color="White" CornerRadius="5" Margin="50,0,50,20">
+					<Grid RowCount="3" ColumnCount="3">
+						<Button Width="100%" Height="100%" ColumnSpan="3" Alignment="Center" Margin="0,5,0,5">
+							<Clicked>
+								<Set ModalConfirm2.IsEnabled="true"/>
+								<PlaySound File="Click.wav" />
+							</Clicked>
+							<Text Alignment="Center" FontSize="15" Font="Bold" Value="{selected_item}" />
+						</Button>
+						<Text Alignment="Center" Value="Input" Font="Bold" FontSize="15" Margin="0,5,0,5"/>
+						<Text Alignment="Center" ColumnSpan="2" Color="#006600" Value="{item_tot_input_total}" FontSize="17" Margin="0,5,0,5"/>
+						<Text Alignment="Center" Value="Output" Font="Bold" FontSize="15" Margin="0,5,0,5"/>
+						<Text Alignment="Center" ColumnSpan="2" Color="#ee0000" Value="{item_tot_output_total}" FontSize="17" Margin="0,5,0,5"/>
+					</Grid>
+				</Rectangle>
+				<Rectangle Height="200" Color="#ffbd00">
+				</Rectangle>
+			</StackPanel>
+		</ScrollView>
+	</Grid>
+	<ResourceObject Key="FullWindow" Value="FullWindo"/>
+	<ResourceObject Key="FullWindow2" Value="FullWindo2"/>
+	<AlternateRoot ux:Name="ModalConfirm" IsEnabled="false" ParentNode="{Resource FullWindow}">
+		<Panel Layer="Overlay" Color="1,1,1,0">
+			<StackPanel Alignment="Center" Padding="10">
+				<Rectangle Width="250" Height="300" CornerRadius="10" Layer="Background"  Color="#fff">
+					<Stroke Width="2" Color="{Resource Col_type3}"/>
+				</Rectangle>
+				<StackPanel Alignment="Center" Height="20" Orientation="Horizontal">
+					<ccButton Margin="2,0,2,0" Clicked="{Click_calendar_lArrow}" Alignment="Center">
+						<Image ux:Name="calendar_lbutton" Height="100%" File="images/lArrow.png"/>
+						<WhilePressed>
+							<Change calendar_lbutton.Color="#999" Duration="0.05" DurationBack=".2" />
+						</WhilePressed>
+						<DropShadow Color="Black" Distance="0.02"/>
+					</ccButton> 
+					<Text Alignment="Center" Value="{calendarDateTime}"/>
+					<ccButton Margin="2,0,2,0"  Clicked="{Click_calendar_rArrow}" Alignment="Center">
+						<Image ux:Name="calendar_rbutton" Height="100%" File="images/rArrow.png"/>
+						<WhilePressed>
+							<Change calendar_rbutton.Color="#999" Duration="0.05" DurationBack=".2" />
+						</WhilePressed>
+						<DropShadow Color="Black" Distance="0.02"/>
+					</ccButton>
+				</StackPanel>
+				<Grid Width="220" Height="200" RowCount="7" ColumnCount="7">
+					<Each Items="{dayNameMatrix}">
+						<Text Alignment="Center" Value="{}" />
+					</Each>
+					<Each Items="{calendarMatrix}">
+						<myButton Width="100%" Height="100%" text="{value}" textcolor="Black" fontsize="15" font="Bold" Clicked="{Click_calendar_number}">
+							<Rectangle Color="White" CornerRadius="5">
+
+							</Rectangle>
+						</myButton>
+					</Each>
+				</Grid>
+				<Button Clicked="{Ok_click}">
+					<Text Value="OK" Color="#000" Alignment="Center" TextAlignment="Center"/>
+					<Rectangle CornerRadius="5">
+						<Stroke Width="2" Color="{Resource Col_type3}"/>
+					</Rectangle>
+					<Clicked>
+						<Set ModalConfirm.IsEnabled="false"/>
+						<PlaySound File="Click.wav" />
+					</Clicked>
+				</Button>
+			</StackPanel>
+		</Panel>
+	</AlternateRoot>
+	<AlternateRoot ux:Name="ModalConfirm2" IsEnabled="false" ParentNode="{Resource FullWindow2}">
+		<Panel Layer="Overlay" Color="1,1,1,0">
+			<StackPanel Alignment="Center" Padding="10">
+				<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
+					<Stroke Width="2" Color="{Resource Col_type3}"/>
+				</Rectangle>
+				<ScrollView Height="200" Width="200">
+					<StackPanel>
+						<Text Value="{selected_item}"/>
+						<Each Items="{tempUsageList}" Offset="{offset}" Limit="{limit}">
+							<ScrollView AllowedScrollDirections="Horizontal">
+								<wbButton_Left Clicked="{SelectUsage}" Text="{name}">
+										<Clicked>
+											<PlaySound File="Click.wav" />
+										</Clicked>
+								</wbButton_Left>
+							</ScrollView>
+						</Each>
+					</StackPanel>
+				</ScrollView>
+				<Button Clicked="{CalculateIntervalItemTotal}">
+					<Text Value="OK" Color="#000" Alignment="Center" TextAlignment="Center"/>
+					<Rectangle CornerRadius="5">
+						<Stroke Width="2" Color="{Resource Col_type3}"/>
+					</Rectangle>
+					<Clicked>
+						<Set ModalConfirm2.IsEnabled="false"/>
+						<PlaySound File="Click.wav" />
+					</Clicked>
+				</Button>
+			</StackPanel>
+		</Panel>
+	</AlternateRoot>
+</Panel>

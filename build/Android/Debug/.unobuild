@@ -1,0 +1,4 @@
+$: 556283361
+BuildCommand: build.bat
+RunCommand: run.bat
+Product: AccountBook.apk

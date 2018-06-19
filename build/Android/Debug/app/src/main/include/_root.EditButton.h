@@ -1,0 +1,81 @@
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/EditButton.g.uno.
+// WARNING: Changes might be lost if you edit this file directly.
+
+#pragma once
+#include <Fuse.Animations.IResize.h>
+#include <Fuse.Binding.h>
+#include <Fuse.Controls.Button.h>
+#include <Fuse.Drawing.ISurfaceDrawable.h>
+#include <Fuse.IActualPlacement.h>
+#include <Fuse.INotifyUnrooted.h>
+#include <Fuse.IProperties.h>
+#include <Fuse.ITemplateSource.h>
+#include <Fuse.Node.h>
+#include <Fuse.Scripting.IScriptObject.h>
+#include <Fuse.Triggers.Actions.IHide.h>
+#include <Fuse.Triggers.Actions.IShow.h>
+#include <Fuse.Triggers.Actions-ea70af1f.h>
+#include <Fuse.Visual.h>
+#include <Uno.Collections.ICollection-1.h>
+#include <Uno.Collections.IEnumerable-1.h>
+#include <Uno.Collections.IList-1.h>
+#include <Uno.Float4.h>
+#include <Uno.UX.IPropertyListener.h>
+namespace g{namespace Fuse{namespace Controls{struct Rectangle;}}}
+namespace g{namespace Uno{namespace UX{struct Property1;}}}
+namespace g{namespace Uno{namespace UX{struct Selector;}}}
+namespace g{struct EditButton;}
+
+namespace g{
+
+// public partial sealed class EditButton :2
+// {
+::g::Fuse::Controls::Panel_type* EditButton_typeof();
+void EditButton__ctor_9_fn(EditButton* __this);
+void EditButton__get_fontsize_fn(EditButton* __this, int* __retval);
+void EditButton__set_fontsize_fn(EditButton* __this, int* value);
+void EditButton__InitializeUX1_fn(EditButton* __this);
+void EditButton__New6_fn(EditButton** __retval);
+void EditButton__Setfontsize_fn(EditButton* __this, int* value, uObject* origin);
+void EditButton__Settext_fn(EditButton* __this, uString* value, uObject* origin);
+void EditButton__Settextcolor_fn(EditButton* __this, ::g::Uno::Float4* value, uObject* origin);
+void EditButton__get_text_fn(EditButton* __this, uString** __retval);
+void EditButton__set_text_fn(EditButton* __this, uString* value);
+void EditButton__get_textcolor_fn(EditButton* __this, ::g::Uno::Float4* __retval);
+void EditButton__set_textcolor_fn(EditButton* __this, ::g::Uno::Float4* value);
+
+struct EditButton : ::g::Fuse::Controls::Button
+{
+    uStrong<uString*> _field_text;
+    ::g::Uno::Float4 _field_textcolor;
+    int _field_fontsize;
+    uStrong< ::g::Uno::UX::Property1*> back_Color_inst;
+    uStrong< ::g::Uno::UX::Property1*> temp_Value_inst;
+    uStrong< ::g::Uno::UX::Property1*> temp_Color_inst;
+    uStrong< ::g::Uno::UX::Property1*> temp_FontSize_inst;
+    uStrong< ::g::Fuse::Controls::Rectangle*> back;
+    static ::g::Uno::UX::Selector __selector0_;
+    static ::g::Uno::UX::Selector& __selector0() { return EditButton_typeof()->Init(), __selector0_; }
+    static ::g::Uno::UX::Selector __selector1_;
+    static ::g::Uno::UX::Selector& __selector1() { return EditButton_typeof()->Init(), __selector1_; }
+    static ::g::Uno::UX::Selector __selector2_;
+    static ::g::Uno::UX::Selector& __selector2() { return EditButton_typeof()->Init(), __selector2_; }
+    static ::g::Uno::UX::Selector __selector3_;
+    static ::g::Uno::UX::Selector& __selector3() { return EditButton_typeof()->Init(), __selector3_; }
+
+    void ctor_9();
+    int fontsize();
+    void fontsize(int value);
+    void InitializeUX1();
+    void Setfontsize(int value, uObject* origin);
+    void Settext(uString* value, uObject* origin);
+    void Settextcolor(::g::Uno::Float4 value, uObject* origin);
+    uString* text();
+    void text(uString* value);
+    ::g::Uno::Float4 textcolor();
+    void textcolor(::g::Uno::Float4 value);
+    static EditButton* New6();
+};
+// }
+
+} // ::g

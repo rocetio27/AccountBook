@@ -1,0 +1,166 @@
+var Observable=require("FuseJS/Observable");
+var data = Observable();
+var tempAccountList = Observable();
+var tempUsageList = Observable();
+var tempGroupIdList = Observable();
+var tempBudgetOut = Observable();
+var moment = require("Modules/moment");
+var sqlite = require('SQLite');
+var db = sqlite.open("file.sqlite");
+db.execute("create table if not exists DATA (id integer primary key autoincrement, account_id integer,amount integer,data_time integer,usage text,payType integer,pmType text,group_id integer)");
+db.execute("create table if not exists USAGELIST(id integer primary key autoincrement, name text)");
+db.execute("create table if not exists ACCOUNTLIST(id integer primary key autoincrement, title text)");
+db.execute("create table if not exists GROUPID(id integer primary key autoincrement, name text)");
+db.execute("create table if not exists BUDGET_OUT(id integer primary key autoincrement, account_id integer, title text, left_date text, right_date text, goal integer)");
+var groupSize = Observable(0);
+var temp = db.query("select * from ACCOUNTLIST");
+if(temp.length==0){
+	db.execute("insert into ACCOUNTLIST (title) values('MyBook')");
+}
+var temp_budget_out = db.query("select * from BUDGET_OUT");
+if(temp_budget_out.length==0){
+	db.execute("insert into BUDGET_OUT (account_id,title, left_date, right_date, goal) values(1,'MyOutputBudget','"+moment().format('YYYY/MM/DD')+"','"+moment().format('YYYY/MM/DD')+"',0)");
+}
+
+getDB();
+getAccountListDB();
+getUsageListDB();
+getGroupIdListDB();
+getBudgetOutDB();
+function getDB(){
+	data.clear();
+	var r = db.query("select * from DATA order by data_time asc");
+
+	for (var i = 0; i <= r.length-1; i++) {
+		data.add({
+			db_id: r[i].id*1,
+			account_id: r[i].account_id*1,
+			amount: r[i].amount*1, 
+			data_time: r[i].data_time*1,
+			usage: r[i].usage,
+			payType: r[i].payType*1,
+			pmType: r[i].pmType,
+			group_id: r[i].group_id*1 
+		});
+	}
+}
+
+function DeleteDB_byId(db_id){
+	db.execute("delete from DATA where id = "+db_id);
+	getDB();
+}
+
+function EditDB_byId(db_id,account_id,amount,data_time,usage,payType,pmType,group_id){
+	db.execute("update DATA set account_id="+account_id+", amount="+amount+", data_time="+data_time*1+", usage='"+usage+"',payType="+payType+",pmType='"+pmType+"', group_id="+group_id+" where id = "+db_id)
+	getDB();
+}
+
+function getAccountListDB(){
+	tempAccountList.clear();
+	var s = db.query("select * from ACCOUNTLIST");
+	for (var i = 0; i <= s.length - 1; i++) {
+		tempAccountList.add({
+			db_id: Observable(s[i].id*1),
+			title: Observable(s[i].title)
+		})
+	}
+}
+
+function DeleteAccountListDB_byID(db_id){
+	db.execute("delete from ACCOUNTLIST where id ="+db_id);
+	getAccountListDB();
+}
+
+function EditAccountListDB_byID(db_id,title){
+	db.execute("update ACCOUNTLIST set title = '"+title+"' where id = "+db_id);
+	getAccountListDB();
+}
+
+function getUsageListDB(){
+	tempUsageList.clear();
+	var t = db.query("select * from USAGELIST");
+	for (var i = 0; i <= t.length - 1; i++) {
+		tempUsageList.add({
+			db_id: t[i].id*1,
+			name: t[i].name
+		})
+	}
+}
+
+function DeleteUsageListDB_byID(db_id){
+	db.execute("delete from USAGELIST where id ="+db_id);
+	getUsageListDB();
+}
+
+function EditUsageListDB_byID(db_id,name){
+	db.execute("update USAGELIST set name = '"+name+"' where id = "+db_id);
+	getUsageListDB();
+}
+
+function AddUsageListDB(name){
+	db.execute("insert into USAGELIST (name) values('"+name+"')");
+	getUsageListDB();
+}
+
+function getGroupIdListDB(){
+	tempGroupIdList.clear();
+	var u = db.query("select * from GROUPID");
+	for (var i = 0; i <= u.length - 1; i++) {
+		tempGroupIdList.add({
+			db_id: u[i].id*1,
+			name: u[i].name,
+		})
+	}
+}
+
+function AddGroupIdListDB(){
+	db.execute("insert into GROUPID (name) values('"+"default"+"')");
+	groupSize.value=groupSize.value+1;
+}
+
+function getBudgetOutDB(){
+	tempBudgetOut.clear();
+	var q = db.query("select * from BUDGET_OUT");
+	for (var i = 0; i <= q.length - 1; i++) {
+		tempBudgetOut.add({
+			db_id: q[i].id*1,
+			account_id: q[i].account_id*1,
+			title: q[i].title,
+			left_date: q[i].left_date,
+			right_date: q[i].right_date,
+			goal: q[i].goal*1
+		})
+	}
+}
+function EditBudgetOutDB_byID(db_id,account_id,title,left_date,right_date,goal){
+	db.execute("update BUDGET_OUT set account_id = "+account_id+", title = '"+title+"', left_date = '"+left_date+"', right_date = '"+right_date+"',goal="+goal+" where id = "+db_id);
+	getBudgetOutDB();
+}
+
+module.exports={
+	data,
+	tempUsageList,
+	tempAccountList,
+	tempGroupIdList,
+	tempBudgetOut,
+
+	getDB,
+	getAccountListDB,
+	getUsageListDB,
+	getGroupIdListDB,
+	getBudgetOutDB,
+	
+	DeleteDB_byId,
+	DeleteAccountListDB_byID,
+	DeleteUsageListDB_byID,
+	
+	EditDB_byId,
+	EditAccountListDB_byID,
+	EditUsageListDB_byID,
+	EditBudgetOutDB_byID,
+	
+	AddUsageListDB,
+	AddGroupIdListDB,
+
+	groupSize,
+}

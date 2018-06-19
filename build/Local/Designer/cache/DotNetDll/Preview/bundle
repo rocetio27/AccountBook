@@ -54,6 +54,10 @@ Fuse
 Fuse.WebSockets
 Polyfills.Window:js/EventTarget.js:eventtarget-cda77f1e.js:js/fetch.js:fetch-f9fc7fb6.js:js/File.js:file-3f85c9b6.js:js/localStorage.js:localstorage-f922aa60.js:js/WebSocketAPI.js:websocketapi-9e6adbc9.js:js/Window.js:window-4e47903c.js:js/WindowBase64.js:windowbase64-461def11.js:js/WindowTimers.js:windowtimers-f6141d00.js:js/XMLHttpRequest.js:xmlhttprequest-f75767d0.js
 FuseJS
+Uno.Permissions
+Fuse.Audio
 Outracks.Simulator.Common.Uno
 Fuse.Preview.Core:fight.png:fight-8c16f395.png
-AccountBook
+foreignhelpers_include
+FuseSQLiteLib
+AccountBook:Modules/BudgetPage.js:budgetpage-62101666.js:images/lArrow.png:larrow-ea5a3ad7.png:images/rArrow.png:rarrow-5c8c3ad7.png:Click.wav:click-5759d407.wav:Modules/InputPage.js:inputpage-8ea5c1f8.js:NotoSans-hinted/NotoSans-Bold.ttf:notosans-bold-e88f2704.ttf:Modules/ListPage.js:listpage-e06584de.js:Modules/StatisticPage.js:statisticpage-7dd789e3.js:Modules/AccountList.js:accountlist-873b8fbf.js:Modules/BudgetPage.js:budgetpage-62101666.js:Modules/Calendar.js:calendar-d5149acc.js:Modules/InputPage.js:inputpage-8ea5c1f8.js:Modules/ListPage.js:listpage-e06584de.js:Modules/moment.js:moment-838f3cf9.js:Modules/Show.js:show-b131ca65.js:Modules/StatisticPage.js:statisticpage-7dd789e3.js:Modules/tempDB.js:tempdb-40d01352.js:Modules/UsagePopup.js:usagepopup-dacd9e3d.js

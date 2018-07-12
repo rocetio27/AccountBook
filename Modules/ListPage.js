@@ -163,10 +163,12 @@ function LongClickNormal(arg){
 	year=Show.screenYear.value*1
 	month=Show.screenMonth.value*1
 	day=histories.getAt(clicked_item.info[0]).day.value;
+	console.log("day:"+day);
 	abstract=moment(item.data_time,'a h:mm',true).format('a');
 	hour=moment(item.data_time,'a h:mm',true).format('h')*1;
 	minute=moment(item.data_time,'a h:mm',true).format('mm')*1;
 	data_time=moment(Show.screenYear+Show.screenMonth+day+item.data_time,'YYYYMMDDa h:mm').format('YYYYMMDDHHmm');
+	console.log("data_time:"+data_time);
 	usage=item.usage;
 	if(item.amount>=0){
 		amount=item.amount;
@@ -258,7 +260,7 @@ function EditMonthHandler(arg) {
 	}else if(arg.value=="0"){
 		editVars.month.value=1
 	}
-	editVars.day.value=1;
+	//editVars.day.value=1; 
 }
 
 function EditDayHandler(arg) {

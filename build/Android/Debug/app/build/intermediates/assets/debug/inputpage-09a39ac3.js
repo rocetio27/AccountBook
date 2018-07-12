@@ -46,7 +46,7 @@ Show.input_payType.value=1;
 
 var addingValueColor = Observable("#006600");
 var addingValue = Observable(0);
-var pmTypeText = Observable("input");
+var pmTypeText = Observable("INPUT");
 var payTypeText = Observable("CASH");
 Show.RenewInputCurrentBalance();
 var currentBalance = Show.i_cB;

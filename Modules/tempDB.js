@@ -7,6 +7,66 @@ var tempBudgetOut = Observable();
 var moment = require("Modules/moment");
 var sqlite = require('SQLite');
 var db = sqlite.open("file.sqlite");
+//db_id : usage list의 id
+//db.execute("drop table INITIAL_VALUE;")
+//MainView initial_value 구현
+	//app 실행시 db가 없으면 최초로 생성함
+	db.execute("create table if not exists INITIAL_VALUE (id integer primary key autoincrement, db_id integer, account_id integer, amount integer,dateTime string,usage string,payType integer,pmType string)");
+	var tvi = db.query("select * from INITIAL_VALUE")[0];
+    //table이 비어있으면, default value 입력
+    console.log("?????");
+    console.log("table이 비어있나요? : "+(!tvi));
+    //console.log("그렇다면 뭐가 들었죠?"+tvi.payType);
+    if ( !tvi ){
+    	db.execute("insert into INITIAL_VALUE (db_id,account_id,amount,dateTime,usage,payType,pmType) values (1,1,0,'17:12','DEFAULT',1,'+');");
+		
+    	console.log("테이블 디폴트가 생성되었습니다. ")
+    	var temp_initial_value = Observable({
+			db_id: 1,
+			account_id: 1,
+			amount: 0,
+			dateTime: "17:12",
+			usage: "DEFAULT",
+			payType: 1,
+			pmType: "+"
+		});
+    }else if(tvi != null){
+    	var temp_initial_value = Observable({
+			db_id: tvi.db_id*1,
+			account_id: tvi.account_id*1,
+			amount: tvi.amount*1,
+			dateTime: tvi.dateTime,
+			usage: tvi.usage,
+			payType: tvi.payType*1,
+			pmType: tvi.pmType
+		});
+		console.log("너는 혹시 0을 넣고있니 :"+temp_initial_value.value.payType);
+    }
+    //INITIAL_VALUE table로부터 초기값을 긁어옴
+	
+	
+    function InitialValueSave(db_id, account_id, amount, dateTime, usage, payType, pmType){
+    	console.log("query:"+"update INITIAL_VALUE set account_id = "+account_id+", amount = "+amount+", dateTime = "+dateTime+", usage = '"+usage+"', payType = "+payType+", pmType = '"+pmType+"' where id = 1 ;")
+    	db.execute("update INITIAL_VALUE set account_id = "+account_id+", amount = "+amount+", dateTime = "+dateTime+", usage = '"+usage+"', payType = "+payType+", pmType = '"+pmType+"' where id = 1 ;");
+    	var test_array_1 = db.query("select * from INITIAL_VALUE");
+    	console.log("잘 추가 됐나요?"+test_array_1[0].payType);
+    }
+
+    function RenewInitialValue(){
+    	var temp = db.query("select * from INITIAL_VALUE")[0];
+    	temp_initial_value.value = {
+    		db_id: temp.db_id*1,
+			account_id: temp.account_id*1,
+			amount: temp.amount*1,
+			dateTime: temp.dateTime,
+			usage: temp.usage,
+			payType: temp.payType*1,
+			pmType: temp.pmType
+    	}
+    }
+
+//
+//db.execute("drop table DATA;");
 db.execute("create table if not exists DATA (id integer primary key autoincrement, account_id integer,amount integer,data_time integer,usage text,payType integer,pmType text,group_id integer)");
 db.execute("create table if not exists USAGELIST(id integer primary key autoincrement, name text)");
 db.execute("create table if not exists ACCOUNTLIST(id integer primary key autoincrement, title text)");
@@ -163,4 +223,8 @@ module.exports={
 	AddGroupIdListDB,
 
 	groupSize,
+
+	temp_initial_value,
+	InitialValueSave,
+	RenewInitialValue
 }

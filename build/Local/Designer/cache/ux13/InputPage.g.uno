@@ -416,7 +416,7 @@ public partial class InputPage: Fuse.Controls.Panel
         temp58.Value = true;
         temp5.Templates.Add(temp60);
         temp5.Bindings.Add(temp61);
-        temp62.Text = "◀";
+        temp62.Text = "<";
         global::Fuse.Gestures.Clicked.AddHandler(temp62, temp_eb12.OnEvent);
         temp62.Bindings.Add(temp_eb12);
         global::Fuse.Controls.Grid.SetColumnSpan(temp6, 2);

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Common/1.4.2/Internal/RootableList.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Common/1.9.0/Internal/RootableList.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -27,15 +27,15 @@ void RootableList__ctor__fn(RootableList* __this);
 void RootableList__Add_fn(RootableList* __this, void* item);
 void RootableList__Clear_fn(RootableList* __this);
 void RootableList__Contains_fn(RootableList* __this, void* item, bool* __retval);
-void RootableList__get_Count_fn(RootableList* __this, int* __retval);
+void RootableList__get_Count_fn(RootableList* __this, int32_t* __retval);
 void RootableList__GetEnumerator_fn(RootableList* __this, uObject** __retval);
-void RootableList__Insert_fn(RootableList* __this, int* index, void* item);
-void RootableList__get_Item_fn(RootableList* __this, int* index, uTRef __retval);
+void RootableList__Insert_fn(RootableList* __this, int32_t* index, void* item);
+void RootableList__get_Item_fn(RootableList* __this, int32_t* index, uTRef __retval);
 void RootableList__New1_fn(uType* __type, RootableList** __retval);
 void RootableList__OnAdded_fn(RootableList* __this, void* item);
 void RootableList__OnRemoved_fn(RootableList* __this, void* item);
 void RootableList__Remove_fn(RootableList* __this, void* item, bool* __retval);
-void RootableList__RemoveAt_fn(RootableList* __this, int* index);
+void RootableList__RemoveAt_fn(RootableList* __this, int32_t* index);
 void RootableList__RootSubscribe_fn(RootableList* __this, uDelegate* added, uDelegate* removed);
 void RootableList__RootUnsubscribe_fn(RootableList* __this);
 void RootableList__Subscribe_fn(RootableList* __this, uDelegate* added, uDelegate* removed);
@@ -53,19 +53,19 @@ struct RootableList : uObject
     void Clear();
     template<class T>
     bool Contains(T item) { bool __retval; return RootableList__Contains_fn(this, uConstrain(__type->T(0), item), &__retval), __retval; }
-    int Count();
+    int32_t Count();
     uObject* GetEnumerator();
     template<class T>
-    void Insert(int index, T item) { RootableList__Insert_fn(this, &index, uConstrain(__type->T(0), item)); }
+    void Insert(int32_t index, T item) { RootableList__Insert_fn(this, &index, uConstrain(__type->T(0), item)); }
     template<class T>
-    T Item(int index) { T __retval; return RootableList__get_Item_fn(this, &index, &__retval), __retval; }
+    T Item(int32_t index) { T __retval; return RootableList__get_Item_fn(this, &index, &__retval), __retval; }
     template<class T>
     void OnAdded(T item) { RootableList__OnAdded_fn(this, uConstrain(__type->T(0), item)); }
     template<class T>
     void OnRemoved(T item) { RootableList__OnRemoved_fn(this, uConstrain(__type->T(0), item)); }
     template<class T>
     bool Remove(T item) { bool __retval; return RootableList__Remove_fn(this, uConstrain(__type->T(0), item), &__retval), __retval; }
-    void RemoveAt(int index);
+    void RemoveAt(int32_t index);
     void RootSubscribe(uDelegate* added, uDelegate* removed);
     void RootUnsubscribe();
     void Subscribe(uDelegate* added, uDelegate* removed);

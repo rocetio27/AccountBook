@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.4.2/DirectNavigation.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.9.0/DirectNavigation.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -6,6 +6,7 @@
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IParentObserver.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Navigation.IBase-84e3f965.h>
 #include <Fuse.Navigation.INavigation.h>
 #include <Fuse.Navigation.Visua-f5708ad5.h>
@@ -26,11 +27,11 @@ namespace Navigation{
 ::g::Fuse::Navigation::VisualNavigation_type* DirectNavigation_typeof();
 void DirectNavigation__get_Active_fn(DirectNavigation* __this, ::g::Fuse::Visual** __retval);
 void DirectNavigation__set_Active_fn(DirectNavigation* __this, ::g::Fuse::Visual* value);
-void DirectNavigation__Goto_fn(DirectNavigation* __this, ::g::Fuse::Visual* visual, int* mode);
+void DirectNavigation__Goto_fn(DirectNavigation* __this, ::g::Fuse::Visual* visual, int32_t* mode);
 void DirectNavigation__OnChildAddedWhileRooted_fn(DirectNavigation* __this, ::g::Fuse::Node* child);
 void DirectNavigation__OnChildRemovedWhileRooted_fn(DirectNavigation* __this, ::g::Fuse::Node* child);
 void DirectNavigation__OnRooted_fn(DirectNavigation* __this);
-void DirectNavigation__SetProgressState_fn(DirectNavigation* __this, ::g::Fuse::Visual* elm, int* progress);
+void DirectNavigation__SetProgressState_fn(DirectNavigation* __this, ::g::Fuse::Visual* elm, int32_t* progress);
 void DirectNavigation__TransitionTo_fn(DirectNavigation* __this, ::g::Fuse::Visual* visual, bool* bypass);
 void DirectNavigation__UpdateState_fn(DirectNavigation* __this, bool* bypass);
 
@@ -38,7 +39,7 @@ struct DirectNavigation : ::g::Fuse::Navigation::VisualNavigation
 {
     uStrong< ::g::Fuse::Visual*> _active;
 
-    void SetProgressState(::g::Fuse::Visual* elm, int progress);
+    void SetProgressState(::g::Fuse::Visual* elm, int32_t progress);
     void TransitionTo(::g::Fuse::Visual* visual, bool bypass);
     void UpdateState(bool bypass);
 };

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/IO/StreamReader.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/IO/StreamReader.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -18,8 +18,8 @@ namespace IO{
 void StreamReader__ctor_1_fn(StreamReader* __this, ::g::Uno::IO::Stream* stream);
 void StreamReader__Dispose1_fn(StreamReader* __this, bool* disposing);
 void StreamReader__New1_fn(::g::Uno::IO::Stream* stream, StreamReader** __retval);
-void StreamReader__Peek_fn(StreamReader* __this, int* __retval);
-void StreamReader__Read_fn(StreamReader* __this, int* __retval);
+void StreamReader__Peek_fn(StreamReader* __this, int32_t* __retval);
+void StreamReader__Read_fn(StreamReader* __this, int32_t* __retval);
 void StreamReader__ReadBuffer_fn(StreamReader* __this);
 void StreamReader__ReadToEnd_fn(StreamReader* __this, uString** __retval);
 
@@ -28,10 +28,10 @@ struct StreamReader : ::g::Uno::IO::TextReader
     uStrong< ::g::Uno::IO::Stream*> _stream;
     uStrong< ::g::Uno::Text::Decoder*> _decoder;
     uStrong<uArray*> _byteBuffer;
-    int _byteLen;
+    int32_t _byteLen;
     uStrong<uArray*> _charBuffer;
-    int _charPos;
-    int _charLen;
+    int32_t _charPos;
+    int32_t _charLen;
 
     void ctor_1(::g::Uno::IO::Stream* stream);
     void ReadBuffer();

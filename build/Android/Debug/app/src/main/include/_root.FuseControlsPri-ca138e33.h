@@ -1,9 +1,9 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/.uno/ux13/Fuse.Controls.Primitives.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/.uno/ux15/Fuse.Controls.Primitives.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Uno.Float.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 namespace g{namespace Fuse{namespace Effects{struct DropShadow;}}}
 namespace g{namespace Uno{namespace UX{struct PropertyObject;}}}
 namespace g{struct FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property;}

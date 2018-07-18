@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting.JavaScript/1.4.2/V8/V8Simple.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting.JavaScript/1.9.0/V8/V8Simple.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -12,7 +12,7 @@ namespace Scripting{
 namespace V8{
 namespace Simple{
 
-// internal static extern class Context :131
+// internal static extern class Context :123
 // {
 uClassType* Context_typeof();
 void Context__CopyGlobalObject_fn(::JSContext** context, ::JSObject** __retval);

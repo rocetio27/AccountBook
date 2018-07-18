@@ -1,5 +1,4 @@
-<Panel ux:Class="StatisticPage" >
-	<Router ux:Dependency="router" />
+<Page ux:Class="StatisticPage" >
 	<Panel ux:Name="FullWindo" Layer="Overlay" />
 	<Panel ux:Name="FullWindo2" Layer="Overlay" />
 	<JavaScript File="Modules/StatisticPage.js"/>
@@ -175,4 +174,4 @@
 			</StackPanel>
 		</Panel>
 	</AlternateRoot>
-</Panel>
+</Page>

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/Resources/TextureImageSource.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/Resources/TextureImageSource.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -18,11 +18,11 @@ namespace Resources{
 void TextureImageSource__get_Density_fn(TextureImageSource* __this, float* __retval);
 void TextureImageSource__set_Density_fn(TextureImageSource* __this, float* value);
 void TextureImageSource__GetTexture_fn(TextureImageSource* __this, ::g::Uno::Graphics::Texture2D** __retval);
-void TextureImageSource__get_Orientation_fn(TextureImageSource* __this, int* __retval);
+void TextureImageSource__get_Orientation_fn(TextureImageSource* __this, int32_t* __retval);
 void TextureImageSource__get_PixelSize_fn(TextureImageSource* __this, ::g::Uno::Int2* __retval);
 void TextureImageSource__get_Size_fn(TextureImageSource* __this, ::g::Uno::Float2* __retval);
 void TextureImageSource__get_SizeDensity_fn(TextureImageSource* __this, float* __retval);
-void TextureImageSource__get_State_fn(TextureImageSource* __this, int* __retval);
+void TextureImageSource__get_State_fn(TextureImageSource* __this, int32_t* __retval);
 
 struct TextureImageSource : ::g::Fuse::Resources::ImageSource
 {

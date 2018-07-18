@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-641d8117.h>
@@ -10,7 +10,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_FuseAlternateRoot_IsEnabled_Property :214
+// internal sealed class AccountBook_FuseAlternateRoot_IsEnabled_Property :234
 // {
 static void AccountBook_FuseAlternateRoot_IsEnabled_Property_build(uType* type)
 {
@@ -38,45 +38,45 @@ static void AccountBook_FuseAlternateRoot_IsEnabled_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_FuseAlternateRoot_IsEnabled_Property(Fuse.AlternateRoot obj, Uno.UX.Selector name) :217
+// public AccountBook_FuseAlternateRoot_IsEnabled_Property(Fuse.AlternateRoot obj, Uno.UX.Selector name) :237
 void AccountBook_FuseAlternateRoot_IsEnabled_Property__ctor_3_fn(AccountBook_FuseAlternateRoot_IsEnabled_Property* __this, ::g::Fuse::AlternateRoot* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed bool Get(Uno.UX.PropertyObject obj) :219
+// public override sealed bool Get(Uno.UX.PropertyObject obj) :239
 void AccountBook_FuseAlternateRoot_IsEnabled_Property__Get1_fn(AccountBook_FuseAlternateRoot_IsEnabled_Property* __this, ::g::Uno::UX::PropertyObject* obj, bool* __retval)
 {
     return *__retval = uPtr(uCast< ::g::Fuse::AlternateRoot*>(obj, ::TYPES[0/*Fuse.AlternateRoot*/]))->IsEnabled(), void();
 }
 
-// public AccountBook_FuseAlternateRoot_IsEnabled_Property New(Fuse.AlternateRoot obj, Uno.UX.Selector name) :217
+// public AccountBook_FuseAlternateRoot_IsEnabled_Property New(Fuse.AlternateRoot obj, Uno.UX.Selector name) :237
 void AccountBook_FuseAlternateRoot_IsEnabled_Property__New1_fn(::g::Fuse::AlternateRoot* obj, ::g::Uno::UX::Selector* name, AccountBook_FuseAlternateRoot_IsEnabled_Property** __retval)
 {
     *__retval = AccountBook_FuseAlternateRoot_IsEnabled_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :218
+// public override sealed Uno.UX.PropertyObject get_Object() :238
 void AccountBook_FuseAlternateRoot_IsEnabled_Property__get_Object_fn(AccountBook_FuseAlternateRoot_IsEnabled_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, bool v, Uno.UX.IPropertyListener origin) :220
+// public override sealed void Set(Uno.UX.PropertyObject obj, bool v, Uno.UX.IPropertyListener origin) :240
 void AccountBook_FuseAlternateRoot_IsEnabled_Property__Set1_fn(AccountBook_FuseAlternateRoot_IsEnabled_Property* __this, ::g::Uno::UX::PropertyObject* obj, bool* v, uObject* origin)
 {
     bool v_ = *v;
     uPtr(uCast< ::g::Fuse::AlternateRoot*>(obj, ::TYPES[0/*Fuse.AlternateRoot*/]))->IsEnabled(v_);
 }
 
-// public AccountBook_FuseAlternateRoot_IsEnabled_Property(Fuse.AlternateRoot obj, Uno.UX.Selector name) [instance] :217
+// public AccountBook_FuseAlternateRoot_IsEnabled_Property(Fuse.AlternateRoot obj, Uno.UX.Selector name) [instance] :237
 void AccountBook_FuseAlternateRoot_IsEnabled_Property::ctor_3(::g::Fuse::AlternateRoot* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_FuseAlternateRoot_IsEnabled_Property New(Fuse.AlternateRoot obj, Uno.UX.Selector name) [static] :217
+// public AccountBook_FuseAlternateRoot_IsEnabled_Property New(Fuse.AlternateRoot obj, Uno.UX.Selector name) [static] :237
 AccountBook_FuseAlternateRoot_IsEnabled_Property* AccountBook_FuseAlternateRoot_IsEnabled_Property::New1(::g::Fuse::AlternateRoot* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_FuseAlternateRoot_IsEnabled_Property* obj1 = (AccountBook_FuseAlternateRoot_IsEnabled_Property*)uNew(AccountBook_FuseAlternateRoot_IsEnabled_Property_typeof());

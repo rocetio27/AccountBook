@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_day-96e90464.h>
@@ -11,7 +11,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_dayButton_text_Property :332
+// internal sealed class AccountBook_dayButton_text_Property :370
 // {
 static void AccountBook_dayButton_text_Property_build(uType* type)
 {
@@ -40,50 +40,50 @@ static void AccountBook_dayButton_text_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_dayButton_text_Property(dayButton obj, Uno.UX.Selector name) :335
+// public AccountBook_dayButton_text_Property(dayButton obj, Uno.UX.Selector name) :373
 void AccountBook_dayButton_text_Property__ctor_3_fn(AccountBook_dayButton_text_Property* __this, ::g::dayButton* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed string Get(Uno.UX.PropertyObject obj) :337
+// public override sealed string Get(Uno.UX.PropertyObject obj) :375
 void AccountBook_dayButton_text_Property__Get1_fn(AccountBook_dayButton_text_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString** __retval)
 {
     return *__retval = uPtr(uCast< ::g::dayButton*>(obj, ::TYPES[0/*dayButton*/]))->text(), void();
 }
 
-// public AccountBook_dayButton_text_Property New(dayButton obj, Uno.UX.Selector name) :335
+// public AccountBook_dayButton_text_Property New(dayButton obj, Uno.UX.Selector name) :373
 void AccountBook_dayButton_text_Property__New1_fn(::g::dayButton* obj, ::g::Uno::UX::Selector* name, AccountBook_dayButton_text_Property** __retval)
 {
     *__retval = AccountBook_dayButton_text_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :336
+// public override sealed Uno.UX.PropertyObject get_Object() :374
 void AccountBook_dayButton_text_Property__get_Object_fn(AccountBook_dayButton_text_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :338
+// public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :376
 void AccountBook_dayButton_text_Property__Set1_fn(AccountBook_dayButton_text_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString* v, uObject* origin)
 {
     uPtr(uCast< ::g::dayButton*>(obj, ::TYPES[0/*dayButton*/]))->Settext(v, origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :339
+// public override sealed bool get_SupportsOriginSetter() :377
 void AccountBook_dayButton_text_Property__get_SupportsOriginSetter_fn(AccountBook_dayButton_text_Property* __this, bool* __retval)
 {
     return *__retval = true, void();
 }
 
-// public AccountBook_dayButton_text_Property(dayButton obj, Uno.UX.Selector name) [instance] :335
+// public AccountBook_dayButton_text_Property(dayButton obj, Uno.UX.Selector name) [instance] :373
 void AccountBook_dayButton_text_Property::ctor_3(::g::dayButton* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_dayButton_text_Property New(dayButton obj, Uno.UX.Selector name) [static] :335
+// public AccountBook_dayButton_text_Property New(dayButton obj, Uno.UX.Selector name) [static] :373
 AccountBook_dayButton_text_Property* AccountBook_dayButton_text_Property::New1(::g::dayButton* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_dayButton_text_Property* obj1 = (AccountBook_dayButton_text_Property*)uNew(AccountBook_dayButton_text_Property_typeof());

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Panels/1.4.2/StackPanel.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Panels/1.9.0/StackPanel.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -9,6 +9,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -32,16 +33,16 @@ namespace Controls{
 ::g::Fuse::Controls::Panel_type* StackPanel_typeof();
 void StackPanel__ctor_7_fn(StackPanel* __this);
 void StackPanel__New4_fn(StackPanel** __retval);
-void StackPanel__get_Orientation_fn(StackPanel* __this, int* __retval);
-void StackPanel__set_Orientation_fn(StackPanel* __this, int* value);
+void StackPanel__get_Orientation_fn(StackPanel* __this, int32_t* __retval);
+void StackPanel__set_Orientation_fn(StackPanel* __this, int32_t* value);
 
 struct StackPanel : ::g::Fuse::Controls::Panel
 {
     uStrong< ::g::Fuse::Layouts::StackLayout*> _stackLayout;
 
     void ctor_7();
-    int Orientation();
-    void Orientation(int value);
+    int32_t Orientation();
+    void Orientation(int32_t value);
     static StackPanel* New4();
 };
 // }

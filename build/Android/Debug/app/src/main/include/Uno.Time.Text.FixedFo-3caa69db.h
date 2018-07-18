@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Time/Text/FixedFormatPattern.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Time/Text/FixedFormatPattern.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

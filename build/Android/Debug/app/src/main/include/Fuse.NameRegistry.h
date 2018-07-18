@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/NameRegistry.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/NameRegistry.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -25,11 +25,11 @@ void NameRegistry__SetName_fn(::g::Fuse::Node* obj, ::g::Uno::UX::Selector* name
 struct NameRegistry : uObject
 {
     static uSStrong< ::g::Uno::Collections::Dictionary*> _nameToObj_;
-    static uSStrong< ::g::Uno::Collections::Dictionary*>& _nameToObj() { return _nameToObj_; }
+    static uSStrong< ::g::Uno::Collections::Dictionary*>& _nameToObj() { return NameRegistry_typeof()->Init(), _nameToObj_; }
     static uSStrong< ::g::Uno::Collections::Dictionary*> _names_;
-    static uSStrong< ::g::Uno::Collections::Dictionary*>& _names() { return _names_; }
+    static uSStrong< ::g::Uno::Collections::Dictionary*>& _names() { return NameRegistry_typeof()->Init(), _names_; }
     static uSStrong< ::g::Uno::Collections::Dictionary*> _listeners_;
-    static uSStrong< ::g::Uno::Collections::Dictionary*>& _listeners() { return _listeners_; }
+    static uSStrong< ::g::Uno::Collections::Dictionary*>& _listeners() { return NameRegistry_typeof()->Init(), _listeners_; }
 
     static void AddListener(::g::Uno::UX::Selector name, uObject* listener);
     static void ClearName(::g::Fuse::Node* obj);

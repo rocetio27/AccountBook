@@ -1,23 +1,23 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Expressions/1.4.2/Operators.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Expressions/1.9.0/NullCoalesce.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
+#include <Fuse.ISourceLocation.h>
+#include <Fuse.Reactive.Compute-2d5dc615.h>
 #include <Fuse.Reactive.IExpression.h>
-#include <Fuse.Reactive.InfixOperator.h>
+namespace g{namespace Fuse{namespace Reactive{struct Expression__Argument;}}}
 namespace g{namespace Fuse{namespace Reactive{struct NullCoalesce;}}}
 
 namespace g{
 namespace Fuse{
 namespace Reactive{
 
-// public sealed class NullCoalesce :67
+// public sealed class NullCoalesce :6
 // {
-::g::Fuse::Reactive::InfixOperator_type* NullCoalesce_typeof();
-void NullCoalesce__Compute_fn(NullCoalesce* __this, uObject* left, uObject* right, uObject** __retval);
-void NullCoalesce__get_IsLeftOptional_fn(NullCoalesce* __this, bool* __retval);
-void NullCoalesce__get_Symbol_fn(NullCoalesce* __this, uString** __retval);
+::g::Fuse::Reactive::ComputeExpression_type* NullCoalesce_typeof();
+void NullCoalesce__TryCompute_fn(NullCoalesce* __this, uArray* args, uObject** result, bool* __retval);
 
-struct NullCoalesce : ::g::Fuse::Reactive::InfixOperator
+struct NullCoalesce : ::g::Fuse::Reactive::ComputeExpression
 {
 };
 // }

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Native/1.4.2/Interfaces.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Native/1.9.0/Interfaces.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -19,25 +19,25 @@ uInterfaceType* ITextEdit_typeof();
 
 struct ITextEdit
 {
-    void(*fp_set_ActionStyle)(uObject*, int*);
-    void(*fp_set_AutoCapitalizationHint)(uObject*, int*);
-    void(*fp_set_AutoCorrectHint)(uObject*, int*);
+    void(*fp_set_ActionStyle)(uObject*, int32_t*);
+    void(*fp_set_AutoCapitalizationHint)(uObject*, int32_t*);
+    void(*fp_set_AutoCorrectHint)(uObject*, int32_t*);
     void(*fp_set_CaretColor)(uObject*, ::g::Uno::Float4*);
     void(*fp_FocusGained)(uObject*);
     void(*fp_FocusLost)(uObject*);
-    void(*fp_set_InputHint)(uObject*, int*);
+    void(*fp_set_InputHint)(uObject*, int32_t*);
     void(*fp_set_IsPassword)(uObject*, bool*);
     void(*fp_set_IsReadOnly)(uObject*, bool*);
     void(*fp_set_PlaceholderColor)(uObject*, ::g::Uno::Float4*);
     void(*fp_set_PlaceholderText)(uObject*, uString*);
     void(*fp_set_SelectionColor)(uObject*, ::g::Uno::Float4*);
-    static void ActionStyle(const uInterface& __this, int value) { __this.VTable<ITextEdit>()->fp_set_ActionStyle(__this, &value); }
-    static void AutoCapitalizationHint(const uInterface& __this, int value) { __this.VTable<ITextEdit>()->fp_set_AutoCapitalizationHint(__this, &value); }
-    static void AutoCorrectHint(const uInterface& __this, int value) { __this.VTable<ITextEdit>()->fp_set_AutoCorrectHint(__this, &value); }
+    static void ActionStyle(const uInterface& __this, int32_t value) { __this.VTable<ITextEdit>()->fp_set_ActionStyle(__this, &value); }
+    static void AutoCapitalizationHint(const uInterface& __this, int32_t value) { __this.VTable<ITextEdit>()->fp_set_AutoCapitalizationHint(__this, &value); }
+    static void AutoCorrectHint(const uInterface& __this, int32_t value) { __this.VTable<ITextEdit>()->fp_set_AutoCorrectHint(__this, &value); }
     static void CaretColor(const uInterface& __this, ::g::Uno::Float4 value);
     static void FocusGained(const uInterface& __this) { __this.VTable<ITextEdit>()->fp_FocusGained(__this); }
     static void FocusLost(const uInterface& __this) { __this.VTable<ITextEdit>()->fp_FocusLost(__this); }
-    static void InputHint(const uInterface& __this, int value) { __this.VTable<ITextEdit>()->fp_set_InputHint(__this, &value); }
+    static void InputHint(const uInterface& __this, int32_t value) { __this.VTable<ITextEdit>()->fp_set_InputHint(__this, &value); }
     static void IsPassword(const uInterface& __this, bool value) { __this.VTable<ITextEdit>()->fp_set_IsPassword(__this, &value); }
     static void IsReadOnly(const uInterface& __this, bool value) { __this.VTable<ITextEdit>()->fp_set_IsReadOnly(__this, &value); }
     static void PlaceholderColor(const uInterface& __this, ::g::Uno::Float4 value);

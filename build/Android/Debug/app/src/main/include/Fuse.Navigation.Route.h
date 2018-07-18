@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.4.2/Route.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.9.0/Route.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -14,7 +14,7 @@ namespace Navigation{
 // {
 uType* Route_typeof();
 void Route__ctor__fn(Route* __this, uString* path, uString* parameter, Route* subRoute);
-void Route__get_Length_fn(Route* __this, int* __retval);
+void Route__get_Length_fn(Route* __this, int32_t* __retval);
 void Route__New1_fn(uString* path, uString* parameter, Route* subRoute, Route** __retval);
 
 struct Route : uObject
@@ -25,7 +25,7 @@ struct Route : uObject
     uStrong< ::g::Fuse::Navigation::RouterPage*> RouterPage;
 
     void ctor_(uString* path, uString* parameter, Route* subRoute);
-    int Length();
+    int32_t Length();
     static Route* New1(uString* path, uString* parameter, Route* subRoute);
 };
 // }

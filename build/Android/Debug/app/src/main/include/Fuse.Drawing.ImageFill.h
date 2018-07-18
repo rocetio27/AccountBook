@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/Drawing/ImageFill.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/Drawing/ImageFill.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -52,26 +52,26 @@ void ImageFill__OnUnpinned_fn(ImageFill* __this);
 void ImageFill__get_SizingContainer_fn(ImageFill* __this, ::g::Fuse::Internal::SizingContainer** __retval);
 void ImageFill__get_Source_fn(ImageFill* __this, ::g::Fuse::Resources::ImageSource** __retval);
 void ImageFill__set_Source_fn(ImageFill* __this, ::g::Fuse::Resources::ImageSource* value);
-void ImageFill__get_WrapMode_fn(ImageFill* __this, int* __retval);
-void ImageFill__set_WrapMode_fn(ImageFill* __this, int* value);
+void ImageFill__get_WrapMode_fn(ImageFill* __this, int32_t* __retval);
+void ImageFill__set_WrapMode_fn(ImageFill* __this, int32_t* value);
 
 struct ImageFill : ::g::Fuse::Drawing::DynamicBrush
 {
     static ::g::Uno::UX::Selector _sourceName_;
-    static ::g::Uno::UX::Selector& _sourceName() { return _sourceName_; }
+    static ::g::Uno::UX::Selector& _sourceName() { return ImageFill_typeof()->Init(), _sourceName_; }
     static ::g::Uno::UX::Selector _colorName_;
-    static ::g::Uno::UX::Selector& _colorName() { return _colorName_; }
+    static ::g::Uno::UX::Selector& _colorName() { return ImageFill_typeof()->Init(), _colorName_; }
     ::g::Uno::Float4 _color;
     ImageFill__DrawParams _drawParams;
     uStrong< ::g::Uno::Graphics::Framebuffer*> _tempTexture;
     uStrong< ::g::Fuse::Internal::ImageContainer*> _container;
     static ::g::Uno::UX::Selector _wrapModeName_;
-    static ::g::Uno::UX::Selector& _wrapModeName() { return _wrapModeName_; }
-    int _wrapMode;
+    static ::g::Uno::UX::Selector& _wrapModeName() { return ImageFill_typeof()->Init(), _wrapModeName_; }
+    int32_t _wrapMode;
     static ::g::Uno::UX::Selector _paramName_;
-    static ::g::Uno::UX::Selector& _paramName() { return _paramName_; }
+    static ::g::Uno::UX::Selector& _paramName() { return ImageFill_typeof()->Init(), _paramName_; }
     static ::g::Uno::UX::Selector _sizingName_;
-    static ::g::Uno::UX::Selector& _sizingName() { return _sizingName_; }
+    static ::g::Uno::UX::Selector& _sizingName() { return ImageFill_typeof()->Init(), _sizingName_; }
     double _lastUsed;
 
     void CleanTempTexture();
@@ -83,8 +83,8 @@ struct ImageFill : ::g::Fuse::Drawing::DynamicBrush
     ::g::Fuse::Internal::SizingContainer* SizingContainer();
     ::g::Fuse::Resources::ImageSource* Source();
     void Source(::g::Fuse::Resources::ImageSource* value);
-    int WrapMode();
-    void WrapMode(int value);
+    int32_t WrapMode();
+    void WrapMode(int32_t value);
 };
 // }
 

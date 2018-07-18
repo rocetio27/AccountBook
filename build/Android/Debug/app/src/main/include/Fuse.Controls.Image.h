@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/Image.ScriptClass.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/Image.ScriptClass.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -8,6 +8,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -25,14 +26,13 @@ namespace g{namespace Fuse{namespace Controls{struct Image;}}}
 namespace g{namespace Fuse{namespace Internal{struct ImageContainer;}}}
 namespace g{namespace Fuse{namespace Resources{struct ImageSource;}}}
 namespace g{namespace Fuse{namespace Resources{struct ImageSourceErrorArgs;}}}
-namespace g{namespace Fuse{namespace Scripting{struct Context;}}}
 namespace g{namespace Fuse{namespace Triggers{struct BusyTask;}}}
 namespace g{namespace Fuse{struct DrawContext;}}
 namespace g{namespace Fuse{struct HitTestContext;}}
 namespace g{namespace Fuse{struct LayoutParams;}}
 namespace g{namespace Fuse{struct VisualBounds;}}
 namespace g{namespace Uno{namespace UX{struct FileSource;}}}
-namespace g{namespace Uno{struct Float4x4;}}
+namespace g{namespace Uno{struct Float3x3;}}
 
 namespace g{
 namespace Fuse{
@@ -70,8 +70,8 @@ void Image__OnUnrooted_fn(Image* __this);
 void Image__add_ParamChanged_fn(Image* __this, uDelegate* value);
 void Image__remove_ParamChanged_fn(Image* __this, uDelegate* value);
 void Image__PushPropertiesToNativeView_fn(Image* __this);
-void Image__reload_fn(::g::Fuse::Scripting::Context* c, Image* img, uArray* args);
-void Image__retry_fn(::g::Fuse::Scripting::Context* c, Image* img, uArray* args);
+void Image__reload_fn(Image* img);
+void Image__retry_fn(Image* img);
 void Image__get_Scale9Margin_fn(Image* __this, ::g::Uno::Float4* __retval);
 void Image__set_Scale9Margin_fn(Image* __this, ::g::Uno::Float4* value);
 void Image__SetContentBox_fn(Image* __this, ::g::Uno::Float4* contentBox);
@@ -79,7 +79,7 @@ void Image__get_Source_fn(Image* __this, ::g::Fuse::Resources::ImageSource** __r
 void Image__set_Source_fn(Image* __this, ::g::Fuse::Resources::ImageSource* value);
 void Image__add_SourceChanged_fn(Image* __this, uDelegate* value);
 void Image__remove_SourceChanged_fn(Image* __this, uDelegate* value);
-void Image__TransformFromImageOrientation_fn(Image* __this, int* orientation, ::g::Uno::Float4x4* __retval);
+void Image__TransformFromImageOrientation_fn(int32_t* orientation, ::g::Uno::Float3x3* __retval);
 void Image__UpdateNativeImageSource_fn(Image* __this);
 void Image__UpdateNativeImageTransform_fn(Image* __this);
 
@@ -126,12 +126,12 @@ struct Image : ::g::Fuse::Controls::LayoutControl
     void Source(::g::Fuse::Resources::ImageSource* value);
     void add_SourceChanged(uDelegate* value);
     void remove_SourceChanged(uDelegate* value);
-    ::g::Uno::Float4x4 TransformFromImageOrientation(int orientation);
     void UpdateNativeImageSource();
     void UpdateNativeImageTransform();
     static Image* New3();
-    static void reload(::g::Fuse::Scripting::Context* c, Image* img, uArray* args);
-    static void retry(::g::Fuse::Scripting::Context* c, Image* img, uArray* args);
+    static void reload(Image* img);
+    static void retry(Image* img);
+    static ::g::Uno::Float3x3 TransformFromImageOrientation(int32_t orientation);
 };
 // }
 

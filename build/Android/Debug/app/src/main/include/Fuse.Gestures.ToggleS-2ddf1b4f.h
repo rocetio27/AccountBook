@@ -1,7 +1,8 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Gestures/1.4.2/Swipe.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Gestures/1.9.0/Swipe.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Triggers.Actions-fcab7e57.h>
 namespace g{namespace Fuse{namespace Gestures{struct SwipeGesture;}}}
 namespace g{namespace Fuse{namespace Gestures{struct ToggleSwipeActive;}}}
@@ -11,7 +12,7 @@ namespace g{
 namespace Fuse{
 namespace Gestures{
 
-// public sealed class ToggleSwipeActive :410
+// public sealed class ToggleSwipeActive :436
 // {
 ::g::Fuse::Triggers::Actions::TriggerAction_type* ToggleSwipeActive_typeof();
 void ToggleSwipeActive__Perform_fn(ToggleSwipeActive* __this, ::g::Fuse::Node* target);

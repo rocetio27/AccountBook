@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/ListPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/ListPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.ListPage.h>
@@ -11,21 +11,23 @@
 #include <Fuse.Node.h>
 #include <Fuse.Reactive.Data.h>
 #include <Fuse.Reactive.EventBinding.h>
+#include <Fuse.Reactive.Expression.h>
 #include <Fuse.Reactive.IExpression.h>
 #include <Fuse.Visual.h>
 #include <Uno.Bool.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IList-1.h>
+#include <Uno.Int.h>
 #include <Uno.Object.h>
 #include <Uno.String.h>
-static uString* STRINGS[2];
+static uString* STRINGS[3];
 static uType* TYPES[2];
 
 namespace g{
 
-// public partial sealed class ListPage.Template1 :26
+// public partial sealed class ListPage.Template1 :27
 // {
-// static Template1() :36
+// static Template1() :37
 static void ListPage__Template1__cctor__fn(uType* __type)
 {
 }
@@ -34,6 +36,7 @@ static void ListPage__Template1_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("GroupingConfirm");
     ::STRINGS[1] = uString::Const("OK");
+    ::STRINGS[2] = uString::Const("ListPage.ux");
     ::TYPES[0] = ::g::Fuse::Gestures::ClickedHandler_typeof();
     ::TYPES[1] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL);
     type->SetFields(2,
@@ -59,31 +62,35 @@ static void ListPage__Template1_build(uType* type)
     return type;
 }
 
-// public Template1(ListPage parent, ListPage parentInstance) :30
+// public Template1(ListPage parent, ListPage parentInstance) :31
 void ListPage__Template1__ctor_1_fn(ListPage__Template1* __this, ::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :39
+// public override sealed object New() :40
 void ListPage__Template1__New1_fn(ListPage__Template1* __this, uObject** __retval)
 {
     ::g::Fuse::Controls::Button* __self1 = ::g::Fuse::Controls::Button::New5();
     ::g::Fuse::Reactive::Data* temp = ::g::Fuse::Reactive::Data::New1(::STRINGS[0/*"GroupingCon...*/]);
     __this->temp_eb21 = ::g::Fuse::Reactive::EventBinding::New1((uObject*)temp);
     __self1->Text(::STRINGS[1/*"OK"*/]);
+    __self1->SourceLineNumber(76);
+    __self1->SourceFileName(::STRINGS[2/*"ListPage.ux"*/]);
     ::g::Fuse::Gestures::Clicked::AddHandler(__self1, uDelegate::New(::TYPES[0/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb21)));
+    temp->SourceLineNumber(76);
+    temp->SourceFileName(::STRINGS[2/*"ListPage.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Bindings()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Binding>*/]), __this->temp_eb21);
     return *__retval = __self1, void();
 }
 
-// public Template1 New(ListPage parent, ListPage parentInstance) :30
+// public Template1 New(ListPage parent, ListPage parentInstance) :31
 void ListPage__Template1__New2_fn(::g::ListPage* parent, ::g::ListPage* parentInstance, ListPage__Template1** __retval)
 {
     *__retval = ListPage__Template1::New2(parent, parentInstance);
 }
 
-// public Template1(ListPage parent, ListPage parentInstance) [instance] :30
+// public Template1(ListPage parent, ListPage parentInstance) [instance] :31
 void ListPage__Template1::ctor_1(::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     ctor_(NULL, false);
@@ -91,7 +98,7 @@ void ListPage__Template1::ctor_1(::g::ListPage* parent, ::g::ListPage* parentIns
     __parentInstance1 = parentInstance;
 }
 
-// public Template1 New(ListPage parent, ListPage parentInstance) [static] :30
+// public Template1 New(ListPage parent, ListPage parentInstance) [static] :31
 ListPage__Template1* ListPage__Template1::New2(::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     ListPage__Template1* obj1 = (ListPage__Template1*)uNew(ListPage__Template1_typeof());

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/BudgetPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/BudgetPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-3cda4468.h>
@@ -17,6 +17,7 @@
 #include <Fuse.Reactive.Data.h>
 #include <Fuse.Reactive.DataBinding.h>
 #include <Fuse.Reactive.EventBinding.h>
+#include <Fuse.Reactive.Expression.h>
 #include <Fuse.Reactive.IExpression.h>
 #include <Fuse.Visual.h>
 #include <Uno.Bool.h>
@@ -27,20 +28,19 @@
 #include <Uno.Object.h>
 #include <Uno.String.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Selector.h>
-static uString* STRINGS[3];
+static uString* STRINGS[4];
 static uType* TYPES[2];
 
 namespace g{
 
-// public partial sealed class BudgetPage.Template :6
+// public partial sealed class BudgetPage.Template :5
 // {
-// static Template() :17
+// static Template() :16
 static void BudgetPage__Template__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    BudgetPage__Template::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"Text"*/]);
+    BudgetPage__Template::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"Text"*/]);
 }
 
 static void BudgetPage__Template_build(uType* type)
@@ -48,11 +48,11 @@ static void BudgetPage__Template_build(uType* type)
     ::STRINGS[0] = uString::Const("Text");
     ::STRINGS[1] = uString::Const("title");
     ::STRINGS[2] = uString::Const("ChangeTitleEntryMode");
+    ::STRINGS[3] = uString::Const("BudgetPage.ux");
     ::TYPES[0] = ::g::Fuse::Gestures::ClickedHandler_typeof();
     ::TYPES[1] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL);
     type->SetDependencies(
-        ::g::Fuse::Drawing::Colors_typeof(),
-        ::g::Fuse::Controls::Grid_typeof());
+        ::g::Fuse::Drawing::Colors_typeof());
     type->SetFields(2,
         ::g::BudgetPage_typeof(), offsetof(BudgetPage__Template, __parent1), uFieldFlagsWeak,
         ::g::BudgetPage_typeof(), offsetof(BudgetPage__Template, __parentInstance1), uFieldFlagsWeak,
@@ -69,7 +69,7 @@ static void BudgetPage__Template_build(uType* type)
     uTypeOptions options;
     options.BaseDefinition = ::g::Uno::UX::Template_typeof();
     options.FieldCount = 7;
-    options.DependencyCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(BudgetPage__Template);
     options.TypeSize = sizeof(::g::Uno::UX::Template_type);
     type = (::g::Uno::UX::Template_type*)uClassType::New("BudgetPage.Template", options);
@@ -79,13 +79,13 @@ static void BudgetPage__Template_build(uType* type)
     return type;
 }
 
-// public Template(BudgetPage parent, BudgetPage parentInstance) :10
+// public Template(BudgetPage parent, BudgetPage parentInstance) :9
 void BudgetPage__Template__ctor_1_fn(BudgetPage__Template* __this, ::g::BudgetPage* parent, ::g::BudgetPage* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :20
+// public override sealed object New() :19
 void BudgetPage__Template__New1_fn(BudgetPage__Template* __this, uObject** __retval)
 {
     ::g::wbButtonB* __self1 = ::g::wbButtonB::New6();
@@ -94,15 +94,21 @@ void BudgetPage__Template__New1_fn(BudgetPage__Template* __this, uObject** __ret
     ::g::Fuse::Reactive::Data* temp1 = ::g::Fuse::Reactive::Data::New1(::STRINGS[2/*"ChangeTitle...*/]);
     ::g::Fuse::Reactive::DataBinding* temp2 = ::g::Fuse::Reactive::DataBinding::New1(__this->__self_Text_inst1, (uObject*)temp, 3);
     __this->temp_eb0 = ::g::Fuse::Reactive::EventBinding::New1((uObject*)temp1);
+    __self1->textcolor(::g::Fuse::Drawing::Colors::Black());
+    __self1->SourceLineNumber(31);
+    __self1->SourceFileName(::STRINGS[3/*"BudgetPage.ux"*/]);
     ::g::Fuse::Controls::Grid::SetColumnSpan(__self1, 3);
-    __self1->textcolor(::g::Fuse::Drawing::Colors::Black_);
     ::g::Fuse::Gestures::Clicked::AddHandler(__self1, uDelegate::New(::TYPES[0/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb0)));
+    temp->SourceLineNumber(31);
+    temp->SourceFileName(::STRINGS[3/*"BudgetPage.ux"*/]);
+    temp1->SourceLineNumber(31);
+    temp1->SourceFileName(::STRINGS[3/*"BudgetPage.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Bindings()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Binding>*/]), temp2);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Bindings()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Binding>*/]), __this->temp_eb0);
     return *__retval = __self1, void();
 }
 
-// public Template New(BudgetPage parent, BudgetPage parentInstance) :10
+// public Template New(BudgetPage parent, BudgetPage parentInstance) :9
 void BudgetPage__Template__New2_fn(::g::BudgetPage* parent, ::g::BudgetPage* parentInstance, BudgetPage__Template** __retval)
 {
     *__retval = BudgetPage__Template::New2(parent, parentInstance);
@@ -110,7 +116,7 @@ void BudgetPage__Template__New2_fn(::g::BudgetPage* parent, ::g::BudgetPage* par
 
 ::g::Uno::UX::Selector BudgetPage__Template::__selector0_;
 
-// public Template(BudgetPage parent, BudgetPage parentInstance) [instance] :10
+// public Template(BudgetPage parent, BudgetPage parentInstance) [instance] :9
 void BudgetPage__Template::ctor_1(::g::BudgetPage* parent, ::g::BudgetPage* parentInstance)
 {
     ctor_(NULL, false);
@@ -118,7 +124,7 @@ void BudgetPage__Template::ctor_1(::g::BudgetPage* parent, ::g::BudgetPage* pare
     __parentInstance1 = parentInstance;
 }
 
-// public Template New(BudgetPage parent, BudgetPage parentInstance) [static] :10
+// public Template New(BudgetPage parent, BudgetPage parentInstance) [static] :9
 BudgetPage__Template* BudgetPage__Template::New2(::g::BudgetPage* parent, ::g::BudgetPage* parentInstance)
 {
     BudgetPage__Template* obj1 = (BudgetPage__Template*)uNew(BudgetPage__Template_typeof());

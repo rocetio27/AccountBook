@@ -24,15 +24,13 @@ namespace Fuse{
 namespace Resources{
 namespace Exif{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Resources\Exif\Exif.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Resources\Exif\Exif.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal sealed extern class ExifAndroidImpl :181
 // {
 static void ExifAndroidImpl_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::Uno::Compiler::ExportTargetInterop::ForeignDataView_typeof());
 }
 
 uType* ExifAndroidImpl_typeof()
@@ -41,7 +39,6 @@ uType* ExifAndroidImpl_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(ExifAndroidImpl);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Resources.Exif.ExifAndroidImpl", options);
@@ -56,7 +53,7 @@ void ExifAndroidImpl__FromByteArray_fn(uArray* bytes, ::g::Fuse::Resources::Exif
 }
 
 // private static int GetOrientation(Java.Object stream) :202
-void ExifAndroidImpl__GetOrientation_fn(::g::Java::Object* stream, int* __retval)
+void ExifAndroidImpl__GetOrientation_fn(::g::Java::Object* stream, int32_t* __retval)
 {
     *__retval = ExifAndroidImpl::GetOrientation(stream);
 }
@@ -76,16 +73,16 @@ void ExifAndroidImpl__InputStreamFromByteArray_fn(::g::Java::Object* buf, ::g::J
 }
 
 // private static int GetOrientation(Java.Object stream) [static] :202
-int ExifAndroidImpl::GetOrientation(::g::Java::Object* stream)
+int32_t ExifAndroidImpl::GetOrientation(::g::Java::Object* stream)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "GetOrientation116", "(Ljava/lang/Object;)I");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "GetOrientation121", "(Ljava/lang/Object;)I");
         ::g::Java::Object* _ustream=stream;
         jobject _stream = (_ustream==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ustream, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         jint __jresult = U_JNIVAR->CallStaticIntMethod(__cls,__mtd,_stream);
-        int __result = (int)__jresult;
+        int32_t __result = (int32_t)__jresult;
         if (_stream!=NULL) { U_JNIVAR->DeleteLocalRef(_stream); }
         ::g::Android::Base::JNI::CheckException();
         return __result;
@@ -99,7 +96,7 @@ int ExifAndroidImpl::GetOrientation(::g::Java::Object* stream)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "InputStreamFromByteArray117", "(Ljava/lang/Object;)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "InputStreamFromByteArray122", "(Ljava/lang/Object;)Ljava/lang/Object;");
         ::g::Java::Object* _ubuf=buf;
         jobject _buf = (_ubuf==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ubuf, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd,_buf);
@@ -112,7 +109,7 @@ int ExifAndroidImpl::GetOrientation(::g::Java::Object* stream)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Resources\Exif\Exif.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Resources\Exif\Exif.uno
 // ---------------------------------------------------------------------------------------------------
 
 // public struct ExifData :21
@@ -120,12 +117,9 @@ int ExifAndroidImpl::GetOrientation(::g::Java::Object* stream)
 static void ExifData_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("Reserved Exif orientation {0}, assuming identity");
-    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.4.2\\Resources\\Exif\\Exif.uno");
+    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.9.0\\Resources\\Exif\\Exif.uno");
     ::STRINGS[2] = uString::Const(".ctor");
     ::TYPES[0] = uObject_typeof()->Array();
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Fuse::Resources::Exif::ExifAndroidImpl_typeof());
     type->SetFields(0,
         ::g::Fuse::Resources::Exif::ImageOrientation_typeof(), offsetof(ExifData, Orientation), 0);
 }
@@ -137,7 +131,6 @@ uStructType* ExifData_typeof()
 
     uTypeOptions options;
     options.FieldCount = 1;
-    options.DependencyCount = 2;
     options.Alignment = alignof(ExifData);
     options.ValueSize = sizeof(ExifData);
     options.TypeSize = sizeof(uStructType);
@@ -147,7 +140,7 @@ uStructType* ExifData_typeof()
 }
 
 // internal ExifData(int orientation) :42
-void ExifData__ctor__fn(ExifData* __this, int* orientation)
+void ExifData__ctor__fn(ExifData* __this, int32_t* orientation)
 {
     __this->ctor_(*orientation);
 }
@@ -159,13 +152,13 @@ void ExifData__FromByteArray_fn(uArray* buffer, ExifData* __retval)
 }
 
 // internal ExifData New(int orientation) :42
-void ExifData__New1_fn(int* orientation, ExifData* __retval)
+void ExifData__New1_fn(int32_t* orientation, ExifData* __retval)
 {
     *__retval = ExifData__New1(*orientation);
 }
 
 // internal ExifData(int orientation) [instance] :42
-void ExifData::ctor_(int orientation)
+void ExifData::ctor_(int32_t orientation)
 {
     if (orientation < 0)
     {
@@ -217,7 +210,7 @@ void ExifData::ctor_(int orientation)
         }
         default:
         {
-            ::g::Fuse::Diagnostics::InternalError(::g::Uno::String::Format(::STRINGS[0/*"Reserved Ex...*/], uArray::Init<uObject*>(::TYPES[0/*object[]*/], 1, uBox<int>(::g::Uno::Int_typeof(), orientation))), NULL, ::STRINGS[1/*"C:\\Users\\...*/], 63, ::STRINGS[2/*".ctor"*/]);
+            ::g::Fuse::Diagnostics::InternalError(::g::Uno::String::Format(::STRINGS[0/*"Reserved Ex...*/], uArray::Init<uObject*>(::TYPES[0/*object[]*/], 1, uBox<int32_t>(::g::Uno::Int_typeof(), orientation))), NULL, ::STRINGS[1/*"C:\\Users\\...*/], 63, ::STRINGS[2/*".ctor"*/]);
             Orientation = 0;
             break;
         }
@@ -232,7 +225,7 @@ ExifData ExifData__FromByteArray(uArray* buffer)
 }
 
 // internal ExifData New(int orientation) [static] :42
-ExifData ExifData__New1(int orientation)
+ExifData ExifData__New1(int32_t orientation)
 {
     ExifData obj1;
     obj1.ctor_(orientation);
@@ -240,7 +233,7 @@ ExifData ExifData__New1(int orientation)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Resources\Exif\Exif.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Resources\Exif\Exif.uno
 // ---------------------------------------------------------------------------------------------------
 
 // public enum ImageOrientation :12

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/LayoutMasterBoxSizing.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/LayoutMasterBoxSizing.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -24,23 +24,21 @@ void LayoutMasterBoxSizing__CalcBoxPlacement_fn(LayoutMasterBoxSizing* __this, :
 void LayoutMasterBoxSizing__CalcMarginSize_fn(LayoutMasterBoxSizing* __this, ::g::Fuse::Elements::Element* element, ::g::Fuse::LayoutParams* lp, ::g::Uno::Float2* __retval);
 void LayoutMasterBoxSizing__GetLayoutMaster_fn(::g::Fuse::Elements::Element* elm, ::g::Fuse::Elements::Element** __retval);
 void LayoutMasterBoxSizing__GetLayoutMasterData_fn(::g::Fuse::Elements::Element* elm, LayoutMasterBoxSizing__LayoutMasterData** __retval);
-void LayoutMasterBoxSizing__IsContentRelativeSize_fn(LayoutMasterBoxSizing* __this, ::g::Fuse::Elements::Element* element, int* __retval);
+void LayoutMasterBoxSizing__IsContentRelativeSize_fn(LayoutMasterBoxSizing* __this, ::g::Fuse::Elements::Element* element, int32_t* __retval);
 void LayoutMasterBoxSizing__New1_fn(LayoutMasterBoxSizing** __retval);
 void LayoutMasterBoxSizing__RequestLayout_fn(LayoutMasterBoxSizing* __this, ::g::Fuse::Elements::Element* element);
-void LayoutMasterBoxSizing__SetLayoutMaster_fn(::g::Fuse::Elements::Element* elm, ::g::Fuse::Elements::Element* master);
 
 struct LayoutMasterBoxSizing : ::g::Fuse::Elements::BoxSizing
 {
     static uSStrong<LayoutMasterBoxSizing*> Singleton_;
-    static uSStrong<LayoutMasterBoxSizing*>& Singleton() { return Singleton_; }
+    static uSStrong<LayoutMasterBoxSizing*>& Singleton() { return LayoutMasterBoxSizing_typeof()->Init(), Singleton_; }
     static uSStrong< ::g::Fuse::PropertyHandle*> _layoutMasterDataProperty_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _layoutMasterDataProperty() { return _layoutMasterDataProperty_; }
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _layoutMasterDataProperty() { return LayoutMasterBoxSizing_typeof()->Init(), _layoutMasterDataProperty_; }
 
     void ctor_1();
     static ::g::Fuse::Elements::Element* GetLayoutMaster(::g::Fuse::Elements::Element* elm);
     static LayoutMasterBoxSizing__LayoutMasterData* GetLayoutMasterData(::g::Fuse::Elements::Element* elm);
     static LayoutMasterBoxSizing* New1();
-    static void SetLayoutMaster(::g::Fuse::Elements::Element* elm, ::g::Fuse::Elements::Element* master);
 };
 // }
 

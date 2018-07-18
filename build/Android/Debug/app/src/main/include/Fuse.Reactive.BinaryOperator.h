@@ -1,51 +1,46 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Expressions/1.4.2/BinaryOperator.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Expressions/1.9.0/BinaryOperator.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
-#include <Fuse.Reactive.Expression.h>
+#include <Fuse.ISourceLocation.h>
+#include <Fuse.Reactive.Compute-2d5dc615.h>
 #include <Fuse.Reactive.IExpression.h>
 namespace g{namespace Fuse{namespace Reactive{struct BinaryOperator;}}}
+namespace g{namespace Fuse{namespace Reactive{struct Expression;}}}
+namespace g{namespace Fuse{namespace Reactive{struct Expression__Argument;}}}
 
 namespace g{
 namespace Fuse{
 namespace Reactive{
 
-// public abstract class BinaryOperator :12
+// public abstract class BinaryOperator :8
 // {
-struct BinaryOperator_type : ::g::Fuse::Reactive::Expression_type
+struct BinaryOperator_type : ::g::Fuse::Reactive::ComputeExpression_type
 {
-    void(*fp_Compute)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**);
-    void(*fp_get_IsLeftOptional)(::g::Fuse::Reactive::BinaryOperator*, bool*);
+    void(*fp_TryCompute1)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**, bool*);
 };
 
 BinaryOperator_type* BinaryOperator_typeof();
-void BinaryOperator__ctor_1_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right);
+void BinaryOperator__ctor_3_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right, uString* name, int32_t* flags);
 void BinaryOperator__Compute_fn(BinaryOperator* __this, uObject* left, uObject* right, uObject** __retval);
+void BinaryOperator__GetFlags_fn(BinaryOperator* __this, int32_t* __retval);
 void BinaryOperator__get_IsLeftOptional_fn(BinaryOperator* __this, bool* __retval);
 void BinaryOperator__get_IsRightOptional_fn(BinaryOperator* __this, bool* __retval);
 void BinaryOperator__get_Left_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval);
-void BinaryOperator__set_Left_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression* value);
-void BinaryOperator__OnNewOperands_fn(BinaryOperator* __this, uObject* listener, uObject* left, uObject* right);
 void BinaryOperator__get_Right_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval);
-void BinaryOperator__set_Right_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression* value);
-void BinaryOperator__Subscribe_fn(BinaryOperator* __this, uObject* context, uObject* listener, uObject** __retval);
+void BinaryOperator__TryCompute_fn(BinaryOperator* __this, uArray* args, uObject** result, bool* __retval);
+void BinaryOperator__TryCompute1_fn(BinaryOperator* __this, uObject* left, uObject* right, uObject** result, bool* __retval);
 
-struct BinaryOperator : ::g::Fuse::Reactive::Expression
+struct BinaryOperator : ::g::Fuse::Reactive::ComputeExpression
 {
-    uStrong< ::g::Fuse::Reactive::Expression*> _Left;
-    uStrong< ::g::Fuse::Reactive::Expression*> _Right;
-
-    void ctor_1(::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right);
-    uObject* Compute(uObject* left, uObject* right) { uObject* __retval; return (((BinaryOperator_type*)__type)->fp_Compute)(this, left, right, &__retval), __retval; }
-    bool IsLeftOptional() { bool __retval; return (((BinaryOperator_type*)__type)->fp_get_IsLeftOptional)(this, &__retval), __retval; }
+    void ctor_3(::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right, uString* name, int32_t flags);
+    uObject* Compute(uObject* left, uObject* right);
+    bool IsLeftOptional();
     bool IsRightOptional();
     ::g::Fuse::Reactive::Expression* Left();
-    void Left(::g::Fuse::Reactive::Expression* value);
-    void OnNewOperands(uObject* listener, uObject* left, uObject* right);
     ::g::Fuse::Reactive::Expression* Right();
-    void Right(::g::Fuse::Reactive::Expression* value);
-    static uObject* Compute(BinaryOperator* __this, uObject* left, uObject* right) { uObject* __retval; return BinaryOperator__Compute_fn(__this, left, right, &__retval), __retval; }
-    static bool IsLeftOptional(BinaryOperator* __this) { bool __retval; return BinaryOperator__get_IsLeftOptional_fn(__this, &__retval), __retval; }
+    bool TryCompute1(uObject* left, uObject* right, uObject** result) { bool __retval; return (((BinaryOperator_type*)__type)->fp_TryCompute1)(this, left, right, result, &__retval), __retval; }
+    static bool TryCompute1(BinaryOperator* __this, uObject* left, uObject* right, uObject** result) { bool __retval; return BinaryOperator__TryCompute1_fn(__this, left, right, result, &__retval), __retval; }
 };
 // }
 

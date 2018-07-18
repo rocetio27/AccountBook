@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.ScrollView/1.4.2/ScrollViewPager.ScriptClass.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.ScrollView/1.9.0/ScrollViewPager.ScriptClass.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -6,6 +6,7 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
@@ -15,7 +16,6 @@
 namespace g{namespace Fuse{namespace Controls{struct ScrollViewBase;}}}
 namespace g{namespace Fuse{namespace Controls{struct ScrollViewPager;}}}
 namespace g{namespace Fuse{namespace Reactive{struct Each;}}}
-namespace g{namespace Fuse{namespace Scripting{struct Context;}}}
 namespace g{namespace Uno{namespace UX{struct PropertyObject;}}}
 namespace g{namespace Uno{namespace UX{struct Selector;}}}
 
@@ -27,11 +27,11 @@ namespace Controls{
 // {
 struct ScrollViewPager_type : ::g::Fuse::Node_type
 {
-    ::g::Uno::UX::IPropertyListener interface6;
+    ::g::Uno::UX::IPropertyListener interface7;
 };
 
 ScrollViewPager_type* ScrollViewPager_typeof();
-void ScrollViewPager__check_fn(::g::Fuse::Scripting::Context* c, ScrollViewPager* s, uArray* args);
+void ScrollViewPager__check_fn(ScrollViewPager* s);
 void ScrollViewPager__Check_fn(ScrollViewPager* __this);
 void ScrollViewPager__CheckPosition_fn(ScrollViewPager* __this);
 void ScrollViewPager__CheckSizing_fn(ScrollViewPager* __this);
@@ -47,20 +47,20 @@ void ScrollViewPager__add_ReachedStart_fn(ScrollViewPager* __this, uDelegate* va
 void ScrollViewPager__remove_ReachedStart_fn(ScrollViewPager* __this, uDelegate* value);
 void ScrollViewPager__RequestCheckPosition_fn(ScrollViewPager* __this);
 void ScrollViewPager__RequestCheckSizing_fn(ScrollViewPager* __this);
-void ScrollViewPager__get_Retain_fn(ScrollViewPager* __this, int* __retval);
-void ScrollViewPager__set_Retain_fn(ScrollViewPager* __this, int* value);
+void ScrollViewPager__get_Retain_fn(ScrollViewPager* __this, int32_t* __retval);
+void ScrollViewPager__set_Retain_fn(ScrollViewPager* __this, int32_t* value);
 void ScrollViewPager__UnoUXIPropertyListenerOnPropertyChanged_fn(ScrollViewPager* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::UX::Selector* prop);
 
 struct ScrollViewPager : ::g::Fuse::Behavior
 {
-    int _retain;
+    int32_t _retain;
     float _endRange;
     uStrong< ::g::Fuse::Reactive::Each*> _each;
     uStrong< ::g::Fuse::Controls::ScrollViewBase*> _scrollable;
     bool _pendingPosition;
     bool _pendingSizing;
-    int _lastActivityPosition;
-    int _lastActivitySizing;
+    int32_t _lastActivityPosition;
+    int32_t _lastActivitySizing;
     bool _nearTrueEnd;
     bool _nearTrueStart;
     ::g::Uno::Float2 _prevActualSize;
@@ -80,9 +80,9 @@ struct ScrollViewPager : ::g::Fuse::Behavior
     void remove_ReachedStart(uDelegate* value);
     void RequestCheckPosition();
     void RequestCheckSizing();
-    int Retain();
-    void Retain(int value);
-    static void check(::g::Fuse::Scripting::Context* c, ScrollViewPager* s, uArray* args);
+    int32_t Retain();
+    void Retain(int32_t value);
+    static void check(ScrollViewPager* s);
 };
 // }
 

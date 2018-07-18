@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Edi-a16f2ba2.h>
@@ -11,7 +11,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_EditButton_text_Property :341
+// internal sealed class AccountBook_EditButton_text_Property :379
 // {
 static void AccountBook_EditButton_text_Property_build(uType* type)
 {
@@ -40,50 +40,50 @@ static void AccountBook_EditButton_text_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_EditButton_text_Property(EditButton obj, Uno.UX.Selector name) :344
+// public AccountBook_EditButton_text_Property(EditButton obj, Uno.UX.Selector name) :382
 void AccountBook_EditButton_text_Property__ctor_3_fn(AccountBook_EditButton_text_Property* __this, ::g::EditButton* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed string Get(Uno.UX.PropertyObject obj) :346
+// public override sealed string Get(Uno.UX.PropertyObject obj) :384
 void AccountBook_EditButton_text_Property__Get1_fn(AccountBook_EditButton_text_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString** __retval)
 {
     return *__retval = uPtr(uCast< ::g::EditButton*>(obj, ::TYPES[0/*EditButton*/]))->text(), void();
 }
 
-// public AccountBook_EditButton_text_Property New(EditButton obj, Uno.UX.Selector name) :344
+// public AccountBook_EditButton_text_Property New(EditButton obj, Uno.UX.Selector name) :382
 void AccountBook_EditButton_text_Property__New1_fn(::g::EditButton* obj, ::g::Uno::UX::Selector* name, AccountBook_EditButton_text_Property** __retval)
 {
     *__retval = AccountBook_EditButton_text_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :345
+// public override sealed Uno.UX.PropertyObject get_Object() :383
 void AccountBook_EditButton_text_Property__get_Object_fn(AccountBook_EditButton_text_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :347
+// public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :385
 void AccountBook_EditButton_text_Property__Set1_fn(AccountBook_EditButton_text_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString* v, uObject* origin)
 {
     uPtr(uCast< ::g::EditButton*>(obj, ::TYPES[0/*EditButton*/]))->Settext(v, origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :348
+// public override sealed bool get_SupportsOriginSetter() :386
 void AccountBook_EditButton_text_Property__get_SupportsOriginSetter_fn(AccountBook_EditButton_text_Property* __this, bool* __retval)
 {
     return *__retval = true, void();
 }
 
-// public AccountBook_EditButton_text_Property(EditButton obj, Uno.UX.Selector name) [instance] :344
+// public AccountBook_EditButton_text_Property(EditButton obj, Uno.UX.Selector name) [instance] :382
 void AccountBook_EditButton_text_Property::ctor_3(::g::EditButton* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_EditButton_text_Property New(EditButton obj, Uno.UX.Selector name) [static] :344
+// public AccountBook_EditButton_text_Property New(EditButton obj, Uno.UX.Selector name) [static] :382
 AccountBook_EditButton_text_Property* AccountBook_EditButton_text_Property::New1(::g::EditButton* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_EditButton_text_Property* obj1 = (AccountBook_EditButton_text_Property*)uNew(AccountBook_EditButton_text_Property_typeof());

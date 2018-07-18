@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.4.2/OpenAnimator.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.9.0/OpenAnimator.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -16,13 +16,13 @@ namespace Animations{
 // {
 struct OpenAnimatorState_type : ::g::Fuse::Animations::AnimatorState_type
 {
-    void(*fp_Seek)(::g::Fuse::Animations::OpenAnimatorState*, bool*, float*, float*, int*, bool*);
+    void(*fp_Seek)(::g::Fuse::Animations::OpenAnimatorState*, bool*, float*, float*, int32_t*, bool*);
 };
 
 OpenAnimatorState_type* OpenAnimatorState_typeof();
 void OpenAnimatorState__ctor_1_fn(OpenAnimatorState* __this, ::g::Fuse::Animations::OpenAnimator* animator, ::g::Fuse::Animations::CreateStateParams* p, ::g::Fuse::Visual* useVisual);
-void OpenAnimatorState__SeekProgress_fn(OpenAnimatorState* __this, double* progress, double* interval, int* dir, double* strength, int* __retval);
-void OpenAnimatorState__SeekTime_fn(OpenAnimatorState* __this, double* nominal, double* interval, int* dir, double* strength, int* __retval);
+void OpenAnimatorState__SeekProgress_fn(OpenAnimatorState* __this, double* progress, double* interval, int32_t* dir, double* strength, int32_t* __retval);
+void OpenAnimatorState__SeekTime_fn(OpenAnimatorState* __this, double* nominal, double* interval, int32_t* dir, double* strength, int32_t* __retval);
 
 struct OpenAnimatorState : ::g::Fuse::Animations::AnimatorState
 {
@@ -30,7 +30,7 @@ struct OpenAnimatorState : ::g::Fuse::Animations::AnimatorState
     bool _seekDone;
 
     void ctor_1(::g::Fuse::Animations::OpenAnimator* animator, ::g::Fuse::Animations::CreateStateParams* p, ::g::Fuse::Visual* useVisual);
-    bool Seek(bool on, float interval, float strength, int dir) { bool __retval; return (((OpenAnimatorState_type*)__type)->fp_Seek)(this, &on, &interval, &strength, &dir, &__retval), __retval; }
+    bool Seek(bool on, float interval, float strength, int32_t dir) { bool __retval; return (((OpenAnimatorState_type*)__type)->fp_Seek)(this, &on, &interval, &strength, &dir, &__retval), __retval; }
 };
 // }
 

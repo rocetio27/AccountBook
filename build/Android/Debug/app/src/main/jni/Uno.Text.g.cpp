@@ -8,6 +8,7 @@
 #include <Uno.Byte.h>
 #include <Uno.Char.h>
 #include <Uno.Collections.List-1.h>
+#include <Uno.Environment.h>
 #include <Uno.Int.h>
 #include <Uno.Object.h>
 #include <Uno.String.h>
@@ -16,20 +17,17 @@
 #include <Uno.Text.Decoder.h>
 #include <Uno.Text.Encoding.h>
 #include <Uno.Text.StringBuilder.h>
-#include <Uno.Text.StringBuilderElement.h>
 #include <Uno.Text.Utf8.h>
 #include <Uno.Text.UTF8Decoder.h>
 #include <Uno.Text.UTF8Encoding.h>
-#include <Uno/Base64.h>
-#include <Uno/Support.h>
-static uString* STRINGS[7];
-static uType* TYPES[4];
+static uString* STRINGS[6];
+static uType* TYPES[5];
 
 namespace g{
 namespace Uno{
 namespace Text{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Text\Ascii.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Text\Ascii.uno
 // -----------------------------------------------------------------------------------------------
 
 // public static class Ascii :5
@@ -71,8 +69,8 @@ uArray* Ascii::GetBytes(uString* value)
 
     uArray* res = uArray::New(::TYPES[0/*byte[]*/], uPtr(value)->Length());
 
-    for (int i = 0; i < value->Length(); i++)
-        uPtr(res)->Item<uint8_t>(i) = (uint8_t)(((int)uPtr(value)->Item(i) < 128) ? uPtr(value)->Item(i) : '?');
+    for (int32_t i = 0; i < value->Length(); i++)
+        uPtr(res)->Item<uint8_t>(i) = (uint8_t)(((int32_t)uPtr(value)->Item(i) < 128) ? uPtr(value)->Item(i) : '?');
 
     return res;
 }
@@ -83,16 +81,16 @@ uString* Ascii::GetString(uArray* value)
     if ((value == NULL) || (uPtr(value)->Length() == 0))
         return NULL;
 
-    uString* res = ::g::Uno::String::Empty_;
+    uString* res = ::g::Uno::String::Empty();
 
-    for (int i = 0; i < uPtr(value)->Length(); i++)
-        res = ::g::Uno::String::op_Addition1(res, uBox<uChar>(::g::Uno::Char_typeof(), (uPtr(value)->Item<uint8_t>(i) < 128) ? (uChar)uPtr(value)->Item<uint8_t>(i) : '?'));
+    for (int32_t i = 0; i < uPtr(value)->Length(); i++)
+        res = ::g::Uno::String::op_Addition1(res, uBox<char16_t>(::g::Uno::Char_typeof(), (uPtr(value)->Item<uint8_t>(i) < 128) ? (char16_t)uPtr(value)->Item<uint8_t>(i) : '?'));
 
     return res;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Text\Base64.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Text\Base64.uno
 // ------------------------------------------------------------------------------------------------
 
 // public static class Base64 :8
@@ -122,7 +120,7 @@ void Base64__GetBytes_fn(uString* value, uArray** __retval)
     *__retval = Base64::GetBytes(value);
 }
 
-// public static string GetString(byte[] value) :75
+// public static string GetString(byte[] value) :74
 void Base64__GetString_fn(uArray* value, uString** __retval)
 {
     *__retval = Base64::GetString(value);
@@ -131,30 +129,30 @@ void Base64__GetString_fn(uArray* value, uString** __retval)
 // public static byte[] GetBytes(string value) [static] :12
 uArray* Base64::GetBytes(uString* value)
 {
-    int addidionalSymbols = 0;
+    int32_t addidionalSymbols = 0;
     ::g::Uno::Collections::List* ret = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[1/*Uno.Collections.List<byte>*/]);
     uArray* charArray3 = uArray::New(::TYPES[2/*int[]*/], 3);
     uArray* charArray4 = uArray::New(::TYPES[2/*int[]*/], 4);
 
-    for (int position = 0; position < uPtr(value)->Length(); position++)
+    for (int32_t position = 0; position < uPtr(value)->Length(); position++)
     {
-        if ((uPtr(value)->Item(position) == '=') || (::g::Uno::String::IndexOf(uPtr<uString*>(::STRINGS[0/*"ABCDEFGHIJK...*/]), uPtr(value)->Item(position), 0) < 0))
+        if ((uPtr(value)->Item(position) == '=') || (::g::Uno::String::IndexOf(uPtr<uString*>(::STRINGS[0/*"ABCDEFGHIJK...*/]), uPtr(value)->Item(position)) < 0))
             break;
 
-        uPtr(charArray4)->Item<int>(addidionalSymbols) = (int)uPtr(value)->Item(position);
+        uPtr(charArray4)->Item<int32_t>(addidionalSymbols) = (int32_t)uPtr(value)->Item(position);
         addidionalSymbols++;
 
         if (addidionalSymbols == 4)
         {
-            for (int j = 0; j < 4; j++)
-                uPtr(charArray4)->Item<int>(j) = ::g::Uno::String::IndexOf(uPtr<uString*>(::STRINGS[0/*"ABCDEFGHIJK...*/]), (uChar)uPtr(charArray4)->Item<int>(j), 0);
+            for (int32_t j = 0; j < 4; j++)
+                uPtr(charArray4)->Item<int32_t>(j) = ::g::Uno::String::IndexOf(uPtr<uString*>(::STRINGS[0/*"ABCDEFGHIJK...*/]), (char16_t)uPtr(charArray4)->Item<int32_t>(j));
 
-            uPtr(charArray3)->Item<int>(0) = (uPtr(charArray4)->Item<int>(0) << 2) + ((uPtr(charArray4)->Item<int>(1) & 48) >> 4);
-            charArray3->Item<int>(1) = ((charArray4->Item<int>(1) & 15) << 4) + ((charArray4->Item<int>(2) & 60) >> 2);
-            charArray3->Item<int>(2) = ((charArray4->Item<int>(2) & 3) << 6) + charArray4->Item<int>(3);
+            uPtr(charArray3)->Item<int32_t>(0) = (uPtr(charArray4)->Item<int32_t>(0) << 2) + ((uPtr(charArray4)->Item<int32_t>(1) & 48) >> 4);
+            charArray3->Item<int32_t>(1) = ((charArray4->Item<int32_t>(1) & 15) << 4) + ((charArray4->Item<int32_t>(2) & 60) >> 2);
+            charArray3->Item<int32_t>(2) = ((charArray4->Item<int32_t>(2) & 3) << 6) + charArray4->Item<int32_t>(3);
 
-            for (int j1 = 0; j1 < 3; j1++)
-                ::g::Uno::Collections::List__Add_fn(uPtr(ret), uCRef<uint8_t>((uint8_t)uPtr(charArray3)->Item<int>(j1)));
+            for (int32_t j1 = 0; j1 < 3; j1++)
+                ::g::Uno::Collections::List__Add_fn(uPtr(ret), uCRef<uint8_t>((uint8_t)uPtr(charArray3)->Item<int32_t>(j1)));
 
             addidionalSymbols = 0;
         }
@@ -162,31 +160,89 @@ uArray* Base64::GetBytes(uString* value)
 
     if (addidionalSymbols > 0)
     {
-        for (int j2 = addidionalSymbols; j2 < 4; j2++)
-            uPtr(charArray4)->Item<int>(j2) = 0;
+        for (int32_t j2 = addidionalSymbols; j2 < 4; j2++)
+            uPtr(charArray4)->Item<int32_t>(j2) = 0;
 
-        for (int j3 = 0; j3 < 4; j3++)
-            uPtr(charArray4)->Item<int>(j3) = ::g::Uno::String::IndexOf(uPtr<uString*>(::STRINGS[0/*"ABCDEFGHIJK...*/]), (uChar)uPtr(charArray4)->Item<int>(j3), 0);
+        for (int32_t j3 = 0; j3 < 4; j3++)
+            uPtr(charArray4)->Item<int32_t>(j3) = ::g::Uno::String::IndexOf(uPtr<uString*>(::STRINGS[0/*"ABCDEFGHIJK...*/]), (char16_t)uPtr(charArray4)->Item<int32_t>(j3));
 
-        uPtr(charArray3)->Item<int>(0) = (uPtr(charArray4)->Item<int>(0) << 2) + ((uPtr(charArray4)->Item<int>(1) & 48) >> 4);
-        charArray3->Item<int>(1) = ((charArray4->Item<int>(1) & 15) << 4) + ((charArray4->Item<int>(2) & 60) >> 2);
-        charArray3->Item<int>(2) = ((charArray4->Item<int>(2) & 3) << 6) + charArray4->Item<int>(3);
+        uPtr(charArray3)->Item<int32_t>(0) = (uPtr(charArray4)->Item<int32_t>(0) << 2) + ((uPtr(charArray4)->Item<int32_t>(1) & 48) >> 4);
+        charArray3->Item<int32_t>(1) = ((charArray4->Item<int32_t>(1) & 15) << 4) + ((charArray4->Item<int32_t>(2) & 60) >> 2);
+        charArray3->Item<int32_t>(2) = ((charArray4->Item<int32_t>(2) & 3) << 6) + charArray4->Item<int32_t>(3);
 
-        for (int j4 = 0; j4 < (addidionalSymbols - 1); j4++)
-            ::g::Uno::Collections::List__Add_fn(uPtr(ret), uCRef<uint8_t>((uint8_t)uPtr(charArray3)->Item<int>(j4)));
+        for (int32_t j4 = 0; j4 < (addidionalSymbols - 1); j4++)
+            ::g::Uno::Collections::List__Add_fn(uPtr(ret), uCRef<uint8_t>((uint8_t)uPtr(charArray3)->Item<int32_t>(j4)));
     }
 
     return (uArray*)ret->ToArray();
 }
 
-// public static string GetString(byte[] value) [static] :75
+// public static string GetString(byte[] value) [static] :74
 uString* Base64::GetString(uArray* value)
 {
-    return uBase64Encode(value);
+    static const char* base64_chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz"
+        "0123456789+/";
+    
+    unsigned char* bytes_to_encode =(unsigned char*)value->Ptr();
+    unsigned int in_len = value->Length();
+    unsigned char* encoded_buffer = new unsigned char[in_len*2 + 3];
+    
+    int i = 0;
+    int j = 0;
+    unsigned char char_array_3[3] = { 0, 0, 0 };
+    unsigned char char_array_4[4] = { 0, 0, 0, 0 };
+    
+    unsigned int out_len = 0;
+    while (in_len--)
+    {
+        char_array_3[i++] = *(bytes_to_encode++);
+        if (i == 3)
+        {
+            char_array_4[0] = (char_array_3[0] & 0xfc) >> 2;
+            char_array_4[1] = ((char_array_3[0] & 0x03) << 4) + ((char_array_3[1] & 0xf0) >> 4);
+            char_array_4[2] = ((char_array_3[1] & 0x0f) << 2) + ((char_array_3[2] & 0xc0) >> 6);
+            char_array_4[3] = char_array_3[2] & 0x3f;
+    
+            for (i = 0; i < 4 ; i++)
+            {
+                encoded_buffer[out_len++] = base64_chars[char_array_4[i]];
+            }
+            i = 0;
+        }
+    }
+    
+    if (i)
+    {
+        for (j = i; j < 3; j++)
+        {
+            char_array_3[j] = '\0';
+        }
+    
+        char_array_4[0] = (char_array_3[0] & 0xfc) >> 2;
+        char_array_4[1] = ((char_array_3[0] & 0x03) << 4) + ((char_array_3[1] & 0xf0) >> 4);
+        char_array_4[2] = ((char_array_3[1] & 0x0f) << 2) + ((char_array_3[2] & 0xc0) >> 6);
+        char_array_4[3] = char_array_3[2] & 0x3f;
+    
+        for (j = 0; j < (i + 1); j++)
+        {
+            encoded_buffer[out_len++] = base64_chars[char_array_4[j]];
+        }
+    
+        while (i++ < 3)
+        {
+            encoded_buffer[out_len++] = '=';
+        }
+    }
+    
+    uString* res = uString::Ansi((char const *)encoded_buffer, out_len);
+    delete [] encoded_buffer;
+    return res;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Text\Utf8.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Text\Utf8.uno
 // ----------------------------------------------------------------------------------------------
 
 // public abstract class Decoder :7
@@ -220,7 +276,7 @@ void Decoder::ctor_()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Text\Utf8.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Text\Utf8.uno
 // ----------------------------------------------------------------------------------------------
 
 // public abstract class Encoding :258
@@ -274,19 +330,19 @@ Encoding* Encoding::UTF8()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Text\StringBuilder.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Text\StringBuilder.uno
 // -------------------------------------------------------------------------------------------------------
 
-// public sealed class StringBuilder :6
+// public sealed class StringBuilder :7
 // {
 static void StringBuilder_build(uType* type)
 {
-    ::STRINGS[1] = uString::Const("");
-    ::TYPES[3] = ::g::Uno::Char_typeof()->Array();
+    ::STRINGS[1] = uString::Const("chars");
+    ::TYPES[3] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Uno::String_typeof(), NULL);
+    ::TYPES[4] = ::g::Uno::Char_typeof()->Array();
     type->SetFields(0,
-        ::g::Uno::Text::StringBuilderElement_typeof(), offsetof(StringBuilder, firstElement), 0,
-        ::g::Uno::Text::StringBuilderElement_typeof(), offsetof(StringBuilder, lastElement), 0,
-        ::g::Uno::Int_typeof(), offsetof(StringBuilder, _Length), 0);
+        ::g::Uno::Int_typeof(), offsetof(StringBuilder, _totalLength), 0,
+        ::TYPES[3/*Uno.Collections.List<string>*/], offsetof(StringBuilder, _strings), 0);
 }
 
 uType* StringBuilder_typeof()
@@ -295,7 +351,7 @@ uType* StringBuilder_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 3;
+    options.FieldCount = 2;
     options.ObjectSize = sizeof(StringBuilder);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Uno.Text.StringBuilder", options);
@@ -305,224 +361,139 @@ uType* StringBuilder_typeof()
     return type;
 }
 
-// public generated StringBuilder() :6
+// public generated StringBuilder() :7
 void StringBuilder__ctor__fn(StringBuilder* __this)
 {
     __this->ctor_();
 }
 
-// public Uno.Text.StringBuilder Append(char c) :68
-void StringBuilder__Append_fn(StringBuilder* __this, uChar* c, StringBuilder** __retval)
+// public Uno.Text.StringBuilder Append(char c) :53
+void StringBuilder__Append_fn(StringBuilder* __this, char16_t* c, StringBuilder** __retval)
 {
     *__retval = __this->Append(*c);
 }
 
-// public Uno.Text.StringBuilder Append(char[] chars) :35
+// public Uno.Text.StringBuilder Append(char[] chars) :30
 void StringBuilder__Append1_fn(StringBuilder* __this, uArray* chars, StringBuilder** __retval)
 {
     *__retval = __this->Append1(chars);
 }
 
-// public Uno.Text.StringBuilder Append(string str) :60
+// public Uno.Text.StringBuilder Append(string str) :43
 void StringBuilder__Append2_fn(StringBuilder* __this, uString* str, StringBuilder** __retval)
 {
     *__retval = __this->Append2(str);
 }
 
-// public Uno.Text.StringBuilder AppendLine(string str) :73
+// public Uno.Text.StringBuilder AppendLine(string str) :58
 void StringBuilder__AppendLine_fn(StringBuilder* __this, uString* str, StringBuilder** __retval)
 {
     *__retval = __this->AppendLine(str);
 }
 
-// public generated int get_Length() :33
-void StringBuilder__get_Length_fn(StringBuilder* __this, int* __retval)
+// public int get_Length() :28
+void StringBuilder__get_Length_fn(StringBuilder* __this, int32_t* __retval)
 {
     *__retval = __this->Length();
 }
 
-// private generated void set_Length(int value) :33
-void StringBuilder__set_Length_fn(StringBuilder* __this, int* value)
-{
-    __this->Length(*value);
-}
-
-// public int get_MaxCapacity() :11
-void StringBuilder__get_MaxCapacity_fn(StringBuilder* __this, int* __retval)
+// public int get_MaxCapacity() :12
+void StringBuilder__get_MaxCapacity_fn(StringBuilder* __this, int32_t* __retval)
 {
     *__retval = __this->MaxCapacity();
 }
 
-// public generated StringBuilder New() :6
+// public generated StringBuilder New() :7
 void StringBuilder__New1_fn(StringBuilder** __retval)
 {
     *__retval = StringBuilder::New1();
 }
 
-// public override sealed string ToString() :13
+// public override sealed string ToString() :14
 void StringBuilder__ToString_fn(StringBuilder* __this, uString** __retval)
 {
-    if (__this->firstElement == NULL)
-        return *__retval = ::STRINGS[1/*""*/], void();
+    uString* ret2;
+    uArray* c = uArray::New(::TYPES[4/*char[]*/], __this->_totalLength);
+    int32_t x = 0;
 
-    uArray* chars = uArray::New(::TYPES[3/*char[]*/], __this->Length());
-    ::g::Uno::Text::StringBuilderElement* elem = __this->firstElement;
-    int pos = 0;
-
-    while (elem != NULL)
+    for (int32_t i = 0; i < uPtr(__this->_strings)->Count(); i++)
     {
-        for (int i = 0; i < uPtr(uPtr(elem)->chars)->Length(); i++)
-            uPtr(chars)->Item<uChar>(pos + i) = uPtr(uPtr(elem)->chars)->Item<uChar>(i);
+        uString* s = (::g::Uno::Collections::List__get_Item_fn(uPtr(__this->_strings), uCRef<int32_t>(i), &ret2), ret2);
 
-        pos = pos + uPtr(uPtr(elem)->chars)->Length();
-        elem = uPtr(elem)->next;
+        for (int32_t n = 0; n < uPtr(s)->Length(); n++)
+            uPtr(c)->Item<char16_t>(x++) = uPtr(s)->Item(n);
     }
 
-    return *__retval = uString::CharArray(chars), void();
+    return *__retval = uString::CharArray(c), void();
 }
 
-// public generated StringBuilder() [instance] :6
+// public generated StringBuilder() [instance] :7
 void StringBuilder::ctor_()
 {
+    _strings = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[3/*Uno.Collections.List<string>*/]));
 }
 
-// public Uno.Text.StringBuilder Append(char c) [instance] :68
-StringBuilder* StringBuilder::Append(uChar c)
+// public Uno.Text.StringBuilder Append(char c) [instance] :53
+StringBuilder* StringBuilder::Append(char16_t c)
 {
-    return Append1(uArray::Init<int>(::TYPES[3/*char[]*/], 1, c));
+    return Append1(uArray::Init<int32_t>(::TYPES[4/*char[]*/], 1, c));
 }
 
-// public Uno.Text.StringBuilder Append(char[] chars) [instance] :35
+// public Uno.Text.StringBuilder Append(char[] chars) [instance] :30
 StringBuilder* StringBuilder::Append1(uArray* chars)
 {
-    ::g::Uno::Text::StringBuilderElement* collection1;
-
     if ((MaxCapacity() - Length()) < uPtr(chars)->Length())
-        U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(::STRINGS[1/*""*/]));
+        U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(::STRINGS[1/*"chars"*/]));
 
-    Length(Length() + uPtr(chars)->Length());
-    lastElement = (collection1 = ::g::Uno::Text::StringBuilderElement::New1(), uPtr(collection1)->chars = chars, collection1);
-
-    if (firstElement == NULL)
-        firstElement = lastElement;
-    else
+    if (uPtr(chars)->Length() > 0)
     {
-        ::g::Uno::Text::StringBuilderElement* elem = firstElement;
-
-        while (uPtr(elem)->next != NULL)
-            elem = uPtr(elem)->next;
-
-        uPtr(elem)->next = lastElement;
+        ::g::Uno::Collections::List__Add_fn(uPtr(_strings), uString::CharArray(chars));
+        _totalLength = (_totalLength + uPtr(chars)->Length());
     }
 
     return this;
 }
 
-// public Uno.Text.StringBuilder Append(string str) [instance] :60
+// public Uno.Text.StringBuilder Append(string str) [instance] :43
 StringBuilder* StringBuilder::Append2(uString* str)
 {
-    uArray* chars = uArray::New(::TYPES[3/*char[]*/], uPtr(str)->Length());
+    if (uPtr(str)->Length() > 0)
+    {
+        ::g::Uno::Collections::List__Add_fn(uPtr(_strings), str);
+        _totalLength = (_totalLength + uPtr(str)->Length());
+    }
 
-    for (int i = 0; i < str->Length(); i++)
-        uPtr(chars)->Item<uChar>(i) = uPtr(str)->Item(i);
-
-    return Append1(chars);
+    return this;
 }
 
-// public Uno.Text.StringBuilder AppendLine(string str) [instance] :73
+// public Uno.Text.StringBuilder AppendLine(string str) [instance] :58
 StringBuilder* StringBuilder::AppendLine(uString* str)
 {
-    uArray* chars = uArray::New(::TYPES[3/*char[]*/], uPtr(str)->Length() + 2);
-
-    for (int i = 0; i < str->Length(); i++)
-        uPtr(chars)->Item<uChar>(i) = uPtr(str)->Item(i);
-
-    chars->Item<uChar>(chars->Length() - 2) = 13;
-    chars->Item<uChar>(chars->Length() - 1) = 10;
-    return Append1(chars);
+    return uPtr(Append2(str))->Append2(::g::Uno::Environment::NewLine());
 }
 
-// public generated int get_Length() [instance] :33
-int StringBuilder::Length()
+// public int get_Length() [instance] :28
+int32_t StringBuilder::Length()
 {
-    return _Length;
+    return _totalLength;
 }
 
-// private generated void set_Length(int value) [instance] :33
-void StringBuilder::Length(int value)
-{
-    _Length = value;
-}
-
-// public int get_MaxCapacity() [instance] :11
-int StringBuilder::MaxCapacity()
+// public int get_MaxCapacity() [instance] :12
+int32_t StringBuilder::MaxCapacity()
 {
     return 2147483647;
 }
 
-// public generated StringBuilder New() [static] :6
+// public generated StringBuilder New() [static] :7
 StringBuilder* StringBuilder::New1()
 {
-    StringBuilder* obj2 = (StringBuilder*)uNew(StringBuilder_typeof());
-    obj2->ctor_();
-    return obj2;
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Text\StringBuilderElement.uno
-// --------------------------------------------------------------------------------------------------------------
-
-// internal sealed class StringBuilderElement :3
-// {
-static void StringBuilderElement_build(uType* type)
-{
-    type->SetFields(0,
-        ::g::Uno::Char_typeof()->Array(), offsetof(StringBuilderElement, chars), 0,
-        type, offsetof(StringBuilderElement, next), 0);
-}
-
-uType* StringBuilderElement_typeof()
-{
-    static uSStrong<uType*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.FieldCount = 2;
-    options.ObjectSize = sizeof(StringBuilderElement);
-    options.TypeSize = sizeof(uType);
-    type = uClassType::New("Uno.Text.StringBuilderElement", options);
-    type->fp_build_ = StringBuilderElement_build;
-    type->fp_ctor_ = (void*)StringBuilderElement__New1_fn;
-    return type;
-}
-
-// public generated StringBuilderElement() :3
-void StringBuilderElement__ctor__fn(StringBuilderElement* __this)
-{
-    __this->ctor_();
-}
-
-// public generated StringBuilderElement New() :3
-void StringBuilderElement__New1_fn(StringBuilderElement** __retval)
-{
-    *__retval = StringBuilderElement::New1();
-}
-
-// public generated StringBuilderElement() [instance] :3
-void StringBuilderElement::ctor_()
-{
-}
-
-// public generated StringBuilderElement New() [static] :3
-StringBuilderElement* StringBuilderElement::New1()
-{
-    StringBuilderElement* obj1 = (StringBuilderElement*)uNew(StringBuilderElement_typeof());
+    StringBuilder* obj1 = (StringBuilder*)uNew(StringBuilder_typeof());
     obj1->ctor_();
     return obj1;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Text\Utf8.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Text\Utf8.uno
 // ----------------------------------------------------------------------------------------------
 
 // public static class Utf8 :292
@@ -543,44 +514,45 @@ uClassType* Utf8_typeof()
     return type;
 }
 
-// public static byte[] GetBytes(string value) :295
+// public static byte[] GetBytes(string value) :294
 void Utf8__GetBytes_fn(uString* value, uArray** __retval)
 {
     *__retval = Utf8::GetBytes(value);
 }
 
-// public static string GetString(byte[] value) :317
+// public static string GetString(byte[] value) :316
 void Utf8__GetString_fn(uArray* value, uString** __retval)
 {
     *__retval = Utf8::GetString(value);
 }
 
-// public static byte[] GetBytes(string value) [static] :295
+// public static byte[] GetBytes(string value) [static] :294
 uArray* Utf8::GetBytes(uString* value)
 {
-    uBase::String str(uStringToXliString(value));
-    return uArray::New(::g::Uno::Byte_typeof()->Array(), str.Length(), str.Ptr());
+    uCString cstr(value);
+    return uArray::New(::g::Uno::Byte_typeof()->Array(), (int32_t) cstr.Length, cstr.Ptr);
 }
 
-// public static string GetString(byte[] value) [static] :317
+// public static string GetString(byte[] value) [static] :316
 uString* Utf8::GetString(uArray* value)
 {
-    return uString::Utf8((const char*)uPtr(value)->Ptr(), uPtr(value)->Length());
+    const char* utf8 = (const char*)uPtr(value)->Ptr();
+    return uString::Utf8(utf8, value->Length());
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Text\Utf8.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Text\Utf8.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal sealed class UTF8Decoder :14
 // {
 static void UTF8Decoder_build(uType* type)
 {
-    ::STRINGS[2] = uString::Const("chars");
-    ::STRINGS[3] = uString::Const("bytes");
-    ::STRINGS[4] = uString::Const("byteIndex");
-    ::STRINGS[5] = uString::Const("byteCount");
-    ::STRINGS[6] = uString::Const("charIndex");
+    ::STRINGS[1] = uString::Const("chars");
+    ::STRINGS[2] = uString::Const("bytes");
+    ::STRINGS[3] = uString::Const("byteIndex");
+    ::STRINGS[4] = uString::Const("byteCount");
+    ::STRINGS[5] = uString::Const("charIndex");
     type->SetFields(0,
         ::g::Uno::Int_typeof(), offsetof(UTF8Decoder, _state), 0);
 }
@@ -598,7 +570,7 @@ static void UTF8Decoder_build(uType* type)
     type = (::g::Uno::Text::Decoder_type*)uClassType::New("Uno.Text.UTF8Decoder", options);
     type->fp_build_ = UTF8Decoder_build;
     type->fp_ctor_ = (void*)UTF8Decoder__New1_fn;
-    type->fp_GetChars = (void(*)(::g::Uno::Text::Decoder*, uArray*, int*, int*, uArray*, int*, int*))UTF8Decoder__GetChars_fn;
+    type->fp_GetChars = (void(*)(::g::Uno::Text::Decoder*, uArray*, int32_t*, int32_t*, uArray*, int32_t*, int32_t*))UTF8Decoder__GetChars_fn;
     return type;
 }
 
@@ -609,37 +581,37 @@ void UTF8Decoder__ctor_1_fn(UTF8Decoder* __this)
 }
 
 // private int ConvertInternal(byte[] bytes, int byteIndex, int byteCount, char[] chars, int charIndex, int charCount) :38
-void UTF8Decoder__ConvertInternal_fn(UTF8Decoder* __this, uArray* bytes, int* byteIndex, int* byteCount, uArray* chars, int* charIndex, int* charCount, int* __retval)
+void UTF8Decoder__ConvertInternal_fn(UTF8Decoder* __this, uArray* bytes, int32_t* byteIndex, int32_t* byteCount, uArray* chars, int32_t* charIndex, int32_t* charCount, int32_t* __retval)
 {
     *__retval = __this->ConvertInternal(bytes, *byteIndex, *byteCount, chars, *charIndex, *charCount);
 }
 
 // public override sealed int GetChars(byte[] bytes, int byteIndex, int byteCount, char[] chars, int charIndex) :234
-void UTF8Decoder__GetChars_fn(UTF8Decoder* __this, uArray* bytes, int* byteIndex, int* byteCount, uArray* chars, int* charIndex, int* __retval)
+void UTF8Decoder__GetChars_fn(UTF8Decoder* __this, uArray* bytes, int32_t* byteIndex, int32_t* byteCount, uArray* chars, int32_t* charIndex, int32_t* __retval)
 {
-    int byteIndex_ = *byteIndex;
-    int byteCount_ = *byteCount;
-    int charIndex_ = *charIndex;
+    int32_t byteIndex_ = *byteIndex;
+    int32_t byteCount_ = *byteCount;
+    int32_t charIndex_ = *charIndex;
 
     if (bytes == NULL)
-        U_THROW(::g::Uno::ArgumentNullException::New6(::STRINGS[3/*"bytes"*/]));
+        U_THROW(::g::Uno::ArgumentNullException::New6(::STRINGS[2/*"bytes"*/]));
 
     if (byteIndex_ < 0)
-        U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(::STRINGS[4/*"byteIndex"*/]));
+        U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(::STRINGS[3/*"byteIndex"*/]));
 
     if (byteCount_ < 0)
-        U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(::STRINGS[5/*"byteCount"*/]));
+        U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(::STRINGS[4/*"byteCount"*/]));
 
     if (chars == NULL)
-        U_THROW(::g::Uno::ArgumentNullException::New6(::STRINGS[2/*"chars"*/]));
+        U_THROW(::g::Uno::ArgumentNullException::New6(::STRINGS[1/*"chars"*/]));
 
     if (charIndex_ < 0)
-        U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(::STRINGS[6/*"charIndex"*/]));
+        U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(::STRINGS[5/*"charIndex"*/]));
 
     if ((uPtr(bytes)->Length() - byteIndex_) < byteCount_)
-        U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(::STRINGS[3/*"bytes"*/]));
+        U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(::STRINGS[2/*"bytes"*/]));
 
-    int charCount = uPtr(chars)->Length() - charIndex_;
+    int32_t charCount = uPtr(chars)->Length() - charIndex_;
     return *__retval = __this->ConvertInternal(bytes, byteIndex_, byteCount_, chars, charIndex_, charCount), void();
 }
 
@@ -656,27 +628,27 @@ void UTF8Decoder::ctor_1()
 }
 
 // private int ConvertInternal(byte[] bytes, int byteIndex, int byteCount, char[] chars, int charIndex, int charCount) [instance] :38
-int UTF8Decoder::ConvertInternal(uArray* bytes, int byteIndex, int byteCount, uArray* chars, int charIndex, int charCount)
+int32_t UTF8Decoder::ConvertInternal(uArray* bytes, int32_t byteIndex, int32_t byteCount, uArray* chars, int32_t charIndex, int32_t charCount)
 {
-    int bytesUsed = 0;
-    int charsUsed = 0;
-    int ch = _state;
+    int32_t bytesUsed = 0;
+    int32_t charsUsed = 0;
+    int32_t ch = _state;
     _state = 0;
 
     while (bytesUsed < byteCount)
     {
         if (ch == 0)
         {
-            ch = (int)uPtr(bytes)->Item<uint8_t>(byteIndex + (bytesUsed++));
+            ch = (int32_t)uPtr(bytes)->Item<uint8_t>(byteIndex + (bytesUsed++));
 
             if (ch < 128)
             {
                 if (chars != NULL)
                 {
                     if (charsUsed >= charCount)
-                        U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[2/*"chars"*/]));
+                        U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[1/*"chars"*/]));
 
-                    uPtr(chars)->Item<uChar>(charIndex + charsUsed) = (uChar)ch;
+                    uPtr(chars)->Item<char16_t>(charIndex + charsUsed) = (char16_t)ch;
                 }
 
                 ++charsUsed;
@@ -693,9 +665,9 @@ int UTF8Decoder::ConvertInternal(uArray* bytes, int byteIndex, int byteCount, uA
                     if (chars != NULL)
                     {
                         if (charsUsed >= charCount)
-                            U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[2/*"chars"*/]));
+                            U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[1/*"chars"*/]));
 
-                        uPtr(chars)->Item<uChar>(charIndex + charsUsed) = 65533;
+                        uPtr(chars)->Item<char16_t>(charIndex + charsUsed) = 65533;
                     }
 
                     ++charsUsed;
@@ -719,9 +691,9 @@ int UTF8Decoder::ConvertInternal(uArray* bytes, int byteIndex, int byteCount, uA
                     if (chars != NULL)
                     {
                         if (charsUsed >= charCount)
-                            U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[2/*"chars"*/]));
+                            U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[1/*"chars"*/]));
 
-                        uPtr(chars)->Item<uChar>(charIndex + charsUsed) = 65533;
+                        uPtr(chars)->Item<char16_t>(charIndex + charsUsed) = 65533;
                     }
 
                     ++charsUsed;
@@ -736,9 +708,9 @@ int UTF8Decoder::ConvertInternal(uArray* bytes, int byteIndex, int byteCount, uA
                 if (chars != NULL)
                 {
                     if (charsUsed >= charCount)
-                        U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[2/*"chars"*/]));
+                        U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[1/*"chars"*/]));
 
-                    uPtr(chars)->Item<uChar>(charIndex + charsUsed) = 65533;
+                    uPtr(chars)->Item<char16_t>(charIndex + charsUsed) = 65533;
                 }
 
                 ++charsUsed;
@@ -765,7 +737,7 @@ int UTF8Decoder::ConvertInternal(uArray* bytes, int byteIndex, int byteCount, uA
                 break;
             }
 
-            ch = (ch << 6) | (int)(ch2 & 63);
+            ch = (ch << 6) | (int32_t)(ch2 & 63);
             ++bytesUsed;
 
             switch (ch & 805306368)
@@ -804,25 +776,25 @@ int UTF8Decoder::ConvertInternal(uArray* bytes, int byteIndex, int byteCount, uA
             if (chars != NULL)
             {
                 if (charsUsed >= charCount)
-                    U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[2/*"chars"*/]));
+                    U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[1/*"chars"*/]));
 
-                uPtr(chars)->Item<uChar>(charIndex + charsUsed) = 65533;
+                uPtr(chars)->Item<char16_t>(charIndex + charsUsed) = 65533;
             }
 
             ++charsUsed;
         }
         else
         {
-            int codePoint = ch & 2097151;
+            int32_t codePoint = ch & 2097151;
 
             if (codePoint < 65536)
             {
                 if (chars != NULL)
                 {
                     if (charsUsed >= charCount)
-                        U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[2/*"chars"*/]));
+                        U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[1/*"chars"*/]));
 
-                    uPtr(chars)->Item<uChar>(charIndex + charsUsed) = (uChar)codePoint;
+                    uPtr(chars)->Item<char16_t>(charIndex + charsUsed) = (char16_t)codePoint;
                 }
 
                 ++charsUsed;
@@ -832,11 +804,11 @@ int UTF8Decoder::ConvertInternal(uArray* bytes, int byteIndex, int byteCount, uA
                 if (chars != NULL)
                 {
                     if ((charsUsed + 1) >= charCount)
-                        U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[2/*"chars"*/]));
+                        U_THROW(::g::Uno::ArgumentException::New4(::STRINGS[1/*"chars"*/]));
 
                     codePoint = codePoint - 65536;
-                    uPtr(chars)->Item<uChar>(charIndex + charsUsed) = (uChar)(55296 + (codePoint >> 10));
-                    chars->Item<uChar>((charIndex + charsUsed) + 1) = (uChar)(56320 + (codePoint & 1023));
+                    uPtr(chars)->Item<char16_t>(charIndex + charsUsed) = (char16_t)(55296 + (codePoint >> 10));
+                    chars->Item<char16_t>((charIndex + charsUsed) + 1) = (char16_t)(56320 + (codePoint & 1023));
                 }
 
                 charsUsed = charsUsed + 2;
@@ -859,7 +831,7 @@ UTF8Decoder* UTF8Decoder::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Text\Utf8.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Text\Utf8.uno
 // ----------------------------------------------------------------------------------------------
 
 // public sealed class UTF8Encoding :284

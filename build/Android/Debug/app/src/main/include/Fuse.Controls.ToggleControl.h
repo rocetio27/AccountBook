@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/ToggleControls/ToggleControl.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/ToggleControls/ToggleControl.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -10,6 +10,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -35,9 +36,9 @@ namespace Controls{
 // {
 struct ToggleControl_type : ::g::Fuse::Controls::Panel_type
 {
-    ::g::Fuse::Triggers::IValue interface18;
-    ::g::Fuse::Controls::Native::IToggleViewHost interface19;
-    ::g::Fuse::Triggers::Actions::IToggleable interface20;
+    ::g::Fuse::Triggers::IValue interface19;
+    ::g::Fuse::Controls::Native::IToggleViewHost interface20;
+    ::g::Fuse::Triggers::Actions::IToggleable interface21;
 };
 
 ToggleControl_type* ToggleControl_typeof();
@@ -55,7 +56,7 @@ void ToggleControl__remove_ValueChanged_fn(ToggleControl* __this, uDelegate* val
 struct ToggleControl : ::g::Fuse::Controls::Panel
 {
     static ::g::Uno::UX::Selector _valueName_;
-    static ::g::Uno::UX::Selector& _valueName() { return _valueName_; }
+    static ::g::Uno::UX::Selector& _valueName() { return ToggleControl_typeof()->Init(), _valueName_; }
     bool _value;
     uStrong<uDelegate*> ValueChanged1;
 

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Threading/1.4.3/ConcurrentDictionary.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Threading/1.9.0/ConcurrentDictionary.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -25,19 +25,19 @@ struct ConcurrentDictionary_type : uType
 
 ConcurrentDictionary_type* ConcurrentDictionary_typeof();
 void ConcurrentDictionary__ctor__fn(ConcurrentDictionary* __this);
-void ConcurrentDictionary__Add_fn(ConcurrentDictionary* __this, void* key, void* value);
 void ConcurrentDictionary__Add1_fn(ConcurrentDictionary* __this, void* keyValue);
 void ConcurrentDictionary__Clear_fn(ConcurrentDictionary* __this);
 void ConcurrentDictionary__Contains_fn(ConcurrentDictionary* __this, void* keyValue, bool* __retval);
 void ConcurrentDictionary__ContainsKey_fn(ConcurrentDictionary* __this, void* key, bool* __retval);
-void ConcurrentDictionary__get_Count_fn(ConcurrentDictionary* __this, int* __retval);
-void ConcurrentDictionary__GetEnumerator_fn(ConcurrentDictionary* __this, uObject** __retval);
+void ConcurrentDictionary__get_Count_fn(ConcurrentDictionary* __this, int32_t* __retval);
 void ConcurrentDictionary__get_Item_fn(ConcurrentDictionary* __this, void* key, uTRef __retval);
 void ConcurrentDictionary__set_Item_fn(ConcurrentDictionary* __this, void* key, void* value);
 void ConcurrentDictionary__New1_fn(uType* __type, ConcurrentDictionary** __retval);
-void ConcurrentDictionary__Remove_fn(ConcurrentDictionary* __this, void* key, bool* __retval);
 void ConcurrentDictionary__Remove1_fn(ConcurrentDictionary* __this, void* keyValue, bool* __retval);
 void ConcurrentDictionary__TryGetValue_fn(ConcurrentDictionary* __this, void* key, uTRef value, bool* __retval);
+void ConcurrentDictionary__UnoCollectionsIDictionaryTKeyTValueAdd_fn(ConcurrentDictionary* __this, void* key, void* value);
+void ConcurrentDictionary__UnoCollectionsIDictionaryTKeyTValueRemove_fn(ConcurrentDictionary* __this, void* key, bool* __retval);
+void ConcurrentDictionary__UnoCollectionsIEnumerableUnoCollectionsKeyValuePairTKeyTValueGetEnumerator_fn(ConcurrentDictionary* __this, uObject** __retval);
 
 struct ConcurrentDictionary : uObject
 {
@@ -46,22 +46,17 @@ struct ConcurrentDictionary : uObject
 
     void ctor_();
     template<class TKey, class TValue>
-    void Add(TKey key, TValue value) { ConcurrentDictionary__Add_fn(this, uConstrain(__type->T(0), key), uConstrain(__type->T(1), value)); }
-    template<class TKey, class TValue>
     void Add1(::g::Uno::Collections::KeyValuePair<TKey, TValue> keyValue) { ConcurrentDictionary__Add1_fn(this, uConstrain(::g::Uno::Collections::KeyValuePair_typeof()->MakeType(__type->T(0), __type->T(1), NULL), keyValue)); }
     void Clear();
     template<class TKey, class TValue>
     bool Contains(::g::Uno::Collections::KeyValuePair<TKey, TValue> keyValue) { bool __retval; return ConcurrentDictionary__Contains_fn(this, uConstrain(::g::Uno::Collections::KeyValuePair_typeof()->MakeType(__type->T(0), __type->T(1), NULL), keyValue), &__retval), __retval; }
     template<class TKey>
     bool ContainsKey(TKey key) { bool __retval; return ConcurrentDictionary__ContainsKey_fn(this, uConstrain(__type->T(0), key), &__retval), __retval; }
-    int Count();
-    uObject* GetEnumerator();
+    int32_t Count();
     template<class TKey, class TValue>
     TValue Item(TKey key) { TValue __retval; return ConcurrentDictionary__get_Item_fn(this, uConstrain(__type->T(0), key), &__retval), __retval; }
     template<class TKey, class TValue>
     void Item(TKey key, TValue value) { ConcurrentDictionary__set_Item_fn(this, uConstrain(__type->T(0), key), uConstrain(__type->T(1), value)); }
-    template<class TKey>
-    bool Remove(TKey key) { bool __retval; return ConcurrentDictionary__Remove_fn(this, uConstrain(__type->T(0), key), &__retval), __retval; }
     template<class TKey, class TValue>
     bool Remove1(::g::Uno::Collections::KeyValuePair<TKey, TValue> keyValue) { bool __retval; return ConcurrentDictionary__Remove1_fn(this, uConstrain(::g::Uno::Collections::KeyValuePair_typeof()->MakeType(__type->T(0), __type->T(1), NULL), keyValue), &__retval), __retval; }
     template<class TKey, class TValue>

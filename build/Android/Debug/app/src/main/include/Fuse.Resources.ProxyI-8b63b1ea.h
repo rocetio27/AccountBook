@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/Resources/ProxyImageSource.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/Resources/ProxyImageSource.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -28,14 +28,14 @@ void ProxyImageSource__GetTexture_fn(ProxyImageSource* __this, ::g::Uno::Graphic
 void ProxyImageSource__get_Impl_fn(ProxyImageSource* __this, ::g::Fuse::Resources::ImageSource** __retval);
 void ProxyImageSource__New1_fn(::g::Fuse::Resources::ImageSource* outer, ProxyImageSource** __retval);
 void ProxyImageSource__OnPinChanged_fn(ProxyImageSource* __this);
-void ProxyImageSource__get_Orientation_fn(ProxyImageSource* __this, int* __retval);
+void ProxyImageSource__get_Orientation_fn(ProxyImageSource* __this, int32_t* __retval);
 void ProxyImageSource__get_PixelSize_fn(ProxyImageSource* __this, ::g::Uno::Int2* __retval);
 void ProxyImageSource__ProxyOnChanged_fn(ProxyImageSource* __this, uObject* s, ::g::Uno::EventArgs* a);
 void ProxyImageSource__ProxyOnError_fn(ProxyImageSource* __this, uObject* s, ::g::Fuse::Resources::ImageSourceErrorArgs* a);
 void ProxyImageSource__Release_fn(ProxyImageSource* __this);
 void ProxyImageSource__Reload_fn(ProxyImageSource* __this);
 void ProxyImageSource__get_Size_fn(ProxyImageSource* __this, ::g::Uno::Float2* __retval);
-void ProxyImageSource__get_State_fn(ProxyImageSource* __this, int* __retval);
+void ProxyImageSource__get_State_fn(ProxyImageSource* __this, int32_t* __retval);
 void ProxyImageSource__UpdatePolicy_fn(ProxyImageSource* __this);
 
 struct ProxyImageSource : uObject
@@ -55,14 +55,14 @@ struct ProxyImageSource : uObject
     ::g::Uno::Graphics::Texture2D* GetTexture();
     ::g::Fuse::Resources::ImageSource* Impl();
     void OnPinChanged();
-    int Orientation();
+    int32_t Orientation();
     ::g::Uno::Int2 PixelSize();
     void ProxyOnChanged(uObject* s, ::g::Uno::EventArgs* a);
     void ProxyOnError(uObject* s, ::g::Fuse::Resources::ImageSourceErrorArgs* a);
     void Release();
     void Reload();
     ::g::Uno::Float2 Size();
-    int State();
+    int32_t State();
     void UpdatePolicy();
     static ProxyImageSource* New1(::g::Fuse::Resources::ImageSource* outer);
 };

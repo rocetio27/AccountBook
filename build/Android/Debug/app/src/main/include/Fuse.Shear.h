@@ -1,10 +1,11 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/Transform.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/Transform.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Fuse.Transform.h>
 #include <Uno.Collections.ICollection-1.h>
@@ -17,7 +18,7 @@ namespace g{namespace Fuse{struct Shear;}}
 namespace g{
 namespace Fuse{
 
-// public sealed class Shear :184
+// public sealed class Shear :209
 // {
 ::g::Fuse::Transform_type* Shear_typeof();
 void Shear__ctor_3_fn(Shear* __this);

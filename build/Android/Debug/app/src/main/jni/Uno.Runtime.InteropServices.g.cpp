@@ -10,7 +10,7 @@ namespace Uno{
 namespace Runtime{
 namespace InteropServices{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\InteropServices\GCHandle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\InteropServices\GCHandle.uno
 // ---------------------------------------------------------------------------------------------------------------------
 
 // public struct GCHandle :7
@@ -49,7 +49,7 @@ void GCHandle__Alloc_fn(uObject* target, GCHandle* __retval)
 }
 
 // public static Uno.Runtime.InteropServices.GCHandle Alloc(object target, Uno.Runtime.InteropServices.GCHandleType type) :21
-void GCHandle__Alloc1_fn(uObject* target, int* type, GCHandle* __retval)
+void GCHandle__Alloc1_fn(uObject* target, int32_t* type, GCHandle* __retval)
 {
     *__retval = GCHandle__Alloc1(target, *type);
 }
@@ -133,7 +133,7 @@ GCHandle GCHandle__Alloc(uObject* target)
 }
 
 // public static Uno.Runtime.InteropServices.GCHandle Alloc(object target, Uno.Runtime.InteropServices.GCHandleType type) [static] :21
-GCHandle GCHandle__Alloc1(uObject* target, int type)
+GCHandle GCHandle__Alloc1(uObject* target, int32_t type)
 {
     ::uRetain(target);
     return GCHandle__New1(target);
@@ -173,7 +173,7 @@ void* GCHandle__ToIntPtr(GCHandle handle)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\InteropServices\GCHandleType.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\InteropServices\GCHandleType.uno
 // -------------------------------------------------------------------------------------------------------------------------
 
 // public enum GCHandleType :6

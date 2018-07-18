@@ -1,9 +1,9 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Uno.Float4.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 namespace g{namespace Fuse{namespace Drawing{struct SolidColor;}}}
 namespace g{namespace Uno{namespace UX{struct PropertyObject;}}}
 namespace g{namespace Uno{namespace UX{struct Selector;}}}
@@ -11,7 +11,7 @@ namespace g{struct AccountBook_FuseDrawingSolidColor_Color_Property;}
 
 namespace g{
 
-// internal sealed class AccountBook_FuseDrawingSolidColor_Color_Property :350
+// internal sealed class AccountBook_FuseDrawingSolidColor_Color_Property :388
 // {
 ::g::Uno::UX::Property1_type* AccountBook_FuseDrawingSolidColor_Color_Property_typeof();
 void AccountBook_FuseDrawingSolidColor_Color_Property__ctor_3_fn(AccountBook_FuseDrawingSolidColor_Color_Property* __this, ::g::Fuse::Drawing::SolidColor* obj, ::g::Uno::UX::Selector* name);

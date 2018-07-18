@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/StatisticPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/StatisticPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -10,7 +10,7 @@ namespace g{struct StatisticPage__Template;}
 
 namespace g{
 
-// public partial sealed class StatisticPage.Template :6
+// public partial sealed class StatisticPage.Template :5
 // {
 ::g::Uno::UX::Template_type* StatisticPage__Template_typeof();
 void StatisticPage__Template__ctor_1_fn(StatisticPage__Template* __this, ::g::StatisticPage* parent, ::g::StatisticPage* parentInstance);

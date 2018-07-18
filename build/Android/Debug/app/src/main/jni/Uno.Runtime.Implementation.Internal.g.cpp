@@ -1,14 +1,15 @@
 // This file was generated based on '(multiple files)'.
 // WARNING: Changes might be lost if you edit this file directly.
 
+#include <errno.h>
+#include <stdio.h>
 #include <Uno.Bool.h>
 #include <Uno.Buffer.h>
 #include <Uno.Byte.h>
 #include <Uno.Char.h>
-#include <Uno.Collections.IEnumerator-1.h>
+#include <Uno.Collections.IEnumerator1-1.h>
 #include <Uno.Collections.List-1.h>
 #include <Uno.Double.h>
-#include <Uno.Exception.h>
 #include <Uno.Float.h>
 #include <Uno.Float2.h>
 #include <Uno.Float3.h>
@@ -34,8 +35,8 @@
 #include <Uno.UInt.h>
 #include <Uno.ULong.h>
 #include <Uno.UShort.h>
-static uString* STRINGS[12];
-static uType* TYPES[16];
+static uString* STRINGS[9];
+static uType* TYPES[15];
 
 namespace g{
 namespace Uno{
@@ -43,7 +44,7 @@ namespace Runtime{
 namespace Implementation{
 namespace Internal{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\Internal\ArrayEnumerable.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\Internal\ArrayEnumerable.uno
 // ------------------------------------------------------------------------------------------------------------------------------------
 
 // public sealed class ArrayEnumerable<T> :47
@@ -119,7 +120,7 @@ ArrayEnumerable* ArrayEnumerable::New1(uType* __type, uArray* source)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\Internal\ArrayEnumerable.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\Internal\ArrayEnumerable.uno
 // ------------------------------------------------------------------------------------------------------------------------------------
 
 // public sealed class ArrayEnumerator<T> :5
@@ -234,7 +235,7 @@ ArrayEnumerator* ArrayEnumerator::New1(uType* __type, uArray* source)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\Internal\BufferConverters.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\Internal\BufferConverters.uno
 // -------------------------------------------------------------------------------------------------------------------------------------
 
 // public static class BufferConverters :3
@@ -278,7 +279,7 @@ void BufferConverters__ToBuffer9_fn(uArray* data, ::g::Uno::Buffer** __retval)
 {
     ::g::Uno::Buffer* result = ::g::Uno::Buffer::New4(uPtr(data)->Length() * 8);
 
-    for (int i = 0; i < data->Length(); i++)
+    for (int32_t i = 0; i < data->Length(); i++)
         uPtr(result)->Set5(i * 8, uPtr(data)->Item< ::g::Uno::Float2>(i), true);
 
     return result;
@@ -289,7 +290,7 @@ void BufferConverters__ToBuffer9_fn(uArray* data, ::g::Uno::Buffer** __retval)
 {
     ::g::Uno::Buffer* result = ::g::Uno::Buffer::New4(uPtr(data)->Length() * 12);
 
-    for (int i = 0; i < data->Length(); i++)
+    for (int32_t i = 0; i < data->Length(); i++)
         uPtr(result)->Set6(i * 12, uPtr(data)->Item< ::g::Uno::Float3>(i), true);
 
     return result;
@@ -300,17 +301,17 @@ void BufferConverters__ToBuffer9_fn(uArray* data, ::g::Uno::Buffer** __retval)
 {
     ::g::Uno::Buffer* result = ::g::Uno::Buffer::New4(uPtr(data)->Length() * 2);
 
-    for (int i = 0; i < data->Length(); i++)
+    for (int32_t i = 0; i < data->Length(); i++)
         uPtr(result)->Set23(i * 2, uPtr(data)->Item<uint16_t>(i), true);
 
     return result;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\Internal\NumericFormatter.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\Internal\NumericFormatter.uno
 // -------------------------------------------------------------------------------------------------------------------------------------
 
-// internal enum FormatSpecifier :6
+// internal enum FormatSpecifier :7
 uEnumType* FormatSpecifier_typeof()
 {
     static uSStrong<uEnumType*> type;
@@ -329,7 +330,7 @@ uEnumType* FormatSpecifier_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\Internal\FormatStringItem.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\Internal\FormatStringItem.uno
 // -------------------------------------------------------------------------------------------------------------------------------------
 
 // public sealed class FormatStringItem :3
@@ -369,7 +370,7 @@ static void FormatStringItem_build(uType* type)
     type = (::g::Uno::Runtime::Implementation::Internal::FormatStringToken_type*)uClassType::New("Uno.Runtime.Implementation.Internal.FormatStringItem", options);
     type->fp_build_ = FormatStringItem_build;
     type->fp_Equals = (void(*)(uObject*, uObject*, bool*))FormatStringItem__Equals_fn;
-    type->fp_GetHashCode = (void(*)(uObject*, int*))FormatStringItem__GetHashCode_fn;
+    type->fp_GetHashCode = (void(*)(uObject*, int32_t*))FormatStringItem__GetHashCode_fn;
     type->fp_ToString1 = (void(*)(::g::Uno::Runtime::Implementation::Internal::FormatStringToken*, uArray*, uString**))FormatStringItem__ToString1_fn;
     return type;
 }
@@ -401,7 +402,7 @@ void FormatStringItem__get_FormatString_fn(FormatStringItem* __this, uString** _
 }
 
 // public override sealed int GetHashCode() :48
-void FormatStringItem__GetHashCode_fn(FormatStringItem* __this, int* __retval)
+void FormatStringItem__GetHashCode_fn(FormatStringItem* __this, int32_t* __retval)
 {
     return *__retval = uPtr(__this->Lexeme())->GetHashCode(), void();
 }
@@ -413,7 +414,7 @@ void FormatStringItem__New1_fn(uString* lexeme, FormatStringItem** __retval)
 }
 
 // public int get_Number() :11
-void FormatStringItem__get_Number_fn(FormatStringItem* __this, int* __retval)
+void FormatStringItem__get_Number_fn(FormatStringItem* __this, int32_t* __retval)
 {
     *__retval = __this->Number();
 }
@@ -435,7 +436,7 @@ void FormatStringItem__ToString1_fn(FormatStringItem* __this, uArray* objs, uStr
             return *__retval = ::g::Uno::Runtime::Implementation::Internal::NumericFormatter::Format(formatString, uUnbox<bool>(::TYPES[1/*bool*/], o)), void();
 
         if (uIs(o, ::TYPES[2/*char*/]))
-            return *__retval = ::g::Uno::Runtime::Implementation::Internal::NumericFormatter::Format3(formatString, (int)uUnbox<uChar>(::TYPES[2/*char*/], o)), void();
+            return *__retval = ::g::Uno::Runtime::Implementation::Internal::NumericFormatter::Format3(formatString, (int32_t)uUnbox<char16_t>(::TYPES[2/*char*/], o)), void();
 
         if (uIs(o, ::TYPES[3/*sbyte*/]))
             return *__retval = ::g::Uno::Runtime::Implementation::Internal::NumericFormatter::Format5(formatString, uUnbox<int8_t>(::TYPES[3/*sbyte*/], o)), void();
@@ -447,10 +448,10 @@ void FormatStringItem__ToString1_fn(FormatStringItem* __this, uArray* objs, uStr
             return *__retval = ::g::Uno::Runtime::Implementation::Internal::NumericFormatter::Format6(formatString, uUnbox<int16_t>(::TYPES[5/*short*/], o)), void();
 
         if (uIs(o, ::TYPES[6/*ushort*/]))
-            return *__retval = ::g::Uno::Runtime::Implementation::Internal::NumericFormatter::Format3(formatString, (int)uUnbox<uint16_t>(::TYPES[6/*ushort*/], o)), void();
+            return *__retval = ::g::Uno::Runtime::Implementation::Internal::NumericFormatter::Format3(formatString, (int32_t)uUnbox<uint16_t>(::TYPES[6/*ushort*/], o)), void();
 
         if (uIs(o, ::TYPES[7/*int*/]))
-            return *__retval = ::g::Uno::Runtime::Implementation::Internal::NumericFormatter::Format3(formatString, uUnbox<int>(::TYPES[7/*int*/], o)), void();
+            return *__retval = ::g::Uno::Runtime::Implementation::Internal::NumericFormatter::Format3(formatString, uUnbox<int32_t>(::TYPES[7/*int*/], o)), void();
 
         if (uIs(o, ::TYPES[8/*uint*/]))
             return *__retval = ::g::Uno::Runtime::Implementation::Internal::NumericFormatter::Format4(formatString, (int64_t)uUnbox<uint32_t>(::TYPES[8/*uint*/], o)), void();
@@ -480,12 +481,12 @@ void FormatStringItem::ctor_1(uString* lexeme)
 // public string get_FormatString() [instance] :24
 uString* FormatStringItem::FormatString()
 {
-    int colon = ::g::Uno::String::IndexOf(uPtr(Lexeme()), ':', 0);
+    int32_t colon = ::g::Uno::String::IndexOf(uPtr(Lexeme()), ':');
 
     if (colon == -1)
         return NULL;
 
-    int end = ::g::Uno::String::IndexOf(uPtr(Lexeme()), '}', 0);
+    int32_t end = ::g::Uno::String::IndexOf(uPtr(Lexeme()), '}');
 
     if (end == -1)
         U_THROW(::g::Uno::FormatException::New4(::STRINGS[1/*"Format spec...*/]));
@@ -494,15 +495,15 @@ uString* FormatStringItem::FormatString()
 }
 
 // public int get_Number() [instance] :11
-int FormatStringItem::Number()
+int32_t FormatStringItem::Number()
 {
-    int index = ::g::Uno::String::IndexOf(uPtr(Lexeme()), ',', 0);
+    int32_t index = ::g::Uno::String::IndexOf(uPtr(Lexeme()), ',');
 
     if (index == -1)
-        index = ::g::Uno::String::IndexOf(uPtr(Lexeme()), ':', 0);
+        index = ::g::Uno::String::IndexOf(uPtr(Lexeme()), ':');
 
     if (index == -1)
-        index = ::g::Uno::String::IndexOf(uPtr(Lexeme()), '}', 0);
+        index = ::g::Uno::String::IndexOf(uPtr(Lexeme()), '}');
 
     return ::g::Uno::Int::Parse(::g::Uno::String::Substring1(uPtr(Lexeme()), 1, index - 1));
 }
@@ -516,7 +517,7 @@ FormatStringItem* FormatStringItem::New1(uString* lexeme)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\Internal\FormatStringLiteral.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\Internal\FormatStringLiteral.uno
 // ----------------------------------------------------------------------------------------------------------------------------------------
 
 // public sealed class FormatStringLiteral :3
@@ -539,7 +540,7 @@ static void FormatStringLiteral_build(uType* type)
     type = (::g::Uno::Runtime::Implementation::Internal::FormatStringToken_type*)uClassType::New("Uno.Runtime.Implementation.Internal.FormatStringLiteral", options);
     type->fp_build_ = FormatStringLiteral_build;
     type->fp_Equals = (void(*)(uObject*, uObject*, bool*))FormatStringLiteral__Equals_fn;
-    type->fp_GetHashCode = (void(*)(uObject*, int*))FormatStringLiteral__GetHashCode_fn;
+    type->fp_GetHashCode = (void(*)(uObject*, int32_t*))FormatStringLiteral__GetHashCode_fn;
     type->fp_ToString1 = (void(*)(::g::Uno::Runtime::Implementation::Internal::FormatStringToken*, uArray*, uString**))FormatStringLiteral__ToString1_fn;
     return type;
 }
@@ -565,7 +566,7 @@ void FormatStringLiteral__Equals_fn(FormatStringLiteral* __this, uObject* obj, b
 }
 
 // public override sealed int GetHashCode() :19
-void FormatStringLiteral__GetHashCode_fn(FormatStringLiteral* __this, int* __retval)
+void FormatStringLiteral__GetHashCode_fn(FormatStringLiteral* __this, int32_t* __retval)
 {
     return *__retval = uPtr(__this->Lexeme())->GetHashCode(), void();
 }
@@ -597,7 +598,7 @@ FormatStringLiteral* FormatStringLiteral::New1(uString* lexeme)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\Internal\FormatStringToken.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\Internal\FormatStringToken.uno
 // --------------------------------------------------------------------------------------------------------------------------------------
 
 // public abstract class FormatStringToken :3
@@ -659,7 +660,7 @@ void FormatStringToken::Lexeme(uString* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\Internal\FormatStringTokenizer.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\Internal\FormatStringTokenizer.uno
 // ------------------------------------------------------------------------------------------------------------------------------------------
 
 // public sealed class FormatStringTokenizer :5
@@ -695,13 +696,13 @@ void FormatStringTokenizer__ctor__fn(FormatStringTokenizer* __this, uString* for
 }
 
 // private void AddFormatItemAndGoTo(Uno.Runtime.Implementation.Internal.FormatStringTokenizer.State state) :76
-void FormatStringTokenizer__AddFormatItemAndGoTo_fn(FormatStringTokenizer* __this, int* state)
+void FormatStringTokenizer__AddFormatItemAndGoTo_fn(FormatStringTokenizer* __this, int32_t* state)
 {
     __this->AddFormatItemAndGoTo(*state);
 }
 
 // private void AddLiteralAndGoTo(Uno.Runtime.Implementation.Internal.FormatStringTokenizer.State state) :83
-void FormatStringTokenizer__AddLiteralAndGoTo_fn(FormatStringTokenizer* __this, int* state)
+void FormatStringTokenizer__AddLiteralAndGoTo_fn(FormatStringTokenizer* __this, int32_t* state)
 {
     __this->AddLiteralAndGoTo(*state);
 }
@@ -713,7 +714,7 @@ void FormatStringTokenizer__AtEnd_fn(FormatStringTokenizer* __this, bool* __retv
 }
 
 // private void DiscardCharacterAndGoTo(Uno.Runtime.Implementation.Internal.FormatStringTokenizer.State state) :90
-void FormatStringTokenizer__DiscardCharacterAndGoTo_fn(FormatStringTokenizer* __this, int* state)
+void FormatStringTokenizer__DiscardCharacterAndGoTo_fn(FormatStringTokenizer* __this, int32_t* state)
 {
     __this->DiscardCharacterAndGoTo(*state);
 }
@@ -749,7 +750,7 @@ void FormatStringTokenizer::ctor_(uString* format)
 }
 
 // private void AddFormatItemAndGoTo(Uno.Runtime.Implementation.Internal.FormatStringTokenizer.State state) [instance] :76
-void FormatStringTokenizer::AddFormatItemAndGoTo(int state)
+void FormatStringTokenizer::AddFormatItemAndGoTo(int32_t state)
 {
     ::g::Uno::Collections::List__Add_fn(uPtr(_tokens), ::g::Uno::Runtime::Implementation::Internal::FormatStringItem::New1(::g::Uno::String::Substring1(uPtr(_format), _prevIndex, (_index - _prevIndex) + 1)));
     _prevIndex = (_index + 1);
@@ -757,7 +758,7 @@ void FormatStringTokenizer::AddFormatItemAndGoTo(int state)
 }
 
 // private void AddLiteralAndGoTo(Uno.Runtime.Implementation.Internal.FormatStringTokenizer.State state) [instance] :83
-void FormatStringTokenizer::AddLiteralAndGoTo(int state)
+void FormatStringTokenizer::AddLiteralAndGoTo(int32_t state)
 {
     ::g::Uno::Collections::List__Add_fn(uPtr(_tokens), ::g::Uno::Runtime::Implementation::Internal::FormatStringLiteral::New1(::g::Uno::String::Substring1(uPtr(_format), _prevIndex, _index - _prevIndex)));
     _prevIndex = _index;
@@ -771,7 +772,7 @@ bool FormatStringTokenizer::AtEnd()
 }
 
 // private void DiscardCharacterAndGoTo(Uno.Runtime.Implementation.Internal.FormatStringTokenizer.State state) [instance] :90
-void FormatStringTokenizer::DiscardCharacterAndGoTo(int state)
+void FormatStringTokenizer::DiscardCharacterAndGoTo(int32_t state)
 {
     _prevIndex++;
     _state = state;
@@ -866,44 +867,45 @@ FormatStringTokenizer* FormatStringTokenizer::New1(uString* format)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\Internal\NumericFormatter.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\Internal\NumericFormatter.uno
 // -------------------------------------------------------------------------------------------------------------------------------------
 
-// public static class NumericFormatter :18
+// public static class NumericFormatter :19
 // {
-// static generated NumericFormatter() :18
+// static generated NumericFormatter() :19
 static void NumericFormatter__cctor__fn(uType* __type)
 {
     NumericFormatter::NumberDecimalDigits_ = 2;
     NumericFormatter::ExponentialDigits_ = 6;
+    NumericFormatter::lowerHexChars_ = uArray::Init<int32_t>(::TYPES[13/*char[]*/], 16, '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
+    NumericFormatter::upperHexChars_ = uArray::Init<int32_t>(::TYPES[13/*char[]*/], 16, '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F');
 }
 
 static void NumericFormatter_build(uType* type)
 {
-    ::STRINGS[2] = uString::Const("0");
-    ::STRINGS[3] = uString::Const(" %");
+    ::STRINGS[2] = uString::Const(" %");
     ::STRINGS[1] = uString::Const("Format specifier was invalid");
-    ::STRINGS[4] = uString::Const("-");
-    ::STRINGS[5] = uString::Const(".");
-    ::STRINGS[6] = uString::Const("E");
-    ::STRINGS[7] = uString::Const("+");
+    ::STRINGS[3] = uString::Const("-");
+    ::STRINGS[4] = uString::Const(".");
+    ::STRINGS[5] = uString::Const("0");
+    ::STRINGS[6] = uString::Const("E+");
+    ::STRINGS[7] = uString::Const(",");
     ::STRINGS[8] = uString::Const("");
-    ::STRINGS[9] = uString::Const("E+");
-    ::STRINGS[10] = uString::Const("8000000000000000");
-    ::STRINGS[11] = uString::Const(",");
     ::TYPES[13] = ::g::Uno::Char_typeof()->Array();
     ::TYPES[1] = ::g::Uno::Bool_typeof();
     ::TYPES[12] = ::g::Uno::Double_typeof();
     ::TYPES[14] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Uno::Char_typeof(), NULL);
     ::TYPES[10] = ::g::Uno::ULong_typeof();
     ::TYPES[7] = ::g::Uno::Int_typeof();
-    ::TYPES[11] = ::g::Uno::Float_typeof();
-    ::TYPES[15] = ::g::Uno::Exception_typeof();
     ::TYPES[2] = ::g::Uno::Char_typeof();
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::TYPES[7/*int*/], (uintptr_t)&NumericFormatter::NumberDecimalDigits_, uFieldFlagsStatic,
         ::TYPES[7/*int*/], (uintptr_t)&NumericFormatter::ExponentialDigits_, uFieldFlagsStatic,
-        ::g::Uno::String_typeof(), (uintptr_t)&NumericFormatter::_decimalPoint_, uFieldFlagsStatic);
+        ::g::Uno::String_typeof(), (uintptr_t)&NumericFormatter::_decimalPoint_, uFieldFlagsStatic,
+        ::TYPES[13/*char[]*/], (uintptr_t)&NumericFormatter::lowerHexChars_, uFieldFlagsStatic,
+        ::TYPES[13/*char[]*/], (uintptr_t)&NumericFormatter::upperHexChars_, uFieldFlagsStatic);
 }
 
 uClassType* NumericFormatter_typeof()
@@ -912,7 +914,8 @@ uClassType* NumericFormatter_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 3;
+    options.FieldCount = 5;
+    options.DependencyCount = 1;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Uno.Runtime.Implementation.Internal.NumericFormatter", options);
     type->fp_build_ = NumericFormatter_build;
@@ -920,305 +923,297 @@ uClassType* NumericFormatter_typeof()
     return type;
 }
 
-// private static void CalculateExponential(double d, double& significand, int& exponent) :408
-void NumericFormatter__CalculateExponential_fn(double* d, double* significand, int* exponent)
+// private static void CalculateExponential(double d, double& significand, int& exponent) :469
+void NumericFormatter__CalculateExponential_fn(double* d, double* significand, int32_t* exponent)
 {
     NumericFormatter::CalculateExponential(*d, significand, exponent);
 }
 
-// private static string get_DecimalPoint() :26
+// private static string get_DecimalPoint() :27
 void NumericFormatter__get_DecimalPoint_fn(uString** __retval)
 {
     *__retval = NumericFormatter::DecimalPoint();
 }
 
-// private static int Digits(string formatString) :424
-void NumericFormatter__Digits_fn(uString* formatString, int* __retval)
+// private static int Digits(string formatString) :489
+void NumericFormatter__Digits_fn(uString* formatString, int32_t* __retval)
 {
     *__retval = NumericFormatter::Digits(formatString);
 }
 
-// private static string DoFormatHex(string formatString, ulong l, int maxLength) :183
-void NumericFormatter__DoFormatHex_fn(uString* formatString, uint64_t* l, int* maxLength, uString** __retval)
-{
-    *__retval = NumericFormatter::DoFormatHex(formatString, *l, *maxLength);
-}
-
-// public static string Format(string formatString, bool i) :36
+// public static string Format(string formatString, bool i) :37
 void NumericFormatter__Format_fn(uString* formatString, bool* i, uString** __retval)
 {
     *__retval = NumericFormatter::Format(formatString, *i);
 }
 
-// public static string Format(string formatString, double d) :102
+// public static string Format(string formatString, double d) :103
 void NumericFormatter__Format1_fn(uString* formatString, double* d, uString** __retval)
 {
     *__retval = NumericFormatter::Format1(formatString, *d);
 }
 
-// public static string Format(string formatString, float f) :95
+// public static string Format(string formatString, float f) :96
 void NumericFormatter__Format2_fn(uString* formatString, float* f, uString** __retval)
 {
     *__retval = NumericFormatter::Format2(formatString, *f);
 }
 
-// public static string Format(string formatString, int i) :55
-void NumericFormatter__Format3_fn(uString* formatString, int* i, uString** __retval)
+// public static string Format(string formatString, int i) :56
+void NumericFormatter__Format3_fn(uString* formatString, int32_t* i, uString** __retval)
 {
     *__retval = NumericFormatter::Format3(formatString, *i);
 }
 
-// public static string Format(string formatString, long i) :62
+// public static string Format(string formatString, long i) :63
 void NumericFormatter__Format4_fn(uString* formatString, int64_t* i, uString** __retval)
 {
     *__retval = NumericFormatter::Format4(formatString, *i);
 }
 
-// public static string Format(string formatString, sbyte b) :41
+// public static string Format(string formatString, sbyte b) :42
 void NumericFormatter__Format5_fn(uString* formatString, int8_t* b, uString** __retval)
 {
     *__retval = NumericFormatter::Format5(formatString, *b);
 }
 
-// public static string Format(string formatString, short s) :48
+// public static string Format(string formatString, short s) :49
 void NumericFormatter__Format6_fn(uString* formatString, int16_t* s, uString** __retval)
 {
     *__retval = NumericFormatter::Format6(formatString, *s);
 }
 
-// public static string Format(string formatString, ulong i) :72
+// public static string Format(string formatString, ulong i) :73
 void NumericFormatter__Format7_fn(uString* formatString, uint64_t* i, uString** __retval)
 {
     *__retval = NumericFormatter::Format7(formatString, *i);
 }
 
-// private static string FormatCustom(string formatString, double value) :317
+// private static string FormatCustom(string formatString, double value) :378
 void NumericFormatter__FormatCustom_fn(uString* formatString, double* value, uString** __retval)
 {
     *__retval = NumericFormatter::FormatCustom(formatString, *value);
 }
 
-// private static string FormatCustom(string formatString, ulong value) :305
+// private static string FormatCustom(string formatString, ulong value) :366
 void NumericFormatter__FormatCustom1_fn(uString* formatString, uint64_t* value, uString** __retval)
 {
     *__retval = NumericFormatter::FormatCustom1(formatString, *value);
 }
 
-// private static string FormatCustomDoublePart(string doubleFormat, double d, bool& decimalPoint) :330
+// private static string FormatCustomDoublePart(string doubleFormat, double d, bool& decimalPoint) :391
 void NumericFormatter__FormatCustomDoublePart_fn(uString* doubleFormat, double* d, bool* decimalPoint, uString** __retval)
 {
     *__retval = NumericFormatter::FormatCustomDoublePart(doubleFormat, *d, decimalPoint);
 }
 
-// private static string FormatCustomIntegerPart(string integerFormat, ulong value) :371
+// private static string FormatCustomIntegerPart(string integerFormat, ulong value) :432
 void NumericFormatter__FormatCustomIntegerPart_fn(uString* integerFormat, uint64_t* value, uString** __retval)
 {
     *__retval = NumericFormatter::FormatCustomIntegerPart(integerFormat, *value);
 }
 
-// private static string FormatDecimal(string formatString, ulong l) :123
+// private static string FormatDecimal(string formatString, ulong l) :124
 void NumericFormatter__FormatDecimal_fn(uString* formatString, uint64_t* l, uString** __retval)
 {
     *__retval = NumericFormatter::FormatDecimal(formatString, *l);
 }
 
-// private static string FormatExponential(string formatString, double d) :206
-void NumericFormatter__FormatExponential_fn(uString* formatString, double* d, uString** __retval)
+// private static string FormatDecimal(ulong l, int digits) :130
+void NumericFormatter__FormatDecimal1_fn(uint64_t* l, int32_t* digits, uString** __retval)
 {
-    *__retval = NumericFormatter::FormatExponential(formatString, *d);
+    *__retval = NumericFormatter::FormatDecimal1(*l, *digits);
 }
 
-// private static string FormatFixedPoint(string formatString, double d) :133
-void NumericFormatter__FormatFixedPoint_fn(uString* formatString, double* d, uString** __retval)
+// private static string FormatExponential(double d, int digits, char exponentSymbol) :220
+void NumericFormatter__FormatExponential_fn(double* d, int32_t* digits, char16_t* exponentSymbol, uString** __retval)
 {
-    *__retval = NumericFormatter::FormatFixedPoint(formatString, *d);
+    *__retval = NumericFormatter::FormatExponential(*d, *digits, *exponentSymbol);
 }
 
-// private static string FormatFixedPoint(string formatString, ulong d) :128
-void NumericFormatter__FormatFixedPoint1_fn(uString* formatString, uint64_t* d, uString** __retval)
+// private static string FormatExponential(string formatString, double d) :239
+void NumericFormatter__FormatExponential1_fn(uString* formatString, double* d, uString** __retval)
+{
+    *__retval = NumericFormatter::FormatExponential1(formatString, *d);
+}
+
+// private static string FormatFixedPoint(double d, int desiredDigits) :157
+void NumericFormatter__FormatFixedPoint_fn(double* d, int32_t* desiredDigits, uString** __retval)
+{
+    *__retval = NumericFormatter::FormatFixedPoint(*d, *desiredDigits);
+}
+
+// private static string FormatFixedPoint(string formatString, double d) :149
+void NumericFormatter__FormatFixedPoint1_fn(uString* formatString, double* d, uString** __retval)
 {
     *__retval = NumericFormatter::FormatFixedPoint1(formatString, *d);
 }
 
-// private static string FormatFloatGeneral(string formatString, float f) :235
-void NumericFormatter__FormatFloatGeneral_fn(uString* formatString, float* f, uString** __retval)
+// private static string FormatFixedPoint(string formatString, ulong d) :135
+void NumericFormatter__FormatFixedPoint2_fn(uString* formatString, uint64_t* d, uString** __retval)
 {
-    *__retval = NumericFormatter::FormatFloatGeneral(formatString, *f);
+    *__retval = NumericFormatter::FormatFixedPoint2(formatString, *d);
 }
 
-// private static string FormatGeneral(string formatString, double d) :242
-void NumericFormatter__FormatGeneral_fn(uString* formatString, double* d, uString** __retval)
+// private static string FormatGeneral(string formatString, double d, int defaultPrecision) :280
+void NumericFormatter__FormatGeneral_fn(uString* formatString, double* d, int32_t* defaultPrecision, uString** __retval)
 {
-    *__retval = NumericFormatter::FormatGeneral(formatString, *d);
+    *__retval = NumericFormatter::FormatGeneral(formatString, *d, *defaultPrecision);
 }
 
-// private static string FormatGeneral(string formatString, ulong i) :222
-void NumericFormatter__FormatGeneral1_fn(uString* formatString, uint64_t* i, uString** __retval)
+// private static string FormatGeneral(string formatString, float f) :275
+void NumericFormatter__FormatGeneral1_fn(uString* formatString, float* f, uString** __retval)
 {
-    *__retval = NumericFormatter::FormatGeneral1(formatString, *i);
+    *__retval = NumericFormatter::FormatGeneral1(formatString, *f);
 }
 
-// private static string FormatHex(string formatString, int i) :162
-void NumericFormatter__FormatHex_fn(uString* formatString, int* i, uString** __retval)
+// private static string FormatGeneral(string formatString, ulong i) :248
+void NumericFormatter__FormatGeneral2_fn(uString* formatString, uint64_t* i, uString** __retval)
 {
-    *__retval = NumericFormatter::FormatHex(formatString, *i);
+    *__retval = NumericFormatter::FormatGeneral2(formatString, *i);
 }
 
-// private static string FormatHex(string formatString, long l) :169
-void NumericFormatter__FormatHex1_fn(uString* formatString, int64_t* l, uString** __retval)
+// private static string FormatHex(string formatString, ulong l, int maxLength) :212
+void NumericFormatter__FormatHex_fn(uString* formatString, uint64_t* l, int32_t* maxLength, uString** __retval)
 {
-    *__retval = NumericFormatter::FormatHex1(formatString, *l);
+    *__retval = NumericFormatter::FormatHex(formatString, *l, *maxLength);
 }
 
-// private static string FormatHex(string formatString, sbyte b) :148
-void NumericFormatter__FormatHex2_fn(uString* formatString, int8_t* b, uString** __retval)
+// private static string FormatHex(ulong l, int maxLength, bool upperCase) :196
+void NumericFormatter__FormatHex1_fn(uint64_t* l, int32_t* maxLength, bool* upperCase, uString** __retval)
 {
-    *__retval = NumericFormatter::FormatHex2(formatString, *b);
+    *__retval = NumericFormatter::FormatHex1(*l, *maxLength, *upperCase);
 }
 
-// private static string FormatHex(string formatString, short s) :155
-void NumericFormatter__FormatHex3_fn(uString* formatString, int16_t* s, uString** __retval)
-{
-    *__retval = NumericFormatter::FormatHex3(formatString, *s);
-}
-
-// private static string FormatHex(string formatString, ulong l) :178
-void NumericFormatter__FormatHex4_fn(uString* formatString, uint64_t* l, uString** __retval)
-{
-    *__retval = NumericFormatter::FormatHex4(formatString, *l);
-}
-
-// private static string FormatNumber(double d) :280
+// private static string FormatNumber(double d) :341
 void NumericFormatter__FormatNumber_fn(double* d, uString** __retval)
 {
     *__retval = NumericFormatter::FormatNumber(*d);
 }
 
-// private static string FormatNumber(string formatString, double d) :269
+// private static string FormatNumber(string formatString, double d) :330
 void NumericFormatter__FormatNumber1_fn(uString* formatString, double* d, uString** __retval)
 {
     *__retval = NumericFormatter::FormatNumber1(formatString, *d);
 }
 
-// private static string FormatNumber(string formatString, ulong i) :261
+// private static string FormatNumber(string formatString, ulong i) :322
 void NumericFormatter__FormatNumber2_fn(uString* formatString, uint64_t* i, uString** __retval)
 {
     *__retval = NumericFormatter::FormatNumber2(formatString, *i);
 }
 
-// private static string FormatNumber(ulong i) :287
+// private static string FormatNumber(ulong i) :348
 void NumericFormatter__FormatNumber3_fn(uint64_t* i, uString** __retval)
 {
     *__retval = NumericFormatter::FormatNumber3(*i);
 }
 
-// private static Uno.Runtime.Implementation.Internal.FormatSpecifier GetFormatSpecifier(string formatString) :454
-void NumericFormatter__GetFormatSpecifier_fn(uString* formatString, int* __retval)
+// private static Uno.Runtime.Implementation.Internal.FormatSpecifier GetFormatSpecifier(string formatString) :529
+void NumericFormatter__GetFormatSpecifier_fn(uString* formatString, int32_t* __retval)
 {
     *__retval = NumericFormatter::GetFormatSpecifier(formatString);
 }
 
-// private static Uno.Runtime.Implementation.Internal.FormatSpecifier GetStandartFormat(char symbol) :474
-void NumericFormatter__GetStandartFormat_fn(uChar* symbol, int* __retval)
+// private static Uno.Runtime.Implementation.Internal.FormatSpecifier GetStandartFormat(char symbol) :544
+void NumericFormatter__GetStandartFormat_fn(char16_t* symbol, int32_t* __retval)
 {
     *__retval = NumericFormatter::GetStandartFormat(*symbol);
 }
 
-// private static bool IsLetter(char symbol) :429
-void NumericFormatter__IsLetter_fn(uChar* symbol, bool* __retval)
+// private static bool IsLetter(char symbol) :498
+void NumericFormatter__IsLetter_fn(char16_t* symbol, bool* __retval)
 {
     *__retval = NumericFormatter::IsLetter(*symbol);
 }
 
-// private static string Pad(string unmodified, string formatString) :434
-void NumericFormatter__Pad_fn(uString* unmodified, uString* formatString, uString** __retval)
+// private static string Pad(string unmodified, int minLength) :503
+void NumericFormatter__Pad_fn(uString* unmodified, int32_t* minLength, uString** __retval)
 {
-    *__retval = NumericFormatter::Pad(unmodified, formatString);
+    *__retval = NumericFormatter::Pad(unmodified, *minLength);
 }
 
-// private static string Padding(int length) :444
-void NumericFormatter__Padding_fn(int* length, uString** __retval)
+// private static string Padding(int length) :519
+void NumericFormatter__Padding_fn(int32_t* length, uString** __retval)
 {
     *__retval = NumericFormatter::Padding(*length);
 }
 
-int NumericFormatter::NumberDecimalDigits_;
-int NumericFormatter::ExponentialDigits_;
+// private static string PruneNeedlessDecimals(string str) :261
+void NumericFormatter__PruneNeedlessDecimals_fn(uString* str, uString** __retval)
+{
+    *__retval = NumericFormatter::PruneNeedlessDecimals(str);
+}
+
+// private static double RoundToDigits(double value, int digits) :141
+void NumericFormatter__RoundToDigits_fn(double* value, int32_t* digits, double* __retval)
+{
+    *__retval = NumericFormatter::RoundToDigits(*value, *digits);
+}
+
+int32_t NumericFormatter::NumberDecimalDigits_;
+int32_t NumericFormatter::ExponentialDigits_;
 uSStrong<uString*> NumericFormatter::_decimalPoint_;
+uSStrong<uArray*> NumericFormatter::lowerHexChars_;
+uSStrong<uArray*> NumericFormatter::upperHexChars_;
 
-// private static void CalculateExponential(double d, double& significand, int& exponent) [static] :408
-void NumericFormatter::CalculateExponential(double d, double* significand, int* exponent)
+// private static void CalculateExponential(double d, double& significand, int& exponent) [static] :469
+void NumericFormatter::CalculateExponential(double d, double* significand, int32_t* exponent)
 {
-    *significand = d;
+    NumericFormatter_typeof()->Init();
     *exponent = 0;
+    *significand = 0.0;
 
-    while (*significand < 1.0)
+    if (d != 0.0)
     {
-        *exponent = *exponent - 1;
-        *significand = *significand * 10.0;
-    }
+        double abs = ::g::Uno::Math::Abs(d);
+        *exponent = (int32_t)::g::Uno::Math::Floor(::g::Uno::Math::Log10(abs));
 
-    while (*significand >= 10.0)
-    {
-        *exponent = *exponent + 1;
-        *significand = *significand / 10.0;
+        if (*exponent < -308)
+        {
+            abs = abs * 1e+16;
+            double pow = ::g::Uno::Math::Pow(10.0, (double)-(*exponent + 16));
+            *significand = abs * pow;
+        }
+        else
+            *significand = abs * ::g::Uno::Math::Pow(10.0, (double)-(*exponent));
     }
 }
 
-// private static int Digits(string formatString) [static] :424
-int NumericFormatter::Digits(uString* formatString)
+// private static int Digits(string formatString) [static] :489
+int32_t NumericFormatter::Digits(uString* formatString)
 {
-    return ::g::Uno::Int::Parse(::g::Uno::String::Substring(uPtr(formatString), 1));
+    NumericFormatter_typeof()->Init();
+    int32_t digits;
+
+    if (!::g::Uno::Int::TryParse(::g::Uno::String::Substring(uPtr(formatString), 1), &digits))
+        return -1;
+
+    return digits;
 }
 
-// private static string DoFormatHex(string formatString, ulong l, int maxLength) [static] :183
-uString* NumericFormatter::DoFormatHex(uString* formatString, uint64_t l, int maxLength)
-{
-    if (l == 0ULL)
-        return NumericFormatter::Pad(::STRINGS[2/*"0"*/], formatString);
-
-    uArray* hexChars = uArray::Init<int>(::TYPES[13/*char[]*/], 16, '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F');
-    uArray* buffer = uArray::New(::TYPES[13/*char[]*/], maxLength);
-    int index = maxLength;
-
-    while (l != 0ULL)
-    {
-        uPtr(buffer)->Item<uChar>(--index) = uPtr(hexChars)->Item<uChar>((int)(l % 16ULL));
-        l = l / 16ULL;
-    }
-
-    uArray* result = uArray::New(::TYPES[13/*char[]*/], maxLength - index);
-
-    for (int i = 0; i < result->Length(); i++)
-        uPtr(result)->Item<uChar>(i) = uPtr(buffer)->Item<uChar>(i + index);
-
-    uString* returnString = uString::CharArray(result);
-
-    if (uPtr(formatString)->Item(0) == 'x')
-        returnString = ::g::Uno::String::ToLower(uPtr(returnString));
-
-    return NumericFormatter::Pad(returnString, formatString);
-}
-
-// public static string Format(string formatString, bool i) [static] :36
+// public static string Format(string formatString, bool i) [static] :37
 uString* NumericFormatter::Format(uString* formatString, bool i)
 {
+    NumericFormatter_typeof()->Init();
     return ::g::Uno::Bool::ToString(i, ::TYPES[1/*bool*/]);
 }
 
-// public static string Format(string formatString, double d) [static] :102
+// public static string Format(string formatString, double d) [static] :103
 uString* NumericFormatter::Format1(uString* formatString, double d)
 {
+    NumericFormatter_typeof()->Init();
+
     switch (NumericFormatter::GetFormatSpecifier(formatString))
     {
         case 1:
-            return NumericFormatter::FormatFixedPoint(formatString, d);
+            return NumericFormatter::FormatFixedPoint1(formatString, d);
         case 3:
-            return NumericFormatter::FormatExponential(formatString, d);
+            return NumericFormatter::FormatExponential1(formatString, d);
         case 4:
-            return NumericFormatter::FormatGeneral(formatString, d);
+            return NumericFormatter::FormatGeneral(formatString, d, 15);
         case 5:
-            return ::g::Uno::String::op_Addition2(NumericFormatter::FormatNumber1(formatString, 100.0 * d), ::STRINGS[3/*" %"*/]);
+            return ::g::Uno::String::op_Addition2(NumericFormatter::FormatNumber1(formatString, 100.0 * d), ::STRINGS[2/*" %"*/]);
         case 6:
             return NumericFormatter::FormatNumber1(formatString, d);
         case 7:
@@ -1228,70 +1223,82 @@ uString* NumericFormatter::Format1(uString* formatString, double d)
     }
 }
 
-// public static string Format(string formatString, float f) [static] :95
+// public static string Format(string formatString, float f) [static] :96
 uString* NumericFormatter::Format2(uString* formatString, float f)
 {
+    NumericFormatter_typeof()->Init();
+
     if (NumericFormatter::GetFormatSpecifier(formatString) == 4)
-        return NumericFormatter::FormatFloatGeneral(formatString, f);
+        return NumericFormatter::FormatGeneral1(formatString, f);
 
     return NumericFormatter::Format1(formatString, (double)f);
 }
 
-// public static string Format(string formatString, int i) [static] :55
-uString* NumericFormatter::Format3(uString* formatString, int i)
+// public static string Format(string formatString, int i) [static] :56
+uString* NumericFormatter::Format3(uString* formatString, int32_t i)
 {
+    NumericFormatter_typeof()->Init();
+
     if (NumericFormatter::GetFormatSpecifier(formatString) == 2)
-        return NumericFormatter::FormatHex(formatString, i);
+        return NumericFormatter::FormatHex(formatString, (uint64_t)(uint32_t)i, 8);
 
     return NumericFormatter::Format4(formatString, (int64_t)i);
 }
 
-// public static string Format(string formatString, long i) [static] :62
+// public static string Format(string formatString, long i) [static] :63
 uString* NumericFormatter::Format4(uString* formatString, int64_t i)
 {
+    NumericFormatter_typeof()->Init();
+
     if (NumericFormatter::GetFormatSpecifier(formatString) == 2)
-        return NumericFormatter::FormatHex1(formatString, i);
+        return NumericFormatter::FormatHex(formatString, (uint64_t)i, 16);
     else if (i >= 0LL)
         return NumericFormatter::Format7(formatString, (uint64_t)i);
     else
-        return ::g::Uno::String::op_Addition2(::STRINGS[4/*"-"*/], NumericFormatter::Format7(formatString, (uint64_t)(i * -1LL)));
+        return ::g::Uno::String::op_Addition2(::STRINGS[3/*"-"*/], NumericFormatter::Format7(formatString, (uint64_t)(i * -1LL)));
 }
 
-// public static string Format(string formatString, sbyte b) [static] :41
+// public static string Format(string formatString, sbyte b) [static] :42
 uString* NumericFormatter::Format5(uString* formatString, int8_t b)
 {
+    NumericFormatter_typeof()->Init();
+
     if (NumericFormatter::GetFormatSpecifier(formatString) == 2)
-        return NumericFormatter::FormatHex2(formatString, b);
+        return NumericFormatter::FormatHex(formatString, (uint64_t)(uint8_t)b, 8);
 
     return NumericFormatter::Format4(formatString, (int64_t)b);
 }
 
-// public static string Format(string formatString, short s) [static] :48
+// public static string Format(string formatString, short s) [static] :49
 uString* NumericFormatter::Format6(uString* formatString, int16_t s)
 {
+    NumericFormatter_typeof()->Init();
+
     if (NumericFormatter::GetFormatSpecifier(formatString) == 2)
-        return NumericFormatter::FormatHex3(formatString, s);
+        return NumericFormatter::FormatHex(formatString, (uint64_t)(uint16_t)s, 8);
 
     return NumericFormatter::Format4(formatString, (int64_t)s);
 }
 
-// public static string Format(string formatString, ulong i) [static] :72
+// public static string Format(string formatString, ulong i) [static] :73
 uString* NumericFormatter::Format7(uString* formatString, uint64_t i)
 {
+    NumericFormatter_typeof()->Init();
+
     switch (NumericFormatter::GetFormatSpecifier(formatString))
     {
         case 0:
             return NumericFormatter::FormatDecimal(formatString, i);
         case 1:
-            return NumericFormatter::FormatFixedPoint1(formatString, i);
+            return NumericFormatter::FormatFixedPoint2(formatString, i);
         case 2:
-            return NumericFormatter::FormatHex4(formatString, i);
+            return NumericFormatter::FormatHex(formatString, i, 16);
         case 3:
-            return NumericFormatter::FormatExponential(formatString, (double)i);
+            return NumericFormatter::FormatExponential1(formatString, (double)i);
         case 4:
-            return NumericFormatter::FormatGeneral1(formatString, i);
+            return NumericFormatter::FormatGeneral2(formatString, i);
         case 5:
-            return ::g::Uno::String::op_Addition2(NumericFormatter::FormatNumber2(formatString, 100ULL * i), ::STRINGS[3/*" %"*/]);
+            return ::g::Uno::String::op_Addition2(NumericFormatter::FormatNumber2(formatString, 100ULL * i), ::STRINGS[2/*" %"*/]);
         case 6:
             return NumericFormatter::FormatNumber2(formatString, i);
         default:
@@ -1299,11 +1306,12 @@ uString* NumericFormatter::Format7(uString* formatString, uint64_t i)
     }
 }
 
-// private static string FormatCustom(string formatString, double value) [static] :317
+// private static string FormatCustom(string formatString, double value) [static] :378
 uString* NumericFormatter::FormatCustom(uString* formatString, double value)
 {
+    NumericFormatter_typeof()->Init();
     double absoluteValue = ::g::Uno::Math::Abs(value);
-    int decimalPoint = ::g::Uno::String::IndexOf(uPtr(formatString), '.', 0);
+    int32_t decimalPoint = ::g::Uno::String::IndexOf(uPtr(formatString), '.');
 
     if (decimalPoint == -1)
         return NumericFormatter::FormatCustomIntegerPart(formatString, (uint64_t)absoluteValue);
@@ -1311,13 +1319,14 @@ uString* NumericFormatter::FormatCustom(uString* formatString, double value)
     bool hasDecimalPoint;
     uString* integerPart = NumericFormatter::FormatCustomIntegerPart(::g::Uno::String::Substring1(formatString, 0, decimalPoint), (uint64_t)absoluteValue);
     uString* doublePart = NumericFormatter::FormatCustomDoublePart(::g::Uno::String::Substring(formatString, decimalPoint + 1), absoluteValue, &hasDecimalPoint);
-    return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2((value < 0.0) ? ::STRINGS[4/*"-"*/] : (uString*)::g::Uno::String::Empty_, integerPart), hasDecimalPoint ? ::STRINGS[5/*"."*/] : (uString*)::g::Uno::String::Empty_), doublePart);
+    return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2((value < 0.0) ? ::STRINGS[3/*"-"*/] : (uString*)::g::Uno::String::Empty(), integerPart), hasDecimalPoint ? ::STRINGS[4/*"."*/] : (uString*)::g::Uno::String::Empty()), doublePart);
 }
 
-// private static string FormatCustom(string formatString, ulong value) [static] :305
+// private static string FormatCustom(string formatString, ulong value) [static] :366
 uString* NumericFormatter::FormatCustom1(uString* formatString, uint64_t value)
 {
-    int decimalPoint = ::g::Uno::String::IndexOf(uPtr(formatString), '.', 0);
+    NumericFormatter_typeof()->Init();
+    int32_t decimalPoint = ::g::Uno::String::IndexOf(uPtr(formatString), '.');
 
     if (decimalPoint == -1)
         return NumericFormatter::FormatCustomIntegerPart(formatString, value);
@@ -1325,30 +1334,31 @@ uString* NumericFormatter::FormatCustom1(uString* formatString, uint64_t value)
     bool hasDecimalPoint;
     uString* integerPart = NumericFormatter::FormatCustomIntegerPart(::g::Uno::String::Substring1(formatString, 0, decimalPoint), value);
     uString* doublePart = NumericFormatter::FormatCustomDoublePart(::g::Uno::String::Substring(formatString, decimalPoint + 1), 0.0, &hasDecimalPoint);
-    return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(integerPart, hasDecimalPoint ? ::STRINGS[5/*"."*/] : (uString*)::g::Uno::String::Empty_), doublePart);
+    return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(integerPart, hasDecimalPoint ? ::STRINGS[4/*"."*/] : (uString*)::g::Uno::String::Empty()), doublePart);
 }
 
-// private static string FormatCustomDoublePart(string doubleFormat, double d, bool& decimalPoint) [static] :330
+// private static string FormatCustomDoublePart(string doubleFormat, double d, bool& decimalPoint) [static] :391
 uString* NumericFormatter::FormatCustomDoublePart(uString* doubleFormat, double d, bool* decimalPoint)
 {
-    int precision = 0;
+    NumericFormatter_typeof()->Init();
+    int32_t precision = 0;
     bool hasZero = false;
     uArray* processedFormat = ::g::Uno::String::ToCharArray(uPtr(doubleFormat));
 
-    for (int i = uPtr(processedFormat)->Length() - 1; i >= 0; i--)
+    for (int32_t i = uPtr(processedFormat)->Length() - 1; i >= 0; i--)
     {
-        if (uPtr(processedFormat)->Item<uChar>(i) == '0')
+        if (uPtr(processedFormat)->Item<char16_t>(i) == '0')
             hasZero = true;
 
-        if ((uPtr(processedFormat)->Item<uChar>(i) == '0') || (uPtr(processedFormat)->Item<uChar>(i) == '#'))
+        if ((uPtr(processedFormat)->Item<char16_t>(i) == '0') || (uPtr(processedFormat)->Item<char16_t>(i) == '#'))
         {
-            uPtr(processedFormat)->Item<uChar>(i) = hasZero ? '0' : uPtr(processedFormat)->Item<uChar>(i);
+            uPtr(processedFormat)->Item<char16_t>(i) = hasZero ? '0' : uPtr(processedFormat)->Item<char16_t>(i);
             precision++;
         }
     }
 
-    uString* raw = ::g::Uno::Double::ToString(::g::Uno::Math::Round1(d, precision), ::TYPES[12/*double*/]);
-    int index = ::g::Uno::String::IndexOf1(uPtr(raw), NumericFormatter::DecimalPoint(), 0) + 1;
+    uString* raw = ::g::Uno::Double::ToString(NumericFormatter::RoundToDigits(d, precision), ::TYPES[12/*double*/]);
+    int32_t index = ::g::Uno::String::IndexOf3(uPtr(raw), NumericFormatter::DecimalPoint(), 0) + 1;
     *decimalPoint = (index != 0) || hasZero;
 
     if (index == 0)
@@ -1356,19 +1366,19 @@ uString* NumericFormatter::FormatCustomDoublePart(uString* doubleFormat, double 
 
     ::g::Uno::Collections::List* formatted = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New2(::TYPES[14/*Uno.Collections.List<char>*/], processedFormat->Length());
 
-    for (int i1 = 0; i1 < processedFormat->Length(); i1++)
+    for (int32_t i1 = 0; i1 < processedFormat->Length(); i1++)
 
-        switch (uPtr(processedFormat)->Item<uChar>(i1))
+        switch (uPtr(processedFormat)->Item<char16_t>(i1))
         {
             case '0':
             {
-                ::g::Uno::Collections::List__Add_fn(uPtr(formatted), uCRef<uChar>((index >= uPtr(raw)->Length()) ? '0' : uPtr(raw)->Item(index++)));
+                ::g::Uno::Collections::List__Add_fn(uPtr(formatted), uCRef<char16_t>((index >= uPtr(raw)->Length()) ? '0' : uPtr(raw)->Item(index++)));
                 break;
             }
             case '#':
             {
                 if (index < uPtr(raw)->Length())
-                    ::g::Uno::Collections::List__Add_fn(uPtr(formatted), uCRef<uChar>(uPtr(raw)->Item(index++)));
+                    ::g::Uno::Collections::List__Add_fn(uPtr(formatted), uCRef<char16_t>(uPtr(raw)->Item(index++)));
 
                 break;
             }
@@ -1376,7 +1386,7 @@ uString* NumericFormatter::FormatCustomDoublePart(uString* doubleFormat, double 
                 break;
             default:
             {
-                ::g::Uno::Collections::List__Add_fn(uPtr(formatted), uCRef<uChar>(uPtr(processedFormat)->Item<uChar>(i1)));
+                ::g::Uno::Collections::List__Add_fn(uPtr(formatted), uCRef<char16_t>(uPtr(processedFormat)->Item<char16_t>(i1)));
                 break;
             }
         }
@@ -1384,23 +1394,24 @@ uString* NumericFormatter::FormatCustomDoublePart(uString* doubleFormat, double 
     return uString::CharArray((uArray*)formatted->ToArray());
 }
 
-// private static string FormatCustomIntegerPart(string integerFormat, ulong value) [static] :371
+// private static string FormatCustomIntegerPart(string integerFormat, ulong value) [static] :432
 uString* NumericFormatter::FormatCustomIntegerPart(uString* integerFormat, uint64_t value)
 {
+    NumericFormatter_typeof()->Init();
     uString* raw = ::g::Uno::ULong::ToString(value, ::TYPES[10/*ulong*/]);
-    int rawIndex = (value == 0ULL) ? -1 : uPtr(raw)->Length() - 1;
+    int32_t rawIndex = (value == 0ULL) ? -1 : uPtr(raw)->Length() - 1;
     uArray* formatted = uArray::New(::TYPES[13/*char[]*/], uPtr(integerFormat)->Length());
-    int index = integerFormat->Length() - 1;
-    int lastNumber = 0;
+    int32_t index = integerFormat->Length() - 1;
+    int32_t lastNumber = 0;
 
-    for (int i = integerFormat->Length() - 1; i >= 0; i--)
+    for (int32_t i = integerFormat->Length() - 1; i >= 0; i--)
 
         switch (uPtr(integerFormat)->Item(i))
         {
             case '0':
             {
                 lastNumber = i;
-                uPtr(formatted)->Item<uChar>(index--) = (rawIndex < 0) ? '0' : uPtr(raw)->Item(rawIndex--);
+                uPtr(formatted)->Item<char16_t>(index--) = (rawIndex < 0) ? '0' : uPtr(raw)->Item(rawIndex--);
                 break;
             }
             case '#':
@@ -1408,13 +1419,13 @@ uString* NumericFormatter::FormatCustomIntegerPart(uString* integerFormat, uint6
                 lastNumber = i;
 
                 if (rawIndex >= 0)
-                    uPtr(formatted)->Item<uChar>(index--) = uPtr(raw)->Item(rawIndex--);
+                    uPtr(formatted)->Item<char16_t>(index--) = uPtr(raw)->Item(rawIndex--);
 
                 break;
             }
             default:
             {
-                uPtr(formatted)->Item<uChar>(index--) = uPtr(integerFormat)->Item(i);
+                uPtr(formatted)->Item<char16_t>(index--) = uPtr(integerFormat)->Item(i);
                 break;
             }
         }
@@ -1430,233 +1441,274 @@ uString* NumericFormatter::FormatCustomIntegerPart(uString* integerFormat, uint6
     return formattedString;
 }
 
-// private static string FormatDecimal(string formatString, ulong l) [static] :123
+// private static string FormatDecimal(string formatString, ulong l) [static] :124
 uString* NumericFormatter::FormatDecimal(uString* formatString, uint64_t l)
 {
-    return NumericFormatter::Pad(::g::Uno::ULong::ToString(l, ::TYPES[10/*ulong*/]), formatString);
+    NumericFormatter_typeof()->Init();
+    int32_t digits = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : 0;
+    return NumericFormatter::FormatDecimal1(l, digits);
 }
 
-// private static string FormatExponential(string formatString, double d) [static] :206
-uString* NumericFormatter::FormatExponential(uString* formatString, double d)
+// private static string FormatDecimal(ulong l, int digits) [static] :130
+uString* NumericFormatter::FormatDecimal1(uint64_t l, int32_t digits)
 {
-    double raw;
-    int offset;
-    NumericFormatter::CalculateExponential(d, &raw, &offset);
-    int desiredDigits = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : NumericFormatter::ExponentialDigits_;
-    uString* rounded = ::g::Uno::Double::ToString(::g::Uno::Math::Round1(raw, desiredDigits), ::TYPES[12/*double*/]);
-
-    if (::g::Uno::String::IndexOf1(uPtr(rounded), NumericFormatter::DecimalPoint(), 0) == -1)
-        rounded = ::g::Uno::String::op_Addition2(rounded, NumericFormatter::DecimalPoint());
-
-    uString* padding = NumericFormatter::Padding((desiredDigits + 2) - uPtr(rounded)->Length());
-    uString* exponent = ::g::Uno::Int::ToString(::g::Uno::Math::Abs5(offset), ::TYPES[7/*int*/]);
-    return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(rounded, padding), ::STRINGS[6/*"E"*/]), (offset < 0) ? ::STRINGS[4/*"-"*/] : ::STRINGS[7/*"+"*/]), NumericFormatter::Padding(3 - uPtr(exponent)->Length())), exponent);
+    NumericFormatter_typeof()->Init();
+    return ::g::Uno::String::PadLeft1(uPtr(::g::Uno::ULong::ToString(l, ::TYPES[10/*ulong*/])), digits, '0');
 }
 
-// private static string FormatFixedPoint(string formatString, double d) [static] :133
-uString* NumericFormatter::FormatFixedPoint(uString* formatString, double d)
+// private static string FormatExponential(double d, int digits, char exponentSymbol) [static] :220
+uString* NumericFormatter::FormatExponential(double d, int32_t digits, char16_t exponentSymbol)
 {
-    int desiredDigits = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : NumericFormatter::NumberDecimalDigits_;
-    uString* rounded = ::g::Uno::Double::ToString(::g::Uno::Math::Round1(d, desiredDigits), ::TYPES[12/*double*/]);
-    int decimalPointPos = uPtr(::g::Uno::Int::ToString((int)d, ::TYPES[7/*int*/]))->Length();
-    int actualDigits = ::g::Uno::Math::Max8((uPtr(rounded)->Length() - decimalPointPos) - 1, 0);
+    NumericFormatter_typeof()->Init();
+    int32_t exponent = 0;
+    double significand = 0.0;
+    NumericFormatter::CalculateExponential(d, &significand, &exponent);
+    ::g::Uno::Text::StringBuilder* sb = ::g::Uno::Text::StringBuilder::New1();
 
-    if (desiredDigits <= actualDigits)
-        return rounded;
+    if (d < 0.0)
+        uPtr(sb)->Append('-');
 
-    uString* padding = NumericFormatter::Padding(desiredDigits - actualDigits);
-    bool hasDecimalPoint = ::g::Uno::String::IndexOf1(rounded, NumericFormatter::DecimalPoint(), 0) != -1;
-    return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(rounded, hasDecimalPoint ? ::STRINGS[8/*""*/] : (uString*)NumericFormatter::DecimalPoint()), padding);
+    sb->Append2(NumericFormatter::FormatFixedPoint(significand, digits));
+    sb->Append(exponentSymbol);
+    sb->Append((exponent < 0) ? '-' : '+');
+    sb->Append2(NumericFormatter::FormatDecimal1((uint64_t)::g::Uno::Math::Abs5(exponent), 3));
+    return sb->ToString();
 }
 
-// private static string FormatFixedPoint(string formatString, ulong d) [static] :128
-uString* NumericFormatter::FormatFixedPoint1(uString* formatString, uint64_t d)
+// private static string FormatExponential(string formatString, double d) [static] :239
+uString* NumericFormatter::FormatExponential1(uString* formatString, double d)
 {
+    NumericFormatter_typeof()->Init();
+    int32_t digits = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : NumericFormatter::ExponentialDigits_;
+    char16_t exponentSymbol = ::g::Uno::Char::IsUpper(formatString->Item(0)) ? 'E' : 'e';
+    return NumericFormatter::FormatExponential(d, digits, exponentSymbol);
+}
+
+// private static string FormatFixedPoint(double d, int desiredDigits) [static] :157
+uString* NumericFormatter::FormatFixedPoint(double d, int32_t desiredDigits)
+{
+    NumericFormatter_typeof()->Init();
+    // make sure -0 gets formated as 0
+    if (d == 0.0)
+        d = 0.0;
+    
+    char buf[64];
+    int len = snprintf(buf, sizeof(buf), "%.*f", desiredDigits, d);
+    if (len < 0 && errno == ERANGE)
+    {
+        // Some snprintf implementations return -1 and sets errno to
+        // ERANGE instead of returning the desired length, so let's
+        // reconstruct the value we want here.
+        len = snprintf(NULL, 0, "%.*f", desiredDigits, d);
+        U_ASSERT(len > sizeof(buf));
+    }
+    
+    char* ptr = buf;
+    if (len > sizeof(buf))
+    {
+        // Stackalloc bigger buffer, and try again
+        ptr = (char*)alloca(len + 1);
+        len = snprintf(ptr, len + 1, "%.*f", desiredDigits, d);
+    }
+    
+    U_ASSERT(len >= 0);
+    return uString::Ansi(ptr, len);
+}
+
+// private static string FormatFixedPoint(string formatString, double d) [static] :149
+uString* NumericFormatter::FormatFixedPoint1(uString* formatString, double d)
+{
+    NumericFormatter_typeof()->Init();
+    int32_t desiredDigits = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : NumericFormatter::NumberDecimalDigits_;
+    return NumericFormatter::FormatFixedPoint(d, desiredDigits);
+}
+
+// private static string FormatFixedPoint(string formatString, ulong d) [static] :135
+uString* NumericFormatter::FormatFixedPoint2(uString* formatString, uint64_t d)
+{
+    NumericFormatter_typeof()->Init();
     return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::ULong::ToString(d, ::TYPES[10/*ulong*/]), NumericFormatter::DecimalPoint()), NumericFormatter::Padding((uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : NumericFormatter::NumberDecimalDigits_));
 }
 
-// private static string FormatFloatGeneral(string formatString, float f) [static] :235
-uString* NumericFormatter::FormatFloatGeneral(uString* formatString, float f)
+// private static string FormatGeneral(string formatString, double d, int defaultPrecision) [static] :280
+uString* NumericFormatter::FormatGeneral(uString* formatString, double d, int32_t defaultPrecision)
 {
-    if (uPtr(formatString)->Length() == 1)
-        return ::g::Uno::Float::ToString(f, ::TYPES[11/*float*/]);
+    NumericFormatter_typeof()->Init();
 
-    return NumericFormatter::FormatGeneral(formatString, (double)f);
+    if (d == 0.0)
+        return ::STRINGS[5/*"0"*/];
+
+    int32_t desiredDigits = NumericFormatter::Digits(formatString);
+
+    if (desiredDigits < 1)
+        desiredDigits = defaultPrecision;
+
+    if (d == 0.0)
+        return ::STRINGS[5/*"0"*/];
+
+    double magnitude = ::g::Uno::Math::Log10(::g::Uno::Math::Abs(d));
+
+    if (magnitude < (double)desiredDigits)
+    {
+        int32_t intDigits = (int32_t)::g::Uno::Math::Ceil(magnitude);
+        uString* str = NumericFormatter::FormatFixedPoint(d, desiredDigits - intDigits);
+        return NumericFormatter::PruneNeedlessDecimals(str);
+    }
+
+    int32_t exponent = 0;
+    double significand = 0.0;
+    NumericFormatter::CalculateExponential(d, &significand, &exponent);
+    ::g::Uno::Text::StringBuilder* sb = ::g::Uno::Text::StringBuilder::New1();
+
+    if (d < 0.0)
+        uPtr(sb)->Append('-');
+
+    int32_t significandDigits = ::g::Uno::Math::Max8(0, desiredDigits - 1);
+    significand = ::g::Uno::Math::Round1(significand, significandDigits);
+    sb->Append2(NumericFormatter::PruneNeedlessDecimals(NumericFormatter::FormatFixedPoint(significand, significandDigits)));
+    sb->Append(::g::Uno::Char::IsUpper(uPtr(formatString)->Item(0)) ? 'E' : 'e');
+    sb->Append((exponent < 0) ? '-' : '+');
+    sb->Append2(NumericFormatter::FormatDecimal1((uint64_t)::g::Uno::Math::Abs5(exponent), 2));
+    return sb->ToString();
 }
 
-// private static string FormatGeneral(string formatString, double d) [static] :242
-uString* NumericFormatter::FormatGeneral(uString* formatString, double d)
+// private static string FormatGeneral(string formatString, float f) [static] :275
+uString* NumericFormatter::FormatGeneral1(uString* formatString, float f)
 {
-    if (uPtr(formatString)->Length() == 1)
-        return ::g::Uno::Double::ToString(d, ::TYPES[12/*double*/]);
-
-    int desiredDigits = NumericFormatter::Digits(formatString);
-    uString* str = ::g::Uno::Double::ToString(d, ::TYPES[12/*double*/]);
-
-    if ((desiredDigits >= uPtr(str)->Length()) || (desiredDigits == 0))
-        return str;
-
-    double significand;
-    int exponent;
-    NumericFormatter::CalculateExponential(::g::Uno::Math::Abs(d), &significand, &exponent);
-    significand = ::g::Uno::Math::Round1(significand, desiredDigits - 1);
-
-    if (exponent > desiredDigits)
-        return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::Double::ToString(significand, ::TYPES[12/*double*/]), ::STRINGS[9/*"E+"*/]), NumericFormatter::Padding(2 - uPtr(::g::Uno::Int::ToString(exponent, ::TYPES[7/*int*/]))->Length())), ::g::Uno::Int::ToString(exponent, ::TYPES[7/*int*/]));
-
-    return ::g::Uno::String::op_Addition2((d < 0.0) ? ::STRINGS[4/*"-"*/] : (uString*)::g::Uno::String::Empty_, ::g::Uno::Double::ToString(significand * (double)::g::Uno::Math::Pow1(10.0f, (float)exponent), ::TYPES[12/*double*/]));
+    NumericFormatter_typeof()->Init();
+    return NumericFormatter::FormatGeneral(formatString, (double)f, 7);
 }
 
-// private static string FormatGeneral(string formatString, ulong i) [static] :222
-uString* NumericFormatter::FormatGeneral1(uString* formatString, uint64_t i)
+// private static string FormatGeneral(string formatString, ulong i) [static] :248
+uString* NumericFormatter::FormatGeneral2(uString* formatString, uint64_t i)
 {
+    NumericFormatter_typeof()->Init();
+
     if (uPtr(formatString)->Length() == 1)
         return ::g::Uno::ULong::ToString(i, ::TYPES[10/*ulong*/]);
 
-    int desiredDigits = NumericFormatter::Digits(formatString);
+    int32_t desiredDigits = NumericFormatter::Digits(formatString);
     uString* str = ::g::Uno::ULong::ToString(i, ::TYPES[10/*ulong*/]);
 
     if ((desiredDigits >= uPtr(str)->Length()) || (desiredDigits == 0))
         return str;
 
-    uString* rounded = ::g::Uno::Double::ToString(::g::Uno::Math::Round1((double)i / (double)::g::Uno::Math::Pow1(10.0f, (float)(uPtr(str)->Length() - 1)), desiredDigits - 1), ::TYPES[12/*double*/]);
+    uString* rounded = ::g::Uno::Double::ToString(NumericFormatter::RoundToDigits((double)i / (double)::g::Uno::Math::Pow1(10.0f, (float)(uPtr(str)->Length() - 1)), desiredDigits - 1), ::TYPES[12/*double*/]);
     uString* exponent = ::g::Uno::Int::ToString(str->Length() - 1, ::TYPES[7/*int*/]);
-    return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(rounded, ::STRINGS[9/*"E+"*/]), NumericFormatter::Padding(2 - uPtr(exponent)->Length())), exponent);
+    return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(rounded, ::STRINGS[6/*"E+"*/]), NumericFormatter::Padding(2 - uPtr(exponent)->Length())), exponent);
 }
 
-// private static string FormatHex(string formatString, int i) [static] :162
-uString* NumericFormatter::FormatHex(uString* formatString, int i)
+// private static string FormatHex(string formatString, ulong l, int maxLength) [static] :212
+uString* NumericFormatter::FormatHex(uString* formatString, uint64_t l, int32_t maxLength)
 {
-    if (i < 0)
-        return NumericFormatter::DoFormatHex(formatString, (uint64_t)((4294967295U - (uint32_t)-i) + 1U), 8);
-
-    return NumericFormatter::DoFormatHex(formatString, (uint64_t)i, 8);
+    NumericFormatter_typeof()->Init();
+    int32_t desiredLength = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : 0;
+    return NumericFormatter::Pad(NumericFormatter::FormatHex1(l, maxLength, ::g::Uno::Char::IsUpper(formatString->Item(0))), desiredLength);
 }
 
-// private static string FormatHex(string formatString, long l) [static] :169
-uString* NumericFormatter::FormatHex1(uString* formatString, int64_t l)
+// private static string FormatHex(ulong l, int maxLength, bool upperCase) [static] :196
+uString* NumericFormatter::FormatHex1(uint64_t l, int32_t maxLength, bool upperCase)
 {
-    if (l == (-9223372036854775807LL - 1))
-        return ::STRINGS[10/*"80000000000...*/];
+    NumericFormatter_typeof()->Init();
+    uArray* hexChars = upperCase ? (uArray*)NumericFormatter::upperHexChars_ : (uArray*)NumericFormatter::lowerHexChars_;
+    uArray* buffer = uArray::New(::TYPES[13/*char[]*/], maxLength);
+    int32_t index = maxLength;
 
-    if (l < 0LL)
-        return NumericFormatter::DoFormatHex(formatString, (18446744073709551615ULL - (uint64_t)-l) + 1ULL, 16);
+    do
+    {
+        uPtr(buffer)->Item<char16_t>(--index) = uPtr(hexChars)->Item<char16_t>((int32_t)l & 15);
+        l = l >> 4;
+    }
+    while (l != 0ULL);
 
-    return NumericFormatter::DoFormatHex(formatString, (uint64_t)l, 16);
+    return uString::CharArrayRange(buffer, index, maxLength - index);
 }
 
-// private static string FormatHex(string formatString, sbyte b) [static] :148
-uString* NumericFormatter::FormatHex2(uString* formatString, int8_t b)
-{
-    if (b < 0)
-        return NumericFormatter::DoFormatHex(formatString, (uint64_t)((255 - (uint8_t)-b) + 1), 8);
-
-    return NumericFormatter::DoFormatHex(formatString, (uint64_t)b, 8);
-}
-
-// private static string FormatHex(string formatString, short s) [static] :155
-uString* NumericFormatter::FormatHex3(uString* formatString, int16_t s)
-{
-    if (s < 0)
-        return NumericFormatter::DoFormatHex(formatString, (uint64_t)((65535 - (uint16_t)-s) + 1), 8);
-
-    return NumericFormatter::DoFormatHex(formatString, (uint64_t)s, 8);
-}
-
-// private static string FormatHex(string formatString, ulong l) [static] :178
-uString* NumericFormatter::FormatHex4(uString* formatString, uint64_t l)
-{
-    return NumericFormatter::DoFormatHex(formatString, l, 16);
-}
-
-// private static string FormatNumber(double d) [static] :280
+// private static string FormatNumber(double d) [static] :341
 uString* NumericFormatter::FormatNumber(double d)
 {
+    NumericFormatter_typeof()->Init();
+
     if (d < 0.0)
-        return ::g::Uno::String::op_Addition2(::STRINGS[4/*"-"*/], NumericFormatter::FormatNumber3((uint64_t)-d));
+        return ::g::Uno::String::op_Addition2(::STRINGS[3/*"-"*/], NumericFormatter::FormatNumber3((uint64_t)-d));
 
     return NumericFormatter::FormatNumber3((uint64_t)d);
 }
 
-// private static string FormatNumber(string formatString, double d) [static] :269
+// private static string FormatNumber(string formatString, double d) [static] :330
 uString* NumericFormatter::FormatNumber1(uString* formatString, double d)
 {
-    int desiredDigits = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : NumericFormatter::NumberDecimalDigits_;
-    double rounded = ::g::Uno::Math::Round1(d, desiredDigits);
+    NumericFormatter_typeof()->Init();
+    int32_t desiredDigits = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : NumericFormatter::NumberDecimalDigits_;
+    double rounded = NumericFormatter::RoundToDigits(d, desiredDigits);
 
     if (desiredDigits == 0)
         return NumericFormatter::FormatNumber(rounded);
 
     uString* str = ::g::Uno::Double::ToString(rounded, ::TYPES[12/*double*/]);
-    uString* residue = (::g::Uno::String::IndexOf1(uPtr(str), NumericFormatter::DecimalPoint(), 0) == -1) ? (uString*)::g::Uno::String::Empty_ : (uString*)::g::Uno::String::Substring(uPtr(str), ::g::Uno::String::IndexOf1(uPtr(str), NumericFormatter::DecimalPoint(), 0) + 1);
+    uString* residue = (::g::Uno::String::IndexOf3(uPtr(str), NumericFormatter::DecimalPoint(), 0) == -1) ? (uString*)::g::Uno::String::Empty() : (uString*)::g::Uno::String::Substring(uPtr(str), ::g::Uno::String::IndexOf3(uPtr(str), NumericFormatter::DecimalPoint(), 0) + 1);
     return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(NumericFormatter::FormatNumber(rounded), NumericFormatter::DecimalPoint()), residue), NumericFormatter::Padding(desiredDigits - uPtr(residue)->Length()));
 }
 
-// private static string FormatNumber(string formatString, ulong i) [static] :261
+// private static string FormatNumber(string formatString, ulong i) [static] :322
 uString* NumericFormatter::FormatNumber2(uString* formatString, uint64_t i)
 {
-    int desiredDigits = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : NumericFormatter::NumberDecimalDigits_;
+    NumericFormatter_typeof()->Init();
+    int32_t desiredDigits = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : NumericFormatter::NumberDecimalDigits_;
 
     if (desiredDigits == 0)
         return NumericFormatter::FormatNumber3(i);
 
-    return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(NumericFormatter::FormatNumber3(i), ::STRINGS[5/*"."*/]), NumericFormatter::Padding(desiredDigits));
+    return ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(NumericFormatter::FormatNumber3(i), ::STRINGS[4/*"."*/]), NumericFormatter::Padding(desiredDigits));
 }
 
-// private static string FormatNumber(ulong i) [static] :287
+// private static string FormatNumber(ulong i) [static] :348
 uString* NumericFormatter::FormatNumber3(uint64_t i)
 {
+    NumericFormatter_typeof()->Init();
     uString* str = ::g::Uno::ULong::ToString(i, ::TYPES[10/*ulong*/]);
 
     if (uPtr(str)->Length() <= 3)
         return str;
 
-    int start = ((uPtr(str)->Length() % 3) == 0) ? 3 : uPtr(str)->Length() % 3;
+    int32_t start = ((uPtr(str)->Length() % 3) == 0) ? 3 : uPtr(str)->Length() % 3;
     ::g::Uno::Text::StringBuilder* result = ::g::Uno::Text::StringBuilder::New1();
     result->Append2(::g::Uno::String::Substring1(str, 0, start));
 
-    for (int index = start; index < str->Length(); index = index + 3)
+    for (int32_t index = start; index < str->Length(); index = index + 3)
     {
-        uPtr(result)->Append2(::STRINGS[11/*","*/]);
+        uPtr(result)->Append2(::STRINGS[7/*","*/]);
         result->Append2(::g::Uno::String::Substring1(uPtr(str), index, 3));
     }
 
     return result->ToString();
 }
 
-// private static Uno.Runtime.Implementation.Internal.FormatSpecifier GetFormatSpecifier(string formatString) [static] :454
-int NumericFormatter::GetFormatSpecifier(uString* formatString)
+// private static Uno.Runtime.Implementation.Internal.FormatSpecifier GetFormatSpecifier(string formatString) [static] :529
+int32_t NumericFormatter::GetFormatSpecifier(uString* formatString)
 {
-    uChar symbol = ::g::Uno::Char::ToUpper(uPtr(formatString)->Item(0));
+    NumericFormatter_typeof()->Init();
+    char16_t symbol = ::g::Uno::Char::ToUpper(uPtr(formatString)->Item(0));
 
     if ((formatString->Length() == 1) && NumericFormatter::IsLetter(symbol))
         return NumericFormatter::GetStandartFormat(symbol);
 
-    try
-    {
-        {
-            int decimals = NumericFormatter::Digits(formatString);
+    int32_t decimals = NumericFormatter::Digits(formatString);
 
-            if (decimals > 99)
-                return 7;
-
-            if (uPtr(::g::Uno::String::Trim1(uPtr(formatString), uArray::Init<int>(::TYPES[13/*char[]*/], 1, '0')))->Length() == 0)
-                return 7;
-        }
-    }
-
-    catch (const uThrowable& __t)
-    {
-        ::g::Uno::Exception* exception_ = __t.Exception;
+    if ((decimals < 0) || (decimals > 99))
         return 7;
-    }
+
+    if (uPtr(::g::Uno::String::Trim1(formatString, uArray::Init<int32_t>(::TYPES[13/*char[]*/], 1, '0')))->Length() == 0)
+        return 7;
 
     return NumericFormatter::GetStandartFormat(symbol);
 }
 
-// private static Uno.Runtime.Implementation.Internal.FormatSpecifier GetStandartFormat(char symbol) [static] :474
-int NumericFormatter::GetStandartFormat(uChar symbol)
+// private static Uno.Runtime.Implementation.Internal.FormatSpecifier GetStandartFormat(char symbol) [static] :544
+int32_t NumericFormatter::GetStandartFormat(char16_t symbol)
 {
+    NumericFormatter_typeof()->Init();
+
     switch (symbol)
     {
         case 'X':
@@ -1678,42 +1730,68 @@ int NumericFormatter::GetStandartFormat(uChar symbol)
     }
 }
 
-// private static bool IsLetter(char symbol) [static] :429
-bool NumericFormatter::IsLetter(uChar symbol)
+// private static bool IsLetter(char symbol) [static] :498
+bool NumericFormatter::IsLetter(char16_t symbol)
 {
+    NumericFormatter_typeof()->Init();
     return (symbol >= 'A') && (symbol <= 'Z');
 }
 
-// private static string Pad(string unmodified, string formatString) [static] :434
-uString* NumericFormatter::Pad(uString* unmodified, uString* formatString)
+// private static string Pad(string unmodified, int minLength) [static] :503
+uString* NumericFormatter::Pad(uString* unmodified, int32_t minLength)
 {
-    int actualLength = uPtr(unmodified)->Length();
-    int desiredLength = (uPtr(formatString)->Length() > 1) ? NumericFormatter::Digits(formatString) : actualLength;
+    NumericFormatter_typeof()->Init();
+    int32_t actualLength = uPtr(unmodified)->Length();
 
-    if (desiredLength <= actualLength)
+    if (minLength <= actualLength)
         return unmodified;
 
-    uString* padding = NumericFormatter::Padding(desiredLength - actualLength);
+    uString* padding = NumericFormatter::Padding(minLength - actualLength);
     return ::g::Uno::String::op_Addition2(padding, unmodified);
 }
 
-// private static string Padding(int length) [static] :444
-uString* NumericFormatter::Padding(int length)
+// private static string Padding(int length) [static] :519
+uString* NumericFormatter::Padding(int32_t length)
 {
+    NumericFormatter_typeof()->Init();
+
     if (length <= 0)
         return ::STRINGS[8/*""*/];
 
     uArray* padding = uArray::New(::TYPES[13/*char[]*/], length);
 
-    for (int i = 0; i < length; i++)
-        uPtr(padding)->Item<uChar>(i) = '0';
+    for (int32_t i = 0; i < length; i++)
+        uPtr(padding)->Item<char16_t>(i) = '0';
 
     return uString::CharArray(padding);
 }
 
-// private static string get_DecimalPoint() [static] :26
+// private static string PruneNeedlessDecimals(string str) [static] :261
+uString* NumericFormatter::PruneNeedlessDecimals(uString* str)
+{
+    NumericFormatter_typeof()->Init();
+
+    if (::g::Uno::String::IndexOf(uPtr(str), '.') >= 0)
+        return ::g::Uno::String::TrimEnd(uPtr(::g::Uno::String::TrimEnd(uPtr(str), uArray::Init<int32_t>(::TYPES[13/*char[]*/], 1, '0'))), uArray::Init<int32_t>(::TYPES[13/*char[]*/], 1, '.'));
+
+    return str;
+}
+
+// private static double RoundToDigits(double value, int digits) [static] :141
+double NumericFormatter::RoundToDigits(double value, int32_t digits)
+{
+    NumericFormatter_typeof()->Init();
+    int64_t multiplier = (int64_t)::g::Uno::Math::Pow1(10.0f, (float)digits);
+    int64_t intPart = (int64_t)value;
+    double decimalPart = ::g::Uno::Math::Round((value - (double)intPart) * (double)multiplier) / (double)multiplier;
+    return (double)intPart + decimalPart;
+}
+
+// private static string get_DecimalPoint() [static] :27
 uString* NumericFormatter::DecimalPoint()
 {
+    NumericFormatter_typeof()->Init();
+
     if (::g::Uno::String::op_Equality(NumericFormatter::_decimalPoint_, NULL))
         NumericFormatter::_decimalPoint_ = ::g::Uno::Char::ToString(uPtr(::g::Uno::Double::ToString(1.1, ::TYPES[12/*double*/]))->Item(1), ::TYPES[2/*char*/]);
 
@@ -1721,7 +1799,7 @@ uString* NumericFormatter::DecimalPoint()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\Internal\FormatStringTokenizer.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\Internal\FormatStringTokenizer.uno
 // ------------------------------------------------------------------------------------------------------------------------------------------
 
 // private enum FormatStringTokenizer.State :7

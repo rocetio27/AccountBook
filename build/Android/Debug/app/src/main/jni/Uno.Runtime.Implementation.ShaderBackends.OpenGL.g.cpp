@@ -36,6 +36,7 @@
 #include <OpenGL.GLTextureUnit.h>
 #include <Uno.Bool.h>
 #include <Uno.Buffer.h>
+#include <Uno.Byte.h>
 #include <Uno.Collections.Dictionary-2.h>
 #include <Uno.Collections.List-1.h>
 #include <Uno.Diagnostics.Debug.h>
@@ -45,6 +46,7 @@
 #include <Uno.Float2.h>
 #include <Uno.Float2x2.h>
 #include <Uno.Float3.h>
+#include <Uno.Float3x3.h>
 #include <Uno.Float4.h>
 #include <Uno.Float4x4.h>
 #include <Uno.Graphics.BlendEquation.h>
@@ -87,7 +89,7 @@ namespace Implementation{
 namespace ShaderBackends{
 namespace OpenGL{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLCompiledProgram.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLCompiledProgram.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------------------
 
 // public sealed extern class GLCompiledProgram :6
@@ -95,8 +97,6 @@ namespace OpenGL{
 static void GLCompiledProgram_build(uType* type)
 {
     ::TYPES[0] = ::g::Uno::Int_typeof()->Array();
-    type->SetDependencies(
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLHelpers_typeof());
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(GLCompiledProgram_type, interface0));
     type->SetFields(0,
@@ -114,7 +114,6 @@ GLCompiledProgram_type* GLCompiledProgram_typeof()
     uTypeOptions options;
     options.FieldCount = 4;
     options.InterfaceCount = 1;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(GLCompiledProgram);
     options.TypeSize = sizeof(GLCompiledProgram_type);
     type = (GLCompiledProgram_type*)uClassType::New("Uno.Runtime.Implementation.ShaderBackends.OpenGL.GLCompiledProgram", options);
@@ -124,7 +123,7 @@ GLCompiledProgram_type* GLCompiledProgram_typeof()
 }
 
 // internal GLCompiledProgram(string vsSource, string fsSource, int constCount, int attribCount, string[] constAttribAndUniformNames) :28
-void GLCompiledProgram__ctor__fn(GLCompiledProgram* __this, uString* vsSource, uString* fsSource, int* constCount, int* attribCount, uArray* constAttribAndUniformNames)
+void GLCompiledProgram__ctor__fn(GLCompiledProgram* __this, uString* vsSource, uString* fsSource, int32_t* constCount, int32_t* attribCount, uArray* constAttribAndUniformNames)
 {
     __this->ctor_(vsSource, fsSource, *constCount, *attribCount, constAttribAndUniformNames);
 }
@@ -136,7 +135,7 @@ void GLCompiledProgram__Dispose_fn(GLCompiledProgram* __this)
 }
 
 // public int GetLocation(int index) :23
-void GLCompiledProgram__GetLocation_fn(GLCompiledProgram* __this, int* index, int* __retval)
+void GLCompiledProgram__GetLocation_fn(GLCompiledProgram* __this, int32_t* index, int32_t* __retval)
 {
     *__retval = __this->GetLocation(*index);
 }
@@ -154,27 +153,27 @@ void GLCompiledProgram__set_GLProgramHandle_fn(GLCompiledProgram* __this, uint32
 }
 
 // internal GLCompiledProgram New(string vsSource, string fsSource, int constCount, int attribCount, string[] constAttribAndUniformNames) :28
-void GLCompiledProgram__New1_fn(uString* vsSource, uString* fsSource, int* constCount, int* attribCount, uArray* constAttribAndUniformNames, GLCompiledProgram** __retval)
+void GLCompiledProgram__New1_fn(uString* vsSource, uString* fsSource, int32_t* constCount, int32_t* attribCount, uArray* constAttribAndUniformNames, GLCompiledProgram** __retval)
 {
     *__retval = GLCompiledProgram::New1(vsSource, fsSource, *constCount, *attribCount, constAttribAndUniformNames);
 }
 
 // internal GLCompiledProgram(string vsSource, string fsSource, int constCount, int attribCount, string[] constAttribAndUniformNames) [instance] :28
-void GLCompiledProgram::ctor_(uString* vsSource, uString* fsSource, int constCount, int attribCount, uArray* constAttribAndUniformNames)
+void GLCompiledProgram::ctor_(uString* vsSource, uString* fsSource, int32_t constCount, int32_t attribCount, uArray* constAttribAndUniformNames)
 {
     _vsHandle = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLHelpers::CompileShader(35633, vsSource);
     _fsHandle = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLHelpers::CompileShader(35632, fsSource);
     GLProgramHandle(::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLHelpers::LinkProgram(_vsHandle, _fsHandle));
     _locations = uArray::New(::TYPES[0/*int[]*/], uPtr(constAttribAndUniformNames)->Length());
 
-    for (int i = 0; i < constCount; i++)
-        uPtr(_locations)->Item<int>(i) = -1;
+    for (int32_t i = 0; i < constCount; i++)
+        uPtr(_locations)->Item<int32_t>(i) = -1;
 
-    for (int i1 = constCount; i1 < (constCount + attribCount); i1++)
-        uPtr(_locations)->Item<int>(i1) = ::g::OpenGL::GL::GetAttribLocation(GLProgramHandle(), uPtr(constAttribAndUniformNames)->Strong<uString*>(i1));
+    for (int32_t i1 = constCount; i1 < (constCount + attribCount); i1++)
+        uPtr(_locations)->Item<int32_t>(i1) = ::g::OpenGL::GL::GetAttribLocation(GLProgramHandle(), uPtr(constAttribAndUniformNames)->Strong<uString*>(i1));
 
-    for (int i2 = constCount + attribCount; i2 < constAttribAndUniformNames->Length(); i2++)
-        uPtr(_locations)->Item<int>(i2) = ::g::OpenGL::GL::GetUniformLocation(GLProgramHandle(), uPtr(constAttribAndUniformNames)->Strong<uString*>(i2));
+    for (int32_t i2 = constCount + attribCount; i2 < constAttribAndUniformNames->Length(); i2++)
+        uPtr(_locations)->Item<int32_t>(i2) = ::g::OpenGL::GL::GetUniformLocation(GLProgramHandle(), uPtr(constAttribAndUniformNames)->Strong<uString*>(i2));
 }
 
 // public void Dispose() [instance] :47
@@ -189,9 +188,9 @@ void GLCompiledProgram::Dispose()
 }
 
 // public int GetLocation(int index) [instance] :23
-int GLCompiledProgram::GetLocation(int index)
+int32_t GLCompiledProgram::GetLocation(int32_t index)
 {
-    return uPtr(_locations)->Item<int>(index);
+    return uPtr(_locations)->Item<int32_t>(index);
 }
 
 // public generated OpenGL.GLProgramHandle get_GLProgramHandle() [instance] :14
@@ -207,7 +206,7 @@ void GLCompiledProgram::GLProgramHandle(uint32_t value)
 }
 
 // internal GLCompiledProgram New(string vsSource, string fsSource, int constCount, int attribCount, string[] constAttribAndUniformNames) [static] :28
-GLCompiledProgram* GLCompiledProgram::New1(uString* vsSource, uString* fsSource, int constCount, int attribCount, uArray* constAttribAndUniformNames)
+GLCompiledProgram* GLCompiledProgram::New1(uString* vsSource, uString* fsSource, int32_t constCount, int32_t attribCount, uArray* constAttribAndUniformNames)
 {
     GLCompiledProgram* obj1 = (GLCompiledProgram*)uNew(GLCompiledProgram_typeof());
     obj1->ctor_(vsSource, fsSource, constCount, attribCount, constAttribAndUniformNames);
@@ -215,7 +214,7 @@ GLCompiledProgram* GLCompiledProgram::New1(uString* vsSource, uString* fsSource,
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLDrawCall.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLDrawCall.uno
 // --------------------------------------------------------------------------------------------------------------------------------------------
 
 // public extern struct GLDrawCall :8
@@ -228,8 +227,6 @@ static void GLDrawCall_build(uType* type)
     ::TYPES[1] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Uno::Int_typeof(), NULL);
     ::TYPES[2] = ::g::Uno::String_typeof()->Array();
     ::TYPES[3] = ::g::Uno::Int_typeof();
-    type->SetDependencies(
-        ::g::Uno::Graphics::Texture2D_typeof());
     type->SetFields(0,
         ::TYPES[2/*string[]*/], offsetof(GLDrawCall, _constValues), 0,
         ::g::Uno::Bool_typeof(), offsetof(GLDrawCall, _compiledProgramDirty), 0,
@@ -265,7 +262,6 @@ uStructType* GLDrawCall_typeof()
 
     uTypeOptions options;
     options.FieldCount = 25;
-    options.DependencyCount = 1;
     options.Alignment = alignof(GLDrawCall);
     options.ValueSize = sizeof(GLDrawCall);
     options.TypeSize = sizeof(uStructType);
@@ -281,25 +277,25 @@ void GLDrawCall__ctor__fn(GLDrawCall* __this, ::g::Uno::Runtime::Implementation:
 }
 
 // public void Attrib(int index, int componentCount, OpenGL.GLDataType componentType, bool normalized, Uno.Graphics.VertexBuffer buf, int stride, int offset) :208
-void GLDrawCall__Attrib_fn(GLDrawCall* __this, int* index, int* componentCount, int* componentType, bool* normalized, ::g::Uno::Graphics::VertexBuffer* buf, int* stride, int* offset)
+void GLDrawCall__Attrib_fn(GLDrawCall* __this, int32_t* index, int32_t* componentCount, int32_t* componentType, bool* normalized, ::g::Uno::Graphics::VertexBuffer* buf, int32_t* stride, int32_t* offset)
 {
     __this->Attrib(*index, *componentCount, *componentType, *normalized, buf, *stride, *offset);
 }
 
 // public void Attrib(int index, Uno.Graphics.VertexAttributeType type, Uno.Graphics.VertexBuffer buf, int stride, int offset) :229
-void GLDrawCall__Attrib1_fn(GLDrawCall* __this, int* index, int* type, ::g::Uno::Graphics::VertexBuffer* buf, int* stride, int* offset)
+void GLDrawCall__Attrib1_fn(GLDrawCall* __this, int32_t* index, int32_t* type, ::g::Uno::Graphics::VertexBuffer* buf, int32_t* stride, int32_t* offset)
 {
     __this->Attrib1(*index, *type, buf, *stride, *offset);
 }
 
 // public generated int get_BaseVertex() :143
-void GLDrawCall__get_BaseVertex_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_BaseVertex_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->BaseVertex();
 }
 
 // public generated void set_BaseVertex(int value) :144
-void GLDrawCall__set_BaseVertex_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_BaseVertex_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->BaseVertex(*value);
 }
@@ -311,25 +307,25 @@ void GLDrawCall__Begin_fn(GLDrawCall* __this)
 }
 
 // public Uno.Graphics.BlendOperand get_BlendDstAlpha() :77
-void GLDrawCall__get_BlendDstAlpha_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_BlendDstAlpha_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->BlendDstAlpha();
 }
 
 // public void set_BlendDstAlpha(Uno.Graphics.BlendOperand value) :78
-void GLDrawCall__set_BlendDstAlpha_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_BlendDstAlpha_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->BlendDstAlpha(*value);
 }
 
 // public Uno.Graphics.BlendOperand get_BlendDstRgb() :71
-void GLDrawCall__get_BlendDstRgb_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_BlendDstRgb_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->BlendDstRgb();
 }
 
 // public void set_BlendDstRgb(Uno.Graphics.BlendOperand value) :72
-void GLDrawCall__set_BlendDstRgb_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_BlendDstRgb_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->BlendDstRgb(*value);
 }
@@ -347,91 +343,91 @@ void GLDrawCall__set_BlendEnabled_fn(GLDrawCall* __this, bool* value)
 }
 
 // public Uno.Graphics.BlendEquation get_BlendEquationAlpha() :53
-void GLDrawCall__get_BlendEquationAlpha_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_BlendEquationAlpha_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->BlendEquationAlpha();
 }
 
 // public void set_BlendEquationAlpha(Uno.Graphics.BlendEquation value) :54
-void GLDrawCall__set_BlendEquationAlpha_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_BlendEquationAlpha_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->BlendEquationAlpha(*value);
 }
 
 // public Uno.Graphics.BlendEquation get_BlendEquationRgb() :47
-void GLDrawCall__get_BlendEquationRgb_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_BlendEquationRgb_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->BlendEquationRgb();
 }
 
 // public void set_BlendEquationRgb(Uno.Graphics.BlendEquation value) :48
-void GLDrawCall__set_BlendEquationRgb_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_BlendEquationRgb_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->BlendEquationRgb(*value);
 }
 
 // public Uno.Graphics.BlendOperand get_BlendSrcAlpha() :65
-void GLDrawCall__get_BlendSrcAlpha_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_BlendSrcAlpha_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->BlendSrcAlpha();
 }
 
 // public void set_BlendSrcAlpha(Uno.Graphics.BlendOperand value) :66
-void GLDrawCall__set_BlendSrcAlpha_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_BlendSrcAlpha_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->BlendSrcAlpha(*value);
 }
 
 // public Uno.Graphics.BlendOperand get_BlendSrcRgb() :59
-void GLDrawCall__get_BlendSrcRgb_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_BlendSrcRgb_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->BlendSrcRgb();
 }
 
 // public void set_BlendSrcRgb(Uno.Graphics.BlendOperand value) :60
-void GLDrawCall__set_BlendSrcRgb_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_BlendSrcRgb_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->BlendSrcRgb(*value);
 }
 
 // public void Const(int index, bool value) :184
-void GLDrawCall__Const_fn(GLDrawCall* __this, int* index, bool* value)
+void GLDrawCall__Const_fn(GLDrawCall* __this, int32_t* index, bool* value)
 {
     __this->Const(*index, *value);
 }
 
 // public void Const(int index, int value) :189
-void GLDrawCall__Const1_fn(GLDrawCall* __this, int* index, int* value)
+void GLDrawCall__Const1_fn(GLDrawCall* __this, int32_t* index, int32_t* value)
 {
     __this->Const1(*index, *value);
 }
 
 // private void ConstInternal(int index, string value) :175
-void GLDrawCall__ConstInternal_fn(GLDrawCall* __this, int* index, uString* value)
+void GLDrawCall__ConstInternal_fn(GLDrawCall* __this, int32_t* index, uString* value)
 {
     __this->ConstInternal(*index, value);
 }
 
 // public Uno.Graphics.PolygonFace get_CullFace() :95
-void GLDrawCall__get_CullFace_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_CullFace_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->CullFace();
 }
 
 // public void set_CullFace(Uno.Graphics.PolygonFace value) :96
-void GLDrawCall__set_CullFace_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_CullFace_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->CullFace(*value);
 }
 
 // public Uno.Graphics.CompareFunc get_DepthFunc() :89
-void GLDrawCall__get_DepthFunc_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_DepthFunc_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->DepthFunc();
 }
 
 // public void set_DepthFunc(Uno.Graphics.CompareFunc value) :90
-void GLDrawCall__set_DepthFunc_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_DepthFunc_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->DepthFunc(*value);
 }
@@ -449,25 +445,25 @@ void GLDrawCall__set_DepthTestEnabled_fn(GLDrawCall* __this, bool* value)
 }
 
 // public void DisableSampler(int index, OpenGL.GLTextureTarget target) :292
-void GLDrawCall__DisableSampler_fn(GLDrawCall* __this, int* index, int* target)
+void GLDrawCall__DisableSampler_fn(GLDrawCall* __this, int32_t* index, int32_t* target)
 {
     __this->DisableSampler(*index, *target);
 }
 
 // public void Draw(int count, [Uno.Graphics.IndexType type], [Uno.Graphics.IndexBuffer buf]) :540
-void GLDrawCall__Draw_fn(GLDrawCall* __this, int* count, int* type, ::g::Uno::Graphics::IndexBuffer* buf)
+void GLDrawCall__Draw_fn(GLDrawCall* __this, int32_t* count, int32_t* type, ::g::Uno::Graphics::IndexBuffer* buf)
 {
     __this->Draw(*count, *type, buf);
 }
 
 // public void DrawArrays(int count) :524
-void GLDrawCall__DrawArrays_fn(GLDrawCall* __this, int* count)
+void GLDrawCall__DrawArrays_fn(GLDrawCall* __this, int32_t* count)
 {
     __this->DrawArrays(*count);
 }
 
 // public void DrawElements(int count, OpenGL.GLIndexType type, Uno.Graphics.IndexBuffer buf) :531
-void GLDrawCall__DrawElements_fn(GLDrawCall* __this, int* count, int* type, ::g::Uno::Graphics::IndexBuffer* buf)
+void GLDrawCall__DrawElements_fn(GLDrawCall* __this, int32_t* count, int32_t* type, ::g::Uno::Graphics::IndexBuffer* buf)
 {
     __this->DrawElements(*count, *type, buf);
 }
@@ -497,25 +493,25 @@ void GLDrawCall__New1_fn(::g::Uno::Runtime::Implementation::ShaderBackends::Open
 }
 
 // public Uno.Graphics.PolygonWinding get_PolygonWinding() :101
-void GLDrawCall__get_PolygonWinding_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_PolygonWinding_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->PolygonWinding();
 }
 
 // public void set_PolygonWinding(Uno.Graphics.PolygonWinding value) :102
-void GLDrawCall__set_PolygonWinding_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_PolygonWinding_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->PolygonWinding(*value);
 }
 
 // public Uno.Graphics.PrimitiveType get_PrimitiveType() :107
-void GLDrawCall__get_PrimitiveType_fn(GLDrawCall* __this, int* __retval)
+void GLDrawCall__get_PrimitiveType_fn(GLDrawCall* __this, int32_t* __retval)
 {
     *__retval = __this->PrimitiveType();
 }
 
 // public void set_PrimitiveType(Uno.Graphics.PrimitiveType value) :108
-void GLDrawCall__set_PrimitiveType_fn(GLDrawCall* __this, int* value)
+void GLDrawCall__set_PrimitiveType_fn(GLDrawCall* __this, int32_t* value)
 {
     __this->PrimitiveType(*value);
 }
@@ -532,86 +528,80 @@ void GLDrawCall__set_Program_fn(GLDrawCall* __this, ::g::Uno::Runtime::Implement
     __this->Program(value);
 }
 
-// public void Sampler(int index, OpenGL.GLTextureTarget target, OpenGL.GLTextureHandle handle, bool isMipmap, bool isPow2) :238
-void GLDrawCall__Sampler_fn(GLDrawCall* __this, int* index, int* target, uint32_t* handle, bool* isMipmap, bool* isPow2)
-{
-    __this->Sampler(*index, *target, *handle, *isMipmap, *isPow2);
-}
-
 // public void Sampler(int index, OpenGL.GLTextureTarget target, OpenGL.GLTextureHandle handle, Uno.Graphics.SamplerState state, bool isMipmap, bool isPow2) :265
-void GLDrawCall__Sampler1_fn(GLDrawCall* __this, int* index, int* target, uint32_t* handle, ::g::Uno::Graphics::SamplerState* state, bool* isMipmap, bool* isPow2)
+void GLDrawCall__Sampler1_fn(GLDrawCall* __this, int32_t* index, int32_t* target, uint32_t* handle, ::g::Uno::Graphics::SamplerState* state, bool* isMipmap, bool* isPow2)
 {
     __this->Sampler1(*index, *target, *handle, *state, *isMipmap, *isPow2);
 }
 
-// public void Sampler(int index, texture2D value) :299
-void GLDrawCall__Sampler2_fn(GLDrawCall* __this, int* index, ::g::Uno::Graphics::Texture2D* value)
-{
-    __this->Sampler2(*index, value);
-}
-
 // public void Sampler(int index, texture2D value, Uno.Graphics.SamplerState state) :307
-void GLDrawCall__Sampler3_fn(GLDrawCall* __this, int* index, ::g::Uno::Graphics::Texture2D* value, ::g::Uno::Graphics::SamplerState* state)
+void GLDrawCall__Sampler3_fn(GLDrawCall* __this, int32_t* index, ::g::Uno::Graphics::Texture2D* value, ::g::Uno::Graphics::SamplerState* state)
 {
     __this->Sampler3(*index, value, *state);
 }
 
 // public void Sampler(int index, Uno.Graphics.VideoTexture value, Uno.Graphics.SamplerState state) :339
-void GLDrawCall__Sampler7_fn(GLDrawCall* __this, int* index, ::g::Uno::Graphics::VideoTexture* value, ::g::Uno::Graphics::SamplerState* state)
+void GLDrawCall__Sampler7_fn(GLDrawCall* __this, int32_t* index, ::g::Uno::Graphics::VideoTexture* value, ::g::Uno::Graphics::SamplerState* state)
 {
     __this->Sampler7(*index, value, *state);
 }
 
 // public void Uniform(int index, float value) :387
-void GLDrawCall__Uniform_fn(GLDrawCall* __this, int* index, float* value)
+void GLDrawCall__Uniform_fn(GLDrawCall* __this, int32_t* index, float* value)
 {
     __this->Uniform(*index, *value);
 }
 
 // public void Uniform(int index, float[] value) :422
-void GLDrawCall__Uniform1_fn(GLDrawCall* __this, int* index, uArray* value)
+void GLDrawCall__Uniform1_fn(GLDrawCall* __this, int32_t* index, uArray* value)
 {
     __this->Uniform1(*index, value);
 }
 
 // public void Uniform(int index, float2 value) :392
-void GLDrawCall__Uniform2_fn(GLDrawCall* __this, int* index, ::g::Uno::Float2* value)
+void GLDrawCall__Uniform2_fn(GLDrawCall* __this, int32_t* index, ::g::Uno::Float2* value)
 {
     __this->Uniform2(*index, *value);
 }
 
 // public void Uniform(int index, float2[] value) :427
-void GLDrawCall__Uniform3_fn(GLDrawCall* __this, int* index, uArray* value)
+void GLDrawCall__Uniform3_fn(GLDrawCall* __this, int32_t* index, uArray* value)
 {
     __this->Uniform3(*index, value);
 }
 
 // public void Uniform(int index, float2x2 value) :407
-void GLDrawCall__Uniform4_fn(GLDrawCall* __this, int* index, ::g::Uno::Float2x2* value)
+void GLDrawCall__Uniform4_fn(GLDrawCall* __this, int32_t* index, ::g::Uno::Float2x2* value)
 {
     __this->Uniform4(*index, *value);
 }
 
 // public void Uniform(int index, float3 value) :397
-void GLDrawCall__Uniform6_fn(GLDrawCall* __this, int* index, ::g::Uno::Float3* value)
+void GLDrawCall__Uniform6_fn(GLDrawCall* __this, int32_t* index, ::g::Uno::Float3* value)
 {
     __this->Uniform6(*index, *value);
 }
 
+// public void Uniform(int index, float3x3 value) :412
+void GLDrawCall__Uniform8_fn(GLDrawCall* __this, int32_t* index, ::g::Uno::Float3x3* value)
+{
+    __this->Uniform8(*index, *value);
+}
+
 // public void Uniform(int index, float4 value) :402
-void GLDrawCall__Uniform10_fn(GLDrawCall* __this, int* index, ::g::Uno::Float4* value)
+void GLDrawCall__Uniform10_fn(GLDrawCall* __this, int32_t* index, ::g::Uno::Float4* value)
 {
     __this->Uniform10(*index, *value);
 }
 
 // public void Uniform(int index, float4[] value) :437
-void GLDrawCall__Uniform11_fn(GLDrawCall* __this, int* index, uArray* value)
+void GLDrawCall__Uniform11_fn(GLDrawCall* __this, int32_t* index, uArray* value)
 {
     __this->Uniform11(*index, value);
 }
 
 // public void Uniform(int index, float4x4 value) :417
-void GLDrawCall__Uniform12_fn(GLDrawCall* __this, int* index, ::g::Uno::Float4x4* value)
+void GLDrawCall__Uniform12_fn(GLDrawCall* __this, int32_t* index, ::g::Uno::Float4x4* value)
 {
     __this->Uniform12(*index, *value);
 }
@@ -683,13 +673,13 @@ void GLDrawCall__set_WriteRed_fn(GLDrawCall* __this, bool* value)
 }
 
 uSStrong< ::g::Uno::Collections::List*> GLDrawCall::_boundAttributes_;
-int GLDrawCall::_currentTextureUnit_;
+int32_t GLDrawCall::_currentTextureUnit_;
 
 // public GLDrawCall(Uno.Runtime.Implementation.ShaderBackends.OpenGL.GLProgram program) [instance] :153
 void GLDrawCall::ctor_(::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram* program)
 {
-    int ind1;
-    int ind2;
+    int32_t ind1;
+    int32_t ind2;
     bool ind3;
     bool ind4;
     bool ind5;
@@ -714,12 +704,12 @@ void GLDrawCall::ctor_(::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL
 }
 
 // public void Attrib(int index, int componentCount, OpenGL.GLDataType componentType, bool normalized, Uno.Graphics.VertexBuffer buf, int stride, int offset) [instance] :208
-void GLDrawCall::Attrib(int index, int componentCount, int componentType, bool normalized, ::g::Uno::Graphics::VertexBuffer* buf, int stride, int offset)
+void GLDrawCall::Attrib(int32_t index, int32_t componentCount, int32_t componentType, bool normalized, ::g::Uno::Graphics::VertexBuffer* buf, int32_t stride, int32_t offset)
 {
     if (buf == NULL)
         return;
 
-    int location = uPtr(_compiledProgram)->GetLocation(index);
+    int32_t location = uPtr(_compiledProgram)->GetLocation(index);
 
     if (location < 0)
         return;
@@ -728,27 +718,27 @@ void GLDrawCall::Attrib(int index, int componentCount, int componentType, bool n
     ::g::OpenGL::GL::BindBuffer(34962, uPtr(buf)->GLBufferHandle());
     ::g::OpenGL::GL::VertexAttribPointer(location, componentCount, componentType, normalized, stride, offset);
     ::g::OpenGL::GL::BindBuffer(34962, ::g::OpenGL::GLBufferHandle::Zero_);
-    ::g::Uno::Collections::List__Add_fn(uPtr(GLDrawCall::_boundAttributes_), uCRef<int>(location));
+    ::g::Uno::Collections::List__Add_fn(uPtr(GLDrawCall::_boundAttributes_), uCRef<int32_t>(location));
 }
 
 // public void Attrib(int index, Uno.Graphics.VertexAttributeType type, Uno.Graphics.VertexBuffer buf, int stride, int offset) [instance] :229
-void GLDrawCall::Attrib1(int index, int type, ::g::Uno::Graphics::VertexBuffer* buf, int stride, int offset)
+void GLDrawCall::Attrib1(int32_t index, int32_t type, ::g::Uno::Graphics::VertexBuffer* buf, int32_t stride, int32_t offset)
 {
-    int componentCount;
-    int componentType;
+    int32_t componentCount;
+    int32_t componentType;
     bool normalized;
     ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLVertexAttributeType(type, &componentCount, &componentType, &normalized);
     Attrib(index, componentCount, componentType, normalized, buf, stride, offset);
 }
 
 // public generated int get_BaseVertex() [instance] :143
-int GLDrawCall::BaseVertex()
+int32_t GLDrawCall::BaseVertex()
 {
     return _BaseVertex;
 }
 
 // public generated void set_BaseVertex(int value) [instance] :144
-void GLDrawCall::BaseVertex(int value)
+void GLDrawCall::BaseVertex(int32_t value)
 {
     _BaseVertex = value;
 }
@@ -789,25 +779,25 @@ void GLDrawCall::Begin()
 }
 
 // public Uno.Graphics.BlendOperand get_BlendDstAlpha() [instance] :77
-int GLDrawCall::BlendDstAlpha()
+int32_t GLDrawCall::BlendDstAlpha()
 {
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToUnoGraphicsBlendOperand(_blendDstAlpha);
 }
 
 // public void set_BlendDstAlpha(Uno.Graphics.BlendOperand value) [instance] :78
-void GLDrawCall::BlendDstAlpha(int value)
+void GLDrawCall::BlendDstAlpha(int32_t value)
 {
     _blendDstAlpha = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLBlendingFactor(value);
 }
 
 // public Uno.Graphics.BlendOperand get_BlendDstRgb() [instance] :71
-int GLDrawCall::BlendDstRgb()
+int32_t GLDrawCall::BlendDstRgb()
 {
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToUnoGraphicsBlendOperand(_blendDstRgb);
 }
 
 // public void set_BlendDstRgb(Uno.Graphics.BlendOperand value) [instance] :72
-void GLDrawCall::BlendDstRgb(int value)
+void GLDrawCall::BlendDstRgb(int32_t value)
 {
     _blendDstRgb = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLBlendingFactor(value);
 }
@@ -825,67 +815,67 @@ void GLDrawCall::BlendEnabled(bool value)
 }
 
 // public Uno.Graphics.BlendEquation get_BlendEquationAlpha() [instance] :53
-int GLDrawCall::BlendEquationAlpha()
+int32_t GLDrawCall::BlendEquationAlpha()
 {
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToUnoGraphicsBlendEquation(_blendEqAlpha);
 }
 
 // public void set_BlendEquationAlpha(Uno.Graphics.BlendEquation value) [instance] :54
-void GLDrawCall::BlendEquationAlpha(int value)
+void GLDrawCall::BlendEquationAlpha(int32_t value)
 {
     _blendEqAlpha = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLBlendEquation(value);
 }
 
 // public Uno.Graphics.BlendEquation get_BlendEquationRgb() [instance] :47
-int GLDrawCall::BlendEquationRgb()
+int32_t GLDrawCall::BlendEquationRgb()
 {
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToUnoGraphicsBlendEquation(_blendEqRgb);
 }
 
 // public void set_BlendEquationRgb(Uno.Graphics.BlendEquation value) [instance] :48
-void GLDrawCall::BlendEquationRgb(int value)
+void GLDrawCall::BlendEquationRgb(int32_t value)
 {
     _blendEqRgb = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLBlendEquation(value);
 }
 
 // public Uno.Graphics.BlendOperand get_BlendSrcAlpha() [instance] :65
-int GLDrawCall::BlendSrcAlpha()
+int32_t GLDrawCall::BlendSrcAlpha()
 {
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToUnoGraphicsBlendOperand(_blendSrcAlpha);
 }
 
 // public void set_BlendSrcAlpha(Uno.Graphics.BlendOperand value) [instance] :66
-void GLDrawCall::BlendSrcAlpha(int value)
+void GLDrawCall::BlendSrcAlpha(int32_t value)
 {
     _blendSrcAlpha = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLBlendingFactor(value);
 }
 
 // public Uno.Graphics.BlendOperand get_BlendSrcRgb() [instance] :59
-int GLDrawCall::BlendSrcRgb()
+int32_t GLDrawCall::BlendSrcRgb()
 {
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToUnoGraphicsBlendOperand(_blendSrcRgb);
 }
 
 // public void set_BlendSrcRgb(Uno.Graphics.BlendOperand value) [instance] :60
-void GLDrawCall::BlendSrcRgb(int value)
+void GLDrawCall::BlendSrcRgb(int32_t value)
 {
     _blendSrcRgb = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLBlendingFactor(value);
 }
 
 // public void Const(int index, bool value) [instance] :184
-void GLDrawCall::Const(int index, bool value)
+void GLDrawCall::Const(int32_t index, bool value)
 {
     ConstInternal(index, value ? ::STRINGS[0/*"true"*/] : ::STRINGS[1/*"false"*/]);
 }
 
 // public void Const(int index, int value) [instance] :189
-void GLDrawCall::Const1(int index, int value)
+void GLDrawCall::Const1(int32_t index, int32_t value)
 {
     ConstInternal(index, ::g::Uno::Int::ToString(value, ::TYPES[3/*int*/]));
 }
 
 // private void ConstInternal(int index, string value) [instance] :175
-void GLDrawCall::ConstInternal(int index, uString* value)
+void GLDrawCall::ConstInternal(int32_t index, uString* value)
 {
     if ((_constValues != NULL) && ::g::Uno::String::op_Inequality(uPtr(_constValues)->Strong<uString*>(index), value))
     {
@@ -895,25 +885,25 @@ void GLDrawCall::ConstInternal(int index, uString* value)
 }
 
 // public Uno.Graphics.PolygonFace get_CullFace() [instance] :95
-int GLDrawCall::CullFace()
+int32_t GLDrawCall::CullFace()
 {
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToUnoGraphicsPolygonFace(_cullFace);
 }
 
 // public void set_CullFace(Uno.Graphics.PolygonFace value) [instance] :96
-void GLDrawCall::CullFace(int value)
+void GLDrawCall::CullFace(int32_t value)
 {
     _cullFace = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLCullFaceMode(value);
 }
 
 // public Uno.Graphics.CompareFunc get_DepthFunc() [instance] :89
-int GLDrawCall::DepthFunc()
+int32_t GLDrawCall::DepthFunc()
 {
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToUnoGraphicsCompareFunc(_depthFunc);
 }
 
 // public void set_DepthFunc(Uno.Graphics.CompareFunc value) [instance] :90
-void GLDrawCall::DepthFunc(int value)
+void GLDrawCall::DepthFunc(int32_t value)
 {
     _depthFunc = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLDepthFunction(value);
 }
@@ -931,7 +921,7 @@ void GLDrawCall::DepthTestEnabled(bool value)
 }
 
 // public void DisableSampler(int index, OpenGL.GLTextureTarget target) [instance] :292
-void GLDrawCall::DisableSampler(int index, int target)
+void GLDrawCall::DisableSampler(int32_t index, int32_t target)
 {
     ::g::OpenGL::GL::ActiveTexture(33984 + GLDrawCall::_currentTextureUnit_);
     ::g::OpenGL::GL::BindTexture(target, ::g::OpenGL::GLTextureHandle::Zero_);
@@ -939,7 +929,7 @@ void GLDrawCall::DisableSampler(int index, int target)
 }
 
 // public void Draw(int count, [Uno.Graphics.IndexType type], [Uno.Graphics.IndexBuffer buf]) [instance] :540
-void GLDrawCall::Draw(int count, int type, ::g::Uno::Graphics::IndexBuffer* buf)
+void GLDrawCall::Draw(int32_t count, int32_t type, ::g::Uno::Graphics::IndexBuffer* buf)
 {
     if (type == 0)
         DrawArrays(count);
@@ -948,7 +938,7 @@ void GLDrawCall::Draw(int count, int type, ::g::Uno::Graphics::IndexBuffer* buf)
 }
 
 // public void DrawArrays(int count) [instance] :524
-void GLDrawCall::DrawArrays(int count)
+void GLDrawCall::DrawArrays(int32_t count)
 {
     Begin();
     ::g::OpenGL::GL::DrawArrays(_primitiveType, BaseVertex(), count);
@@ -956,7 +946,7 @@ void GLDrawCall::DrawArrays(int count)
 }
 
 // public void DrawElements(int count, OpenGL.GLIndexType type, Uno.Graphics.IndexBuffer buf) [instance] :531
-void GLDrawCall::DrawElements(int count, int type, ::g::Uno::Graphics::IndexBuffer* buf)
+void GLDrawCall::DrawElements(int32_t count, int32_t type, ::g::Uno::Graphics::IndexBuffer* buf)
 {
     Begin();
     ::g::OpenGL::GL::BindBuffer(34963, uPtr(buf)->GLBufferHandle());
@@ -968,12 +958,12 @@ void GLDrawCall::DrawElements(int count, int type, ::g::Uno::Graphics::IndexBuff
 // private void End() [instance] :499
 void GLDrawCall::End()
 {
-    int ret8;
+    int32_t ret8;
 
-    for (int i = 0; i < uPtr(GLDrawCall::_boundAttributes_)->Count(); i++)
-        ::g::OpenGL::GL::DisableVertexAttribArray((::g::Uno::Collections::List__get_Item_fn(uPtr(GLDrawCall::_boundAttributes_), uCRef<int>(i), &ret8), ret8));
+    for (int32_t i = 0; i < uPtr(GLDrawCall::_boundAttributes_)->Count(); i++)
+        ::g::OpenGL::GL::DisableVertexAttribArray((::g::Uno::Collections::List__get_Item_fn(uPtr(GLDrawCall::_boundAttributes_), uCRef<int32_t>(i), &ret8), ret8));
 
-    for (int i1 = 0; i1 < GLDrawCall::_currentTextureUnit_; i1++)
+    for (int32_t i1 = 0; i1 < GLDrawCall::_currentTextureUnit_; i1++)
     {
         ::g::OpenGL::GL::ActiveTexture(33984 + i1);
         ::g::OpenGL::GL::BindTexture(3553, ::g::OpenGL::GLTextureHandle::Zero_);
@@ -1001,25 +991,25 @@ void GLDrawCall::LineWidth(float value)
 }
 
 // public Uno.Graphics.PolygonWinding get_PolygonWinding() [instance] :101
-int GLDrawCall::PolygonWinding()
+int32_t GLDrawCall::PolygonWinding()
 {
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToUnoGraphicsPolygonWinding(_frontFace);
 }
 
 // public void set_PolygonWinding(Uno.Graphics.PolygonWinding value) [instance] :102
-void GLDrawCall::PolygonWinding(int value)
+void GLDrawCall::PolygonWinding(int32_t value)
 {
     _frontFace = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLFrontFaceDirection(value);
 }
 
 // public Uno.Graphics.PrimitiveType get_PrimitiveType() [instance] :107
-int GLDrawCall::PrimitiveType()
+int32_t GLDrawCall::PrimitiveType()
 {
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToUnoGraphicsPrimitiveType(_primitiveType);
 }
 
 // public void set_PrimitiveType(Uno.Graphics.PrimitiveType value) [instance] :108
-void GLDrawCall::PrimitiveType(int value)
+void GLDrawCall::PrimitiveType(int32_t value)
 {
     _primitiveType = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLInterop::ToGLPrimitiveType(value);
 }
@@ -1036,37 +1026,10 @@ void GLDrawCall::Program(::g::Uno::Runtime::Implementation::ShaderBackends::Open
     _Program = value;
 }
 
-// public void Sampler(int index, OpenGL.GLTextureTarget target, OpenGL.GLTextureHandle handle, bool isMipmap, bool isPow2) [instance] :238
-void GLDrawCall::Sampler(int index, int target, uint32_t handle, bool isMipmap, bool isPow2)
-{
-    int location = uPtr(_compiledProgram)->GetLocation(index);
-    ::g::OpenGL::GL::ActiveTexture(33984 + GLDrawCall::_currentTextureUnit_);
-    ::g::OpenGL::GL::BindTexture(target, handle);
-    ::g::OpenGL::GL::TexParameter(target, 10240, 9729);
-
-    if (isMipmap)
-        ::g::OpenGL::GL::TexParameter(target, 10241, 9987);
-    else
-        ::g::OpenGL::GL::TexParameter(target, 10241, 9729);
-
-    if ((target != 36197) && (isPow2 || ::g::Uno::Graphics::Texture2D::HaveNonPow2Support()))
-    {
-        ::g::OpenGL::GL::TexParameter(target, 10242, 10497);
-        ::g::OpenGL::GL::TexParameter(target, 10243, 10497);
-    }
-    else
-    {
-        ::g::OpenGL::GL::TexParameter(target, 10242, 33071);
-        ::g::OpenGL::GL::TexParameter(target, 10243, 33071);
-    }
-
-    ::g::OpenGL::GL::Uniform12(location, GLDrawCall::_currentTextureUnit_++);
-}
-
 // public void Sampler(int index, OpenGL.GLTextureTarget target, OpenGL.GLTextureHandle handle, Uno.Graphics.SamplerState state, bool isMipmap, bool isPow2) [instance] :265
-void GLDrawCall::Sampler1(int index, int target, uint32_t handle, ::g::Uno::Graphics::SamplerState state, bool isMipmap, bool isPow2)
+void GLDrawCall::Sampler1(int32_t index, int32_t target, uint32_t handle, ::g::Uno::Graphics::SamplerState state, bool isMipmap, bool isPow2)
 {
-    int location = uPtr(_compiledProgram)->GetLocation(index);
+    int32_t location = uPtr(_compiledProgram)->GetLocation(index);
     ::g::OpenGL::GL::ActiveTexture(33984 + GLDrawCall::_currentTextureUnit_);
     ::g::OpenGL::GL::BindTexture(target, handle);
     ::g::OpenGL::GL::TexParameter(target, 10240, state.MagFilter);
@@ -1090,17 +1053,8 @@ void GLDrawCall::Sampler1(int index, int target, uint32_t handle, ::g::Uno::Grap
     ::g::OpenGL::GL::Uniform12(location, GLDrawCall::_currentTextureUnit_++);
 }
 
-// public void Sampler(int index, texture2D value) [instance] :299
-void GLDrawCall::Sampler2(int index, ::g::Uno::Graphics::Texture2D* value)
-{
-    if (value != NULL)
-        Sampler(index, 3553, uPtr(value)->GLTextureHandle(), uPtr(value)->IsMipmap(), uPtr(value)->IsPow2());
-    else
-        DisableSampler(index, 3553);
-}
-
 // public void Sampler(int index, texture2D value, Uno.Graphics.SamplerState state) [instance] :307
-void GLDrawCall::Sampler3(int index, ::g::Uno::Graphics::Texture2D* value, ::g::Uno::Graphics::SamplerState state)
+void GLDrawCall::Sampler3(int32_t index, ::g::Uno::Graphics::Texture2D* value, ::g::Uno::Graphics::SamplerState state)
 {
     if (value != NULL)
         Sampler1(index, 3553, uPtr(value)->GLTextureHandle(), state, uPtr(value)->IsMipmap(), uPtr(value)->IsPow2());
@@ -1109,7 +1063,7 @@ void GLDrawCall::Sampler3(int index, ::g::Uno::Graphics::Texture2D* value, ::g::
 }
 
 // public void Sampler(int index, Uno.Graphics.VideoTexture value, Uno.Graphics.SamplerState state) [instance] :339
-void GLDrawCall::Sampler7(int index, ::g::Uno::Graphics::VideoTexture* value, ::g::Uno::Graphics::SamplerState state)
+void GLDrawCall::Sampler7(int32_t index, ::g::Uno::Graphics::VideoTexture* value, ::g::Uno::Graphics::SamplerState state)
 {
     if (value != NULL)
         Sampler1(index, 36197, uPtr(value)->GLTextureHandle(), state, uPtr(value)->IsMipmap, uPtr(value)->IsPow2);
@@ -1118,55 +1072,61 @@ void GLDrawCall::Sampler7(int index, ::g::Uno::Graphics::VideoTexture* value, ::
 }
 
 // public void Uniform(int index, float value) [instance] :387
-void GLDrawCall::Uniform(int index, float value)
+void GLDrawCall::Uniform(int32_t index, float value)
 {
     ::g::OpenGL::GL::Uniform1(uPtr(_compiledProgram)->GetLocation(index), value);
 }
 
 // public void Uniform(int index, float[] value) [instance] :422
-void GLDrawCall::Uniform1(int index, uArray* value)
+void GLDrawCall::Uniform1(int32_t index, uArray* value)
 {
     ::g::OpenGL::GL::Uniform11(uPtr(_compiledProgram)->GetLocation(index), value);
 }
 
 // public void Uniform(int index, float2 value) [instance] :392
-void GLDrawCall::Uniform2(int index, ::g::Uno::Float2 value)
+void GLDrawCall::Uniform2(int32_t index, ::g::Uno::Float2 value)
 {
     ::g::OpenGL::GL::Uniform2(uPtr(_compiledProgram)->GetLocation(index), value);
 }
 
 // public void Uniform(int index, float2[] value) [instance] :427
-void GLDrawCall::Uniform3(int index, uArray* value)
+void GLDrawCall::Uniform3(int32_t index, uArray* value)
 {
     ::g::OpenGL::GL::Uniform21(uPtr(_compiledProgram)->GetLocation(index), value);
 }
 
 // public void Uniform(int index, float2x2 value) [instance] :407
-void GLDrawCall::Uniform4(int index, ::g::Uno::Float2x2 value)
+void GLDrawCall::Uniform4(int32_t index, ::g::Uno::Float2x2 value)
 {
     ::g::OpenGL::GL::UniformMatrix2(uPtr(_compiledProgram)->GetLocation(index), false, value);
 }
 
 // public void Uniform(int index, float3 value) [instance] :397
-void GLDrawCall::Uniform6(int index, ::g::Uno::Float3 value)
+void GLDrawCall::Uniform6(int32_t index, ::g::Uno::Float3 value)
 {
     ::g::OpenGL::GL::Uniform3(uPtr(_compiledProgram)->GetLocation(index), value);
 }
 
+// public void Uniform(int index, float3x3 value) [instance] :412
+void GLDrawCall::Uniform8(int32_t index, ::g::Uno::Float3x3 value)
+{
+    ::g::OpenGL::GL::UniformMatrix3(uPtr(_compiledProgram)->GetLocation(index), false, value);
+}
+
 // public void Uniform(int index, float4 value) [instance] :402
-void GLDrawCall::Uniform10(int index, ::g::Uno::Float4 value)
+void GLDrawCall::Uniform10(int32_t index, ::g::Uno::Float4 value)
 {
     ::g::OpenGL::GL::Uniform4(uPtr(_compiledProgram)->GetLocation(index), value);
 }
 
 // public void Uniform(int index, float4[] value) [instance] :437
-void GLDrawCall::Uniform11(int index, uArray* value)
+void GLDrawCall::Uniform11(int32_t index, uArray* value)
 {
     ::g::OpenGL::GL::Uniform41(uPtr(_compiledProgram)->GetLocation(index), value);
 }
 
 // public void Uniform(int index, float4x4 value) [instance] :417
-void GLDrawCall::Uniform12(int index, ::g::Uno::Float4x4 value)
+void GLDrawCall::Uniform12(int32_t index, ::g::Uno::Float4x4 value)
 {
     ::g::OpenGL::GL::UniformMatrix4(uPtr(_compiledProgram)->GetLocation(index), false, value);
 }
@@ -1255,10 +1215,10 @@ GLDrawCall GLDrawCall__New1(::g::Uno::Runtime::Implementation::ShaderBackends::O
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLException.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLException.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 
-// public sealed extern class GLException :6
+// public sealed extern class GLException :5
 // {
 static void GLException_build(uType* type)
 {
@@ -1280,25 +1240,25 @@ static void GLException_build(uType* type)
     return type;
 }
 
-// public GLException(string message) :8
+// public GLException(string message) :7
 void GLException__ctor_3_fn(GLException* __this, uString* message)
 {
     __this->ctor_3(message);
 }
 
-// public GLException New(string message) :8
+// public GLException New(string message) :7
 void GLException__New4_fn(uString* message, GLException** __retval)
 {
     *__retval = GLException::New4(message);
 }
 
-// public GLException(string message) [instance] :8
+// public GLException(string message) [instance] :7
 void GLException::ctor_3(uString* message)
 {
     ctor_1(message);
 }
 
-// public GLException New(string message) [static] :8
+// public GLException New(string message) [static] :7
 GLException* GLException::New4(uString* message)
 {
     GLException* obj1 = (GLException*)uNew(GLException_typeof());
@@ -1307,10 +1267,10 @@ GLException* GLException::New4(uString* message)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLHelpers.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLHelpers.uno
 // -------------------------------------------------------------------------------------------------------------------------------------------
 
-// public static extern class GLHelpers :9
+// public static extern class GLHelpers :8
 // {
 static void GLHelpers_build(uType* type)
 {
@@ -1348,74 +1308,80 @@ uClassType* GLHelpers_typeof()
     return type;
 }
 
-// public static void CheckError() :11
+// public static void CheckError() :10
 void GLHelpers__CheckError_fn()
 {
     GLHelpers::CheckError();
 }
 
-// public static void CheckFramebufferStatus() :19
+// public static void CheckFramebufferStatus() :18
 void GLHelpers__CheckFramebufferStatus_fn()
 {
     GLHelpers::CheckFramebufferStatus();
 }
 
-// public static OpenGL.GLShaderHandle CompileShader(OpenGL.GLShaderType type, string source) :142
-void GLHelpers__CompileShader_fn(int* type, uString* source, uint32_t* __retval)
+// public static OpenGL.GLShaderHandle CompileShader(OpenGL.GLShaderType type, string source) :175
+void GLHelpers__CompileShader_fn(int32_t* type, uString* source, uint32_t* __retval)
 {
     *__retval = GLHelpers::CompileShader(*type, source);
 }
 
-// public static OpenGL.GLRenderbufferHandle CreateDepthBuffer(int2 size) :128
+// public static OpenGL.GLRenderbufferHandle CreateDepthBuffer(int2 size) :161
 void GLHelpers__CreateDepthBuffer_fn(::g::Uno::Int2* size, uint32_t* __retval)
 {
     *__retval = GLHelpers::CreateDepthBuffer(*size);
 }
 
-// public static Uno.Graphics.RenderTarget CreateRenderTarget(OpenGL.GLTextureTarget colorTarget, OpenGL.GLTextureHandle colorBuffer, int mip, int2 size, bool depth) :93
-void GLHelpers__CreateRenderTarget_fn(int* colorTarget, uint32_t* colorBuffer, int* mip, ::g::Uno::Int2* size, bool* depth, ::g::Uno::Graphics::RenderTarget** __retval)
+// public static Uno.Graphics.RenderTarget CreateRenderTarget(OpenGL.GLTextureTarget colorTarget, OpenGL.GLTextureHandle colorBuffer, int mip, int2 size, bool depth) :126
+void GLHelpers__CreateRenderTarget_fn(int32_t* colorTarget, uint32_t* colorBuffer, int32_t* mip, ::g::Uno::Int2* size, bool* depth, ::g::Uno::Graphics::RenderTarget** __retval)
 {
     *__retval = GLHelpers::CreateRenderTarget(*colorTarget, *colorBuffer, *mip, *size, *depth);
 }
 
-// public static Uno.Graphics.RenderTarget CreateRenderTarget(OpenGL.GLTextureTarget colorTarget, OpenGL.GLTextureHandle colorBuffer, int mip, int2 size, OpenGL.GLRenderbufferHandle depthBuffer, bool ownsDepthBuffer) :98
-void GLHelpers__CreateRenderTarget1_fn(int* colorTarget, uint32_t* colorBuffer, int* mip, ::g::Uno::Int2* size, uint32_t* depthBuffer, bool* ownsDepthBuffer, ::g::Uno::Graphics::RenderTarget** __retval)
+// public static Uno.Graphics.RenderTarget CreateRenderTarget(OpenGL.GLTextureTarget colorTarget, OpenGL.GLTextureHandle colorBuffer, int mip, int2 size, OpenGL.GLRenderbufferHandle depthBuffer, bool ownsDepthBuffer) :131
+void GLHelpers__CreateRenderTarget1_fn(int32_t* colorTarget, uint32_t* colorBuffer, int32_t* mip, ::g::Uno::Int2* size, uint32_t* depthBuffer, bool* ownsDepthBuffer, ::g::Uno::Graphics::RenderTarget** __retval)
 {
     *__retval = GLHelpers::CreateRenderTarget1(*colorTarget, *colorBuffer, *mip, *size, *depthBuffer, *ownsDepthBuffer);
 }
 
-// public static OpenGL.GLProgramHandle LinkProgram(OpenGL.GLShaderHandle vertexShader, OpenGL.GLShaderHandle fragmentShader) :160
+// public static OpenGL.GLProgramHandle LinkProgram(OpenGL.GLShaderHandle vertexShader, OpenGL.GLShaderHandle fragmentShader) :193
 void GLHelpers__LinkProgram_fn(uint32_t* vertexShader, uint32_t* fragmentShader, uint32_t* __retval)
 {
     *__retval = GLHelpers::LinkProgram(*vertexShader, *fragmentShader);
 }
 
-// public static void TexImage2DFromBuffer(OpenGL.GLTextureTarget target, int w, int h, int mip, Uno.Graphics.Format format, Uno.Buffer data) :27
-void GLHelpers__TexImage2DFromBuffer_fn(int* target, int* w, int* h, int* mip, int* format, ::g::Uno::Buffer* data)
+// public static void TexImage2DFromBuffer(OpenGL.GLTextureTarget target, int w, int h, int mip, Uno.Graphics.Format format, Uno.Buffer data) :60
+void GLHelpers__TexImage2DFromBuffer_fn(int32_t* target, int32_t* w, int32_t* h, int32_t* mip, int32_t* format, ::g::Uno::Buffer* data)
 {
     GLHelpers::TexImage2DFromBuffer(*target, *w, *h, *mip, *format, data);
 }
 
-// public static void CheckError() [static] :11
+// public static void TexImage2DFromBytes(OpenGL.GLTextureTarget target, int w, int h, int mip, Uno.Graphics.Format format, byte[] data) :26
+void GLHelpers__TexImage2DFromBytes_fn(int32_t* target, int32_t* w, int32_t* h, int32_t* mip, int32_t* format, uArray* data)
+{
+    GLHelpers::TexImage2DFromBytes(*target, *w, *h, *mip, *format, data);
+}
+
+// public static void CheckError() [static] :10
 void GLHelpers::CheckError()
 {
-    int err = ::g::OpenGL::GL::GetError();
+    int32_t err = ::g::OpenGL::GL::GetError();
 
     if (err != 0)
-        ::g::Uno::Diagnostics::Debug::Log4(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[3/*"GL error ("*/], ::g::Uno::Int::ToString(err, ::TYPES[3/*int*/])), ::STRINGS[4/*")"*/]), 3);
+        ::g::Uno::Diagnostics::Debug::Log2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[3/*"GL error ("*/], ::g::Uno::Int::ToString(err, ::TYPES[3/*int*/])), ::STRINGS[4/*")"*/]), 3);
 }
 
-// public static void CheckFramebufferStatus() [static] :19
+// public static void CheckFramebufferStatus() [static] :18
 void GLHelpers::CheckFramebufferStatus()
 {
-    int status = ::g::OpenGL::GL::CheckFramebufferStatus(36160);
+    int32_t status = ::g::OpenGL::GL::CheckFramebufferStatus(36160);
 
     if (status != 36053)
-        ::g::Uno::Diagnostics::Debug::Log4(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[5/*"Incomplete ...*/], uBox<int>(::g::OpenGL::GLFramebufferStatus_typeof(), status)), ::STRINGS[4/*")"*/]), 3);
+        ::g::Uno::Diagnostics::Debug::Log2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[5/*"Incomplete ...*/], uBox<int32_t>(::g::OpenGL::GLFramebufferStatus_typeof(), status)), ::STRINGS[4/*")"*/]), 3);
 }
 
-// public static OpenGL.GLShaderHandle CompileShader(OpenGL.GLShaderType type, string source) [static] :142
-uint32_t GLHelpers::CompileShader(int type, uString* source)
+// public static OpenGL.GLShaderHandle CompileShader(OpenGL.GLShaderType type, string source) [static] :175
+uint32_t GLHelpers::CompileShader(int32_t type, uString* source)
 {
     uint32_t handle = ::g::OpenGL::GL::CreateShader(type);
     GLHelpers::CheckError();
@@ -1425,14 +1391,14 @@ uint32_t GLHelpers::CompileShader(int type, uString* source)
     if (::g::OpenGL::GL::GetShaderParameter(handle, 35713) != 1)
     {
         uString* log = ::g::OpenGL::GL::GetShaderInfoLog(handle);
-        U_THROW(::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLException::New4(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[6/*"Error compi...*/], uBox<int>(::g::OpenGL::GLShaderType_typeof(), type)), ::STRINGS[7/*"):\n\n"*/]), log), ::STRINGS[8/*"\n\nSource:...*/]), source)));
+        U_THROW(::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLException::New4(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[6/*"Error compi...*/], uBox<int32_t>(::g::OpenGL::GLShaderType_typeof(), type)), ::STRINGS[7/*"):\n\n"*/]), log), ::STRINGS[8/*"\n\nSource:...*/]), source)));
     }
 
     GLHelpers::CheckError();
     return handle;
 }
 
-// public static OpenGL.GLRenderbufferHandle CreateDepthBuffer(int2 size) [static] :128
+// public static OpenGL.GLRenderbufferHandle CreateDepthBuffer(int2 size) [static] :161
 uint32_t GLHelpers::CreateDepthBuffer(::g::Uno::Int2 size)
 {
     uint32_t prevHandle = ::g::OpenGL::GL::GetRenderbufferBinding();
@@ -1443,14 +1409,14 @@ uint32_t GLHelpers::CreateDepthBuffer(::g::Uno::Int2 size)
     return handle;
 }
 
-// public static Uno.Graphics.RenderTarget CreateRenderTarget(OpenGL.GLTextureTarget colorTarget, OpenGL.GLTextureHandle colorBuffer, int mip, int2 size, bool depth) [static] :93
-::g::Uno::Graphics::RenderTarget* GLHelpers::CreateRenderTarget(int colorTarget, uint32_t colorBuffer, int mip, ::g::Uno::Int2 size, bool depth)
+// public static Uno.Graphics.RenderTarget CreateRenderTarget(OpenGL.GLTextureTarget colorTarget, OpenGL.GLTextureHandle colorBuffer, int mip, int2 size, bool depth) [static] :126
+::g::Uno::Graphics::RenderTarget* GLHelpers::CreateRenderTarget(int32_t colorTarget, uint32_t colorBuffer, int32_t mip, ::g::Uno::Int2 size, bool depth)
 {
     return GLHelpers::CreateRenderTarget1(colorTarget, colorBuffer, mip, size, depth ? GLHelpers::CreateDepthBuffer(size) : ::g::OpenGL::GLRenderbufferHandle::Zero_, true);
 }
 
-// public static Uno.Graphics.RenderTarget CreateRenderTarget(OpenGL.GLTextureTarget colorTarget, OpenGL.GLTextureHandle colorBuffer, int mip, int2 size, OpenGL.GLRenderbufferHandle depthBuffer, bool ownsDepthBuffer) [static] :98
-::g::Uno::Graphics::RenderTarget* GLHelpers::CreateRenderTarget1(int colorTarget, uint32_t colorBuffer, int mip, ::g::Uno::Int2 size, uint32_t depthBuffer, bool ownsDepthBuffer)
+// public static Uno.Graphics.RenderTarget CreateRenderTarget(OpenGL.GLTextureTarget colorTarget, OpenGL.GLTextureHandle colorBuffer, int mip, int2 size, OpenGL.GLRenderbufferHandle depthBuffer, bool ownsDepthBuffer) [static] :131
+::g::Uno::Graphics::RenderTarget* GLHelpers::CreateRenderTarget1(int32_t colorTarget, uint32_t colorBuffer, int32_t mip, ::g::Uno::Int2 size, uint32_t depthBuffer, bool ownsDepthBuffer)
 {
     ::g::Uno::Graphics::RenderTarget* result = ::g::Uno::Graphics::RenderTarget::New1();
     uint32_t prevHandle = ::g::OpenGL::GL::GetFramebufferBinding();
@@ -1475,7 +1441,7 @@ uint32_t GLHelpers::CreateDepthBuffer(::g::Uno::Int2 size)
     return result;
 }
 
-// public static OpenGL.GLProgramHandle LinkProgram(OpenGL.GLShaderHandle vertexShader, OpenGL.GLShaderHandle fragmentShader) [static] :160
+// public static OpenGL.GLProgramHandle LinkProgram(OpenGL.GLShaderHandle vertexShader, OpenGL.GLShaderHandle fragmentShader) [static] :193
 uint32_t GLHelpers::LinkProgram(uint32_t vertexShader, uint32_t fragmentShader)
 {
     uint32_t handle = ::g::OpenGL::GL::CreateProgram();
@@ -1494,8 +1460,48 @@ uint32_t GLHelpers::LinkProgram(uint32_t vertexShader, uint32_t fragmentShader)
     return handle;
 }
 
-// public static void TexImage2DFromBuffer(OpenGL.GLTextureTarget target, int w, int h, int mip, Uno.Graphics.Format format, Uno.Buffer data) [static] :27
-void GLHelpers::TexImage2DFromBuffer(int target, int w, int h, int mip, int format, ::g::Uno::Buffer* data)
+// public static void TexImage2DFromBuffer(OpenGL.GLTextureTarget target, int w, int h, int mip, Uno.Graphics.Format format, Uno.Buffer data) [static] :60
+void GLHelpers::TexImage2DFromBuffer(int32_t target, int32_t w, int32_t h, int32_t mip, int32_t format, ::g::Uno::Buffer* data)
+{
+    switch (format)
+    {
+        case 1:
+        {
+            ::g::OpenGL::GL::TexImage2D1(target, mip, 6409, w, h, 0, 6409, 5121, data);
+            break;
+        }
+        case 2:
+        {
+            ::g::OpenGL::GL::TexImage2D1(target, mip, 6410, w, h, 0, 6410, 5121, data);
+            break;
+        }
+        case 3:
+        {
+            ::g::OpenGL::GL::TexImage2D1(target, mip, 6408, w, h, 0, 6408, 5121, data);
+            break;
+        }
+        case 4:
+        {
+            ::g::OpenGL::GL::TexImage2D1(target, mip, 6408, w, h, 0, 6408, 32819, data);
+            break;
+        }
+        case 5:
+        {
+            ::g::OpenGL::GL::TexImage2D1(target, mip, 6408, w, h, 0, 6408, 32820, data);
+            break;
+        }
+        case 6:
+        {
+            ::g::OpenGL::GL::TexImage2D1(target, mip, 6407, w, h, 0, 6407, 33635, data);
+            break;
+        }
+        default:
+            U_THROW(::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLException::New4(::STRINGS[10/*"Unsupported...*/]));
+    }
+}
+
+// public static void TexImage2DFromBytes(OpenGL.GLTextureTarget target, int w, int h, int mip, Uno.Graphics.Format format, byte[] data) [static] :26
+void GLHelpers::TexImage2DFromBytes(int32_t target, int32_t w, int32_t h, int32_t mip, int32_t format, uArray* data)
 {
     switch (format)
     {
@@ -1535,7 +1541,7 @@ void GLHelpers::TexImage2DFromBuffer(int target, int w, int h, int mip, int form
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLInterop.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLInterop.uno
 // -------------------------------------------------------------------------------------------------------------------------------------------
 
 // public static extern class GLInterop :7
@@ -1566,97 +1572,97 @@ uClassType* GLInterop_typeof()
 }
 
 // public static OpenGL.GLBlendEquation ToGLBlendEquation(Uno.Graphics.BlendEquation x) :273
-void GLInterop__ToGLBlendEquation_fn(int* x, int* __retval)
+void GLInterop__ToGLBlendEquation_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToGLBlendEquation(*x);
 }
 
 // public static OpenGL.GLBlendingFactor ToGLBlendingFactor(Uno.Graphics.BlendOperand x) :195
-void GLInterop__ToGLBlendingFactor_fn(int* x, int* __retval)
+void GLInterop__ToGLBlendingFactor_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToGLBlendingFactor(*x);
 }
 
 // public static OpenGL.GLBufferUsage ToGLBufferUsage(Uno.Graphics.BufferUsage x) :309
-void GLInterop__ToGLBufferUsage_fn(int* x, int* __retval)
+void GLInterop__ToGLBufferUsage_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToGLBufferUsage(*x);
 }
 
 // public static OpenGL.GLCullFaceMode ToGLCullFaceMode(Uno.Graphics.PolygonFace x) :39
-void GLInterop__ToGLCullFaceMode_fn(int* x, int* __retval)
+void GLInterop__ToGLCullFaceMode_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToGLCullFaceMode(*x);
 }
 
 // public static OpenGL.GLDepthFunction ToGLDepthFunction(Uno.Graphics.CompareFunc x) :81
-void GLInterop__ToGLDepthFunction_fn(int* x, int* __retval)
+void GLInterop__ToGLDepthFunction_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToGLDepthFunction(*x);
 }
 
 // public static OpenGL.GLFrontFaceDirection ToGLFrontFaceDirection(Uno.Graphics.PolygonWinding x) :9
-void GLInterop__ToGLFrontFaceDirection_fn(int* x, int* __retval)
+void GLInterop__ToGLFrontFaceDirection_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToGLFrontFaceDirection(*x);
 }
 
 // public static OpenGL.GLIndexType ToGLIndexType(Uno.Graphics.IndexType x) :327
-void GLInterop__ToGLIndexType_fn(int* x, int* __retval)
+void GLInterop__ToGLIndexType_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToGLIndexType(*x);
 }
 
 // public static OpenGL.GLPrimitiveType ToGLPrimitiveType(Uno.Graphics.PrimitiveType x) :147
-void GLInterop__ToGLPrimitiveType_fn(int* x, int* __retval)
+void GLInterop__ToGLPrimitiveType_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToGLPrimitiveType(*x);
 }
 
 // public static void ToGLVertexAttributeType(Uno.Graphics.VertexAttributeType x, int& componentCount, OpenGL.GLDataType& componentType, bool& normalized) :342
-void GLInterop__ToGLVertexAttributeType_fn(int* x, int* componentCount, int* componentType, bool* normalized)
+void GLInterop__ToGLVertexAttributeType_fn(int32_t* x, int32_t* componentCount, int32_t* componentType, bool* normalized)
 {
     GLInterop::ToGLVertexAttributeType(*x, componentCount, componentType, normalized);
 }
 
 // public static Uno.Graphics.BlendEquation ToUnoGraphicsBlendEquation(OpenGL.GLBlendEquation x) :291
-void GLInterop__ToUnoGraphicsBlendEquation_fn(int* x, int* __retval)
+void GLInterop__ToUnoGraphicsBlendEquation_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToUnoGraphicsBlendEquation(*x);
 }
 
 // public static Uno.Graphics.BlendOperand ToUnoGraphicsBlendOperand(OpenGL.GLBlendingFactor x) :234
-void GLInterop__ToUnoGraphicsBlendOperand_fn(int* x, int* __retval)
+void GLInterop__ToUnoGraphicsBlendOperand_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToUnoGraphicsBlendOperand(*x);
 }
 
 // public static Uno.Graphics.CompareFunc ToUnoGraphicsCompareFunc(OpenGL.GLDepthFunction x) :114
-void GLInterop__ToUnoGraphicsCompareFunc_fn(int* x, int* __retval)
+void GLInterop__ToUnoGraphicsCompareFunc_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToUnoGraphicsCompareFunc(*x);
 }
 
 // public static Uno.Graphics.PolygonFace ToUnoGraphicsPolygonFace(OpenGL.GLCullFaceMode x) :60
-void GLInterop__ToUnoGraphicsPolygonFace_fn(int* x, int* __retval)
+void GLInterop__ToUnoGraphicsPolygonFace_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToUnoGraphicsPolygonFace(*x);
 }
 
 // public static Uno.Graphics.PolygonWinding ToUnoGraphicsPolygonWinding(OpenGL.GLFrontFaceDirection x) :24
-void GLInterop__ToUnoGraphicsPolygonWinding_fn(int* x, int* __retval)
+void GLInterop__ToUnoGraphicsPolygonWinding_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToUnoGraphicsPolygonWinding(*x);
 }
 
 // public static Uno.Graphics.PrimitiveType ToUnoGraphicsPrimitiveType(OpenGL.GLPrimitiveType x) :171
-void GLInterop__ToUnoGraphicsPrimitiveType_fn(int* x, int* __retval)
+void GLInterop__ToUnoGraphicsPrimitiveType_fn(int32_t* x, int32_t* __retval)
 {
     *__retval = GLInterop::ToUnoGraphicsPrimitiveType(*x);
 }
 
 // public static OpenGL.GLBlendEquation ToGLBlendEquation(Uno.Graphics.BlendEquation x) [static] :273
-int GLInterop::ToGLBlendEquation(int x)
+int32_t GLInterop::ToGLBlendEquation(int32_t x)
 {
     switch (x)
     {
@@ -1672,7 +1678,7 @@ int GLInterop::ToGLBlendEquation(int x)
 }
 
 // public static OpenGL.GLBlendingFactor ToGLBlendingFactor(Uno.Graphics.BlendOperand x) [static] :195
-int GLInterop::ToGLBlendingFactor(int x)
+int32_t GLInterop::ToGLBlendingFactor(int32_t x)
 {
     switch (x)
     {
@@ -1702,7 +1708,7 @@ int GLInterop::ToGLBlendingFactor(int x)
 }
 
 // public static OpenGL.GLBufferUsage ToGLBufferUsage(Uno.Graphics.BufferUsage x) [static] :309
-int GLInterop::ToGLBufferUsage(int x)
+int32_t GLInterop::ToGLBufferUsage(int32_t x)
 {
     switch (x)
     {
@@ -1718,7 +1724,7 @@ int GLInterop::ToGLBufferUsage(int x)
 }
 
 // public static OpenGL.GLCullFaceMode ToGLCullFaceMode(Uno.Graphics.PolygonFace x) [static] :39
-int GLInterop::ToGLCullFaceMode(int x)
+int32_t GLInterop::ToGLCullFaceMode(int32_t x)
 {
     switch (x)
     {
@@ -1736,7 +1742,7 @@ int GLInterop::ToGLCullFaceMode(int x)
 }
 
 // public static OpenGL.GLDepthFunction ToGLDepthFunction(Uno.Graphics.CompareFunc x) [static] :81
-int GLInterop::ToGLDepthFunction(int x)
+int32_t GLInterop::ToGLDepthFunction(int32_t x)
 {
     switch (x)
     {
@@ -1762,7 +1768,7 @@ int GLInterop::ToGLDepthFunction(int x)
 }
 
 // public static OpenGL.GLFrontFaceDirection ToGLFrontFaceDirection(Uno.Graphics.PolygonWinding x) [static] :9
-int GLInterop::ToGLFrontFaceDirection(int x)
+int32_t GLInterop::ToGLFrontFaceDirection(int32_t x)
 {
     switch (x)
     {
@@ -1776,7 +1782,7 @@ int GLInterop::ToGLFrontFaceDirection(int x)
 }
 
 // public static OpenGL.GLIndexType ToGLIndexType(Uno.Graphics.IndexType x) [static] :327
-int GLInterop::ToGLIndexType(int x)
+int32_t GLInterop::ToGLIndexType(int32_t x)
 {
     switch (x)
     {
@@ -1790,7 +1796,7 @@ int GLInterop::ToGLIndexType(int x)
 }
 
 // public static OpenGL.GLPrimitiveType ToGLPrimitiveType(Uno.Graphics.PrimitiveType x) [static] :147
-int GLInterop::ToGLPrimitiveType(int x)
+int32_t GLInterop::ToGLPrimitiveType(int32_t x)
 {
     switch (x)
     {
@@ -1810,7 +1816,7 @@ int GLInterop::ToGLPrimitiveType(int x)
 }
 
 // public static void ToGLVertexAttributeType(Uno.Graphics.VertexAttributeType x, int& componentCount, OpenGL.GLDataType& componentType, bool& normalized) [static] :342
-void GLInterop::ToGLVertexAttributeType(int x, int* componentCount, int* componentType, bool* normalized)
+void GLInterop::ToGLVertexAttributeType(int32_t x, int32_t* componentCount, int32_t* componentType, bool* normalized)
 {
     switch (x)
     {
@@ -1960,7 +1966,7 @@ void GLInterop::ToGLVertexAttributeType(int x, int* componentCount, int* compone
 }
 
 // public static Uno.Graphics.BlendEquation ToUnoGraphicsBlendEquation(OpenGL.GLBlendEquation x) [static] :291
-int GLInterop::ToUnoGraphicsBlendEquation(int x)
+int32_t GLInterop::ToUnoGraphicsBlendEquation(int32_t x)
 {
     switch (x)
     {
@@ -1976,7 +1982,7 @@ int GLInterop::ToUnoGraphicsBlendEquation(int x)
 }
 
 // public static Uno.Graphics.BlendOperand ToUnoGraphicsBlendOperand(OpenGL.GLBlendingFactor x) [static] :234
-int GLInterop::ToUnoGraphicsBlendOperand(int x)
+int32_t GLInterop::ToUnoGraphicsBlendOperand(int32_t x)
 {
     switch (x)
     {
@@ -2006,7 +2012,7 @@ int GLInterop::ToUnoGraphicsBlendOperand(int x)
 }
 
 // public static Uno.Graphics.CompareFunc ToUnoGraphicsCompareFunc(OpenGL.GLDepthFunction x) [static] :114
-int GLInterop::ToUnoGraphicsCompareFunc(int x)
+int32_t GLInterop::ToUnoGraphicsCompareFunc(int32_t x)
 {
     switch (x)
     {
@@ -2032,7 +2038,7 @@ int GLInterop::ToUnoGraphicsCompareFunc(int x)
 }
 
 // public static Uno.Graphics.PolygonFace ToUnoGraphicsPolygonFace(OpenGL.GLCullFaceMode x) [static] :60
-int GLInterop::ToUnoGraphicsPolygonFace(int x)
+int32_t GLInterop::ToUnoGraphicsPolygonFace(int32_t x)
 {
     switch (x)
     {
@@ -2050,7 +2056,7 @@ int GLInterop::ToUnoGraphicsPolygonFace(int x)
 }
 
 // public static Uno.Graphics.PolygonWinding ToUnoGraphicsPolygonWinding(OpenGL.GLFrontFaceDirection x) [static] :24
-int GLInterop::ToUnoGraphicsPolygonWinding(int x)
+int32_t GLInterop::ToUnoGraphicsPolygonWinding(int32_t x)
 {
     switch (x)
     {
@@ -2064,7 +2070,7 @@ int GLInterop::ToUnoGraphicsPolygonWinding(int x)
 }
 
 // public static Uno.Graphics.PrimitiveType ToUnoGraphicsPrimitiveType(OpenGL.GLPrimitiveType x) [static] :171
-int GLInterop::ToUnoGraphicsPrimitiveType(int x)
+int32_t GLInterop::ToUnoGraphicsPrimitiveType(int32_t x)
 {
     switch (x)
     {
@@ -2084,7 +2090,7 @@ int GLInterop::ToUnoGraphicsPrimitiveType(int x)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLProgram.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\ShaderBackends\OpenGL\GLProgram.uno
 // -------------------------------------------------------------------------------------------------------------------------------------------
 
 // public sealed extern class GLProgram :7
@@ -2139,19 +2145,19 @@ uType* GLProgram_typeof()
 }
 
 // internal GLProgram(string vsSource, string fsSource, int constCount, int attribCount, string[] constAttribAndUniformNames) :24
-void GLProgram__ctor__fn(GLProgram* __this, uString* vsSource, uString* fsSource, int* constCount, int* attribCount, uArray* constAttribAndUniformNames)
+void GLProgram__ctor__fn(GLProgram* __this, uString* vsSource, uString* fsSource, int32_t* constCount, int32_t* attribCount, uArray* constAttribAndUniformNames)
 {
     __this->ctor_(vsSource, fsSource, *constCount, *attribCount, constAttribAndUniformNames);
 }
 
 // public int get_ConstantCount() :21
-void GLProgram__get_ConstantCount_fn(GLProgram* __this, int* __retval)
+void GLProgram__get_ConstantCount_fn(GLProgram* __this, int32_t* __retval)
 {
     *__retval = __this->ConstantCount();
 }
 
 // public static Uno.Runtime.Implementation.ShaderBackends.OpenGL.GLProgram Create(string vsSource, string fsSource, int constCount, int attribCount, string[] constAttribAndUniformNames) :33
-void GLProgram__Create_fn(uString* vsSource, uString* fsSource, int* constCount, int* attribCount, uArray* constAttribAndUniformNames, GLProgram** __retval)
+void GLProgram__Create_fn(uString* vsSource, uString* fsSource, int32_t* constCount, int32_t* attribCount, uArray* constAttribAndUniformNames, GLProgram** __retval)
 {
     *__retval = GLProgram::Create(vsSource, fsSource, *constCount, *attribCount, constAttribAndUniformNames);
 }
@@ -2169,13 +2175,13 @@ void GLProgram__GetCompiledProgramInternal_fn(GLProgram* __this, uArray* constSt
 }
 
 // internal GLProgram New(string vsSource, string fsSource, int constCount, int attribCount, string[] constAttribAndUniformNames) :24
-void GLProgram__New1_fn(uString* vsSource, uString* fsSource, int* constCount, int* attribCount, uArray* constAttribAndUniformNames, GLProgram** __retval)
+void GLProgram__New1_fn(uString* vsSource, uString* fsSource, int32_t* constCount, int32_t* attribCount, uArray* constAttribAndUniformNames, GLProgram** __retval)
 {
     *__retval = GLProgram::New1(vsSource, fsSource, *constCount, *attribCount, constAttribAndUniformNames);
 }
 
 // internal GLProgram(string vsSource, string fsSource, int constCount, int attribCount, string[] constAttribAndUniformNames) [instance] :24
-void GLProgram::ctor_(uString* vsSource, uString* fsSource, int constCount, int attribCount, uArray* constAttribAndUniformNames)
+void GLProgram::ctor_(uString* vsSource, uString* fsSource, int32_t constCount, int32_t attribCount, uArray* constAttribAndUniformNames)
 {
     _vsSource = vsSource;
     _fsSource = fsSource;
@@ -2185,7 +2191,7 @@ void GLProgram::ctor_(uString* vsSource, uString* fsSource, int constCount, int 
 }
 
 // public int get_ConstantCount() [instance] :21
-int GLProgram::ConstantCount()
+int32_t GLProgram::ConstantCount()
 {
     return _constCount;
 }
@@ -2228,20 +2234,20 @@ int GLProgram::ConstantCount()
     fsPrefix = ::g::Uno::String::op_Addition2(fsPrefix, ::STRINGS[24/*"# ifdef GL_...*/]);
     uString* defines = ::STRINGS[25/*""*/];
 
-    for (int i = 0; i < uPtr(constStrings)->Length(); i++)
+    for (int32_t i = 0; i < uPtr(constStrings)->Length(); i++)
         defines = ::g::Uno::String::op_Addition2(defines, ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[26/*"#define "*/], uPtr(_constAttribAndUniformNames)->Strong<uString*>(i)), ::STRINGS[27/*" "*/]), uPtr(constStrings)->Strong<uString*>(i)), ::STRINGS[28/*"\n"*/]));
 
     return ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLCompiledProgram::New1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(vsPrefix, defines), _vsSource), ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(fsPrefix, defines), _fsSource), _constCount, _attribCount, _constAttribAndUniformNames);
 }
 
 // public static Uno.Runtime.Implementation.ShaderBackends.OpenGL.GLProgram Create(string vsSource, string fsSource, int constCount, int attribCount, string[] constAttribAndUniformNames) [static] :33
-GLProgram* GLProgram::Create(uString* vsSource, uString* fsSource, int constCount, int attribCount, uArray* constAttribAndUniformNames)
+GLProgram* GLProgram::Create(uString* vsSource, uString* fsSource, int32_t constCount, int32_t attribCount, uArray* constAttribAndUniformNames)
 {
     return GLProgram::New1(vsSource, fsSource, constCount, attribCount, constAttribAndUniformNames);
 }
 
 // internal GLProgram New(string vsSource, string fsSource, int constCount, int attribCount, string[] constAttribAndUniformNames) [static] :24
-GLProgram* GLProgram::New1(uString* vsSource, uString* fsSource, int constCount, int attribCount, uArray* constAttribAndUniformNames)
+GLProgram* GLProgram::New1(uString* vsSource, uString* fsSource, int32_t constCount, int32_t attribCount, uArray* constAttribAndUniformNames)
 {
     GLProgram* obj1 = (GLProgram*)uNew(GLProgram_typeof());
     obj1->ctor_(vsSource, fsSource, constCount, attribCount, constAttribAndUniformNames);

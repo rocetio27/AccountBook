@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-6e985db.h>
@@ -11,7 +11,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_FuseElementsElement_Visibility_Property :255
+// internal sealed class AccountBook_FuseElementsElement_Visibility_Property :275
 // {
 static void AccountBook_FuseElementsElement_Visibility_Property_build(uType* type)
 {
@@ -40,51 +40,51 @@ static void AccountBook_FuseElementsElement_Visibility_Property_build(uType* typ
     return type;
 }
 
-// public AccountBook_FuseElementsElement_Visibility_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) :258
+// public AccountBook_FuseElementsElement_Visibility_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) :278
 void AccountBook_FuseElementsElement_Visibility_Property__ctor_3_fn(AccountBook_FuseElementsElement_Visibility_Property* __this, ::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed Fuse.Elements.Visibility Get(Uno.UX.PropertyObject obj) :260
-void AccountBook_FuseElementsElement_Visibility_Property__Get1_fn(AccountBook_FuseElementsElement_Visibility_Property* __this, ::g::Uno::UX::PropertyObject* obj, int* __retval)
+// public override sealed Fuse.Elements.Visibility Get(Uno.UX.PropertyObject obj) :280
+void AccountBook_FuseElementsElement_Visibility_Property__Get1_fn(AccountBook_FuseElementsElement_Visibility_Property* __this, ::g::Uno::UX::PropertyObject* obj, int32_t* __retval)
 {
     return *__retval = uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[0/*Fuse.Elements.Element*/]))->Visibility(), void();
 }
 
-// public AccountBook_FuseElementsElement_Visibility_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) :258
+// public AccountBook_FuseElementsElement_Visibility_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) :278
 void AccountBook_FuseElementsElement_Visibility_Property__New1_fn(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector* name, AccountBook_FuseElementsElement_Visibility_Property** __retval)
 {
     *__retval = AccountBook_FuseElementsElement_Visibility_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :259
+// public override sealed Uno.UX.PropertyObject get_Object() :279
 void AccountBook_FuseElementsElement_Visibility_Property__get_Object_fn(AccountBook_FuseElementsElement_Visibility_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, Fuse.Elements.Visibility v, Uno.UX.IPropertyListener origin) :261
-void AccountBook_FuseElementsElement_Visibility_Property__Set1_fn(AccountBook_FuseElementsElement_Visibility_Property* __this, ::g::Uno::UX::PropertyObject* obj, int* v, uObject* origin)
+// public override sealed void Set(Uno.UX.PropertyObject obj, Fuse.Elements.Visibility v, Uno.UX.IPropertyListener origin) :281
+void AccountBook_FuseElementsElement_Visibility_Property__Set1_fn(AccountBook_FuseElementsElement_Visibility_Property* __this, ::g::Uno::UX::PropertyObject* obj, int32_t* v, uObject* origin)
 {
-    int v_ = *v;
+    int32_t v_ = *v;
     uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[0/*Fuse.Elements.Element*/]))->SetVisibility(v_, origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :262
+// public override sealed bool get_SupportsOriginSetter() :282
 void AccountBook_FuseElementsElement_Visibility_Property__get_SupportsOriginSetter_fn(AccountBook_FuseElementsElement_Visibility_Property* __this, bool* __retval)
 {
     return *__retval = true, void();
 }
 
-// public AccountBook_FuseElementsElement_Visibility_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) [instance] :258
+// public AccountBook_FuseElementsElement_Visibility_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) [instance] :278
 void AccountBook_FuseElementsElement_Visibility_Property::ctor_3(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_FuseElementsElement_Visibility_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) [static] :258
+// public AccountBook_FuseElementsElement_Visibility_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) [static] :278
 AccountBook_FuseElementsElement_Visibility_Property* AccountBook_FuseElementsElement_Visibility_Property::New1(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_FuseElementsElement_Visibility_Property* obj1 = (AccountBook_FuseElementsElement_Visibility_Property*)uNew(AccountBook_FuseElementsElement_Visibility_Property_typeof());

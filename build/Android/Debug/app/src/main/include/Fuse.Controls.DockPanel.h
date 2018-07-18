@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Panels/1.4.2/DockPanel.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Panels/1.9.0/DockPanel.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -9,6 +9,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -33,7 +34,7 @@ namespace Controls{
 ::g::Fuse::Controls::Panel_type* DockPanel_typeof();
 void DockPanel__ctor_7_fn(DockPanel* __this);
 void DockPanel__New4_fn(DockPanel** __retval);
-void DockPanel__SetDock_fn(::g::Fuse::Elements::Element* elm, int* dock);
+void DockPanel__SetDock_fn(::g::Fuse::Elements::Element* elm, int32_t* dock);
 
 struct DockPanel : ::g::Fuse::Controls::Panel
 {
@@ -41,7 +42,7 @@ struct DockPanel : ::g::Fuse::Controls::Panel
 
     void ctor_7();
     static DockPanel* New4();
-    static void SetDock(::g::Fuse::Elements::Element* elm, int dock);
+    static void SetDock(::g::Fuse::Elements::Element* elm, int32_t dock);
 };
 // }
 

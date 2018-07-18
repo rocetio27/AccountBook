@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/BudgetPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/BudgetPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -11,7 +11,7 @@ namespace g{struct BudgetPage__Template;}
 
 namespace g{
 
-// public partial sealed class BudgetPage.Template :6
+// public partial sealed class BudgetPage.Template :5
 // {
 ::g::Uno::UX::Template_type* BudgetPage__Template_typeof();
 void BudgetPage__Template__ctor_1_fn(BudgetPage__Template* __this, ::g::BudgetPage* parent, ::g::BudgetPage* parentInstance);

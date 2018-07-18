@@ -1,4 +1,4 @@
-<Panel Color="#ffbd00" Width="100%" Height="86%" Alignment="BottomCenter" ux:Class="BudgetPage">
+<Page Color="#ffbd00" Width="100%" Height="86%" Alignment="BottomCenter" ux:Class="BudgetPage">
 	<Panel ux:Name="FullWindo" Layer="Overlay" />
 	<TextInput ux:Class="wbTextInput" TextAlignment="Center" Margin="1">
 		<Rectangle Color="#ffffff" CornerRadius="5">
@@ -16,7 +16,6 @@
 			<PlaySound File="Click.wav" />
 		</Clicked>
 	</Button>
-	<Router ux:Dependency="router"/>
 	<JavaScript File="Modules/BudgetPage.js"/>
 
 	<ScrollView Margin="10,10,10,0" >
@@ -187,4 +186,4 @@
 			</StackPanel>
 		</Panel>
 	</AlternateRoot>
-</Panel>
+</Page>

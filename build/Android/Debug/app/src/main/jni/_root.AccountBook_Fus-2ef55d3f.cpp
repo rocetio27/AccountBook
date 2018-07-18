@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-2ef55d3f.h>
@@ -10,7 +10,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_FuseReactiveEach_Offset_Property :290
+// internal sealed class AccountBook_FuseReactiveEach_Offset_Property :328
 // {
 static void AccountBook_FuseReactiveEach_Offset_Property_build(uType* type)
 {
@@ -38,45 +38,45 @@ static void AccountBook_FuseReactiveEach_Offset_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_FuseReactiveEach_Offset_Property(Fuse.Reactive.Each obj, Uno.UX.Selector name) :293
+// public AccountBook_FuseReactiveEach_Offset_Property(Fuse.Reactive.Each obj, Uno.UX.Selector name) :331
 void AccountBook_FuseReactiveEach_Offset_Property__ctor_3_fn(AccountBook_FuseReactiveEach_Offset_Property* __this, ::g::Fuse::Reactive::Each* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed int Get(Uno.UX.PropertyObject obj) :295
-void AccountBook_FuseReactiveEach_Offset_Property__Get1_fn(AccountBook_FuseReactiveEach_Offset_Property* __this, ::g::Uno::UX::PropertyObject* obj, int* __retval)
+// public override sealed int Get(Uno.UX.PropertyObject obj) :333
+void AccountBook_FuseReactiveEach_Offset_Property__Get1_fn(AccountBook_FuseReactiveEach_Offset_Property* __this, ::g::Uno::UX::PropertyObject* obj, int32_t* __retval)
 {
     return *__retval = uPtr(uCast< ::g::Fuse::Reactive::Each*>(obj, ::TYPES[0/*Fuse.Reactive.Each*/]))->Offset1(), void();
 }
 
-// public AccountBook_FuseReactiveEach_Offset_Property New(Fuse.Reactive.Each obj, Uno.UX.Selector name) :293
+// public AccountBook_FuseReactiveEach_Offset_Property New(Fuse.Reactive.Each obj, Uno.UX.Selector name) :331
 void AccountBook_FuseReactiveEach_Offset_Property__New1_fn(::g::Fuse::Reactive::Each* obj, ::g::Uno::UX::Selector* name, AccountBook_FuseReactiveEach_Offset_Property** __retval)
 {
     *__retval = AccountBook_FuseReactiveEach_Offset_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :294
+// public override sealed Uno.UX.PropertyObject get_Object() :332
 void AccountBook_FuseReactiveEach_Offset_Property__get_Object_fn(AccountBook_FuseReactiveEach_Offset_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, int v, Uno.UX.IPropertyListener origin) :296
-void AccountBook_FuseReactiveEach_Offset_Property__Set1_fn(AccountBook_FuseReactiveEach_Offset_Property* __this, ::g::Uno::UX::PropertyObject* obj, int* v, uObject* origin)
+// public override sealed void Set(Uno.UX.PropertyObject obj, int v, Uno.UX.IPropertyListener origin) :334
+void AccountBook_FuseReactiveEach_Offset_Property__Set1_fn(AccountBook_FuseReactiveEach_Offset_Property* __this, ::g::Uno::UX::PropertyObject* obj, int32_t* v, uObject* origin)
 {
-    int v_ = *v;
+    int32_t v_ = *v;
     uPtr(uCast< ::g::Fuse::Reactive::Each*>(obj, ::TYPES[0/*Fuse.Reactive.Each*/]))->Offset1(v_);
 }
 
-// public AccountBook_FuseReactiveEach_Offset_Property(Fuse.Reactive.Each obj, Uno.UX.Selector name) [instance] :293
+// public AccountBook_FuseReactiveEach_Offset_Property(Fuse.Reactive.Each obj, Uno.UX.Selector name) [instance] :331
 void AccountBook_FuseReactiveEach_Offset_Property::ctor_3(::g::Fuse::Reactive::Each* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_FuseReactiveEach_Offset_Property New(Fuse.Reactive.Each obj, Uno.UX.Selector name) [static] :293
+// public AccountBook_FuseReactiveEach_Offset_Property New(Fuse.Reactive.Each obj, Uno.UX.Selector name) [static] :331
 AccountBook_FuseReactiveEach_Offset_Property* AccountBook_FuseReactiveEach_Offset_Property::New1(::g::Fuse::Reactive::Each* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_FuseReactiveEach_Offset_Property* obj1 = (AccountBook_FuseReactiveEach_Offset_Property*)uNew(AccountBook_FuseReactiveEach_Offset_Property_typeof());

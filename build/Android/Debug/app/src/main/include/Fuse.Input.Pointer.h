@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/Input/Pointer.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/Input/Pointer.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -41,19 +41,19 @@ void Pointer__set_Coord_fn(::g::Uno::Float2* value);
 void Pointer__get_Entered_fn(::g::Fuse::VisualEvent** __retval);
 void Pointer__get_EventResponder_fn(uObject** __retval);
 void Pointer__set_EventResponder_fn(uObject* value);
-void Pointer__ExtendCapture_fn(uObject* identity, int* pointIndex, bool* __retval);
+void Pointer__ExtendCapture_fn(uObject* identity, int32_t* pointIndex, bool* __retval);
 void Pointer__GetCapture_fn(uObject* identity, ::g::Fuse::Input::Capture** __retval);
-void Pointer__GetLastHitList_fn(int* pointIndex, ::g::Uno::Collections::List** __retval);
-void Pointer__GetPrimaryCapture_fn(int* pointIndex, ::g::Fuse::Input::Capture** __retval);
-void Pointer__IsCaptureAllowed_fn(int* type, ::g::Fuse::Visual* visual, int* pointIndex, uObject* identity, bool* __retval);
-void Pointer__IsCaptureAllowedAgainst_fn(::g::Fuse::Input::Capture* current, int* type, ::g::Fuse::Visual* visual, int* pointIndex, uObject* identity, bool* __retval);
+void Pointer__GetLastHitList_fn(int32_t* pointIndex, ::g::Uno::Collections::List** __retval);
+void Pointer__GetPrimaryCapture_fn(int32_t* pointIndex, ::g::Fuse::Input::Capture** __retval);
+void Pointer__IsCaptureAllowed_fn(int32_t* type, ::g::Fuse::Visual* visual, int32_t* pointIndex, uObject* identity, bool* __retval);
+void Pointer__IsCaptureAllowedAgainst_fn(::g::Fuse::Input::Capture* current, int32_t* type, ::g::Fuse::Visual* visual, int32_t* pointIndex, uObject* identity, bool* __retval);
 void Pointer__IsPressed_fn(bool* __retval);
-void Pointer__IsPressed1_fn(int* pointIndex, bool* __retval);
+void Pointer__IsPressed1_fn(int32_t* pointIndex, bool* __retval);
 void Pointer__get_Left_fn(::g::Fuse::VisualEvent** __retval);
 void Pointer__LoseSoftCapturesTo_fn(::g::Fuse::Input::Capture* to);
 void Pointer__MarkAncestorHits_fn(::g::Fuse::Visual* hitObject, ::g::Uno::Collections::List* list);
-void Pointer__ModifyCapture_fn(uObject* identity, int* type, bool* __retval);
-void Pointer__ModifyCapture1_fn(uObject* identity, ::g::Fuse::Visual* visual, uDelegate* lostCallback, int* type, int* pointIndex, bool* __retval);
+void Pointer__ModifyCapture_fn(uObject* identity, int32_t* type, bool* __retval);
+void Pointer__ModifyCapture1_fn(uObject* identity, ::g::Fuse::Visual* visual, uDelegate* lostCallback, int32_t* type, int32_t* pointIndex, bool* __retval);
 void Pointer__get_Moved_fn(::g::Fuse::VisualEvent** __retval);
 void Pointer__get_Pressed_fn(::g::Fuse::VisualEvent** __retval);
 void Pointer__ProcessPointerEnterLeave_fn(::g::Fuse::HitTestResult* result, ::g::Fuse::Input::PointerEventData* args);
@@ -94,18 +94,18 @@ struct Pointer : uObject
 
     static Pointer__CaptureLockImpl* CaptureLock();
     static void CheckFocus(::g::Fuse::Input::PointerPressedArgs* args, uObject* nodes);
-    static bool ExtendCapture(uObject* identity, int pointIndex);
+    static bool ExtendCapture(uObject* identity, int32_t pointIndex);
     static ::g::Fuse::Input::Capture* GetCapture(uObject* identity);
-    static ::g::Uno::Collections::List* GetLastHitList(int pointIndex);
-    static ::g::Fuse::Input::Capture* GetPrimaryCapture(int pointIndex);
-    static bool IsCaptureAllowed(int type, ::g::Fuse::Visual* visual, int pointIndex, uObject* identity);
-    static bool IsCaptureAllowedAgainst(::g::Fuse::Input::Capture* current, int type, ::g::Fuse::Visual* visual, int pointIndex, uObject* identity);
+    static ::g::Uno::Collections::List* GetLastHitList(int32_t pointIndex);
+    static ::g::Fuse::Input::Capture* GetPrimaryCapture(int32_t pointIndex);
+    static bool IsCaptureAllowed(int32_t type, ::g::Fuse::Visual* visual, int32_t pointIndex, uObject* identity);
+    static bool IsCaptureAllowedAgainst(::g::Fuse::Input::Capture* current, int32_t type, ::g::Fuse::Visual* visual, int32_t pointIndex, uObject* identity);
     static bool IsPressed();
-    static bool IsPressed1(int pointIndex);
+    static bool IsPressed1(int32_t pointIndex);
     static void LoseSoftCapturesTo(::g::Fuse::Input::Capture* to);
     static void MarkAncestorHits(::g::Fuse::Visual* hitObject, ::g::Uno::Collections::List* list);
-    static bool ModifyCapture(uObject* identity, int type);
-    static bool ModifyCapture1(uObject* identity, ::g::Fuse::Visual* visual, uDelegate* lostCallback, int type, int pointIndex);
+    static bool ModifyCapture(uObject* identity, int32_t type);
+    static bool ModifyCapture1(uObject* identity, ::g::Fuse::Visual* visual, uDelegate* lostCallback, int32_t type, int32_t pointIndex);
     static void ProcessPointerEnterLeave(::g::Fuse::HitTestResult* result, ::g::Fuse::Input::PointerEventData* args);
     static bool RaiseMoved(::g::Fuse::Visual* root, ::g::Fuse::Input::PointerEventData* data);
     static bool RaisePressed(::g::Fuse::Visual* root, ::g::Fuse::Input::PointerEventData* data);

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Motion/1.4.2/Simulation/PointerVelocity.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Motion/1.9.0/Simulation/PointerVelocity.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -15,8 +15,8 @@ namespace Simulation{
 // {
 uType* PointerVelocity_typeof();
 void PointerVelocity__ctor__fn(PointerVelocity* __this);
-void PointerVelocity__AddSample_fn(PointerVelocity* __this, void* location, double* elapsed, int* flags);
-void PointerVelocity__AddSampleTime_fn(PointerVelocity* __this, void* location, double* timestamp, int* flags);
+void PointerVelocity__AddSample_fn(PointerVelocity* __this, void* location, double* elapsed, int32_t* flags);
+void PointerVelocity__AddSampleTime_fn(PointerVelocity* __this, void* location, double* timestamp, int32_t* flags);
 void PointerVelocity__ApplySample_fn(PointerVelocity* __this, void* sample, double* elapsed);
 void PointerVelocity__get_CurrentVelocity_fn(PointerVelocity* __this, uTRef __retval);
 void PointerVelocity__set_CurrentVelocity_fn(PointerVelocity* __this, void* value);
@@ -43,9 +43,9 @@ struct PointerVelocity : uObject
 
     void ctor_();
     template<class T>
-    void AddSample(T location, double elapsed, int flags) { PointerVelocity__AddSample_fn(this, uConstrain(__type->T(0), location), &elapsed, &flags); }
+    void AddSample(T location, double elapsed, int32_t flags) { PointerVelocity__AddSample_fn(this, uConstrain(__type->T(0), location), &elapsed, &flags); }
     template<class T>
-    void AddSampleTime(T location, double timestamp, int flags) { PointerVelocity__AddSampleTime_fn(this, uConstrain(__type->T(0), location), &timestamp, &flags); }
+    void AddSampleTime(T location, double timestamp, int32_t flags) { PointerVelocity__AddSampleTime_fn(this, uConstrain(__type->T(0), location), &timestamp, &flags); }
     template<class T>
     void ApplySample(T sample, double elapsed) { PointerVelocity__ApplySample_fn(this, uConstrain(__type->T(0), sample), &elapsed); }
     template<class T>

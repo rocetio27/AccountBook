@@ -6,8 +6,8 @@
 #include <Experimental.Http.HttpLoader.h>
 #include <Experimental.Http.LoaderConst.h>
 #include <Fuse.UpdateManager.h>
-#include <Uno.Action-1.h>
-#include <Uno.Action-2.h>
+#include <Uno.Action1-1.h>
+#include <Uno.Action2-2.h>
 #include <Uno.Bool.h>
 #include <Uno.Byte.h>
 #include <Uno.Char.h>
@@ -27,7 +27,7 @@ namespace g{
 namespace Experimental{
 namespace Http{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.Http\1.4.2\BinaryLoader.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.Http\1.9.0\BinaryLoader.uno
 // ------------------------------------------------------------------------------------------------
 
 // internal sealed class BinaryLoader :14
@@ -39,6 +39,8 @@ static void BinaryLoader_build(uType* type)
     ::TYPES[1] = ::g::Uno::Char_typeof()->Array();
     ::TYPES[2] = ::g::Uno::Action2_typeof()->MakeType(::g::Uno::Net::Http::HttpMessageHandlerRequest_typeof(), ::g::Uno::String_typeof(), NULL);
     ::TYPES[3] = ::g::Uno::Action1_typeof()->MakeType(::g::Uno::Net::Http::HttpMessageHandlerRequest_typeof(), NULL);
+    type->SetDependencies(
+        ::g::Fuse::UpdateManager_typeof());
     type->SetFields(0,
         ::g::Uno::Action2_typeof()->MakeType(::g::Experimental::Http::HttpResponseHeader_typeof(), ::g::Uno::Byte_typeof()->Array(), NULL), offsetof(BinaryLoader, Callback), 0,
         ::g::Uno::Action1_typeof()->MakeType(::g::Uno::String_typeof(), NULL), offsetof(BinaryLoader, ErrorCallback), 0,
@@ -54,6 +56,7 @@ uType* BinaryLoader_typeof()
 
     uTypeOptions options;
     options.FieldCount = 5;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(BinaryLoader);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Experimental.Http.BinaryLoader", options);
@@ -119,18 +122,18 @@ void BinaryLoader::ctor_()
 ::g::Uno::Collections::Dictionary* BinaryLoader::ExtractHeaders(uString* headers)
 {
     uArray* array1;
-    int index2;
-    int length3;
+    int32_t index2;
+    int32_t length3;
     ::g::Uno::Collections::Dictionary* res = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[0/*Uno.Collections.Dictionary<string, string>*/]);
 
-    for (array1 = ::g::Uno::String::Split(uPtr(headers), uArray::Init<int>(::TYPES[1/*char[]*/], 1, 10)), index2 = 0, length3 = uPtr(array1)->Length(); index2 < length3; ++index2)
+    for (array1 = ::g::Uno::String::Split(uPtr(headers), uArray::Init<int32_t>(::TYPES[1/*char[]*/], 1, 10)), index2 = 0, length3 = uPtr(array1)->Length(); index2 < length3; ++index2)
     {
         uString* header = uPtr(array1)->Strong<uString*>(index2);
 
         if (!::g::Uno::String::IsNullOrEmpty(::g::Uno::String::Trim(uPtr(header))))
         {
-            uArray* arr = ::g::Uno::String::Split(uPtr(header), uArray::Init<int>(::TYPES[1/*char[]*/], 1, ':'));
-            uString* actualValue = (uPtr(arr)->Length() > 1) ? (uString*)::g::Uno::String::Trim(uPtr(::g::Uno::String::Substring(header, ::g::Uno::String::IndexOf1(header, ::STRINGS[0/*":"*/], 0) + 1))) : (uString*)::g::Uno::String::Empty_;
+            uArray* arr = ::g::Uno::String::Split(uPtr(header), uArray::Init<int32_t>(::TYPES[1/*char[]*/], 1, ':'));
+            uString* actualValue = (uPtr(arr)->Length() > 1) ? (uString*)::g::Uno::String::Trim(uPtr(::g::Uno::String::Substring(header, ::g::Uno::String::IndexOf3(header, ::STRINGS[0/*":"*/], 0) + 1))) : (uString*)::g::Uno::String::Empty();
             ::g::Uno::Collections::Dictionary__Add_fn(uPtr(res), ::g::Uno::String::ToLower(uPtr(::g::Uno::String::Trim(uPtr(arr->Strong<uString*>(0))))), actualValue);
         }
     }
@@ -187,7 +190,7 @@ BinaryLoader* BinaryLoader::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.Http\1.4.2\HttpLoader.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.Http\1.9.0\HttpLoader.uno
 // ----------------------------------------------------------------------------------------------
 
 // public static class HttpLoader :9
@@ -235,7 +238,7 @@ void HttpLoader::LoadBinary(uString* requestUri, uDelegate* callback, uDelegate*
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.Http\1.4.2\HttpResponseHeader.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.Http\1.9.0\HttpResponseHeader.uno
 // ------------------------------------------------------------------------------------------------------
 
 // public sealed class HttpResponseHeader :7
@@ -300,13 +303,13 @@ void HttpResponseHeader__set_ReasonPhrase_fn(HttpResponseHeader* __this, uString
 }
 
 // public generated int get_StatusCode() :9
-void HttpResponseHeader__get_StatusCode_fn(HttpResponseHeader* __this, int* __retval)
+void HttpResponseHeader__get_StatusCode_fn(HttpResponseHeader* __this, int32_t* __retval)
 {
     *__retval = __this->StatusCode();
 }
 
 // internal generated void set_StatusCode(int value) :9
-void HttpResponseHeader__set_StatusCode_fn(HttpResponseHeader* __this, int* value)
+void HttpResponseHeader__set_StatusCode_fn(HttpResponseHeader* __this, int32_t* value)
 {
     __this->StatusCode(*value);
 }
@@ -341,13 +344,13 @@ void HttpResponseHeader::ReasonPhrase(uString* value)
 }
 
 // public generated int get_StatusCode() [instance] :9
-int HttpResponseHeader::StatusCode()
+int32_t HttpResponseHeader::StatusCode()
 {
     return _StatusCode;
 }
 
 // internal generated void set_StatusCode(int value) [instance] :9
-void HttpResponseHeader::StatusCode(int value)
+void HttpResponseHeader::StatusCode(int32_t value)
 {
     _StatusCode = value;
 }
@@ -361,7 +364,7 @@ HttpResponseHeader* HttpResponseHeader::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.Http\1.4.2\BinaryLoader.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.Http\1.9.0\BinaryLoader.uno
 // ------------------------------------------------------------------------------------------------
 
 // internal static class LoaderConst :9

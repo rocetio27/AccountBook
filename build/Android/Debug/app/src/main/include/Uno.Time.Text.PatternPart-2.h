@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Time/Text/PatternPart.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Time/Text/PatternPart.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -21,8 +21,8 @@ struct PatternPart_type : uType
 
 PatternPart_type* PatternPart_typeof();
 void PatternPart__ctor__fn(PatternPart* __this);
-void PatternPart__get_ExpectedSize_fn(PatternPart* __this, int* __retval);
-void PatternPart__set_ExpectedSize_fn(PatternPart* __this, int* value);
+void PatternPart__get_ExpectedSize_fn(PatternPart* __this, int32_t* __retval);
+void PatternPart__set_ExpectedSize_fn(PatternPart* __this, int32_t* value);
 void PatternPart__Get_fn(PatternPart* __this, void* bucket, uTRef __retval);
 void PatternPart__get_Getter_fn(PatternPart* __this, uDelegate** __retval);
 void PatternPart__set_Getter_fn(PatternPart* __this, uDelegate* value);
@@ -30,21 +30,21 @@ void PatternPart__get_Obligatory_fn(PatternPart* __this, bool* __retval);
 void PatternPart__set_Obligatory_fn(PatternPart* __this, bool* value);
 void PatternPart__get_Setter_fn(PatternPart* __this, uDelegate** __retval);
 void PatternPart__set_Setter_fn(PatternPart* __this, uDelegate* value);
-void PatternPart__get_SkipNextPartsCountIfThisNotSpecified_fn(PatternPart* __this, int* __retval);
-void PatternPart__set_SkipNextPartsCountIfThisNotSpecified_fn(PatternPart* __this, int* value);
+void PatternPart__get_SkipNextPartsCountIfThisNotSpecified_fn(PatternPart* __this, int32_t* __retval);
+void PatternPart__set_SkipNextPartsCountIfThisNotSpecified_fn(PatternPart* __this, int32_t* value);
 void PatternPart__Write_fn(PatternPart* __this, void* value, uString** __retval);
 
 struct PatternPart : uObject
 {
-    int _ExpectedSize;
+    int32_t _ExpectedSize;
     uStrong<uDelegate*> _Getter;
     bool _Obligatory;
     uStrong<uDelegate*> _Setter;
-    int _SkipNextPartsCountIfThisNotSpecified;
+    int32_t _SkipNextPartsCountIfThisNotSpecified;
 
     void ctor_();
-    int ExpectedSize();
-    void ExpectedSize(int value);
+    int32_t ExpectedSize();
+    void ExpectedSize(int32_t value);
     template<class TBucket, class T>
     T Get(TBucket bucket) { T __retval; return PatternPart__Get_fn(this, uConstrain(__type->GetBase(PatternPart_typeof())->T(0), bucket), &__retval), __retval; }
     uDelegate* Getter();
@@ -53,8 +53,8 @@ struct PatternPart : uObject
     void Obligatory(bool value);
     uDelegate* Setter();
     void Setter(uDelegate* value);
-    int SkipNextPartsCountIfThisNotSpecified();
-    void SkipNextPartsCountIfThisNotSpecified(int value);
+    int32_t SkipNextPartsCountIfThisNotSpecified();
+    void SkipNextPartsCountIfThisNotSpecified(int32_t value);
     template<class TBucket>
     uString* Write(TBucket value) { uString* __retval; return (((PatternPart_type*)__type)->fp_Write)(this, uConstrain(__type->GetBase(PatternPart_typeof())->T(0), value), &__retval), __retval; }
     void Write_ex(void* value, uString** __retval) { (((PatternPart_type*)__type)->fp_Write)(this, value, __retval); }

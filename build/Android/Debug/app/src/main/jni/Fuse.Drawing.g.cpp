@@ -2,15 +2,14 @@
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.FuseDrawing_bundle.h>
-#include <_root.FuseDrawingSurf-41037ecc.h>
 #include <_root.FuseElements_bundle.h>
 #include <Android.Base.Wrappers.JWrapper.h>
 #include <Android.Base.Wrappers-88f7a41f.h>
+#include <Fuse.Common.Blitter.h>
 #include <Fuse.Controls.Native.-e502cdf1.h>
 #include <Fuse.Diagnostics.h>
 #include <Fuse.DrawContext.h>
 #include <Fuse.Drawing.AndroidCanvasPath.h>
-#include <Fuse.Drawing.AndroidG-d24624b9.h>
 #include <Fuse.Drawing.AndroidSurface.h>
 #include <Fuse.Drawing.Brush.h>
 #include <Fuse.Drawing.BrushConverter.h>
@@ -40,6 +39,9 @@
 #include <Fuse.Drawing.LineSegmentFlags.h>
 #include <Fuse.Drawing.LineSegments.h>
 #include <Fuse.Drawing.LineSegmentType.h>
+#include <Fuse.Drawing.LineSpli-2a1a6011.h>
+#include <Fuse.Drawing.LineSpli-9c5a9520.h>
+#include <Fuse.Drawing.LineSplitter.h>
 #include <Fuse.Drawing.NativeSurface.h>
 #include <Fuse.Drawing.RepeatBaker.h>
 #include <Fuse.Drawing.ResampleMode.h>
@@ -61,7 +63,6 @@
 #include <Fuse.Internal.Curves.h>
 #include <Fuse.Internal.ImageContainer.h>
 #include <Fuse.Internal.SizingContainer.h>
-#include <Fuse.IRenderViewport.h>
 #include <Fuse.IViewport.h>
 #include <Fuse.Marshal.h>
 #include <Fuse.Node.h>
@@ -76,9 +77,10 @@
 #include <Java.Object.h>
 #include <jni.h>
 #include <OpenGL.GLTextureHandle.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.Bool.h>
 #include <Uno.Buffer.h>
+#include <Uno.Byte.h>
 #include <Uno.Collections.Dicti-d1699346.h>
 #include <Uno.Collections.Dictionary-2.h>
 #include <Uno.Collections.Enume-8ddd045.h>
@@ -97,7 +99,6 @@
 #include <Uno.Float3.h>
 #include <Uno.Float4.h>
 #include <Uno.Float4x4.h>
-#include <Uno.Graphics.BlendOperand.h>
 #include <Uno.Graphics.BufferUsage.h>
 #include <Uno.Graphics.Format.h>
 #include <Uno.Graphics.Framebuffer.h>
@@ -109,7 +110,6 @@
 #include <Uno.Int.h>
 #include <Uno.Int2.h>
 #include <Uno.Math.h>
-#include <Uno.Matrix.h>
 #include <Uno.NotSupportedException.h>
 #include <Uno.Object.h>
 #include <Uno.Rect.h>
@@ -124,14 +124,14 @@
 #include <Uno.Vector.h>
 #include <Uno/JNIHelper.h>
 #include <XliPlatform/GL.h>
-static uString* STRINGS[34];
-static uType* TYPES[30];
+static uString* STRINGS[36];
+static uType* TYPES[29];
 
 namespace g{
 namespace Fuse{
 namespace Drawing{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\Android\Surface.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\Android\Surface.uno
 // ------------------------------------------------------------------------------------------------------
 
 // internal sealed extern class AndroidCanvasPath :14
@@ -186,101 +186,7 @@ AndroidCanvasPath* AndroidCanvasPath::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\Android\Surface.uno
-// ------------------------------------------------------------------------------------------------------
-
-// internal sealed extern class AndroidGraphicsDrawHelper :591
-// {
-// static generated AndroidGraphicsDrawHelper() :591
-static void AndroidGraphicsDrawHelper__cctor__fn(uType* __type)
-{
-    AndroidGraphicsDrawHelper::Singleton_ = AndroidGraphicsDrawHelper::New1();
-}
-
-static void AndroidGraphicsDrawHelper_build(uType* type)
-{
-    ::TYPES[0] = ::g::Uno::Float2_typeof()->Array();
-    type->SetFields(0,
-        ::g::Uno::Graphics::VertexBuffer_typeof(), offsetof(AndroidGraphicsDrawHelper, DrawImageFill_VertexData_d190bdb5_1_1_1), 0,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall_typeof(), offsetof(AndroidGraphicsDrawHelper, _draw_d190bdb5), 0,
-        type, (uintptr_t)&AndroidGraphicsDrawHelper::Singleton_, uFieldFlagsStatic);
-}
-
-uType* AndroidGraphicsDrawHelper_typeof()
-{
-    static uSStrong<uType*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.FieldCount = 3;
-    options.ObjectSize = sizeof(AndroidGraphicsDrawHelper);
-    options.TypeSize = sizeof(uType);
-    type = uClassType::New("Fuse.Drawing.AndroidGraphicsDrawHelper", options);
-    type->fp_build_ = AndroidGraphicsDrawHelper_build;
-    type->fp_ctor_ = (void*)AndroidGraphicsDrawHelper__New1_fn;
-    type->fp_cctor_ = AndroidGraphicsDrawHelper__cctor__fn;
-    return type;
-}
-
-// public generated AndroidGraphicsDrawHelper() :591
-void AndroidGraphicsDrawHelper__ctor__fn(AndroidGraphicsDrawHelper* __this)
-{
-    __this->ctor_();
-}
-
-// public void DrawImageFill(texture2D texture) :595
-void AndroidGraphicsDrawHelper__DrawImageFill_fn(AndroidGraphicsDrawHelper* __this, ::g::Uno::Graphics::Texture2D* texture)
-{
-    __this->DrawImageFill(texture);
-}
-
-// private generated void init_DrawCalls() :591
-void AndroidGraphicsDrawHelper__init_DrawCalls_fn(AndroidGraphicsDrawHelper* __this)
-{
-    __this->init_DrawCalls();
-}
-
-// public generated AndroidGraphicsDrawHelper New() :591
-void AndroidGraphicsDrawHelper__New1_fn(AndroidGraphicsDrawHelper** __retval)
-{
-    *__retval = AndroidGraphicsDrawHelper::New1();
-}
-
-uSStrong<AndroidGraphicsDrawHelper*> AndroidGraphicsDrawHelper::Singleton_;
-
-// public generated AndroidGraphicsDrawHelper() [instance] :591
-void AndroidGraphicsDrawHelper::ctor_()
-{
-    init_DrawCalls();
-}
-
-// public void DrawImageFill(texture2D texture) [instance] :595
-void AndroidGraphicsDrawHelper::DrawImageFill(::g::Uno::Graphics::Texture2D* texture)
-{
-    _draw_d190bdb5.DepthTestEnabled(false);
-    _draw_d190bdb5.Use();
-    _draw_d190bdb5.Attrib1(0, 2, DrawImageFill_VertexData_d190bdb5_1_1_1, 8, 0);
-    _draw_d190bdb5.Sampler3(1, texture, ::g::Uno::Graphics::SamplerState__LinearClamp());
-    _draw_d190bdb5.DrawArrays(6);
-}
-
-// private generated void init_DrawCalls() [instance] :591
-void AndroidGraphicsDrawHelper::init_DrawCalls()
-{
-    DrawImageFill_VertexData_d190bdb5_1_1_1 = ::g::Uno::Graphics::VertexBuffer::New2(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(uArray::Init< ::g::Uno::Float2>(::TYPES[0/*float2[]*/], 6, ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(1.0f, 0.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(0.0f, 1.0f), ::g::Uno::Float2__New2(0.0f, 0.0f))), 0);
-    _draw_d190bdb5 = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall__New1(::g::FuseDrawingSurface_bundle::AndroidGraphicsDrawHelperfe97d8e2());
-}
-
-// public generated AndroidGraphicsDrawHelper New() [static] :591
-AndroidGraphicsDrawHelper* AndroidGraphicsDrawHelper::New1()
-{
-    AndroidGraphicsDrawHelper* obj1 = (AndroidGraphicsDrawHelper*)uNew(AndroidGraphicsDrawHelper_typeof());
-    obj1->ctor_();
-    return obj1;
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\Android\Surface.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\Android\Surface.uno
 // ------------------------------------------------------------------------------------------------------
 
 // internal abstract extern class AndroidSurface :49
@@ -288,7 +194,7 @@ AndroidGraphicsDrawHelper* AndroidGraphicsDrawHelper::New1()
 static void AndroidSurface_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("Duplicate dispose of SurfacePath");
-    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Drawing.Surface\\1.4.2\\Android\\Surface.uno");
+    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Drawing.Surface\\1.9.0\\Android\\Surface.uno");
     ::STRINGS[2] = uString::Const("DisposePath");
     ::STRINGS[3] = uString::Const("Unprepared LinearGradient");
     ::STRINGS[4] = uString::Const("DrawPath");
@@ -298,29 +204,28 @@ static void AndroidSurface_build(uType* type)
     ::STRINGS[8] = uString::Const("Recieved an image with no width or height");
     ::STRINGS[9] = uString::Const("PrepareImageFill");
     ::STRINGS[10] = uString::Const("Object disposed");
-    ::TYPES[1] = ::g::Uno::Collections::Dictionary_typeof()->MakeType(::g::Fuse::Drawing::Brush_typeof(), ::g::Java::Object_typeof(), NULL);
-    ::TYPES[2] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
-    ::TYPES[3] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
-    ::TYPES[4] = ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
-    ::TYPES[5] = ::g::Uno::Collections::Dictionary__Enumerator_typeof()->MakeType(::g::Fuse::Drawing::Brush_typeof(), ::g::Java::Object_typeof(), NULL);
-    ::TYPES[6] = ::g::Uno::Collections::KeyValuePair_typeof()->MakeType(::g::Fuse::Drawing::Brush_typeof(), ::g::Java::Object_typeof(), NULL);
-    ::TYPES[7] = ::g::Fuse::Drawing::AndroidCanvasPath_typeof();
-    ::TYPES[8] = ::g::Fuse::Drawing::ISolidColor_typeof();
-    ::TYPES[9] = ::g::Fuse::Drawing::LinearGradient_typeof();
-    ::TYPES[10] = ::g::Fuse::Drawing::ImageFill_typeof();
-    ::TYPES[11] = ::g::Uno::Int_typeof()->Array();
-    ::TYPES[12] = ::g::Uno::Float_typeof()->Array();
+    ::TYPES[0] = ::g::Uno::Collections::Dictionary_typeof()->MakeType(::g::Fuse::Drawing::Brush_typeof(), ::g::Java::Object_typeof(), NULL);
+    ::TYPES[1] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
+    ::TYPES[2] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
+    ::TYPES[3] = ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
+    ::TYPES[4] = ::g::Uno::Collections::Dictionary__Enumerator_typeof()->MakeType(::g::Fuse::Drawing::Brush_typeof(), ::g::Java::Object_typeof(), NULL);
+    ::TYPES[5] = ::g::Uno::Collections::KeyValuePair_typeof()->MakeType(::g::Fuse::Drawing::Brush_typeof(), ::g::Java::Object_typeof(), NULL);
+    ::TYPES[6] = ::g::Fuse::Drawing::AndroidCanvasPath_typeof();
+    ::TYPES[7] = ::g::Fuse::Drawing::ISolidColor_typeof();
+    ::TYPES[8] = ::g::Fuse::Drawing::LinearGradient_typeof();
+    ::TYPES[9] = ::g::Fuse::Drawing::ImageFill_typeof();
+    ::TYPES[10] = ::g::Uno::Int_typeof()->Array();
+    ::TYPES[11] = ::g::Uno::Float_typeof()->Array();
     type->SetDependencies(
-        ::g::Uno::Color_typeof(),
-        ::g::Fuse::Diagnostics_typeof());
+        ::g::Uno::Color_typeof());
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(AndroidSurface_type, interface0));
-    type->SetFields(6,
+    type->SetFields(2,
         ::g::Java::Object_typeof(), offsetof(AndroidSurface, SurfaceContext), 0,
         ::g::Uno::Float_typeof(), offsetof(AndroidSurface, _pixelsPerPoint), 0,
-        ::TYPES[1/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>*/], offsetof(AndroidSurface, _imageBrushes), 0,
-        ::TYPES[2/*Uno.Collections.List<Fuse.Drawing.LineSegment>*/], offsetof(AndroidSurface, _temp), 0,
-        ::TYPES[1/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>*/], offsetof(AndroidSurface, _gradientBrushes), 0);
+        ::TYPES[0/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>*/], offsetof(AndroidSurface, _imageBrushes), 0,
+        ::TYPES[1/*Uno.Collections.List<Fuse.Drawing.LineSegment>*/], offsetof(AndroidSurface, _temp), 0,
+        ::TYPES[0/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>*/], offsetof(AndroidSurface, _gradientBrushes), 0);
 }
 
 AndroidSurface_type* AndroidSurface_typeof()
@@ -330,15 +235,15 @@ AndroidSurface_type* AndroidSurface_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Drawing::Surface_typeof();
-    options.FieldCount = 11;
+    options.FieldCount = 7;
     options.InterfaceCount = 1;
-    options.DependencyCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(AndroidSurface);
     options.TypeSize = sizeof(AndroidSurface_type);
     type = (AndroidSurface_type*)uClassType::New("Fuse.Drawing.AndroidSurface", options);
     type->fp_build_ = AndroidSurface_build;
     type->fp_Begin = (void(*)(::g::Fuse::Drawing::Surface*, ::g::Fuse::DrawContext*, ::g::Uno::Graphics::Framebuffer*, float*))AndroidSurface__Begin_fn;
-    type->fp_CreatePath = (void(*)(::g::Fuse::Drawing::Surface*, uObject*, int*, ::g::Fuse::Drawing::SurfacePath**))AndroidSurface__CreatePath_fn;
+    type->fp_CreatePath = (void(*)(::g::Fuse::Drawing::Surface*, uObject*, int32_t*, ::g::Fuse::Drawing::SurfacePath**))AndroidSurface__CreatePath_fn;
     type->fp_Dispose = (void(*)(::g::Fuse::Drawing::Surface*))AndroidSurface__Dispose_fn;
     type->fp_DisposePath = (void(*)(::g::Fuse::Drawing::Surface*, ::g::Fuse::Drawing::SurfacePath*))AndroidSurface__DisposePath_fn;
     type->fp_FillPath = (void(*)(::g::Fuse::Drawing::Surface*, ::g::Fuse::Drawing::SurfacePath*, ::g::Fuse::Drawing::Brush*))AndroidSurface__FillPath_fn;
@@ -357,26 +262,26 @@ void AndroidSurface__ctor_1_fn(AndroidSurface* __this)
     __this->ctor_1();
 }
 
-// private float2 AddSegments(Java.Object path, Uno.Collections.IList<Fuse.Drawing.LineSegment> segments, float2 prevPoint) :405
+// private float2 AddSegments(Java.Object path, Uno.Collections.IList<Fuse.Drawing.LineSegment> segments, float2 prevPoint) :411
 void AndroidSurface__AddSegments_fn(AndroidSurface* __this, ::g::Java::Object* path, uObject* segments, ::g::Uno::Float2* prevPoint, ::g::Uno::Float2* __retval)
 {
     *__retval = __this->AddSegments(path, segments, *prevPoint);
 }
 
-// public override void Begin(Fuse.DrawContext dc, framebuffer fb, float pixelsPerPoint) :345
+// public override void Begin(Fuse.DrawContext dc, framebuffer fb, float pixelsPerPoint) :351
 void AndroidSurface__Begin_fn(AndroidSurface* __this, ::g::Fuse::DrawContext* dc, ::g::Uno::Graphics::Framebuffer* fb, float* pixelsPerPoint)
 {
     float pixelsPerPoint_ = *pixelsPerPoint;
     __this->_pixelsPerPoint = pixelsPerPoint_;
 }
 
-// private static void ConcatTransform(Java.Object cp, Java.Object m) :532
+// private static void ConcatTransform(Java.Object cp, Java.Object m) :538
 void AndroidSurface__ConcatTransform_fn(::g::Java::Object* cp, ::g::Java::Object* m)
 {
     AndroidSurface::ConcatTransform(cp, m);
 }
 
-// private static Java.Object CreateFillPaint() :581
+// private static Java.Object CreateFillPaint() :587
 void AndroidSurface__CreateFillPaint_fn(::g::Java::Object** __retval)
 {
     *__retval = AndroidSurface::CreateFillPaint();
@@ -389,17 +294,17 @@ void AndroidSurface__CreateLinearGradient_fn(uArray* colors, uArray* stops, ::g:
 }
 
 // public override sealed Fuse.Drawing.SurfacePath CreatePath(Uno.Collections.IList<Fuse.Drawing.LineSegment> segments, [Fuse.Drawing.FillRule fillRule]) :97
-void AndroidSurface__CreatePath_fn(AndroidSurface* __this, uObject* segments, int* fillRule, ::g::Fuse::Drawing::SurfacePath** __retval)
+void AndroidSurface__CreatePath_fn(AndroidSurface* __this, uObject* segments, int32_t* fillRule, ::g::Fuse::Drawing::SurfacePath** __retval)
 {
     ::g::Fuse::Drawing::AndroidCanvasPath* collection2;
-    int fillRule_ = *fillRule;
+    int32_t fillRule_ = *fillRule;
     ::g::Java::Object* path = AndroidSurface::PathCreateMutable();
     __this->AddSegments(path, segments, ::g::Uno::Float2__New1(0.0f));
     return *__retval = (collection2 = ::g::Fuse::Drawing::AndroidCanvasPath::New1(), uPtr(collection2)->Path = path, uPtr(collection2)->FillRule = fillRule_, collection2), void();
 }
 
 // private static Java.Object CreateStrokedPaint(float width, int fjoin, int fcap, float miterLimit) :330
-void AndroidSurface__CreateStrokedPaint_fn(float* width, int* fjoin, int* fcap, float* miterLimit, ::g::Java::Object** __retval)
+void AndroidSurface__CreateStrokedPaint_fn(float* width, int32_t* fjoin, int32_t* fcap, float* miterLimit, ::g::Java::Object** __retval)
 {
     *__retval = AndroidSurface::CreateStrokedPaint(*width, *fjoin, *fcap, *miterLimit);
 }
@@ -412,39 +317,44 @@ void AndroidSurface__Dispose_fn(AndroidSurface* __this)
     uPtr(__this->_gradientBrushes)->Clear();
     ::g::Uno::Collections::Dictionary__Enumerator<uStrong< ::g::Fuse::Drawing::Brush*>, uStrong< ::g::Java::Object*> > enum1 = (::g::Uno::Collections::Dictionary__GetEnumerator_fn(uPtr(__this->_imageBrushes), &ret4), ret4);
 
-    try
     {
+        try
         {
-            while (enum1.MoveNext(::TYPES[5/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>.Enumerator*/]))
             {
-                ::g::Uno::Collections::KeyValuePair<uStrong< ::g::Fuse::Drawing::Brush*>, uStrong< ::g::Java::Object*> > item = enum1.Current(::TYPES[5/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>.Enumerator*/]);
-                AndroidSurface::recycleBitmap(item.Value(::TYPES[6/*Uno.Collections.KeyValuePair<Fuse.Drawing.Brush, Java.Object>*/]));
+                while (enum1.MoveNext(::TYPES[4/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>.Enumerator*/]))
+                {
+                    ::g::Uno::Collections::KeyValuePair<uStrong< ::g::Fuse::Drawing::Brush*>, uStrong< ::g::Java::Object*> > item = enum1.Current(::TYPES[4/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>.Enumerator*/]);
+                    AndroidSurface::recycleBitmap(item.Value(::TYPES[5/*Uno.Collections.KeyValuePair<Fuse.Drawing.Brush, Java.Object>*/]));
+                }
             }
         }
-        {
-            enum1.Dispose(::TYPES[5/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
         {
-            enum1.Dispose(::TYPES[5/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>.Enumerator*/]);
+            {
+                enum1.Dispose(::TYPES[4/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_0;
         }
-                throw __t;
+
+        {
+            enum1.Dispose(::TYPES[4/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>.Enumerator*/]);
+        }
+        __after_finally_0:;
     }
 
     uPtr(__this->_imageBrushes)->Clear();
 }
 
-// public override sealed void DisposePath(Fuse.Drawing.SurfacePath path) :477
+// public override sealed void DisposePath(Fuse.Drawing.SurfacePath path) :483
 void AndroidSurface__DisposePath_fn(AndroidSurface* __this, ::g::Fuse::Drawing::SurfacePath* path)
 {
-    ::g::Fuse::Drawing::AndroidCanvasPath* cgPath = uCast< ::g::Fuse::Drawing::AndroidCanvasPath*>(path, ::TYPES[7/*Fuse.Drawing.AndroidCanvasPath*/]);
+    ::g::Fuse::Drawing::AndroidCanvasPath* cgPath = uCast< ::g::Fuse::Drawing::AndroidCanvasPath*>(path, ::TYPES[6/*Fuse.Drawing.AndroidCanvasPath*/]);
 
     if (uPtr(cgPath)->Path == NULL)
     {
-        ::g::Fuse::Diagnostics::InternalError(::STRINGS[0/*"Duplicate d...*/], path, ::STRINGS[1/*"C:\\Users\\...*/], 483, ::STRINGS[2/*"DisposePath"*/]);
+        ::g::Fuse::Diagnostics::InternalError(::STRINGS[0/*"Duplicate d...*/], path, ::STRINGS[1/*"C:\\Users\\...*/], 489, ::STRINGS[2/*"DisposePath"*/]);
         return;
     }
 
@@ -452,7 +362,7 @@ void AndroidSurface__DisposePath_fn(AndroidSurface* __this, ::g::Fuse::Drawing::
 }
 
 // private void DrawPath(Java.Object path, Fuse.Drawing.Brush fill, Fuse.Drawing.FillRule fillRule, Java.Object paint) :143
-void AndroidSurface__DrawPath_fn(AndroidSurface* __this, ::g::Java::Object* path, ::g::Fuse::Drawing::Brush* fill, int* fillRule, ::g::Java::Object* paint)
+void AndroidSurface__DrawPath_fn(AndroidSurface* __this, ::g::Java::Object* path, ::g::Fuse::Drawing::Brush* fill, int32_t* fillRule, ::g::Java::Object* paint)
 {
     __this->DrawPath(path, fill, *fillRule, paint);
 }
@@ -460,7 +370,7 @@ void AndroidSurface__DrawPath_fn(AndroidSurface* __this, ::g::Java::Object* path
 // public override sealed void FillPath(Fuse.Drawing.SurfacePath path, Fuse.Drawing.Brush fill) :125
 void AndroidSurface__FillPath_fn(AndroidSurface* __this, ::g::Fuse::Drawing::SurfacePath* path, ::g::Fuse::Drawing::Brush* fill)
 {
-    ::g::Fuse::Drawing::AndroidCanvasPath* cgPath = uCast< ::g::Fuse::Drawing::AndroidCanvasPath*>(path, ::TYPES[7/*Fuse.Drawing.AndroidCanvasPath*/]);
+    ::g::Fuse::Drawing::AndroidCanvasPath* cgPath = uCast< ::g::Fuse::Drawing::AndroidCanvasPath*>(path, ::TYPES[6/*Fuse.Drawing.AndroidCanvasPath*/]);
     ::g::Java::Object* paint = AndroidSurface::CreateFillPaint();
     __this->DrawPath(uPtr(cgPath)->Path, fill, uPtr(cgPath)->FillRule, paint);
 }
@@ -478,7 +388,7 @@ void AndroidSurface__FillPathLinearGradient_fn(::g::Java::Object* cp, ::g::Java:
 }
 
 // private static void FillPathSolidColor(Java.Object cp, Java.Object pathAsObject, int color, bool eoFill, Java.Object pretendPaint) :203
-void AndroidSurface__FillPathSolidColor_fn(::g::Java::Object* cp, ::g::Java::Object* pathAsObject, int* color, bool* eoFill, ::g::Java::Object* pretendPaint)
+void AndroidSurface__FillPathSolidColor_fn(::g::Java::Object* cp, ::g::Java::Object* pathAsObject, int32_t* color, bool* eoFill, ::g::Java::Object* pretendPaint)
 {
     AndroidSurface::FillPathSolidColor(cp, pathAsObject, *color, *eoFill, pretendPaint);
 }
@@ -489,37 +399,37 @@ void AndroidSurface__NewContext_fn(::g::Java::Object** __retval)
     *__retval = AndroidSurface::NewContext();
 }
 
-// private static void PathClose(Java.Object pathAsObject) :518
+// private static void PathClose(Java.Object pathAsObject) :524
 void AndroidSurface__PathClose_fn(::g::Java::Object* pathAsObject)
 {
     AndroidSurface::PathClose(pathAsObject);
 }
 
-// private static Java.Object PathCreateMutable() :491
+// private static Java.Object PathCreateMutable() :497
 void AndroidSurface__PathCreateMutable_fn(::g::Java::Object** __retval)
 {
     *__retval = AndroidSurface::PathCreateMutable();
 }
 
-// private static void PathCurveTo(Java.Object pathAsObject, float x, float y, float ax, float ay, float bx, float by) :504
+// private static void PathCurveTo(Java.Object pathAsObject, float x, float y, float ax, float ay, float bx, float by) :510
 void AndroidSurface__PathCurveTo_fn(::g::Java::Object* pathAsObject, float* x, float* y, float* ax, float* ay, float* bx, float* by)
 {
     AndroidSurface::PathCurveTo(pathAsObject, *x, *y, *ax, *ay, *bx, *by);
 }
 
-// private static void PathLineTo(Java.Object pathAsObject, float x, float y) :511
+// private static void PathLineTo(Java.Object pathAsObject, float x, float y) :517
 void AndroidSurface__PathLineTo_fn(::g::Java::Object* pathAsObject, float* x, float* y)
 {
     AndroidSurface::PathLineTo(pathAsObject, *x, *y);
 }
 
-// private static void PathMoveTo(Java.Object pathAsObject, float x, float y) :497
+// private static void PathMoveTo(Java.Object pathAsObject, float x, float y) :503
 void AndroidSurface__PathMoveTo_fn(::g::Java::Object* pathAsObject, float* x, float* y)
 {
     AndroidSurface::PathMoveTo(pathAsObject, *x, *y);
 }
 
-// private float2 PixelFromPoint(float2 point) :399
+// private float2 PixelFromPoint(float2 point) :405
 void AndroidSurface__PixelFromPoint_fn(AndroidSurface* __this, ::g::Uno::Float2* point, ::g::Uno::Float2* __retval)
 {
     *__retval = __this->PixelFromPoint(*point);
@@ -532,16 +442,16 @@ void AndroidSurface__PopTransform_fn(AndroidSurface* __this)
     AndroidSurface::RestoreContextState(__this->SurfaceContext);
 }
 
-// public override sealed void Prepare(Fuse.Drawing.Brush brush) :353
+// public override sealed void Prepare(Fuse.Drawing.Brush brush) :359
 void AndroidSurface__Prepare_fn(AndroidSurface* __this, ::g::Fuse::Drawing::Brush* brush)
 {
     __this->VerifyCreated();
     __this->Unprepare(brush);
 
-    if (uIs(brush, ::TYPES[8/*Fuse.Drawing.ISolidColor*/]))
+    if (uIs(brush, ::TYPES[7/*Fuse.Drawing.ISolidColor*/]))
         return;
 
-    ::g::Fuse::Drawing::LinearGradient* linearGradient = uAs< ::g::Fuse::Drawing::LinearGradient*>(brush, ::TYPES[9/*Fuse.Drawing.LinearGradient*/]);
+    ::g::Fuse::Drawing::LinearGradient* linearGradient = uAs< ::g::Fuse::Drawing::LinearGradient*>(brush, ::TYPES[8/*Fuse.Drawing.LinearGradient*/]);
 
     if (linearGradient != NULL)
     {
@@ -549,7 +459,7 @@ void AndroidSurface__Prepare_fn(AndroidSurface* __this, ::g::Fuse::Drawing::Brus
         return;
     }
 
-    ::g::Fuse::Drawing::ImageFill* imageFill = uAs< ::g::Fuse::Drawing::ImageFill*>(brush, ::TYPES[10/*Fuse.Drawing.ImageFill*/]);
+    ::g::Fuse::Drawing::ImageFill* imageFill = uAs< ::g::Fuse::Drawing::ImageFill*>(brush, ::TYPES[9/*Fuse.Drawing.ImageFill*/]);
 
     if (imageFill != NULL)
     {
@@ -557,7 +467,7 @@ void AndroidSurface__Prepare_fn(AndroidSurface* __this, ::g::Fuse::Drawing::Brus
         return;
     }
 
-    ::g::Fuse::Diagnostics::UserError(::STRINGS[6/*"Unsupported...*/], brush, ::STRINGS[1/*"C:\\Users\\...*/], 377, ::STRINGS[7/*"Prepare"*/], NULL);
+    ::g::Fuse::Diagnostics::UserError(::STRINGS[6/*"Unsupported...*/], brush, ::STRINGS[1/*"C:\\Users\\...*/], 383, ::STRINGS[7/*"Prepare"*/], NULL);
 }
 
 // private void PrepareImageFill(Fuse.Drawing.ImageFill fill) :106
@@ -566,7 +476,7 @@ void AndroidSurface__PrepareImageFill_fn(AndroidSurface* __this, ::g::Fuse::Draw
     __this->PrepareImageFill(fill);
 }
 
-// private void PrepareLinearGradient(Fuse.Drawing.LinearGradient lg) :456
+// private void PrepareLinearGradient(Fuse.Drawing.LinearGradient lg) :462
 void AndroidSurface__PrepareLinearGradient_fn(AndroidSurface* __this, ::g::Fuse::Drawing::LinearGradient* lg)
 {
     __this->PrepareLinearGradient(lg);
@@ -581,20 +491,20 @@ void AndroidSurface__PushTransform_fn(AndroidSurface* __this, ::g::Uno::Float4x4
     AndroidSurface::ConcatTransform(__this->SurfaceContext, __this->ToMatrix1(t_, __this->_pixelsPerPoint));
 }
 
-// private static void recycleBitmap(Java.Object bit) :549
+// private static void recycleBitmap(Java.Object bit) :555
 void AndroidSurface__recycleBitmap_fn(::g::Java::Object* bit)
 {
     AndroidSurface::recycleBitmap(bit);
 }
 
-// private static void RestoreContextState(Java.Object cp) :542
+// private static void RestoreContextState(Java.Object cp) :548
 void AndroidSurface__RestoreContextState_fn(::g::Java::Object* cp)
 {
     AndroidSurface::RestoreContextState(cp);
 }
 
-// private static int SaveContextState(Java.Object cp) :525
-void AndroidSurface__SaveContextState_fn(::g::Java::Object* cp, int* __retval)
+// private static int SaveContextState(Java.Object cp) :531
+void AndroidSurface__SaveContextState_fn(::g::Java::Object* cp, int32_t* __retval)
 {
     *__retval = AndroidSurface::SaveContextState(cp);
 }
@@ -603,24 +513,24 @@ void AndroidSurface__SaveContextState_fn(::g::Java::Object* cp, int* __retval)
 void AndroidSurface__StrokePath_fn(AndroidSurface* __this, ::g::Fuse::Drawing::SurfacePath* path, ::g::Fuse::Drawing::Stroke* stroke)
 {
     __this->VerifyBegun();
-    ::g::Fuse::Drawing::AndroidCanvasPath* cgPath = uCast< ::g::Fuse::Drawing::AndroidCanvasPath*>(path, ::TYPES[7/*Fuse.Drawing.AndroidCanvasPath*/]);
+    ::g::Fuse::Drawing::AndroidCanvasPath* cgPath = uCast< ::g::Fuse::Drawing::AndroidCanvasPath*>(path, ::TYPES[6/*Fuse.Drawing.AndroidCanvasPath*/]);
     ::g::Java::Object* strokedPaint = AndroidSurface::CreateStrokedPaint(uPtr(stroke)->Width() * __this->_pixelsPerPoint, uPtr(stroke)->LineJoin(), uPtr(stroke)->LineCap(), uPtr(stroke)->LineJoinMiterLimit());
     __this->DrawPath(uPtr(cgPath)->Path, stroke->Brush(), 0, strokedPaint);
 }
 
-// private Java.Object ToMatrix(float[] matrix) :573
+// private Java.Object ToMatrix(float[] matrix) :579
 void AndroidSurface__ToMatrix_fn(AndroidSurface* __this, uArray* matrix, ::g::Java::Object** __retval)
 {
     *__retval = __this->ToMatrix(matrix);
 }
 
-// private Java.Object ToMatrix(float4x4 transform, float pixelsPerPoint) :561
+// private Java.Object ToMatrix(float4x4 transform, float pixelsPerPoint) :567
 void AndroidSurface__ToMatrix1_fn(AndroidSurface* __this, ::g::Uno::Float4x4* transform, float* pixelsPerPoint, ::g::Java::Object** __retval)
 {
     *__retval = __this->ToMatrix1(*transform, *pixelsPerPoint);
 }
 
-// public override sealed void Unprepare(Fuse.Drawing.Brush brush) :382
+// public override sealed void Unprepare(Fuse.Drawing.Brush brush) :388
 void AndroidSurface__Unprepare_fn(AndroidSurface* __this, ::g::Fuse::Drawing::Brush* brush)
 {
     bool ret7;
@@ -652,21 +562,21 @@ void AndroidSurface__VerifyCreated_fn(AndroidSurface* __this)
 // public AndroidSurface() [instance] :53
 void AndroidSurface::ctor_1()
 {
-    _imageBrushes = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>*/]));
-    _temp = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[2/*Uno.Collections.List<Fuse.Drawing.LineSegment>*/]));
-    _gradientBrushes = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>*/]));
+    _imageBrushes = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[0/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>*/]));
+    _temp = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[1/*Uno.Collections.List<Fuse.Drawing.LineSegment>*/]));
+    _gradientBrushes = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[0/*Uno.Collections.Dictionary<Fuse.Drawing.Brush, Java.Object>*/]));
     ctor_();
     SurfaceContext = AndroidSurface::NewContext();
 }
 
-// private float2 AddSegments(Java.Object path, Uno.Collections.IList<Fuse.Drawing.LineSegment> segments, float2 prevPoint) [instance] :405
+// private float2 AddSegments(Java.Object path, Uno.Collections.IList<Fuse.Drawing.LineSegment> segments, float2 prevPoint) [instance] :411
 ::g::Uno::Float2 AndroidSurface::AddSegments(::g::Java::Object* path, uObject* segments, ::g::Uno::Float2 prevPoint)
 {
     ::g::Fuse::Drawing::LineSegment ret3;
 
-    for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(segments), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/])); ++i)
+    for (int32_t i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(segments), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/])); ++i)
     {
-        ::g::Fuse::Drawing::LineSegment seg = (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(segments), ::TYPES[4/*Uno.Collections.IList<Fuse.Drawing.LineSegment>*/]), uCRef<int>(i), &ret3), ret3);
+        ::g::Fuse::Drawing::LineSegment seg = (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(segments), ::TYPES[3/*Uno.Collections.IList<Fuse.Drawing.LineSegment>*/]), uCRef<int32_t>(i), &ret3), ret3);
         ::g::Uno::Float2 to = PixelFromPoint(seg.To);
 
         switch (seg.Type)
@@ -709,20 +619,20 @@ void AndroidSurface::ctor_1()
 }
 
 // private void DrawPath(Java.Object path, Fuse.Drawing.Brush fill, Fuse.Drawing.FillRule fillRule, Java.Object paint) [instance] :143
-void AndroidSurface::DrawPath(::g::Java::Object* path, ::g::Fuse::Drawing::Brush* fill, int fillRule, ::g::Java::Object* paint)
+void AndroidSurface::DrawPath(::g::Java::Object* path, ::g::Fuse::Drawing::Brush* fill, int32_t fillRule, ::g::Java::Object* paint)
 {
     bool ret5;
     bool ret6;
     bool eoFill = fillRule == 1;
-    uObject* solidColor = uAs<uObject*>(fill, ::TYPES[8/*Fuse.Drawing.ISolidColor*/]);
+    uObject* solidColor = uAs<uObject*>(fill, ::TYPES[7/*Fuse.Drawing.ISolidColor*/]);
 
     if (solidColor != NULL)
     {
-        AndroidSurface::FillPathSolidColor(SurfaceContext, path, (int)::g::Uno::Color::ToArgb(::g::Fuse::Drawing::ISolidColor::Color(uInterface(uPtr(solidColor), ::TYPES[8/*Fuse.Drawing.ISolidColor*/]))), eoFill, paint);
+        AndroidSurface::FillPathSolidColor(SurfaceContext, path, (int32_t)::g::Uno::Color::ToArgb(::g::Fuse::Drawing::ISolidColor::Color(uInterface(uPtr(solidColor), ::TYPES[7/*Fuse.Drawing.ISolidColor*/]))), eoFill, paint);
         return;
     }
 
-    ::g::Fuse::Drawing::LinearGradient* linearGradient = uAs< ::g::Fuse::Drawing::LinearGradient*>(fill, ::TYPES[9/*Fuse.Drawing.LinearGradient*/]);
+    ::g::Fuse::Drawing::LinearGradient* linearGradient = uAs< ::g::Fuse::Drawing::LinearGradient*>(fill, ::TYPES[8/*Fuse.Drawing.LinearGradient*/]);
 
     if (linearGradient != NULL)
     {
@@ -739,7 +649,7 @@ void AndroidSurface::DrawPath(::g::Java::Object* path, ::g::Fuse::Drawing::Brush
         return;
     }
 
-    ::g::Fuse::Drawing::ImageFill* imageFill = uAs< ::g::Fuse::Drawing::ImageFill*>(fill, ::TYPES[10/*Fuse.Drawing.ImageFill*/]);
+    ::g::Fuse::Drawing::ImageFill* imageFill = uAs< ::g::Fuse::Drawing::ImageFill*>(fill, ::TYPES[9/*Fuse.Drawing.ImageFill*/]);
 
     if (imageFill != NULL)
     {
@@ -765,7 +675,7 @@ void AndroidSurface::DrawPath(::g::Java::Object* path, ::g::Fuse::Drawing::Brush
     ::g::Fuse::Diagnostics::UserError(::STRINGS[6/*"Unsupported...*/], fill, ::STRINGS[1/*"C:\\Users\\...*/], 198, ::STRINGS[4/*"DrawPath"*/], NULL);
 }
 
-// private float2 PixelFromPoint(float2 point) [instance] :399
+// private float2 PixelFromPoint(float2 point) [instance] :405
 ::g::Uno::Float2 AndroidSurface::PixelFromPoint(::g::Uno::Float2 point)
 {
     return ::g::Uno::Float2__op_Multiply1(point, _pixelsPerPoint);
@@ -790,30 +700,30 @@ void AndroidSurface::PrepareImageFill(::g::Fuse::Drawing::ImageFill* fill)
     ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(_imageBrushes), fill, PrepareImageFillImpl(fill));
 }
 
-// private void PrepareLinearGradient(Fuse.Drawing.LinearGradient lg) [instance] :456
+// private void PrepareLinearGradient(Fuse.Drawing.LinearGradient lg) [instance] :462
 void AndroidSurface::PrepareLinearGradient(::g::Fuse::Drawing::LinearGradient* lg)
 {
     uArray* stops = uPtr(lg)->SortedStops();
-    uArray* colors = uArray::New(::TYPES[11/*int[]*/], uPtr(stops)->Length());
-    uArray* offsets = uArray::New(::TYPES[12/*float[]*/], stops->Length());
+    uArray* colors = uArray::New(::TYPES[10/*int[]*/], uPtr(stops)->Length());
+    uArray* offsets = uArray::New(::TYPES[11/*float[]*/], stops->Length());
 
-    for (int i = 0; i < stops->Length(); ++i)
+    for (int32_t i = 0; i < stops->Length(); ++i)
     {
         ::g::Fuse::Drawing::GradientStop* stop = uPtr(stops)->Strong< ::g::Fuse::Drawing::GradientStop*>(i);
-        uPtr(colors)->Item<int>(i) = (int)::g::Uno::Color::ToArgb(uPtr(stop)->Color());
+        uPtr(colors)->Item<int32_t>(i) = (int32_t)::g::Uno::Color::ToArgb(uPtr(stop)->Color());
         uPtr(offsets)->Item<float>(i) = stop->Offset();
     }
 
     ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(_gradientBrushes), lg, AndroidSurface::CreateLinearGradient(colors, offsets));
 }
 
-// private Java.Object ToMatrix(float[] matrix) [instance] :573
+// private Java.Object ToMatrix(float[] matrix) [instance] :579
 ::g::Java::Object* AndroidSurface::ToMatrix(uArray* matrix)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "ToMatrix311", "(Lcom/uno/UnoObject;Lcom/uno/FloatArray;)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "ToMatrix305", "(Lcom/uno/UnoObject;Lcom/uno/FloatArray;)Ljava/lang/Object;");
         uObject* _uthis=this;
         jobject _this_ = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uthis);
         uArray* _umatrix=matrix;
@@ -828,10 +738,10 @@ void AndroidSurface::PrepareLinearGradient(::g::Fuse::Drawing::LinearGradient* l
     
 }
 
-// private Java.Object ToMatrix(float4x4 transform, float pixelsPerPoint) [instance] :561
+// private Java.Object ToMatrix(float4x4 transform, float pixelsPerPoint) [instance] :567
 ::g::Java::Object* AndroidSurface::ToMatrix1(::g::Uno::Float4x4 transform, float pixelsPerPoint)
 {
-    uArray* matrix = uArray::Init<double>(::TYPES[12/*float[]*/], 9, transform.M11, transform.M21, transform.M41 * pixelsPerPoint, transform.M12, transform.M22, transform.M42 * pixelsPerPoint, transform.M14, transform.M24, transform.M44);
+    uArray* matrix = uArray::Init<double>(::TYPES[11/*float[]*/], 9, transform.M11, transform.M21, transform.M41 * pixelsPerPoint, transform.M12, transform.M22, transform.M42 * pixelsPerPoint, transform.M14, transform.M24, transform.M44);
     return ToMatrix(matrix);
 }
 
@@ -842,13 +752,13 @@ void AndroidSurface::VerifyCreated()
         U_THROW(::g::Uno::Exception::New2(::STRINGS[10/*"Object disp...*/]));
 }
 
-// private static void ConcatTransform(Java.Object cp, Java.Object m) [static] :532
+// private static void ConcatTransform(Java.Object cp, Java.Object m) [static] :538
 void AndroidSurface::ConcatTransform(::g::Java::Object* cp, ::g::Java::Object* m)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "ConcatTransform295", "(Ljava/lang/Object;Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "ConcatTransform289", "(Ljava/lang/Object;Ljava/lang/Object;)V");
         ::g::Java::Object* _ucp=cp;
         jobject _cp = (_ucp==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ucp, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         ::g::Java::Object* _um=m;
@@ -863,13 +773,13 @@ void AndroidSurface::ConcatTransform(::g::Java::Object* cp, ::g::Java::Object* m
     
 }
 
-// private static Java.Object CreateFillPaint() [static] :581
+// private static Java.Object CreateFillPaint() [static] :587
 ::g::Java::Object* AndroidSurface::CreateFillPaint()
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateFillPaint296", "()Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateFillPaint290", "()Ljava/lang/Object;");
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd);
         ::g::Java::Object* __result = (::g::Java::Object*)::g::Android::Base::Wrappers::JavaObjectHelper::JObjectToJWrapper(__jresult, false);
         ::g::Android::Base::JNI::CheckException();
@@ -884,7 +794,7 @@ void AndroidSurface::ConcatTransform(::g::Java::Object* cp, ::g::Java::Object* m
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateLinearGradient297", "(Lcom/uno/IntArray;Lcom/uno/FloatArray;)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateLinearGradient291", "(Lcom/uno/IntArray;Lcom/uno/FloatArray;)Ljava/lang/Object;");
         uArray* _ucolors=colors;
         jobject _colors = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box4(_ucolors);
         uArray* _ustops=stops;
@@ -900,17 +810,17 @@ void AndroidSurface::ConcatTransform(::g::Java::Object* cp, ::g::Java::Object* m
 }
 
 // private static Java.Object CreateStrokedPaint(float width, int fjoin, int fcap, float miterLimit) [static] :330
-::g::Java::Object* AndroidSurface::CreateStrokedPaint(float width, int fjoin, int fcap, float miterLimit)
+::g::Java::Object* AndroidSurface::CreateStrokedPaint(float width, int32_t fjoin, int32_t fcap, float miterLimit)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateStrokedPaint298", "(FIIF)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateStrokedPaint292", "(FIIF)Ljava/lang/Object;");
         float _uwidth=width;
         jfloat _width = (jfloat)_uwidth;
-        int _ufjoin=fjoin;
+        int32_t _ufjoin=fjoin;
         jint _fjoin = (jint)_ufjoin;
-        int _ufcap=fcap;
+        int32_t _ufcap=fcap;
         jint _fcap = (jint)_ufcap;
         float _umiterLimit=miterLimit;
         jfloat _miterLimit = (jfloat)_umiterLimit;
@@ -932,7 +842,7 @@ void AndroidSurface::FillPathImage(::g::Java::Object* cp, ::g::Java::Object* pat
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "FillPathImage299", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;FFFFFFZLjava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "FillPathImage293", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;FFFFFFZLjava/lang/Object;)V");
         ::g::Java::Object* _ucp=cp;
         jobject _cp = (_ucp==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ucp, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         ::g::Java::Object* _upathAsObject=pathAsObject;
@@ -980,7 +890,7 @@ void AndroidSurface::FillPathLinearGradient(::g::Java::Object* cp, ::g::Java::Ob
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "FillPathLinearGradient300", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;FFFFZLjava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "FillPathLinearGradient294", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;FFFFZLjava/lang/Object;)V");
         ::g::Java::Object* _ucp=cp;
         jobject _cp = (_ucp==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ucp, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         ::g::Java::Object* _upath=path;
@@ -1017,17 +927,17 @@ void AndroidSurface::FillPathLinearGradient(::g::Java::Object* cp, ::g::Java::Ob
 }
 
 // private static void FillPathSolidColor(Java.Object cp, Java.Object pathAsObject, int color, bool eoFill, Java.Object pretendPaint) [static] :203
-void AndroidSurface::FillPathSolidColor(::g::Java::Object* cp, ::g::Java::Object* pathAsObject, int color, bool eoFill, ::g::Java::Object* pretendPaint)
+void AndroidSurface::FillPathSolidColor(::g::Java::Object* cp, ::g::Java::Object* pathAsObject, int32_t color, bool eoFill, ::g::Java::Object* pretendPaint)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "FillPathSolidColor301", "(Ljava/lang/Object;Ljava/lang/Object;IZLjava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "FillPathSolidColor295", "(Ljava/lang/Object;Ljava/lang/Object;IZLjava/lang/Object;)V");
         ::g::Java::Object* _ucp=cp;
         jobject _cp = (_ucp==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ucp, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         ::g::Java::Object* _upathAsObject=pathAsObject;
         jobject _pathAsObject = (_upathAsObject==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_upathAsObject, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
-        int _ucolor=color;
+        int32_t _ucolor=color;
         jint _color = (jint)_ucolor;
         bool _ueoFill=eoFill;
         jboolean _eoFill = (jboolean)_ueoFill;
@@ -1052,7 +962,7 @@ void AndroidSurface::FillPathSolidColor(::g::Java::Object* cp, ::g::Java::Object
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "NewContext302", "()Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "NewContext296", "()Ljava/lang/Object;");
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd);
         ::g::Java::Object* __result = (::g::Java::Object*)::g::Android::Base::Wrappers::JavaObjectHelper::JObjectToJWrapper(__jresult, false);
         ::g::Android::Base::JNI::CheckException();
@@ -1061,13 +971,13 @@ void AndroidSurface::FillPathSolidColor(::g::Java::Object* cp, ::g::Java::Object
     
 }
 
-// private static void PathClose(Java.Object pathAsObject) [static] :518
+// private static void PathClose(Java.Object pathAsObject) [static] :524
 void AndroidSurface::PathClose(::g::Java::Object* pathAsObject)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PathClose303", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PathClose297", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _upathAsObject=pathAsObject;
         jobject _pathAsObject = (_upathAsObject==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_upathAsObject, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_pathAsObject);
@@ -1079,13 +989,13 @@ void AndroidSurface::PathClose(::g::Java::Object* pathAsObject)
     
 }
 
-// private static Java.Object PathCreateMutable() [static] :491
+// private static Java.Object PathCreateMutable() [static] :497
 ::g::Java::Object* AndroidSurface::PathCreateMutable()
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PathCreateMutable304", "()Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PathCreateMutable298", "()Ljava/lang/Object;");
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd);
         ::g::Java::Object* __result = (::g::Java::Object*)::g::Android::Base::Wrappers::JavaObjectHelper::JObjectToJWrapper(__jresult, false);
         ::g::Android::Base::JNI::CheckException();
@@ -1094,13 +1004,13 @@ void AndroidSurface::PathClose(::g::Java::Object* pathAsObject)
     
 }
 
-// private static void PathCurveTo(Java.Object pathAsObject, float x, float y, float ax, float ay, float bx, float by) [static] :504
+// private static void PathCurveTo(Java.Object pathAsObject, float x, float y, float ax, float ay, float bx, float by) [static] :510
 void AndroidSurface::PathCurveTo(::g::Java::Object* pathAsObject, float x, float y, float ax, float ay, float bx, float by)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PathCurveTo305", "(Ljava/lang/Object;FFFFFF)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PathCurveTo299", "(Ljava/lang/Object;FFFFFF)V");
         ::g::Java::Object* _upathAsObject=pathAsObject;
         jobject _pathAsObject = (_upathAsObject==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_upathAsObject, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         float _ux=x;
@@ -1130,13 +1040,13 @@ void AndroidSurface::PathCurveTo(::g::Java::Object* pathAsObject, float x, float
     
 }
 
-// private static void PathLineTo(Java.Object pathAsObject, float x, float y) [static] :511
+// private static void PathLineTo(Java.Object pathAsObject, float x, float y) [static] :517
 void AndroidSurface::PathLineTo(::g::Java::Object* pathAsObject, float x, float y)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PathLineTo306", "(Ljava/lang/Object;FF)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PathLineTo300", "(Ljava/lang/Object;FF)V");
         ::g::Java::Object* _upathAsObject=pathAsObject;
         jobject _pathAsObject = (_upathAsObject==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_upathAsObject, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         float _ux=x;
@@ -1154,13 +1064,13 @@ void AndroidSurface::PathLineTo(::g::Java::Object* pathAsObject, float x, float 
     
 }
 
-// private static void PathMoveTo(Java.Object pathAsObject, float x, float y) [static] :497
+// private static void PathMoveTo(Java.Object pathAsObject, float x, float y) [static] :503
 void AndroidSurface::PathMoveTo(::g::Java::Object* pathAsObject, float x, float y)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PathMoveTo307", "(Ljava/lang/Object;FF)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PathMoveTo301", "(Ljava/lang/Object;FF)V");
         ::g::Java::Object* _upathAsObject=pathAsObject;
         jobject _pathAsObject = (_upathAsObject==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_upathAsObject, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         float _ux=x;
@@ -1178,13 +1088,13 @@ void AndroidSurface::PathMoveTo(::g::Java::Object* pathAsObject, float x, float 
     
 }
 
-// private static void recycleBitmap(Java.Object bit) [static] :549
+// private static void recycleBitmap(Java.Object bit) [static] :555
 void AndroidSurface::recycleBitmap(::g::Java::Object* bit)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "recycleBitmap308", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "recycleBitmap302", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _ubit=bit;
         jobject _bit = (_ubit==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ubit, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_bit);
@@ -1196,13 +1106,13 @@ void AndroidSurface::recycleBitmap(::g::Java::Object* bit)
     
 }
 
-// private static void RestoreContextState(Java.Object cp) [static] :542
+// private static void RestoreContextState(Java.Object cp) [static] :548
 void AndroidSurface::RestoreContextState(::g::Java::Object* cp)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "RestoreContextState309", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "RestoreContextState303", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _ucp=cp;
         jobject _cp = (_ucp==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ucp, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_cp);
@@ -1214,17 +1124,17 @@ void AndroidSurface::RestoreContextState(::g::Java::Object* cp)
     
 }
 
-// private static int SaveContextState(Java.Object cp) [static] :525
-int AndroidSurface::SaveContextState(::g::Java::Object* cp)
+// private static int SaveContextState(Java.Object cp) [static] :531
+int32_t AndroidSurface::SaveContextState(::g::Java::Object* cp)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "SaveContextState310", "(Ljava/lang/Object;)I");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "SaveContextState304", "(Ljava/lang/Object;)I");
         ::g::Java::Object* _ucp=cp;
         jobject _cp = (_ucp==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ucp, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         jint __jresult = U_JNIVAR->CallStaticIntMethod(__cls,__mtd,_cp);
-        int __result = (int)__jresult;
+        int32_t __result = (int32_t)__jresult;
         if (_cp!=NULL) { U_JNIVAR->DeleteLocalRef(_cp); }
         ::g::Android::Base::JNI::CheckException();
         return __result;
@@ -1233,7 +1143,7 @@ int AndroidSurface::SaveContextState(::g::Java::Object* cp)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brush.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brush.uno
 // ------------------------------------------------------------------------------------
 
 // public abstract class Brush :32
@@ -1241,10 +1151,8 @@ int AndroidSurface::SaveContextState(::g::Java::Object* cp)
 static void Brush_build(uType* type)
 {
     ::STRINGS[11] = uString::Const("Brush is not pinned, preparation invalid");
-    ::STRINGS[12] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Drawing\\1.4.2\\Brush.uno");
+    ::STRINGS[12] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Drawing\\1.9.0\\Brush.uno");
     ::STRINGS[7] = uString::Const("Prepare");
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
     type->SetFields(1,
         ::g::Uno::Int_typeof(), offsetof(Brush, _pinCount), 0);
 }
@@ -1257,7 +1165,6 @@ Brush_type* Brush_typeof()
     uTypeOptions options;
     options.BaseDefinition = ::g::Uno::UX::PropertyObject_typeof();
     options.FieldCount = 2;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(Brush);
     options.TypeSize = sizeof(Brush_type);
     type = (Brush_type*)uClassType::New("Fuse.Drawing.Brush", options);
@@ -1360,7 +1267,7 @@ void Brush::Unpin()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brush.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brush.uno
 // ------------------------------------------------------------------------------------
 
 // public sealed class BrushConverter :9
@@ -1368,13 +1275,15 @@ void Brush::Unpin()
 // static BrushConverter() :26
 static void BrushConverter__cctor__fn(uType* __type)
 {
+    ::g::Fuse::Marshal_typeof()->Init();
     ::g::Fuse::Marshal::AddConverter((uObject*)BrushConverter::New1());
 }
 
 static void BrushConverter_build(uType* type)
 {
-    ::TYPES[13] = ::g::Uno::Type_typeof();
+    ::TYPES[12] = ::g::Uno::Type_typeof();
     type->SetDependencies(
+        ::g::Fuse::Marshal_typeof(),
         ::g::Uno::Type_typeof());
     type->SetInterfaces(
         ::g::Fuse::Marshal__IConverter_typeof(), offsetof(BrushConverter_type, interface0));
@@ -1387,7 +1296,7 @@ BrushConverter_type* BrushConverter_typeof()
 
     uTypeOptions options;
     options.InterfaceCount = 1;
-    options.DependencyCount = 1;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(BrushConverter);
     options.TypeSize = sizeof(BrushConverter_type);
     type = (BrushConverter_type*)uClassType::New("Fuse.Drawing.BrushConverter", options);
@@ -1456,7 +1365,7 @@ BrushConverter* BrushConverter::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Colors.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Colors.uno
 // -------------------------------------------------------------------------------------
 
 // public static class Brushes :26
@@ -1465,23 +1374,23 @@ BrushConverter* BrushConverter::New1()
 static void Brushes__cctor__fn(uType* __type)
 {
     ::g::Fuse::Drawing::Colors_typeof()->Init();
-    Brushes::Transparent_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Black_);
-    Brushes::Black_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Black_);
-    Brushes::Silver_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Silver_);
-    Brushes::Gray_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Gray_);
-    Brushes::White_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::White_);
-    Brushes::Maroon_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Maroon_);
-    Brushes::Red_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Red_);
-    Brushes::Purple_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Purple_);
-    Brushes::Fuchsia_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Fuchsia_);
-    Brushes::Green_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Green_);
-    Brushes::Lime_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Lime_);
-    Brushes::Olive_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Olive_);
-    Brushes::Yellow_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Yellow_);
-    Brushes::Navy_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Navy_);
-    Brushes::Blue_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Blue_);
-    Brushes::Teal_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Teal_);
-    Brushes::Aqua_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Aqua_);
+    Brushes::Transparent_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Black());
+    Brushes::Black_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Black());
+    Brushes::Silver_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Silver());
+    Brushes::Gray_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Gray());
+    Brushes::White_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::White());
+    Brushes::Maroon_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Maroon());
+    Brushes::Red_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Red());
+    Brushes::Purple_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Purple());
+    Brushes::Fuchsia_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Fuchsia());
+    Brushes::Green_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Green());
+    Brushes::Lime_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Lime());
+    Brushes::Olive_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Olive());
+    Brushes::Yellow_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Yellow());
+    Brushes::Navy_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Navy());
+    Brushes::Blue_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Blue());
+    Brushes::Teal_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Teal());
+    Brushes::Aqua_ = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Fuse::Drawing::Colors::Aqua());
 }
 
 static void Brushes_build(uType* type)
@@ -1539,7 +1448,7 @@ uSStrong< ::g::Fuse::Drawing::StaticSolidColor*> Brushes::Teal_;
 uSStrong< ::g::Fuse::Drawing::StaticSolidColor*> Brushes::Aqua_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Colors.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Colors.uno
 // -------------------------------------------------------------------------------------
 
 // public static class Colors :5
@@ -1622,7 +1531,7 @@ uClassType* Colors_typeof()
 ::g::Uno::Float4 Colors::Aqua_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\DrawObjectWatcher.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\DrawObjectWatcher.uno
 // --------------------------------------------------------------------------------------------------------
 
 // internal sealed class DrawObjectWatcher :21
@@ -1630,15 +1539,11 @@ uClassType* Colors_typeof()
 // static generated DrawObjectWatcher() :21
 static void DrawObjectWatcher__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    DrawObjectWatcher::ShadingName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[23/*"Shading"*/]);
+    DrawObjectWatcher::ShadingName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[25/*"Shading"*/]);
 }
 
 static void DrawObjectWatcher_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Uno::UX::Selector_typeof());
     type->SetInterfaces(
         ::g::Uno::UX::IPropertyListener_typeof(), offsetof(DrawObjectWatcher_type, interface0));
     type->SetFields(0,
@@ -1656,7 +1561,6 @@ DrawObjectWatcher_type* DrawObjectWatcher_typeof()
     uTypeOptions options;
     options.FieldCount = 4;
     options.InterfaceCount = 1;
-    options.DependencyCount = 2;
     options.ObjectSize = sizeof(DrawObjectWatcher);
     options.TypeSize = sizeof(DrawObjectWatcher_type);
     type = (DrawObjectWatcher_type*)uClassType::New("Fuse.Drawing.DrawObjectWatcher", options);
@@ -1729,7 +1633,7 @@ void DrawObjectWatcher__UnoUXIPropertyListenerOnPropertyChanged_fn(DrawObjectWat
     if (::g::Uno::UX::Selector__op_Equality(prop_, DrawObjectWatcher::ShadingName_))
         return;
 
-    for (int i = 0; i < __this->_items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)); ++i)
+    for (int32_t i = 0; i < __this->_items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)); ++i)
     {
         DrawObjectWatcher__Item* item = (DrawObjectWatcher__Item*)__this->_items.Item(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL), i);
 
@@ -1772,7 +1676,7 @@ void DrawObjectWatcher::AddObject(::g::Uno::UX::PropertyObject* drawObject)
     if (drawObject == NULL)
         return;
 
-    for (int i = 0; i < _items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)); ++i)
+    for (int32_t i = 0; i < _items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)); ++i)
         if (uPtr((DrawObjectWatcher__Item*)_items.Item(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL), i))->DrawObject == drawObject)
         {
             DrawObjectWatcher__Item* item = (DrawObjectWatcher__Item*)_items.Item(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL), i);
@@ -1792,7 +1696,7 @@ void DrawObjectWatcher::OnRooted(uObject* feedback)
     _feedback = feedback;
     _rooted = true;
 
-    for (int i = 0; i < _items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)); ++i)
+    for (int32_t i = 0; i < _items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)); ++i)
     {
         DrawObjectWatcher__Item* item = (DrawObjectWatcher__Item*)_items.Item(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL), i);
         uPtr(item)->Dirty = true;
@@ -1808,7 +1712,7 @@ void DrawObjectWatcher::OnUnrooted()
     Sync();
     _rooted = false;
 
-    for (int i = 0; i < _items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)); ++i)
+    for (int32_t i = 0; i < _items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)); ++i)
     {
         DrawObjectWatcher__Item* item = (DrawObjectWatcher__Item*)_items.Item(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL), i);
 
@@ -1822,7 +1726,7 @@ void DrawObjectWatcher::OnUnrooted()
 // public void Reset() [instance] :98
 void DrawObjectWatcher::Reset()
 {
-    for (int i = 0; i < _items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)); ++i)
+    for (int32_t i = 0; i < _items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)); ++i)
     {
         DrawObjectWatcher__Item* item = (DrawObjectWatcher__Item*)_items.Item(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL), i);
         uPtr(item)->Used = false;
@@ -1834,11 +1738,11 @@ void DrawObjectWatcher::Sync()
 {
     if (!_rooted)
     {
-        ::g::Fuse::Diagnostics::InternalError(uString::Const("Sync while not rooted"), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Drawing.Surface\\1.4.2\\DrawObjectWatcher.uno"), 39, uString::Const("Sync"));
+        ::g::Fuse::Diagnostics::InternalError(uString::Const("Sync while not rooted"), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Drawing.Surface\\1.9.0\\DrawObjectWatcher.uno"), 39, uString::Const("Sync"));
         return;
     }
 
-    for (int i = _items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)) - 1; i >= 0; --i)
+    for (int32_t i = _items.Count(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL)) - 1; i >= 0; --i)
     {
         DrawObjectWatcher__Item* item = (DrawObjectWatcher__Item*)_items.Item(::g::Fuse::Internal::MiniList_typeof()->MakeType(DrawObjectWatcher__Item_typeof(), NULL), i);
 
@@ -1873,7 +1777,7 @@ DrawObjectWatcher* DrawObjectWatcher::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Drawing\ImageFill.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Drawing\ImageFill.uno
 // -------------------------------------------------------------------------------------------------
 
 // public struct ImageFill.DrawParams :108
@@ -1909,7 +1813,7 @@ uStructType* ImageFill__DrawParams_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brush.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brush.uno
 // ------------------------------------------------------------------------------------
 
 // public abstract class DynamicBrush :81
@@ -1917,8 +1821,7 @@ uStructType* ImageFill__DrawParams_typeof()
 // static generated DynamicBrush() :81
 static void DynamicBrush__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    DynamicBrush::_opacityName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[13/*"Opacity"*/]);
+    DynamicBrush::_opacityName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[13/*"Opacity"*/]);
 }
 
 static void DynamicBrush_build(uType* type)
@@ -1996,7 +1899,7 @@ void DynamicBrush::Opacity(float value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Enums.uno
 // ------------------------------------------------------------------------------------
 
 // public enum FillRule :18
@@ -2012,7 +1915,7 @@ uEnumType* FillRule_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brushes\LinearGradient.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brushes\LinearGradient.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public sealed class GradientStop :11
@@ -2020,9 +1923,8 @@ uEnumType* FillRule_typeof()
 // static generated GradientStop() :11
 static void GradientStop__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    GradientStop::_offsetName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[14/*"Offset"*/]);
-    GradientStop::_colorName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[15/*"Color"*/]);
+    GradientStop::_offsetName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[14/*"Offset"*/]);
+    GradientStop::_colorName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[15/*"Color"*/]);
 }
 
 static void GradientStop_build(uType* type)
@@ -2112,7 +2014,7 @@ void GradientStop::Offset(float value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\Android\GraphicsSurface.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\Android\GraphicsSurface.uno
 // --------------------------------------------------------------------------------------------------------------
 
 // internal sealed extern class GraphicsSurface :41
@@ -2121,10 +2023,10 @@ static void GraphicsSurface_build(uType* type)
 {
     ::STRINGS[16] = uString::Const("Canvas.Begin was not called");
     type->SetDependencies(
-        ::g::Fuse::Drawing::AndroidGraphicsDrawHelper_typeof());
+        ::g::Fuse::Common::Blitter_typeof());
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Drawing::AndroidSurface_type, interface0));
-    type->SetFields(11,
+    type->SetFields(7,
         ::g::Uno::Graphics::Framebuffer_typeof(), offsetof(GraphicsSurface, _buffer), 0,
         ::g::Uno::Float2_typeof(), offsetof(GraphicsSurface, _size), 0,
         ::g::Fuse::DrawContext_typeof(), offsetof(GraphicsSurface, _drawContext), 0);
@@ -2137,7 +2039,7 @@ static void GraphicsSurface_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Drawing::AndroidSurface_typeof();
-    options.FieldCount = 14;
+    options.FieldCount = 10;
     options.InterfaceCount = 1;
     options.DependencyCount = 1;
     options.ObjectSize = sizeof(GraphicsSurface);
@@ -2167,7 +2069,7 @@ void GraphicsSurface__Begin_fn(GraphicsSurface* __this, ::g::Fuse::DrawContext* 
     ::g::Java::Object* impl = __this->SurfaceContext;
     __this->_drawContext = dc;
     __this->_buffer = fb;
-    __this->_size = ::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Implicit1(uPtr(fb)->Size()), pixelsPerPoint_);
+    __this->_size = ::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Implicit2(uPtr(fb)->Size()), pixelsPerPoint_);
 
     if ((fb->Size().X == 0) || (fb->Size().Y == 0))
         return;
@@ -2177,7 +2079,7 @@ void GraphicsSurface__Begin_fn(GraphicsSurface* __this, ::g::Fuse::DrawContext* 
 }
 
 // private static void BeginImpl(Java.Object _context, int width, int height, int glTextureId) :86
-void GraphicsSurface__BeginImpl_fn(::g::Java::Object* _context, int* width, int* height, int* glTextureId)
+void GraphicsSurface__BeginImpl_fn(::g::Java::Object* _context, int32_t* width, int32_t* height, int32_t* glTextureId)
 {
     GraphicsSurface::BeginImpl(_context, *width, *height, *glTextureId);
 }
@@ -2200,13 +2102,13 @@ void GraphicsSurface__EndImpl_fn(::g::Java::Object* context)
 }
 
 // public static extern void LoadBitmap(Java.Object context, int width, int height) :69
-void GraphicsSurface__LoadBitmap_fn(::g::Java::Object* context, int* width, int* height)
+void GraphicsSurface__LoadBitmap_fn(::g::Java::Object* context, int32_t* width, int32_t* height)
 {
     GraphicsSurface::LoadBitmap(context, *width, *height);
 }
 
 // private static Java.Object LoadImage(int glTextureId, int width, int height) :141
-void GraphicsSurface__LoadImage_fn(int* glTextureId, int* width, int* height, ::g::Java::Object** __retval)
+void GraphicsSurface__LoadImage_fn(int32_t* glTextureId, int32_t* width, int32_t* height, ::g::Java::Object** __retval)
 {
     *__retval = GraphicsSurface::LoadImage(*glTextureId, *width, *height);
 }
@@ -2224,7 +2126,7 @@ void GraphicsSurface__PrepareImageFillImpl_fn(GraphicsSurface* __this, ::g::Fuse
     ::g::Uno::Graphics::Texture2D* tex = uPtr(src)->GetTexture();
     ::g::Uno::Graphics::Framebuffer* fb = ::g::Fuse::FramebufferPool::Lock1(src->PixelSize(), 3, false);
     uPtr(__this->_drawContext)->PushRenderTarget(fb);
-    uPtr(::g::Fuse::Drawing::AndroidGraphicsDrawHelper::Singleton_)->DrawImageFill(tex);
+    uPtr(::g::Fuse::Common::Blitter::Singleton())->Blit1(tex, ::g::Uno::Rect__New2(::g::Uno::Float2__New1(-1.0f), ::g::Uno::Float2__New1(2.0f)), ::g::Uno::Float4x4__Identity(), 1.0f, true, 0);
     ::g::Java::Object* imageRef = GraphicsSurface::LoadImage(::g::OpenGL::GLTextureHandle::op_Explicit2(uPtr(tex)->GLTextureHandle()), src->PixelSize().X, src->PixelSize().Y);
     ::g::Fuse::FramebufferPool::Release(fb);
     uPtr(__this->_drawContext)->PopRenderTarget();
@@ -2245,19 +2147,19 @@ void GraphicsSurface::ctor_2()
 }
 
 // private static void BeginImpl(Java.Object _context, int width, int height, int glTextureId) [static] :86
-void GraphicsSurface::BeginImpl(::g::Java::Object* _context, int width, int height, int glTextureId)
+void GraphicsSurface::BeginImpl(::g::Java::Object* _context, int32_t width, int32_t height, int32_t glTextureId)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "BeginImpl312", "(Ljava/lang/Object;III)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "BeginImpl306", "(Ljava/lang/Object;III)V");
         ::g::Java::Object* __u_context=_context;
         jobject ___context = (__u_context==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)__u_context, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
-        int __uwidth=width;
+        int32_t __uwidth=width;
         jint __width = (jint)__uwidth;
-        int __uheight=height;
+        int32_t __uheight=height;
         jint __height = (jint)__uheight;
-        int __uglTextureId=glTextureId;
+        int32_t __uglTextureId=glTextureId;
         jint __glTextureId = (jint)__uglTextureId;
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,___context,__width,__height,__glTextureId);
         
@@ -2277,7 +2179,7 @@ void GraphicsSurface::EndImpl(::g::Java::Object* context)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "EndImpl313", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "EndImpl307", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _ucontext=context;
         jobject _context = (_ucontext==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ucontext, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_context);
@@ -2290,17 +2192,17 @@ void GraphicsSurface::EndImpl(::g::Java::Object* context)
 }
 
 // public static extern void LoadBitmap(Java.Object context, int width, int height) [static] :69
-void GraphicsSurface::LoadBitmap(::g::Java::Object* context, int width, int height)
+void GraphicsSurface::LoadBitmap(::g::Java::Object* context, int32_t width, int32_t height)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "LoadBitmap314", "(Ljava/lang/Object;II)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "LoadBitmap308", "(Ljava/lang/Object;II)V");
         ::g::Java::Object* _ucontext=context;
         jobject _context = (_ucontext==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ucontext, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
-        int _uwidth=width;
+        int32_t _uwidth=width;
         jint _width = (jint)_uwidth;
-        int _uheight=height;
+        int32_t _uheight=height;
         jint _height = (jint)_uheight;
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_context,_width,_height);
         
@@ -2314,17 +2216,17 @@ void GraphicsSurface::LoadBitmap(::g::Java::Object* context, int width, int heig
 }
 
 // private static Java.Object LoadImage(int glTextureId, int width, int height) [static] :141
-::g::Java::Object* GraphicsSurface::LoadImage(int glTextureId, int width, int height)
+::g::Java::Object* GraphicsSurface::LoadImage(int32_t glTextureId, int32_t width, int32_t height)
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "LoadImage315", "(III)Ljava/lang/Object;");
-        int _uglTextureId=glTextureId;
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "LoadImage309", "(III)Ljava/lang/Object;");
+        int32_t _uglTextureId=glTextureId;
         jint _glTextureId = (jint)_uglTextureId;
-        int _uwidth=width;
+        int32_t _uwidth=width;
         jint _width = (jint)_uwidth;
-        int _uheight=height;
+        int32_t _uheight=height;
         jint _height = (jint)_uheight;
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd,_glTextureId,_width,_height);
         ::g::Java::Object* __result = (::g::Java::Object*)::g::Android::Base::Wrappers::JavaObjectHelper::JObjectToJWrapper(__jresult, false);
@@ -2346,7 +2248,7 @@ GraphicsSurface* GraphicsSurface::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\DrawObjectWatcher.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\DrawObjectWatcher.uno
 // --------------------------------------------------------------------------------------------------------
 
 // internal abstract interface IDrawObjectWatcherFeedback :10
@@ -2361,7 +2263,7 @@ uInterfaceType* IDrawObjectWatcherFeedback_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Drawing\ImageFill.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Drawing\ImageFill.uno
 // -------------------------------------------------------------------------------------------------
 
 // public sealed class ImageFill :26
@@ -2369,12 +2271,11 @@ uInterfaceType* IDrawObjectWatcherFeedback_typeof()
 // static generated ImageFill() :26
 static void ImageFill__cctor_1_fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    ImageFill::_sourceName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Source"));
-    ImageFill::_colorName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[15/*"Color"*/]);
-    ImageFill::_wrapModeName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("WrapMode"));
-    ImageFill::_paramName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Param"));
-    ImageFill::_sizingName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Sizing"));
+    ImageFill::_sourceName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Source"));
+    ImageFill::_colorName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[15/*"Color"*/]);
+    ImageFill::_wrapModeName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("WrapMode"));
+    ImageFill::_paramName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Param"));
+    ImageFill::_sizingName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Sizing"));
 }
 
 static void ImageFill_build(uType* type)
@@ -2382,8 +2283,7 @@ static void ImageFill_build(uType* type)
     type->SetDependencies(
         ::g::Fuse::Resources::DisposalManager_typeof(),
         ::g::Fuse::ILoadingStatic_typeof(),
-        ::g::Fuse::Drawing::RepeatBaker_typeof(),
-        ::g::Uno::Graphics::Texture2D_typeof());
+        ::g::Fuse::Drawing::RepeatBaker_typeof());
     type->SetInterfaces(
         ::g::Fuse::ILoading_typeof(), offsetof(ImageFill_type, interface0),
         ::g::Fuse::Internal::IImageContainerOwner_typeof(), offsetof(ImageFill_type, interface1),
@@ -2411,7 +2311,7 @@ ImageFill_type* ImageFill_typeof()
     options.BaseDefinition = ::g::Fuse::Drawing::DynamicBrush_typeof();
     options.FieldCount = 14;
     options.InterfaceCount = 3;
-    options.DependencyCount = 4;
+    options.DependencyCount = 3;
     options.ObjectSize = sizeof(ImageFill);
     options.TypeSize = sizeof(ImageFill_type);
     type = (ImageFill_type*)uClassType::New("Fuse.Drawing.ImageFill", options);
@@ -2477,7 +2377,7 @@ void ImageFill__FuseInternalIImageContainerOwnerOnSourceChanged_fn(ImageFill* __
 {
     __this->CleanTempTexture();
     __this->OnPropertyChanged(ImageFill::_sourceName_);
-    __this->OnPropertyChanged(::g::Fuse::ILoadingStatic::IsLoadingName_);
+    __this->OnPropertyChanged(::g::Fuse::ILoadingStatic::IsLoadingName());
     __this->LoadNow();
 }
 
@@ -2552,13 +2452,13 @@ void ImageFill__OnPrepare_fn(ImageFill* __this, ::g::Fuse::DrawContext* dc, ::g:
             ::g::Uno::Int2 size = ::g::Uno::Int2__New2(uPtr(dp.Texture)->Size().X + 1, uPtr(dp.Texture)->Size().Y + 1);
             __this->_tempTexture = ::g::Fuse::FramebufferPool::Lock1(size, 3, false);
             ::g::Fuse::Resources::DisposalManager::Add((uObject*)__this);
-            uPtr(::g::Fuse::Drawing::RepeatBaker::Singleton_)->FillBuffer(dc, dp.Texture, __this->_tempTexture);
+            uPtr(::g::Fuse::Drawing::RepeatBaker::Singleton())->FillBuffer(dc, dp.Texture, __this->_tempTexture);
         }
 
-        dp.TexCoordBias1 = ::g::Uno::Float2__op_Division2(::g::Uno::Float2__op_UnaryNegation(::g::Uno::Float2__New1(0.5f)), ::g::Uno::Float2__op_Implicit1(uPtr(dp.Texture)->Size()));
+        dp.TexCoordBias1 = ::g::Uno::Float2__op_Division2(::g::Uno::Float2__op_UnaryNegation(::g::Uno::Float2__New1(0.5f)), ::g::Uno::Float2__op_Implicit2(uPtr(dp.Texture)->Size()));
         dp.TexCoordScale1 = ::g::Uno::Float2__New1(1.0f);
-        dp.TexCoordBias2 = ::g::Uno::Float2__op_Division2(::g::Uno::Float2__New1(0.5f), ::g::Uno::Float2__op_Implicit1(uPtr(uPtr(__this->_tempTexture)->ColorBuffer())->Size()));
-        dp.TexCoordScale2 = ::g::Uno::Float2__op_Division2(::g::Uno::Float2__op_Implicit1(uPtr(dp.Texture)->Size()), ::g::Uno::Float2__op_Implicit1(uPtr(uPtr(__this->_tempTexture)->ColorBuffer())->Size()));
+        dp.TexCoordBias2 = ::g::Uno::Float2__op_Division2(::g::Uno::Float2__New1(0.5f), ::g::Uno::Float2__op_Implicit2(uPtr(uPtr(__this->_tempTexture)->ColorBuffer())->Size()));
+        dp.TexCoordScale2 = ::g::Uno::Float2__op_Division2(::g::Uno::Float2__op_Implicit2(uPtr(dp.Texture)->Size()), ::g::Uno::Float2__op_Implicit2(uPtr(uPtr(__this->_tempTexture)->ColorBuffer())->Size()));
         dp.Texture = uPtr(__this->_tempTexture)->ColorBuffer();
         dp.SamplerState = ::g::Uno::Graphics::SamplerState__LinearClamp();
         dp.NeedFract = true;
@@ -2605,13 +2505,13 @@ void ImageFill__set_Source_fn(ImageFill* __this, ::g::Fuse::Resources::ImageSour
 }
 
 // public Fuse.Drawing.WrapMode get_WrapMode() :261
-void ImageFill__get_WrapMode_fn(ImageFill* __this, int* __retval)
+void ImageFill__get_WrapMode_fn(ImageFill* __this, int32_t* __retval)
 {
     *__retval = __this->WrapMode();
 }
 
 // public void set_WrapMode(Fuse.Drawing.WrapMode value) :262
-void ImageFill__set_WrapMode_fn(ImageFill* __this, int* value)
+void ImageFill__set_WrapMode_fn(ImageFill* __this, int32_t* value)
 {
     __this->WrapMode(*value);
 }
@@ -2690,13 +2590,13 @@ void ImageFill::Source(::g::Fuse::Resources::ImageSource* value)
 }
 
 // public Fuse.Drawing.WrapMode get_WrapMode() [instance] :261
-int ImageFill::WrapMode()
+int32_t ImageFill::WrapMode()
 {
     return _wrapMode;
 }
 
 // public void set_WrapMode(Fuse.Drawing.WrapMode value) [instance] :262
-void ImageFill::WrapMode(int value)
+void ImageFill::WrapMode(int32_t value)
 {
     if (_wrapMode != value)
     {
@@ -2706,7 +2606,7 @@ void ImageFill::WrapMode(int value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\SurfaceManager.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\SurfaceManager.uno
 // -----------------------------------------------------------------------------------------------------
 
 // internal abstract interface INativeSurfaceOwner :6
@@ -2721,7 +2621,7 @@ uInterfaceType* INativeSurfaceOwner_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brushes\SolidColor.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brushes\SolidColor.uno
 // -------------------------------------------------------------------------------------------------
 
 // public abstract interface ISolidColor :8
@@ -2736,10 +2636,10 @@ uInterfaceType* ISolidColor_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\Surface.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\Surface.uno
 // ----------------------------------------------------------------------------------------------
 
-// public abstract interface ISurfaceDrawable :168
+// public abstract interface ISurfaceDrawable :158
 // {
 uInterfaceType* ISurfaceDrawable_typeof()
 {
@@ -2751,7 +2651,7 @@ uInterfaceType* ISurfaceDrawable_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\SurfaceManager.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\SurfaceManager.uno
 // -----------------------------------------------------------------------------------------------------
 
 // internal abstract interface ISurfaceProvider :95
@@ -2766,7 +2666,7 @@ uInterfaceType* ISurfaceProvider_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\DrawObjectWatcher.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\DrawObjectWatcher.uno
 // --------------------------------------------------------------------------------------------------------
 
 // private sealed class DrawObjectWatcher.Item :23
@@ -2822,7 +2722,7 @@ DrawObjectWatcher__Item* DrawObjectWatcher__Item::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brushes\LinearGradient.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brushes\LinearGradient.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public sealed class LinearGradient :104
@@ -2830,17 +2730,15 @@ DrawObjectWatcher__Item* DrawObjectWatcher__Item::New1()
 // static LinearGradient() :269
 static void LinearGradient__cctor_1_fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     ::g::Uno::Math_typeof()->Init();
-    ::g::Uno::Graphics::Texture2D_typeof()->Init();
-    LinearGradient::_stopsName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[17/*"Stops"*/]);
-    LinearGradient::_stopOffsetName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[14/*"Offset"*/]);
-    LinearGradient::_stopColorName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[15/*"Color"*/]);
-    LinearGradient::_interpolationName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[18/*"Interpolation"*/]);
-    LinearGradient::_emptySortedStops_ = uArray::New(::TYPES[14/*Fuse.Drawing.GradientStop[]*/], 0);
-    LinearGradient::_startPointName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[19/*"StartPoint"*/]);
-    LinearGradient::_endPointName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[20/*"EndPoint"*/]);
-    LinearGradient::_angleName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[21/*"Angle"*/]);
+    LinearGradient::_stopsName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[17/*"Stops"*/]);
+    LinearGradient::_stopOffsetName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[14/*"Offset"*/]);
+    LinearGradient::_stopColorName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[15/*"Color"*/]);
+    LinearGradient::_interpolationName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[18/*"Interpolation"*/]);
+    LinearGradient::_emptySortedStops_ = uArray::New(::TYPES[13/*Fuse.Drawing.GradientStop[]*/], 0);
+    LinearGradient::_startPointName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[19/*"StartPoint"*/]);
+    LinearGradient::_endPointName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[20/*"EndPoint"*/]);
+    LinearGradient::_angleName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[21/*"Angle"*/]);
     LinearGradient::_gradientSize_ = 256;
     LinearGradient::_gradientSize_ = ::g::Uno::Math::Min8(1028, ::g::Uno::Graphics::Texture2D::MaxSize());
 }
@@ -2855,15 +2753,15 @@ static void LinearGradient_build(uType* type)
     ::STRINGS[20] = uString::Const("EndPoint");
     ::STRINGS[21] = uString::Const("Angle");
     ::STRINGS[22] = uString::Const("Gradient stop offsets must be in order! Expected something bigger or equal to {0}, but got {1}!");
-    ::TYPES[14] = ::g::Fuse::Drawing::GradientStop_typeof()->Array();
-    ::TYPES[15] = ::g::Uno::Action1_typeof()->MakeType(::g::Fuse::Drawing::GradientStop_typeof(), NULL);
-    ::TYPES[16] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::GradientStop_typeof(), NULL);
-    ::TYPES[17] = ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Drawing::GradientStop_typeof(), NULL);
-    ::TYPES[18] = uObject_typeof()->Array();
-    ::TYPES[19] = ::g::Uno::Collections::EnumerableExtensions_typeof()->MakeMethod(6/*ToArray<Fuse.Drawing.GradientStop>*/, ::g::Fuse::Drawing::GradientStop_typeof(), NULL);
+    ::TYPES[13] = ::g::Fuse::Drawing::GradientStop_typeof()->Array();
+    ::TYPES[14] = ::g::Uno::Action1_typeof()->MakeType(::g::Fuse::Drawing::GradientStop_typeof(), NULL);
+    ::TYPES[15] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::GradientStop_typeof(), NULL);
+    ::TYPES[16] = ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Drawing::GradientStop_typeof(), NULL);
+    ::TYPES[17] = uObject_typeof()->Array();
+    ::TYPES[18] = ::g::Uno::Collections::EnumerableExtensions_typeof()->MakeMethod(5/*ToArray<Fuse.Drawing.GradientStop>*/, ::g::Fuse::Drawing::GradientStop_typeof(), NULL);
     type->SetDependencies(
         ::g::Fuse::Drawing::LinearGradientDrawable_typeof(),
-        ::g::Uno::UX::Selector_typeof());
+        ::g::Uno::Math_typeof());
     type->SetInterfaces(
         ::g::Uno::UX::IPropertyListener_typeof(), offsetof(LinearGradient_type, interface0));
     type->SetFields(3,
@@ -2880,7 +2778,7 @@ static void LinearGradient_build(uType* type)
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&LinearGradient::_stopOffsetName_, uFieldFlagsStatic,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&LinearGradient::_stopColorName_, uFieldFlagsStatic,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&LinearGradient::_interpolationName_, uFieldFlagsStatic,
-        ::TYPES[14/*Fuse.Drawing.GradientStop[]*/], (uintptr_t)&LinearGradient::_emptySortedStops_, uFieldFlagsStatic,
+        ::TYPES[13/*Fuse.Drawing.GradientStop[]*/], (uintptr_t)&LinearGradient::_emptySortedStops_, uFieldFlagsStatic,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&LinearGradient::_startPointName_, uFieldFlagsStatic,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&LinearGradient::_endPointName_, uFieldFlagsStatic,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&LinearGradient::_angleName_, uFieldFlagsStatic,
@@ -2946,13 +2844,13 @@ void LinearGradient__get_HasAngle_fn(LinearGradient* __this, bool* __retval)
 }
 
 // public Fuse.Drawing.LinearGradientInterpolation get_Interpolation() :217
-void LinearGradient__get_Interpolation_fn(LinearGradient* __this, int* __retval)
+void LinearGradient__get_Interpolation_fn(LinearGradient* __this, int32_t* __retval)
 {
     *__retval = __this->Interpolation();
 }
 
 // public void set_Interpolation(Fuse.Drawing.LinearGradientInterpolation value) :218
-void LinearGradient__set_Interpolation_fn(LinearGradient* __this, int* value)
+void LinearGradient__set_Interpolation_fn(LinearGradient* __this, int32_t* value)
 {
     __this->Interpolation(*value);
 }
@@ -2967,7 +2865,7 @@ void LinearGradient__OnAdded_fn(LinearGradient* __this, ::g::Fuse::Drawing::Grad
 void LinearGradient__OnPinned_fn(LinearGradient* __this)
 {
     ::g::Fuse::Drawing::Brush__OnPinned_fn(__this);
-    uPtr(__this->_stops)->RootSubscribe(uDelegate::New(::TYPES[15/*Uno.Action<Fuse.Drawing.GradientStop>*/], (void*)LinearGradient__OnAdded_fn, __this), uDelegate::New(::TYPES[15/*Uno.Action<Fuse.Drawing.GradientStop>*/], (void*)LinearGradient__OnRemoved_fn, __this));
+    uPtr(__this->_stops)->RootSubscribe(uDelegate::New(::TYPES[14/*Uno.Action<Fuse.Drawing.GradientStop>*/], (void*)LinearGradient__OnAdded_fn, __this), uDelegate::New(::TYPES[14/*Uno.Action<Fuse.Drawing.GradientStop>*/], (void*)LinearGradient__OnRemoved_fn, __this));
 }
 
 // protected override sealed void OnPrepare(Fuse.DrawContext dc, float2 canvasSize) :280
@@ -2981,7 +2879,7 @@ void LinearGradient__OnPrepare_fn(LinearGradient* __this, ::g::Fuse::DrawContext
 
     if (__this->_invalid)
     {
-        __this->_gradientStart = uPtr(::g::Fuse::Drawing::LinearGradientDrawable::Singleton_)->FillBuffer(dc, __this, __this->_gradientBuffer);
+        __this->_gradientStart = uPtr(::g::Fuse::Drawing::LinearGradientDrawable::Singleton())->FillBuffer(dc, __this, __this->_gradientBuffer);
         __this->_invalid = false;
     }
 }
@@ -3025,12 +2923,6 @@ void LinearGradient__set_StartPoint_fn(LinearGradient* __this, ::g::Uno::Float2*
     __this->StartPoint(*value);
 }
 
-// public Uno.Collections.IList<Fuse.Drawing.GradientStop> get_Stops() :126
-void LinearGradient__get_Stops_fn(LinearGradient* __this, uObject** __retval)
-{
-    *__retval = __this->Stops();
-}
-
 // private void Uno.UX.IPropertyListener.OnPropertyChanged(Uno.UX.PropertyObject sender, Uno.UX.Selector property) :111
 void LinearGradient__UnoUXIPropertyListenerOnPropertyChanged_fn(LinearGradient* __this, ::g::Uno::UX::PropertyObject* sender, ::g::Uno::UX::Selector* property)
 {
@@ -3056,7 +2948,7 @@ uSStrong<uArray*> LinearGradient::_emptySortedStops_;
 ::g::Uno::UX::Selector LinearGradient::_startPointName_;
 ::g::Uno::UX::Selector LinearGradient::_endPointName_;
 ::g::Uno::UX::Selector LinearGradient::_angleName_;
-int LinearGradient::_gradientSize_;
+int32_t LinearGradient::_gradientSize_;
 
 // public float get_Angle() [instance] :188
 float LinearGradient::Angle()
@@ -3111,13 +3003,13 @@ bool LinearGradient::HasAngle()
 }
 
 // public Fuse.Drawing.LinearGradientInterpolation get_Interpolation() [instance] :217
-int LinearGradient::Interpolation()
+int32_t LinearGradient::Interpolation()
 {
     return _interpolation;
 }
 
 // public void set_Interpolation(Fuse.Drawing.LinearGradientInterpolation value) [instance] :218
-void LinearGradient::Interpolation(int value)
+void LinearGradient::Interpolation(int32_t value)
 {
     if (_interpolation == value)
         return;
@@ -3153,7 +3045,7 @@ void LinearGradient::OnRemoved(::g::Fuse::Drawing::GradientStop* gs)
 uArray* LinearGradient::SortedStops()
 {
     uArray* ind4;
-    ind4 = (uArray*)::g::Uno::Collections::EnumerableExtensions::ToArray(::TYPES[19/*Uno.Collections.EnumerableExtensions.ToArray<Fuse.Drawing.GradientStop>*/], (uObject*)_stops);
+    ind4 = (uArray*)::g::Uno::Collections::EnumerableExtensions::ToArray(::TYPES[18/*Uno.Collections.EnumerableExtensions.ToArray<Fuse.Drawing.GradientStop>*/], (uObject*)_stops);
     return (ind4 != NULL) ? ind4 : (uArray*)LinearGradient::_emptySortedStops_;
 }
 
@@ -3173,12 +3065,6 @@ void LinearGradient::StartPoint(::g::Uno::Float2 value)
     }
 }
 
-// public Uno.Collections.IList<Fuse.Drawing.GradientStop> get_Stops() [instance] :126
-uObject* LinearGradient::Stops()
-{
-    return (uObject*)_stops;
-}
-
 // private static void ValidateStopsSorted(Uno.Collections.IList<Fuse.Drawing.GradientStop> stops) [static] :134
 void LinearGradient::ValidateStopsSorted(uObject* stops)
 {
@@ -3188,13 +3074,13 @@ void LinearGradient::ValidateStopsSorted(uObject* stops)
     ::g::Fuse::Drawing::GradientStop* ret9;
     ::g::Fuse::Drawing::GradientStop* ret10;
 
-    for (int i = 1; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(stops), ::TYPES[16/*Uno.Collections.ICollection<Fuse.Drawing.GradientStop>*/])); ++i)
-        if (uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(stops), ::TYPES[17/*Uno.Collections.IList<Fuse.Drawing.GradientStop>*/]), uCRef<int>(i), &ret7), ret7))->Offset() < uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(stops), ::TYPES[17/*Uno.Collections.IList<Fuse.Drawing.GradientStop>*/]), uCRef<int>(i - 1), &ret8), ret8))->Offset())
-            U_THROW(::g::Uno::Exception::New2(::g::Uno::String::Format(::STRINGS[22/*"Gradient st...*/], uArray::Init<uObject*>(::TYPES[18/*object[]*/], 2, uBox(::g::Uno::Float_typeof(), uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(stops), ::TYPES[17/*Uno.Collections.IList<Fuse.Drawing.GradientStop>*/]), uCRef<int>(i - 1), &ret9), ret9))->Offset()), uBox(::g::Uno::Float_typeof(), uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(stops), ::TYPES[17/*Uno.Collections.IList<Fuse.Drawing.GradientStop>*/]), uCRef<int>(i), &ret10), ret10))->Offset())))));
+    for (int32_t i = 1; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(stops), ::TYPES[15/*Uno.Collections.ICollection<Fuse.Drawing.GradientStop>*/])); ++i)
+        if (uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(stops), ::TYPES[16/*Uno.Collections.IList<Fuse.Drawing.GradientStop>*/]), uCRef<int32_t>(i), &ret7), ret7))->Offset() < uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(stops), ::TYPES[16/*Uno.Collections.IList<Fuse.Drawing.GradientStop>*/]), uCRef<int32_t>(i - 1), &ret8), ret8))->Offset())
+            U_THROW(::g::Uno::Exception::New2(::g::Uno::String::Format(::STRINGS[22/*"Gradient st...*/], uArray::Init<uObject*>(::TYPES[17/*object[]*/], 2, uBox(::g::Uno::Float_typeof(), uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(stops), ::TYPES[16/*Uno.Collections.IList<Fuse.Drawing.GradientStop>*/]), uCRef<int32_t>(i - 1), &ret9), ret9))->Offset()), uBox(::g::Uno::Float_typeof(), uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(stops), ::TYPES[16/*Uno.Collections.IList<Fuse.Drawing.GradientStop>*/]), uCRef<int32_t>(i), &ret10), ret10))->Offset())))));
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brushes\LinearGradient.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brushes\LinearGradient.uno
 // -----------------------------------------------------------------------------------------------------
 
 // internal sealed class LinearGradientDrawable :340
@@ -3207,12 +3093,15 @@ static void LinearGradientDrawable__cctor__fn(uType* __type)
 
 static void LinearGradientDrawable_build(uType* type)
 {
-    ::TYPES[20] = ::g::Uno::Float4_typeof()->Array();
-    ::TYPES[12] = ::g::Uno::Float_typeof()->Array();
-    ::TYPES[0] = ::g::Uno::Float2_typeof()->Array();
+    ::TYPES[19] = ::g::Uno::Float4_typeof()->Array();
+    ::TYPES[11] = ::g::Uno::Float_typeof()->Array();
+    ::TYPES[20] = ::g::Uno::Float2_typeof()->Array();
+    type->SetDependencies(
+        ::g::FuseDrawing_bundle_typeof(),
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Uno::Graphics::VertexBuffer_typeof(), offsetof(LinearGradientDrawable, FillBuffer_TexCoord_ae3a1d65_1_1_1), 0,
-        ::TYPES[0/*float2[]*/], offsetof(LinearGradientDrawable, FillBuffer_Vertices_ae3a1d65_1_0_9), 0,
+        ::TYPES[20/*float2[]*/], offsetof(LinearGradientDrawable, FillBuffer_Vertices_ae3a1d65_1_0_9), 0,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall_typeof(), offsetof(LinearGradientDrawable, _draw_ae3a1d65), 0,
         type, (uintptr_t)&LinearGradientDrawable::Singleton_, uFieldFlagsStatic);
 }
@@ -3224,6 +3113,7 @@ uType* LinearGradientDrawable_typeof()
 
     uTypeOptions options;
     options.FieldCount = 4;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(LinearGradientDrawable);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Drawing.LinearGradientDrawable", options);
@@ -3246,13 +3136,13 @@ void LinearGradientDrawable__FillBuffer_fn(LinearGradientDrawable* __this, ::g::
 }
 
 // private static generated float4[] FillBuffer_Colors_ae3a1d65_1_6_6(int Colors_1_6_4, Fuse.Drawing.GradientStop[] Colors_1_6_5) :374
-void LinearGradientDrawable__FillBuffer_Colors_ae3a1d65_1_6_6_fn(int* Colors_1_6_4, uArray* Colors_1_6_5, uArray** __retval)
+void LinearGradientDrawable__FillBuffer_Colors_ae3a1d65_1_6_6_fn(int32_t* Colors_1_6_4, uArray* Colors_1_6_5, uArray** __retval)
 {
     *__retval = LinearGradientDrawable::FillBuffer_Colors_ae3a1d65_1_6_6(*Colors_1_6_4, Colors_1_6_5);
 }
 
 // private static generated float[] FillBuffer_Offsets_ae3a1d65_1_5_4(int Offsets_1_5_1, Fuse.Drawing.GradientStop[] Offsets_1_5_2) :367
-void LinearGradientDrawable__FillBuffer_Offsets_ae3a1d65_1_5_4_fn(int* Offsets_1_5_1, uArray* Offsets_1_5_2, uArray** __retval)
+void LinearGradientDrawable__FillBuffer_Offsets_ae3a1d65_1_5_4_fn(int32_t* Offsets_1_5_1, uArray* Offsets_1_5_2, uArray** __retval)
 {
     *__retval = LinearGradientDrawable::FillBuffer_Offsets_ae3a1d65_1_5_4(*Offsets_1_5_1, Offsets_1_5_2);
 }
@@ -3307,29 +3197,31 @@ void LinearGradientDrawable::ctor_()
 // private generated void init_DrawCalls() [instance] :340
 void LinearGradientDrawable::init_DrawCalls()
 {
-    uArray* Vertices_ae3a1d65_1_0_0 = uArray::Init< ::g::Uno::Float2>(::TYPES[0/*float2[]*/], 6, ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(0.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 0.0f));
-    FillBuffer_TexCoord_ae3a1d65_1_1_1 = ::g::Uno::Graphics::VertexBuffer::New2(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_ae3a1d65_1_0_0), 0);
+    uArray* Vertices_ae3a1d65_1_0_0 = uArray::Init< ::g::Uno::Float2>(::TYPES[20/*float2[]*/], 6, ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(0.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 0.0f));
+    FillBuffer_TexCoord_ae3a1d65_1_1_1 = ::g::Uno::Graphics::VertexBuffer::New1(uPtr(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_ae3a1d65_1_0_0))->GetBytes(), 0);
     FillBuffer_Vertices_ae3a1d65_1_0_9 = Vertices_ae3a1d65_1_0_0;
     _draw_ae3a1d65 = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall__New1(::g::FuseDrawing_bundle::LinearGradientDrawable479fd075());
 }
 
 // private static generated float4[] FillBuffer_Colors_ae3a1d65_1_6_6(int Colors_1_6_4, Fuse.Drawing.GradientStop[] Colors_1_6_5) [static] :374
-uArray* LinearGradientDrawable::FillBuffer_Colors_ae3a1d65_1_6_6(int Colors_1_6_4, uArray* Colors_1_6_5)
+uArray* LinearGradientDrawable::FillBuffer_Colors_ae3a1d65_1_6_6(int32_t Colors_1_6_4, uArray* Colors_1_6_5)
 {
-    uArray* cols = uArray::New(::TYPES[20/*float4[]*/], ::g::Uno::Math::Max8(Colors_1_6_4, 1));
+    LinearGradientDrawable_typeof()->Init();
+    uArray* cols = uArray::New(::TYPES[19/*float4[]*/], ::g::Uno::Math::Max8(Colors_1_6_4, 1));
 
-    for (int i = 0; i < Colors_1_6_4; i++)
+    for (int32_t i = 0; i < Colors_1_6_4; i++)
         uPtr(cols)->Item< ::g::Uno::Float4>(i) = uPtr(uPtr(Colors_1_6_5)->Strong< ::g::Fuse::Drawing::GradientStop*>(i))->Color();
 
     return cols;
 }
 
 // private static generated float[] FillBuffer_Offsets_ae3a1d65_1_5_4(int Offsets_1_5_1, Fuse.Drawing.GradientStop[] Offsets_1_5_2) [static] :367
-uArray* LinearGradientDrawable::FillBuffer_Offsets_ae3a1d65_1_5_4(int Offsets_1_5_1, uArray* Offsets_1_5_2)
+uArray* LinearGradientDrawable::FillBuffer_Offsets_ae3a1d65_1_5_4(int32_t Offsets_1_5_1, uArray* Offsets_1_5_2)
 {
-    uArray* ofs = uArray::New(::TYPES[12/*float[]*/], ::g::Uno::Math::Max8(Offsets_1_5_1, 1));
+    LinearGradientDrawable_typeof()->Init();
+    uArray* ofs = uArray::New(::TYPES[11/*float[]*/], ::g::Uno::Math::Max8(Offsets_1_5_1, 1));
 
-    for (int i = 0; i < Offsets_1_5_1; i++)
+    for (int32_t i = 0; i < Offsets_1_5_1; i++)
         uPtr(ofs)->Item<float>(i) = uPtr(uPtr(Offsets_1_5_2)->Strong< ::g::Fuse::Drawing::GradientStop*>(i))->Offset();
 
     return ofs;
@@ -3344,7 +3236,7 @@ LinearGradientDrawable* LinearGradientDrawable::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brushes\LinearGradient.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brushes\LinearGradient.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public enum LinearGradientInterpolation :57
@@ -3360,7 +3252,7 @@ uEnumType* LinearGradientInterpolation_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Enums.uno
 // ------------------------------------------------------------------------------------
 
 // public enum LineCap :4
@@ -3377,7 +3269,7 @@ uEnumType* LineCap_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Enums.uno
 // ------------------------------------------------------------------------------------
 
 // public enum LineJoin :11
@@ -3394,7 +3286,7 @@ uEnumType* LineJoin_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\LineMetrics.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\LineMetrics.uno
 // --------------------------------------------------------------------------------------------------
 
 // public static class LineMetrics :8
@@ -3428,15 +3320,17 @@ void LineMetrics__GetBounds_fn(uObject* segments, ::g::Uno::Rect* __retval)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\LineMetrics.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\LineMetrics.uno
 // --------------------------------------------------------------------------------------------------
 
 // internal sealed class LineMetricsImpl :16
 // {
 static void LineMetricsImpl_build(uType* type)
 {
-    ::TYPES[3] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
-    ::TYPES[4] = ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
+    ::TYPES[2] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
+    ::TYPES[3] = ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Uno::Rect_typeof(), offsetof(LineMetricsImpl, _bounds), 0,
         ::g::Uno::Bool_typeof(), offsetof(LineMetricsImpl, _hasInit), 0,
@@ -3450,6 +3344,7 @@ uType* LineMetricsImpl_typeof()
 
     uTypeOptions options;
     options.FieldCount = 3;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(LineMetricsImpl);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Drawing.LineMetricsImpl", options);
@@ -3482,7 +3377,7 @@ void LineMetricsImpl__BezierMinMax_fn(float* p0, float* p1, float* p2, float* p3
     *__retval = LineMetricsImpl::BezierMinMax(*p0, *p1, *p2, *p3);
 }
 
-// private void EllipticBounds(float2 from, Fuse.Drawing.LineSegment seg) :128
+// private void EllipticBounds(float2 from, Fuse.Drawing.LineSegment seg) :136
 void LineMetricsImpl__EllipticBounds_fn(LineMetricsImpl* __this, ::g::Uno::Float2* from, ::g::Fuse::Drawing::LineSegment* seg)
 {
     __this->EllipticBounds(*from, *seg);
@@ -3532,7 +3427,7 @@ void LineMetricsImpl::BezierBounds(::g::Uno::Float2 s, ::g::Uno::Float2 e, ::g::
     AddPoint(::g::Fuse::Internal::Curves::CalcBezierAt(s, c1, c2, e, y.Item(1)));
 }
 
-// private void EllipticBounds(float2 from, Fuse.Drawing.LineSegment seg) [instance] :128
+// private void EllipticBounds(float2 from, Fuse.Drawing.LineSegment seg) [instance] :136
 void LineMetricsImpl::EllipticBounds(::g::Uno::Float2 from, ::g::Fuse::Drawing::LineSegment seg)
 {
     if (::g::Fuse::Drawing::SurfaceUtil::EllipticArcOutOfRange(from, seg))
@@ -3552,7 +3447,7 @@ void LineMetricsImpl::EllipticBounds(::g::Uno::Float2 from, ::g::Fuse::Drawing::
     ts.Item(2, ::g::Uno::Math::Atan22(radius.Y * ::g::Uno::Math::Cos1(xAngle), radius.X * ::g::Uno::Math::Sin1(xAngle)));
     ts.Item(3, ts.Item(2) + 3.14159274f);
 
-    for (int i = 0; i < 4; ++i)
+    for (int32_t i = 0; i < 4; ++i)
     {
         float t = ts.Item(i);
 
@@ -3569,9 +3464,9 @@ void LineMetricsImpl::EllipticBounds(::g::Uno::Float2 from, ::g::Fuse::Drawing::
 {
     ::g::Fuse::Drawing::LineSegment ret2;
 
-    for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(segments), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/])); ++i)
+    for (int32_t i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(segments), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/])); ++i)
     {
-        ::g::Fuse::Drawing::LineSegment cur = (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(segments), ::TYPES[4/*Uno.Collections.IList<Fuse.Drawing.LineSegment>*/]), uCRef<int>(i), &ret2), ret2);
+        ::g::Fuse::Drawing::LineSegment cur = (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(segments), ::TYPES[3/*Uno.Collections.IList<Fuse.Drawing.LineSegment>*/]), uCRef<int32_t>(i), &ret2), ret2);
 
         switch (cur.Type)
         {
@@ -3616,7 +3511,17 @@ void LineMetricsImpl::EllipticBounds(::g::Uno::Float2 from, ::g::Fuse::Drawing::
     float zeroTolerance = 1e-05f;
 
     if (::g::Uno::Math::Abs1(a) < 1e-05f)
+    {
+        if (::g::Uno::Math::Abs1(b) > 1e-05f)
+        {
+            float cb = -c / b;
+
+            if ((cb > 0.0f) && (cb < 1.0f))
+                return ::g::Uno::Float2__New2(cb, cb);
+        }
+
         return ::g::Uno::Float2__New2(0.0f, 1.0f);
+    }
 
     float sqr = (b * b) - ((4.0f * a) * c);
 
@@ -3638,13 +3543,18 @@ LineMetricsImpl* LineMetricsImpl::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\LineSegment.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\LineSegment.uno
 // --------------------------------------------------------------------------------------------------
 
-// public struct LineSegment :36
+// public struct LineSegment :37
 // {
 static void LineSegment_build(uType* type)
 {
+    ::STRINGS[23] = uString::Const("Unsupport type for length: ");
+    ::STRINGS[24] = uString::Const("Unsupported type for splitting: ");
+    ::TYPES[20] = ::g::Uno::Float2_typeof()->Array();
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Uno::Float2_typeof(), offsetof(LineSegment, To), 0,
         ::g::Uno::Float2_typeof(), offsetof(LineSegment, A), 0,
@@ -3660,6 +3570,7 @@ uStructType* LineSegment_typeof()
 
     uTypeOptions options;
     options.FieldCount = 5;
+    options.DependencyCount = 1;
     options.Alignment = alignof(LineSegment);
     options.ValueSize = sizeof(LineSegment);
     options.TypeSize = sizeof(uStructType);
@@ -3668,31 +3579,124 @@ uStructType* LineSegment_typeof()
     return type;
 }
 
-// public bool get_HasTo() :45
+// private static float2[] deCasteljau(float2[] pts, float t) :120
+void LineSegment__deCasteljau_fn(uArray* pts, float* t, uArray** __retval)
+{
+    *__retval = LineSegment::deCasteljau(pts, *t);
+}
+
+// internal float2 DirectionAtTime(float2 from, float t) :170
+void LineSegment__DirectionAtTime_fn(LineSegment* __this, ::g::Uno::Float2* from, float* t, ::g::Uno::Float2* __retval)
+{
+    *__retval = __this->DirectionAtTime(*from, *t);
+}
+
+// internal float EstimateLength(float2 from) :129
+void LineSegment__EstimateLength_fn(LineSegment* __this, ::g::Uno::Float2* from, float* __retval)
+{
+    *__retval = __this->EstimateLength(*from);
+}
+
+// public bool get_HasTo() :51
 void LineSegment__get_HasTo_fn(LineSegment* __this, bool* __retval)
 {
     *__retval = __this->HasTo();
 }
 
-// public void Scale(float2 factor) :60
+// internal bool get_IsDrawing() :84
+void LineSegment__get_IsDrawing_fn(LineSegment* __this, bool* __retval)
+{
+    *__retval = __this->IsDrawing();
+}
+
+// internal float2 PointAtTime(float2 from, float t) :155
+void LineSegment__PointAtTime_fn(LineSegment* __this, ::g::Uno::Float2* from, float* t, ::g::Uno::Float2* __retval)
+{
+    *__retval = __this->PointAtTime(*from, *t);
+}
+
+// public void Scale(float2 factor) :66
 void LineSegment__Scale_fn(LineSegment* __this, ::g::Uno::Float2* factor)
 {
     __this->Scale(*factor);
 }
 
-// public void Translate(float2 offset) :48
+// internal void SplitAtTime(float2 from, float t, Fuse.Drawing.LineSegment& left, Fuse.Drawing.LineSegment& right) :87
+void LineSegment__SplitAtTime_fn(LineSegment* __this, ::g::Uno::Float2* from, float* t, LineSegment* left, LineSegment* right)
+{
+    __this->SplitAtTime(*from, *t, left, right);
+}
+
+// public void Translate(float2 offset) :54
 void LineSegment__Translate_fn(LineSegment* __this, ::g::Uno::Float2* offset)
 {
     __this->Translate(*offset);
 }
 
-// public bool get_HasTo() [instance] :45
+// internal float2 DirectionAtTime(float2 from, float t) [instance] :170
+::g::Uno::Float2 LineSegment::DirectionAtTime(::g::Uno::Float2 from, float t)
+{
+    switch (Type)
+    {
+        case 1:
+            return ::g::Uno::Float2__op_Subtraction2(To, from);
+        case 2:
+            return ::g::Fuse::Drawing::SurfaceUtil::BezierCurveDerivative(from, A, B, To, t);
+        default:
+            return ::g::Uno::Float2__New1(0.0f);
+    }
+}
+
+// internal float EstimateLength(float2 from) [instance] :129
+float LineSegment::EstimateLength(::g::Uno::Float2 from)
+{
+    switch (Type)
+    {
+        case 1:
+            return ::g::Uno::Vector::Length(::g::Uno::Float2__op_Subtraction2(To, from));
+        case 2:
+        {
+            float a = ::g::Uno::Vector::Length(::g::Uno::Float2__op_Subtraction2(To, from));
+            float b = (::g::Uno::Vector::Length(::g::Uno::Float2__op_Subtraction2(A, from)) + ::g::Uno::Vector::Length(::g::Uno::Float2__op_Subtraction2(B, A))) + ::g::Uno::Vector::Length(::g::Uno::Float2__op_Subtraction2(To, B));
+            return (a + b) / 2.0f;
+        }
+        case 0:
+        case 4:
+            return 0.0f;
+        case 3:
+            U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition1(::STRINGS[23/*"Unsupport t...*/], uBox<int32_t>(::g::Fuse::Drawing::LineSegmentType_typeof(), Type))));
+    }
+
+    return 0.0f;
+}
+
+// public bool get_HasTo() [instance] :51
 bool LineSegment::HasTo()
 {
     return Type != 4;
 }
 
-// public void Scale(float2 factor) [instance] :60
+// internal bool get_IsDrawing() [instance] :84
+bool LineSegment::IsDrawing()
+{
+    return (Type != 0) && (Type != 4);
+}
+
+// internal float2 PointAtTime(float2 from, float t) [instance] :155
+::g::Uno::Float2 LineSegment::PointAtTime(::g::Uno::Float2 from, float t)
+{
+    switch (Type)
+    {
+        case 1:
+            return ::g::Uno::Math::Lerp2(from, To, t);
+        case 2:
+            return ::g::Fuse::Internal::Curves::CalcBezierAt(from, A, B, To, t);
+        default:
+            return from;
+    }
+}
+
+// public void Scale(float2 factor) [instance] :66
 void LineSegment::Scale(::g::Uno::Float2 factor)
 {
     if (Type != 4)
@@ -3707,7 +3711,39 @@ void LineSegment::Scale(::g::Uno::Float2 factor)
         A = ::g::Uno::Float2__op_Multiply2(A, factor);
 }
 
-// public void Translate(float2 offset) [instance] :48
+// internal void SplitAtTime(float2 from, float t, Fuse.Drawing.LineSegment& left, Fuse.Drawing.LineSegment& right) [instance] :87
+void LineSegment::SplitAtTime(::g::Uno::Float2 from, float t, LineSegment* left, LineSegment* right)
+{
+    LineSegment collection1;
+    LineSegment collection2;
+    LineSegment collection3;
+    LineSegment collection4;
+
+    switch (Type)
+    {
+        case 2:
+        {
+            uArray* p4 = uArray::Init< ::g::Uno::Float2>(::TYPES[20/*float2[]*/], 4, from, A, B, To);
+            uArray* p3 = LineSegment::deCasteljau(p4, t);
+            uArray* p2 = LineSegment::deCasteljau(p3, t);
+            uArray* p1 = LineSegment::deCasteljau(p2, t);
+            *left = (collection1 = uDefault<LineSegment>(), collection1.Type = 2, collection1.A = uPtr(p3)->Item< ::g::Uno::Float2>(0), collection1.B = uPtr(p2)->Item< ::g::Uno::Float2>(0), collection1.To = uPtr(p1)->Item< ::g::Uno::Float2>(0), collection1);
+            *right = (collection2 = uDefault<LineSegment>(), collection2.Type = 2, collection2.A = p2->Item< ::g::Uno::Float2>(1), collection2.B = p3->Item< ::g::Uno::Float2>(2), collection2.To = p4->Item< ::g::Uno::Float2>(3), collection2);
+            break;
+        }
+        case 1:
+        {
+            *left = (collection3 = uDefault<LineSegment>(), collection3.Type = 1, collection3.To = ::g::Uno::Math::Lerp2(from, To, t), collection3);
+            *right = (collection4 = uDefault<LineSegment>(), collection4.Type = 1, collection4.To = To, collection4);
+            break;
+        }
+        case 3:
+        default:
+            U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition1(::STRINGS[24/*"Unsupported...*/], uBox<int32_t>(::g::Fuse::Drawing::LineSegmentType_typeof(), Type))));
+    }
+}
+
+// public void Translate(float2 offset) [instance] :54
 void LineSegment::Translate(::g::Uno::Float2 offset)
 {
     if (Type != 4)
@@ -3719,12 +3755,23 @@ void LineSegment::Translate(::g::Uno::Float2 offset)
         B = ::g::Uno::Float2__op_Addition2(B, offset);
     }
 }
+
+// private static float2[] deCasteljau(float2[] pts, float t) [static] :120
+uArray* LineSegment::deCasteljau(uArray* pts, float t)
+{
+    uArray* next = uArray::New(::TYPES[20/*float2[]*/], uPtr(pts)->Length() - 1);
+
+    for (int32_t i = 0; i < (pts->Length() - 1); ++i)
+        uPtr(next)->Item< ::g::Uno::Float2>(i) = ::g::Uno::Math::Lerp2(uPtr(pts)->Item< ::g::Uno::Float2>(i), uPtr(pts)->Item< ::g::Uno::Float2>(i + 1), t);
+
+    return next;
+}
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\LineSegment.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\LineSegment.uno
 // --------------------------------------------------------------------------------------------------
 
-// public enum LineSegmentFlags :26
+// public enum LineSegmentFlags :27
 uEnumType* LineSegmentFlags_typeof()
 {
     static uSStrong<uEnumType*> type;
@@ -3738,15 +3785,15 @@ uEnumType* LineSegmentFlags_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\LineSegments.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\LineSegments.uno
 // ---------------------------------------------------------------------------------------------------
 
 // public sealed class LineSegments :9
 // {
 static void LineSegments_build(uType* type)
 {
-    ::TYPES[2] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
-    ::TYPES[3] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
+    ::TYPES[1] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
+    ::TYPES[2] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
     type->SetFields(0,
         ::g::Uno::Float2_typeof(), offsetof(LineSegments, _curPos), 0,
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL), offsetof(LineSegments, _Segments), 0);
@@ -3767,155 +3814,155 @@ uType* LineSegments_typeof()
     return type;
 }
 
-// public LineSegments() :36
+// public LineSegments() :42
 void LineSegments__ctor__fn(LineSegments* __this)
 {
     __this->ctor_();
 }
 
-// private void Add(Fuse.Drawing.LineSegment seg) :49
+// private void Add(Fuse.Drawing.LineSegment seg) :55
 void LineSegments__Add_fn(LineSegments* __this, ::g::Fuse::Drawing::LineSegment* seg)
 {
     __this->Add(*seg);
 }
 
-// public void BezierCurveTo(float2 pt, float2 controlA, float2 controlB) :96
+// public void BezierCurveTo(float2 pt, float2 controlA, float2 controlB) :102
 void LineSegments__BezierCurveTo_fn(LineSegments* __this, ::g::Uno::Float2* pt, ::g::Uno::Float2* controlA, ::g::Uno::Float2* controlB)
 {
     __this->BezierCurveTo(*pt, *controlA, *controlB);
 }
 
-// public void Clear() :25
+// public void Clear() :31
 void LineSegments__Clear_fn(LineSegments* __this)
 {
     __this->Clear();
 }
 
-// public void ClosePath() :107
+// public void ClosePath() :113
 void LineSegments__ClosePath_fn(LineSegments* __this)
 {
     __this->ClosePath();
 }
 
-// public int get_Count() :33
-void LineSegments__get_Count_fn(LineSegments* __this, int* __retval)
+// public int get_Count() :39
+void LineSegments__get_Count_fn(LineSegments* __this, int32_t* __retval)
 {
     *__retval = __this->Count();
 }
 
-// public void EllipticArcTo(float2 pt, float2 radius, float xAngle, bool large, bool sweep) :112
+// public void EllipticArcTo(float2 pt, float2 radius, float xAngle, bool large, bool sweep) :118
 void LineSegments__EllipticArcTo_fn(LineSegments* __this, ::g::Uno::Float2* pt, ::g::Uno::Float2* radius, float* xAngle, bool* large, bool* sweep)
 {
     __this->EllipticArcTo(*pt, *radius, *xAngle, *large, *sweep);
 }
 
-// public void LineTo(float2 pt) :66
+// public void LineTo(float2 pt) :72
 void LineSegments__LineTo_fn(LineSegments* __this, ::g::Uno::Float2* pt)
 {
     __this->LineTo(*pt);
 }
 
-// public void MoveTo(float2 pt) :56
+// public void MoveTo(float2 pt) :62
 void LineSegments__MoveTo_fn(LineSegments* __this, ::g::Uno::Float2* pt)
 {
     __this->MoveTo(*pt);
 }
 
-// public LineSegments New() :36
+// public LineSegments New() :42
 void LineSegments__New1_fn(LineSegments** __retval)
 {
     *__retval = LineSegments::New1();
 }
 
-// public generated Uno.Collections.IList<Fuse.Drawing.LineSegment> get_Segments() :11
+// public generated Uno.Collections.IList<Fuse.Drawing.LineSegment> get_Segments() :12
 void LineSegments__get_Segments_fn(LineSegments* __this, uObject** __retval)
 {
     *__retval = __this->Segments();
 }
 
-// private generated void set_Segments(Uno.Collections.IList<Fuse.Drawing.LineSegment> value) :11
+// private generated void set_Segments(Uno.Collections.IList<Fuse.Drawing.LineSegment> value) :12
 void LineSegments__set_Segments_fn(LineSegments* __this, uObject* value)
 {
     __this->Segments(value);
 }
 
-// public LineSegments() [instance] :36
+// public LineSegments() [instance] :42
 void LineSegments::ctor_()
 {
-    Segments((uObject*)((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[2/*Uno.Collections.List<Fuse.Drawing.LineSegment>*/])));
+    Segments((uObject*)((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[1/*Uno.Collections.List<Fuse.Drawing.LineSegment>*/])));
     _curPos = ::g::Uno::Float2__New1(0.0f);
 }
 
-// private void Add(Fuse.Drawing.LineSegment seg) [instance] :49
+// private void Add(Fuse.Drawing.LineSegment seg) [instance] :55
 void LineSegments::Add(::g::Fuse::Drawing::LineSegment seg)
 {
-    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Segments()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef(seg));
+    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Segments()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef(seg));
 
     if (seg.HasTo())
         _curPos = seg.To;
 }
 
-// public void BezierCurveTo(float2 pt, float2 controlA, float2 controlB) [instance] :96
+// public void BezierCurveTo(float2 pt, float2 controlA, float2 controlB) [instance] :102
 void LineSegments::BezierCurveTo(::g::Uno::Float2 pt, ::g::Uno::Float2 controlA, ::g::Uno::Float2 controlB)
 {
     ::g::Fuse::Drawing::LineSegment collection3;
     Add((collection3 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection3.Type = 2, collection3.To = pt, collection3.A = controlA, collection3.B = controlB, collection3));
 }
 
-// public void Clear() [instance] :25
+// public void Clear() [instance] :31
 void LineSegments::Clear()
 {
-    ::g::Uno::Collections::ICollection::Clear(uInterface(uPtr(Segments()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]));
+    ::g::Uno::Collections::ICollection::Clear(uInterface(uPtr(Segments()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]));
     _curPos = ::g::Uno::Float2__New1(0.0f);
 }
 
-// public void ClosePath() [instance] :107
+// public void ClosePath() [instance] :113
 void LineSegments::ClosePath()
 {
     ::g::Fuse::Drawing::LineSegment collection4;
     Add((collection4 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection4.Type = 4, collection4));
 }
 
-// public int get_Count() [instance] :33
-int LineSegments::Count()
+// public int get_Count() [instance] :39
+int32_t LineSegments::Count()
 {
-    return ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Segments()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]));
+    return ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Segments()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]));
 }
 
-// public void EllipticArcTo(float2 pt, float2 radius, float xAngle, bool large, bool sweep) [instance] :112
+// public void EllipticArcTo(float2 pt, float2 radius, float xAngle, bool large, bool sweep) [instance] :118
 void LineSegments::EllipticArcTo(::g::Uno::Float2 pt, ::g::Uno::Float2 radius, float xAngle, bool large, bool sweep)
 {
     ::g::Fuse::Drawing::LineSegment collection5;
     Add((collection5 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection5.Type = 3, collection5.To = pt, collection5.A = radius, collection5.B = ::g::Uno::Float2__New2(xAngle, 0.0f), collection5.Flags = ((large ? 1 : 0) | (sweep ? 2 : 0)), collection5));
 }
 
-// public void LineTo(float2 pt) [instance] :66
+// public void LineTo(float2 pt) [instance] :72
 void LineSegments::LineTo(::g::Uno::Float2 pt)
 {
     ::g::Fuse::Drawing::LineSegment collection2;
     Add((collection2 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection2.Type = 1, collection2.To = pt, collection2));
 }
 
-// public void MoveTo(float2 pt) [instance] :56
+// public void MoveTo(float2 pt) [instance] :62
 void LineSegments::MoveTo(::g::Uno::Float2 pt)
 {
     ::g::Fuse::Drawing::LineSegment collection1;
     Add((collection1 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection1.Type = 0, collection1.To = pt, collection1));
 }
 
-// public generated Uno.Collections.IList<Fuse.Drawing.LineSegment> get_Segments() [instance] :11
+// public generated Uno.Collections.IList<Fuse.Drawing.LineSegment> get_Segments() [instance] :12
 uObject* LineSegments::Segments()
 {
     return _Segments;
 }
 
-// private generated void set_Segments(Uno.Collections.IList<Fuse.Drawing.LineSegment> value) [instance] :11
+// private generated void set_Segments(Uno.Collections.IList<Fuse.Drawing.LineSegment> value) [instance] :12
 void LineSegments::Segments(uObject* value)
 {
     _Segments = value;
 }
 
-// public LineSegments New() [static] :36
+// public LineSegments New() [static] :42
 LineSegments* LineSegments::New1()
 {
     LineSegments* obj6 = (LineSegments*)uNew(LineSegments_typeof());
@@ -3924,10 +3971,10 @@ LineSegments* LineSegments::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\LineSegment.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\LineSegment.uno
 // --------------------------------------------------------------------------------------------------
 
-// public enum LineSegmentType :8
+// public enum LineSegmentType :9
 uEnumType* LineSegmentType_typeof()
 {
     static uSStrong<uEnumType*> type;
@@ -3943,7 +3990,362 @@ uEnumType* LineSegmentType_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\Android\NativeSurface.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\LineSplitter.uno
+// ---------------------------------------------------------------------------------------------------
+
+// internal sealed class LineSplitter :8
+// {
+static void LineSplitter_build(uType* type)
+{
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
+    type->SetFields(0,
+        ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL), offsetof(LineSplitter, _segments), 0,
+        ::g::Uno::Collections::List_typeof()->MakeType(LineSplitter__LSInfo_typeof(), NULL), offsetof(LineSplitter, _info), 0);
+}
+
+uType* LineSplitter_typeof()
+{
+    static uSStrong<uType*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.FieldCount = 2;
+    options.DependencyCount = 1;
+    options.ObjectSize = sizeof(LineSplitter);
+    options.TypeSize = sizeof(uType);
+    type = uClassType::New("Fuse.Drawing.LineSplitter", options);
+    type->fp_build_ = LineSplitter_build;
+    return type;
+}
+
+// public LineSplitter(Uno.Collections.IList<Fuse.Drawing.LineSegment> segments) :19
+void LineSplitter__ctor__fn(LineSplitter* __this, uObject* segments)
+{
+    __this->ctor_(segments);
+}
+
+// private void CalcInfo() :43
+void LineSplitter__CalcInfo_fn(LineSplitter* __this)
+{
+    __this->CalcInfo();
+}
+
+// public float2 DirectionAtTime(float time) :232
+void LineSplitter__DirectionAtTime_fn(LineSplitter* __this, float* time, ::g::Uno::Float2* __retval)
+{
+    *__retval = __this->DirectionAtTime(*time);
+}
+
+// public float DistanceToTime(float distance) :162
+void LineSplitter__DistanceToTime_fn(LineSplitter* __this, float* distance, float* __retval)
+{
+    *__retval = __this->DistanceToTime(*distance);
+}
+
+// private Fuse.Drawing.LineSplitter.SegmentAt GetSegmentAtTime(float time) :203
+void LineSplitter__GetSegmentAtTime_fn(LineSplitter* __this, float* time, LineSplitter__SegmentAt* __retval)
+{
+    *__retval = __this->GetSegmentAtTime(*time);
+}
+
+// public LineSplitter New(Uno.Collections.IList<Fuse.Drawing.LineSegment> segments) :19
+void LineSplitter__New1_fn(uObject* segments, LineSplitter** __retval)
+{
+    *__retval = LineSplitter::New1(segments);
+}
+
+// public float2 PointAtTime(float time) :226
+void LineSplitter__PointAtTime_fn(LineSplitter* __this, float* time, ::g::Uno::Float2* __retval)
+{
+    *__retval = __this->PointAtTime(*time);
+}
+
+// public void SplitTime(float start, float end, Uno.Collections.IList<Fuse.Drawing.LineSegment> to) :83
+void LineSplitter__SplitTime_fn(LineSplitter* __this, float* start, float* end, uObject* to)
+{
+    __this->SplitTime(*start, *end, to);
+}
+
+// public LineSplitter(Uno.Collections.IList<Fuse.Drawing.LineSegment> segments) [instance] :19
+void LineSplitter::ctor_(uObject* segments)
+{
+    ::g::Fuse::Drawing::LineSegment collection1;
+    ::g::Fuse::Drawing::LineSegment ret7;
+    ::g::Fuse::Drawing::LineSegment ret8;
+    ::g::Fuse::Drawing::LineSegment ret9;
+    ::g::Fuse::Drawing::LineSegment ret10;
+    ::g::Fuse::Drawing::LineSegment ret11;
+    _segments = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[1/*Uno.Collections.List<Fuse.Drawing.LineSegment>*/]));
+    ::g::Uno::Float2 from = ::g::Uno::Float2__New1(0.0f);
+
+    for (int32_t i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(segments), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/])); ++i)
+    {
+        if ((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(segments), ::TYPES[3/*Uno.Collections.IList<Fuse.Drawing.LineSegment>*/]), uCRef<int32_t>(i), &ret7), ret7).Type == 4)
+            ;
+        else if ((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(segments), ::TYPES[3/*Uno.Collections.IList<Fuse.Drawing.LineSegment>*/]), uCRef<int32_t>(i), &ret8), ret8).Type != 3)
+            ::g::Uno::Collections::List__Add_fn(uPtr(_segments), uCRef((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(segments), ::TYPES[3/*Uno.Collections.IList<Fuse.Drawing.LineSegment>*/]), uCRef<int32_t>(i), &ret9), ret9)));
+        else
+            ::g::Fuse::Drawing::SurfaceUtil::EllipticArcToBezierCurve1(from, (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(segments), ::TYPES[3/*Uno.Collections.IList<Fuse.Drawing.LineSegment>*/]), uCRef<int32_t>(i), &ret10), ret10), (uObject*)_segments);
+
+        from = (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(segments), ::TYPES[3/*Uno.Collections.IList<Fuse.Drawing.LineSegment>*/]), uCRef<int32_t>(i), &ret11), ret11).To;
+    }
+
+    if (uPtr(_segments)->Count() == 0)
+        ::g::Uno::Collections::List__Add_fn(uPtr(_segments), uCRef((collection1 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection1.Type = 4, collection1.To = ::g::Uno::Float2__New1(0.0f), collection1)));
+
+    CalcInfo();
+}
+
+// private void CalcInfo() [instance] :43
+void LineSplitter::CalcInfo()
+{
+    ::g::Fuse::Drawing::LineSegment ret12;
+    ::g::Fuse::Drawing::LineSegment ret13;
+    ::g::Fuse::Drawing::LineSegment ret14;
+    LineSplitter__LSInfo ret15;
+    _info = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::g::Uno::Collections::List_typeof()->MakeType(LineSplitter__LSInfo_typeof(), NULL)));
+    int32_t t = 0;
+    ::g::Uno::Float2 from = ::g::Uno::Float2__New1(0.0f);
+    float distance = 0.0f;
+
+    for (int32_t i = 0; i < uPtr(_segments)->Count(); ++i)
+    {
+        LineSplitter__LSInfo lsi;
+        lsi.StartT = (float)t;
+
+        if ((::g::Uno::Collections::List__get_Item_fn(uPtr(_segments), uCRef<int32_t>(i), &ret12), ret12).IsDrawing())
+            t = t + 1;
+
+        lsi.EndT = (float)t;
+        float length = (::g::Uno::Collections::List__get_Item_fn(uPtr(_segments), uCRef<int32_t>(i), &ret13), ret13).EstimateLength(from);
+        lsi.StartDistance = distance;
+        distance = distance + length;
+        lsi.EndDistance = distance;
+        ::g::Uno::Collections::List__Add_fn(uPtr(_info), uCRef(lsi));
+        from = (::g::Uno::Collections::List__get_Item_fn(uPtr(_segments), uCRef<int32_t>(i), &ret14), ret14).To;
+    }
+
+    for (int32_t i1 = 0; i1 < uPtr(_info)->Count(); ++i1)
+    {
+        LineSplitter__LSInfo lsi1 = (::g::Uno::Collections::List__get_Item_fn(uPtr(_info), uCRef<int32_t>(i1), &ret15), ret15);
+        lsi1.StartT = (lsi1.StartT / (float)t);
+        lsi1.EndT = (lsi1.EndT / (float)t);
+        lsi1.StartDistance = (lsi1.StartDistance / distance);
+        lsi1.EndDistance = (lsi1.EndDistance / distance);
+        ::g::Uno::Collections::List__set_Item_fn(uPtr(_info), uCRef<int32_t>(i1), uCRef(lsi1));
+    }
+}
+
+// public float2 DirectionAtTime(float time) [instance] :232
+::g::Uno::Float2 LineSplitter::DirectionAtTime(float time)
+{
+    ::g::Fuse::Drawing::LineSegment ret16;
+    LineSplitter__SegmentAt sa = GetSegmentAtTime(time);
+    return (::g::Uno::Collections::List__get_Item_fn(uPtr(_segments), uCRef<int32_t>(sa.Index), &ret16), ret16).DirectionAtTime(sa.From, sa.Relative);
+}
+
+// public float DistanceToTime(float distance) [instance] :162
+float LineSplitter::DistanceToTime(float distance)
+{
+    LineSplitter__LSInfo ret17;
+    float adjust = 0.0f;
+
+    if ((distance < 0.0f) || (distance > 1.0f))
+    {
+        adjust = ::g::Uno::Math::Floor1(distance);
+        distance = distance - adjust;
+    }
+
+    float accumZero = 0.0f;
+    float found = 0.0f;
+
+    for (int32_t i = 0; i < uPtr(_segments)->Count(); ++i)
+    {
+        LineSplitter__LSInfo lsi = (::g::Uno::Collections::List__get_Item_fn(uPtr(_info), uCRef<int32_t>(i), &ret17), ret17);
+
+        if (lsi.EndDistance < distance)
+            continue;
+
+        float length = (lsi.EndDistance - lsi.StartDistance) + accumZero;
+
+        if ((double)length < 1e-05)
+        {
+            accumZero = accumZero + length;
+            continue;
+        }
+
+        float off = (distance - lsi.StartDistance) / length;
+        found = (off * (lsi.EndT - lsi.StartT)) + lsi.StartT;
+        break;
+    }
+
+    return found + adjust;
+}
+
+// private Fuse.Drawing.LineSplitter.SegmentAt GetSegmentAtTime(float time) [instance] :203
+LineSplitter__SegmentAt LineSplitter::GetSegmentAtTime(float time)
+{
+    LineSplitter__SegmentAt collection4;
+    LineSplitter__SegmentAt collection5;
+    ::g::Fuse::Drawing::LineSegment ret18;
+    LineSplitter__LSInfo ret19;
+    time = time - ::g::Uno::Math::Floor1(time);
+    ::g::Uno::Float2 from = ::g::Uno::Float2__New1(0.0f);
+
+    for (int32_t i = 0; i < uPtr(_segments)->Count(); ++i)
+    {
+        ::g::Fuse::Drawing::LineSegment seg = (::g::Uno::Collections::List__get_Item_fn(uPtr(_segments), uCRef<int32_t>(i), &ret18), ret18);
+        LineSplitter__LSInfo lsi = (::g::Uno::Collections::List__get_Item_fn(uPtr(_info), uCRef<int32_t>(i), &ret19), ret19);
+        float length = lsi.EndT - lsi.StartT;
+
+        if ((lsi.EndT >= time) && ((double)length > 1e-05))
+        {
+            float relT = (time - lsi.StartT) / length;
+            collection4 = uDefault<LineSplitter__SegmentAt>();
+            collection4.Index = i;
+            collection4.Relative = relT;
+            collection4.From = from;
+            return collection4;
+        }
+
+        from = seg.To;
+    }
+
+    collection5 = uDefault<LineSplitter__SegmentAt>();
+    collection5.Index = 0;
+    collection5.Relative = 0.0f;
+    collection5.From = from;
+    return collection5;
+}
+
+// public float2 PointAtTime(float time) [instance] :226
+::g::Uno::Float2 LineSplitter::PointAtTime(float time)
+{
+    ::g::Fuse::Drawing::LineSegment ret20;
+    LineSplitter__SegmentAt sa = GetSegmentAtTime(time);
+    return (::g::Uno::Collections::List__get_Item_fn(uPtr(_segments), uCRef<int32_t>(sa.Index), &ret20), ret20).PointAtTime(sa.From, sa.Relative);
+}
+
+// public void SplitTime(float start, float end, Uno.Collections.IList<Fuse.Drawing.LineSegment> to) [instance] :83
+void LineSplitter::SplitTime(float start, float end, uObject* to)
+{
+    ::g::Fuse::Drawing::LineSegment collection2;
+    ::g::Fuse::Drawing::LineSegment collection3;
+    ::g::Fuse::Drawing::LineSegment ret21;
+    LineSplitter__LSInfo ret22;
+    ::g::Fuse::Drawing::LineSegment ret23;
+
+    if ((((start < 0.0f) || (start > 1.0f)) || (end < start)) || ((end - start) > 1.0f))
+        U_THROW(::g::Uno::Exception::New2(uString::Const("Invalid SplitTime arguments")));
+
+    bool hasLocation = false;
+
+    while (end > 0.0f)
+    {
+        for (int32_t i = 0; i < uPtr(_segments)->Count(); ++i)
+        {
+            ::g::Fuse::Drawing::LineSegment seg = (::g::Uno::Collections::List__get_Item_fn(uPtr(_segments), uCRef<int32_t>(i), &ret21), ret21);
+            LineSplitter__LSInfo lsi = (::g::Uno::Collections::List__get_Item_fn(uPtr(_info), uCRef<int32_t>(i), &ret22), ret22);
+
+            if (lsi.StartT > end)
+                break;
+
+            if (lsi.EndT < start)
+                continue;
+
+            if (seg.Type == 0)
+                hasLocation = true;
+            else if (seg.Type == 4)
+                hasLocation = false;
+
+            ::g::Uno::Float2 lastPos = (i > 0) ? (::g::Uno::Collections::List__get_Item_fn(uPtr(_segments), uCRef<int32_t>(i - 1), &ret23), ret23).To : ::g::Uno::Float2__New1(0.0f);
+            bool fullStart = start <= lsi.StartT;
+            bool fullEnd = end >= lsi.EndT;
+
+            if (!seg.IsDrawing())
+                ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(to), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef(seg));
+            else if (fullStart && fullEnd)
+            {
+                if (!hasLocation)
+                {
+                    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(to), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef((collection2 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection2.To = lastPos, collection2.Type = 0, collection2)));
+                    hasLocation = true;
+                }
+
+                ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(to), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef(seg));
+            }
+            else
+            {
+                ::g::Fuse::Drawing::LineSegment left, right;
+                float t = ((fullStart ? end : start) - lsi.StartT) / (lsi.EndT - lsi.StartT);
+                seg.SplitAtTime(lastPos, t, &left, &right);
+
+                if (fullStart)
+                    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(to), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef(left));
+                else
+                {
+                    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(to), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef((collection3 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection3.To = left.To, collection3.Type = 0, collection3)));
+                    hasLocation = true;
+
+                    if (fullEnd)
+                        ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(to), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef(right));
+                    else
+                    {
+                        float nt = (end - start) / (lsi.EndT - start);
+                        ::g::Fuse::Drawing::LineSegment nleft, nright;
+                        right.SplitAtTime(left.To, nt, &nleft, &nright);
+                        ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(to), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef(nleft));
+                    }
+                }
+            }
+        }
+
+        end = end - 1.0f;
+        start = start - 1.0f;
+    }
+}
+
+// public LineSplitter New(Uno.Collections.IList<Fuse.Drawing.LineSegment> segments) [static] :19
+LineSplitter* LineSplitter::New1(uObject* segments)
+{
+    LineSplitter* obj6 = (LineSplitter*)uNew(LineSplitter_typeof());
+    obj6->ctor_(segments);
+    return obj6;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\LineSplitter.uno
+// ---------------------------------------------------------------------------------------------------
+
+// private struct LineSplitter.LSInfo :12
+// {
+static void LineSplitter__LSInfo_build(uType* type)
+{
+    type->SetFields(0,
+        ::g::Uno::Float_typeof(), offsetof(LineSplitter__LSInfo, StartT), 0,
+        ::g::Uno::Float_typeof(), offsetof(LineSplitter__LSInfo, EndT), 0,
+        ::g::Uno::Float_typeof(), offsetof(LineSplitter__LSInfo, StartDistance), 0,
+        ::g::Uno::Float_typeof(), offsetof(LineSplitter__LSInfo, EndDistance), 0);
+}
+
+uStructType* LineSplitter__LSInfo_typeof()
+{
+    static uSStrong<uStructType*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.FieldCount = 4;
+    options.Alignment = alignof(LineSplitter__LSInfo);
+    options.ValueSize = sizeof(LineSplitter__LSInfo);
+    options.TypeSize = sizeof(uStructType);
+    type = uStructType::New("Fuse.Drawing.LineSplitter.LSInfo", options);
+    type->fp_build_ = LineSplitter__LSInfo_build;
+    return type;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\Android\NativeSurface.uno
 // ------------------------------------------------------------------------------------------------------------
 
 // internal sealed extern class NativeSurface :41
@@ -3953,7 +4355,7 @@ static void NativeSurface_build(uType* type)
     ::STRINGS[16] = uString::Const("Canvas.Begin was not called");
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Drawing::AndroidSurface_type, interface0));
-    type->SetFields(11,
+    type->SetFields(7,
         ::g::Java::Object_typeof(), offsetof(NativeSurface, _canvas), 0);
 }
 
@@ -3964,7 +4366,7 @@ static void NativeSurface_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Drawing::AndroidSurface_typeof();
-    options.FieldCount = 12;
+    options.FieldCount = 8;
     options.InterfaceCount = 1;
     options.ObjectSize = sizeof(NativeSurface);
     options.TypeSize = sizeof(::g::Fuse::Drawing::AndroidSurface_type);
@@ -4055,7 +4457,7 @@ void NativeSurface::Begin1(::g::Java::Object* canvas, float pixelsPerPoint)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "DummyBitmap316", "()Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "DummyBitmap310", "()Ljava/lang/Object;");
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd);
         ::g::Java::Object* __result = (::g::Java::Object*)::g::Android::Base::Wrappers::JavaObjectHelper::JObjectToJWrapper(__jresult, false);
         ::g::Android::Base::JNI::CheckException();
@@ -4078,7 +4480,7 @@ void NativeSurface::SetCanvas(::g::Java::Object* context, ::g::Java::Object* can
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "SetCanvas317", "(Ljava/lang/Object;Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "SetCanvas311", "(Ljava/lang/Object;Ljava/lang/Object;)V");
         ::g::Java::Object* _ucontext=context;
         jobject _context = (_ucontext==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ucontext, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         ::g::Java::Object* _ucanvas=canvas;
@@ -4094,7 +4496,7 @@ void NativeSurface::SetCanvas(::g::Java::Object* context, ::g::Java::Object* can
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Drawing\ImageFill.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Drawing\ImageFill.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal sealed class RepeatBaker :309
@@ -4107,10 +4509,12 @@ static void RepeatBaker__cctor__fn(uType* __type)
 
 static void RepeatBaker_build(uType* type)
 {
-    ::TYPES[0] = ::g::Uno::Float2_typeof()->Array();
+    ::TYPES[20] = ::g::Uno::Float2_typeof()->Array();
+    type->SetDependencies(
+        ::g::FuseElements_bundle_typeof());
     type->SetFields(0,
         ::g::Uno::Graphics::VertexBuffer_typeof(), offsetof(RepeatBaker, FillBuffer_VertexPosition_2972f423_1_1_1), 0,
-        ::TYPES[0/*float2[]*/], offsetof(RepeatBaker, FillBuffer_Vertices_2972f423_1_0_6), 0,
+        ::TYPES[20/*float2[]*/], offsetof(RepeatBaker, FillBuffer_Vertices_2972f423_1_0_6), 0,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall_typeof(), offsetof(RepeatBaker, _draw_2972f423), 0,
         type, (uintptr_t)&RepeatBaker::Singleton_, uFieldFlagsStatic);
 }
@@ -4122,6 +4526,7 @@ uType* RepeatBaker_typeof()
 
     uTypeOptions options;
     options.FieldCount = 4;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(RepeatBaker);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Drawing.RepeatBaker", options);
@@ -4171,8 +4576,8 @@ void RepeatBaker::FillBuffer(::g::Fuse::DrawContext* dc, ::g::Uno::Graphics::Tex
     _draw_2972f423.CullFace(0);
     _draw_2972f423.Use();
     _draw_2972f423.Attrib1(0, 2, FillBuffer_VertexPosition_2972f423_1_1_1, 8, 0);
-    _draw_2972f423.Uniform2(1, ::g::Uno::Float2__op_Implicit1(uPtr(fb)->Size()));
-    _draw_2972f423.Uniform2(2, ::g::Uno::Float2__op_Implicit1(uPtr(tex)->Size()));
+    _draw_2972f423.Uniform2(1, ::g::Uno::Float2__op_Implicit2(uPtr(fb)->Size()));
+    _draw_2972f423.Uniform2(2, ::g::Uno::Float2__op_Implicit2(uPtr(tex)->Size()));
     _draw_2972f423.Sampler3(3, tex, ::g::Uno::Graphics::SamplerState__NearestClamp());
     _draw_2972f423.DrawArrays(uPtr(FillBuffer_Vertices_2972f423_1_0_6)->Length());
     dc->PopRenderTarget();
@@ -4181,8 +4586,8 @@ void RepeatBaker::FillBuffer(::g::Fuse::DrawContext* dc, ::g::Uno::Graphics::Tex
 // private generated void init_DrawCalls() [instance] :309
 void RepeatBaker::init_DrawCalls()
 {
-    uArray* Vertices_2972f423_1_0_0 = uArray::Init< ::g::Uno::Float2>(::TYPES[0/*float2[]*/], 6, ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(0.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 0.0f));
-    FillBuffer_VertexPosition_2972f423_1_1_1 = ::g::Uno::Graphics::VertexBuffer::New2(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_2972f423_1_0_0), 0);
+    uArray* Vertices_2972f423_1_0_0 = uArray::Init< ::g::Uno::Float2>(::TYPES[20/*float2[]*/], 6, ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(0.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 0.0f));
+    FillBuffer_VertexPosition_2972f423_1_1_1 = ::g::Uno::Graphics::VertexBuffer::New1(uPtr(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_2972f423_1_0_0))->GetBytes(), 0);
     FillBuffer_Vertices_2972f423_1_0_6 = Vertices_2972f423_1_0_0;
     _draw_2972f423 = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall__New1(::g::FuseElements_bundle::RepeatBaker447c61dc());
 }
@@ -4196,7 +4601,7 @@ RepeatBaker* RepeatBaker::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Enums.uno
 // ------------------------------------------------------------------------------------
 
 // public enum ResampleMode :28
@@ -4213,7 +4618,36 @@ uEnumType* ResampleMode_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brushes\SolidColor.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\LineSplitter.uno
+// ---------------------------------------------------------------------------------------------------
+
+// private struct LineSplitter.SegmentAt :197
+// {
+static void LineSplitter__SegmentAt_build(uType* type)
+{
+    type->SetFields(0,
+        ::g::Uno::Int_typeof(), offsetof(LineSplitter__SegmentAt, Index), 0,
+        ::g::Uno::Float_typeof(), offsetof(LineSplitter__SegmentAt, Relative), 0,
+        ::g::Uno::Float2_typeof(), offsetof(LineSplitter__SegmentAt, From), 0);
+}
+
+uStructType* LineSplitter__SegmentAt_typeof()
+{
+    static uSStrong<uStructType*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.FieldCount = 3;
+    options.Alignment = alignof(LineSplitter__SegmentAt);
+    options.ValueSize = sizeof(LineSplitter__SegmentAt);
+    options.TypeSize = sizeof(uStructType);
+    type = uStructType::New("Fuse.Drawing.LineSplitter.SegmentAt", options);
+    type->fp_build_ = LineSplitter__SegmentAt_build;
+    return type;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brushes\SolidColor.uno
 // -------------------------------------------------------------------------------------------------
 
 // public sealed class SolidColor :13
@@ -4221,8 +4655,7 @@ uEnumType* ResampleMode_typeof()
 // static generated SolidColor() :13
 static void SolidColor__cctor_1_fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    SolidColor::_colorName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[15/*"Color"*/]);
+    SolidColor::_colorName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[15/*"Color"*/]);
 }
 
 static void SolidColor_build(uType* type)
@@ -4375,7 +4808,7 @@ SolidColor* SolidColor::New3(::g::Uno::Float4 color)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brush.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brush.uno
 // ------------------------------------------------------------------------------------
 
 // public abstract class StaticBrush :79
@@ -4413,7 +4846,7 @@ void StaticBrush::ctor_2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Brushes\SolidColor.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Brushes\SolidColor.uno
 // -------------------------------------------------------------------------------------------------
 
 // public sealed class StaticSolidColor :67
@@ -4491,7 +4924,7 @@ StaticSolidColor* StaticSolidColor::New2(::g::Uno::Float4 color)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Stroke.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Stroke.uno
 // -------------------------------------------------------------------------------------
 
 // public sealed class Stroke :21
@@ -4499,34 +4932,35 @@ StaticSolidColor* StaticSolidColor::New2(::g::Uno::Float4 color)
 // static generated Stroke() :21
 static void Stroke__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    Stroke::_shadingName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[23/*"Shading"*/]);
-    Stroke::_brushName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[24/*"Brush"*/]);
-    Stroke::_colorName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[15/*"Color"*/]);
-    Stroke::_widthName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[25/*"Width"*/]);
-    Stroke::_offsetName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[14/*"Offset"*/]);
-    Stroke::_adjustmentName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[26/*"Adjustment"*/]);
-    Stroke::_alignmentName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[27/*"Alignment"*/]);
-    Stroke::_lineCapName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[28/*"LineCap"*/]);
-    Stroke::_lineJoinName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[29/*"LineJoin"*/]);
-    Stroke::_lineJoinMiterLimitName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[30/*"LineJoinMit...*/]);
+    Stroke::_shadingName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[25/*"Shading"*/]);
+    Stroke::_brushName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[26/*"Brush"*/]);
+    Stroke::_colorName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[15/*"Color"*/]);
+    Stroke::_widthName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[27/*"Width"*/]);
+    Stroke::_offsetName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[14/*"Offset"*/]);
+    Stroke::_adjustmentName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[28/*"Adjustment"*/]);
+    Stroke::_alignmentName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[29/*"Alignment"*/]);
+    Stroke::_lineCapName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[30/*"LineCap"*/]);
+    Stroke::_lineJoinName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[31/*"LineJoin"*/]);
+    Stroke::_lineJoinMiterLimitName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[32/*"LineJoinMit...*/]);
 }
 
 static void Stroke_build(uType* type)
 {
-    ::STRINGS[23] = uString::Const("Shading");
-    ::STRINGS[24] = uString::Const("Brush");
+    ::STRINGS[25] = uString::Const("Shading");
+    ::STRINGS[26] = uString::Const("Brush");
     ::STRINGS[15] = uString::Const("Color");
-    ::STRINGS[25] = uString::Const("Width");
+    ::STRINGS[27] = uString::Const("Width");
     ::STRINGS[14] = uString::Const("Offset");
-    ::STRINGS[26] = uString::Const("Adjustment");
-    ::STRINGS[27] = uString::Const("Alignment");
-    ::STRINGS[28] = uString::Const("LineCap");
-    ::STRINGS[29] = uString::Const("LineJoin");
-    ::STRINGS[30] = uString::Const("LineJoinMiterLimit");
+    ::STRINGS[28] = uString::Const("Adjustment");
+    ::STRINGS[29] = uString::Const("Alignment");
+    ::STRINGS[30] = uString::Const("LineCap");
+    ::STRINGS[31] = uString::Const("LineJoin");
+    ::STRINGS[32] = uString::Const("LineJoinMiterLimit");
     ::TYPES[21] = ::g::Fuse::Drawing::DynamicBrush_typeof();
     ::TYPES[22] = ::g::Fuse::Drawing::SolidColor_typeof();
-    ::TYPES[8] = ::g::Fuse::Drawing::ISolidColor_typeof();
+    ::TYPES[7] = ::g::Fuse::Drawing::ISolidColor_typeof();
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
     type->SetInterfaces(
         ::g::Uno::UX::IPropertyListener_typeof(), offsetof(Stroke_type, interface0));
     type->SetFields(1,
@@ -4560,6 +4994,7 @@ Stroke_type* Stroke_typeof()
     options.BaseDefinition = ::g::Uno::UX::PropertyObject_typeof();
     options.FieldCount = 20;
     options.InterfaceCount = 1;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(Stroke);
     options.TypeSize = sizeof(Stroke_type);
     type = (Stroke_type*)uClassType::New("Fuse.Drawing.Stroke", options);
@@ -4583,13 +5018,13 @@ void Stroke__Adjust_fn(Stroke* __this, float* w, float* ppi, float* __retval)
 }
 
 // public Fuse.Drawing.StrokeAdjustment get_Adjustment() :119
-void Stroke__get_Adjustment_fn(Stroke* __this, int* __retval)
+void Stroke__get_Adjustment_fn(Stroke* __this, int32_t* __retval)
 {
     *__retval = __this->Adjustment();
 }
 
 // public void set_Adjustment(Fuse.Drawing.StrokeAdjustment value) :120
-void Stroke__set_Adjustment_fn(Stroke* __this, int* value)
+void Stroke__set_Adjustment_fn(Stroke* __this, int32_t* value)
 {
     __this->Adjustment(*value);
 }
@@ -4601,13 +5036,13 @@ void Stroke__AdjustPosition_fn(Stroke* __this, float* w, float* ppi, float* __re
 }
 
 // public Fuse.Drawing.StrokeAlignment get_Alignment() :134
-void Stroke__get_Alignment_fn(Stroke* __this, int* __retval)
+void Stroke__get_Alignment_fn(Stroke* __this, int32_t* __retval)
 {
     *__retval = __this->Alignment();
 }
 
 // public void set_Alignment(Fuse.Drawing.StrokeAlignment value) :135
-void Stroke__set_Alignment_fn(Stroke* __this, int* value)
+void Stroke__set_Alignment_fn(Stroke* __this, int32_t* value)
 {
     __this->Alignment(*value);
 }
@@ -4649,25 +5084,25 @@ void Stroke__get_IsPinned_fn(Stroke* __this, bool* __retval)
 }
 
 // public Fuse.Drawing.LineCap get_LineCap() :212
-void Stroke__get_LineCap_fn(Stroke* __this, int* __retval)
+void Stroke__get_LineCap_fn(Stroke* __this, int32_t* __retval)
 {
     *__retval = __this->LineCap();
 }
 
 // public void set_LineCap(Fuse.Drawing.LineCap value) :213
-void Stroke__set_LineCap_fn(Stroke* __this, int* value)
+void Stroke__set_LineCap_fn(Stroke* __this, int32_t* value)
 {
     __this->LineCap(*value);
 }
 
 // public Fuse.Drawing.LineJoin get_LineJoin() :225
-void Stroke__get_LineJoin_fn(Stroke* __this, int* __retval)
+void Stroke__get_LineJoin_fn(Stroke* __this, int32_t* __retval)
 {
     *__retval = __this->LineJoin();
 }
 
 // public void set_LineJoin(Fuse.Drawing.LineJoin value) :226
-void Stroke__set_LineJoin_fn(Stroke* __this, int* value)
+void Stroke__set_LineJoin_fn(Stroke* __this, int32_t* value)
 {
     __this->LineJoin(*value);
 }
@@ -4775,13 +5210,13 @@ float Stroke::Adjust(float w, float ppi)
 }
 
 // public Fuse.Drawing.StrokeAdjustment get_Adjustment() [instance] :119
-int Stroke::Adjustment()
+int32_t Stroke::Adjustment()
 {
     return _adjustment;
 }
 
 // public void set_Adjustment(Fuse.Drawing.StrokeAdjustment value) [instance] :120
-void Stroke::Adjustment(int value)
+void Stroke::Adjustment(int32_t value)
 {
     if (_adjustment != value)
     {
@@ -4818,13 +5253,13 @@ float Stroke::AdjustPosition(float w, float ppi)
 }
 
 // public Fuse.Drawing.StrokeAlignment get_Alignment() [instance] :134
-int Stroke::Alignment()
+int32_t Stroke::Alignment()
 {
     return _alignment;
 }
 
 // public void set_Alignment(Fuse.Drawing.StrokeAlignment value) [instance] :135
-void Stroke::Alignment(int value)
+void Stroke::Alignment(int32_t value)
 {
     if (_alignment != value)
     {
@@ -4865,8 +5300,8 @@ void Stroke::Brush(::g::Fuse::Drawing::Brush* value)
 // public float4 get_Color() [instance] :67
 ::g::Uno::Float4 Stroke::Color()
 {
-    if (uIs((::g::Fuse::Drawing::Brush*)Brush(), ::TYPES[8/*Fuse.Drawing.ISolidColor*/]))
-        return ::g::Fuse::Drawing::ISolidColor::Color(uInterface(uPtr((uObject*)Brush()), ::TYPES[8/*Fuse.Drawing.ISolidColor*/]));
+    if (uIs((::g::Fuse::Drawing::Brush*)Brush(), ::TYPES[7/*Fuse.Drawing.ISolidColor*/]))
+        return ::g::Fuse::Drawing::ISolidColor::Color(uInterface(uPtr((uObject*)Brush()), ::TYPES[7/*Fuse.Drawing.ISolidColor*/]));
 
     return ::g::Uno::Float4__New1(0.0f);
 }
@@ -4916,13 +5351,13 @@ bool Stroke::IsPinned()
 }
 
 // public Fuse.Drawing.LineCap get_LineCap() [instance] :212
-int Stroke::LineCap()
+int32_t Stroke::LineCap()
 {
     return _lineCap;
 }
 
 // public void set_LineCap(Fuse.Drawing.LineCap value) [instance] :213
-void Stroke::LineCap(int value)
+void Stroke::LineCap(int32_t value)
 {
     if (value == _lineCap)
         return;
@@ -4932,13 +5367,13 @@ void Stroke::LineCap(int value)
 }
 
 // public Fuse.Drawing.LineJoin get_LineJoin() [instance] :225
-int Stroke::LineJoin()
+int32_t Stroke::LineJoin()
 {
     return _lineJoin;
 }
 
 // public void set_LineJoin(Fuse.Drawing.LineJoin value) [instance] :226
-void Stroke::LineJoin(int value)
+void Stroke::LineJoin(int32_t value)
 {
     if (value == _lineJoin)
         return;
@@ -5050,7 +5485,7 @@ Stroke* Stroke::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Stroke.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Stroke.uno
 // -------------------------------------------------------------------------------------
 
 // public enum StrokeAdjustment :6
@@ -5068,7 +5503,7 @@ uEnumType* StrokeAdjustment_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Stroke.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Stroke.uno
 // -------------------------------------------------------------------------------------
 
 // public enum StrokeAlignment :14
@@ -5085,30 +5520,25 @@ uEnumType* StrokeAlignment_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\Surface.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\Surface.uno
 // ----------------------------------------------------------------------------------------------
 
-// public abstract class Surface :27
+// public abstract class Surface :28
 // {
 static void Surface_build(uType* type)
 {
-    ::STRINGS[31] = uString::Const("GLDraw called with mismatched elements");
-    ::STRINGS[32] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Drawing.Surface\\1.4.2\\Surface.uno");
-    ::STRINGS[33] = uString::Const("Draw");
+    ::STRINGS[33] = uString::Const("GLDraw called with mismatched elements");
+    ::STRINGS[34] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Drawing.Surface\\1.9.0\\Surface.uno");
+    ::STRINGS[35] = uString::Const("Draw");
     ::TYPES[23] = ::g::Fuse::ICommonViewport_typeof();
-    ::TYPES[24] = ::g::Fuse::IRenderViewport_typeof();
-    ::TYPES[25] = ::g::Fuse::Drawing::ISurfaceDrawable_typeof();
-    ::TYPES[0] = ::g::Uno::Float2_typeof()->Array();
+    ::TYPES[24] = ::g::Fuse::Drawing::ISurfaceDrawable_typeof();
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
+        ::g::Fuse::Common::Blitter_typeof(),
+        ::g::Uno::Math_typeof());
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(Surface_type, interface0));
     type->SetFields(0,
         uObject_typeof(), offsetof(Surface, Owner), 0,
-        ::g::Uno::Graphics::VertexBuffer_typeof(), offsetof(Surface, Draw_VertexData_7678ae3a_7_2_1), 0,
-        ::g::Uno::Float4x4_typeof(), offsetof(Surface, Draw_LocalTransform_7678ae3a_4_9_2), 0,
-        ::g::Uno::Float4x4_typeof(), offsetof(Surface, Draw_LocalTransform_7678ae3a_4_9_3), 0,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall_typeof(), offsetof(Surface, _draw_7678ae3a), 0,
         ::g::Uno::Float2_typeof(), offsetof(Surface, _ElementSize), 0);
 }
 
@@ -5118,9 +5548,9 @@ Surface_type* Surface_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 6;
+    options.FieldCount = 2;
     options.InterfaceCount = 1;
-    options.DependencyCount = 1;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(Surface);
     options.TypeSize = sizeof(Surface_type);
     type = (Surface_type*)uClassType::New("Fuse.Drawing.Surface", options);
@@ -5128,63 +5558,55 @@ Surface_type* Surface_typeof()
     return type;
 }
 
-// internal Surface() :30
+// internal Surface() :31
 void Surface__ctor__fn(Surface* __this)
 {
     __this->ctor_();
 }
 
-// public void Draw(Fuse.DrawContext dc, Fuse.Elements.Element elm, Fuse.Drawing.ISurfaceDrawable drawable) :115
+// public void Draw(Fuse.DrawContext dc, Fuse.Elements.Element elm, Fuse.Drawing.ISurfaceDrawable drawable) :116
 void Surface__Draw_fn(Surface* __this, ::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::Element* elm, uObject* drawable)
 {
     __this->Draw(dc, elm, drawable);
 }
 
-// public void DrawLocal(Fuse.Drawing.ISurfaceDrawable drawable) :156
+// public void DrawLocal(Fuse.Drawing.ISurfaceDrawable drawable) :146
 void Surface__DrawLocal_fn(Surface* __this, uObject* drawable)
 {
     __this->DrawLocal(drawable);
 }
 
-// protected generated float2 get_ElementSize() :34
+// protected generated float2 get_ElementSize() :35
 void Surface__get_ElementSize_fn(Surface* __this, ::g::Uno::Float2* __retval)
 {
     *__retval = __this->ElementSize();
 }
 
-// private generated void set_ElementSize(float2 value) :34
+// private generated void set_ElementSize(float2 value) :35
 void Surface__set_ElementSize_fn(Surface* __this, ::g::Uno::Float2* value)
 {
     __this->ElementSize(*value);
 }
 
-// private generated void init_DrawCalls() :27
-void Surface__init_DrawCalls_fn(Surface* __this)
-{
-    __this->init_DrawCalls();
-}
-
-// public void SetElementSize(float2 size) :36
+// public void SetElementSize(float2 size) :37
 void Surface__SetElementSize_fn(Surface* __this, ::g::Uno::Float2* size)
 {
     __this->SetElementSize(*size);
 }
 
-// internal Surface() [instance] :30
+// internal Surface() [instance] :31
 void Surface::ctor_()
 {
-    init_DrawCalls();
 }
 
-// public void Draw(Fuse.DrawContext dc, Fuse.Elements.Element elm, Fuse.Drawing.ISurfaceDrawable drawable) [instance] :115
+// public void Draw(Fuse.DrawContext dc, Fuse.Elements.Element elm, Fuse.Drawing.ISurfaceDrawable drawable) [instance] :116
 void Surface::Draw(::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::Element* elm, uObject* drawable)
 {
     ::g::Uno::Float3 ind1;
     ::g::Uno::Float3 ind2;
-    ::g::Uno::Float3 ind3;
 
     if (elm != drawable)
-        ::g::Fuse::Diagnostics::InternalError(::STRINGS[31/*"GLDraw call...*/], this, ::STRINGS[32/*"C:\\Users\\...*/], 118, ::STRINGS[33/*"Draw"*/]);
+        ::g::Fuse::Diagnostics::InternalError(::STRINGS[33/*"GLDraw call...*/], this, ::STRINGS[34/*"C:\\Users\\...*/], 119, ::STRINGS[35/*"Draw"*/]);
 
     float pixelsPerPoint = ::g::Fuse::ICommonViewport::PixelsPerPoint(uInterface(uPtr(uPtr(elm)->Viewport()), ::TYPES[23/*Fuse.ICommonViewport*/]));
     ::g::Fuse::VisualBounds* bounds = elm->RenderBoundsWithoutEffects();
@@ -5198,57 +5620,37 @@ void Surface::Draw(::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::Element* elm
     PushTransform(m);
     DrawLocal(drawable);
     End();
-    ::g::Uno::Float4x4 LocalTransform_7678ae3a_4_9_4 = ::g::Uno::Matrix::Mul10(Draw_LocalTransform_7678ae3a_4_9_2, ::g::Uno::Matrix::Scaling1(::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Implicit1(pixelSize), pixelsPerPoint).X, ::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Implicit1(pixelSize), pixelsPerPoint).Y, 1.0f), Draw_LocalTransform_7678ae3a_4_9_3, ::g::Uno::Matrix::Translation((ind2 = bounds->AxisMin(), ::g::Uno::Float2__New2(ind2.X, ind2.Y)).X, (ind3 = bounds->AxisMin(), ::g::Uno::Float2__New2(ind3.X, ind3.Y)).Y, 0.0f));
-    _draw_7678ae3a.BlendEnabled(true);
-    _draw_7678ae3a.DepthTestEnabled(false);
-    _draw_7678ae3a.CullFace(uPtr(dc)->CullFace());
-    _draw_7678ae3a.BlendSrcAlpha(7);
-    _draw_7678ae3a.BlendDstRgb(3);
-    _draw_7678ae3a.Use();
-    _draw_7678ae3a.Attrib1(0, 2, Draw_VertexData_7678ae3a_7_2_1, 8, 0);
-    _draw_7678ae3a.Uniform12(1, ::g::Fuse::IRenderViewport::ViewProjectionTransform(uInterface(uPtr(dc->Viewport()), ::TYPES[24/*Fuse.IRenderViewport*/])));
-    _draw_7678ae3a.Uniform12(2, (elm != NULL) ? ::g::Uno::Matrix::Mul8(LocalTransform_7678ae3a_4_9_4, uPtr(elm)->WorldTransform()) : LocalTransform_7678ae3a_4_9_4);
-    _draw_7678ae3a.Sampler3(3, uPtr(fb)->ColorBuffer(), ::g::Uno::Graphics::SamplerState__LinearClamp());
-    _draw_7678ae3a.DrawArrays(6);
+    uPtr(::g::Fuse::Common::Blitter::Singleton())->Blit1(uPtr(fb)->ColorBuffer(), ::g::Uno::Rect__New2((ind2 = bounds->AxisMin(), ::g::Uno::Float2__New2(ind2.X, ind2.Y)), ::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Implicit2(pixelSize), pixelsPerPoint)), uPtr(dc)->GetLocalToClipTransform(elm), 1.0f, true, 0);
     ::g::Fuse::FramebufferPool::Release(fb);
 }
 
-// public void DrawLocal(Fuse.Drawing.ISurfaceDrawable drawable) [instance] :156
+// public void DrawLocal(Fuse.Drawing.ISurfaceDrawable drawable) [instance] :146
 void Surface::DrawLocal(uObject* drawable)
 {
-    SetElementSize(::g::Fuse::Drawing::ISurfaceDrawable::ElementSize(uInterface(uPtr(drawable), ::TYPES[25/*Fuse.Drawing.ISurfaceDrawable*/])));
-    ::g::Fuse::Drawing::ISurfaceDrawable::Draw(uInterface(drawable, ::TYPES[25/*Fuse.Drawing.ISurfaceDrawable*/]), this);
+    SetElementSize(::g::Fuse::Drawing::ISurfaceDrawable::ElementSize(uInterface(uPtr(drawable), ::TYPES[24/*Fuse.Drawing.ISurfaceDrawable*/])));
+    ::g::Fuse::Drawing::ISurfaceDrawable::Draw(uInterface(drawable, ::TYPES[24/*Fuse.Drawing.ISurfaceDrawable*/]), this);
 }
 
-// protected generated float2 get_ElementSize() [instance] :34
+// protected generated float2 get_ElementSize() [instance] :35
 ::g::Uno::Float2 Surface::ElementSize()
 {
     return _ElementSize;
 }
 
-// private generated void set_ElementSize(float2 value) [instance] :34
+// private generated void set_ElementSize(float2 value) [instance] :35
 void Surface::ElementSize(::g::Uno::Float2 value)
 {
     _ElementSize = value;
 }
 
-// private generated void init_DrawCalls() [instance] :27
-void Surface::init_DrawCalls()
-{
-    Draw_VertexData_7678ae3a_7_2_1 = ::g::Uno::Graphics::VertexBuffer::New2(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(uArray::Init< ::g::Uno::Float2>(::TYPES[0/*float2[]*/], 6, ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(0.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 0.0f))), 0);
-    Draw_LocalTransform_7678ae3a_4_9_2 = ::g::Uno::Matrix::Translation(-::g::Uno::Float2__New1(0.0f).X, -::g::Uno::Float2__New1(0.0f).Y, 0.0f);
-    Draw_LocalTransform_7678ae3a_4_9_3 = ::g::Uno::Matrix::RotationZ(0.0f);
-    _draw_7678ae3a = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall__New1(::g::FuseDrawingSurface_bundle::Surface541b21c2());
-}
-
-// public void SetElementSize(float2 size) [instance] :36
+// public void SetElementSize(float2 size) [instance] :37
 void Surface::SetElementSize(::g::Uno::Float2 size)
 {
     ElementSize(size);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\SurfaceManager.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\SurfaceManager.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public static class SurfaceManager :11
@@ -5256,18 +5658,18 @@ void Surface::SetElementSize(::g::Uno::Float2 size)
 // static generated SurfaceManager() :11
 static void SurfaceManager__cctor__fn(uType* __type)
 {
-    SurfaceManager::_owners_ = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[26/*Uno.Collections.Dictionary<object, Fuse.Drawing.Surface>*/]));
+    SurfaceManager::_owners_ = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[25/*Uno.Collections.Dictionary<object, Fuse.Drawing.Surface>*/]));
 }
 
 static void SurfaceManager_build(uType* type)
 {
-    ::TYPES[26] = ::g::Uno::Collections::Dictionary_typeof()->MakeType(uObject_typeof(), ::g::Fuse::Drawing::Surface_typeof(), NULL);
-    ::TYPES[27] = ::g::Fuse::Visual_typeof();
-    ::TYPES[28] = ::g::Fuse::Drawing::INativeSurfaceOwner_typeof();
-    ::TYPES[29] = ::g::Fuse::Drawing::ISurfaceProvider_typeof();
-    ::TYPES[25] = ::g::Fuse::Drawing::ISurfaceDrawable_typeof();
+    ::TYPES[25] = ::g::Uno::Collections::Dictionary_typeof()->MakeType(uObject_typeof(), ::g::Fuse::Drawing::Surface_typeof(), NULL);
+    ::TYPES[26] = ::g::Fuse::Visual_typeof();
+    ::TYPES[27] = ::g::Fuse::Drawing::INativeSurfaceOwner_typeof();
+    ::TYPES[28] = ::g::Fuse::Drawing::ISurfaceProvider_typeof();
+    ::TYPES[24] = ::g::Fuse::Drawing::ISurfaceDrawable_typeof();
     type->SetFields(0,
-        ::TYPES[26/*Uno.Collections.Dictionary<object, Fuse.Drawing.Surface>*/], (uintptr_t)&SurfaceManager::_owners_, uFieldFlagsStatic);
+        ::TYPES[25/*Uno.Collections.Dictionary<object, Fuse.Drawing.Surface>*/], (uintptr_t)&SurfaceManager::_owners_, uFieldFlagsStatic);
 }
 
 uClassType* SurfaceManager_typeof()
@@ -5319,15 +5721,16 @@ uSStrong< ::g::Uno::Collections::Dictionary*> SurfaceManager::_owners_;
 // public static Fuse.Drawing.Surface Create(object owner) [static] :13
 ::g::Fuse::Drawing::Surface* SurfaceManager::Create(uObject* owner)
 {
+    SurfaceManager_typeof()->Init();
     ::g::Fuse::Drawing::Surface* c = NULL;
-    ::g::Fuse::Visual* v = uAs< ::g::Fuse::Visual*>(owner, ::TYPES[27/*Fuse.Visual*/]);
+    ::g::Fuse::Visual* v = uAs< ::g::Fuse::Visual*>(owner, ::TYPES[26/*Fuse.Visual*/]);
 
     if ((v != NULL) && (uPtr(v)->VisualContext() == 2))
     {
-        uObject* nativeOwner = uAs<uObject*>(uPtr(v)->ViewHandle(), ::TYPES[28/*Fuse.Drawing.INativeSurfaceOwner*/]);
+        uObject* nativeOwner = uAs<uObject*>(uPtr(v)->ViewHandle(), ::TYPES[27/*Fuse.Drawing.INativeSurfaceOwner*/]);
 
         if (nativeOwner != NULL)
-            c = ::g::Fuse::Drawing::INativeSurfaceOwner::GetSurface(uInterface(uPtr(nativeOwner), ::TYPES[28/*Fuse.Drawing.INativeSurfaceOwner*/]));
+            c = ::g::Fuse::Drawing::INativeSurfaceOwner::GetSurface(uInterface(uPtr(nativeOwner), ::TYPES[27/*Fuse.Drawing.INativeSurfaceOwner*/]));
     }
 
     if (c == NULL)
@@ -5340,12 +5743,14 @@ uSStrong< ::g::Uno::Collections::Dictionary*> SurfaceManager::_owners_;
 // public static Fuse.Drawing.Surface Find(Fuse.Node source) [static] :46
 ::g::Fuse::Drawing::Surface* SurfaceManager::Find(::g::Fuse::Node* source)
 {
+    SurfaceManager_typeof()->Init();
     return SurfaceManager::FindImpl(source, false);
 }
 
 // private static Fuse.Drawing.Surface FindImpl(Fuse.Node source, bool create) [static] :56
 ::g::Fuse::Drawing::Surface* SurfaceManager::FindImpl(::g::Fuse::Node* source, bool create)
 {
+    SurfaceManager_typeof()->Init();
     uObject* ind1;
     bool ret2;
     uObject* provider = NULL;
@@ -5353,10 +5758,10 @@ uSStrong< ::g::Uno::Collections::Dictionary*> SurfaceManager::_owners_;
 
     while (from != NULL)
     {
-        if (uIs(from, ::TYPES[29/*Fuse.Drawing.ISurfaceProvider*/]) && (from != source))
-            provider = uAs<uObject*>(from, ::TYPES[29/*Fuse.Drawing.ISurfaceProvider*/]);
+        if (uIs(from, ::TYPES[28/*Fuse.Drawing.ISurfaceProvider*/]) && (from != source))
+            provider = uAs<uObject*>(from, ::TYPES[28/*Fuse.Drawing.ISurfaceProvider*/]);
 
-        if (uIs(from, ::TYPES[25/*Fuse.Drawing.ISurfaceDrawable*/]))
+        if (uIs(from, ::TYPES[24/*Fuse.Drawing.ISurfaceDrawable*/]))
             from = uPtr(from)->Parent();
         else
             break;
@@ -5380,12 +5785,14 @@ uSStrong< ::g::Uno::Collections::Dictionary*> SurfaceManager::_owners_;
 // public static Fuse.Drawing.Surface FindOrCreate(Fuse.Node source) [static] :51
 ::g::Fuse::Drawing::Surface* SurfaceManager::FindOrCreate(::g::Fuse::Node* source)
 {
+    SurfaceManager_typeof()->Init();
     return SurfaceManager::FindImpl(source, true);
 }
 
 // public static void Release(object owner, Fuse.Drawing.Surface c) [static] :85
 void SurfaceManager::Release(uObject* owner, ::g::Fuse::Drawing::Surface* c)
 {
+    SurfaceManager_typeof()->Init();
     bool ret3;
 
     if (uPtr(c)->Owner == owner)
@@ -5396,10 +5803,10 @@ void SurfaceManager::Release(uObject* owner, ::g::Fuse::Drawing::Surface* c)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\Surface.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\Surface.uno
 // ----------------------------------------------------------------------------------------------
 
-// public abstract class SurfacePath :13
+// public abstract class SurfacePath :14
 // {
 static void SurfacePath_build(uType* type)
 {
@@ -5418,26 +5825,28 @@ uType* SurfacePath_typeof()
     return type;
 }
 
-// protected generated SurfacePath() :13
+// protected generated SurfacePath() :14
 void SurfacePath__ctor__fn(SurfacePath* __this)
 {
     __this->ctor_();
 }
 
-// protected generated SurfacePath() [instance] :13
+// protected generated SurfacePath() [instance] :14
 void SurfacePath::ctor_()
 {
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\SurfaceUtil.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.9.0\SurfaceUtil.uno
 // --------------------------------------------------------------------------------------------------
 
 // public static class SurfaceUtil :12
 // {
 static void SurfaceUtil_build(uType* type)
 {
-    ::TYPES[3] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
+    ::TYPES[2] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::LineSegment_typeof(), NULL);
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
 }
 
 uClassType* SurfaceUtil_typeof()
@@ -5446,6 +5855,7 @@ uClassType* SurfaceUtil_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
+    options.DependencyCount = 1;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Fuse.Drawing.SurfaceUtil", options);
     type->fp_build_ = SurfaceUtil_build;
@@ -5456,6 +5866,12 @@ uClassType* SurfaceUtil_typeof()
 void SurfaceUtil__AngleInRange_fn(float* angle, float* start, float* end, bool* __retval)
 {
     *__retval = SurfaceUtil::AngleInRange(*angle, *start, *end);
+}
+
+// public static float2 BezierCurveDerivative(float2 p0, float2 p1, float2 p2, float2 p3, float t) :209
+void SurfaceUtil__BezierCurveDerivative_fn(::g::Uno::Float2* p0, ::g::Uno::Float2* p1, ::g::Uno::Float2* p2, ::g::Uno::Float2* p3, float* t, ::g::Uno::Float2* __retval)
+{
+    *__retval = SurfaceUtil::BezierCurveDerivative(*p0, *p1, *p2, *p3, *t);
 }
 
 // public static float2 EllipticArcDerivative(float2 c, float2 r, float xAngle, float t) :178
@@ -5528,6 +5944,13 @@ bool SurfaceUtil::AngleInRange(float angle, float start, float end)
     return false;
 }
 
+// public static float2 BezierCurveDerivative(float2 p0, float2 p1, float2 p2, float2 p3, float t) [static] :209
+::g::Uno::Float2 SurfaceUtil::BezierCurveDerivative(::g::Uno::Float2 p0, ::g::Uno::Float2 p1, ::g::Uno::Float2 p2, ::g::Uno::Float2 p3, float t)
+{
+    float t2 = t * t;
+    return ::g::Uno::Float2__op_Multiply(3.0f, ::g::Uno::Float2__op_Addition2(::g::Uno::Float2__op_Subtraction2(::g::Uno::Float2__op_Addition2(::g::Uno::Float2__op_Multiply1(::g::Uno::Float2__op_UnaryNegation(::g::Uno::Float2__op_Addition2(::g::Uno::Float2__op_Subtraction2(::g::Uno::Float2__op_Subtraction2(p0, ::g::Uno::Float2__op_Multiply(3.0f, p1)), p3), ::g::Uno::Float2__op_Multiply(3.0f, p2))), t2), ::g::Uno::Float2__op_Multiply1(::g::Uno::Float2__op_Multiply(2.0f, ::g::Uno::Float2__op_Addition2(::g::Uno::Float2__op_Subtraction2(p0, ::g::Uno::Float2__op_Multiply(2.0f, p1)), p2)), t)), p0), p1));
+}
+
 // public static float2 EllipticArcDerivative(float2 c, float2 r, float xAngle, float t) [static] :178
 ::g::Uno::Float2 SurfaceUtil::EllipticArcDerivative(::g::Uno::Float2 c, ::g::Uno::Float2 r, float xAngle, float t)
 {
@@ -5569,7 +5992,7 @@ void SurfaceUtil::EllipticArcToBezierCurve(::g::Uno::Float2 center, ::g::Uno::Fl
     ::g::Uno::Float2 prev = SurfaceUtil::EllipticArcPoint(center, radius, xAngle, s);
 
     if (moveToStart)
-        ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(curves), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef((collection2 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection2.Type = 0, collection2.To = prev, collection2)));
+        ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(curves), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef((collection2 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection2.Type = 0, collection2.To = prev, collection2)));
 
     while (remain > 1e-05f)
     {
@@ -5581,7 +6004,7 @@ void SurfaceUtil::EllipticArcToBezierCurve(::g::Uno::Float2 center, ::g::Uno::Fl
         float alpha = (::g::Uno::Math::Sin1(signStep) * (::g::Uno::Math::Sqrt1(4.0f + ((3.0f * alphaT) * alphaT)) - 1.0f)) / 3.0f;
         ::g::Uno::Float2 q1 = ::g::Uno::Float2__op_Addition2(p1, ::g::Uno::Float2__op_Multiply(alpha, SurfaceUtil::EllipticArcDerivative(center, radius, xAngle, s)));
         ::g::Uno::Float2 q2 = ::g::Uno::Float2__op_Subtraction2(p2, ::g::Uno::Float2__op_Multiply(alpha, SurfaceUtil::EllipticArcDerivative(center, radius, xAngle, s + signStep)));
-        ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(curves), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef((collection3 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection3.Type = 2, collection3.To = p2, collection3.A = q1, collection3.B = q2, collection3)));
+        ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(curves), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef((collection3 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection3.Type = 2, collection3.To = p2, collection3.A = q1, collection3.B = q2, collection3)));
         s = s + signStep;
         remain = remain - step;
         prev = p2;
@@ -5595,7 +6018,7 @@ void SurfaceUtil::EllipticArcToBezierCurve1(::g::Uno::Float2 from, ::g::Fuse::Dr
 
     if (SurfaceUtil::EllipticArcOutOfRange(from, arc))
     {
-        ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(curves), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef((collection1 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection1.Type = 1, collection1.To = arc.To, collection1)));
+        ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(curves), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Drawing.LineSegment>*/]), uCRef((collection1 = uDefault< ::g::Fuse::Drawing::LineSegment>(), collection1.Type = 1, collection1.To = arc.To, collection1)));
         return;
     }
 
@@ -5670,7 +6093,7 @@ float SurfaceUtil::svgAngle(double ux, double uy, double vx, double vy)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Enums.uno
 // ------------------------------------------------------------------------------------
 
 // public enum WrapMode :35

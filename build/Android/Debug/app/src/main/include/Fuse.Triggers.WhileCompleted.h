@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Triggers/1.4.2/WhilePlaying.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Triggers/1.9.0/WhilePlaying.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -7,6 +7,7 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Fuse.Triggers.WhileTrigger.h>
 #include <Uno.Collections.ICollection-1.h>
@@ -30,7 +31,7 @@ void WhileCompleted__SetState_fn(::g::Fuse::Visual* n, bool* paused);
 struct WhileCompleted : ::g::Fuse::Triggers::WhileTrigger
 {
     static uSStrong< ::g::Fuse::PropertyHandle*> _whileCompletedProp_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _whileCompletedProp() { return _whileCompletedProp_; }
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _whileCompletedProp() { return WhileCompleted_typeof()->Init(), _whileCompletedProp_; }
 
     static bool IsCompleted(::g::Fuse::Visual* n);
     static void SetState(::g::Fuse::Visual* n, bool paused);

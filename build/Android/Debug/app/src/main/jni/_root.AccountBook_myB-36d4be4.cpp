@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_myB-36d4be4.h>
@@ -11,7 +11,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_myButton_text_Property :264
+// internal sealed class AccountBook_myButton_text_Property :284
 // {
 static void AccountBook_myButton_text_Property_build(uType* type)
 {
@@ -40,50 +40,50 @@ static void AccountBook_myButton_text_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_myButton_text_Property(myButton obj, Uno.UX.Selector name) :267
+// public AccountBook_myButton_text_Property(myButton obj, Uno.UX.Selector name) :287
 void AccountBook_myButton_text_Property__ctor_3_fn(AccountBook_myButton_text_Property* __this, ::g::myButton* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed string Get(Uno.UX.PropertyObject obj) :269
+// public override sealed string Get(Uno.UX.PropertyObject obj) :289
 void AccountBook_myButton_text_Property__Get1_fn(AccountBook_myButton_text_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString** __retval)
 {
     return *__retval = uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->text(), void();
 }
 
-// public AccountBook_myButton_text_Property New(myButton obj, Uno.UX.Selector name) :267
+// public AccountBook_myButton_text_Property New(myButton obj, Uno.UX.Selector name) :287
 void AccountBook_myButton_text_Property__New1_fn(::g::myButton* obj, ::g::Uno::UX::Selector* name, AccountBook_myButton_text_Property** __retval)
 {
     *__retval = AccountBook_myButton_text_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :268
+// public override sealed Uno.UX.PropertyObject get_Object() :288
 void AccountBook_myButton_text_Property__get_Object_fn(AccountBook_myButton_text_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :270
+// public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :290
 void AccountBook_myButton_text_Property__Set1_fn(AccountBook_myButton_text_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString* v, uObject* origin)
 {
     uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->Settext(v, origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :271
+// public override sealed bool get_SupportsOriginSetter() :291
 void AccountBook_myButton_text_Property__get_SupportsOriginSetter_fn(AccountBook_myButton_text_Property* __this, bool* __retval)
 {
     return *__retval = true, void();
 }
 
-// public AccountBook_myButton_text_Property(myButton obj, Uno.UX.Selector name) [instance] :267
+// public AccountBook_myButton_text_Property(myButton obj, Uno.UX.Selector name) [instance] :287
 void AccountBook_myButton_text_Property::ctor_3(::g::myButton* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_myButton_text_Property New(myButton obj, Uno.UX.Selector name) [static] :267
+// public AccountBook_myButton_text_Property New(myButton obj, Uno.UX.Selector name) [static] :287
 AccountBook_myButton_text_Property* AccountBook_myButton_text_Property::New1(::g::myButton* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_myButton_text_Property* obj1 = (AccountBook_myButton_text_Property*)uNew(AccountBook_myButton_text_Property_typeof());

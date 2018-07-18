@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Triggers/1.4.2/WhileFloat.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Triggers/1.9.0/WhileFloat.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -7,6 +7,7 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Fuse.Triggers.IPulseTrigger.h>
 #include <Fuse.Triggers.WhileValue-1.h>
@@ -31,8 +32,8 @@ void WhileFloat__set_Value1_fn(WhileFloat* __this, float* value);
 struct WhileFloat : ::g::Fuse::Triggers::WhileValue
 {
     ::g::Uno::Float2 _compare;
-    int _low;
-    int _high;
+    int32_t _low;
+    int32_t _high;
 
     float Value1();
     void Value1(float value);

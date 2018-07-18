@@ -36,7 +36,7 @@ ANDROID_TOOLCHAIN:UNINITIALIZED=clang
 AccountBook_BINARY_DIR:STATIC=C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/build/Android/Debug/app/.externalNativeBuild/cmake/debug/armeabi-v7a
 
 //Dependencies for the target
-AccountBook_LIB_DEPENDS:STATIC=general;android;general;log;general;gnustl_shared;general;V8Simple;general;EGL;general;GLESv2;general;z;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/prebuilt/Android/lib/armeabi-v7a/libuImage.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/prebuilt/Android/lib/armeabi-v7a/libpng.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/prebuilt/Android/lib/armeabi-v7a/libjpeg.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/prebuilt/Android/lib/armeabi-v7a/libfreetype.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/prebuilt/Android/lib/armeabi-v7a/libXliMain.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/prebuilt/Android/lib/armeabi-v7a/libXliPlatform.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/prebuilt/Android/lib/armeabi-v7a/libuBase.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Fuse/Android/AndroidSDK/ndk-bundle/sources/cxx-stl/stlport/libs/armeabi-v7a/libstlport_static.a;
+AccountBook_LIB_DEPENDS:STATIC=general;android;general;log;general;gnustl_shared;general;V8Simple;general;EGL;general;GLESv2;general;z;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/prebuilt/Android/lib/armeabi-v7a/libuImage.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/prebuilt/Android/lib/armeabi-v7a/libpng.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/prebuilt/Android/lib/armeabi-v7a/libjpeg.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/prebuilt/Android/lib/armeabi-v7a/libfreetype.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/prebuilt/Android/lib/armeabi-v7a/libXliPlatform.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/prebuilt/Android/lib/armeabi-v7a/libuBase.a;general;C:/Users/SpaceJockey27/AppData/Local/Fusetools/Fuse/Android/AndroidSDK/ndk-bundle/sources/cxx-stl/stlport/libs/armeabi-v7a/libstlport_static.a;
 
 //Value Computed by CMake
 AccountBook_SOURCE_DIR:STATIC=C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/build/Android/Debug/app/src/main
@@ -195,8 +195,8 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //Path to a program.
 CMAKE_STRIP:FILEPATH=C:/Users/SpaceJockey27/AppData/Local/Fusetools/Fuse/Android/AndroidSDK/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-strip.exe
 
-//The CMake toolchain file
-CMAKE_TOOLCHAIN_FILE:FILEPATH=C:/Users/SpaceJockey27/AppData/Local/Fusetools/Fuse/Android/AndroidSDK/ndk-bundle/build/cmake/android.toolchain.cmake
+//No help, variable specified on the command line.
+CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=C:\Users\SpaceJockey27\AppData\Local\Fusetools\Fuse\Android\AndroidSDK\ndk-bundle\build\cmake\android.toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console

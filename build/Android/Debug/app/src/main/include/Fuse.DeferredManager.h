@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Triggers/1.4.2/Deferred.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Triggers/1.9.0/Deferred.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -20,13 +20,13 @@ void DeferredManager__OnUpdate_fn();
 struct DeferredManager : uObject
 {
     static uSStrong< ::g::Uno::Collections::PriorityQueue*> _pending_;
-    static uSStrong< ::g::Uno::Collections::PriorityQueue*>& _pending() { return _pending_; }
-    static int _startFrame_;
-    static int& _startFrame() { return _startFrame_; }
+    static uSStrong< ::g::Uno::Collections::PriorityQueue*>& _pending() { return DeferredManager_typeof()->Init(), _pending_; }
+    static int32_t _startFrame_;
+    static int32_t& _startFrame() { return DeferredManager_typeof()->Init(), _startFrame_; }
     static bool _update_;
-    static bool& _update() { return _update_; }
+    static bool& _update() { return DeferredManager_typeof()->Init(), _update_; }
     static double TimeLimit_;
-    static double& TimeLimit() { return TimeLimit_; }
+    static double& TimeLimit() { return DeferredManager_typeof()->Init(), TimeLimit_; }
 
     static void AddPending(uObject* d, ::g::Uno::Float2 priority);
     static void CheckUpdate();

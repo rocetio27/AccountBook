@@ -1,10 +1,11 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/Shapes/Curve.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/Shapes/Curve.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
@@ -39,17 +40,17 @@ void CurvePoint__set_TangentOut_fn(CurvePoint* __this, ::g::Uno::Float2* value);
 struct CurvePoint : ::g::Fuse::Node
 {
     static ::g::Uno::UX::Selector NameAt_;
-    static ::g::Uno::UX::Selector& NameAt() { return NameAt_; }
+    static ::g::Uno::UX::Selector& NameAt() { return CurvePoint_typeof()->Init(), NameAt_; }
     static ::g::Uno::UX::Selector NameTangentIn_;
-    static ::g::Uno::UX::Selector& NameTangentIn() { return NameTangentIn_; }
+    static ::g::Uno::UX::Selector& NameTangentIn() { return CurvePoint_typeof()->Init(), NameTangentIn_; }
     static ::g::Uno::UX::Selector NameTangentOut_;
-    static ::g::Uno::UX::Selector& NameTangentOut() { return NameTangentOut_; }
+    static ::g::Uno::UX::Selector& NameTangentOut() { return CurvePoint_typeof()->Init(), NameTangentOut_; }
     static ::g::Uno::UX::Selector NameControlIn_;
-    static ::g::Uno::UX::Selector& NameControlIn() { return NameControlIn_; }
+    static ::g::Uno::UX::Selector& NameControlIn() { return CurvePoint_typeof()->Init(), NameControlIn_; }
     static ::g::Uno::UX::Selector NameControlOut_;
-    static ::g::Uno::UX::Selector& NameControlOut() { return NameControlOut_; }
+    static ::g::Uno::UX::Selector& NameControlOut() { return CurvePoint_typeof()->Init(), NameControlOut_; }
     ::g::Uno::Float2 _at;
-    int _has;
+    int32_t _has;
     ::g::Uno::Float2 _a;
     ::g::Uno::Float2 _b;
 

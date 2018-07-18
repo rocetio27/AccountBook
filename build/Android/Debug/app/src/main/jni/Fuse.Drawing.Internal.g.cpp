@@ -22,7 +22,7 @@ namespace Fuse{
 namespace Drawing{
 namespace Internal{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Internal\BufferCollections.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Internal\BufferCollections.uno
 // ---------------------------------------------------------------------------------------------------------
 
 // public sealed class Float2Buffer :149
@@ -73,7 +73,7 @@ void Float2Buffer__New3_fn(Float2Buffer** __retval)
 }
 
 // public void Set(int offset, float2 value) :153
-void Float2Buffer__Set_fn(Float2Buffer* __this, int* offset, ::g::Uno::Float2* value)
+void Float2Buffer__Set_fn(Float2Buffer* __this, int32_t* offset, ::g::Uno::Float2* value)
 {
     __this->Set(*offset, *value);
 }
@@ -98,7 +98,7 @@ void Float2Buffer::Append1(::g::Uno::Float2 value)
 }
 
 // public void Set(int offset, float2 value) [instance] :153
-void Float2Buffer::Set(int offset, ::g::Uno::Float2 value)
+void Float2Buffer::Set(int32_t offset, ::g::Uno::Float2 value)
 {
     uPtr(back)->Set5(offset * typeSize, value, true);
 }
@@ -112,7 +112,7 @@ Float2Buffer* Float2Buffer::New3()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Internal\BufferCollections.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Internal\BufferCollections.uno
 // ---------------------------------------------------------------------------------------------------------
 
 // public sealed class FloatBuffer :131
@@ -157,7 +157,7 @@ void FloatBuffer__New3_fn(FloatBuffer** __retval)
 }
 
 // public void Set(int offset, float value) :135
-void FloatBuffer__Set_fn(FloatBuffer* __this, int* offset, float* value)
+void FloatBuffer__Set_fn(FloatBuffer* __this, int32_t* offset, float* value)
 {
     __this->Set(*offset, *value);
 }
@@ -176,7 +176,7 @@ void FloatBuffer::Append1(float value)
 }
 
 // public void Set(int offset, float value) [instance] :135
-void FloatBuffer::Set(int offset, float value)
+void FloatBuffer::Set(int32_t offset, float value)
 {
     uPtr(back)->Set4(offset * typeSize, value, true);
 }
@@ -190,7 +190,7 @@ FloatBuffer* FloatBuffer::New3()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Internal\BufferCollections.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Internal\BufferCollections.uno
 // ---------------------------------------------------------------------------------------------------------
 
 // public class TypedBuffer :20
@@ -221,7 +221,7 @@ uType* TypedBuffer_typeof()
 }
 
 // protected TypedBuffer(int typeSize, [int initSize]) :28
-void TypedBuffer__ctor_1_fn(TypedBuffer* __this, int* typeSize1, int* initSize)
+void TypedBuffer__ctor_1_fn(TypedBuffer* __this, int32_t* typeSize1, int32_t* initSize)
 {
     __this->ctor_1(*typeSize1, *initSize);
 }
@@ -233,7 +233,7 @@ void TypedBuffer__CheckGrow_fn(TypedBuffer* __this)
 }
 
 // public int Count() :74
-void TypedBuffer__Count_fn(TypedBuffer* __this, int* __retval)
+void TypedBuffer__Count_fn(TypedBuffer* __this, int32_t* __retval)
 {
     *__retval = __this->Count();
 }
@@ -251,25 +251,25 @@ void TypedBuffer__GetDeviceVertex_fn(TypedBuffer* __this, ::g::Uno::Graphics::Ve
 }
 
 // protected void Init(int initSize) :34
-void TypedBuffer__Init_fn(TypedBuffer* __this, int* initSize)
+void TypedBuffer__Init_fn(TypedBuffer* __this, int32_t* initSize)
 {
     __this->Init(*initSize);
 }
 
 // public void InitDeviceIndex([Uno.Graphics.BufferUsage bu]) :50
-void TypedBuffer__InitDeviceIndex_fn(TypedBuffer* __this, int* bu)
+void TypedBuffer__InitDeviceIndex_fn(TypedBuffer* __this, int32_t* bu)
 {
     __this->InitDeviceIndex(*bu);
 }
 
 // public void InitDeviceVertex([Uno.Graphics.BufferUsage bu]) :58
-void TypedBuffer__InitDeviceVertex_fn(TypedBuffer* __this, int* bu)
+void TypedBuffer__InitDeviceVertex_fn(TypedBuffer* __this, int32_t* bu)
 {
     __this->InitDeviceVertex(*bu);
 }
 
 // protected TypedBuffer(int typeSize, [int initSize]) [instance] :28
-void TypedBuffer::ctor_1(int typeSize1, int initSize)
+void TypedBuffer::ctor_1(int32_t typeSize1, int32_t initSize)
 {
     typeSize = typeSize1;
     size = 0;
@@ -282,10 +282,10 @@ void TypedBuffer::CheckGrow()
     if (size < capacity)
         return;
 
-    int newCap = capacity * 2;
+    int32_t newCap = capacity * 2;
     ::g::Uno::Buffer* newBuf = ::g::Uno::Buffer::New4(typeSize * newCap);
 
-    for (int i = 0; i < uPtr(back)->SizeInBytes(); ++i)
+    for (int32_t i = 0; i < uPtr(back)->SizeInBytes(); ++i)
         uPtr(newBuf)->Set(i, uPtr(back)->Item(i));
 
     back = newBuf;
@@ -293,7 +293,7 @@ void TypedBuffer::CheckGrow()
 }
 
 // public int Count() [instance] :74
-int TypedBuffer::Count()
+int32_t TypedBuffer::Count()
 {
     return size;
 }
@@ -311,26 +311,26 @@ int TypedBuffer::Count()
 }
 
 // protected void Init(int initSize) [instance] :34
-void TypedBuffer::Init(int initSize)
+void TypedBuffer::Init(int32_t initSize)
 {
     capacity = initSize;
     back = ::g::Uno::Buffer::New4(typeSize * initSize);
 }
 
 // public void InitDeviceIndex([Uno.Graphics.BufferUsage bu]) [instance] :50
-void TypedBuffer::InitDeviceIndex(int bu)
+void TypedBuffer::InitDeviceIndex(int32_t bu)
 {
-    deviceIndex = ::g::Uno::Graphics::IndexBuffer::New2(back, bu);
+    deviceIndex = ::g::Uno::Graphics::IndexBuffer::New1(uPtr(back)->GetBytes(), bu);
 }
 
 // public void InitDeviceVertex([Uno.Graphics.BufferUsage bu]) [instance] :58
-void TypedBuffer::InitDeviceVertex(int bu)
+void TypedBuffer::InitDeviceVertex(int32_t bu)
 {
-    deviceVertex = ::g::Uno::Graphics::VertexBuffer::New2(back, bu);
+    deviceVertex = ::g::Uno::Graphics::VertexBuffer::New1(uPtr(back)->GetBytes(), bu);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\Internal\BufferCollections.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\Internal\BufferCollections.uno
 // ---------------------------------------------------------------------------------------------------------
 
 // public sealed class UShortBuffer :167
@@ -363,7 +363,7 @@ void UShortBuffer__ctor_2_fn(UShortBuffer* __this)
 }
 
 // public void Append(int value) :180
-void UShortBuffer__Append_fn(UShortBuffer* __this, int* value)
+void UShortBuffer__Append_fn(UShortBuffer* __this, int32_t* value)
 {
     __this->Append(*value);
 }
@@ -375,7 +375,7 @@ void UShortBuffer__New3_fn(UShortBuffer** __retval)
 }
 
 // public void Set(int offset, ushort value) :171
-void UShortBuffer__Set_fn(UShortBuffer* __this, int* offset, uint16_t* value)
+void UShortBuffer__Set_fn(UShortBuffer* __this, int32_t* offset, uint16_t* value)
 {
     __this->Set(*offset, *value);
 }
@@ -387,14 +387,14 @@ void UShortBuffer::ctor_2()
 }
 
 // public void Append(int value) [instance] :180
-void UShortBuffer::Append(int value)
+void UShortBuffer::Append(int32_t value)
 {
     CheckGrow();
     Set(size++, (uint16_t)value);
 }
 
 // public void Set(int offset, ushort value) [instance] :171
-void UShortBuffer::Set(int offset, uint16_t value)
+void UShortBuffer::Set(int32_t offset, uint16_t value)
 {
     uPtr(back)->Set23(offset * typeSize, value, true);
 }

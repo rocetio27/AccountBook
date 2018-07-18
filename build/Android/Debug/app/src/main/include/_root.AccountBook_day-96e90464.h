@@ -1,9 +1,9 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Uno.String.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 namespace g{namespace Uno{namespace UX{struct PropertyObject;}}}
 namespace g{namespace Uno{namespace UX{struct Selector;}}}
 namespace g{struct AccountBook_dayButton_text_Property;}
@@ -11,7 +11,7 @@ namespace g{struct dayButton;}
 
 namespace g{
 
-// internal sealed class AccountBook_dayButton_text_Property :332
+// internal sealed class AccountBook_dayButton_text_Property :370
 // {
 ::g::Uno::UX::Property1_type* AccountBook_dayButton_text_Property_typeof();
 void AccountBook_dayButton_text_Property__ctor_3_fn(AccountBook_dayButton_text_Property* __this, ::g::dayButton* obj, ::g::Uno::UX::Selector* name);

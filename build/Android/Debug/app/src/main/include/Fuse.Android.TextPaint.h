@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Android.TextRenderer/1.4.2/Internal/TextPaint.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Android.TextRenderer/1.9.0/Internal/TextPaint.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -21,12 +21,12 @@ void TextPaint__ctor_1_fn(TextPaint* __this, ::g::Java::Object* handle);
 void TextPaint__set_AntiAlias_fn(TextPaint* __this, bool* value);
 void TextPaint__set_Color_fn(TextPaint* __this, ::g::Uno::Float4* value);
 void TextPaint__Create_fn(::g::Java::Object** __retval);
-void TextPaint__GetTextBounds_fn(::g::Java::Object* handle, uString* text, int* start, int* end, uArray* r);
-void TextPaint__GetTextBounds1_fn(TextPaint* __this, uString* text, int* start, int* end, ::g::Uno::Rect* __retval);
+void TextPaint__GetTextBounds_fn(::g::Java::Object* handle, uString* text, int32_t* start, int32_t* end, uArray* r);
+void TextPaint__GetTextBounds1_fn(TextPaint* __this, uString* text, int32_t* start, int32_t* end, ::g::Uno::Rect* __retval);
 void TextPaint__get_Handle_fn(TextPaint* __this, ::g::Java::Object** __retval);
 void TextPaint__New1_fn(TextPaint** __retval);
 void TextPaint__SetAntiAlias_fn(::g::Java::Object* handle, bool* value);
-void TextPaint__SetColor_fn(::g::Java::Object* handle, int* color);
+void TextPaint__SetColor_fn(::g::Java::Object* handle, int32_t* color);
 void TextPaint__SetTextSize_fn(::g::Java::Object* handle, float* textSize);
 void TextPaint__SetTypeface_fn(::g::Java::Object* paintHandle, ::g::Java::Object* typefaceHandle);
 void TextPaint__set_TextSize_fn(TextPaint* __this, float* value);
@@ -40,15 +40,15 @@ struct TextPaint : uObject
     void ctor_1(::g::Java::Object* handle);
     void AntiAlias(bool value);
     void Color(::g::Uno::Float4 value);
-    ::g::Uno::Rect GetTextBounds1(uString* text, int start, int end);
+    ::g::Uno::Rect GetTextBounds1(uString* text, int32_t start, int32_t end);
     ::g::Java::Object* Handle();
     void TextSize(float value);
     void Typeface(::g::Fuse::Controls::Native::Android::Typeface* value);
     static ::g::Java::Object* Create();
-    static void GetTextBounds(::g::Java::Object* handle, uString* text, int start, int end, uArray* r);
+    static void GetTextBounds(::g::Java::Object* handle, uString* text, int32_t start, int32_t end, uArray* r);
     static TextPaint* New1();
     static void SetAntiAlias(::g::Java::Object* handle, bool value);
-    static void SetColor(::g::Java::Object* handle, int color);
+    static void SetColor(::g::Java::Object* handle, int32_t color);
     static void SetTextSize(::g::Java::Object* handle, float textSize);
     static void SetTypeface(::g::Java::Object* paintHandle, ::g::Java::Object* typefaceHandle);
 };

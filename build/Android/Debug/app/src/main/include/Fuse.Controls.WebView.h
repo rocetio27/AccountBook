@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.WebView/1.4.2/WebView.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.WebView/1.9.0/WebView.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -11,6 +11,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Navigation.IBase-84e3f965.h>
 #include <Fuse.Node.h>
@@ -25,7 +26,6 @@
 #include <Uno.Collections.IList-1.h>
 #include <Uno.UX.IPropertyListener.h>
 namespace g{namespace Fuse{namespace Controls{struct WebView;}}}
-namespace g{namespace Fuse{namespace Scripting{struct Context;}}}
 namespace g{namespace Uno{namespace UX{struct FileSource;}}}
 namespace g{namespace Uno{namespace UX{struct Selector;}}}
 namespace g{namespace Uno{struct EventArgs;}}
@@ -38,10 +38,10 @@ namespace Controls{
 // {
 struct WebView_type : ::g::Fuse::Controls::Panel_type
 {
-    ::g::Fuse::Controls::IWebView interface18;
-    ::g::Fuse::Triggers::IProgress interface19;
-    ::g::Fuse::Navigation::IBaseNavigation interface20;
-    ::g::Fuse::Controls::ISourceReceiver interface21;
+    ::g::Fuse::Controls::IWebView interface19;
+    ::g::Fuse::Triggers::IProgress interface20;
+    ::g::Fuse::Navigation::IBaseNavigation interface21;
+    ::g::Fuse::Controls::ISourceReceiver interface22;
 };
 
 WebView_type* WebView_typeof();
@@ -57,13 +57,13 @@ void WebView__Eval_fn(WebView* __this, uString* js);
 void WebView__Eval1_fn(WebView* __this, uString* js, uDelegate* resultHandler);
 void WebView__get_File_fn(WebView* __this, ::g::Uno::UX::FileSource** __retval);
 void WebView__set_File_fn(WebView* __this, ::g::Uno::UX::FileSource* value);
-void WebView__goBack_fn(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
+void WebView__goBack_fn(WebView* view);
 void WebView__GoBack_fn(WebView* __this);
-void WebView__goForward_fn(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
+void WebView__goForward_fn(WebView* view);
 void WebView__GoForward_fn(WebView* __this);
 void WebView__add_HistoryChanged_fn(WebView* __this, uDelegate* value);
 void WebView__remove_HistoryChanged_fn(WebView* __this, uDelegate* value);
-void WebView__loadHtml_fn(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
+void WebView__loadHtml_fn(WebView* view, uArray* args);
 void WebView__LoadHtml_fn(WebView* __this, uString* html);
 void WebView__LoadHtml1_fn(WebView* __this, uString* html, uString* baseUrl);
 void WebView__LoadUrl_fn(WebView* __this, uString* url);
@@ -80,16 +80,16 @@ void WebView__PreprocUriScheme_fn(uString* inScheme, uString** __retval);
 void WebView__get_Progress_fn(WebView* __this, double* __retval);
 void WebView__add_ProgressChanged_fn(WebView* __this, uDelegate* value);
 void WebView__remove_ProgressChanged_fn(WebView* __this, uDelegate* value);
-void WebView__reload_fn(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
+void WebView__reload_fn(WebView* view);
 void WebView__Reload_fn(WebView* __this);
 void WebView__get_ScrollEnabled_fn(WebView* __this, bool* __retval);
 void WebView__set_ScrollEnabled_fn(WebView* __this, bool* value);
-void WebView__setBaseUrl_fn(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
-void WebView__setUrl_fn(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
+void WebView__setBaseUrl_fn(WebView* view, uArray* args);
+void WebView__setUrl_fn(WebView* view, uArray* args);
 void WebView__SetUrl_fn(WebView* __this, uString* value, uObject* origin);
 void WebView__get_Source_fn(WebView* __this, uString** __retval);
 void WebView__set_Source_fn(WebView* __this, uString* value);
-void WebView__stop_fn(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
+void WebView__stop_fn(WebView* view);
 void WebView__Stop_fn(WebView* __this);
 void WebView__UpdateRestState_fn(WebView* __this);
 void WebView__add_URISchemeHandler_fn(WebView* __this, uDelegate* value);
@@ -162,14 +162,14 @@ struct WebView : ::g::Fuse::Controls::Panel
     void WebViewClient(uObject* value);
     bool ZoomEnabled();
     void ZoomEnabled(bool value);
-    static void goBack(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
-    static void goForward(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
-    static void loadHtml(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
+    static void goBack(WebView* view);
+    static void goForward(WebView* view);
+    static void loadHtml(WebView* view, uArray* args);
     static uString* PreprocUriScheme(uString* inScheme);
-    static void reload(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
-    static void setBaseUrl(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
-    static void setUrl(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
-    static void stop(::g::Fuse::Scripting::Context* c, WebView* view, uArray* args);
+    static void reload(WebView* view);
+    static void setBaseUrl(WebView* view, uArray* args);
+    static void setUrl(WebView* view, uArray* args);
+    static void stop(WebView* view);
 };
 // }
 

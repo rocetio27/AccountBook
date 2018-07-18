@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Guid.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Guid.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -14,7 +14,7 @@ uStructType* Guid_typeof();
 void Guid__ctor__fn(Guid* __this, uArray* bytes);
 void Guid__Equals_fn(Guid* __this, uType* __type, uObject* other, bool* __retval);
 void Guid__Equals2_fn(Guid* __this, Guid* other, bool* __retval);
-void Guid__GetHashCode_fn(Guid* __this, uType* __type, int* __retval);
+void Guid__GetHashCode_fn(Guid* __this, uType* __type, int32_t* __retval);
 void Guid__New1_fn(uArray* bytes, Guid* __retval);
 void Guid__ToString_fn(Guid* __this, uType* __type, uString** __retval);
 
@@ -37,7 +37,7 @@ struct Guid
     void ctor_(uArray* bytes);
     bool Equals(uType* __type, uObject* other) { bool __retval; return Guid__Equals_fn(this, __type, other, &__retval), __retval; }
     bool Equals2(Guid other);
-    int GetHashCode(uType* __type) { int __retval; return Guid__GetHashCode_fn(this, __type, &__retval), __retval; }
+    int32_t GetHashCode(uType* __type) { int32_t __retval; return Guid__GetHashCode_fn(this, __type, &__retval), __retval; }
     uString* ToString(uType* __type) { uString* __retval; return Guid__ToString_fn(this, __type, &__retval), __retval; }
 };
 

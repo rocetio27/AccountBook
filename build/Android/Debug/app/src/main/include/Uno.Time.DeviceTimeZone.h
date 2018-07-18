@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Time/Timezones/DeviceTimeZone.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Time/Timezones/DeviceTimeZone.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -15,7 +15,7 @@ namespace Time{
 // {
 ::g::Uno::Time::DateTimeZone_type* DeviceTimeZone_typeof();
 void DeviceTimeZone__EqualsImpl_fn(DeviceTimeZone* __this, ::g::Uno::Time::DateTimeZone* other, bool* __retval);
-void DeviceTimeZone__GetHashCode_fn(DeviceTimeZone* __this, int* __retval);
+void DeviceTimeZone__GetHashCode_fn(DeviceTimeZone* __this, int32_t* __retval);
 void DeviceTimeZone__GetUtcOffset_fn(DeviceTimeZone* __this, ::g::Uno::Time::LocalDateTime* dateTime, ::g::Uno::Time::Offset* __retval);
 void DeviceTimeZone__ToString_fn(DeviceTimeZone* __this, uString** __retval);
 

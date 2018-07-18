@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Net.Http/1.4.3/HttpMessageHandlerRequest.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Net.Http/1.9.0/HttpMessageHandlerRequest.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Time/CalendarSystem.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Time/CalendarSystem.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -16,16 +16,16 @@ namespace Time{
 // public sealed class CalendarSystem :6
 // {
 uType* CalendarSystem_typeof();
-void CalendarSystem__ctor__fn(CalendarSystem* __this, uString* id, uString* name, ::g::Uno::Time::Calendars::YearMonthDayCalculator* yearMonthDayCalculator, int* minDaysInFirstWeek);
-void CalendarSystem__GetDayOfMonth_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int* __retval);
-void CalendarSystem__GetHourOfDay_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int* __retval);
-void CalendarSystem__GetInstant_fn(CalendarSystem* __this, int* year, int* monthOfYear, int* dayOfMonth, int* hourOfDay, int* minuteOfHour, ::g::Uno::Time::Instant* __retval);
-void CalendarSystem__GetMinuteOfHour_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int* __retval);
-void CalendarSystem__GetMonthOfYear_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int* __retval);
-void CalendarSystem__GetSecondOfMinute_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int* __retval);
-void CalendarSystem__GetYear_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int* __retval);
+void CalendarSystem__ctor__fn(CalendarSystem* __this, uString* id, uString* name, ::g::Uno::Time::Calendars::YearMonthDayCalculator* yearMonthDayCalculator, int32_t* minDaysInFirstWeek);
+void CalendarSystem__GetDayOfMonth_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int32_t* __retval);
+void CalendarSystem__GetHourOfDay_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int32_t* __retval);
+void CalendarSystem__GetInstant_fn(CalendarSystem* __this, int32_t* year, int32_t* monthOfYear, int32_t* dayOfMonth, int32_t* hourOfDay, int32_t* minuteOfHour, ::g::Uno::Time::Instant* __retval);
+void CalendarSystem__GetMinuteOfHour_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int32_t* __retval);
+void CalendarSystem__GetMonthOfYear_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int32_t* __retval);
+void CalendarSystem__GetSecondOfMinute_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int32_t* __retval);
+void CalendarSystem__GetYear_fn(CalendarSystem* __this, ::g::Uno::Time::Instant* instant, int32_t* __retval);
 void CalendarSystem__get_Iso_fn(CalendarSystem** __retval);
-void CalendarSystem__New1_fn(uString* id, uString* name, ::g::Uno::Time::Calendars::YearMonthDayCalculator* yearMonthDayCalculator, int* minDaysInFirstWeek, CalendarSystem** __retval);
+void CalendarSystem__New1_fn(uString* id, uString* name, ::g::Uno::Time::Calendars::YearMonthDayCalculator* yearMonthDayCalculator, int32_t* minDaysInFirstWeek, CalendarSystem** __retval);
 void CalendarSystem__ToString_fn(CalendarSystem* __this, uString** __retval);
 
 struct CalendarSystem : uObject
@@ -37,20 +37,20 @@ struct CalendarSystem : uObject
     uStrong<uString*> _id;
     uStrong<uString*> _name;
     uStrong<uArray*> _eras;
-    int _minYear;
-    int _maxYear;
+    int32_t _minYear;
+    int32_t _maxYear;
     int64_t _minTicks;
     int64_t _maxTicks;
 
-    void ctor_(uString* id, uString* name, ::g::Uno::Time::Calendars::YearMonthDayCalculator* yearMonthDayCalculator, int minDaysInFirstWeek);
-    int GetDayOfMonth(::g::Uno::Time::Instant instant);
-    int GetHourOfDay(::g::Uno::Time::Instant instant);
-    ::g::Uno::Time::Instant GetInstant(int year, int monthOfYear, int dayOfMonth, int hourOfDay, int minuteOfHour);
-    int GetMinuteOfHour(::g::Uno::Time::Instant instant);
-    int GetMonthOfYear(::g::Uno::Time::Instant instant);
-    int GetSecondOfMinute(::g::Uno::Time::Instant instant);
-    int GetYear(::g::Uno::Time::Instant instant);
-    static CalendarSystem* New1(uString* id, uString* name, ::g::Uno::Time::Calendars::YearMonthDayCalculator* yearMonthDayCalculator, int minDaysInFirstWeek);
+    void ctor_(uString* id, uString* name, ::g::Uno::Time::Calendars::YearMonthDayCalculator* yearMonthDayCalculator, int32_t minDaysInFirstWeek);
+    int32_t GetDayOfMonth(::g::Uno::Time::Instant instant);
+    int32_t GetHourOfDay(::g::Uno::Time::Instant instant);
+    ::g::Uno::Time::Instant GetInstant(int32_t year, int32_t monthOfYear, int32_t dayOfMonth, int32_t hourOfDay, int32_t minuteOfHour);
+    int32_t GetMinuteOfHour(::g::Uno::Time::Instant instant);
+    int32_t GetMonthOfYear(::g::Uno::Time::Instant instant);
+    int32_t GetSecondOfMinute(::g::Uno::Time::Instant instant);
+    int32_t GetYear(::g::Uno::Time::Instant instant);
+    static CalendarSystem* New1(uString* id, uString* name, ::g::Uno::Time::Calendars::YearMonthDayCalculator* yearMonthDayCalculator, int32_t minDaysInFirstWeek);
     static CalendarSystem* Iso();
 };
 // }

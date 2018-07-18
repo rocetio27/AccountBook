@@ -99,7 +99,7 @@ void JSList::FromJava(::g::Java::Object* ary)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "FromJava399", "(Lcom/uno/UnoObject;Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "FromJava393", "(Lcom/uno/UnoObject;Ljava/lang/Object;)V");
         uObject* _uthis=this;
         jobject _this_ = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uthis);
         ::g::Java::Object* _uary=ary;

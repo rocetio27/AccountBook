@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/EditButton.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/EditButton.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -9,6 +9,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -32,11 +33,11 @@ namespace g{
 // {
 ::g::Fuse::Controls::Panel_type* EditButton_typeof();
 void EditButton__ctor_9_fn(EditButton* __this);
-void EditButton__get_fontsize_fn(EditButton* __this, int* __retval);
-void EditButton__set_fontsize_fn(EditButton* __this, int* value);
+void EditButton__get_fontsize_fn(EditButton* __this, int32_t* __retval);
+void EditButton__set_fontsize_fn(EditButton* __this, int32_t* value);
 void EditButton__InitializeUX1_fn(EditButton* __this);
 void EditButton__New6_fn(EditButton** __retval);
-void EditButton__Setfontsize_fn(EditButton* __this, int* value, uObject* origin);
+void EditButton__Setfontsize_fn(EditButton* __this, int32_t* value, uObject* origin);
 void EditButton__Settext_fn(EditButton* __this, uString* value, uObject* origin);
 void EditButton__Settextcolor_fn(EditButton* __this, ::g::Uno::Float4* value, uObject* origin);
 void EditButton__get_text_fn(EditButton* __this, uString** __retval);
@@ -48,7 +49,7 @@ struct EditButton : ::g::Fuse::Controls::Button
 {
     uStrong<uString*> _field_text;
     ::g::Uno::Float4 _field_textcolor;
-    int _field_fontsize;
+    int32_t _field_fontsize;
     uStrong< ::g::Uno::UX::Property1*> back_Color_inst;
     uStrong< ::g::Uno::UX::Property1*> temp_Value_inst;
     uStrong< ::g::Uno::UX::Property1*> temp_Color_inst;
@@ -64,10 +65,10 @@ struct EditButton : ::g::Fuse::Controls::Button
     static ::g::Uno::UX::Selector& __selector3() { return EditButton_typeof()->Init(), __selector3_; }
 
     void ctor_9();
-    int fontsize();
-    void fontsize(int value);
+    int32_t fontsize();
+    void fontsize(int32_t value);
     void InitializeUX1();
-    void Setfontsize(int value, uObject* origin);
+    void Setfontsize(int32_t value, uObject* origin);
     void Settext(uString* value, uObject* origin);
     void Settextcolor(::g::Uno::Float4 value, uObject* origin);
     uString* text();

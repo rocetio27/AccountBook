@@ -61,7 +61,7 @@ void SQLiteImpl::CloseImpl(::g::Java::Object* db)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CloseImpl401", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CloseImpl395", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _udb=db;
         jobject _db = (_udb==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_udb, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_db);
@@ -79,7 +79,7 @@ void SQLiteImpl::ExecImpl(::g::Java::Object* db, uString* statement, uArray* par
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "ExecImpl402", "(Ljava/lang/Object;Ljava/lang/String;Lcom/uno/StringArray;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "ExecImpl396", "(Ljava/lang/Object;Ljava/lang/String;Lcom/uno/StringArray;)V");
         ::g::Java::Object* _udb=db;
         jobject _db = (_udb==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_udb, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         uString* _ustatement=statement;
@@ -103,7 +103,7 @@ void SQLiteImpl::ExecImpl(::g::Java::Object* db, uString* statement, uArray* par
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "OpenImpl403", "(Ljava/lang/String;)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "OpenImpl397", "(Ljava/lang/String;)Ljava/lang/Object;");
         uString* _ufilename=filename;
         jstring _filename = JniHelper::UnoToJavaString(_ufilename);
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd,_filename);
@@ -121,7 +121,7 @@ void SQLiteImpl::QueryImpl(::g::Bolav::ForeignHelpers::ForeignList* fl, ::g::Jav
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "QueryImpl404", "(Lcom/uno/UnoObject;Ljava/lang/Object;Ljava/lang/String;Lcom/uno/StringArray;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "QueryImpl398", "(Lcom/uno/UnoObject;Ljava/lang/Object;Ljava/lang/String;Lcom/uno/StringArray;)V");
         ::g::Bolav::ForeignHelpers::ForeignList* _ufl=fl;
         jobject _fl = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_ufl);
         ::g::Java::Object* _udb=db;

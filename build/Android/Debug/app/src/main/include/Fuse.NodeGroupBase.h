@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/NodeGroup.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/NodeGroup.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -6,6 +6,7 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Fuse.TemplateSourceImpl.h>
 #include <Uno.Collections.ICollection-1.h>
@@ -22,10 +23,9 @@ namespace Fuse{
 // public abstract class NodeGroupBase :16
 // {
 ::g::Fuse::Node_type* NodeGroupBase_typeof();
-void NodeGroupBase__ctor_3_fn(NodeGroupBase* __this, int* flags);
+void NodeGroupBase__ctor_3_fn(NodeGroupBase* __this, int32_t* flags);
 void NodeGroupBase__AddContent_fn(NodeGroupBase* __this);
-void NodeGroupBase__GetLastNodeInGroup_fn(NodeGroupBase* __this, ::g::Fuse::Node** __retval);
-void NodeGroupBase__get_NodeCount_fn(NodeGroupBase* __this, int* __retval);
+void NodeGroupBase__get_NodeCount_fn(NodeGroupBase* __this, int32_t* __retval);
 void NodeGroupBase__get_Nodes_fn(NodeGroupBase* __this, uObject** __retval);
 void NodeGroupBase__OnNodeAdded_fn(NodeGroupBase* __this, ::g::Fuse::Node* n);
 void NodeGroupBase__OnNodeRemoved_fn(NodeGroupBase* __this, ::g::Fuse::Node* n);
@@ -47,9 +47,9 @@ struct NodeGroupBase : ::g::Fuse::Behavior
     bool _contentAdded;
     uStrong<uArray*> _addedNodes;
 
-    void ctor_3(int flags);
+    void ctor_3(int32_t flags);
     void AddContent();
-    int NodeCount();
+    int32_t NodeCount();
     uObject* Nodes();
     void OnNodeAdded(::g::Fuse::Node* n);
     void OnNodeRemoved(::g::Fuse::Node* n);

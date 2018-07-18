@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/BudgetPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/BudgetPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-5df6c8c5.h>
@@ -18,6 +18,7 @@
 #include <Fuse.Reactive.Data.h>
 #include <Fuse.Reactive.DataBinding.h>
 #include <Fuse.Reactive.EventBinding.h>
+#include <Fuse.Reactive.Expression.h>
 #include <Fuse.Reactive.IExpression.h>
 #include <Fuse.Visual.h>
 #include <Uno.Bool.h>
@@ -27,20 +28,19 @@
 #include <Uno.Object.h>
 #include <Uno.String.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Selector.h>
-static uString* STRINGS[4];
+static uString* STRINGS[5];
 static uType* TYPES[3];
 
 namespace g{
 
-// public partial sealed class BudgetPage.Template1 :38
+// public partial sealed class BudgetPage.Template1 :43
 // {
-// static Template1() :49
+// static Template1() :54
 static void BudgetPage__Template1__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    BudgetPage__Template1::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"Value"*/]);
+    BudgetPage__Template1::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"Value"*/]);
 }
 
 static void BudgetPage__Template1_build(uType* type)
@@ -48,12 +48,11 @@ static void BudgetPage__Template1_build(uType* type)
     ::STRINGS[0] = uString::Const("Value");
     ::STRINGS[1] = uString::Const("title");
     ::STRINGS[2] = uString::Const("TitleEntryOk");
-    ::STRINGS[3] = uString::Const("OK");
+    ::STRINGS[3] = uString::Const("BudgetPage.ux");
+    ::STRINGS[4] = uString::Const("OK");
     ::TYPES[0] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL);
     ::TYPES[1] = ::g::Fuse::Gestures::ClickedHandler_typeof();
     ::TYPES[2] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL);
-    type->SetDependencies(
-        ::g::Fuse::Controls::Grid_typeof());
     type->SetFields(2,
         ::g::BudgetPage_typeof(), offsetof(BudgetPage__Template1, __parent1), uFieldFlagsWeak,
         ::g::BudgetPage_typeof(), offsetof(BudgetPage__Template1, __parentInstance1), uFieldFlagsWeak,
@@ -70,7 +69,6 @@ static void BudgetPage__Template1_build(uType* type)
     uTypeOptions options;
     options.BaseDefinition = ::g::Uno::UX::Template_typeof();
     options.FieldCount = 7;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(BudgetPage__Template1);
     options.TypeSize = sizeof(::g::Uno::UX::Template_type);
     type = (::g::Uno::UX::Template_type*)uClassType::New("BudgetPage.Template1", options);
@@ -80,13 +78,13 @@ static void BudgetPage__Template1_build(uType* type)
     return type;
 }
 
-// public Template1(BudgetPage parent, BudgetPage parentInstance) :42
+// public Template1(BudgetPage parent, BudgetPage parentInstance) :47
 void BudgetPage__Template1__ctor_1_fn(BudgetPage__Template1* __this, ::g::BudgetPage* parent, ::g::BudgetPage* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :52
+// public override sealed object New() :57
 void BudgetPage__Template1__New1_fn(BudgetPage__Template1* __this, uObject** __retval)
 {
     ::g::Fuse::Controls::Grid* __self1 = ::g::Fuse::Controls::Grid::New4();
@@ -98,18 +96,28 @@ void BudgetPage__Template1__New1_fn(BudgetPage__Template1* __this, uObject** __r
     ::g::wbButtonB* temp4 = ::g::wbButtonB::New6();
     __this->temp_eb1 = ::g::Fuse::Reactive::EventBinding::New1((uObject*)temp2);
     __self1->ColumnCount(6);
+    __self1->SourceLineNumber(34);
+    __self1->SourceFileName(::STRINGS[3/*"BudgetPage.ux"*/]);
     ::g::Fuse::Controls::Grid::SetColumnSpan(__self1, 3);
+    temp->SourceLineNumber(35);
+    temp->SourceFileName(::STRINGS[3/*"BudgetPage.ux"*/]);
     ::g::Fuse::Controls::Grid::SetColumnSpan(temp, 5);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Bindings()), ::TYPES[0/*Uno.Collections.ICollection<Fuse.Binding>*/]), temp3);
-    temp4->Text(::STRINGS[3/*"OK"*/]);
+    temp1->SourceLineNumber(35);
+    temp1->SourceFileName(::STRINGS[3/*"BudgetPage.ux"*/]);
+    temp4->Text(::STRINGS[4/*"OK"*/]);
+    temp4->SourceLineNumber(36);
+    temp4->SourceFileName(::STRINGS[3/*"BudgetPage.ux"*/]);
     ::g::Fuse::Gestures::Clicked::AddHandler(temp4, uDelegate::New(::TYPES[1/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb1)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp4->Bindings()), ::TYPES[0/*Uno.Collections.ICollection<Fuse.Binding>*/]), __this->temp_eb1);
+    temp2->SourceLineNumber(36);
+    temp2->SourceFileName(::STRINGS[3/*"BudgetPage.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Node>*/]), temp);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Node>*/]), temp4);
     return *__retval = __self1, void();
 }
 
-// public Template1 New(BudgetPage parent, BudgetPage parentInstance) :42
+// public Template1 New(BudgetPage parent, BudgetPage parentInstance) :47
 void BudgetPage__Template1__New2_fn(::g::BudgetPage* parent, ::g::BudgetPage* parentInstance, BudgetPage__Template1** __retval)
 {
     *__retval = BudgetPage__Template1::New2(parent, parentInstance);
@@ -117,7 +125,7 @@ void BudgetPage__Template1__New2_fn(::g::BudgetPage* parent, ::g::BudgetPage* pa
 
 ::g::Uno::UX::Selector BudgetPage__Template1::__selector0_;
 
-// public Template1(BudgetPage parent, BudgetPage parentInstance) [instance] :42
+// public Template1(BudgetPage parent, BudgetPage parentInstance) [instance] :47
 void BudgetPage__Template1::ctor_1(::g::BudgetPage* parent, ::g::BudgetPage* parentInstance)
 {
     ctor_(NULL, false);
@@ -125,7 +133,7 @@ void BudgetPage__Template1::ctor_1(::g::BudgetPage* parent, ::g::BudgetPage* par
     __parentInstance1 = parentInstance;
 }
 
-// public Template1 New(BudgetPage parent, BudgetPage parentInstance) [static] :42
+// public Template1 New(BudgetPage parent, BudgetPage parentInstance) [static] :47
 BudgetPage__Template1* BudgetPage__Template1::New2(::g::BudgetPage* parent, ::g::BudgetPage* parentInstance)
 {
     BudgetPage__Template1* obj1 = (BudgetPage__Template1*)uNew(BudgetPage__Template1_typeof());

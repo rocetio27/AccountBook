@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Android/1.4.2/StatusBarConfig.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Android/1.9.0/StatusBarConfig.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -13,12 +13,12 @@ namespace Android{
 // {
 uClassType* StatusBarHelper_typeof();
 void StatusBarHelper__InstallGlobalListener_fn();
-void StatusBarHelper__SetStatusBarColor_fn(int* color, bool* __retval);
+void StatusBarHelper__SetStatusBarColor_fn(int32_t* color, bool* __retval);
 
 struct StatusBarHelper : uObject
 {
     static void InstallGlobalListener();
-    static bool SetStatusBarColor(int color);
+    static bool SetStatusBarColor(int32_t color);
 };
 // }
 

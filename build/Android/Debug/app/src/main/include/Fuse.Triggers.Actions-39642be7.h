@@ -1,7 +1,8 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls/1.4.2/Triggers/BringToFront.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls/1.9.0/Triggers/BringToFront.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Triggers.Actions-fcab7e57.h>
 namespace g{namespace Fuse{namespace Triggers{namespace Actions{struct BringToFront;}}}}
 namespace g{namespace Fuse{struct Node;}}

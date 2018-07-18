@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/Shapes/Star.Surface.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/Shapes/Star.Surface.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -10,6 +10,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -33,8 +34,8 @@ namespace Controls{
 // {
 ::g::Fuse::Controls::Shape_type* Star_typeof();
 void Star__CreateSurfacePath_fn(Star* __this, ::g::Fuse::Drawing::Surface* surface, ::g::Fuse::Drawing::SurfacePath** __retval);
-void Star__get_Points_fn(Star* __this, int* __retval);
-void Star__set_Points_fn(Star* __this, int* value);
+void Star__get_Points_fn(Star* __this, int32_t* __retval);
+void Star__set_Points_fn(Star* __this, int32_t* value);
 void Star__get_Ratio_fn(Star* __this, float* __retval);
 void Star__set_Ratio_fn(Star* __this, float* value);
 void Star__get_RotationRadians_fn(Star* __this, float* __retval);
@@ -43,13 +44,13 @@ void Star__set_RoundRatio_fn(Star* __this, float* value);
 
 struct Star : ::g::Fuse::Controls::Shape
 {
-    int _points;
+    int32_t _points;
     float _ratio;
     float _roundRatio;
     float _degrees;
 
-    int Points();
-    void Points(int value);
+    int32_t Points();
+    void Points(int32_t value);
     float Ratio();
     void Ratio(float value);
     float RotationRadians();

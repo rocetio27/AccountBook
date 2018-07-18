@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/TextControls/MobileTextEdit.Forwarding.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/TextControls/MobileTextEdit.Forwarding.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -10,6 +10,7 @@
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.Input.INotifyFocus.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -34,8 +35,8 @@ namespace Controls{
 // {
 struct MobileTextEdit_type : ::g::Fuse::Controls::TextEdit_type
 {
-    ::g::Fuse::Controls::Native::ITextEditHost interface18;
-    ::g::Fuse::Input::INotifyFocus interface19;
+    ::g::Fuse::Controls::Native::ITextEditHost interface19;
+    ::g::Fuse::Input::INotifyFocus interface20;
 };
 
 MobileTextEdit_type* MobileTextEdit_typeof();
@@ -44,7 +45,7 @@ void MobileTextEdit__DisableRenderToTexture_fn(MobileTextEdit* __this);
 void MobileTextEdit__EnabledRenderToTexture_fn(MobileTextEdit* __this);
 void MobileTextEdit__FuseControlsNativeITextEditHostOnFocusGained_fn(MobileTextEdit* __this);
 void MobileTextEdit__FuseControlsNativeITextEditHostOnFocusLost_fn(MobileTextEdit* __this);
-void MobileTextEdit__FuseControlsNativeITextEditHostOnInputAction_fn(MobileTextEdit* __this, int* type, bool* __retval);
+void MobileTextEdit__FuseControlsNativeITextEditHostOnInputAction_fn(MobileTextEdit* __this, int32_t* type, bool* __retval);
 void MobileTextEdit__FuseControlsNativeITextEditHostOnValueChanged_fn(MobileTextEdit* __this, uString* newValue);
 void MobileTextEdit__FuseInputINotifyFocusOnFocusGained_fn(MobileTextEdit* __this);
 void MobileTextEdit__FuseInputINotifyFocusOnFocusLost_fn(MobileTextEdit* __this);

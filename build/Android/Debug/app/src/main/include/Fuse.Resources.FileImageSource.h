@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/Resources/FileImageSource.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/Resources/FileImageSource.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -29,12 +29,12 @@ void FileImageSource__GetTexture_fn(FileImageSource* __this, ::g::Uno::Graphics:
 void FileImageSource__New2_fn(FileImageSource** __retval);
 void FileImageSource__New3_fn(::g::Uno::UX::FileSource* file, FileImageSource** __retval);
 void FileImageSource__OnPinChanged_fn(FileImageSource* __this);
-void FileImageSource__get_Orientation_fn(FileImageSource* __this, int* __retval);
+void FileImageSource__get_Orientation_fn(FileImageSource* __this, int32_t* __retval);
 void FileImageSource__get_PixelSize_fn(FileImageSource* __this, ::g::Uno::Int2* __retval);
 void FileImageSource__Reload_fn(FileImageSource* __this);
 void FileImageSource__get_Size_fn(FileImageSource* __this, ::g::Uno::Float2* __retval);
 void FileImageSource__get_SizeDensity_fn(FileImageSource* __this, float* __retval);
-void FileImageSource__get_State_fn(FileImageSource* __this, int* __retval);
+void FileImageSource__get_State_fn(FileImageSource* __this, int32_t* __retval);
 
 struct FileImageSource : ::g::Fuse::Resources::ImageSource
 {

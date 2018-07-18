@@ -38,7 +38,7 @@ namespace Fuse{
 namespace Motion{
 namespace Simulation{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\AngularAdapter.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\AngularAdapter.uno
 // -------------------------------------------------------------------------------------------------------
 
 // internal sealed class AdapterMultiplier<T> :92
@@ -49,8 +49,6 @@ static void AdapterMultiplier_build(uType* type)
     ::TYPES[1] = ::g::Fuse::Motion::Simulation::DestinationSimulation_typeof();
     ::TYPES[2] = ::g::Fuse::Motion::Simulation::Simulation_typeof();
     ::TYPES[3] = ::g::Fuse::Motion::Simulation::MotionSimulation_typeof();
-    type->SetDependencies(
-        ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(1/*GetScalar<T>*/, type->T(0), NULL));
     type->SetPrecalc(
         ::g::Fuse::Motion::Simulation::DestinationSimulation_typeof()->MakeType(type->T(0), NULL),
         ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(1/*GetScalar<T>*/, type->T(0), NULL),
@@ -74,7 +72,6 @@ AdapterMultiplier_type* AdapterMultiplier_typeof()
     options.FieldCount = 3;
     options.GenericCount = 1;
     options.InterfaceCount = 3;
-    options.DependencyCount = 1;
     options.PrecalcCount = 3;
     options.ObjectSize = sizeof(AdapterMultiplier);
     options.TypeSize = sizeof(AdapterMultiplier_type);
@@ -250,7 +247,7 @@ AdapterMultiplier* AdapterMultiplier::New1(uType* __type, uObject* impl, double 
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\AngularAdapter.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\AngularAdapter.uno
 // -------------------------------------------------------------------------------------------------------
 
 // internal sealed class AngularAdapter<T> :8
@@ -262,7 +259,7 @@ static void AngularAdapter_build(uType* type)
     ::TYPES[2] = ::g::Fuse::Motion::Simulation::Simulation_typeof();
     ::TYPES[3] = ::g::Fuse::Motion::Simulation::MotionSimulation_typeof();
     type->SetDependencies(
-        ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(1/*GetScalar<T>*/, type->T(0), NULL));
+        ::g::Uno::Math_typeof());
     type->SetPrecalc(
         ::g::Fuse::Motion::Simulation::DestinationSimulation_typeof()->MakeType(type->T(0), NULL),
         ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(1/*GetScalar<T>*/, type->T(0), NULL),
@@ -475,7 +472,7 @@ AngularAdapter* AngularAdapter::New1(uType* __type, uObject* impl)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\BoundedRegion2D.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\BoundedRegion2D.uno
 // --------------------------------------------------------------------------------------------------------
 
 // internal sealed class BasicBoundedRegion2D :31
@@ -483,8 +480,7 @@ AngularAdapter* AngularAdapter::New1(uType* __type, uObject* impl)
 static void BasicBoundedRegion2D_build(uType* type)
 {
     type->SetDependencies(
-        ::g::Fuse::Motion::Simulation::Friction_typeof()->MakeType(::g::Uno::Float2_typeof(), NULL),
-        ::g::Fuse::Motion::Simulation::SmoothSnap_typeof()->MakeType(::g::Uno::Float2_typeof(), NULL));
+        ::g::Uno::Math_typeof());
     type->SetInterfaces(
         ::g::Fuse::Motion::Simulation::BoundedRegion2D_typeof(), offsetof(BasicBoundedRegion2D_type, interface0),
         ::g::Fuse::Motion::Simulation::MotionSimulation_typeof()->MakeType(::g::Uno::Float2_typeof(), NULL), offsetof(BasicBoundedRegion2D_type, interface1),
@@ -510,7 +506,7 @@ BasicBoundedRegion2D_type* BasicBoundedRegion2D_typeof()
     uTypeOptions options;
     options.FieldCount = 10;
     options.InterfaceCount = 3;
-    options.DependencyCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(BasicBoundedRegion2D);
     options.TypeSize = sizeof(BasicBoundedRegion2D_type);
     type = (BasicBoundedRegion2D_type*)uClassType::New("Fuse.Motion.Simulation.BasicBoundedRegion2D", options);
@@ -657,13 +653,13 @@ void BasicBoundedRegion2D__New1_fn(BasicBoundedRegion2D** __retval)
 }
 
 // public Fuse.Motion.OverflowType get_Overflow() :407
-void BasicBoundedRegion2D__get_Overflow_fn(BasicBoundedRegion2D* __this, int* __retval)
+void BasicBoundedRegion2D__get_Overflow_fn(BasicBoundedRegion2D* __this, int32_t* __retval)
 {
     *__retval = __this->Overflow();
 }
 
 // public void set_Overflow(Fuse.Motion.OverflowType value) :408
-void BasicBoundedRegion2D__set_Overflow_fn(BasicBoundedRegion2D* __this, int* value)
+void BasicBoundedRegion2D__set_Overflow_fn(BasicBoundedRegion2D* __this, int32_t* value)
 {
     __this->Overflow(*value);
 }
@@ -981,13 +977,13 @@ void BasicBoundedRegion2D::MoveTo(::g::Uno::Float2 target)
 }
 
 // public Fuse.Motion.OverflowType get_Overflow() [instance] :407
-int BasicBoundedRegion2D::Overflow()
+int32_t BasicBoundedRegion2D::Overflow()
 {
     return _overflow;
 }
 
 // public void set_Overflow(Fuse.Motion.OverflowType value) [instance] :408
-void BasicBoundedRegion2D::Overflow(int value)
+void BasicBoundedRegion2D::Overflow(int32_t value)
 {
     _overflow = value;
 }
@@ -1181,7 +1177,7 @@ BasicBoundedRegion2D* BasicBoundedRegion2D::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\BoundedRegion2D.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\BoundedRegion2D.uno
 // --------------------------------------------------------------------------------------------------------
 
 // internal abstract interface BoundedRegion2D :7
@@ -1196,7 +1192,7 @@ uInterfaceType* BoundedRegion2D_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\Simulation.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\Simulation.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal abstract interface DestinationSimulation<T> :25
@@ -1211,7 +1207,7 @@ uInterfaceType* DestinationSimulation_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\EasingMotion.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\EasingMotion.uno
 // -----------------------------------------------------------------------------------------------------
 
 // internal sealed class EasingMotion<T> :7
@@ -1222,7 +1218,7 @@ static void EasingMotion_build(uType* type)
     ::TYPES[0] = ::g::Fuse::Internal::BlenderMap_typeof();
     type->SetDependencies(
         ::g::Fuse::Animations::Easing_typeof(),
-        ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(0/*Get<T>*/, type->T(0), NULL));
+        ::g::Uno::Math_typeof());
     type->SetPrecalc(
         ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(0/*Get<T>*/, type->T(0), NULL));
     type->SetInterfaces(
@@ -1304,7 +1300,7 @@ void EasingMotion__CreateRadians_fn(uType* __type, EasingMotion** __retval)
 }
 
 // public static Fuse.Motion.Simulation.EasingMotion<T> CreateUnit(Fuse.Motion.MotionUnit unit) :33
-void EasingMotion__CreateUnit_fn(uType* __type, int* unit, EasingMotion** __retval)
+void EasingMotion__CreateUnit_fn(uType* __type, int32_t* unit, EasingMotion** __retval)
 {
     *__retval = EasingMotion::CreateUnit(__type, *unit);
 }
@@ -1458,7 +1454,7 @@ void EasingMotion::ctor_()
     _blender = ((::g::Fuse::Internal::Blender*)::g::Fuse::Internal::BlenderMap::Get(__types[0]));
     _isDirty = true;
     _isStatic = true;
-    _easing = ::g::Fuse::Animations::Easing::Linear_;
+    _easing = ::g::Fuse::Animations::Easing::Linear();
     _progress = 1.0;
     _progressSpeed = 0.0;
     _transitionTime = 1.0;
@@ -1652,7 +1648,7 @@ EasingMotion* EasingMotion::CreateRadians(uType* __type)
 }
 
 // public static Fuse.Motion.Simulation.EasingMotion<T> CreateUnit(Fuse.Motion.MotionUnit unit) [static] :33
-EasingMotion* EasingMotion::CreateUnit(uType* __type, int unit)
+EasingMotion* EasingMotion::CreateUnit(uType* __type, int32_t unit)
 {
     switch (unit)
     {
@@ -1664,7 +1660,7 @@ EasingMotion* EasingMotion::CreateUnit(uType* __type, int unit)
             return EasingMotion::CreateRadians(__type);
     }
 
-    U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition1(::STRINGS[0/*"Unsupported...*/], uBox<int>(::g::Fuse::Motion::MotionUnit_typeof(), unit))));
+    U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition1(::STRINGS[0/*"Unsupported...*/], uBox<int32_t>(::g::Fuse::Motion::MotionUnit_typeof(), unit))));
 }
 
 // public generated EasingMotion New() [static] :7
@@ -1676,7 +1672,7 @@ EasingMotion* EasingMotion::New1(uType* __type)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\ElasticForce.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\ElasticForce.uno
 // -----------------------------------------------------------------------------------------------------
 
 // internal sealed class ElasticForce<T> :6
@@ -1686,7 +1682,7 @@ static void ElasticForce_build(uType* type)
     ::STRINGS[0] = uString::Const("Unsupported unit type: ");
     ::TYPES[0] = ::g::Fuse::Internal::BlenderMap_typeof();
     type->SetDependencies(
-        ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(0/*Get<T>*/, type->T(0), NULL));
+        ::g::Uno::Math_typeof());
     type->SetPrecalc(
         ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(0/*Get<T>*/, type->T(0), NULL));
     type->SetInterfaces(
@@ -1811,7 +1807,7 @@ void ElasticForce__CreateRadians_fn(uType* __type, ElasticForce** __retval)
 }
 
 // public static Fuse.Motion.Simulation.ElasticForce<T> CreateUnit(Fuse.Motion.MotionUnit unit) :42
-void ElasticForce__CreateUnit_fn(uType* __type, int* unit, ElasticForce** __retval)
+void ElasticForce__CreateUnit_fn(uType* __type, int32_t* unit, ElasticForce** __retval)
 {
     *__retval = ElasticForce::CreateUnit(__type, *unit);
 }
@@ -2167,7 +2163,7 @@ ElasticForce* ElasticForce::CreateRadians(uType* __type)
 }
 
 // public static Fuse.Motion.Simulation.ElasticForce<T> CreateUnit(Fuse.Motion.MotionUnit unit) [static] :42
-ElasticForce* ElasticForce::CreateUnit(uType* __type, int unit)
+ElasticForce* ElasticForce::CreateUnit(uType* __type, int32_t unit)
 {
     switch (unit)
     {
@@ -2179,7 +2175,7 @@ ElasticForce* ElasticForce::CreateUnit(uType* __type, int unit)
             return ElasticForce::CreateRadians(__type);
     }
 
-    U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition1(::STRINGS[0/*"Unsupported...*/], uBox<int>(::g::Fuse::Motion::MotionUnit_typeof(), unit))));
+    U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition1(::STRINGS[0/*"Unsupported...*/], uBox<int32_t>(::g::Fuse::Motion::MotionUnit_typeof(), unit))));
 }
 
 // public ElasticForce New([float scale]) [static] :55
@@ -2191,7 +2187,7 @@ ElasticForce* ElasticForce::New1(uType* __type, float scale)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\Friction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\Friction.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal sealed class Friction<T> :6
@@ -2200,8 +2196,6 @@ static void Friction_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("Unsupported unit type: ");
     ::TYPES[0] = ::g::Fuse::Internal::BlenderMap_typeof();
-    type->SetDependencies(
-        ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(0/*Get<T>*/, type->T(0), NULL));
     type->SetPrecalc(
         ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(0/*Get<T>*/, type->T(0), NULL));
     type->SetInterfaces(
@@ -2227,7 +2221,6 @@ Friction_type* Friction_typeof()
     options.FieldCount = 8;
     options.GenericCount = 1;
     options.InterfaceCount = 2;
-    options.DependencyCount = 1;
     options.PrecalcCount = 1;
     options.ObjectSize = sizeof(Friction);
     options.TypeSize = sizeof(Friction_type);
@@ -2268,7 +2261,7 @@ void Friction__CreateRadians_fn(uType* __type, Friction** __retval)
 }
 
 // public static Fuse.Motion.Simulation.Friction<T> CreateUnit(Fuse.Motion.MotionUnit unit) :39
-void Friction__CreateUnit_fn(uType* __type, int* unit, Friction** __retval)
+void Friction__CreateUnit_fn(uType* __type, int32_t* unit, Friction** __retval)
 {
     *__retval = Friction::CreateUnit(__type, *unit);
 }
@@ -2498,7 +2491,7 @@ Friction* Friction::CreateRadians(uType* __type)
 }
 
 // public static Fuse.Motion.Simulation.Friction<T> CreateUnit(Fuse.Motion.MotionUnit unit) [static] :39
-Friction* Friction::CreateUnit(uType* __type, int unit)
+Friction* Friction::CreateUnit(uType* __type, int32_t unit)
 {
     switch (unit)
     {
@@ -2510,7 +2503,7 @@ Friction* Friction::CreateUnit(uType* __type, int unit)
             return Friction::CreateRadians(__type);
     }
 
-    U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition1(::STRINGS[0/*"Unsupported...*/], uBox<int>(::g::Fuse::Motion::MotionUnit_typeof(), unit))));
+    U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition1(::STRINGS[0/*"Unsupported...*/], uBox<int32_t>(::g::Fuse::Motion::MotionUnit_typeof(), unit))));
 }
 
 // public generated Friction New() [static] :6
@@ -2522,7 +2515,7 @@ Friction* Friction::New1(uType* __type)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\Simulation.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\Simulation.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal abstract interface MotionSimulation<T> :19
@@ -2537,7 +2530,7 @@ uInterfaceType* MotionSimulation_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\BoundedRegion2D.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\BoundedRegion2D.uno
 // --------------------------------------------------------------------------------------------------------
 
 // private enum BasicBoundedRegion2D.MoveMode :72
@@ -2556,7 +2549,7 @@ uEnumType* BasicBoundedRegion2D__MoveMode_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\PointerVelocity.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\PointerVelocity.uno
 // --------------------------------------------------------------------------------------------------------
 
 // public sealed class PointerVelocity<T> :17
@@ -2565,7 +2558,7 @@ static void PointerVelocity_build(uType* type)
 {
     ::TYPES[0] = ::g::Fuse::Internal::BlenderMap_typeof();
     type->SetDependencies(
-        ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(0/*Get<T>*/, type->T(0), NULL));
+        ::g::Uno::Math_typeof());
     type->SetPrecalc(
         ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(0/*Get<T>*/, type->T(0), NULL));
     type->SetFields(0,
@@ -2610,7 +2603,7 @@ void PointerVelocity__ctor__fn(PointerVelocity* __this)
 }
 
 // public void AddSample(T location, double elapsed, [Fuse.Motion.Simulation.SampleFlags flags]) :90
-void PointerVelocity__AddSample_fn(PointerVelocity* __this, void* location, double* elapsed, int* flags)
+void PointerVelocity__AddSample_fn(PointerVelocity* __this, void* location, double* elapsed, int32_t* flags)
 {
     uT ret2(__this->__type->T(0), U_ALLOCA(__this->__type->T(0)->ValueSize));
     uT ret3(__this->__type->T(0), U_ALLOCA(__this->__type->T(0)->ValueSize));
@@ -2620,7 +2613,7 @@ void PointerVelocity__AddSample_fn(PointerVelocity* __this, void* location, doub
     uT diff(__this->__type->T(0), U_ALLOCA(__this->__type->T(0)->ValueSize));
     uT unit(__this->__type->T(0), U_ALLOCA(__this->__type->T(0)->ValueSize));
     uT sample(__this->__type->T(0), U_ALLOCA(__this->__type->T(0)->ValueSize));
-    int flags_ = *flags;
+    int32_t flags_ = *flags;
     double elapsed_ = *elapsed;
     diff = (uPtr(__this->_blender)->Sub_ex(location, __this->_currentLocation(), &ret2), ret2);
     double length;
@@ -2663,11 +2656,11 @@ void PointerVelocity__AddSample_fn(PointerVelocity* __this, void* location, doub
 }
 
 // public void AddSampleTime(T location, double timestamp, [Fuse.Motion.Simulation.SampleFlags flags]) :84
-void PointerVelocity__AddSampleTime_fn(PointerVelocity* __this, void* location, double* timestamp, int* flags)
+void PointerVelocity__AddSampleTime_fn(PointerVelocity* __this, void* location, double* timestamp, int32_t* flags)
 {
     double timestamp_ = *timestamp;
-    int flags_ = *flags;
-    PointerVelocity__AddSample_fn(__this, location, uCRef(timestamp_ - __this->_prevTime), uCRef<int>(flags_));
+    int32_t flags_ = *flags;
+    PointerVelocity__AddSample_fn(__this, location, uCRef(timestamp_ - __this->_prevTime), uCRef<int32_t>(flags_));
     __this->_prevTime = timestamp_;
 }
 
@@ -2749,7 +2742,7 @@ PointerVelocity* PointerVelocity::New1(uType* __type)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\PointerVelocity.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\PointerVelocity.uno
 // --------------------------------------------------------------------------------------------------------
 
 // public enum SampleFlags :6
@@ -2766,7 +2759,7 @@ uEnumType* SampleFlags_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\Simulation.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\Simulation.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal abstract interface Simulation :5
@@ -2781,7 +2774,7 @@ uInterfaceType* Simulation_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.4.2\Simulation\SmoothSnap.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Motion\1.9.0\Simulation\SmoothSnap.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal sealed class SmoothSnap<T> :5
@@ -2791,7 +2784,7 @@ static void SmoothSnap_build(uType* type)
     ::STRINGS[0] = uString::Const("Unsupported unit type: ");
     ::TYPES[0] = ::g::Fuse::Internal::BlenderMap_typeof();
     type->SetDependencies(
-        ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(0/*Get<T>*/, type->T(0), NULL));
+        ::g::Uno::Math_typeof());
     type->SetPrecalc(
         ::g::Fuse::Internal::BlenderMap_typeof()->MakeMethod(0/*Get<T>*/, type->T(0), NULL));
     type->SetInterfaces(
@@ -2862,7 +2855,7 @@ void SmoothSnap__CreateRadians_fn(uType* __type, SmoothSnap** __retval)
 }
 
 // public static Fuse.Motion.Simulation.SmoothSnap<T> CreateUnit(Fuse.Motion.MotionUnit unit) :37
-void SmoothSnap__CreateUnit_fn(uType* __type, int* unit, SmoothSnap** __retval)
+void SmoothSnap__CreateUnit_fn(uType* __type, int32_t* unit, SmoothSnap** __retval)
 {
     *__retval = SmoothSnap::CreateUnit(__type, *unit);
 }
@@ -3092,7 +3085,7 @@ SmoothSnap* SmoothSnap::CreateRadians(uType* __type)
 }
 
 // public static Fuse.Motion.Simulation.SmoothSnap<T> CreateUnit(Fuse.Motion.MotionUnit unit) [static] :37
-SmoothSnap* SmoothSnap::CreateUnit(uType* __type, int unit)
+SmoothSnap* SmoothSnap::CreateUnit(uType* __type, int32_t unit)
 {
     switch (unit)
     {
@@ -3104,7 +3097,7 @@ SmoothSnap* SmoothSnap::CreateUnit(uType* __type, int unit)
             return SmoothSnap::CreateRadians(__type);
     }
 
-    U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition1(::STRINGS[0/*"Unsupported...*/], uBox<int>(::g::Fuse::Motion::MotionUnit_typeof(), unit))));
+    U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition1(::STRINGS[0/*"Unsupported...*/], uBox<int32_t>(::g::Fuse::Motion::MotionUnit_typeof(), unit))));
 }
 
 // public SmoothSnap New([float scale]) [static] :49

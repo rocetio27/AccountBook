@@ -19,7 +19,6 @@
 #include <Fuse.Android.StatusBarConfig.h>
 #include <Fuse.Controls.Native.-3a814c3c.h>
 #include <Fuse.Controls.Native.-43e7fbf.h>
-#include <Fuse.Controls.Native.-454aa827.h>
 #include <Fuse.Controls.Native.-51b6e8e5.h>
 #include <Fuse.Controls.Native.-c67cabe.h>
 #include <Fuse.Controls.Native.-ca2427b3.h>
@@ -33,7 +32,8 @@
 #include <jni.h>
 #include <Neovisionaries.WebSocketClient.h>
 #include <Uno.Action.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
+#include <Uno.Action4-4.h>
 #include <Uno.Bool.h>
 #include <Uno.Byte.h>
 #include <Uno.Char.h>
@@ -74,7 +74,7 @@ jboolean JNICALL callUno_Func(JNIEnv *env,jclass clazz,jobject theDelegate)
     JCATCH
     return __jresult;
 }
-jboolean JNICALL callUno_Fuse_Controls_Native_Android_InputDispatch_OnTouch150(JNIEnv *env,jclass clazz,jobject view,jobject motionEvent,jlong viewPtr,jlong motionEventPtr)
+jboolean JNICALL callUno_Fuse_Controls_Native_Android_InputDispatch_OnTouch152(JNIEnv *env,jclass clazz,jobject view,jobject motionEvent,jlong viewPtr,jlong motionEventPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -87,12 +87,12 @@ jboolean JNICALL callUno_Fuse_Controls_Native_Android_InputDispatch_OnTouch150(J
     JCATCH
     return __jresult;
 }
-jboolean JNICALL callUno_Fuse_Controls_Native_Android_TextInput_OnEditorAction202(JNIEnv *env,jclass clazz,jobject jthis,jint actionCode)
+jboolean JNICALL callUno_Fuse_Controls_Native_Android_TextInput_OnEditorAction196(JNIEnv *env,jclass clazz,jobject jthis,jint actionCode)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     ::g::Fuse::Controls::Native::Android::TextInput* uno_jthis = uCast<::g::Fuse::Controls::Native::Android::TextInput*>(::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(jthis), ::g::Fuse::Controls::Native::Android::TextInput_typeof());
-    int uno_actionCode = (int)actionCode;
+    int32_t uno_actionCode = (int32_t)actionCode;
     jboolean __jresult;
     JTRY
         bool __result=uno_jthis->OnEditorAction(uno_actionCode);
@@ -100,24 +100,24 @@ jboolean JNICALL callUno_Fuse_Controls_Native_Android_TextInput_OnEditorAction20
     JCATCH
     return __jresult;
 }
-jboolean JNICALL callUno_Fuse_Platform_SystemUI_firstSizingGet108(JNIEnv *env,jclass clazz)
+jboolean JNICALL callUno_Fuse_Platform_SystemUI_firstSizingGet113(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jboolean __jresult;
     JTRY
-        bool __result=::g::Fuse::Platform::SystemUI::firstSizing_;
+        bool __result=::g::Fuse::Platform::SystemUI::firstSizing();
         __jresult = (jboolean)__result;
     JCATCH
     return __jresult;
 }
-jboolean JNICALL callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeGet91(JNIEnv *env,jclass clazz)
+jboolean JNICALL callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeGet96(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jboolean __jresult;
     JTRY
-        bool __result=::g::Fuse::Platform::SystemUI::hasCachedStatusBarSize_;
+        bool __result=::g::Fuse::Platform::SystemUI::hasCachedStatusBarSize();
         __jresult = (jboolean)__result;
     JCATCH
     return __jresult;
@@ -127,7 +127,7 @@ jboolean JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaTo
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jboolean __jresult;
     JTRY
         bool __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetBool(uno_array, uno_index);
@@ -140,7 +140,7 @@ jboolean JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaTo
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     bool uno_val = (bool)val;
     jboolean __jresult;
     JTRY
@@ -149,7 +149,7 @@ jboolean JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaTo
     JCATCH
     return __jresult;
 }
-jboolean JNICALL callUno_Uno_Platform_AndroidDisplay__initializedGet54(JNIEnv *env,jclass clazz)
+jboolean JNICALL callUno_Uno_Platform_AndroidDisplay__initializedGet57(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -165,7 +165,7 @@ jbyte JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jbyte __jresult;
     JTRY
         int8_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetByte(uno_array, uno_index);
@@ -178,7 +178,7 @@ jbyte JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jbyte __jresult;
     JTRY
         int8_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetUByte(uno_array, uno_index);
@@ -191,7 +191,7 @@ jbyte JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     int8_t uno_val = (int8_t)val;
     jbyte __jresult;
     JTRY
@@ -205,7 +205,7 @@ jbyte JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     int8_t uno_val = (int8_t)val;
     jbyte __jresult;
     JTRY
@@ -219,10 +219,10 @@ jchar JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jchar __jresult;
     JTRY
-        uChar __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetChar(uno_array, uno_index);
+        char16_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetChar(uno_array, uno_index);
         __jresult = (jchar)__result;
     JCATCH
     return __jresult;
@@ -232,11 +232,11 @@ jchar JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
-    uChar uno_val = (uChar)val;
+    int32_t uno_index = (int32_t)index;
+    char16_t uno_val = (char16_t)val;
     jchar __jresult;
     JTRY
-        uChar __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::SetChar(uno_array, uno_index, uno_val);
+        char16_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::SetChar(uno_array, uno_index, uno_val);
         __jresult = (jchar)__result;
     JCATCH
     return __jresult;
@@ -246,7 +246,7 @@ jdouble JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToU
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jdouble __jresult;
     JTRY
         double __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetDouble(uno_array, uno_index);
@@ -259,7 +259,7 @@ jdouble JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToU
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     double uno_val = (double)val;
     jdouble __jresult;
     JTRY
@@ -273,7 +273,7 @@ jfloat JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUn
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jfloat __jresult;
     JTRY
         float __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetFloat(uno_array, uno_index);
@@ -286,7 +286,7 @@ jfloat JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUn
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     float uno_val = (float)val;
     jfloat __jresult;
     JTRY
@@ -295,79 +295,79 @@ jfloat JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUn
     JCATCH
     return __jresult;
 }
-jint JNICALL callUno_Fuse_Platform_SystemUI__systemUIStateGet84(JNIEnv *env,jclass clazz)
+jint JNICALL callUno_Fuse_Platform_SystemUI__systemUIStateGet87(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jint __jresult;
     JTRY
-        int __result=::g::Fuse::Platform::SystemUI::_systemUIState_;
+        int32_t __result=::g::Fuse::Platform::SystemUI::_systemUIState();
         __jresult = (jint)__result;
     JCATCH
     return __jresult;
 }
-jint JNICALL callUno_Fuse_Platform_SystemUI_cachedOpenSizeGet92(JNIEnv *env,jclass clazz)
+jint JNICALL callUno_Fuse_Platform_SystemUI_cachedOpenSizeGet97(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jint __jresult;
     JTRY
-        int __result=::g::Fuse::Platform::SystemUI::cachedOpenSize_;
+        int32_t __result=::g::Fuse::Platform::SystemUI::cachedOpenSize();
         __jresult = (jint)__result;
     JCATCH
     return __jresult;
 }
-jint JNICALL callUno_Fuse_Platform_SystemUI_GetRealDisplayHeight80(JNIEnv *env,jclass clazz)
+jint JNICALL callUno_Fuse_Platform_SystemUI_GetRealDisplayHeight83(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jint __jresult;
     JTRY
-        int __result=::g::Fuse::Platform::SystemUI::GetRealDisplayHeight();
+        int32_t __result=::g::Fuse::Platform::SystemUI::GetRealDisplayHeight();
         __jresult = (jint)__result;
     JCATCH
     return __jresult;
 }
-jint JNICALL callUno_Fuse_Platform_SystemUI_GetRealDisplayWidth99(JNIEnv *env,jclass clazz)
+jint JNICALL callUno_Fuse_Platform_SystemUI_GetRealDisplayWidth104(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jint __jresult;
     JTRY
-        int __result=::g::Fuse::Platform::SystemUI::GetRealDisplayWidth();
+        int32_t __result=::g::Fuse::Platform::SystemUI::GetRealDisplayWidth();
         __jresult = (jint)__result;
     JCATCH
     return __jresult;
 }
-jint JNICALL callUno_Fuse_Platform_SystemUI_lastKeyboardHeightGet107(JNIEnv *env,jclass clazz)
+jint JNICALL callUno_Fuse_Platform_SystemUI_lastKeyboardHeightGet112(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jint __jresult;
     JTRY
-        int __result=::g::Fuse::Platform::SystemUI::lastKeyboardHeight_;
+        int32_t __result=::g::Fuse::Platform::SystemUI::lastKeyboardHeight();
         __jresult = (jint)__result;
     JCATCH
     return __jresult;
 }
-jint JNICALL callUno_Fuse_Platform_SystemUI_realHeightGet74(JNIEnv *env,jclass clazz)
+jint JNICALL callUno_Fuse_Platform_SystemUI_realHeightGet77(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jint __jresult;
     JTRY
-        int __result=::g::Fuse::Platform::SystemUI::realHeight_;
+        int32_t __result=::g::Fuse::Platform::SystemUI::realHeight();
         __jresult = (jint)__result;
     JCATCH
     return __jresult;
 }
-jint JNICALL callUno_Fuse_Platform_SystemUI_realWidthGet73(JNIEnv *env,jclass clazz)
+jint JNICALL callUno_Fuse_Platform_SystemUI_realWidthGet76(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jint __jresult;
     JTRY
-        int __result=::g::Fuse::Platform::SystemUI::realWidth_;
+        int32_t __result=::g::Fuse::Platform::SystemUI::realWidth();
         __jresult = (jint)__result;
     JCATCH
     return __jresult;
@@ -377,10 +377,10 @@ jint JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoA
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jint __jresult;
     JTRY
-        int __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetInt(uno_array, uno_index);
+        int32_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetInt(uno_array, uno_index);
         __jresult = (jint)__result;
     JCATCH
     return __jresult;
@@ -390,11 +390,11 @@ jint JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoA
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
-    int uno_val = (int)val;
+    int32_t uno_index = (int32_t)index;
+    int32_t uno_val = (int32_t)val;
     jint __jresult;
     JTRY
-        int __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::SetInt(uno_array, uno_index, uno_val);
+        int32_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::SetInt(uno_array, uno_index, uno_val);
         __jresult = (jint)__result;
     JCATCH
     return __jresult;
@@ -464,7 +464,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jlong __jresult;
     JTRY
         int64_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetLong(uno_array, uno_index);
@@ -500,7 +500,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_length = (int)length;
+    int32_t uno_length = (int32_t)length;
     jlong __jresult;
     JTRY
         int64_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::NewBoolArrayPtr(uno_length);
@@ -512,7 +512,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_length = (int)length;
+    int32_t uno_length = (int32_t)length;
     bool uno_unoIsUnsigned = (bool)unoIsUnsigned;
     jlong __jresult;
     JTRY
@@ -525,7 +525,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_length = (int)length;
+    int32_t uno_length = (int32_t)length;
     jlong __jresult;
     JTRY
         int64_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::NewCharArrayPtr(uno_length);
@@ -537,7 +537,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_length = (int)length;
+    int32_t uno_length = (int32_t)length;
     jlong __jresult;
     JTRY
         int64_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::NewDoubleArrayPtr(uno_length);
@@ -549,7 +549,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_length = (int)length;
+    int32_t uno_length = (int32_t)length;
     jlong __jresult;
     JTRY
         int64_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::NewFloatArrayPtr(uno_length);
@@ -561,7 +561,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_length = (int)length;
+    int32_t uno_length = (int32_t)length;
     jlong __jresult;
     JTRY
         int64_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::NewIntArrayPtr(uno_length);
@@ -573,7 +573,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_length = (int)length;
+    int32_t uno_length = (int32_t)length;
     jlong __jresult;
     JTRY
         int64_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::NewLongArrayPtr(uno_length);
@@ -585,7 +585,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_length = (int)length;
+    int32_t uno_length = (int32_t)length;
     jlong __jresult;
     JTRY
         int64_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::NewObjectArrayPtr(uno_length);
@@ -597,7 +597,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_length = (int)length;
+    int32_t uno_length = (int32_t)length;
     jlong __jresult;
     JTRY
         int64_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::NewShortArrayPtr(uno_length);
@@ -609,7 +609,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_length = (int)length;
+    int32_t uno_length = (int32_t)length;
     jlong __jresult;
     JTRY
         int64_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::NewStringArrayPtr(uno_length);
@@ -622,7 +622,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     int64_t uno_val = (int64_t)val;
     jlong __jresult;
     JTRY
@@ -643,7 +643,7 @@ jlong JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUno
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Bolav_ForeignHelpers_ForeignList_NewDictRow405(JNIEnv *env,jclass clazz,jobject jthis)
+jobject JNICALL callUno_Bolav_ForeignHelpers_ForeignList_NewDictRow399(JNIEnv *env,jclass clazz,jobject jthis)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -655,7 +655,7 @@ jobject JNICALL callUno_Bolav_ForeignHelpers_ForeignList_NewDictRow405(JNIEnv *e
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Bolav_ForeignHelpers_JSDict_AddDictForKey397(JNIEnv *env,jclass clazz,jobject jthis,jobject key)
+jobject JNICALL callUno_Bolav_ForeignHelpers_JSDict_AddDictForKey391(JNIEnv *env,jclass clazz,jobject jthis,jobject key)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -668,7 +668,7 @@ jobject JNICALL callUno_Bolav_ForeignHelpers_JSDict_AddDictForKey397(JNIEnv *env
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Bolav_ForeignHelpers_JSDict_AddListForKey398(JNIEnv *env,jclass clazz,jobject jthis,jobject key)
+jobject JNICALL callUno_Bolav_ForeignHelpers_JSDict_AddListForKey392(JNIEnv *env,jclass clazz,jobject jthis,jobject key)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -681,7 +681,7 @@ jobject JNICALL callUno_Bolav_ForeignHelpers_JSDict_AddListForKey398(JNIEnv *env
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Bolav_ForeignHelpers_JSList_NewDictRow400(JNIEnv *env,jclass clazz,jobject jthis)
+jobject JNICALL callUno_Bolav_ForeignHelpers_JSList_NewDictRow394(JNIEnv *env,jclass clazz,jobject jthis)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -693,7 +693,7 @@ jobject JNICALL callUno_Bolav_ForeignHelpers_JSList_NewDictRow400(JNIEnv *env,jc
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Fuse_Controls_Native_ViewHandle_NativeHandleGet249(JNIEnv *env,jclass clazz,jobject jthis)
+jobject JNICALL callUno_Fuse_Controls_Native_ViewHandle_NativeHandleGet243(JNIEnv *env,jclass clazz,jobject jthis)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -705,51 +705,51 @@ jobject JNICALL callUno_Fuse_Controls_Native_ViewHandle_NativeHandleGet249(JNIEn
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Fuse_Platform_SystemUI__keyboardListenerGet71(JNIEnv *env,jclass clazz)
+jobject JNICALL callUno_Fuse_Platform_SystemUI__keyboardListenerGet74(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jobject __jresult;
     JTRY
-        ::g::Java::Object* __result=::g::Fuse::Platform::SystemUI::_keyboardListener_;
+        ::g::Java::Object* __result=::g::Fuse::Platform::SystemUI::_keyboardListener();
         __jresult = (__result==NULL ? NULL : U_JNIVAR->NewLocalRef(((__result==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)__result, ::g::Android::Base::Wrappers::IJWrapper_typeof())))))));
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Fuse_Platform_SystemUI_layoutAttachedToGet70(JNIEnv *env,jclass clazz)
+jobject JNICALL callUno_Fuse_Platform_SystemUI_layoutAttachedToGet73(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jobject __jresult;
     JTRY
-        ::g::Java::Object* __result=::g::Fuse::Platform::SystemUI::layoutAttachedTo_;
+        ::g::Java::Object* __result=::g::Fuse::Platform::SystemUI::layoutAttachedTo();
         __jresult = (__result==NULL ? NULL : U_JNIVAR->NewLocalRef(((__result==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)__result, ::g::Android::Base::Wrappers::IJWrapper_typeof())))))));
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Fuse_Platform_SystemUI_RootLayoutGet77(JNIEnv *env,jclass clazz)
+jobject JNICALL callUno_Fuse_Platform_SystemUI_RootLayoutGet80(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jobject __jresult;
     JTRY
-        ::g::Java::Object* __result=::g::Fuse::Platform::SystemUI::RootLayout_;
+        ::g::Java::Object* __result=::g::Fuse::Platform::SystemUI::RootLayout();
         __jresult = (__result==NULL ? NULL : U_JNIVAR->NewLocalRef(((__result==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)__result, ::g::Android::Base::Wrappers::IJWrapper_typeof())))))));
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Fuse_Platform_SystemUI_SuperLayoutGet75(JNIEnv *env,jclass clazz)
+jobject JNICALL callUno_Fuse_Platform_SystemUI_SuperLayoutGet78(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     jobject __jresult;
     JTRY
-        ::g::Java::Object* __result=::g::Fuse::Platform::SystemUI::SuperLayout_;
+        ::g::Java::Object* __result=::g::Fuse::Platform::SystemUI::SuperLayout();
         __jresult = (__result==NULL ? NULL : U_JNIVAR->NewLocalRef(((__result==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)__result, ::g::Android::Base::Wrappers::IJWrapper_typeof())))))));
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Neovisionaries_WebSocketClient__webSocketGet389(JNIEnv *env,jclass clazz,jobject jthis)
+jobject JNICALL callUno_Neovisionaries_WebSocketClient__webSocketGet383(JNIEnv *env,jclass clazz,jobject jthis)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -898,7 +898,7 @@ jobject JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToU
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jobject __jresult;
     JTRY
         uObject* __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetObject(uno_array, uno_index);
@@ -911,7 +911,7 @@ jobject JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToU
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jobject __jresult;
     JTRY
         uString* __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetString(uno_array, uno_index);
@@ -924,7 +924,7 @@ jobject JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToU
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     uObject* uno_val = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(val);
     jobject __jresult;
     JTRY
@@ -938,7 +938,7 @@ jobject JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToU
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     uString* uno_val = JniHelper::JavaToUnoString((jstring)val);
     jobject __jresult;
     JTRY
@@ -947,7 +947,7 @@ jobject JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToU
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Uno_Guid__ctor65(JNIEnv *env,jclass clazz,jobject bytes)
+jobject JNICALL callUno_Uno_Guid__ctor68(JNIEnv *env,jclass clazz,jobject bytes)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -959,7 +959,7 @@ jobject JNICALL callUno_Uno_Guid__ctor65(JNIEnv *env,jclass clazz,jobject bytes)
     JCATCH
     return __jresult;
 }
-jobject JNICALL callUno_Uno_IO_BundleFile_BundlePathGet329(JNIEnv *env,jclass clazz,jobject jthis)
+jobject JNICALL callUno_Uno_IO_BundleFile_BundlePathGet323(JNIEnv *env,jclass clazz,jobject jthis)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -976,7 +976,7 @@ jshort JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUn
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     jshort __jresult;
     JTRY
         int16_t __result=::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaToUnoArrayEntrypoints::GetShort(uno_array, uno_index);
@@ -989,7 +989,7 @@ jshort JNICALL callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUn
     uAutoReleasePool pool;
     INIT_JNI;
     uObject* uno_array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(array);
-    int uno_index = (int)index;
+    int32_t uno_index = (int32_t)index;
     int16_t uno_val = (int16_t)val;
     jshort __jresult;
     JTRY
@@ -1022,9 +1022,22 @@ void JNICALL callUno_Action_int(JNIEnv *env,jclass clazz,jobject theDelegate,jin
     uAutoReleasePool pool;
     INIT_JNI;
     uDelegate* uno_theDelegate = uCast<uDelegate*>(::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(theDelegate), ::g::Uno::Action1_typeof()->MakeType(::g::Uno::Int_typeof(), NULL));
-    int uno_arg = (int)arg;
+    int32_t uno_arg = (int32_t)arg;
     JTRY
-        uno_theDelegate->InvokeVoid(uCRef<int>(uno_arg));
+        uno_theDelegate->InvokeVoid(uCRef<int32_t>(uno_arg));
+    JCATCH
+}
+void JNICALL callUno_Action_int_int_int_int(JNIEnv *env,jclass clazz,jobject theDelegate,jint arg1,jint arg2,jint arg3,jint arg4)
+{
+    uAutoReleasePool pool;
+    INIT_JNI;
+    uDelegate* uno_theDelegate = uCast<uDelegate*>(::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(theDelegate), ::g::Uno::Action4_typeof()->MakeType(::g::Uno::Int_typeof(), ::g::Uno::Int_typeof(), ::g::Uno::Int_typeof(), ::g::Uno::Int_typeof(), NULL));
+    int32_t uno_arg1 = (int32_t)arg1;
+    int32_t uno_arg2 = (int32_t)arg2;
+    int32_t uno_arg3 = (int32_t)arg3;
+    int32_t uno_arg4 = (int32_t)arg4;
+    JTRY
+        uno_theDelegate->Invoke(4, uCRef<int32_t>(uno_arg1), uCRef<int32_t>(uno_arg2), uCRef<int32_t>(uno_arg3), uCRef<int32_t>(uno_arg4));
     JCATCH
 }
 void JNICALL callUno_Action_Object(JNIEnv *env,jclass clazz,jobject theDelegate,jobject arg,jlong argPtr)
@@ -1047,7 +1060,7 @@ void JNICALL callUno_Action_String(JNIEnv *env,jclass clazz,jobject theDelegate,
         uno_theDelegate->InvokeVoid(uCast<uString*>(uno_arg, ::g::Uno::String_typeof()));
     JCATCH
 }
-void JNICALL callUno_Bolav_ForeignHelpers_ForeignDict_SetKeyVal406(JNIEnv *env,jclass clazz,jobject jthis,jobject key,jobject val)
+void JNICALL callUno_Bolav_ForeignHelpers_ForeignDict_SetKeyVal400(JNIEnv *env,jclass clazz,jobject jthis,jobject key,jobject val)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1058,7 +1071,7 @@ void JNICALL callUno_Bolav_ForeignHelpers_ForeignDict_SetKeyVal406(JNIEnv *env,j
         uno_jthis->SetKeyVal(uCast<uString*>(uno_key, ::g::Uno::String_typeof()), uCast<uString*>(uno_val, ::g::Uno::String_typeof()));
     JCATCH
 }
-void JNICALL callUno_Bolav_ForeignHelpers_JSDict_SetKeyVal396(JNIEnv *env,jclass clazz,jobject jthis,jobject key,jobject val)
+void JNICALL callUno_Bolav_ForeignHelpers_JSDict_SetKeyVal390(JNIEnv *env,jclass clazz,jobject jthis,jobject key,jobject val)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1069,7 +1082,7 @@ void JNICALL callUno_Bolav_ForeignHelpers_JSDict_SetKeyVal396(JNIEnv *env,jclass
         uno_jthis->SetKeyVal(uCast<uString*>(uno_key, ::g::Uno::String_typeof()), uCast<uString*>(uno_val, ::g::Uno::String_typeof()));
     JCATCH
 }
-void JNICALL callUno_Fuse_Android_AppRoot_OnTouchEvent__347(JNIEnv *env,jclass clazz,jobject motionEvent,jlong motionEventPtr)
+void JNICALL callUno_Fuse_Android_AppRoot_OnTouchEvent__341(JNIEnv *env,jclass clazz,jobject motionEvent,jlong motionEventPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1078,7 +1091,7 @@ void JNICALL callUno_Fuse_Android_AppRoot_OnTouchEvent__347(JNIEnv *env,jclass c
         ::g::Fuse::Android::AppRoot::OnTouchEvent__(uCast<::g::Java::Object*>(uno_motionEvent, ::g::Java::Object_typeof()));
     JCATCH
 }
-void JNICALL callUno_Fuse_Android_StatusBarConfig_UpdateStatusBar369(JNIEnv *env,jclass clazz)
+void JNICALL callUno_Fuse_Android_StatusBarConfig_UpdateStatusBar363(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1086,7 +1099,7 @@ void JNICALL callUno_Fuse_Android_StatusBarConfig_UpdateStatusBar369(JNIEnv *env
         ::g::Fuse::Android::StatusBarConfig::UpdateStatusBar();
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_Native_Android_FocusChangedListener_OnFocusChange133(JNIEnv *env,jclass clazz,jobject jthis,jboolean hasFocus)
+void JNICALL callUno_Fuse_Controls_Native_Android_FocusChangedListener_OnFocusChange136(JNIEnv *env,jclass clazz,jobject jthis,jboolean hasFocus)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1096,20 +1109,7 @@ void JNICALL callUno_Fuse_Controls_Native_Android_FocusChangedListener_OnFocusCh
         uno_jthis->OnFocusChange(uno_hasFocus);
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_Native_Android_ScrollView_OnScrollChanged172(JNIEnv *env,jclass clazz,jobject jthis,jint x,jint y,jint oldx,jint oldy)
-{
-    uAutoReleasePool pool;
-    INIT_JNI;
-    ::g::Fuse::Controls::Native::Android::ScrollView* uno_jthis = uCast<::g::Fuse::Controls::Native::Android::ScrollView*>(::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(jthis), ::g::Fuse::Controls::Native::Android::ScrollView_typeof());
-    int uno_x = (int)x;
-    int uno_y = (int)y;
-    int uno_oldx = (int)oldx;
-    int uno_oldy = (int)oldy;
-    JTRY
-        uno_jthis->OnScrollChanged(uno_x, uno_y, uno_oldx, uno_oldy);
-    JCATCH
-}
-void JNICALL callUno_Fuse_Controls_Native_Android_Slider_OnSeekBarChanged184(JNIEnv *env,jclass clazz,jobject jthis,jdouble rel,jboolean fromUser)
+void JNICALL callUno_Fuse_Controls_Native_Android_Slider_OnSeekBarChanged178(JNIEnv *env,jclass clazz,jobject jthis,jdouble rel,jboolean fromUser)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1120,20 +1120,20 @@ void JNICALL callUno_Fuse_Controls_Native_Android_Slider_OnSeekBarChanged184(JNI
         uno_jthis->OnSeekBarChanged(uno_rel, uno_fromUser);
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceChanged191(JNIEnv *env,jclass clazz,jobject jthis,jobject holder,jint f,jint w,jint h,jlong holderPtr)
+void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceChanged185(JNIEnv *env,jclass clazz,jobject jthis,jobject holder,jint f,jint w,jint h,jlong holderPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     ::g::Fuse::Controls::Native::Android::SurfaceView* uno_jthis = uCast<::g::Fuse::Controls::Native::Android::SurfaceView*>(::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(jthis), ::g::Fuse::Controls::Native::Android::SurfaceView_typeof());
     ::g::Java::Object* uno_holder = (::g::Java::Object*)::g::Android::Base::Wrappers::JavaObjectHelper::JObjectToJWrapper(holder, true);
-    int uno_f = (int)f;
-    int uno_w = (int)w;
-    int uno_h = (int)h;
+    int32_t uno_f = (int32_t)f;
+    int32_t uno_w = (int32_t)w;
+    int32_t uno_h = (int32_t)h;
     JTRY
         uno_jthis->OnSurfaceChanged(uCast<::g::Java::Object*>(uno_holder, ::g::Java::Object_typeof()), uno_f, uno_w, uno_h);
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceCreated192(JNIEnv *env,jclass clazz,jobject jthis,jobject holder,jlong holderPtr)
+void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceCreated186(JNIEnv *env,jclass clazz,jobject jthis,jobject holder,jlong holderPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1143,7 +1143,7 @@ void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceCreated19
         uno_jthis->OnSurfaceCreated(uCast<::g::Java::Object*>(uno_holder, ::g::Java::Object_typeof()));
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceDestroyed193(JNIEnv *env,jclass clazz,jobject jthis,jobject holder,jlong holderPtr)
+void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceDestroyed187(JNIEnv *env,jclass clazz,jobject jthis,jobject holder,jlong holderPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1153,7 +1153,7 @@ void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceDestroyed
         uno_jthis->OnSurfaceDestroyed(uCast<::g::Java::Object*>(uno_holder, ::g::Java::Object_typeof()));
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceRedrawNeeded190(JNIEnv *env,jclass clazz,jobject jthis,jobject holder,jlong holderPtr)
+void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceRedrawNeeded184(JNIEnv *env,jclass clazz,jobject jthis,jobject holder,jlong holderPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1163,7 +1163,7 @@ void JNICALL callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceRedrawNee
         uno_jthis->OnSurfaceRedrawNeeded(uCast<::g::Java::Object*>(uno_holder, ::g::Java::Object_typeof()));
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_Native_Android_Switch_OnToggleChanged197(JNIEnv *env,jclass clazz,jobject jthis,jboolean value)
+void JNICALL callUno_Fuse_Controls_Native_Android_Switch_OnToggleChanged191(JNIEnv *env,jclass clazz,jobject jthis,jboolean value)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1173,7 +1173,7 @@ void JNICALL callUno_Fuse_Controls_Native_Android_Switch_OnToggleChanged197(JNIE
         uno_jthis->OnToggleChanged(uno_value);
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_Native_Android_TextInput_OnTextChanged204(JNIEnv *env,jclass clazz,jobject jthis,jobject value)
+void JNICALL callUno_Fuse_Controls_Native_Android_TextInput_OnTextChanged198(JNIEnv *env,jclass clazz,jobject jthis,jobject value)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1183,7 +1183,7 @@ void JNICALL callUno_Fuse_Controls_Native_Android_TextInput_OnTextChanged204(JNI
         uno_jthis->OnTextChanged(uCast<uString*>(uno_value, ::g::Uno::String_typeof()));
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureAvailable218(JNIEnv *env,jclass clazz,jobject jthis,jobject surface,jlong surfacePtr)
+void JNICALL callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureAvailable212(JNIEnv *env,jclass clazz,jobject jthis,jobject surface,jlong surfacePtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1193,7 +1193,7 @@ void JNICALL callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureAv
         uno_jthis->OnSurfaceTextureAvailable(uCast<::g::Java::Object*>(uno_surface, ::g::Java::Object_typeof()));
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureDestroyed219(JNIEnv *env,jclass clazz,jobject jthis)
+void JNICALL callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureDestroyed213(JNIEnv *env,jclass clazz,jobject jthis)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1202,17 +1202,17 @@ void JNICALL callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureDe
         uno_jthis->OnSurfaceTextureDestroyed();
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnBuffer274(JNIEnv *env,jclass clazz,jobject jthis,jint percent)
+void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnBuffer268(JNIEnv *env,jclass clazz,jobject jthis,jint percent)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     ::g::Fuse::Controls::VideoImpl::Android::MediaPlayer* uno_jthis = uCast<::g::Fuse::Controls::VideoImpl::Android::MediaPlayer*>(::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(jthis), ::g::Fuse::Controls::VideoImpl::Android::MediaPlayer_typeof());
-    int uno_percent = (int)percent;
+    int32_t uno_percent = (int32_t)percent;
     JTRY
         uno_jthis->OnBuffer(uno_percent);
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnCompletion272(JNIEnv *env,jclass clazz,jobject jthis)
+void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnCompletion266(JNIEnv *env,jclass clazz,jobject jthis)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1221,18 +1221,18 @@ void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnCompletion272
         uno_jthis->OnCompletion();
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnError273(JNIEnv *env,jclass clazz,jobject jthis,jint what,jint extra)
+void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnError267(JNIEnv *env,jclass clazz,jobject jthis,jint what,jint extra)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     ::g::Fuse::Controls::VideoImpl::Android::MediaPlayer* uno_jthis = uCast<::g::Fuse::Controls::VideoImpl::Android::MediaPlayer*>(::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBox(jthis), ::g::Fuse::Controls::VideoImpl::Android::MediaPlayer_typeof());
-    int uno_what = (int)what;
-    int uno_extra = (int)extra;
+    int32_t uno_what = (int32_t)what;
+    int32_t uno_extra = (int32_t)extra;
     JTRY
         uno_jthis->OnError(uno_what, uno_extra);
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnErrorOccurred286(JNIEnv *env,jclass clazz,jobject jthis,jobject msg)
+void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnErrorOccurred280(JNIEnv *env,jclass clazz,jobject jthis,jobject msg)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1242,7 +1242,7 @@ void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnErrorOccurred
         uno_jthis->OnErrorOccurred(uCast<uString*>(uno_msg, ::g::Uno::String_typeof()));
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnFrameAvailable277(JNIEnv *env,jclass clazz,jobject jthis)
+void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnFrameAvailable271(JNIEnv *env,jclass clazz,jobject jthis)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1251,7 +1251,7 @@ void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnFrameAvailabl
         uno_jthis->OnFrameAvailable();
     JCATCH
 }
-void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnPrepared271(JNIEnv *env,jclass clazz,jobject jthis)
+void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnPrepared265(JNIEnv *env,jclass clazz,jobject jthis)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1260,18 +1260,18 @@ void JNICALL callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnPrepared271(J
         uno_jthis->OnPrepared();
     JCATCH
 }
-void JNICALL callUno_Fuse_Internal_AndroidSystemFont_AddAlias114(JNIEnv *env,jclass clazz,jobject name,jobject to,jint weight)
+void JNICALL callUno_Fuse_Internal_AndroidSystemFont_AddAlias119(JNIEnv *env,jclass clazz,jobject name,jobject to,jint weight)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     uString* uno_name = JniHelper::JavaToUnoString((jstring)name);
     uString* uno_to = JniHelper::JavaToUnoString((jstring)to);
-    int uno_weight = (int)weight;
+    int32_t uno_weight = (int32_t)weight;
     JTRY
         ::g::Fuse::Internal::AndroidSystemFont::AddAlias(uCast<uString*>(uno_name, ::g::Uno::String_typeof()), uCast<uString*>(uno_to, ::g::Uno::String_typeof()), uno_weight);
     JCATCH
 }
-void JNICALL callUno_Fuse_Internal_AndroidSystemFont_AddFamily112(JNIEnv *env,jclass clazz,jobject name,jobject language,jobject variant)
+void JNICALL callUno_Fuse_Internal_AndroidSystemFont_AddFamily117(JNIEnv *env,jclass clazz,jobject name,jobject language,jobject variant)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1282,19 +1282,19 @@ void JNICALL callUno_Fuse_Internal_AndroidSystemFont_AddFamily112(JNIEnv *env,jc
         ::g::Fuse::Internal::AndroidSystemFont::AddFamily(uCast<uString*>(uno_name, ::g::Uno::String_typeof()), uCast<uString*>(uno_language, ::g::Uno::String_typeof()), uCast<uString*>(uno_variant, ::g::Uno::String_typeof()));
     JCATCH
 }
-void JNICALL callUno_Fuse_Internal_AndroidSystemFont_AddFont113(JNIEnv *env,jclass clazz,jobject path,jint index,jint weight,jboolean isItalic)
+void JNICALL callUno_Fuse_Internal_AndroidSystemFont_AddFont118(JNIEnv *env,jclass clazz,jobject path,jint index,jint weight,jboolean isItalic)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     uString* uno_path = JniHelper::JavaToUnoString((jstring)path);
-    int uno_index = (int)index;
-    int uno_weight = (int)weight;
+    int32_t uno_index = (int32_t)index;
+    int32_t uno_weight = (int32_t)weight;
     bool uno_isItalic = (bool)isItalic;
     JTRY
         ::g::Fuse::Internal::AndroidSystemFont::AddFont(uCast<uString*>(uno_path, ::g::Uno::String_typeof()), uno_index, uno_weight, uno_isItalic);
     JCATCH
 }
-void JNICALL callUno_Fuse_Internal_AndroidSystemFont_ThrowUno115(JNIEnv *env,jclass clazz,jobject message)
+void JNICALL callUno_Fuse_Internal_AndroidSystemFont_ThrowUno120(JNIEnv *env,jclass clazz,jobject message)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1303,34 +1303,34 @@ void JNICALL callUno_Fuse_Internal_AndroidSystemFont_ThrowUno115(JNIEnv *env,jcl
         ::g::Fuse::Internal::AndroidSystemFont::ThrowUno(uCast<uString*>(uno_message, ::g::Uno::String_typeof()));
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI__keyboardListenerSet71(JNIEnv *env,jclass clazz,jobject setVal,jlong setValPtr)
+void JNICALL callUno_Fuse_Platform_SystemUI__keyboardListenerSet74(JNIEnv *env,jclass clazz,jobject setVal,jlong setValPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     ::g::Java::Object* uno_setVal = (::g::Java::Object*)::g::Android::Base::Wrappers::JavaObjectHelper::JObjectToJWrapper(setVal, true);
     JTRY
-        ::g::Fuse::Platform::SystemUI::_keyboardListener_ = uCast<::g::Java::Object*>(uno_setVal, ::g::Java::Object_typeof());
+        ::g::Fuse::Platform::SystemUI::_keyboardListener() = uCast<::g::Java::Object*>(uno_setVal, ::g::Java::Object_typeof());
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI__systemUIStateSet84(JNIEnv *env,jclass clazz,jint setVal)
+void JNICALL callUno_Fuse_Platform_SystemUI__systemUIStateSet87(JNIEnv *env,jclass clazz,jint setVal)
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_setVal = (int)setVal;
+    int32_t uno_setVal = (int32_t)setVal;
     JTRY
-        ::g::Fuse::Platform::SystemUI::_systemUIState_ = uno_setVal;
+        ::g::Fuse::Platform::SystemUI::_systemUIState() = uno_setVal;
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_cachedOpenSizeSet92(JNIEnv *env,jclass clazz,jint setVal)
+void JNICALL callUno_Fuse_Platform_SystemUI_cachedOpenSizeSet97(JNIEnv *env,jclass clazz,jint setVal)
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_setVal = (int)setVal;
+    int32_t uno_setVal = (int32_t)setVal;
     JTRY
-        ::g::Fuse::Platform::SystemUI::cachedOpenSize_ = uno_setVal;
+        ::g::Fuse::Platform::SystemUI::cachedOpenSize() = uno_setVal;
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_CompensateRootLayoutForSystemUI81(JNIEnv *env,jclass clazz)
+void JNICALL callUno_Fuse_Platform_SystemUI_CompensateRootLayoutForSystemUI84(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1338,7 +1338,7 @@ void JNICALL callUno_Fuse_Platform_SystemUI_CompensateRootLayoutForSystemUI81(JN
         ::g::Fuse::Platform::SystemUI::CompensateRootLayoutForSystemUI();
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_cppOnConfigChanged100(JNIEnv *env,jclass clazz)
+void JNICALL callUno_Fuse_Platform_SystemUI_cppOnConfigChanged105(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1346,43 +1346,43 @@ void JNICALL callUno_Fuse_Platform_SystemUI_cppOnConfigChanged100(JNIEnv *env,jc
         ::g::Fuse::Platform::SystemUI::cppOnConfigChanged();
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_cppOnTopFrameChanged87(JNIEnv *env,jclass clazz,jint height)
+void JNICALL callUno_Fuse_Platform_SystemUI_cppOnTopFrameChanged90(JNIEnv *env,jclass clazz,jint height)
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_height = (int)height;
+    int32_t uno_height = (int32_t)height;
     JTRY
         ::g::Fuse::Platform::SystemUI::cppOnTopFrameChanged(uno_height);
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_firstSizingSet108(JNIEnv *env,jclass clazz,jboolean setVal)
+void JNICALL callUno_Fuse_Platform_SystemUI_firstSizingSet113(JNIEnv *env,jclass clazz,jboolean setVal)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     bool uno_setVal = (bool)setVal;
     JTRY
-        ::g::Fuse::Platform::SystemUI::firstSizing_ = uno_setVal;
+        ::g::Fuse::Platform::SystemUI::firstSizing() = uno_setVal;
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeSet91(JNIEnv *env,jclass clazz,jboolean setVal)
+void JNICALL callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeSet96(JNIEnv *env,jclass clazz,jboolean setVal)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     bool uno_setVal = (bool)setVal;
     JTRY
-        ::g::Fuse::Platform::SystemUI::hasCachedStatusBarSize_ = uno_setVal;
+        ::g::Fuse::Platform::SystemUI::hasCachedStatusBarSize() = uno_setVal;
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_layoutAttachedToSet70(JNIEnv *env,jclass clazz,jobject setVal,jlong setValPtr)
+void JNICALL callUno_Fuse_Platform_SystemUI_layoutAttachedToSet73(JNIEnv *env,jclass clazz,jobject setVal,jlong setValPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     ::g::Java::Object* uno_setVal = (::g::Java::Object*)::g::Android::Base::Wrappers::JavaObjectHelper::JObjectToJWrapper(setVal, true);
     JTRY
-        ::g::Fuse::Platform::SystemUI::layoutAttachedTo_ = uCast<::g::Java::Object*>(uno_setVal, ::g::Java::Object_typeof());
+        ::g::Fuse::Platform::SystemUI::layoutAttachedTo() = uCast<::g::Java::Object*>(uno_setVal, ::g::Java::Object_typeof());
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_OnConfigChanged98(JNIEnv *env,jclass clazz)
+void JNICALL callUno_Fuse_Platform_SystemUI_OnConfigChanged103(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1390,7 +1390,7 @@ void JNICALL callUno_Fuse_Platform_SystemUI_OnConfigChanged98(JNIEnv *env,jclass
         ::g::Fuse::Platform::SystemUI::OnConfigChanged();
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_OnDestroy97(JNIEnv *env,jclass clazz)
+void JNICALL callUno_Fuse_Platform_SystemUI_OnDestroy102(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1398,45 +1398,45 @@ void JNICALL callUno_Fuse_Platform_SystemUI_OnDestroy97(JNIEnv *env,jclass clazz
         ::g::Fuse::Platform::SystemUI::OnDestroy();
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_onHideKeyboard109(JNIEnv *env,jclass clazz,jint keyboardHeight,jboolean force)
+void JNICALL callUno_Fuse_Platform_SystemUI_onHideKeyboard114(JNIEnv *env,jclass clazz,jint keyboardHeight,jboolean force)
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_keyboardHeight = (int)keyboardHeight;
+    int32_t uno_keyboardHeight = (int32_t)keyboardHeight;
     bool uno_force = (bool)force;
     JTRY
         ::g::Fuse::Platform::SystemUI::onHideKeyboard(uno_keyboardHeight, uno_force);
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_onShowKeyboard110(JNIEnv *env,jclass clazz,jint keyboardHeight,jboolean force)
+void JNICALL callUno_Fuse_Platform_SystemUI_onShowKeyboard115(JNIEnv *env,jclass clazz,jint keyboardHeight,jboolean force)
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_keyboardHeight = (int)keyboardHeight;
+    int32_t uno_keyboardHeight = (int32_t)keyboardHeight;
     bool uno_force = (bool)force;
     JTRY
         ::g::Fuse::Platform::SystemUI::onShowKeyboard(uno_keyboardHeight, uno_force);
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_realHeightSet74(JNIEnv *env,jclass clazz,jint setVal)
+void JNICALL callUno_Fuse_Platform_SystemUI_realHeightSet77(JNIEnv *env,jclass clazz,jint setVal)
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_setVal = (int)setVal;
+    int32_t uno_setVal = (int32_t)setVal;
     JTRY
-        ::g::Fuse::Platform::SystemUI::realHeight_ = uno_setVal;
+        ::g::Fuse::Platform::SystemUI::realHeight() = uno_setVal;
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_realWidthSet73(JNIEnv *env,jclass clazz,jint setVal)
+void JNICALL callUno_Fuse_Platform_SystemUI_realWidthSet76(JNIEnv *env,jclass clazz,jint setVal)
 {
     uAutoReleasePool pool;
     INIT_JNI;
-    int uno_setVal = (int)setVal;
+    int32_t uno_setVal = (int32_t)setVal;
     JTRY
-        ::g::Fuse::Platform::SystemUI::realWidth_ = uno_setVal;
+        ::g::Fuse::Platform::SystemUI::realWidth() = uno_setVal;
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_ResendFrameSizes101(JNIEnv *env,jclass clazz)
+void JNICALL callUno_Fuse_Platform_SystemUI_ResendFrameSizes106(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1444,25 +1444,25 @@ void JNICALL callUno_Fuse_Platform_SystemUI_ResendFrameSizes101(JNIEnv *env,jcla
         ::g::Fuse::Platform::SystemUI::ResendFrameSizes();
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_RootLayoutSet77(JNIEnv *env,jclass clazz,jobject setVal,jlong setValPtr)
+void JNICALL callUno_Fuse_Platform_SystemUI_RootLayoutSet80(JNIEnv *env,jclass clazz,jobject setVal,jlong setValPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     ::g::Java::Object* uno_setVal = (::g::Java::Object*)::g::Android::Base::Wrappers::JavaObjectHelper::JObjectToJWrapper(setVal, true);
     JTRY
-        ::g::Fuse::Platform::SystemUI::RootLayout_ = uCast<::g::Java::Object*>(uno_setVal, ::g::Java::Object_typeof());
+        ::g::Fuse::Platform::SystemUI::RootLayout() = uCast<::g::Java::Object*>(uno_setVal, ::g::Java::Object_typeof());
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_SuperLayoutSet75(JNIEnv *env,jclass clazz,jobject setVal,jlong setValPtr)
+void JNICALL callUno_Fuse_Platform_SystemUI_SuperLayoutSet78(JNIEnv *env,jclass clazz,jobject setVal,jlong setValPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
     ::g::Java::Object* uno_setVal = (::g::Java::Object*)::g::Android::Base::Wrappers::JavaObjectHelper::JObjectToJWrapper(setVal, true);
     JTRY
-        ::g::Fuse::Platform::SystemUI::SuperLayout_ = uCast<::g::Java::Object*>(uno_setVal, ::g::Java::Object_typeof());
+        ::g::Fuse::Platform::SystemUI::SuperLayout() = uCast<::g::Java::Object*>(uno_setVal, ::g::Java::Object_typeof());
     JCATCH
 }
-void JNICALL callUno_Fuse_Platform_SystemUI_UpdateStatusBar104(JNIEnv *env,jclass clazz)
+void JNICALL callUno_Fuse_Platform_SystemUI_UpdateStatusBar109(JNIEnv *env,jclass clazz)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1470,7 +1470,7 @@ void JNICALL callUno_Fuse_Platform_SystemUI_UpdateStatusBar104(JNIEnv *env,jclas
         ::g::Fuse::Platform::SystemUI::UpdateStatusBar();
     JCATCH
 }
-void JNICALL callUno_Neovisionaries_WebSocketClient__webSocketSet389(JNIEnv *env,jclass clazz,jobject jthis,jobject setVal,jlong setValPtr)
+void JNICALL callUno_Neovisionaries_WebSocketClient__webSocketSet383(JNIEnv *env,jclass clazz,jobject jthis,jobject setVal,jlong setValPtr)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1480,7 +1480,7 @@ void JNICALL callUno_Neovisionaries_WebSocketClient__webSocketSet389(JNIEnv *env
         uno_jthis->_webSocket = uCast<::g::Java::Object*>(uno_setVal, ::g::Java::Object_typeof());
     JCATCH
 }
-void JNICALL callUno_Uno_Collections_List_lt_string_gt__Add58(JNIEnv *env,jclass clazz,jobject jthis,jobject item)
+void JNICALL callUno_Uno_Collections_List_lt_string_gt__Add61(JNIEnv *env,jclass clazz,jobject jthis,jobject item)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1490,7 +1490,7 @@ void JNICALL callUno_Uno_Collections_List_lt_string_gt__Add58(JNIEnv *env,jclass
         ::g::Uno::Collections::List__Add_fn(uno_jthis, uCast<uString*>(uno_item, ::g::Uno::String_typeof()));
     JCATCH
 }
-void JNICALL callUno_Uno_Permissions_Permissions_Failed59(JNIEnv *env,jclass clazz,jobject promise)
+void JNICALL callUno_Uno_Permissions_Permissions_Failed62(JNIEnv *env,jclass clazz,jobject promise)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1499,7 +1499,7 @@ void JNICALL callUno_Uno_Permissions_Permissions_Failed59(JNIEnv *env,jclass cla
         ::g::Uno::Permissions::Permissions::Failed(uno_promise);
     JCATCH
 }
-void JNICALL callUno_Uno_Permissions_Permissions_Succeeded60(JNIEnv *env,jclass clazz,jobject promise)
+void JNICALL callUno_Uno_Permissions_Permissions_Succeeded63(JNIEnv *env,jclass clazz,jobject promise)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1508,7 +1508,7 @@ void JNICALL callUno_Uno_Permissions_Permissions_Succeeded60(JNIEnv *env,jclass 
         ::g::Uno::Permissions::Permissions::Succeeded(uno_promise);
     JCATCH
 }
-void JNICALL callUno_Uno_Platform_AndroidDisplay__initializedSet54(JNIEnv *env,jclass clazz,jboolean setVal)
+void JNICALL callUno_Uno_Platform_AndroidDisplay__initializedSet57(JNIEnv *env,jclass clazz,jboolean setVal)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1517,7 +1517,7 @@ void JNICALL callUno_Uno_Platform_AndroidDisplay__initializedSet54(JNIEnv *env,j
         ::g::Uno::Platform::AndroidDisplay::_initialized_ = uno_setVal;
     JCATCH
 }
-void JNICALL callUno_Uno_Platform_AndroidDisplay_OnFrameCallback55(JNIEnv *env,jclass clazz,jobject jthis,jdouble currentTime,jdouble deltaTime)
+void JNICALL callUno_Uno_Platform_AndroidDisplay_OnFrameCallback58(JNIEnv *env,jclass clazz,jobject jthis,jdouble currentTime,jdouble deltaTime)
 {
     uAutoReleasePool pool;
     INIT_JNI;
@@ -1538,7 +1538,7 @@ namespace ExportTargetInterop{
 namespace Foreign{
 namespace Android{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Compiler\ExportTargetInterop\Foreign\Android\ExternBlockHost.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Compiler\ExportTargetInterop\Foreign\Android\ExternBlockHost.uno
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 
 // internal static extern class ExternBlockHost :10
@@ -1569,7 +1569,7 @@ void ExternBlockHost__RegisterFunctions_fn()
 void ExternBlockHost::RegisterFunctions()
 {
     JniHelper jni;
-    static JNINativeMethod native_activity_funcs[] = {
+                    static JNINativeMethod native_activity_funcs[] = {
     {(char* const)"callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_BoolArrayToUnoArrayPtr0", (char* const)"(Ljava/lang/Object;J)J", (void *)&callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_BoolArrayToUnoArrayPtr0},
     {(char* const)"callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_ByteArrayToUnoArrayPtr1", (char* const)"(Ljava/lang/Object;J)J", (void *)&callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_ByteArrayToUnoArrayPtr1},
     {(char* const)"callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_CharArrayToUnoArrayPtr2", (char* const)"(Ljava/lang/Object;J)J", (void *)&callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_CharArrayToUnoArrayPtr2},
@@ -1621,86 +1621,86 @@ void ExternBlockHost::RegisterFunctions()
     {(char* const)"callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_SetString48", (char* const)"(Lcom/uno/UnoObject;ILjava/lang/String;)Ljava/lang/String;", (void *)&callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_SetString48},
     {(char* const)"callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_SetUByte49", (char* const)"(Lcom/uno/UnoObject;IB)B", (void *)&callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_SetUByte49},
     {(char* const)"callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_ShortArrayToUnoArrayPtr50", (char* const)"(Ljava/lang/Object;J)J", (void *)&callUno_Uno_Compiler_ExportTargetInterop_Foreign_Android_JavaToUnoArrayEntrypoints_ShortArrayToUnoArrayPtr50},
-    {(char* const)"callUno_Uno_Platform_AndroidDisplay__initializedGet54", (char* const)"()Z", (void *)&callUno_Uno_Platform_AndroidDisplay__initializedGet54},
-    {(char* const)"callUno_Uno_Platform_AndroidDisplay__initializedSet54", (char* const)"(Z)V", (void *)&callUno_Uno_Platform_AndroidDisplay__initializedSet54},
-    {(char* const)"callUno_Uno_Platform_AndroidDisplay_OnFrameCallback55", (char* const)"(Lcom/uno/UnoObject;DD)V", (void *)&callUno_Uno_Platform_AndroidDisplay_OnFrameCallback55},
-    {(char* const)"callUno_Uno_Collections_List_lt_string_gt__Add58", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;)V", (void *)&callUno_Uno_Collections_List_lt_string_gt__Add58},
-    {(char* const)"callUno_Uno_Permissions_Permissions_Failed59", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Uno_Permissions_Permissions_Failed59},
-    {(char* const)"callUno_Uno_Permissions_Permissions_Succeeded60", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Uno_Permissions_Permissions_Succeeded60},
-    {(char* const)"callUno_Uno_Guid__ctor65", (char* const)"(Lcom/uno/ByteArray;)Lcom/uno/UnoObject;", (void *)&callUno_Uno_Guid__ctor65},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_layoutAttachedToGet70", (char* const)"()Ljava/lang/Object;", (void *)&callUno_Fuse_Platform_SystemUI_layoutAttachedToGet70},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_layoutAttachedToSet70", (char* const)"(Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Platform_SystemUI_layoutAttachedToSet70},
-    {(char* const)"callUno_Fuse_Platform_SystemUI__keyboardListenerGet71", (char* const)"()Ljava/lang/Object;", (void *)&callUno_Fuse_Platform_SystemUI__keyboardListenerGet71},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_realWidthSet73", (char* const)"(I)V", (void *)&callUno_Fuse_Platform_SystemUI_realWidthSet73},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_realHeightSet74", (char* const)"(I)V", (void *)&callUno_Fuse_Platform_SystemUI_realHeightSet74},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_SuperLayoutGet75", (char* const)"()Ljava/lang/Object;", (void *)&callUno_Fuse_Platform_SystemUI_SuperLayoutGet75},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_realHeightGet74", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_realHeightGet74},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_realWidthGet73", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_realWidthGet73},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_SuperLayoutSet75", (char* const)"(Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Platform_SystemUI_SuperLayoutSet75},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_RootLayoutSet77", (char* const)"(Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Platform_SystemUI_RootLayoutSet77},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_RootLayoutGet77", (char* const)"()Ljava/lang/Object;", (void *)&callUno_Fuse_Platform_SystemUI_RootLayoutGet77},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_GetRealDisplayHeight80", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_GetRealDisplayHeight80},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_CompensateRootLayoutForSystemUI81", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_CompensateRootLayoutForSystemUI81},
-    {(char* const)"callUno_Fuse_Platform_SystemUI__systemUIStateSet84", (char* const)"(I)V", (void *)&callUno_Fuse_Platform_SystemUI__systemUIStateSet84},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_cppOnTopFrameChanged87", (char* const)"(I)V", (void *)&callUno_Fuse_Platform_SystemUI_cppOnTopFrameChanged87},
-    {(char* const)"callUno_Fuse_Platform_SystemUI__systemUIStateGet84", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI__systemUIStateGet84},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeGet91", (char* const)"()Z", (void *)&callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeGet91},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_cachedOpenSizeGet92", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_cachedOpenSizeGet92},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeSet91", (char* const)"(Z)V", (void *)&callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeSet91},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_cachedOpenSizeSet92", (char* const)"(I)V", (void *)&callUno_Fuse_Platform_SystemUI_cachedOpenSizeSet92},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_OnDestroy97", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_OnDestroy97},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_OnConfigChanged98", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_OnConfigChanged98},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_GetRealDisplayWidth99", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_GetRealDisplayWidth99},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_cppOnConfigChanged100", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_cppOnConfigChanged100},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_ResendFrameSizes101", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_ResendFrameSizes101},
-    {(char* const)"callUno_Fuse_Platform_SystemUI__keyboardListenerSet71", (char* const)"(Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Platform_SystemUI__keyboardListenerSet71},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_UpdateStatusBar104", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_UpdateStatusBar104},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_lastKeyboardHeightGet107", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_lastKeyboardHeightGet107},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_firstSizingGet108", (char* const)"()Z", (void *)&callUno_Fuse_Platform_SystemUI_firstSizingGet108},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_onHideKeyboard109", (char* const)"(IZ)V", (void *)&callUno_Fuse_Platform_SystemUI_onHideKeyboard109},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_onShowKeyboard110", (char* const)"(IZ)V", (void *)&callUno_Fuse_Platform_SystemUI_onShowKeyboard110},
-    {(char* const)"callUno_Fuse_Platform_SystemUI_firstSizingSet108", (char* const)"(Z)V", (void *)&callUno_Fuse_Platform_SystemUI_firstSizingSet108},
-    {(char* const)"callUno_Fuse_Internal_AndroidSystemFont_AddFamily112", (char* const)"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", (void *)&callUno_Fuse_Internal_AndroidSystemFont_AddFamily112},
-    {(char* const)"callUno_Fuse_Internal_AndroidSystemFont_AddFont113", (char* const)"(Ljava/lang/String;IIZ)V", (void *)&callUno_Fuse_Internal_AndroidSystemFont_AddFont113},
-    {(char* const)"callUno_Fuse_Internal_AndroidSystemFont_AddAlias114", (char* const)"(Ljava/lang/String;Ljava/lang/String;I)V", (void *)&callUno_Fuse_Internal_AndroidSystemFont_AddAlias114},
-    {(char* const)"callUno_Fuse_Internal_AndroidSystemFont_ThrowUno115", (char* const)"(Ljava/lang/String;)V", (void *)&callUno_Fuse_Internal_AndroidSystemFont_ThrowUno115},
+    {(char* const)"callUno_Uno_Platform_AndroidDisplay__initializedGet57", (char* const)"()Z", (void *)&callUno_Uno_Platform_AndroidDisplay__initializedGet57},
+    {(char* const)"callUno_Uno_Platform_AndroidDisplay__initializedSet57", (char* const)"(Z)V", (void *)&callUno_Uno_Platform_AndroidDisplay__initializedSet57},
+    {(char* const)"callUno_Uno_Platform_AndroidDisplay_OnFrameCallback58", (char* const)"(Lcom/uno/UnoObject;DD)V", (void *)&callUno_Uno_Platform_AndroidDisplay_OnFrameCallback58},
+    {(char* const)"callUno_Uno_Collections_List_lt_string_gt__Add61", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;)V", (void *)&callUno_Uno_Collections_List_lt_string_gt__Add61},
+    {(char* const)"callUno_Uno_Permissions_Permissions_Failed62", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Uno_Permissions_Permissions_Failed62},
+    {(char* const)"callUno_Uno_Permissions_Permissions_Succeeded63", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Uno_Permissions_Permissions_Succeeded63},
+    {(char* const)"callUno_Uno_Guid__ctor68", (char* const)"(Lcom/uno/ByteArray;)Lcom/uno/UnoObject;", (void *)&callUno_Uno_Guid__ctor68},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_layoutAttachedToGet73", (char* const)"()Ljava/lang/Object;", (void *)&callUno_Fuse_Platform_SystemUI_layoutAttachedToGet73},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_layoutAttachedToSet73", (char* const)"(Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Platform_SystemUI_layoutAttachedToSet73},
+    {(char* const)"callUno_Fuse_Platform_SystemUI__keyboardListenerGet74", (char* const)"()Ljava/lang/Object;", (void *)&callUno_Fuse_Platform_SystemUI__keyboardListenerGet74},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_realWidthSet76", (char* const)"(I)V", (void *)&callUno_Fuse_Platform_SystemUI_realWidthSet76},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_realHeightSet77", (char* const)"(I)V", (void *)&callUno_Fuse_Platform_SystemUI_realHeightSet77},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_SuperLayoutGet78", (char* const)"()Ljava/lang/Object;", (void *)&callUno_Fuse_Platform_SystemUI_SuperLayoutGet78},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_realHeightGet77", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_realHeightGet77},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_realWidthGet76", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_realWidthGet76},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_SuperLayoutSet78", (char* const)"(Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Platform_SystemUI_SuperLayoutSet78},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_RootLayoutSet80", (char* const)"(Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Platform_SystemUI_RootLayoutSet80},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_RootLayoutGet80", (char* const)"()Ljava/lang/Object;", (void *)&callUno_Fuse_Platform_SystemUI_RootLayoutGet80},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_GetRealDisplayHeight83", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_GetRealDisplayHeight83},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_CompensateRootLayoutForSystemUI84", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_CompensateRootLayoutForSystemUI84},
+    {(char* const)"callUno_Fuse_Platform_SystemUI__systemUIStateSet87", (char* const)"(I)V", (void *)&callUno_Fuse_Platform_SystemUI__systemUIStateSet87},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_cppOnTopFrameChanged90", (char* const)"(I)V", (void *)&callUno_Fuse_Platform_SystemUI_cppOnTopFrameChanged90},
+    {(char* const)"callUno_Fuse_Platform_SystemUI__systemUIStateGet87", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI__systemUIStateGet87},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeGet96", (char* const)"()Z", (void *)&callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeGet96},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_cachedOpenSizeGet97", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_cachedOpenSizeGet97},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeSet96", (char* const)"(Z)V", (void *)&callUno_Fuse_Platform_SystemUI_hasCachedStatusBarSizeSet96},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_cachedOpenSizeSet97", (char* const)"(I)V", (void *)&callUno_Fuse_Platform_SystemUI_cachedOpenSizeSet97},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_OnDestroy102", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_OnDestroy102},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_OnConfigChanged103", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_OnConfigChanged103},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_GetRealDisplayWidth104", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_GetRealDisplayWidth104},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_cppOnConfigChanged105", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_cppOnConfigChanged105},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_ResendFrameSizes106", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_ResendFrameSizes106},
+    {(char* const)"callUno_Fuse_Platform_SystemUI__keyboardListenerSet74", (char* const)"(Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Platform_SystemUI__keyboardListenerSet74},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_UpdateStatusBar109", (char* const)"()V", (void *)&callUno_Fuse_Platform_SystemUI_UpdateStatusBar109},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_lastKeyboardHeightGet112", (char* const)"()I", (void *)&callUno_Fuse_Platform_SystemUI_lastKeyboardHeightGet112},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_firstSizingGet113", (char* const)"()Z", (void *)&callUno_Fuse_Platform_SystemUI_firstSizingGet113},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_onHideKeyboard114", (char* const)"(IZ)V", (void *)&callUno_Fuse_Platform_SystemUI_onHideKeyboard114},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_onShowKeyboard115", (char* const)"(IZ)V", (void *)&callUno_Fuse_Platform_SystemUI_onShowKeyboard115},
+    {(char* const)"callUno_Fuse_Platform_SystemUI_firstSizingSet113", (char* const)"(Z)V", (void *)&callUno_Fuse_Platform_SystemUI_firstSizingSet113},
+    {(char* const)"callUno_Fuse_Internal_AndroidSystemFont_AddFamily117", (char* const)"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", (void *)&callUno_Fuse_Internal_AndroidSystemFont_AddFamily117},
+    {(char* const)"callUno_Fuse_Internal_AndroidSystemFont_AddFont118", (char* const)"(Ljava/lang/String;IIZ)V", (void *)&callUno_Fuse_Internal_AndroidSystemFont_AddFont118},
+    {(char* const)"callUno_Fuse_Internal_AndroidSystemFont_AddAlias119", (char* const)"(Ljava/lang/String;Ljava/lang/String;I)V", (void *)&callUno_Fuse_Internal_AndroidSystemFont_AddAlias119},
+    {(char* const)"callUno_Fuse_Internal_AndroidSystemFont_ThrowUno120", (char* const)"(Ljava/lang/String;)V", (void *)&callUno_Fuse_Internal_AndroidSystemFont_ThrowUno120},
     {(char* const)"callUno_Action_Object", (char* const)"(Lcom/foreign/Uno/Action_Object;Ljava/lang/Object;J)V", (void *)&callUno_Action_Object},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_FocusChangedListener_OnFocusChange133", (char* const)"(Lcom/uno/UnoObject;Z)V", (void *)&callUno_Fuse_Controls_Native_Android_FocusChangedListener_OnFocusChange133},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_FocusChangedListener_OnFocusChange136", (char* const)"(Lcom/uno/UnoObject;Z)V", (void *)&callUno_Fuse_Controls_Native_Android_FocusChangedListener_OnFocusChange136},
     {(char* const)"callUno_Action_String", (char* const)"(Lcom/foreign/Uno/Action_String;Ljava/lang/String;)V", (void *)&callUno_Action_String},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_InputDispatch_OnTouch150", (char* const)"(Ljava/lang/Object;Ljava/lang/Object;JJ)Z", (void *)&callUno_Fuse_Controls_Native_Android_InputDispatch_OnTouch150},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_ScrollView_OnScrollChanged172", (char* const)"(Lcom/uno/UnoObject;IIII)V", (void *)&callUno_Fuse_Controls_Native_Android_ScrollView_OnScrollChanged172},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_Slider_OnSeekBarChanged184", (char* const)"(Lcom/uno/UnoObject;DZ)V", (void *)&callUno_Fuse_Controls_Native_Android_Slider_OnSeekBarChanged184},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceRedrawNeeded190", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceRedrawNeeded190},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceChanged191", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;IIIJ)V", (void *)&callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceChanged191},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceCreated192", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceCreated192},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceDestroyed193", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceDestroyed193},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_Switch_OnToggleChanged197", (char* const)"(Lcom/uno/UnoObject;Z)V", (void *)&callUno_Fuse_Controls_Native_Android_Switch_OnToggleChanged197},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_TextInput_OnEditorAction202", (char* const)"(Lcom/uno/UnoObject;I)Z", (void *)&callUno_Fuse_Controls_Native_Android_TextInput_OnEditorAction202},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_TextInput_OnTextChanged204", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;)V", (void *)&callUno_Fuse_Controls_Native_Android_TextInput_OnTextChanged204},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureAvailable218", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureAvailable218},
-    {(char* const)"callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureDestroyed219", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureDestroyed219},
-    {(char* const)"callUno_Fuse_Controls_Native_ViewHandle_NativeHandleGet249", (char* const)"(Lcom/uno/UnoObject;)Ljava/lang/Object;", (void *)&callUno_Fuse_Controls_Native_ViewHandle_NativeHandleGet249},
-    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnPrepared271", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnPrepared271},
-    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnCompletion272", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnCompletion272},
-    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnError273", (char* const)"(Lcom/uno/UnoObject;II)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnError273},
-    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnBuffer274", (char* const)"(Lcom/uno/UnoObject;I)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnBuffer274},
-    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnFrameAvailable277", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnFrameAvailable277},
-    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnErrorOccurred286", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnErrorOccurred286},
-    {(char* const)"callUno_Uno_IO_BundleFile_BundlePathGet329", (char* const)"(Lcom/uno/UnoObject;)Ljava/lang/String;", (void *)&callUno_Uno_IO_BundleFile_BundlePathGet329},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_InputDispatch_OnTouch152", (char* const)"(Ljava/lang/Object;Ljava/lang/Object;JJ)Z", (void *)&callUno_Fuse_Controls_Native_Android_InputDispatch_OnTouch152},
+    {(char* const)"callUno_Action_int_int_int_int", (char* const)"(Lcom/foreign/Uno/Action_int_int_int_int;IIII)V", (void *)&callUno_Action_int_int_int_int},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_Slider_OnSeekBarChanged178", (char* const)"(Lcom/uno/UnoObject;DZ)V", (void *)&callUno_Fuse_Controls_Native_Android_Slider_OnSeekBarChanged178},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceRedrawNeeded184", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceRedrawNeeded184},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceChanged185", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;IIIJ)V", (void *)&callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceChanged185},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceCreated186", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceCreated186},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceDestroyed187", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Controls_Native_Android_SurfaceView_OnSurfaceDestroyed187},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_Switch_OnToggleChanged191", (char* const)"(Lcom/uno/UnoObject;Z)V", (void *)&callUno_Fuse_Controls_Native_Android_Switch_OnToggleChanged191},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_TextInput_OnEditorAction196", (char* const)"(Lcom/uno/UnoObject;I)Z", (void *)&callUno_Fuse_Controls_Native_Android_TextInput_OnEditorAction196},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_TextInput_OnTextChanged198", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;)V", (void *)&callUno_Fuse_Controls_Native_Android_TextInput_OnTextChanged198},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureAvailable212", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureAvailable212},
+    {(char* const)"callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureDestroyed213", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Fuse_Controls_Native_Android_TextureView_OnSurfaceTextureDestroyed213},
+    {(char* const)"callUno_Fuse_Controls_Native_ViewHandle_NativeHandleGet243", (char* const)"(Lcom/uno/UnoObject;)Ljava/lang/Object;", (void *)&callUno_Fuse_Controls_Native_ViewHandle_NativeHandleGet243},
+    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnPrepared265", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnPrepared265},
+    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnCompletion266", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnCompletion266},
+    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnError267", (char* const)"(Lcom/uno/UnoObject;II)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnError267},
+    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnBuffer268", (char* const)"(Lcom/uno/UnoObject;I)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnBuffer268},
+    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnFrameAvailable271", (char* const)"(Lcom/uno/UnoObject;)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnFrameAvailable271},
+    {(char* const)"callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnErrorOccurred280", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;)V", (void *)&callUno_Fuse_Controls_VideoImpl_Android_MediaPlayer_OnErrorOccurred280},
+    {(char* const)"callUno_Uno_IO_BundleFile_BundlePathGet323", (char* const)"(Lcom/uno/UnoObject;)Ljava/lang/String;", (void *)&callUno_Uno_IO_BundleFile_BundlePathGet323},
     {(char* const)"callUno_Action_int", (char* const)"(Lcom/foreign/Uno/Action_int;I)V", (void *)&callUno_Action_int},
     {(char* const)"callUno_Action", (char* const)"(Lcom/foreign/Uno/Action;)V", (void *)&callUno_Action},
     {(char* const)"callUno_Func", (char* const)"(Lcom/foreign/Uno/Func;)Z", (void *)&callUno_Func},
-    {(char* const)"callUno_Fuse_Android_AppRoot_OnTouchEvent__347", (char* const)"(Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Android_AppRoot_OnTouchEvent__347},
-    {(char* const)"callUno_Fuse_Android_StatusBarConfig_UpdateStatusBar369", (char* const)"()V", (void *)&callUno_Fuse_Android_StatusBarConfig_UpdateStatusBar369},
-    {(char* const)"callUno_Neovisionaries_WebSocketClient__webSocketGet389", (char* const)"(Lcom/uno/UnoObject;)Ljava/lang/Object;", (void *)&callUno_Neovisionaries_WebSocketClient__webSocketGet389},
+    {(char* const)"callUno_Fuse_Android_AppRoot_OnTouchEvent__341", (char* const)"(Ljava/lang/Object;J)V", (void *)&callUno_Fuse_Android_AppRoot_OnTouchEvent__341},
+    {(char* const)"callUno_Fuse_Android_StatusBarConfig_UpdateStatusBar363", (char* const)"()V", (void *)&callUno_Fuse_Android_StatusBarConfig_UpdateStatusBar363},
+    {(char* const)"callUno_Neovisionaries_WebSocketClient__webSocketGet383", (char* const)"(Lcom/uno/UnoObject;)Ljava/lang/Object;", (void *)&callUno_Neovisionaries_WebSocketClient__webSocketGet383},
     {(char* const)"callUno_Action_ByteArray", (char* const)"(Lcom/foreign/Uno/Action_ByteArray;Lcom/uno/ByteArray;)V", (void *)&callUno_Action_ByteArray},
-    {(char* const)"callUno_Neovisionaries_WebSocketClient__webSocketSet389", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;J)V", (void *)&callUno_Neovisionaries_WebSocketClient__webSocketSet389},
-    {(char* const)"callUno_Bolav_ForeignHelpers_JSDict_SetKeyVal396", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;Ljava/lang/String;)V", (void *)&callUno_Bolav_ForeignHelpers_JSDict_SetKeyVal396},
-    {(char* const)"callUno_Bolav_ForeignHelpers_JSDict_AddDictForKey397", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;)Lcom/uno/UnoObject;", (void *)&callUno_Bolav_ForeignHelpers_JSDict_AddDictForKey397},
-    {(char* const)"callUno_Bolav_ForeignHelpers_JSDict_AddListForKey398", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;)Lcom/uno/UnoObject;", (void *)&callUno_Bolav_ForeignHelpers_JSDict_AddListForKey398},
-    {(char* const)"callUno_Bolav_ForeignHelpers_JSList_NewDictRow400", (char* const)"(Lcom/uno/UnoObject;)Lcom/uno/UnoObject;", (void *)&callUno_Bolav_ForeignHelpers_JSList_NewDictRow400},
-    {(char* const)"callUno_Bolav_ForeignHelpers_ForeignList_NewDictRow405", (char* const)"(Lcom/uno/UnoObject;)Lcom/uno/UnoObject;", (void *)&callUno_Bolav_ForeignHelpers_ForeignList_NewDictRow405},
-    {(char* const)"callUno_Bolav_ForeignHelpers_ForeignDict_SetKeyVal406", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;Ljava/lang/String;)V", (void *)&callUno_Bolav_ForeignHelpers_ForeignDict_SetKeyVal406},
+    {(char* const)"callUno_Neovisionaries_WebSocketClient__webSocketSet383", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/Object;J)V", (void *)&callUno_Neovisionaries_WebSocketClient__webSocketSet383},
+    {(char* const)"callUno_Bolav_ForeignHelpers_JSDict_SetKeyVal390", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;Ljava/lang/String;)V", (void *)&callUno_Bolav_ForeignHelpers_JSDict_SetKeyVal390},
+    {(char* const)"callUno_Bolav_ForeignHelpers_JSDict_AddDictForKey391", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;)Lcom/uno/UnoObject;", (void *)&callUno_Bolav_ForeignHelpers_JSDict_AddDictForKey391},
+    {(char* const)"callUno_Bolav_ForeignHelpers_JSDict_AddListForKey392", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;)Lcom/uno/UnoObject;", (void *)&callUno_Bolav_ForeignHelpers_JSDict_AddListForKey392},
+    {(char* const)"callUno_Bolav_ForeignHelpers_JSList_NewDictRow394", (char* const)"(Lcom/uno/UnoObject;)Lcom/uno/UnoObject;", (void *)&callUno_Bolav_ForeignHelpers_JSList_NewDictRow394},
+    {(char* const)"callUno_Bolav_ForeignHelpers_ForeignList_NewDictRow399", (char* const)"(Lcom/uno/UnoObject;)Lcom/uno/UnoObject;", (void *)&callUno_Bolav_ForeignHelpers_ForeignList_NewDictRow399},
+    {(char* const)"callUno_Bolav_ForeignHelpers_ForeignDict_SetKeyVal400", (char* const)"(Lcom/uno/UnoObject;Ljava/lang/String;Ljava/lang/String;)V", (void *)&callUno_Bolav_ForeignHelpers_ForeignDict_SetKeyVal400},
     };
     int funcCount = 131;
     if ((int)jni->RegisterNatives(JniHelper::GetNativeExternClass(), native_activity_funcs, funcCount)<0) {
@@ -1710,7 +1710,7 @@ void ExternBlockHost::RegisterFunctions()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Compiler\ExportTargetInterop\Foreign\Android\UnoArrayEntrypoints.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Compiler\ExportTargetInterop\Foreign\Android\UnoArrayEntrypoints.uno
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
 // public static extern class JavaToUnoArrayEntrypoints :10
@@ -1731,12 +1731,6 @@ static void JavaToUnoArrayEntrypoints_build(uType* type)
     ::TYPES[9] = uObject_typeof()->Array();
     ::TYPES[10] = ::g::Uno::Short_typeof()->Array();
     ::TYPES[11] = ::g::Uno::String_typeof()->Array();
-    type->SetDependencies(
-        ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject_typeof(),
-        ::g::Android::Base::JNI_typeof(),
-        ::g::Android::Base::Wrappers::JWrapper_typeof(),
-        ::g::Android::Base::Types::String_typeof(),
-        ::g::Android::Base::Primitives::ujclass_typeof());
     type->SetFields(0,
         ::g::Android::Base::Primitives::ujclass_typeof(), (uintptr_t)&JavaToUnoArrayEntrypoints::_stringClass_, uFieldFlagsStatic,
         ::g::Android::Base::Primitives::ujclass_typeof(), (uintptr_t)&JavaToUnoArrayEntrypoints::_objectClass_, uFieldFlagsStatic);
@@ -1749,7 +1743,6 @@ uClassType* JavaToUnoArrayEntrypoints_typeof()
 
     uTypeOptions options;
     options.FieldCount = 2;
-    options.DependencyCount = 5;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Uno.Compiler.ExportTargetInterop.Foreign.Android.JavaToUnoArrayEntrypoints", options);
     type->fp_build_ = JavaToUnoArrayEntrypoints_build;
@@ -1853,121 +1846,121 @@ void JavaToUnoArrayEntrypoints__FloatArrayToUnoArrayPtr_fn(::g::Java::Object* ja
 }
 
 // public static bool getBool(object array, int index) :225
-void JavaToUnoArrayEntrypoints__getBool_fn(uObject* array, int* index, bool* __retval)
+void JavaToUnoArrayEntrypoints__getBool_fn(uObject* array, int32_t* index, bool* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::getBool(array, *index);
 }
 
 // public static bool GetBool(object array, int index) :12
-void JavaToUnoArrayEntrypoints__GetBool_fn(uObject* array, int* index, bool* __retval)
+void JavaToUnoArrayEntrypoints__GetBool_fn(uObject* array, int32_t* index, bool* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetBool(array, *index);
 }
 
 // public static sbyte getByte(object array, int index) :231
-void JavaToUnoArrayEntrypoints__getByte_fn(uObject* array, int* index, int8_t* __retval)
+void JavaToUnoArrayEntrypoints__getByte_fn(uObject* array, int32_t* index, int8_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::getByte(array, *index);
 }
 
 // public static sbyte GetByte(object array, int index) :16
-void JavaToUnoArrayEntrypoints__GetByte_fn(uObject* array, int* index, int8_t* __retval)
+void JavaToUnoArrayEntrypoints__GetByte_fn(uObject* array, int32_t* index, int8_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetByte(array, *index);
 }
 
 // public static char GetChar(object array, int index) :24
-void JavaToUnoArrayEntrypoints__GetChar_fn(uObject* array, int* index, uChar* __retval)
+void JavaToUnoArrayEntrypoints__GetChar_fn(uObject* array, int32_t* index, char16_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetChar(array, *index);
 }
 
 // public static double getDouble(object array, int index) :273
-void JavaToUnoArrayEntrypoints__getDouble_fn(uObject* array, int* index, double* __retval)
+void JavaToUnoArrayEntrypoints__getDouble_fn(uObject* array, int32_t* index, double* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::getDouble(array, *index);
 }
 
 // public static double GetDouble(object array, int index) :44
-void JavaToUnoArrayEntrypoints__GetDouble_fn(uObject* array, int* index, double* __retval)
+void JavaToUnoArrayEntrypoints__GetDouble_fn(uObject* array, int32_t* index, double* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetDouble(array, *index);
 }
 
 // public static float getFloat(object array, int index) :267
-void JavaToUnoArrayEntrypoints__getFloat_fn(uObject* array, int* index, float* __retval)
+void JavaToUnoArrayEntrypoints__getFloat_fn(uObject* array, int32_t* index, float* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::getFloat(array, *index);
 }
 
 // public static float GetFloat(object array, int index) :40
-void JavaToUnoArrayEntrypoints__GetFloat_fn(uObject* array, int* index, float* __retval)
+void JavaToUnoArrayEntrypoints__GetFloat_fn(uObject* array, int32_t* index, float* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetFloat(array, *index);
 }
 
 // public static int getInt(object array, int index) :255
-void JavaToUnoArrayEntrypoints__getInt_fn(uObject* array, int* index, int* __retval)
+void JavaToUnoArrayEntrypoints__getInt_fn(uObject* array, int32_t* index, int32_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::getInt(array, *index);
 }
 
 // public static int GetInt(object array, int index) :32
-void JavaToUnoArrayEntrypoints__GetInt_fn(uObject* array, int* index, int* __retval)
+void JavaToUnoArrayEntrypoints__GetInt_fn(uObject* array, int32_t* index, int32_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetInt(array, *index);
 }
 
 // public static long getLong(object array, int index) :261
-void JavaToUnoArrayEntrypoints__getLong_fn(uObject* array, int* index, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__getLong_fn(uObject* array, int32_t* index, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::getLong(array, *index);
 }
 
 // public static long GetLong(object array, int index) :36
-void JavaToUnoArrayEntrypoints__GetLong_fn(uObject* array, int* index, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__GetLong_fn(uObject* array, int32_t* index, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetLong(array, *index);
 }
 
 // public static object getObject(object array, int index) :285
-void JavaToUnoArrayEntrypoints__getObject_fn(uObject* array, int* index, uObject** __retval)
+void JavaToUnoArrayEntrypoints__getObject_fn(uObject* array, int32_t* index, uObject** __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::getObject(array, *index);
 }
 
 // public static object GetObject(object array, int index) :52
-void JavaToUnoArrayEntrypoints__GetObject_fn(uObject* array, int* index, uObject** __retval)
+void JavaToUnoArrayEntrypoints__GetObject_fn(uObject* array, int32_t* index, uObject** __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetObject(array, *index);
 }
 
 // public static short getShort(object array, int index) :249
-void JavaToUnoArrayEntrypoints__getShort_fn(uObject* array, int* index, int16_t* __retval)
+void JavaToUnoArrayEntrypoints__getShort_fn(uObject* array, int32_t* index, int16_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::getShort(array, *index);
 }
 
 // public static short GetShort(object array, int index) :28
-void JavaToUnoArrayEntrypoints__GetShort_fn(uObject* array, int* index, int16_t* __retval)
+void JavaToUnoArrayEntrypoints__GetShort_fn(uObject* array, int32_t* index, int16_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetShort(array, *index);
 }
 
 // public static string getString(object array, int index) :279
-void JavaToUnoArrayEntrypoints__getString_fn(uObject* array, int* index, uString** __retval)
+void JavaToUnoArrayEntrypoints__getString_fn(uObject* array, int32_t* index, uString** __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::getString(array, *index);
 }
 
 // public static string GetString(object array, int index) :48
-void JavaToUnoArrayEntrypoints__GetString_fn(uObject* array, int* index, uString** __retval)
+void JavaToUnoArrayEntrypoints__GetString_fn(uObject* array, int32_t* index, uString** __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetString(array, *index);
 }
 
 // public static sbyte GetUByte(object array, int index) :20
-void JavaToUnoArrayEntrypoints__GetUByte_fn(uObject* array, int* index, int8_t* __retval)
+void JavaToUnoArrayEntrypoints__GetUByte_fn(uObject* array, int32_t* index, int8_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::GetUByte(array, *index);
 }
@@ -1985,181 +1978,181 @@ void JavaToUnoArrayEntrypoints__LongArrayToUnoArrayPtr_fn(::g::Java::Object* jar
 }
 
 // public static long NewBoolArrayPtr(int length) :487
-void JavaToUnoArrayEntrypoints__NewBoolArrayPtr_fn(int* length, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__NewBoolArrayPtr_fn(int32_t* length, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::NewBoolArrayPtr(*length);
 }
 
 // public static long NewByteArrayPtr(int length, bool unoIsUnsigned) :494
-void JavaToUnoArrayEntrypoints__NewByteArrayPtr_fn(int* length, bool* unoIsUnsigned, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__NewByteArrayPtr_fn(int32_t* length, bool* unoIsUnsigned, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::NewByteArrayPtr(*length, *unoIsUnsigned);
 }
 
 // public static long NewCharArrayPtr(int length) :505
-void JavaToUnoArrayEntrypoints__NewCharArrayPtr_fn(int* length, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__NewCharArrayPtr_fn(int32_t* length, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::NewCharArrayPtr(*length);
 }
 
 // public static long NewDoubleArrayPtr(int length) :540
-void JavaToUnoArrayEntrypoints__NewDoubleArrayPtr_fn(int* length, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__NewDoubleArrayPtr_fn(int32_t* length, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::NewDoubleArrayPtr(*length);
 }
 
 // public static long NewFloatArrayPtr(int length) :533
-void JavaToUnoArrayEntrypoints__NewFloatArrayPtr_fn(int* length, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__NewFloatArrayPtr_fn(int32_t* length, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::NewFloatArrayPtr(*length);
 }
 
 // public static long NewIntArrayPtr(int length) :519
-void JavaToUnoArrayEntrypoints__NewIntArrayPtr_fn(int* length, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__NewIntArrayPtr_fn(int32_t* length, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::NewIntArrayPtr(*length);
 }
 
 // public static long NewLongArrayPtr(int length) :526
-void JavaToUnoArrayEntrypoints__NewLongArrayPtr_fn(int* length, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__NewLongArrayPtr_fn(int32_t* length, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::NewLongArrayPtr(*length);
 }
 
 // public static long NewObjectArrayPtr(int length) :554
-void JavaToUnoArrayEntrypoints__NewObjectArrayPtr_fn(int* length, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__NewObjectArrayPtr_fn(int32_t* length, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::NewObjectArrayPtr(*length);
 }
 
 // public static long NewShortArrayPtr(int length) :512
-void JavaToUnoArrayEntrypoints__NewShortArrayPtr_fn(int* length, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__NewShortArrayPtr_fn(int32_t* length, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::NewShortArrayPtr(*length);
 }
 
 // public static long NewStringArrayPtr(int length) :547
-void JavaToUnoArrayEntrypoints__NewStringArrayPtr_fn(int* length, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__NewStringArrayPtr_fn(int32_t* length, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::NewStringArrayPtr(*length);
 }
 
 // public static bool setBool(object array, int index, bool val) :293
-void JavaToUnoArrayEntrypoints__setBool_fn(uObject* array, int* index, bool* val, bool* __retval)
+void JavaToUnoArrayEntrypoints__setBool_fn(uObject* array, int32_t* index, bool* val, bool* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::setBool(array, *index, *val);
 }
 
 // public static bool SetBool(object array, int index, bool val) :57
-void JavaToUnoArrayEntrypoints__SetBool_fn(uObject* array, int* index, bool* val, bool* __retval)
+void JavaToUnoArrayEntrypoints__SetBool_fn(uObject* array, int32_t* index, bool* val, bool* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetBool(array, *index, *val);
 }
 
 // public static sbyte setByte(object array, int index, sbyte val) :299
-void JavaToUnoArrayEntrypoints__setByte_fn(uObject* array, int* index, int8_t* val, int8_t* __retval)
+void JavaToUnoArrayEntrypoints__setByte_fn(uObject* array, int32_t* index, int8_t* val, int8_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::setByte(array, *index, *val);
 }
 
 // public static sbyte SetByte(object array, int index, sbyte val) :61
-void JavaToUnoArrayEntrypoints__SetByte_fn(uObject* array, int* index, int8_t* val, int8_t* __retval)
+void JavaToUnoArrayEntrypoints__SetByte_fn(uObject* array, int32_t* index, int8_t* val, int8_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetByte(array, *index, *val);
 }
 
 // public static char SetChar(object array, int index, char val) :70
-void JavaToUnoArrayEntrypoints__SetChar_fn(uObject* array, int* index, uChar* val, uChar* __retval)
+void JavaToUnoArrayEntrypoints__SetChar_fn(uObject* array, int32_t* index, char16_t* val, char16_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetChar(array, *index, *val);
 }
 
 // public static double setDouble(object array, int index, double val) :341
-void JavaToUnoArrayEntrypoints__setDouble_fn(uObject* array, int* index, double* val, double* __retval)
+void JavaToUnoArrayEntrypoints__setDouble_fn(uObject* array, int32_t* index, double* val, double* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::setDouble(array, *index, *val);
 }
 
 // public static double SetDouble(object array, int index, double val) :90
-void JavaToUnoArrayEntrypoints__SetDouble_fn(uObject* array, int* index, double* val, double* __retval)
+void JavaToUnoArrayEntrypoints__SetDouble_fn(uObject* array, int32_t* index, double* val, double* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetDouble(array, *index, *val);
 }
 
 // public static float setFloat(object array, int index, float val) :335
-void JavaToUnoArrayEntrypoints__setFloat_fn(uObject* array, int* index, float* val, float* __retval)
+void JavaToUnoArrayEntrypoints__setFloat_fn(uObject* array, int32_t* index, float* val, float* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::setFloat(array, *index, *val);
 }
 
 // public static float SetFloat(object array, int index, float val) :86
-void JavaToUnoArrayEntrypoints__SetFloat_fn(uObject* array, int* index, float* val, float* __retval)
+void JavaToUnoArrayEntrypoints__SetFloat_fn(uObject* array, int32_t* index, float* val, float* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetFloat(array, *index, *val);
 }
 
 // public static int setInt(object array, int index, int val) :323
-void JavaToUnoArrayEntrypoints__setInt_fn(uObject* array, int* index, int* val, int* __retval)
+void JavaToUnoArrayEntrypoints__setInt_fn(uObject* array, int32_t* index, int32_t* val, int32_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::setInt(array, *index, *val);
 }
 
 // public static int SetInt(object array, int index, int val) :78
-void JavaToUnoArrayEntrypoints__SetInt_fn(uObject* array, int* index, int* val, int* __retval)
+void JavaToUnoArrayEntrypoints__SetInt_fn(uObject* array, int32_t* index, int32_t* val, int32_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetInt(array, *index, *val);
 }
 
 // public static long setLong(object array, int index, long val) :329
-void JavaToUnoArrayEntrypoints__setLong_fn(uObject* array, int* index, int64_t* val, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__setLong_fn(uObject* array, int32_t* index, int64_t* val, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::setLong(array, *index, *val);
 }
 
 // public static long SetLong(object array, int index, long val) :82
-void JavaToUnoArrayEntrypoints__SetLong_fn(uObject* array, int* index, int64_t* val, int64_t* __retval)
+void JavaToUnoArrayEntrypoints__SetLong_fn(uObject* array, int32_t* index, int64_t* val, int64_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetLong(array, *index, *val);
 }
 
 // public static object setObject(object array, int index, object val) :353
-void JavaToUnoArrayEntrypoints__setObject_fn(uObject* array, int* index, uObject* val, uObject** __retval)
+void JavaToUnoArrayEntrypoints__setObject_fn(uObject* array, int32_t* index, uObject* val, uObject** __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::setObject(array, *index, val);
 }
 
 // public static object SetObject(object array, int index, object val) :98
-void JavaToUnoArrayEntrypoints__SetObject_fn(uObject* array, int* index, uObject* val, uObject** __retval)
+void JavaToUnoArrayEntrypoints__SetObject_fn(uObject* array, int32_t* index, uObject* val, uObject** __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetObject(array, *index, val);
 }
 
 // public static short setShort(object array, int index, short val) :317
-void JavaToUnoArrayEntrypoints__setShort_fn(uObject* array, int* index, int16_t* val, int16_t* __retval)
+void JavaToUnoArrayEntrypoints__setShort_fn(uObject* array, int32_t* index, int16_t* val, int16_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::setShort(array, *index, *val);
 }
 
 // public static short SetShort(object array, int index, short val) :74
-void JavaToUnoArrayEntrypoints__SetShort_fn(uObject* array, int* index, int16_t* val, int16_t* __retval)
+void JavaToUnoArrayEntrypoints__SetShort_fn(uObject* array, int32_t* index, int16_t* val, int16_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetShort(array, *index, *val);
 }
 
 // public static string setString(object array, int index, string val) :347
-void JavaToUnoArrayEntrypoints__setString_fn(uObject* array, int* index, uString* val, uString** __retval)
+void JavaToUnoArrayEntrypoints__setString_fn(uObject* array, int32_t* index, uString* val, uString** __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::setString(array, *index, val);
 }
 
 // public static string SetString(object array, int index, string val) :94
-void JavaToUnoArrayEntrypoints__SetString_fn(uObject* array, int* index, uString* val, uString** __retval)
+void JavaToUnoArrayEntrypoints__SetString_fn(uObject* array, int32_t* index, uString* val, uString** __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetString(array, *index, val);
 }
 
 // public static sbyte SetUByte(object array, int index, sbyte val) :65
-void JavaToUnoArrayEntrypoints__SetUByte_fn(uObject* array, int* index, int8_t* val, int8_t* __retval)
+void JavaToUnoArrayEntrypoints__SetUByte_fn(uObject* array, int32_t* index, int8_t* val, int8_t* __retval)
 {
     *__retval = JavaToUnoArrayEntrypoints::SetUByte(array, *index, *val);
 }
@@ -2178,7 +2171,7 @@ int64_t JavaToUnoArrayEntrypoints::BoolArrayToUnoArrayPtr(::g::Java::Object* jar
 {
     jbooleanArray obj = static_cast<jbooleanArray>(uPtr(uCast< ::g::Android::Base::Wrappers::JWrapper*>(jarr, ::TYPES[0/*Android.Base.Wrappers.JWrapper*/]))->_GetJavaObject());
     JNIEnv* env = ::g::Android::Base::JNI::GetEnvPtr();
-    int len = (int)env->GetArrayLength(obj);
+    int32_t len = (int)env->GetArrayLength(obj);
     uArray* arr = uArray::New(::TYPES[1/*bool[]*/], len);
     env->GetBooleanArrayRegion(obj, (jsize)0, (jsize)len, (jboolean*)arr->_ptr);
     uRetain(arr);
@@ -2190,7 +2183,7 @@ int64_t JavaToUnoArrayEntrypoints::ByteArrayToUnoArrayPtr(::g::Java::Object* jar
 {
     jbyteArray obj = static_cast<jbyteArray>(uPtr(uCast< ::g::Android::Base::Wrappers::JWrapper*>(jarr, ::TYPES[0/*Android.Base.Wrappers.JWrapper*/]))->_GetJavaObject());
     JNIEnv* env = ::g::Android::Base::JNI::GetEnvPtr();
-    int len = (int)env->GetArrayLength(obj);
+    int32_t len = (int)env->GetArrayLength(obj);
     uArray* arr = uArray::New(::TYPES[2/*byte[]*/], len);
     env->GetByteArrayRegion(obj, (jsize)0, (jsize)len, (jbyte*)arr->_ptr);
     uRetain(arr);
@@ -2202,7 +2195,7 @@ int64_t JavaToUnoArrayEntrypoints::CharArrayToUnoArrayPtr(::g::Java::Object* jar
 {
     jcharArray obj = static_cast<jcharArray>(uPtr(uCast< ::g::Android::Base::Wrappers::JWrapper*>(jarr, ::TYPES[0/*Android.Base.Wrappers.JWrapper*/]))->_GetJavaObject());
     JNIEnv* env = ::g::Android::Base::JNI::GetEnvPtr();
-    int len = (int)env->GetArrayLength(obj);
+    int32_t len = (int)env->GetArrayLength(obj);
     uArray* arr = uArray::New(::TYPES[3/*char[]*/], len);
     env->GetCharArrayRegion(obj, (jsize)0, (jsize)len, (jchar*)arr->_ptr);
     uRetain(arr);
@@ -2290,7 +2283,7 @@ int64_t JavaToUnoArrayEntrypoints::CharArrayToUnoArrayPtr(::g::Java::Object* jar
     uArray* arr = uCast<uArray*>(array, ::TYPES[9/*object[]*/]);
     jobject jarr = env->NewObjectArray((jsize)uPtr(arr)->Length(), JavaToUnoArrayEntrypoints::_stringClass_, NULL);
 
-    for (int i = 0; i < arr->Length(); i++)
+    for (int32_t i = 0; i < arr->Length(); i++)
     {
         jobject o = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(uPtr(arr)->Strong<uObject*>(i));
         env->SetObjectArrayElement((jobjectArray)jarr, i, o);
@@ -2321,7 +2314,7 @@ int64_t JavaToUnoArrayEntrypoints::CharArrayToUnoArrayPtr(::g::Java::Object* jar
     uArray* arr = uCast<uArray*>(array, ::TYPES[11/*string[]*/]);
     jobject jarr = env->NewObjectArray((jsize)uPtr(arr)->Length(), JavaToUnoArrayEntrypoints::_stringClass_, NULL);
 
-    for (int i = 0; i < arr->Length(); i++)
+    for (int32_t i = 0; i < arr->Length(); i++)
     {
         jobject s = ::g::Android::Base::Types::String::UnoToJava1(uPtr(arr)->Strong<uString*>(i));
         env->SetObjectArrayElement((jobjectArray)jarr, i, (jobject)s);
@@ -2346,7 +2339,7 @@ int64_t JavaToUnoArrayEntrypoints::DoubleArrayToUnoArrayPtr(::g::Java::Object* j
 {
     jdoubleArray obj = static_cast<jdoubleArray>(uPtr(uCast< ::g::Android::Base::Wrappers::JWrapper*>(jarr, ::TYPES[0/*Android.Base.Wrappers.JWrapper*/]))->_GetJavaObject());
     JNIEnv* env = ::g::Android::Base::JNI::GetEnvPtr();
-    int len = (int)env->GetArrayLength(obj);
+    int32_t len = (int)env->GetArrayLength(obj);
     uArray* arr = uArray::New(::TYPES[5/*double[]*/], len);
     env->GetDoubleArrayRegion(obj, (jsize)0, (jsize)len, (jdouble*)arr->_ptr);
     uRetain(arr);
@@ -2358,7 +2351,7 @@ int64_t JavaToUnoArrayEntrypoints::FloatArrayToUnoArrayPtr(::g::Java::Object* ja
 {
     jfloatArray obj = static_cast<jfloatArray>(uPtr(uCast< ::g::Android::Base::Wrappers::JWrapper*>(jarr, ::TYPES[0/*Android.Base.Wrappers.JWrapper*/]))->_GetJavaObject());
     JNIEnv* env = ::g::Android::Base::JNI::GetEnvPtr();
-    int len = (int)env->GetArrayLength(obj);
+    int32_t len = (int)env->GetArrayLength(obj);
     uArray* arr = uArray::New(::TYPES[6/*float[]*/], len);
     env->GetFloatArrayRegion(obj, (jsize)0, (jsize)len, (jfloat*)arr->_ptr);
     uRetain(arr);
@@ -2366,7 +2359,7 @@ int64_t JavaToUnoArrayEntrypoints::FloatArrayToUnoArrayPtr(::g::Java::Object* ja
 }
 
 // public static bool getBool(object array, int index) [static] :225
-bool JavaToUnoArrayEntrypoints::getBool(uObject* array, int index)
+bool JavaToUnoArrayEntrypoints::getBool(uObject* array, int32_t index)
 {
     {
         INIT_JNI;
@@ -2374,7 +2367,7 @@ bool JavaToUnoArrayEntrypoints::getBool(uObject* array, int index)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "getBool", "(Lcom/uno/UnoObject;I)Z");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         jboolean __jresult = U_JNIVAR->CallStaticBooleanMethod(__cls,__mtd,_array,_index);
         bool __result = (bool)__jresult;
@@ -2387,13 +2380,13 @@ bool JavaToUnoArrayEntrypoints::getBool(uObject* array, int index)
 }
 
 // public static bool GetBool(object array, int index) [static] :12
-bool JavaToUnoArrayEntrypoints::GetBool(uObject* array, int index)
+bool JavaToUnoArrayEntrypoints::GetBool(uObject* array, int32_t index)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[1/*bool[]*/]))->Item<bool>(index);
 }
 
 // public static sbyte getByte(object array, int index) [static] :231
-int8_t JavaToUnoArrayEntrypoints::getByte(uObject* array, int index)
+int8_t JavaToUnoArrayEntrypoints::getByte(uObject* array, int32_t index)
 {
     {
         INIT_JNI;
@@ -2401,7 +2394,7 @@ int8_t JavaToUnoArrayEntrypoints::getByte(uObject* array, int index)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "getByte", "(Lcom/uno/UnoObject;I)B");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         jbyte __jresult = U_JNIVAR->CallStaticByteMethod(__cls,__mtd,_array,_index);
         int8_t __result = (int8_t)__jresult;
@@ -2414,19 +2407,19 @@ int8_t JavaToUnoArrayEntrypoints::getByte(uObject* array, int index)
 }
 
 // public static sbyte GetByte(object array, int index) [static] :16
-int8_t JavaToUnoArrayEntrypoints::GetByte(uObject* array, int index)
+int8_t JavaToUnoArrayEntrypoints::GetByte(uObject* array, int32_t index)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[4/*sbyte[]*/]))->Item<int8_t>(index);
 }
 
 // public static char GetChar(object array, int index) [static] :24
-uChar JavaToUnoArrayEntrypoints::GetChar(uObject* array, int index)
+char16_t JavaToUnoArrayEntrypoints::GetChar(uObject* array, int32_t index)
 {
-    return uPtr(uCast<uArray*>(array, ::TYPES[3/*char[]*/]))->Item<uChar>(index);
+    return uPtr(uCast<uArray*>(array, ::TYPES[3/*char[]*/]))->Item<char16_t>(index);
 }
 
 // public static double getDouble(object array, int index) [static] :273
-double JavaToUnoArrayEntrypoints::getDouble(uObject* array, int index)
+double JavaToUnoArrayEntrypoints::getDouble(uObject* array, int32_t index)
 {
     {
         INIT_JNI;
@@ -2434,7 +2427,7 @@ double JavaToUnoArrayEntrypoints::getDouble(uObject* array, int index)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "getDouble", "(Lcom/uno/UnoObject;I)D");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         jdouble __jresult = U_JNIVAR->CallStaticDoubleMethod(__cls,__mtd,_array,_index);
         double __result = (double)__jresult;
@@ -2447,13 +2440,13 @@ double JavaToUnoArrayEntrypoints::getDouble(uObject* array, int index)
 }
 
 // public static double GetDouble(object array, int index) [static] :44
-double JavaToUnoArrayEntrypoints::GetDouble(uObject* array, int index)
+double JavaToUnoArrayEntrypoints::GetDouble(uObject* array, int32_t index)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[5/*double[]*/]))->Item<double>(index);
 }
 
 // public static float getFloat(object array, int index) [static] :267
-float JavaToUnoArrayEntrypoints::getFloat(uObject* array, int index)
+float JavaToUnoArrayEntrypoints::getFloat(uObject* array, int32_t index)
 {
     {
         INIT_JNI;
@@ -2461,7 +2454,7 @@ float JavaToUnoArrayEntrypoints::getFloat(uObject* array, int index)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "getFloat", "(Lcom/uno/UnoObject;I)F");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         jfloat __jresult = U_JNIVAR->CallStaticFloatMethod(__cls,__mtd,_array,_index);
         float __result = (float)__jresult;
@@ -2474,13 +2467,13 @@ float JavaToUnoArrayEntrypoints::getFloat(uObject* array, int index)
 }
 
 // public static float GetFloat(object array, int index) [static] :40
-float JavaToUnoArrayEntrypoints::GetFloat(uObject* array, int index)
+float JavaToUnoArrayEntrypoints::GetFloat(uObject* array, int32_t index)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[6/*float[]*/]))->Item<float>(index);
 }
 
 // public static int getInt(object array, int index) [static] :255
-int JavaToUnoArrayEntrypoints::getInt(uObject* array, int index)
+int32_t JavaToUnoArrayEntrypoints::getInt(uObject* array, int32_t index)
 {
     {
         INIT_JNI;
@@ -2488,10 +2481,10 @@ int JavaToUnoArrayEntrypoints::getInt(uObject* array, int index)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "getInt", "(Lcom/uno/UnoObject;I)I");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         jint __jresult = U_JNIVAR->CallStaticIntMethod(__cls,__mtd,_array,_index);
-        int __result = (int)__jresult;
+        int32_t __result = (int32_t)__jresult;
         if (_array!=NULL) { U_JNIVAR->DeleteLocalRef(_array); }
         
         ::g::Android::Base::JNI::CheckException();
@@ -2501,13 +2494,13 @@ int JavaToUnoArrayEntrypoints::getInt(uObject* array, int index)
 }
 
 // public static int GetInt(object array, int index) [static] :32
-int JavaToUnoArrayEntrypoints::GetInt(uObject* array, int index)
+int32_t JavaToUnoArrayEntrypoints::GetInt(uObject* array, int32_t index)
 {
-    return uPtr(uCast<uArray*>(array, ::TYPES[7/*int[]*/]))->Item<int>(index);
+    return uPtr(uCast<uArray*>(array, ::TYPES[7/*int[]*/]))->Item<int32_t>(index);
 }
 
 // public static long getLong(object array, int index) [static] :261
-int64_t JavaToUnoArrayEntrypoints::getLong(uObject* array, int index)
+int64_t JavaToUnoArrayEntrypoints::getLong(uObject* array, int32_t index)
 {
     {
         INIT_JNI;
@@ -2515,7 +2508,7 @@ int64_t JavaToUnoArrayEntrypoints::getLong(uObject* array, int index)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "getLong", "(Lcom/uno/UnoObject;I)J");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         jlong __jresult = U_JNIVAR->CallStaticLongMethod(__cls,__mtd,_array,_index);
         int64_t __result = (int64_t)__jresult;
@@ -2528,13 +2521,13 @@ int64_t JavaToUnoArrayEntrypoints::getLong(uObject* array, int index)
 }
 
 // public static long GetLong(object array, int index) [static] :36
-int64_t JavaToUnoArrayEntrypoints::GetLong(uObject* array, int index)
+int64_t JavaToUnoArrayEntrypoints::GetLong(uObject* array, int32_t index)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[8/*long[]*/]))->Item<int64_t>(index);
 }
 
 // public static object getObject(object array, int index) [static] :285
-uObject* JavaToUnoArrayEntrypoints::getObject(uObject* array, int index)
+uObject* JavaToUnoArrayEntrypoints::getObject(uObject* array, int32_t index)
 {
     {
         INIT_JNI;
@@ -2542,7 +2535,7 @@ uObject* JavaToUnoArrayEntrypoints::getObject(uObject* array, int index)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "getObject", "(Lcom/uno/UnoObject;I)Lcom/uno/UnoObject;");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd,_array,_index);
         uObject* __result = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::UnBoxFreeingLocalRef(__jresult);
@@ -2555,13 +2548,13 @@ uObject* JavaToUnoArrayEntrypoints::getObject(uObject* array, int index)
 }
 
 // public static object GetObject(object array, int index) [static] :52
-uObject* JavaToUnoArrayEntrypoints::GetObject(uObject* array, int index)
+uObject* JavaToUnoArrayEntrypoints::GetObject(uObject* array, int32_t index)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[9/*object[]*/]))->Strong<uObject*>(index);
 }
 
 // public static short getShort(object array, int index) [static] :249
-int16_t JavaToUnoArrayEntrypoints::getShort(uObject* array, int index)
+int16_t JavaToUnoArrayEntrypoints::getShort(uObject* array, int32_t index)
 {
     {
         INIT_JNI;
@@ -2569,7 +2562,7 @@ int16_t JavaToUnoArrayEntrypoints::getShort(uObject* array, int index)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "getShort", "(Lcom/uno/UnoObject;I)S");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         jshort __jresult = U_JNIVAR->CallStaticShortMethod(__cls,__mtd,_array,_index);
         int16_t __result = (int16_t)__jresult;
@@ -2582,13 +2575,13 @@ int16_t JavaToUnoArrayEntrypoints::getShort(uObject* array, int index)
 }
 
 // public static short GetShort(object array, int index) [static] :28
-int16_t JavaToUnoArrayEntrypoints::GetShort(uObject* array, int index)
+int16_t JavaToUnoArrayEntrypoints::GetShort(uObject* array, int32_t index)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[10/*short[]*/]))->Item<int16_t>(index);
 }
 
 // public static string getString(object array, int index) [static] :279
-uString* JavaToUnoArrayEntrypoints::getString(uObject* array, int index)
+uString* JavaToUnoArrayEntrypoints::getString(uObject* array, int32_t index)
 {
     {
         INIT_JNI;
@@ -2596,7 +2589,7 @@ uString* JavaToUnoArrayEntrypoints::getString(uObject* array, int index)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "getString", "(Lcom/uno/UnoObject;I)Ljava/lang/String;");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd,_array,_index);
         uString* __result = JniHelper::JavaToUnoString((jstring)__jresult);
@@ -2610,13 +2603,13 @@ uString* JavaToUnoArrayEntrypoints::getString(uObject* array, int index)
 }
 
 // public static string GetString(object array, int index) [static] :48
-uString* JavaToUnoArrayEntrypoints::GetString(uObject* array, int index)
+uString* JavaToUnoArrayEntrypoints::GetString(uObject* array, int32_t index)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[11/*string[]*/]))->Strong<uString*>(index);
 }
 
 // public static sbyte GetUByte(object array, int index) [static] :20
-int8_t JavaToUnoArrayEntrypoints::GetUByte(uObject* array, int index)
+int8_t JavaToUnoArrayEntrypoints::GetUByte(uObject* array, int32_t index)
 {
     return (int8_t)uPtr(uCast<uArray*>(array, ::TYPES[2/*byte[]*/]))->Item<uint8_t>(index);
 }
@@ -2626,7 +2619,7 @@ int64_t JavaToUnoArrayEntrypoints::IntArrayToUnoArrayPtr(::g::Java::Object* jarr
 {
     jintArray obj = static_cast<jintArray>(uPtr(uCast< ::g::Android::Base::Wrappers::JWrapper*>(jarr, ::TYPES[0/*Android.Base.Wrappers.JWrapper*/]))->_GetJavaObject());
     JNIEnv* env = ::g::Android::Base::JNI::GetEnvPtr();
-    int len = (int)env->GetArrayLength(obj);
+    int32_t len = (int)env->GetArrayLength(obj);
     uArray* arr = uArray::New(::TYPES[7/*int[]*/], len);
     env->GetIntArrayRegion(obj, (jsize)0, (jsize)len, (jint*)arr->_ptr);
     uRetain(arr);
@@ -2638,7 +2631,7 @@ int64_t JavaToUnoArrayEntrypoints::LongArrayToUnoArrayPtr(::g::Java::Object* jar
 {
     jlongArray obj = static_cast<jlongArray>(uPtr(uCast< ::g::Android::Base::Wrappers::JWrapper*>(jarr, ::TYPES[0/*Android.Base.Wrappers.JWrapper*/]))->_GetJavaObject());
     JNIEnv* env = ::g::Android::Base::JNI::GetEnvPtr();
-    int len = (int)env->GetArrayLength(obj);
+    int32_t len = (int)env->GetArrayLength(obj);
     uArray* arr = uArray::New(::TYPES[8/*long[]*/], len);
     env->GetLongArrayRegion(obj, (jsize)0, (jsize)len, (jlong*)arr->_ptr);
     uRetain(arr);
@@ -2646,7 +2639,7 @@ int64_t JavaToUnoArrayEntrypoints::LongArrayToUnoArrayPtr(::g::Java::Object* jar
 }
 
 // public static long NewBoolArrayPtr(int length) [static] :487
-int64_t JavaToUnoArrayEntrypoints::NewBoolArrayPtr(int length)
+int64_t JavaToUnoArrayEntrypoints::NewBoolArrayPtr(int32_t length)
 {
     uArray* arr = uArray::New(::TYPES[1/*bool[]*/], length);
     uRetain(arr);
@@ -2654,7 +2647,7 @@ int64_t JavaToUnoArrayEntrypoints::NewBoolArrayPtr(int length)
 }
 
 // public static long NewByteArrayPtr(int length, bool unoIsUnsigned) [static] :494
-int64_t JavaToUnoArrayEntrypoints::NewByteArrayPtr(int length, bool unoIsUnsigned)
+int64_t JavaToUnoArrayEntrypoints::NewByteArrayPtr(int32_t length, bool unoIsUnsigned)
 {
     uObject* arr;
 
@@ -2668,7 +2661,7 @@ int64_t JavaToUnoArrayEntrypoints::NewByteArrayPtr(int length, bool unoIsUnsigne
 }
 
 // public static long NewCharArrayPtr(int length) [static] :505
-int64_t JavaToUnoArrayEntrypoints::NewCharArrayPtr(int length)
+int64_t JavaToUnoArrayEntrypoints::NewCharArrayPtr(int32_t length)
 {
     uArray* arr = uArray::New(::TYPES[3/*char[]*/], length);
     uRetain(arr);
@@ -2676,7 +2669,7 @@ int64_t JavaToUnoArrayEntrypoints::NewCharArrayPtr(int length)
 }
 
 // public static long NewDoubleArrayPtr(int length) [static] :540
-int64_t JavaToUnoArrayEntrypoints::NewDoubleArrayPtr(int length)
+int64_t JavaToUnoArrayEntrypoints::NewDoubleArrayPtr(int32_t length)
 {
     uArray* arr = uArray::New(::TYPES[5/*double[]*/], length);
     uRetain(arr);
@@ -2684,7 +2677,7 @@ int64_t JavaToUnoArrayEntrypoints::NewDoubleArrayPtr(int length)
 }
 
 // public static long NewFloatArrayPtr(int length) [static] :533
-int64_t JavaToUnoArrayEntrypoints::NewFloatArrayPtr(int length)
+int64_t JavaToUnoArrayEntrypoints::NewFloatArrayPtr(int32_t length)
 {
     uArray* arr = uArray::New(::TYPES[6/*float[]*/], length);
     uRetain(arr);
@@ -2692,7 +2685,7 @@ int64_t JavaToUnoArrayEntrypoints::NewFloatArrayPtr(int length)
 }
 
 // public static long NewIntArrayPtr(int length) [static] :519
-int64_t JavaToUnoArrayEntrypoints::NewIntArrayPtr(int length)
+int64_t JavaToUnoArrayEntrypoints::NewIntArrayPtr(int32_t length)
 {
     uArray* arr = uArray::New(::TYPES[7/*int[]*/], length);
     uRetain(arr);
@@ -2700,7 +2693,7 @@ int64_t JavaToUnoArrayEntrypoints::NewIntArrayPtr(int length)
 }
 
 // public static long NewLongArrayPtr(int length) [static] :526
-int64_t JavaToUnoArrayEntrypoints::NewLongArrayPtr(int length)
+int64_t JavaToUnoArrayEntrypoints::NewLongArrayPtr(int32_t length)
 {
     uArray* arr = uArray::New(::TYPES[8/*long[]*/], length);
     uRetain(arr);
@@ -2708,7 +2701,7 @@ int64_t JavaToUnoArrayEntrypoints::NewLongArrayPtr(int length)
 }
 
 // public static long NewObjectArrayPtr(int length) [static] :554
-int64_t JavaToUnoArrayEntrypoints::NewObjectArrayPtr(int length)
+int64_t JavaToUnoArrayEntrypoints::NewObjectArrayPtr(int32_t length)
 {
     uArray* arr = uArray::New(::TYPES[9/*object[]*/], length);
     uRetain(arr);
@@ -2716,7 +2709,7 @@ int64_t JavaToUnoArrayEntrypoints::NewObjectArrayPtr(int length)
 }
 
 // public static long NewShortArrayPtr(int length) [static] :512
-int64_t JavaToUnoArrayEntrypoints::NewShortArrayPtr(int length)
+int64_t JavaToUnoArrayEntrypoints::NewShortArrayPtr(int32_t length)
 {
     uArray* arr = uArray::New(::TYPES[10/*short[]*/], length);
     uRetain(arr);
@@ -2724,7 +2717,7 @@ int64_t JavaToUnoArrayEntrypoints::NewShortArrayPtr(int length)
 }
 
 // public static long NewStringArrayPtr(int length) [static] :547
-int64_t JavaToUnoArrayEntrypoints::NewStringArrayPtr(int length)
+int64_t JavaToUnoArrayEntrypoints::NewStringArrayPtr(int32_t length)
 {
     uArray* arr = uArray::New(::TYPES[11/*string[]*/], length);
     uRetain(arr);
@@ -2732,7 +2725,7 @@ int64_t JavaToUnoArrayEntrypoints::NewStringArrayPtr(int length)
 }
 
 // public static bool setBool(object array, int index, bool val) [static] :293
-bool JavaToUnoArrayEntrypoints::setBool(uObject* array, int index, bool val)
+bool JavaToUnoArrayEntrypoints::setBool(uObject* array, int32_t index, bool val)
 {
     {
         INIT_JNI;
@@ -2740,7 +2733,7 @@ bool JavaToUnoArrayEntrypoints::setBool(uObject* array, int index, bool val)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "setBool", "(Lcom/uno/UnoObject;IZ)Z");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         bool _uval=val;
         jboolean _val = (jboolean)_uval;
@@ -2756,13 +2749,13 @@ bool JavaToUnoArrayEntrypoints::setBool(uObject* array, int index, bool val)
 }
 
 // public static bool SetBool(object array, int index, bool val) [static] :57
-bool JavaToUnoArrayEntrypoints::SetBool(uObject* array, int index, bool val)
+bool JavaToUnoArrayEntrypoints::SetBool(uObject* array, int32_t index, bool val)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[1/*bool[]*/]))->Item<bool>(index) = val;
 }
 
 // public static sbyte setByte(object array, int index, sbyte val) [static] :299
-int8_t JavaToUnoArrayEntrypoints::setByte(uObject* array, int index, int8_t val)
+int8_t JavaToUnoArrayEntrypoints::setByte(uObject* array, int32_t index, int8_t val)
 {
     {
         INIT_JNI;
@@ -2770,7 +2763,7 @@ int8_t JavaToUnoArrayEntrypoints::setByte(uObject* array, int index, int8_t val)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "setByte", "(Lcom/uno/UnoObject;IB)B");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         int8_t _uval=val;
         jbyte _val = (jbyte)_uval;
@@ -2786,19 +2779,19 @@ int8_t JavaToUnoArrayEntrypoints::setByte(uObject* array, int index, int8_t val)
 }
 
 // public static sbyte SetByte(object array, int index, sbyte val) [static] :61
-int8_t JavaToUnoArrayEntrypoints::SetByte(uObject* array, int index, int8_t val)
+int8_t JavaToUnoArrayEntrypoints::SetByte(uObject* array, int32_t index, int8_t val)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[4/*sbyte[]*/]))->Item<int8_t>(index) = val;
 }
 
 // public static char SetChar(object array, int index, char val) [static] :70
-uChar JavaToUnoArrayEntrypoints::SetChar(uObject* array, int index, uChar val)
+char16_t JavaToUnoArrayEntrypoints::SetChar(uObject* array, int32_t index, char16_t val)
 {
-    return uPtr(uCast<uArray*>(array, ::TYPES[3/*char[]*/]))->Item<uChar>(index) = val;
+    return uPtr(uCast<uArray*>(array, ::TYPES[3/*char[]*/]))->Item<char16_t>(index) = val;
 }
 
 // public static double setDouble(object array, int index, double val) [static] :341
-double JavaToUnoArrayEntrypoints::setDouble(uObject* array, int index, double val)
+double JavaToUnoArrayEntrypoints::setDouble(uObject* array, int32_t index, double val)
 {
     {
         INIT_JNI;
@@ -2806,7 +2799,7 @@ double JavaToUnoArrayEntrypoints::setDouble(uObject* array, int index, double va
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "setDouble", "(Lcom/uno/UnoObject;ID)D");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         double _uval=val;
         jdouble _val = (jdouble)_uval;
@@ -2822,13 +2815,13 @@ double JavaToUnoArrayEntrypoints::setDouble(uObject* array, int index, double va
 }
 
 // public static double SetDouble(object array, int index, double val) [static] :90
-double JavaToUnoArrayEntrypoints::SetDouble(uObject* array, int index, double val)
+double JavaToUnoArrayEntrypoints::SetDouble(uObject* array, int32_t index, double val)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[5/*double[]*/]))->Item<double>(index) = val;
 }
 
 // public static float setFloat(object array, int index, float val) [static] :335
-float JavaToUnoArrayEntrypoints::setFloat(uObject* array, int index, float val)
+float JavaToUnoArrayEntrypoints::setFloat(uObject* array, int32_t index, float val)
 {
     {
         INIT_JNI;
@@ -2836,7 +2829,7 @@ float JavaToUnoArrayEntrypoints::setFloat(uObject* array, int index, float val)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "setFloat", "(Lcom/uno/UnoObject;IF)F");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         float _uval=val;
         jfloat _val = (jfloat)_uval;
@@ -2852,13 +2845,13 @@ float JavaToUnoArrayEntrypoints::setFloat(uObject* array, int index, float val)
 }
 
 // public static float SetFloat(object array, int index, float val) [static] :86
-float JavaToUnoArrayEntrypoints::SetFloat(uObject* array, int index, float val)
+float JavaToUnoArrayEntrypoints::SetFloat(uObject* array, int32_t index, float val)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[6/*float[]*/]))->Item<float>(index) = val;
 }
 
 // public static int setInt(object array, int index, int val) [static] :323
-int JavaToUnoArrayEntrypoints::setInt(uObject* array, int index, int val)
+int32_t JavaToUnoArrayEntrypoints::setInt(uObject* array, int32_t index, int32_t val)
 {
     {
         INIT_JNI;
@@ -2866,12 +2859,12 @@ int JavaToUnoArrayEntrypoints::setInt(uObject* array, int index, int val)
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "setInt", "(Lcom/uno/UnoObject;II)I");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
-        int _uval=val;
+        int32_t _uval=val;
         jint _val = (jint)_uval;
         jint __jresult = U_JNIVAR->CallStaticIntMethod(__cls,__mtd,_array,_index,_val);
-        int __result = (int)__jresult;
+        int32_t __result = (int32_t)__jresult;
         if (_array!=NULL) { U_JNIVAR->DeleteLocalRef(_array); }
         
         
@@ -2882,13 +2875,13 @@ int JavaToUnoArrayEntrypoints::setInt(uObject* array, int index, int val)
 }
 
 // public static int SetInt(object array, int index, int val) [static] :78
-int JavaToUnoArrayEntrypoints::SetInt(uObject* array, int index, int val)
+int32_t JavaToUnoArrayEntrypoints::SetInt(uObject* array, int32_t index, int32_t val)
 {
-    return uPtr(uCast<uArray*>(array, ::TYPES[7/*int[]*/]))->Item<int>(index) = val;
+    return uPtr(uCast<uArray*>(array, ::TYPES[7/*int[]*/]))->Item<int32_t>(index) = val;
 }
 
 // public static long setLong(object array, int index, long val) [static] :329
-int64_t JavaToUnoArrayEntrypoints::setLong(uObject* array, int index, int64_t val)
+int64_t JavaToUnoArrayEntrypoints::setLong(uObject* array, int32_t index, int64_t val)
 {
     {
         INIT_JNI;
@@ -2896,7 +2889,7 @@ int64_t JavaToUnoArrayEntrypoints::setLong(uObject* array, int index, int64_t va
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "setLong", "(Lcom/uno/UnoObject;IJ)J");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         int64_t _uval=val;
         jlong _val = (jlong)_uval;
@@ -2912,13 +2905,13 @@ int64_t JavaToUnoArrayEntrypoints::setLong(uObject* array, int index, int64_t va
 }
 
 // public static long SetLong(object array, int index, long val) [static] :82
-int64_t JavaToUnoArrayEntrypoints::SetLong(uObject* array, int index, int64_t val)
+int64_t JavaToUnoArrayEntrypoints::SetLong(uObject* array, int32_t index, int64_t val)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[8/*long[]*/]))->Item<int64_t>(index) = val;
 }
 
 // public static object setObject(object array, int index, object val) [static] :353
-uObject* JavaToUnoArrayEntrypoints::setObject(uObject* array, int index, uObject* val)
+uObject* JavaToUnoArrayEntrypoints::setObject(uObject* array, int32_t index, uObject* val)
 {
     {
         INIT_JNI;
@@ -2926,7 +2919,7 @@ uObject* JavaToUnoArrayEntrypoints::setObject(uObject* array, int index, uObject
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "setObject", "(Lcom/uno/UnoObject;ILcom/uno/UnoObject;)Lcom/uno/UnoObject;");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         uObject* _uval=val;
         jobject _val = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uval);
@@ -2942,13 +2935,13 @@ uObject* JavaToUnoArrayEntrypoints::setObject(uObject* array, int index, uObject
 }
 
 // public static object SetObject(object array, int index, object val) [static] :98
-uObject* JavaToUnoArrayEntrypoints::SetObject(uObject* array, int index, uObject* val)
+uObject* JavaToUnoArrayEntrypoints::SetObject(uObject* array, int32_t index, uObject* val)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[9/*object[]*/]))->Strong<uObject*>(index) = val;
 }
 
 // public static short setShort(object array, int index, short val) [static] :317
-int16_t JavaToUnoArrayEntrypoints::setShort(uObject* array, int index, int16_t val)
+int16_t JavaToUnoArrayEntrypoints::setShort(uObject* array, int32_t index, int16_t val)
 {
     {
         INIT_JNI;
@@ -2956,7 +2949,7 @@ int16_t JavaToUnoArrayEntrypoints::setShort(uObject* array, int index, int16_t v
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "setShort", "(Lcom/uno/UnoObject;IS)S");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         int16_t _uval=val;
         jshort _val = (jshort)_uval;
@@ -2972,13 +2965,13 @@ int16_t JavaToUnoArrayEntrypoints::setShort(uObject* array, int index, int16_t v
 }
 
 // public static short SetShort(object array, int index, short val) [static] :74
-int16_t JavaToUnoArrayEntrypoints::SetShort(uObject* array, int index, int16_t val)
+int16_t JavaToUnoArrayEntrypoints::SetShort(uObject* array, int32_t index, int16_t val)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[10/*short[]*/]))->Item<int16_t>(index) = val;
 }
 
 // public static string setString(object array, int index, string val) [static] :347
-uString* JavaToUnoArrayEntrypoints::setString(uObject* array, int index, uString* val)
+uString* JavaToUnoArrayEntrypoints::setString(uObject* array, int32_t index, uString* val)
 {
     {
         INIT_JNI;
@@ -2986,7 +2979,7 @@ uString* JavaToUnoArrayEntrypoints::setString(uObject* array, int index, uString
         WITH_STATIC_JAVA_METHOD(__mtd, __cls, "setString", "(Lcom/uno/UnoObject;ILjava/lang/String;)Ljava/lang/String;");
         uObject* _uarray=array;
         jobject _array = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_uarray);
-        int _uindex=index;
+        int32_t _uindex=index;
         jint _index = (jint)_uindex;
         uString* _uval=val;
         jstring _val = JniHelper::UnoToJavaString(_uval);
@@ -3003,13 +2996,13 @@ uString* JavaToUnoArrayEntrypoints::setString(uObject* array, int index, uString
 }
 
 // public static string SetString(object array, int index, string val) [static] :94
-uString* JavaToUnoArrayEntrypoints::SetString(uObject* array, int index, uString* val)
+uString* JavaToUnoArrayEntrypoints::SetString(uObject* array, int32_t index, uString* val)
 {
     return uPtr(uCast<uArray*>(array, ::TYPES[11/*string[]*/]))->Strong<uString*>(index) = val;
 }
 
 // public static sbyte SetUByte(object array, int index, sbyte val) [static] :65
-int8_t JavaToUnoArrayEntrypoints::SetUByte(uObject* array, int index, int8_t val)
+int8_t JavaToUnoArrayEntrypoints::SetUByte(uObject* array, int32_t index, int8_t val)
 {
     uPtr(uCast<uArray*>(array, ::TYPES[2/*byte[]*/]))->Item<uint8_t>(index) = (uint8_t)val;
     return val;
@@ -3020,7 +3013,7 @@ int64_t JavaToUnoArrayEntrypoints::ShortArrayToUnoArrayPtr(::g::Java::Object* ja
 {
     jshortArray obj = static_cast<jshortArray>(uPtr(uCast< ::g::Android::Base::Wrappers::JWrapper*>(jarr, ::TYPES[0/*Android.Base.Wrappers.JWrapper*/]))->_GetJavaObject());
     JNIEnv* env = ::g::Android::Base::JNI::GetEnvPtr();
-    int len = (int)env->GetArrayLength(obj);
+    int32_t len = (int)env->GetArrayLength(obj);
     uArray* arr = uArray::New(::TYPES[10/*short[]*/], len);
     env->GetShortArrayRegion(obj, (jsize)0, (jsize)len, (jshort*)arr->_ptr);
     uRetain(arr);
@@ -3028,7 +3021,7 @@ int64_t JavaToUnoArrayEntrypoints::ShortArrayToUnoArrayPtr(::g::Java::Object* ja
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Compiler\ExportTargetInterop\Foreign\Android\JavaUnoObject.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Compiler\ExportTargetInterop\Foreign\Android\JavaUnoObject.uno
 // -----------------------------------------------------------------------------------------------------------------------------------------------
 
 // public static extern class JavaUnoObject :12
@@ -3060,9 +3053,6 @@ static void JavaUnoObject_build(uType* type)
     ::STRINGS[24] = uString::Const("com/uno/ObjectArray");
     ::STRINGS[25] = uString::Const("(J)Lcom/uno/ObjectArray;");
     ::STRINGS[26] = uString::Const("Could not register the finalizer callback for JavaUnoObject");
-    type->SetDependencies(
-        ::g::Android::Base::JNI_typeof(),
-        ::g::Android::Base::Primitives::ujobject_typeof());
     type->SetFields(0,
         ::g::Android::Base::Primitives::ujclass_typeof(), (uintptr_t)&JavaUnoObject::_unoObjectClass_, uFieldFlagsStatic,
         ::g::Android::Base::Primitives::jmethodID_typeof(), (uintptr_t)&JavaUnoObject::_unoObjectConstructor_, uFieldFlagsStatic,
@@ -3094,7 +3084,6 @@ uClassType* JavaUnoObject_typeof()
 
     uTypeOptions options;
     options.FieldCount = 21;
-    options.DependencyCount = 2;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Uno.Compiler.ExportTargetInterop.Foreign.Android.JavaUnoObject", options);
     type->fp_build_ = JavaUnoObject_build;
@@ -3411,7 +3400,7 @@ void JavaUnoObject::EnsureInitialized()
         JavaUnoObject::_unoObjectArrayClass_ = ::g::Android::Base::JNI::NewGlobalRef(::g::Android::Base::JNI::LoadClass3(::STRINGS[24/*"com/uno/Obj...*/], false));
         JavaUnoObject::_unoObjectArrayFactoryMethod_ = ::g::Android::Base::JNI::GetStaticMethodID(JavaUnoObject::_unoObjectArrayClass_, ::STRINGS[8/*"InitFromUno...*/], ::STRINGS[25/*"(J)Lcom/uno...*/]);
         JNINativeMethod nativeFunc = {(char* const)"Finalize", (char* const)"(J)V", (void *)&__JavaUnoObject_Finalizer};
-        int attached = ::g::Android::Base::JNI::GetEnvPtr()->RegisterNatives(JavaUnoObject::_unoObjectClass_, &nativeFunc, 1);
+        int32_t attached = ::g::Android::Base::JNI::GetEnvPtr()->RegisterNatives(JavaUnoObject::_unoObjectClass_, &nativeFunc, 1);
 
         if (attached < 0)
             U_THROW(::g::Uno::Exception::New2(::STRINGS[26/*"Could not r...*/]));

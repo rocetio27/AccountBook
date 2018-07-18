@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Motion/1.4.2/Simulation/ElasticForce.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Motion/1.9.0/Simulation/ElasticForce.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -33,7 +33,7 @@ void ElasticForce__set_AttractionForce_fn(ElasticForce* __this, float* value);
 void ElasticForce__CreateNormalized_fn(uType* __type, ElasticForce** __retval);
 void ElasticForce__CreatePoints_fn(uType* __type, ElasticForce** __retval);
 void ElasticForce__CreateRadians_fn(uType* __type, ElasticForce** __retval);
-void ElasticForce__CreateUnit_fn(uType* __type, int* unit, ElasticForce** __retval);
+void ElasticForce__CreateUnit_fn(uType* __type, int32_t* unit, ElasticForce** __retval);
 void ElasticForce__get_Damping_fn(ElasticForce* __this, float* __retval);
 void ElasticForce__set_Damping_fn(ElasticForce* __this, float* value);
 void ElasticForce__get_Destination_fn(ElasticForce* __this, uTRef __retval);
@@ -113,7 +113,7 @@ struct ElasticForce : uObject
     static ElasticForce* CreateNormalized(uType* __type);
     static ElasticForce* CreatePoints(uType* __type);
     static ElasticForce* CreateRadians(uType* __type);
-    static ElasticForce* CreateUnit(uType* __type, int unit);
+    static ElasticForce* CreateUnit(uType* __type, int32_t unit);
     static ElasticForce* New1(uType* __type, float scale);
 };
 // }

@@ -1,7 +1,8 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Motion/1.4.2/SpringFunction.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Motion/1.9.0/SpringFunction.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Reactive.Expression.h>
 #include <Fuse.Reactive.IExpression.h>
 namespace g{namespace Fuse{namespace Motion{struct SpringFunction;}}}

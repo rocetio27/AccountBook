@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting/1.4.2/NativeEventEmitterModule.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting/1.9.0/NativeEventEmitterModule.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -27,9 +27,9 @@ void NativeEventEmitterModule__Dispatch_fn(NativeEventEmitterModule* __this, uDe
 void NativeEventEmitterModule__Emit_fn(NativeEventEmitterModule* __this, uArray* args);
 void NativeEventEmitterModule__On_fn(NativeEventEmitterModule* __this, uObject* eventName, uDelegate* listener);
 void NativeEventEmitterModule__On1_fn(NativeEventEmitterModule* __this, uObject* eventName, ::g::Fuse::Scripting::NativeEvent* nativeEvent);
-void NativeEventEmitterModule__OnAppInitialized_fn(NativeEventEmitterModule* __this);
+void NativeEventEmitterModule__OnAppInitialized_fn(NativeEventEmitterModule* __this, ::g::Fuse::Scripting::Context* c);
 void NativeEventEmitterModule__ResetListeners_fn(NativeEventEmitterModule* __this, uObject* sender, ::g::Uno::EventArgs* eventArgs);
-void NativeEventEmitterModule__ResetListenersJS_fn(NativeEventEmitterModule* __this);
+void NativeEventEmitterModule__ResetListenersJS_fn(NativeEventEmitterModule* __this, ::g::Fuse::Scripting::Context* context);
 
 struct NativeEventEmitterModule : ::g::Fuse::Scripting::NativeModule
 {
@@ -47,9 +47,9 @@ struct NativeEventEmitterModule : ::g::Fuse::Scripting::NativeModule
     void Emit(uArray* args);
     void On(uObject* eventName, uDelegate* listener);
     void On1(uObject* eventName, ::g::Fuse::Scripting::NativeEvent* nativeEvent);
-    void OnAppInitialized();
+    void OnAppInitialized(::g::Fuse::Scripting::Context* c);
     void ResetListeners(uObject* sender, ::g::Uno::EventArgs* eventArgs);
-    void ResetListenersJS();
+    void ResetListenersJS(::g::Fuse::Scripting::Context* context);
 };
 // }
 

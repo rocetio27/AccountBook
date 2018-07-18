@@ -80,7 +80,7 @@ namespace Android{
 namespace Base{
 namespace Wrappers{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Targets\Android\Uno\Base\Wrappers.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Targets\Android\Uno\Base\Wrappers.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // public abstract extern interface IJWrapper :20
@@ -95,7 +95,7 @@ uInterfaceType* IJWrapper_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Targets\Android\Uno\Base\Wrappers.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Targets\Android\Uno\Base\Wrappers.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // public static extern class JavaObjectHelper :139
@@ -105,8 +105,6 @@ static void JavaObjectHelper_build(uType* type)
     ::STRINGS[0] = uString::Const("JObjectToJWrapper: Unknown unoRef detected: >");
     ::STRINGS[1] = uString::Const("<");
     ::TYPES[0] = ::g::Uno::Type_typeof();
-    type->SetDependencies(
-        ::g::Android::Base::JNI_typeof());
 }
 
 uClassType* JavaObjectHelper_typeof()
@@ -115,7 +113,6 @@ uClassType* JavaObjectHelper_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.DependencyCount = 1;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Android.Base.Wrappers.JavaObjectHelper", options);
     type->fp_build_ = JavaObjectHelper_build;
@@ -153,7 +150,7 @@ uObject* JavaObjectHelper::JObjectToJWrapper(jobject tmpRes, bool stackArg)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Targets\Android\Uno\Base\Wrappers.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Targets\Android\Uno\Base\Wrappers.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // public extern class JWrapper :27
@@ -166,9 +163,6 @@ static void JWrapper__Finalize_fn(JWrapper* __this)
 
 static void JWrapper_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::Android::Base::Types::Bridge_typeof(),
-        ::g::Android::Base::JNI_typeof());
     type->SetInterfaces(
         ::g::Android::Base::Wrappers::IJWrapper_typeof(), offsetof(JWrapper_type, interface0),
         ::g::Uno::IDisposable_typeof(), offsetof(JWrapper_type, interface1));
@@ -188,7 +182,6 @@ JWrapper_type* JWrapper_typeof()
     options.BaseDefinition = ::g::Java::Object_typeof();
     options.FieldCount = 4;
     options.InterfaceCount = 2;
-    options.DependencyCount = 2;
     options.ObjectSize = sizeof(JWrapper);
     options.TypeSize = sizeof(JWrapper_type);
     type = (JWrapper_type*)uClassType::New("Android.Base.Wrappers.JWrapper", options);
@@ -285,8 +278,8 @@ void JWrapper::ctor_2(jobject obj, uType* typePtr, bool typeHasFallbackClass, bo
 void JWrapper::_DisposeJavaObject()
 {
     if (!this->_javaObject) return;
-    ::g::Android::Base::JNI::DeleteGlobalRef(this->_javaObject);
-    this->_javaObject = 0;
+                         ::g::Android::Base::JNI::DeleteGlobalRef(this->_javaObject);
+                         this->_javaObject = 0;
 }
 
 // public Android.Base.Primitives.ujobject _GetJavaObject() [instance] :87

@@ -22,7 +22,7 @@ JNFUN(void,Android_com_fuse_ExperimentalHttp_HttpRequest__OnDataReceived44285,jl
     JARG_TO_UNO(arg2,uObject*,((::g::Android::Base::Wrappers::JWrapper*)::g::Android::Base::Wrappers::JWrapper::New2(arg0, (uType*)::g::Android::Base::Wrappers::JWrapper_typeof(), false, false, true)));
 
     JTRY
-    uPtr->OnDataReceived(tmparg2, ((int)arg1));
+    uPtr->OnDataReceived(tmparg2, ((int32_t)arg1));
 
     JCATCH
 }
@@ -78,7 +78,7 @@ JNFUN(void,Android_com_fuse_ExperimentalHttp_HttpRequest__OnHeadersReceived44290
 JNFUN(void,Android_com_fuse_ExperimentalHttp_HttpRequest__OnProgress44291,jlong ujPtr, jint arg0, jint arg1, jboolean arg2, jlong arg3, jlong arg4, jlong arg5) {
     INITCALLBACK(uPtr,::g::Android::com::fuse::ExperimentalHttp::HttpRequest*);
     JTRY
-    uPtr->OnProgress(((int)arg0), ((int)arg1), ((bool)arg2));
+    uPtr->OnProgress(((int32_t)arg0), ((int32_t)arg1), ((bool)arg2));
     JCATCH
 }
 //#endi
@@ -89,15 +89,13 @@ namespace com{
 namespace fuse{
 namespace ExperimentalHttp{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\Implementation\Android\ExperimentalHttp\HttpRequest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\Implementation\Android\ExperimentalHttp\HttpRequest.uno
 // ----------------------------------------------------------------------------------------------------------------------------------
 
 // public abstract extern class HttpRequest :7
 // {
 static void HttpRequest_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::Android::Base::JNI_typeof());
     type->SetInterfaces(
         ::g::Android::Base::Wrappers::IJWrapper_typeof(), offsetof(HttpRequest_type, interface0),
         ::g::Uno::IDisposable_typeof(), offsetof(HttpRequest_type, interface1));
@@ -130,7 +128,6 @@ HttpRequest_type* HttpRequest_typeof()
     options.BaseDefinition = ::g::Android::Base::Wrappers::JWrapper_typeof();
     options.FieldCount = 21;
     options.InterfaceCount = 2;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(HttpRequest);
     options.TypeSize = sizeof(HttpRequest_type);
     type = (HttpRequest_type*)uClassType::New("Android.com.fuse.ExperimentalHttp.HttpRequest", options);
@@ -202,13 +199,13 @@ void HttpRequest__GetResponseHeaders_IMPL_44308_fn(bool* arg0_, jobject* arg1_, 
 }
 
 // public int GetResponseStatus() :146
-void HttpRequest__GetResponseStatus_fn(HttpRequest* __this, int* __retval)
+void HttpRequest__GetResponseStatus_fn(HttpRequest* __this, int32_t* __retval)
 {
     *__retval = __this->GetResponseStatus();
 }
 
 // public static extern int GetResponseStatus_IMPL_44306(bool arg0, Android.Base.Primitives.ujobject arg1) :233
-void HttpRequest__GetResponseStatus_IMPL_44306_fn(bool* arg0_, jobject* arg1_, int* __retval)
+void HttpRequest__GetResponseStatus_IMPL_44306_fn(bool* arg0_, jobject* arg1_, int32_t* __retval)
 {
     *__retval = HttpRequest::GetResponseStatus_IMPL_44306(*arg0_, *arg1_);
 }
@@ -304,25 +301,25 @@ void HttpRequest__SetHeader_IMPL_44293_fn(bool* arg0_, jobject* arg1_, uObject* 
 }
 
 // public void SetResponseType(int arg0) :81
-void HttpRequest__SetResponseType_fn(HttpRequest* __this, int* arg0)
+void HttpRequest__SetResponseType_fn(HttpRequest* __this, int32_t* arg0)
 {
     __this->SetResponseType(*arg0);
 }
 
 // public static extern void SetResponseType_IMPL_44292(bool arg0, Android.Base.Primitives.ujobject arg1, int arg2) :194
-void HttpRequest__SetResponseType_IMPL_44292_fn(bool* arg0_, jobject* arg1_, int* arg2_)
+void HttpRequest__SetResponseType_IMPL_44292_fn(bool* arg0_, jobject* arg1_, int32_t* arg2_)
 {
     HttpRequest::SetResponseType_IMPL_44292(*arg0_, *arg1_, *arg2_);
 }
 
 // public void SetTimeout(int arg0) :91
-void HttpRequest__SetTimeout_fn(HttpRequest* __this, int* arg0)
+void HttpRequest__SetTimeout_fn(HttpRequest* __this, int32_t* arg0)
 {
     __this->SetTimeout(*arg0);
 }
 
 // public static extern void SetTimeout_IMPL_44294(bool arg0, Android.Base.Primitives.ujobject arg1, int arg2) :200
-void HttpRequest__SetTimeout_IMPL_44294_fn(bool* arg0_, jobject* arg1_, int* arg2_)
+void HttpRequest__SetTimeout_IMPL_44294_fn(bool* arg0_, jobject* arg1_, int32_t* arg2_)
 {
     HttpRequest::SetTimeout_IMPL_44294(*arg0_, *arg1_, *arg2_);
 }
@@ -373,7 +370,7 @@ uObject* HttpRequest::GetResponseHeaders()
 }
 
 // public int GetResponseStatus() [instance] :146
-int HttpRequest::GetResponseStatus()
+int32_t HttpRequest::GetResponseStatus()
 {
     return HttpRequest::GetResponseStatus_IMPL_44306(_subclassed, _javaObject);
 }
@@ -416,16 +413,16 @@ void HttpRequest::SetHeader(uObject* arg0, uObject* arg1)
 }
 
 // public void SetResponseType(int arg0) [instance] :81
-void HttpRequest::SetResponseType(int arg0)
+void HttpRequest::SetResponseType(int32_t arg0)
 {
-    int arg0_ = arg0;
+    int32_t arg0_ = arg0;
     HttpRequest::SetResponseType_IMPL_44292(_subclassed, _javaObject, arg0_);
 }
 
 // public void SetTimeout(int arg0) [instance] :91
-void HttpRequest::SetTimeout(int arg0)
+void HttpRequest::SetTimeout(int32_t arg0)
 {
-    int arg0_ = arg0;
+    int32_t arg0_ = arg0;
     HttpRequest::SetTimeout_IMPL_44294(_subclassed, _javaObject, arg0_);
 }
 
@@ -546,19 +543,19 @@ uObject* HttpRequest::GetResponseHeaders_IMPL_44308(bool arg0_, jobject arg1_)
 }
 
 // public static extern int GetResponseStatus_IMPL_44306(bool arg0, Android.Base.Primitives.ujobject arg1) [static] :233
-int HttpRequest::GetResponseStatus_IMPL_44306(bool arg0_, jobject arg1_)
+int32_t HttpRequest::GetResponseStatus_IMPL_44306(bool arg0_, jobject arg1_)
 {
     INIT_JNI;
     
-    int result;
+    int32_t result;
     CLASS_INIT(HttpRequest::_javaClass1_,HttpRequest::_Init1());
     CACHE_METHOD(HttpRequest::GetResponseStatus_44306_ID_,HttpRequest::_javaClass1_,"GetResponseStatus","()I",GetMethodID,"Id for fallback method com.fuse.ExperimentalHttp.HttpRequest.GetResponseStatus could not be cached",98);
     if (arg0_) {
-        result = ((int)U_JNIVAR->CallNonvirtualIntMethod(arg1_, HttpRequest::_javaClass1_, HttpRequest::GetResponseStatus_44306_ID_));
+        result = ((int32_t)U_JNIVAR->CallNonvirtualIntMethod(arg1_, HttpRequest::_javaClass1_, HttpRequest::GetResponseStatus_44306_ID_));
     }
     else
     {
-        result = ((int)U_JNIVAR->CallIntMethod(arg1_, HttpRequest::GetResponseStatus_44306_ID_));
+        result = ((int32_t)U_JNIVAR->CallIntMethod(arg1_, HttpRequest::GetResponseStatus_44306_ID_));
     }
     ::g::Android::Base::JNI::CheckException1(U_JNIVAR);
     
@@ -721,7 +718,7 @@ void HttpRequest::SetHeader_IMPL_44293(bool arg0_, jobject arg1_, uObject* arg2_
 }
 
 // public static extern void SetResponseType_IMPL_44292(bool arg0, Android.Base.Primitives.ujobject arg1, int arg2) [static] :194
-void HttpRequest::SetResponseType_IMPL_44292(bool arg0_, jobject arg1_, int arg2_)
+void HttpRequest::SetResponseType_IMPL_44292(bool arg0_, jobject arg1_, int32_t arg2_)
 {
     INIT_JNI;
     
@@ -738,7 +735,7 @@ void HttpRequest::SetResponseType_IMPL_44292(bool arg0_, jobject arg1_, int arg2
 }
 
 // public static extern void SetTimeout_IMPL_44294(bool arg0, Android.Base.Primitives.ujobject arg1, int arg2) [static] :200
-void HttpRequest::SetTimeout_IMPL_44294(bool arg0_, jobject arg1_, int arg2_)
+void HttpRequest::SetTimeout_IMPL_44294(bool arg0_, jobject arg1_, int32_t arg2_)
 {
     INIT_JNI;
     

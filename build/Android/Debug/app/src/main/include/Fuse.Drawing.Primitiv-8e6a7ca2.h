@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing.Primitives/1.4.2/Rectangle.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing.Primitives/1.9.0/Rectangle.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -41,7 +41,7 @@ void Rectangle__sub_fn(Rectangle* __this, uArray* a, uArray* b, uArray** __retva
 struct Rectangle : uObject
 {
     static uSStrong<Rectangle*> Singleton_;
-    static uSStrong<Rectangle*>& Singleton() { return Singleton_; }
+    static uSStrong<Rectangle*>& Singleton() { return Rectangle_typeof()->Init(), Singleton_; }
     uStrong< ::g::Fuse::Drawing::Primitives::StrokeCoverage*> _strokeCoverage;
     uStrong< ::g::Fuse::Drawing::Primitives::FillCoverage*> _fillCoverage;
     uStrong< ::g::Fuse::Drawing::Primitives::Falloff*> _shadowFalloff;

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Effects/1.4.2/Blur.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Effects/1.9.0/Blur.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -6,23 +6,21 @@
 #include <Fuse.Effects.BasicEffect.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
 #include <Uno.Collections.IList-1.h>
-#include <Uno.Float4x4.h>
-#include <Uno.Runtime.Implement-476e2792.h>
 namespace g{namespace Fuse{namespace Effects{struct Blur;}}}
 namespace g{namespace Fuse{struct DrawContext;}}
 namespace g{namespace Fuse{struct VisualBounds;}}
-namespace g{namespace Uno{namespace Graphics{struct VertexBuffer;}}}
 namespace g{namespace Uno{struct Rect;}}
 
 namespace g{
 namespace Fuse{
 namespace Effects{
 
-// public sealed class Blur :13
+// public sealed class Blur :14
 // {
 ::g::Fuse::Effects::BasicEffect_type* Blur_typeof();
 void Blur__get_Active_fn(Blur* __this, bool* __retval);
@@ -36,10 +34,6 @@ void Blur__get_Sigma_fn(Blur* __this, float* __retval);
 struct Blur : ::g::Fuse::Effects::BasicEffect
 {
     float _radius;
-    uStrong< ::g::Uno::Graphics::VertexBuffer*> OnRender_VertexData_7a2fdace_7_2_1;
-    ::g::Uno::Float4x4 OnRender_LocalTransform_7a2fdace_4_9_2;
-    ::g::Uno::Float4x4 OnRender_LocalTransform_7a2fdace_4_9_3;
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall _draw_7a2fdace;
 
     float Padding();
     float Radius();

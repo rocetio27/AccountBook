@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing/1.4.2/Brushes/LinearGradient.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing/1.9.0/Brushes/LinearGradient.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -32,8 +32,8 @@ void LinearGradient__get_EndPoint_fn(LinearGradient* __this, ::g::Uno::Float2* _
 void LinearGradient__set_EndPoint_fn(LinearGradient* __this, ::g::Uno::Float2* value);
 void LinearGradient__GetEffectiveEndPoints_fn(LinearGradient* __this, ::g::Uno::Float2* size, ::g::Uno::Float4* __retval);
 void LinearGradient__get_HasAngle_fn(LinearGradient* __this, bool* __retval);
-void LinearGradient__get_Interpolation_fn(LinearGradient* __this, int* __retval);
-void LinearGradient__set_Interpolation_fn(LinearGradient* __this, int* value);
+void LinearGradient__get_Interpolation_fn(LinearGradient* __this, int32_t* __retval);
+void LinearGradient__set_Interpolation_fn(LinearGradient* __this, int32_t* value);
 void LinearGradient__OnAdded_fn(LinearGradient* __this, ::g::Fuse::Drawing::GradientStop* gs);
 void LinearGradient__OnPinned_fn(LinearGradient* __this);
 void LinearGradient__OnPrepare_fn(LinearGradient* __this, ::g::Fuse::DrawContext* dc, ::g::Uno::Float2* canvasSize);
@@ -42,7 +42,6 @@ void LinearGradient__OnUnpinned_fn(LinearGradient* __this);
 void LinearGradient__get_SortedStops_fn(LinearGradient* __this, uArray** __retval);
 void LinearGradient__get_StartPoint_fn(LinearGradient* __this, ::g::Uno::Float2* __retval);
 void LinearGradient__set_StartPoint_fn(LinearGradient* __this, ::g::Uno::Float2* value);
-void LinearGradient__get_Stops_fn(LinearGradient* __this, uObject** __retval);
 void LinearGradient__UnoUXIPropertyListenerOnPropertyChanged_fn(LinearGradient* __this, ::g::Uno::UX::PropertyObject* sender, ::g::Uno::UX::Selector* property);
 void LinearGradient__ValidateStopsSorted_fn(uObject* stops);
 
@@ -69,9 +68,9 @@ struct LinearGradient : ::g::Fuse::Drawing::DynamicBrush
     static ::g::Uno::UX::Selector& _angleName() { return LinearGradient_typeof()->Init(), _angleName_; }
     float _angle;
     bool _hasAngle;
-    int _interpolation;
-    static int _gradientSize_;
-    static int& _gradientSize() { return LinearGradient_typeof()->Init(), _gradientSize_; }
+    int32_t _interpolation;
+    static int32_t _gradientSize_;
+    static int32_t& _gradientSize() { return LinearGradient_typeof()->Init(), _gradientSize_; }
     uStrong< ::g::Uno::Graphics::Framebuffer*> _gradientBuffer;
     ::g::Uno::Float2 _gradientStart;
     bool _invalid;
@@ -82,14 +81,13 @@ struct LinearGradient : ::g::Fuse::Drawing::DynamicBrush
     void EndPoint(::g::Uno::Float2 value);
     ::g::Uno::Float4 GetEffectiveEndPoints(::g::Uno::Float2 size);
     bool HasAngle();
-    int Interpolation();
-    void Interpolation(int value);
+    int32_t Interpolation();
+    void Interpolation(int32_t value);
     void OnAdded(::g::Fuse::Drawing::GradientStop* gs);
     void OnRemoved(::g::Fuse::Drawing::GradientStop* gs);
     uArray* SortedStops();
     ::g::Uno::Float2 StartPoint();
     void StartPoint(::g::Uno::Float2 value);
-    uObject* Stops();
     static void ValidateStopsSorted(uObject* stops);
 };
 // }

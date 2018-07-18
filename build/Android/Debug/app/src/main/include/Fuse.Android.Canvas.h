@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Android.TextRenderer/1.4.2/Internal/Canvas.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Android.TextRenderer/1.9.0/Internal/Canvas.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

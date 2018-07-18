@@ -1,9 +1,9 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Uno.Float.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 namespace g{namespace Fuse{namespace Controls{struct TextControl;}}}
 namespace g{namespace Uno{namespace UX{struct PropertyObject;}}}
 namespace g{namespace Uno{namespace UX{struct Selector;}}}
@@ -11,7 +11,7 @@ namespace g{struct AccountBook_FuseControlsTextControl_FontSize_Property;}
 
 namespace g{
 
-// internal sealed class AccountBook_FuseControlsTextControl_FontSize_Property :306
+// internal sealed class AccountBook_FuseControlsTextControl_FontSize_Property :344
 // {
 ::g::Uno::UX::Property1_type* AccountBook_FuseControlsTextControl_FontSize_Property_typeof();
 void AccountBook_FuseControlsTextControl_FontSize_Property__ctor_3_fn(AccountBook_FuseControlsTextControl_FontSize_Property* __this, ::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector* name);

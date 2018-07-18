@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Motion/1.4.2/DestinationMotion.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Motion/1.9.0/DestinationMotion.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -23,20 +23,20 @@ void DestinationMotionConfig__get_DurationExp_fn(DestinationMotionConfig* __this
 void DestinationMotionConfig__set_DurationExp_fn(DestinationMotionConfig* __this, float* value);
 void DestinationMotionConfig__get_Easing_fn(DestinationMotionConfig* __this, ::g::Fuse::Animations::Easing** __retval);
 void DestinationMotionConfig__set_Easing_fn(DestinationMotionConfig* __this, ::g::Fuse::Animations::Easing* value);
-void DestinationMotionConfig__get_Type_fn(DestinationMotionConfig* __this, int* __retval);
-void DestinationMotionConfig__set_Type_fn(DestinationMotionConfig* __this, int* value);
-void DestinationMotionConfig__get_Unit_fn(DestinationMotionConfig* __this, int* __retval);
-void DestinationMotionConfig__set_Unit_fn(DestinationMotionConfig* __this, int* value);
+void DestinationMotionConfig__get_Type_fn(DestinationMotionConfig* __this, int32_t* __retval);
+void DestinationMotionConfig__set_Type_fn(DestinationMotionConfig* __this, int32_t* value);
+void DestinationMotionConfig__get_Unit_fn(DestinationMotionConfig* __this, int32_t* __retval);
+void DestinationMotionConfig__set_Unit_fn(DestinationMotionConfig* __this, int32_t* value);
 
 struct DestinationMotionConfig : uObject
 {
-    int _type;
+    int32_t _type;
     bool _explicitType;
     uStrong< ::g::Fuse::Animations::Easing*> _easing;
     float _duration;
     bool _hasDuration;
     float _durationExp;
-    int _unit;
+    int32_t _unit;
     float _distance;
     bool _hasDistance;
 
@@ -50,10 +50,10 @@ struct DestinationMotionConfig : uObject
     void DurationExp(float value);
     ::g::Fuse::Animations::Easing* Easing();
     void Easing(::g::Fuse::Animations::Easing* value);
-    int Type();
-    void Type(int value);
-    int Unit();
-    void Unit(int value);
+    int32_t Type();
+    void Type(int32_t value);
+    int32_t Unit();
+    void Unit(int32_t value);
 };
 // }
 

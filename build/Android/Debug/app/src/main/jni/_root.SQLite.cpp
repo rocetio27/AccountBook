@@ -12,7 +12,7 @@
 #include <Uno.Byte.h>
 #include <Uno.Collections.IEnumerable-1.h>
 #include <Uno.Collections.IEnumerator.h>
-#include <Uno.Collections.IEnumerator-1.h>
+#include <Uno.Collections.IEnumerator1-1.h>
 #include <Uno.Diagnostics.Debug.h>
 #include <Uno.Diagnostics.Debug-5d778620.h>
 #include <Uno.Int.h>
@@ -20,6 +20,7 @@
 #include <Uno.IO.BundleFile.h>
 #include <Uno.IO.Directory.h>
 #include <Uno.IO.File.h>
+#include <Uno.IO.FileStream.h>
 #include <Uno.IO.Path.h>
 #include <Uno.IO.Stream.h>
 #include <Uno.IO.UserDirectory.h>
@@ -46,6 +47,7 @@ static void SQLite_build(uType* type)
     ::TYPES[5] = ::g::Uno::IDisposable_typeof();
     ::TYPES[6] = ::g::Uno::Byte_typeof()->Array();
     type->SetDependencies(
+        ::g::Uno::IO::Bundle_typeof(),
         ::g::Uno::Diagnostics::Debug_typeof(),
         ::g::Uno::IO::Path_typeof());
     type->SetInterfaces(
@@ -63,7 +65,7 @@ static void SQLite_build(uType* type)
     options.BaseDefinition = ::g::Fuse::Scripting::NativeModule_typeof();
     options.FieldCount = 4;
     options.InterfaceCount = 2;
-    options.DependencyCount = 2;
+    options.DependencyCount = 3;
     options.ObjectSize = sizeof(SQLite);
     options.TypeSize = sizeof(::g::Fuse::Scripting::NativeModule_type);
     type = (::g::Fuse::Scripting::NativeModule_type*)uClassType::New("SQLite", options);
@@ -110,7 +112,7 @@ void SQLite::ctor_2()
 uObject* SQLite::Open(::g::Fuse::Scripting::Context* c, uArray* args)
 {
     uString* filename = uAs<uString*>(uPtr(args)->Strong<uObject*>(0), ::TYPES[1/*string*/]);
-    uString* filepath = ::g::Uno::IO::Path::Combine(::g::Uno::IO::Directory::GetUserDirectory(1), filename);
+    uString* filepath = ::g::Uno::IO::Path::Combine(::g::Uno::IO::Directory::GetUserDirectory(2), filename);
     ::g::SQLiteDb* db = ::g::SQLiteDb::New2(filepath);
     return db->EvaluateExports(c, NULL);
 }
@@ -120,7 +122,7 @@ uObject* SQLite::OpenFromBundle(::g::Fuse::Scripting::Context* c, uArray* args)
 {
     ::g::Uno::IO::BundleFile* ret3;
     uString* filename = uAs<uString*>(uPtr(args)->Strong<uObject*>(0), ::TYPES[1/*string*/]);
-    uString* filepath = ::g::Uno::IO::Path::Combine(::g::Uno::IO::Directory::GetUserDirectory(1), filename);
+    uString* filepath = ::g::Uno::IO::Path::Combine(::g::Uno::IO::Directory::GetUserDirectory(2), filename);
 
     if (::g::Uno::IO::File::Exists(filepath))
         return Open(c, args);
@@ -128,39 +130,44 @@ uObject* SQLite::OpenFromBundle(::g::Fuse::Scripting::Context* c, uArray* args)
     ::g::Uno::IO::BundleFile* found = NULL;
     uObject* enum1 = (uObject*)::g::Uno::Collections::IEnumerable::GetEnumerator(uInterface(uPtr(::g::Uno::IO::Bundle::AllFiles()), ::TYPES[2/*Uno.Collections.IEnumerable<Uno.IO.BundleFile>*/]));
 
-    try
     {
+        try
         {
-            while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum1), ::TYPES[3/*Uno.Collections.IEnumerator*/])))
             {
-                ::g::Uno::IO::BundleFile* f = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum1), ::TYPES[4/*Uno.Collections.IEnumerator<Uno.IO.BundleFile>*/]), &ret3), ret3);
-
-                if (::g::Uno::String::op_Equality(uPtr(f)->SourcePath(), filename))
+                while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum1), ::TYPES[3/*Uno.Collections.IEnumerator*/])))
                 {
-                    found = f;
-                    break;
+                    ::g::Uno::IO::BundleFile* f = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum1), ::TYPES[4/*Uno.Collections.IEnumerator<Uno.IO.BundleFile>*/]), &ret3), ret3);
+
+                    if (::g::Uno::String::op_Equality(uPtr(f)->SourcePath(), filename))
+                    {
+                        found = f;
+                        break;
+                    }
                 }
             }
         }
-        {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[5/*Uno.IDisposable*/]));
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[5/*Uno.IDisposable*/]));
+            }
+                        throw __t;
+            goto __after_finally_0;
+        }
+
         {
             ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[5/*Uno.IDisposable*/]));
         }
-                throw __t;
+        __after_finally_0:;
     }
 
     if (found != NULL)
     {
         ::g::Uno::IO::Stream* input = uPtr(found)->OpenRead();
-        ::g::Uno::IO::Stream* output = ::g::Uno::IO::File::OpenWrite(filepath);
+        ::g::Uno::IO::FileStream* output = ::g::Uno::IO::File::OpenWrite(filepath);
         uArray* buffer = uArray::New(::TYPES[6/*byte[]*/], 1024);
-        int read;
+        int32_t read;
 
         while ((read = uPtr(input)->Read(buffer, 0, buffer->Length())) > 0)
             uPtr(output)->Write(buffer, 0, read);
@@ -169,7 +176,7 @@ uObject* SQLite::OpenFromBundle(::g::Fuse::Scripting::Context* c, uArray* args)
         uPtr(output)->Close();
     }
     else
-        ::g::Uno::Diagnostics::Debug::Log5(::g::Uno::String::op_Addition2(filename, ::STRINGS[2/*" not found ...*/]), 0, ::STRINGS[3/*"C:/Users/Sp...*/], 55);
+        ::g::Uno::Diagnostics::Debug::Log3(::g::Uno::String::op_Addition2(filename, ::STRINGS[2/*" not found ...*/]), 0, ::STRINGS[3/*"C:/Users/Sp...*/], 55);
 
     return Open(c, args);
 }

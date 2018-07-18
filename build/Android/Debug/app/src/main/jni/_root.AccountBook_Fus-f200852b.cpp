@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-f200852b.h>
@@ -11,7 +11,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_FuseDrawingStroke_Color_Property :230
+// internal sealed class AccountBook_FuseDrawingStroke_Color_Property :250
 // {
 static void AccountBook_FuseDrawingStroke_Color_Property_build(uType* type)
 {
@@ -40,51 +40,51 @@ static void AccountBook_FuseDrawingStroke_Color_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_FuseDrawingStroke_Color_Property(Fuse.Drawing.Stroke obj, Uno.UX.Selector name) :233
+// public AccountBook_FuseDrawingStroke_Color_Property(Fuse.Drawing.Stroke obj, Uno.UX.Selector name) :253
 void AccountBook_FuseDrawingStroke_Color_Property__ctor_3_fn(AccountBook_FuseDrawingStroke_Color_Property* __this, ::g::Fuse::Drawing::Stroke* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed float4 Get(Uno.UX.PropertyObject obj) :235
+// public override sealed float4 Get(Uno.UX.PropertyObject obj) :255
 void AccountBook_FuseDrawingStroke_Color_Property__Get1_fn(AccountBook_FuseDrawingStroke_Color_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* __retval)
 {
     return *__retval = uPtr(uCast< ::g::Fuse::Drawing::Stroke*>(obj, ::TYPES[0/*Fuse.Drawing.Stroke*/]))->Color(), void();
 }
 
-// public AccountBook_FuseDrawingStroke_Color_Property New(Fuse.Drawing.Stroke obj, Uno.UX.Selector name) :233
+// public AccountBook_FuseDrawingStroke_Color_Property New(Fuse.Drawing.Stroke obj, Uno.UX.Selector name) :253
 void AccountBook_FuseDrawingStroke_Color_Property__New1_fn(::g::Fuse::Drawing::Stroke* obj, ::g::Uno::UX::Selector* name, AccountBook_FuseDrawingStroke_Color_Property** __retval)
 {
     *__retval = AccountBook_FuseDrawingStroke_Color_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :234
+// public override sealed Uno.UX.PropertyObject get_Object() :254
 void AccountBook_FuseDrawingStroke_Color_Property__get_Object_fn(AccountBook_FuseDrawingStroke_Color_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, float4 v, Uno.UX.IPropertyListener origin) :236
+// public override sealed void Set(Uno.UX.PropertyObject obj, float4 v, Uno.UX.IPropertyListener origin) :256
 void AccountBook_FuseDrawingStroke_Color_Property__Set1_fn(AccountBook_FuseDrawingStroke_Color_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* v, uObject* origin)
 {
     ::g::Uno::Float4 v_ = *v;
     uPtr(uCast< ::g::Fuse::Drawing::Stroke*>(obj, ::TYPES[0/*Fuse.Drawing.Stroke*/]))->SetColor(v_, origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :237
+// public override sealed bool get_SupportsOriginSetter() :257
 void AccountBook_FuseDrawingStroke_Color_Property__get_SupportsOriginSetter_fn(AccountBook_FuseDrawingStroke_Color_Property* __this, bool* __retval)
 {
     return *__retval = true, void();
 }
 
-// public AccountBook_FuseDrawingStroke_Color_Property(Fuse.Drawing.Stroke obj, Uno.UX.Selector name) [instance] :233
+// public AccountBook_FuseDrawingStroke_Color_Property(Fuse.Drawing.Stroke obj, Uno.UX.Selector name) [instance] :253
 void AccountBook_FuseDrawingStroke_Color_Property::ctor_3(::g::Fuse::Drawing::Stroke* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_FuseDrawingStroke_Color_Property New(Fuse.Drawing.Stroke obj, Uno.UX.Selector name) [static] :233
+// public AccountBook_FuseDrawingStroke_Color_Property New(Fuse.Drawing.Stroke obj, Uno.UX.Selector name) [static] :253
 AccountBook_FuseDrawingStroke_Color_Property* AccountBook_FuseDrawingStroke_Color_Property::New1(::g::Fuse::Drawing::Stroke* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_FuseDrawingStroke_Color_Property* obj1 = (AccountBook_FuseDrawingStroke_Color_Property*)uNew(AccountBook_FuseDrawingStroke_Color_Property_typeof());

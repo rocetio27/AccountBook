@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/KeyboardBootstrapper.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/KeyboardBootstrapper.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

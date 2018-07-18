@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.4.2/DiscreteSingleTrack.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.9.0/DiscreteSingleTrack.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -23,16 +23,16 @@ struct DiscreteSingleTrack_type : uType
 
 DiscreteSingleTrack_type* DiscreteSingleTrack_typeof();
 void DiscreteSingleTrack__ctor__fn(DiscreteSingleTrack* __this);
-void DiscreteSingleTrack__FuseAnimationsDiscreteTrackProviderGetSeekProgress_fn(DiscreteSingleTrack* __this, ::g::Fuse::Animations::TrackAnimatorState* tas, double* progress, double* interval, int* dir, uObject** value, double* strength, int* __retval);
-void DiscreteSingleTrack__FuseAnimationsDiscreteTrackProviderGetSeekTime_fn(DiscreteSingleTrack* __this, ::g::Fuse::Animations::TrackAnimatorState* tas, double* elapsed, double* interval, int* dir, uObject** value, double* strength, int* __retval);
-void DiscreteSingleTrack__FuseAnimationsTrackProviderGetAnimatorVariant_fn(DiscreteSingleTrack* __this, ::g::Fuse::Animations::TrackAnimator* ta, int* __retval);
-void DiscreteSingleTrack__FuseAnimationsTrackProviderGetDuration_fn(DiscreteSingleTrack* __this, ::g::Fuse::Animations::TrackAnimator* ta, int* variant, double* __retval);
+void DiscreteSingleTrack__FuseAnimationsDiscreteTrackProviderGetSeekProgress_fn(DiscreteSingleTrack* __this, ::g::Fuse::Animations::TrackAnimatorState* tas, double* progress, double* interval, int32_t* dir, uObject** value, double* strength, int32_t* __retval);
+void DiscreteSingleTrack__FuseAnimationsDiscreteTrackProviderGetSeekTime_fn(DiscreteSingleTrack* __this, ::g::Fuse::Animations::TrackAnimatorState* tas, double* elapsed, double* interval, int32_t* dir, uObject** value, double* strength, int32_t* __retval);
+void DiscreteSingleTrack__FuseAnimationsTrackProviderGetAnimatorVariant_fn(DiscreteSingleTrack* __this, ::g::Fuse::Animations::TrackAnimator* ta, int32_t* __retval);
+void DiscreteSingleTrack__FuseAnimationsTrackProviderGetDuration_fn(DiscreteSingleTrack* __this, ::g::Fuse::Animations::TrackAnimator* ta, int32_t* variant, double* __retval);
 void DiscreteSingleTrack__New1_fn(DiscreteSingleTrack** __retval);
 
 struct DiscreteSingleTrack : uObject
 {
     static uSStrong<DiscreteSingleTrack*> Singleton_;
-    static uSStrong<DiscreteSingleTrack*>& Singleton() { return Singleton_; }
+    static uSStrong<DiscreteSingleTrack*>& Singleton() { return DiscreteSingleTrack_typeof()->Init(), Singleton_; }
 
     void ctor_();
     static DiscreteSingleTrack* New1();

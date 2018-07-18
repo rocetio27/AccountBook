@@ -96,10 +96,10 @@ void SQLiteStatement::ctor_3(uString* statement1)
 // private object Execute(Fuse.Scripting.Context context, object[] args) [instance] :41
 uObject* SQLiteStatement::Execute(::g::Fuse::Scripting::Context* context, uArray* args)
 {
-    int param_len = uPtr(args)->Length();
+    int32_t param_len = uPtr(args)->Length();
     uArray* param = uArray::New(::TYPES[1/*string[]*/], param_len);
 
-    for (int j = 0; j < param_len; j++)
+    for (int32_t j = 0; j < param_len; j++)
         uPtr(param)->Strong<uString*>(j) = uAs<uString*>(uPtr(args)->Strong<uObject*>(j), ::TYPES[2/*string*/]);
 
     ::g::Bolav::ForeignHelpers::JSList* jslist = ::g::Bolav::ForeignHelpers::JSList::New1(context);

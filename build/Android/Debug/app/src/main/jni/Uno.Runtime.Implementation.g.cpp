@@ -16,10 +16,10 @@ namespace Uno{
 namespace Runtime{
 namespace Implementation{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\BufferImpl.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\BufferImpl.uno
 // ----------------------------------------------------------------------------------------------------------------------
 
-// public static class BufferImpl :7
+// public static class BufferImpl :6
 // {
 static void BufferImpl_build(uType* type)
 {
@@ -37,32 +37,32 @@ uClassType* BufferImpl_typeof()
     return type;
 }
 
-// public static void SetFloat(byte[] buffer, int offset, float value, bool littleEndian) :247
-void BufferImpl__SetFloat_fn(uArray* buffer, int* offset, float* value, bool* littleEndian)
+// public static void SetFloat(byte[] buffer, int offset, float value, bool littleEndian) :246
+void BufferImpl__SetFloat_fn(uArray* buffer, int32_t* offset, float* value, bool* littleEndian)
 {
     BufferImpl::SetFloat(buffer, *offset, *value, *littleEndian);
 }
 
-// public static void SetUShort(byte[] buffer, int offset, ushort value, bool littleEndian) :63
-void BufferImpl__SetUShort_fn(uArray* buffer, int* offset, uint16_t* value, bool* littleEndian)
+// public static void SetUShort(byte[] buffer, int offset, ushort value, bool littleEndian) :62
+void BufferImpl__SetUShort_fn(uArray* buffer, int32_t* offset, uint16_t* value, bool* littleEndian)
 {
     BufferImpl::SetUShort(buffer, *offset, *value, *littleEndian);
 }
 
-// public static void SetFloat(byte[] buffer, int offset, float value, bool littleEndian) [static] :247
-void BufferImpl::SetFloat(uArray* buffer, int offset, float value, bool littleEndian)
+// public static void SetFloat(byte[] buffer, int offset, float value, bool littleEndian) [static] :246
+void BufferImpl::SetFloat(uArray* buffer, int32_t offset, float value, bool littleEndian)
 {
     uStoreBytes((uint8_t*)buffer->_ptr + offset, value, littleEndian);
 }
 
-// public static void SetUShort(byte[] buffer, int offset, ushort value, bool littleEndian) [static] :63
-void BufferImpl::SetUShort(uArray* buffer, int offset, uint16_t value, bool littleEndian)
+// public static void SetUShort(byte[] buffer, int offset, ushort value, bool littleEndian) [static] :62
+void BufferImpl::SetUShort(uArray* buffer, int32_t offset, uint16_t value, bool littleEndian)
 {
     uStoreBytes((uint8_t*)buffer->_ptr + offset, value, littleEndian);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\GraphicsControllerImpl.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\GraphicsControllerImpl.uno
 // ----------------------------------------------------------------------------------------------------------------------------------
 
 // internal struct GraphicsContextHandle :12
@@ -86,7 +86,7 @@ uStructType* GraphicsContextHandle_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Runtime\Implementation\PlatformWindowImpl.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Runtime\Implementation\PlatformWindowImpl.uno
 // ------------------------------------------------------------------------------------------------------------------------------
 
 // public struct PlatformWindowHandle :11

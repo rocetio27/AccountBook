@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/Resources/HttpImageSource.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/Resources/HttpImageSource.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -22,12 +22,12 @@ void HttpImageSource__get_Density_fn(HttpImageSource* __this, float* __retval);
 void HttpImageSource__set_Density_fn(HttpImageSource* __this, float* value);
 void HttpImageSource__GetTexture_fn(HttpImageSource* __this, ::g::Uno::Graphics::Texture2D** __retval);
 void HttpImageSource__OnPinChanged_fn(HttpImageSource* __this);
-void HttpImageSource__get_Orientation_fn(HttpImageSource* __this, int* __retval);
+void HttpImageSource__get_Orientation_fn(HttpImageSource* __this, int32_t* __retval);
 void HttpImageSource__get_PixelSize_fn(HttpImageSource* __this, ::g::Uno::Int2* __retval);
 void HttpImageSource__Reload_fn(HttpImageSource* __this);
 void HttpImageSource__get_Size_fn(HttpImageSource* __this, ::g::Uno::Float2* __retval);
 void HttpImageSource__get_SizeDensity_fn(HttpImageSource* __this, float* __retval);
-void HttpImageSource__get_State_fn(HttpImageSource* __this, int* __retval);
+void HttpImageSource__get_State_fn(HttpImageSource* __this, int32_t* __retval);
 void HttpImageSource__get_Url_fn(HttpImageSource* __this, uString** __retval);
 void HttpImageSource__set_Url_fn(HttpImageSource* __this, uString* value);
 

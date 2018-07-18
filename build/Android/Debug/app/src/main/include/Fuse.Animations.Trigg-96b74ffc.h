@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.4.2/TriggerAnimation.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.9.0/TriggerAnimation.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -22,20 +22,20 @@ void TriggerAnimation__ctor__fn(TriggerAnimation* __this);
 void TriggerAnimation__get_Animators_fn(TriggerAnimation* __this, uObject** __retval);
 void TriggerAnimation__get_Backward_fn(TriggerAnimation* __this, TriggerAnimation** __retval);
 void TriggerAnimation__set_Backward_fn(TriggerAnimation* __this, TriggerAnimation* value);
-void TriggerAnimation__CreateAnimatorsState_fn(TriggerAnimation* __this, int* variant, ::g::Fuse::Visual* elm, uArray** __retval);
-void TriggerAnimation__CreatePlayer_fn(TriggerAnimation* __this, ::g::Fuse::Visual* node, int* variant, ::g::Fuse::Animations::Player** __retval);
+void TriggerAnimation__CreateAnimatorsState_fn(TriggerAnimation* __this, int32_t* variant, ::g::Fuse::Visual* elm, uArray** __retval);
+void TriggerAnimation__CreatePlayer_fn(TriggerAnimation* __this, ::g::Fuse::Visual* node, int32_t* variant, ::g::Fuse::Animations::Player** __retval);
 void TriggerAnimation__CreateState_fn(TriggerAnimation* __this, ::g::Fuse::Visual* elm, ::g::Fuse::Animations::TriggerAnimationState** __retval);
 void TriggerAnimation__get_CrossFadeDuration_fn(TriggerAnimation* __this, double* __retval);
 void TriggerAnimation__set_CrossFadeDuration_fn(TriggerAnimation* __this, double* value);
-void TriggerAnimation__GetAnimatorsDuration_fn(TriggerAnimation* __this, int* variant, double* __retval);
-void TriggerAnimation__GetTimeMultiplier_fn(TriggerAnimation* __this, int* variant, double* __retval);
+void TriggerAnimation__GetAnimatorsDuration_fn(TriggerAnimation* __this, int32_t* variant, double* __retval);
+void TriggerAnimation__GetTimeMultiplier_fn(TriggerAnimation* __this, int32_t* variant, double* __retval);
 void TriggerAnimation__get_HasBackward_fn(TriggerAnimation* __this, bool* __retval);
 void TriggerAnimation__get_HasDirectionVariant_fn(TriggerAnimation* __this, bool* __retval);
 void TriggerAnimation__New1_fn(TriggerAnimation** __retval);
 void TriggerAnimation__OnTimeChanged_fn(TriggerAnimation* __this);
-void TriggerAnimation__get_PlayMode_fn(TriggerAnimation* __this, int* __retval);
-void TriggerAnimation__set_PlayMode_fn(TriggerAnimation* __this, int* value);
-void TriggerAnimation__RestrictVariant_fn(TriggerAnimation* __this, int* variant, int* __retval);
+void TriggerAnimation__get_PlayMode_fn(TriggerAnimation* __this, int32_t* __retval);
+void TriggerAnimation__set_PlayMode_fn(TriggerAnimation* __this, int32_t* value);
+void TriggerAnimation__RestrictVariant_fn(TriggerAnimation* __this, int32_t* variant, int32_t* __retval);
 void TriggerAnimation__add_TimeChanged_fn(TriggerAnimation* __this, uDelegate* value);
 void TriggerAnimation__remove_TimeChanged_fn(TriggerAnimation* __this, uDelegate* value);
 void TriggerAnimation__get_TimeMultiplier_fn(TriggerAnimation* __this, double* __retval);
@@ -49,26 +49,26 @@ struct TriggerAnimation : uObject
     bool _hasStretchDuration;
     double _stretchDuration;
     double _crossFadeDuration;
-    int _playMode;
+    int32_t _playMode;
     uStrong<uDelegate*> TimeChanged1;
 
     void ctor_();
     uObject* Animators();
     TriggerAnimation* Backward();
     void Backward(TriggerAnimation* value);
-    uArray* CreateAnimatorsState(int variant, ::g::Fuse::Visual* elm);
-    ::g::Fuse::Animations::Player* CreatePlayer(::g::Fuse::Visual* node, int variant);
+    uArray* CreateAnimatorsState(int32_t variant, ::g::Fuse::Visual* elm);
+    ::g::Fuse::Animations::Player* CreatePlayer(::g::Fuse::Visual* node, int32_t variant);
     ::g::Fuse::Animations::TriggerAnimationState* CreateState(::g::Fuse::Visual* elm);
     double CrossFadeDuration();
     void CrossFadeDuration(double value);
-    double GetAnimatorsDuration(int variant);
-    double GetTimeMultiplier(int variant);
+    double GetAnimatorsDuration(int32_t variant);
+    double GetTimeMultiplier(int32_t variant);
     bool HasBackward();
     bool HasDirectionVariant();
     void OnTimeChanged();
-    int PlayMode();
-    void PlayMode(int value);
-    int RestrictVariant(int variant);
+    int32_t PlayMode();
+    void PlayMode(int32_t value);
+    int32_t RestrictVariant(int32_t variant);
     void add_TimeChanged(uDelegate* value);
     void remove_TimeChanged(uDelegate* value);
     double TimeMultiplier();

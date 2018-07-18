@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/MobileBootstrapping.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/MobileBootstrapping.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -12,11 +12,11 @@ namespace Fuse{
 // {
 uType* MobileBootstrapping_typeof();
 void MobileBootstrapping__Init_fn();
-void MobileBootstrapping__OnEnterForeground_fn(int* state);
-void MobileBootstrapping__OnEnterInteractive_fn(int* state);
-void MobileBootstrapping__OnExitInteractive_fn(int* state);
-void MobileBootstrapping__OnStarted_fn(int* state);
-void MobileBootstrapping__OnTerminating_fn(int* state);
+void MobileBootstrapping__OnEnterForeground_fn(int32_t* state);
+void MobileBootstrapping__OnEnterInteractive_fn(int32_t* state);
+void MobileBootstrapping__OnExitInteractive_fn(int32_t* state);
+void MobileBootstrapping__OnStarted_fn(int32_t* state);
+void MobileBootstrapping__OnTerminating_fn(int32_t* state);
 
 struct MobileBootstrapping : uObject
 {
@@ -24,11 +24,11 @@ struct MobileBootstrapping : uObject
     static bool& _isInited() { return _isInited_; }
 
     static void Init();
-    static void OnEnterForeground(int state);
-    static void OnEnterInteractive(int state);
-    static void OnExitInteractive(int state);
-    static void OnStarted(int state);
-    static void OnTerminating(int state);
+    static void OnEnterForeground(int32_t state);
+    static void OnEnterInteractive(int32_t state);
+    static void OnExitInteractive(int32_t state);
+    static void OnStarted(int32_t state);
+    static void OnTerminating(int32_t state);
 };
 // }
 

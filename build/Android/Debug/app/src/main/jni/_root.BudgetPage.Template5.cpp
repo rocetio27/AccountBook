@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/BudgetPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/BudgetPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-6e985db.h>
@@ -21,6 +21,7 @@
 #include <Fuse.Reactive.Data.h>
 #include <Fuse.Reactive.DataBinding.h>
 #include <Fuse.Reactive.EventBinding.h>
+#include <Fuse.Reactive.Expression.h>
 #include <Fuse.Reactive.IExpression.h>
 #include <Fuse.Visual.h>
 #include <Uno.Bool.h>
@@ -32,23 +33,22 @@
 #include <Uno.Object.h>
 #include <Uno.String.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Selector.h>
 #include <Uno.UX.Size.h>
 #include <Uno.UX.Unit.h>
-static uString* STRINGS[5];
+static uString* STRINGS[6];
 static uType* TYPES[3];
 
 namespace g{
 
-// public partial sealed class BudgetPage.Template5 :173
+// public partial sealed class BudgetPage.Template5 :208
 // {
-// static Template5() :185
+// static Template5() :220
 static void BudgetPage__Template5__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    BudgetPage__Template5::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"Visibility"*/]);
-    BudgetPage__Template5::__selector1_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[1/*"text"*/]);
+    BudgetPage__Template5::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"Visibility"*/]);
+    BudgetPage__Template5::__selector1_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[1/*"text"*/]);
 }
 
 static void BudgetPage__Template5_build(uType* type)
@@ -58,11 +58,13 @@ static void BudgetPage__Template5_build(uType* type)
     ::STRINGS[2] = uString::Const("visibility");
     ::STRINGS[3] = uString::Const("value");
     ::STRINGS[4] = uString::Const("Click_calendar_number");
+    ::STRINGS[5] = uString::Const("BudgetPage.ux");
     ::TYPES[0] = ::g::Fuse::Gestures::ClickedHandler_typeof();
     ::TYPES[1] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL);
     ::TYPES[2] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL);
     type->SetDependencies(
-        ::g::Fuse::Drawing::Colors_typeof());
+        ::g::Fuse::Drawing::Colors_typeof(),
+        ::g::ListPage_typeof());
     type->SetFields(2,
         ::g::BudgetPage_typeof(), offsetof(BudgetPage__Template5, __parent1), uFieldFlagsWeak,
         ::g::BudgetPage_typeof(), offsetof(BudgetPage__Template5, __parentInstance1), uFieldFlagsWeak,
@@ -81,7 +83,7 @@ static void BudgetPage__Template5_build(uType* type)
     uTypeOptions options;
     options.BaseDefinition = ::g::Uno::UX::Template_typeof();
     options.FieldCount = 9;
-    options.DependencyCount = 1;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(BudgetPage__Template5);
     options.TypeSize = sizeof(::g::Uno::UX::Template_type);
     type = (::g::Uno::UX::Template_type*)uClassType::New("BudgetPage.Template5", options);
@@ -91,13 +93,13 @@ static void BudgetPage__Template5_build(uType* type)
     return type;
 }
 
-// public Template5(BudgetPage parent, BudgetPage parentInstance) :177
+// public Template5(BudgetPage parent, BudgetPage parentInstance) :212
 void BudgetPage__Template5__ctor_1_fn(BudgetPage__Template5* __this, ::g::BudgetPage* parent, ::g::BudgetPage* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :188
+// public override sealed object New() :223
 void BudgetPage__Template5__New1_fn(BudgetPage__Template5* __this, uObject** __retval)
 {
     ::g::myButton* __self1 = ::g::myButton::New6();
@@ -110,13 +112,23 @@ void BudgetPage__Template5__New1_fn(BudgetPage__Template5* __this, uObject** __r
     ::g::Fuse::Reactive::DataBinding* temp4 = ::g::Fuse::Reactive::DataBinding::New1(__this->__self_Visibility_inst1, (uObject*)temp, 3);
     ::g::Fuse::Reactive::DataBinding* temp5 = ::g::Fuse::Reactive::DataBinding::New1(__this->__self_text_inst1, (uObject*)temp1, 3);
     __this->temp_eb8 = ::g::Fuse::Reactive::EventBinding::New1((uObject*)temp2);
+    __self1->textcolor(::g::Fuse::Drawing::Colors::Black());
+    __self1->fontsize(15);
     __self1->Width(::g::Uno::UX::Size__New1(100.0f, 4));
     __self1->Height(::g::Uno::UX::Size__New1(100.0f, 4));
-    __self1->textcolor(::g::Fuse::Drawing::Colors::Black_);
-    __self1->fontsize(15);
+    __self1->SourceLineNumber(169);
+    __self1->SourceFileName(::STRINGS[5/*"BudgetPage.ux"*/]);
     ::g::Fuse::Gestures::Clicked::AddHandler(__self1, uDelegate::New(::TYPES[0/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb8)));
     temp3->CornerRadius(::g::Uno::Float4__New2(5.0f, 5.0f, 5.0f, 5.0f));
-    temp3->Color(::g::Fuse::Drawing::Colors::White_);
+    temp3->Color(::g::Fuse::Drawing::Colors::White());
+    temp3->SourceLineNumber(170);
+    temp3->SourceFileName(::STRINGS[5/*"BudgetPage.ux"*/]);
+    temp->SourceLineNumber(169);
+    temp->SourceFileName(::STRINGS[5/*"BudgetPage.ux"*/]);
+    temp1->SourceLineNumber(169);
+    temp1->SourceFileName(::STRINGS[5/*"BudgetPage.ux"*/]);
+    temp2->SourceLineNumber(169);
+    temp2->SourceFileName(::STRINGS[5/*"BudgetPage.ux"*/]);
     __self1->font(::g::ListPage::Bold());
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp3);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Bindings()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Binding>*/]), temp4);
@@ -125,7 +137,7 @@ void BudgetPage__Template5__New1_fn(BudgetPage__Template5* __this, uObject** __r
     return *__retval = __self1, void();
 }
 
-// public Template5 New(BudgetPage parent, BudgetPage parentInstance) :177
+// public Template5 New(BudgetPage parent, BudgetPage parentInstance) :212
 void BudgetPage__Template5__New2_fn(::g::BudgetPage* parent, ::g::BudgetPage* parentInstance, BudgetPage__Template5** __retval)
 {
     *__retval = BudgetPage__Template5::New2(parent, parentInstance);
@@ -134,7 +146,7 @@ void BudgetPage__Template5__New2_fn(::g::BudgetPage* parent, ::g::BudgetPage* pa
 ::g::Uno::UX::Selector BudgetPage__Template5::__selector0_;
 ::g::Uno::UX::Selector BudgetPage__Template5::__selector1_;
 
-// public Template5(BudgetPage parent, BudgetPage parentInstance) [instance] :177
+// public Template5(BudgetPage parent, BudgetPage parentInstance) [instance] :212
 void BudgetPage__Template5::ctor_1(::g::BudgetPage* parent, ::g::BudgetPage* parentInstance)
 {
     ctor_(NULL, false);
@@ -142,7 +154,7 @@ void BudgetPage__Template5::ctor_1(::g::BudgetPage* parent, ::g::BudgetPage* par
     __parentInstance1 = parentInstance;
 }
 
-// public Template5 New(BudgetPage parent, BudgetPage parentInstance) [static] :177
+// public Template5 New(BudgetPage parent, BudgetPage parentInstance) [static] :212
 BudgetPage__Template5* BudgetPage__Template5::New2(::g::BudgetPage* parent, ::g::BudgetPage* parentInstance)
 {
     BudgetPage__Template5* obj1 = (BudgetPage__Template5*)uNew(BudgetPage__Template5_typeof());

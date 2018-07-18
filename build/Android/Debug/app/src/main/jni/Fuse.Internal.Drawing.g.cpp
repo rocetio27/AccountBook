@@ -16,6 +16,7 @@
 #include <Fuse.Visual.h>
 #include <Uno.Bool.h>
 #include <Uno.Buffer.h>
+#include <Uno.Byte.h>
 #include <Uno.Float.h>
 #include <Uno.Float2.h>
 #include <Uno.Float3.h>
@@ -40,12 +41,12 @@ namespace Fuse{
 namespace Internal{
 namespace Drawing{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls\1.4.2\Control.Background.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls\1.9.0\Control.Background.uno
 // --------------------------------------------------------------------------------------------------
 
-// internal sealed class SolidRectangle :133
+// internal sealed class SolidRectangle :136
 // {
-// static generated SolidRectangle() :133
+// static generated SolidRectangle() :136
 static void SolidRectangle__cctor__fn(uType* __type)
 {
     SolidRectangle::Impl_ = SolidRectangle::New1();
@@ -59,6 +60,8 @@ static void SolidRectangle_build(uType* type)
     ::TYPES[3] = ::g::Fuse::Drawing::LinearGradient_typeof();
     ::TYPES[4] = ::g::Fuse::Drawing::StaticSolidColor_typeof();
     ::TYPES[5] = ::g::Uno::Float2_typeof()->Array();
+    type->SetDependencies(
+        ::g::FuseControls_bundle_typeof());
     type->SetFields(0,
         ::g::Uno::Graphics::VertexBuffer_typeof(), offsetof(SolidRectangle, DrawElement_VertexData_77a0ae88_7_2_1), 0,
         ::g::Uno::Float4x4_typeof(), offsetof(SolidRectangle, DrawElement_LocalTransform_77a0ae88_4_9_2), 0,
@@ -80,6 +83,7 @@ uType* SolidRectangle_typeof()
 
     uTypeOptions options;
     options.FieldCount = 11;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(SolidRectangle);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Internal.Drawing.SolidRectangle", options);
@@ -89,25 +93,25 @@ uType* SolidRectangle_typeof()
     return type;
 }
 
-// public generated SolidRectangle() :133
+// public generated SolidRectangle() :136
 void SolidRectangle__ctor__fn(SolidRectangle* __this)
 {
     __this->ctor_();
 }
 
-// public void DrawElement(Fuse.DrawContext dc, Fuse.Elements.Element element, Fuse.Drawing.Brush brush, float opacity) :137
+// public void DrawElement(Fuse.DrawContext dc, Fuse.Elements.Element element, Fuse.Drawing.Brush brush, float opacity) :140
 void SolidRectangle__DrawElement_fn(SolidRectangle* __this, ::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::Element* element, ::g::Fuse::Drawing::Brush* brush, float* opacity)
 {
     __this->DrawElement(dc, element, brush, *opacity);
 }
 
-// private generated void init_DrawCalls() :133
+// private generated void init_DrawCalls() :136
 void SolidRectangle__init_DrawCalls_fn(SolidRectangle* __this)
 {
     __this->init_DrawCalls();
 }
 
-// public generated SolidRectangle New() :133
+// public generated SolidRectangle New() :136
 void SolidRectangle__New1_fn(SolidRectangle** __retval)
 {
     *__retval = SolidRectangle::New1();
@@ -115,13 +119,13 @@ void SolidRectangle__New1_fn(SolidRectangle** __retval)
 
 uSStrong<SolidRectangle*> SolidRectangle::Impl_;
 
-// public generated SolidRectangle() [instance] :133
+// public generated SolidRectangle() [instance] :136
 void SolidRectangle::ctor_()
 {
     init_DrawCalls();
 }
 
-// public void DrawElement(Fuse.DrawContext dc, Fuse.Elements.Element element, Fuse.Drawing.Brush brush, float opacity) [instance] :137
+// public void DrawElement(Fuse.DrawContext dc, Fuse.Elements.Element element, Fuse.Drawing.Brush brush, float opacity) [instance] :140
 void SolidRectangle::DrawElement(::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::Element* element, ::g::Fuse::Drawing::Brush* brush, float opacity)
 {
     ::g::Uno::Float4 ind1;
@@ -215,23 +219,23 @@ void SolidRectangle::DrawElement(::g::Fuse::DrawContext* dc, ::g::Fuse::Elements
     }
 }
 
-// private generated void init_DrawCalls() [instance] :133
+// private generated void init_DrawCalls() [instance] :136
 void SolidRectangle::init_DrawCalls()
 {
     uArray* Vertices_77a0ae88_7_1_0 = uArray::Init< ::g::Uno::Float2>(::TYPES[5/*float2[]*/], 6, ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(0.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 0.0f));
-    DrawElement_VertexData_77a0ae88_7_2_1 = ::g::Uno::Graphics::VertexBuffer::New2(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_77a0ae88_7_1_0), 0);
+    DrawElement_VertexData_77a0ae88_7_2_1 = ::g::Uno::Graphics::VertexBuffer::New1(uPtr(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_77a0ae88_7_1_0))->GetBytes(), 0);
     DrawElement_LocalTransform_77a0ae88_4_9_2 = ::g::Uno::Matrix::Translation(-::g::Uno::Float2__New1(0.0f).X, -::g::Uno::Float2__New1(0.0f).Y, 0.0f);
     DrawElement_LocalTransform_77a0ae88_4_9_3 = ::g::Uno::Matrix::RotationZ(0.0f);
     DrawElement_LocalTransform_77a0ae88_4_9_4 = ::g::Uno::Matrix::Translation(::g::Uno::Float2__New1(0.0f).X, ::g::Uno::Float2__New1(0.0f).Y, 0.0f);
-    DrawElement_VertexData_c5598fc3_7_2_1 = ::g::Uno::Graphics::VertexBuffer::New2(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_77a0ae88_7_1_0), 0);
-    DrawElement_VertexData_66ccbe7e_7_2_1 = ::g::Uno::Graphics::VertexBuffer::New2(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_77a0ae88_7_1_0), 0);
-    DrawElement_VertexData_b4859fb9_7_2_1 = ::g::Uno::Graphics::VertexBuffer::New2(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_77a0ae88_7_1_0), 0);
+    DrawElement_VertexData_c5598fc3_7_2_1 = ::g::Uno::Graphics::VertexBuffer::New1(uPtr(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_77a0ae88_7_1_0))->GetBytes(), 0);
+    DrawElement_VertexData_66ccbe7e_7_2_1 = ::g::Uno::Graphics::VertexBuffer::New1(uPtr(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_77a0ae88_7_1_0))->GetBytes(), 0);
+    DrawElement_VertexData_b4859fb9_7_2_1 = ::g::Uno::Graphics::VertexBuffer::New1(uPtr(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_77a0ae88_7_1_0))->GetBytes(), 0);
     _draw_77a0ae88 = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall__New1(::g::FuseControls_bundle::SolidRectangle2f148815());
     _draw_c5598fc3 = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall__New1(::g::FuseControls_bundle::SolidRectangled1bbfcb0());
     _draw_66ccbe7e = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall__New1(::g::FuseControls_bundle::SolidRectangle7463714b());
 }
 
-// public generated SolidRectangle New() [static] :133
+// public generated SolidRectangle New() [static] :136
 SolidRectangle* SolidRectangle::New1()
 {
     SolidRectangle* obj6 = (SolidRectangle*)uNew(SolidRectangle_typeof());

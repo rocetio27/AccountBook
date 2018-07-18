@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.UserEvents/1.4.2/UserEvent.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.UserEvents/1.9.0/UserEvent.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

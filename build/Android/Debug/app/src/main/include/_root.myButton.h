@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/myButton.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/myButton.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -9,6 +9,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -34,12 +35,12 @@ namespace g{
 void myButton__ctor_9_fn(myButton* __this);
 void myButton__get_font_fn(myButton* __this, ::g::Fuse::Font** __retval);
 void myButton__set_font_fn(myButton* __this, ::g::Fuse::Font* value);
-void myButton__get_fontsize_fn(myButton* __this, int* __retval);
-void myButton__set_fontsize_fn(myButton* __this, int* value);
+void myButton__get_fontsize_fn(myButton* __this, int32_t* __retval);
+void myButton__set_fontsize_fn(myButton* __this, int32_t* value);
 void myButton__InitializeUX1_fn(myButton* __this);
 void myButton__New6_fn(myButton** __retval);
 void myButton__Setfont_fn(myButton* __this, ::g::Fuse::Font* value, uObject* origin);
-void myButton__Setfontsize_fn(myButton* __this, int* value, uObject* origin);
+void myButton__Setfontsize_fn(myButton* __this, int32_t* value, uObject* origin);
 void myButton__Settext_fn(myButton* __this, uString* value, uObject* origin);
 void myButton__Settextcolor_fn(myButton* __this, ::g::Uno::Float4* value, uObject* origin);
 void myButton__get_text_fn(myButton* __this, uString** __retval);
@@ -52,7 +53,7 @@ struct myButton : ::g::Fuse::Controls::Button
     uStrong<uString*> _field_text;
     uStrong< ::g::Fuse::Font*> _field_font;
     ::g::Uno::Float4 _field_textcolor;
-    int _field_fontsize;
+    int32_t _field_fontsize;
     uStrong< ::g::Uno::UX::Property1*> temp_Font_inst;
     uStrong< ::g::Uno::UX::Property1*> temp_FontSize_inst;
     uStrong< ::g::Uno::UX::Property1*> temp_Color_inst;
@@ -72,11 +73,11 @@ struct myButton : ::g::Fuse::Controls::Button
     void ctor_9();
     ::g::Fuse::Font* font();
     void font(::g::Fuse::Font* value);
-    int fontsize();
-    void fontsize(int value);
+    int32_t fontsize();
+    void fontsize(int32_t value);
     void InitializeUX1();
     void Setfont(::g::Fuse::Font* value, uObject* origin);
-    void Setfontsize(int value, uObject* origin);
+    void Setfontsize(int32_t value, uObject* origin);
     void Settext(uString* value, uObject* origin);
     void Settextcolor(::g::Uno::Float4 value, uObject* origin);
     uString* text();

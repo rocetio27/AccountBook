@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Common/1.4.2/Resources/DisposalManager.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Common/1.9.0/Resources/DisposalManager.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -15,7 +15,7 @@ namespace Resources{
 uClassType* DisposalManager_typeof();
 void DisposalManager__Add_fn(uObject* item);
 void DisposalManager__Add1_fn(uObject* item);
-void DisposalManager__Clean_fn(int* dr);
+void DisposalManager__Clean_fn(int32_t* dr);
 void DisposalManager__Remove_fn(uObject* item);
 void DisposalManager__Update_fn();
 void DisposalManager__VerifyAttach_fn();
@@ -23,17 +23,17 @@ void DisposalManager__VerifyAttach_fn();
 struct DisposalManager : uObject
 {
     static uSStrong< ::g::Uno::Collections::List*> _items_;
-    static uSStrong< ::g::Uno::Collections::List*>& _items() { return _items_; }
+    static uSStrong< ::g::Uno::Collections::List*>& _items() { return DisposalManager_typeof()->Init(), _items_; }
     static bool _actionAdded_;
-    static bool& _actionAdded() { return _actionAdded_; }
-    static int _disposeAt_;
-    static int& _disposeAt() { return _disposeAt_; }
+    static bool& _actionAdded() { return DisposalManager_typeof()->Init(), _actionAdded_; }
+    static int32_t _disposeAt_;
+    static int32_t& _disposeAt() { return DisposalManager_typeof()->Init(), _disposeAt_; }
     static uSStrong< ::g::Uno::Collections::List*> _softDisposables_;
-    static uSStrong< ::g::Uno::Collections::List*>& _softDisposables() { return _softDisposables_; }
+    static uSStrong< ::g::Uno::Collections::List*>& _softDisposables() { return DisposalManager_typeof()->Init(), _softDisposables_; }
 
     static void Add(uObject* item);
     static void Add1(uObject* item);
-    static void Clean(int dr);
+    static void Clean(int32_t dr);
     static void Remove(uObject* item);
     static void Update();
     static void VerifyAttach();

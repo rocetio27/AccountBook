@@ -38,7 +38,7 @@
 #include <FuseJS.RaiseEvent.h>
 #include <FuseJS.UserEvents.h>
 #include <Uno.Action.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.Bool.h>
 #include <Uno.Byte.h>
 #include <Uno.Char.h>
@@ -46,7 +46,7 @@
 #include <Uno.Collections.Enume-8ddd045.h>
 #include <Uno.Collections.IEnumerable-1.h>
 #include <Uno.Collections.IEnumerator.h>
-#include <Uno.Collections.IEnumerator-1.h>
+#include <Uno.Collections.IEnumerator1-1.h>
 #include <Uno.Exception.h>
 #include <Uno.Func-1.h>
 #include <Uno.Int.h>
@@ -62,7 +62,7 @@
 #include <Uno.Text.Ascii.h>
 #include <Uno.Text.Base64.h>
 #include <Uno.Text.Utf8.h>
-#include <Uno.Threading.Future-1.h>
+#include <Uno.Threading.Future1-1.h>
 #include <Uno.Threading.Promise-1.h>
 #include <Uno.UX.BundleFileSource.h>
 #include <Uno.UX.Resource.h>
@@ -73,7 +73,7 @@ static uType* TYPES[21];
 namespace g{
 namespace FuseJS{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\Base64.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\Base64.uno
 // -------------------------------------------------------------------------------
 
 // public sealed class Base64 :25
@@ -320,7 +320,7 @@ Base64* Base64::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\Bundle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\Bundle.uno
 // -------------------------------------------------------------------------------
 
 // public sealed class Bundle :22
@@ -328,6 +328,7 @@ Base64* Base64::New2()
 static void Bundle_build(uType* type)
 {
     type->SetDependencies(
+        ::g::Uno::IO::Bundle_typeof(),
         ::g::Uno::UX::Resource_typeof());
     type->MethodTypes[0]->SetPrecalc(
         ::g::Uno::Threading::Promise_typeof()->MakeType(type->MethodTypes[0]->U(0), NULL));
@@ -348,7 +349,7 @@ static void Bundle_build(uType* type)
     options.FieldCount = 5;
     options.InterfaceCount = 2;
     options.MethodTypeCount = 1;
-    options.DependencyCount = 1;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(Bundle);
     options.TypeSize = sizeof(::g::Fuse::Scripting::NativeModule_type);
     type = (::g::Fuse::Scripting::NativeModule_type*)uClassType::New("FuseJS.Bundle", options);
@@ -366,19 +367,19 @@ void Bundle__ctor_2_fn(Bundle* __this)
     __this->ctor_2();
 }
 
-// public static Uno.Threading.Future<string> Extract(object[] args) :141
+// public static Uno.Threading.Future<string> Extract(object[] args) :136
 void Bundle__Extract_fn(uArray* args, ::g::Uno::Threading::Future1** __retval)
 {
     *__retval = Bundle::Extract(args);
 }
 
-// public static Uno.Threading.Future<Uno.Collections.IEnumerable<Uno.IO.BundleFile>> GetList([object[] args]) :91
+// public static Uno.Threading.Future<Uno.Collections.IEnumerable<Uno.IO.BundleFile>> GetList([object[] args]) :87
 void Bundle__GetList_fn(uArray* args, ::g::Uno::Threading::Future1** __retval)
 {
     *__retval = Bundle::GetList(args);
 }
 
-// private static Fuse.Scripting.Array ListConverter(Fuse.Scripting.Context context, Uno.Collections.IEnumerable<Uno.IO.BundleFile> list) :65
+// private static Fuse.Scripting.Array ListConverter(Fuse.Scripting.Context context, Uno.Collections.IEnumerable<Uno.IO.BundleFile> list) :63
 void Bundle__ListConverter_fn(::g::Fuse::Scripting::Context* context, uObject* list, ::g::Fuse::Scripting::Array** __retval)
 {
     *__retval = Bundle::ListConverter(context, list);
@@ -390,43 +391,43 @@ void Bundle__New2_fn(Bundle** __retval)
     *__retval = Bundle::New2();
 }
 
-// public static Uno.Threading.Future<string> ReadAsync(object[] args) :173
+// public static Uno.Threading.Future<string> ReadAsync(object[] args) :167
 void Bundle__ReadAsync_fn(uArray* args, ::g::Uno::Threading::Future1** __retval)
 {
     *__retval = Bundle::ReadAsync(args);
 }
 
-// private static Uno.Threading.Future<string> ReadAsync(string filename) :226
+// private static Uno.Threading.Future<string> ReadAsync(string filename) :220
 void Bundle__ReadAsync1_fn(uString* filename, ::g::Uno::Threading::Future1** __retval)
 {
     *__retval = Bundle::ReadAsync1(filename);
 }
 
-// public static Uno.Threading.Future<byte[]> ReadBuffer(object[] args) :56
+// public static Uno.Threading.Future<byte[]> ReadBuffer(object[] args) :54
 void Bundle__ReadBuffer_fn(uArray* args, ::g::Uno::Threading::Future1** __retval)
 {
     *__retval = Bundle::ReadBuffer(args);
 }
 
-// private static object ReadSync(Fuse.Scripting.Context c, object[] args) :199
+// private static object ReadSync(Fuse.Scripting.Context c, object[] args) :193
 void Bundle__ReadSync_fn(::g::Fuse::Scripting::Context* c, uArray* args, uObject** __retval)
 {
     *__retval = Bundle::ReadSync(c, args);
 }
 
-// public static string ReadSync(string filename) :209
+// public static string ReadSync(string filename) :203
 void Bundle__ReadSync1_fn(uString* filename, uString** __retval)
 {
     *__retval = Bundle::ReadSync1(filename);
 }
 
-// private static Uno.Threading.Future<T> Reject<T>(string reason) :112
+// private static Uno.Threading.Future<T> Reject<T>(string reason) :108
 void Bundle__Reject_fn(uType* __type, uString* reason, ::g::Uno::Threading::Future1** __retval)
 {
     *__retval = Bundle::Reject(__type, reason);
 }
 
-// private static bool TryGetBundleFile(string sourcePath, Uno.IO.BundleFile& bundleFile) :99
+// private static bool TryGetBundleFile(string sourcePath, Uno.IO.BundleFile& bundleFile) :95
 void Bundle__TryGetBundleFile_fn(uString* sourcePath, ::g::Uno::IO::BundleFile** bundleFile, bool* __retval)
 {
     *__retval = Bundle::TryGetBundleFile(sourcePath, bundleFile);
@@ -450,15 +451,15 @@ void Bundle::ctor_2()
     AddMember((::g::Fuse::Scripting::NativePromise*)::g::Fuse::Scripting::NativePromise::New1(::g::Fuse::Scripting::NativePromise_typeof()->MakeType(::TYPES[4/*byte[]*/], ::TYPES[1/*string*/], NULL), uString::Const("readBuffer"), uDelegate::New(::g::Fuse::Scripting::FutureFactory_typeof()->MakeType(::TYPES[4/*byte[]*/], NULL), (void*)Bundle__ReadBuffer_fn), NULL));
 }
 
-// public static Uno.Threading.Future<string> Extract(object[] args) [static] :141
+// public static Uno.Threading.Future<string> Extract(object[] args) [static] :136
 ::g::Uno::Threading::Future1* Bundle::Extract(uArray* args)
 {
     uString* ret4;
     uString* ret5;
     bool ret6;
-    uString* searchPath = (::g::Fuse::Scripting::JSObjectUtils__ValueOrDefault1_fn(::g::Fuse::Scripting::JSObjectUtils_typeof()->MakeMethod(0/*ValueOrDefault<string>*/, ::TYPES[1/*string*/], NULL), args, uCRef<int>(0), ::STRINGS[23/*""*/], &ret4), ret4);
-    uString* destinationPath = (::g::Fuse::Scripting::JSObjectUtils__ValueOrDefault1_fn(::g::Fuse::Scripting::JSObjectUtils_typeof()->MakeMethod(0/*ValueOrDefault<string>*/, ::TYPES[1/*string*/], NULL), args, uCRef<int>(1), ::STRINGS[23/*""*/], &ret5), ret5);
-    bool overwrite = (::g::Fuse::Scripting::JSObjectUtils__ValueOrDefault1_fn(::g::Fuse::Scripting::JSObjectUtils_typeof()->MakeMethod(0/*ValueOrDefault<bool>*/, ::g::Uno::Bool_typeof(), NULL), args, uCRef<int>(2), uCRef(false), &ret6), ret6);
+    uString* searchPath = (::g::Fuse::Scripting::JSObjectUtils__ValueOrDefault1_fn(::g::Fuse::Scripting::JSObjectUtils_typeof()->MakeMethod(0/*ValueOrDefault<string>*/, ::TYPES[1/*string*/], NULL), args, uCRef<int32_t>(0), ::STRINGS[23/*""*/], &ret4), ret4);
+    uString* destinationPath = (::g::Fuse::Scripting::JSObjectUtils__ValueOrDefault1_fn(::g::Fuse::Scripting::JSObjectUtils_typeof()->MakeMethod(0/*ValueOrDefault<string>*/, ::TYPES[1/*string*/], NULL), args, uCRef<int32_t>(1), ::STRINGS[23/*""*/], &ret5), ret5);
+    bool overwrite = (::g::Fuse::Scripting::JSObjectUtils__ValueOrDefault1_fn(::g::Fuse::Scripting::JSObjectUtils_typeof()->MakeMethod(0/*ValueOrDefault<bool>*/, ::g::Uno::Bool_typeof(), NULL), args, uCRef<int32_t>(2), uCRef(false), &ret6), ret6);
 
     if (::g::Uno::String::op_Equality(searchPath, ::STRINGS[23/*""*/]))
         return (::g::Uno::Threading::Future1*)Bundle::Reject(Bundle_typeof()->MakeMethod(0/*Reject<string>*/, ::TYPES[1/*string*/], NULL), uString::Const("Argument 0 (bundle path) can not be undefined"));
@@ -469,7 +470,7 @@ void Bundle::ctor_2()
     return (::g::Uno::Threading::Future1*)::g::Uno::Threading::Promise::Run(::g::Uno::Threading::Promise_typeof()->MakeType(::TYPES[1/*string*/], NULL), uDelegate::New(::TYPES[7/*Uno.Func<string>*/], (void*)Bundle__ExtractClosure__Invoke_fn, Bundle__ExtractClosure::New1(searchPath, destinationPath, overwrite)));
 }
 
-// public static Uno.Threading.Future<Uno.Collections.IEnumerable<Uno.IO.BundleFile>> GetList([object[] args]) [static] :91
+// public static Uno.Threading.Future<Uno.Collections.IEnumerable<Uno.IO.BundleFile>> GetList([object[] args]) [static] :87
 ::g::Uno::Threading::Future1* Bundle::GetList(uArray* args)
 {
     ::g::Uno::Threading::Promise* p = (::g::Uno::Threading::Promise*)::g::Uno::Threading::Promise::New1(::g::Uno::Threading::Promise_typeof()->MakeType(::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Uno::IO::BundleFile_typeof(), NULL), NULL));
@@ -478,34 +479,39 @@ void Bundle::ctor_2()
     return p;
 }
 
-// private static Fuse.Scripting.Array ListConverter(Fuse.Scripting.Context context, Uno.Collections.IEnumerable<Uno.IO.BundleFile> list) [static] :65
+// private static Fuse.Scripting.Array ListConverter(Fuse.Scripting.Context context, Uno.Collections.IEnumerable<Uno.IO.BundleFile> list) [static] :63
 ::g::Fuse::Scripting::Array* Bundle::ListConverter(::g::Fuse::Scripting::Context* context, uObject* list)
 {
     ::g::Uno::IO::BundleFile* ret7;
     ::g::Fuse::Scripting::Array* output = uPtr(context)->NewArray(uArray::New(::TYPES[13/*object[]*/], 0));
-    int i = 0;
+    int32_t i = 0;
     uObject* enum1 = (uObject*)::g::Uno::Collections::IEnumerable::GetEnumerator(uInterface(uPtr(list), ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Uno::IO::BundleFile_typeof(), NULL)));
 
-    try
     {
+        try
         {
-            while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum1), ::g::Uno::Collections::IEnumerator_typeof())))
             {
-                ::g::Uno::IO::BundleFile* b = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum1), ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Uno::IO::BundleFile_typeof(), NULL)), &ret7), ret7);
-                uPtr(output)->Item(i++, uPtr(b)->SourcePath());
+                while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum1), ::g::Uno::Collections::IEnumerator_typeof())))
+                {
+                    ::g::Uno::IO::BundleFile* b = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum1), ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Uno::IO::BundleFile_typeof(), NULL)), &ret7), ret7);
+                    uPtr(output)->Item(i++, uPtr(b)->SourcePath());
+                }
             }
         }
-        {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::g::Uno::IDisposable_typeof()));
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::g::Uno::IDisposable_typeof()));
+            }
+                        throw __t;
+            goto __after_finally_0;
+        }
+
         {
             ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::g::Uno::IDisposable_typeof()));
         }
-                throw __t;
+        __after_finally_0:;
     }
 
     return output;
@@ -519,7 +525,7 @@ Bundle* Bundle::New2()
     return obj3;
 }
 
-// public static Uno.Threading.Future<string> ReadAsync(object[] args) [static] :173
+// public static Uno.Threading.Future<string> ReadAsync(object[] args) [static] :167
 ::g::Uno::Threading::Future1* Bundle::ReadAsync(uArray* args)
 {
     if (uPtr(args)->Length() > 0)
@@ -531,17 +537,17 @@ Bundle* Bundle::New2()
     return Bundle::ReadAsync1(::STRINGS[23/*""*/]);
 }
 
-// private static Uno.Threading.Future<string> ReadAsync(string filename) [static] :226
+// private static Uno.Threading.Future<string> ReadAsync(string filename) [static] :220
 ::g::Uno::Threading::Future1* Bundle::ReadAsync1(uString* filename)
 {
     return (::g::Uno::Threading::Future1*)::g::Uno::Threading::Promise::Run(::g::Uno::Threading::Promise_typeof()->MakeType(::TYPES[1/*string*/], NULL), uDelegate::New(::TYPES[7/*Uno.Func<string>*/], (void*)Bundle__ReadClosure__Invoke_fn, Bundle__ReadClosure::New1(filename)));
 }
 
-// public static Uno.Threading.Future<byte[]> ReadBuffer(object[] args) [static] :56
+// public static Uno.Threading.Future<byte[]> ReadBuffer(object[] args) [static] :54
 ::g::Uno::Threading::Future1* Bundle::ReadBuffer(uArray* args)
 {
     uString* ret8;
-    uString* searchPath = (::g::Fuse::Scripting::JSObjectUtils__ValueOrDefault1_fn(::g::Fuse::Scripting::JSObjectUtils_typeof()->MakeMethod(0/*ValueOrDefault<string>*/, ::TYPES[1/*string*/], NULL), args, uCRef<int>(0), ::STRINGS[23/*""*/], &ret8), ret8);
+    uString* searchPath = (::g::Fuse::Scripting::JSObjectUtils__ValueOrDefault1_fn(::g::Fuse::Scripting::JSObjectUtils_typeof()->MakeMethod(0/*ValueOrDefault<string>*/, ::TYPES[1/*string*/], NULL), args, uCRef<int32_t>(0), ::STRINGS[23/*""*/], &ret8), ret8);
 
     if (::g::Uno::String::op_Equality(searchPath, ::STRINGS[23/*""*/]))
         return (::g::Uno::Threading::Future1*)Bundle::Reject(Bundle_typeof()->MakeMethod(0/*Reject<byte[]>*/, ::TYPES[4/*byte[]*/], NULL), uString::Const("Argument 0 (bundle path) can not be undefined"));
@@ -549,7 +555,7 @@ Bundle* Bundle::New2()
     return (::g::Uno::Threading::Future1*)::g::Uno::Threading::Promise::Run(::g::Uno::Threading::Promise_typeof()->MakeType(::TYPES[4/*byte[]*/], NULL), uDelegate::New(::g::Uno::Func_typeof()->MakeType(::TYPES[4/*byte[]*/], NULL), (void*)Bundle__ReadBufferClosure__Invoke_fn, Bundle__ReadBufferClosure::New1(searchPath)));
 }
 
-// private static object ReadSync(Fuse.Scripting.Context c, object[] args) [static] :199
+// private static object ReadSync(Fuse.Scripting.Context c, object[] args) [static] :193
 uObject* Bundle::ReadSync(::g::Fuse::Scripting::Context* c, uArray* args)
 {
     if (uPtr(args)->Length() > 0)
@@ -561,7 +567,7 @@ uObject* Bundle::ReadSync(::g::Fuse::Scripting::Context* c, uArray* args)
     return ::STRINGS[23/*""*/];
 }
 
-// public static string ReadSync(string filename) [static] :209
+// public static string ReadSync(string filename) [static] :203
 uString* Bundle::ReadSync1(uString* filename)
 {
     try
@@ -583,7 +589,7 @@ uString* Bundle::ReadSync1(uString* filename)
     }
 }
 
-// private static Uno.Threading.Future<T> Reject<T>(string reason) [static] :112
+// private static Uno.Threading.Future<T> Reject<T>(string reason) [static] :108
 ::g::Uno::Threading::Future1* Bundle::Reject(uType* __type, uString* reason)
 {
     uType* __types[] = {
@@ -594,47 +600,52 @@ uString* Bundle::ReadSync1(uString* filename)
     return p;
 }
 
-// private static bool TryGetBundleFile(string sourcePath, Uno.IO.BundleFile& bundleFile) [static] :99
+// private static bool TryGetBundleFile(string sourcePath, Uno.IO.BundleFile& bundleFile) [static] :95
 bool Bundle::TryGetBundleFile(uString* sourcePath, ::g::Uno::IO::BundleFile** bundleFile)
 {
     ::g::Uno::IO::BundleFile* ret9;
     *bundleFile = NULL;
     uObject* enum2 = (uObject*)::g::Uno::Collections::IEnumerable::GetEnumerator(uInterface(uPtr(::g::Uno::IO::Bundle::AllFiles()), ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Uno::IO::BundleFile_typeof(), NULL)));
 
-    try
     {
+        try
         {
-            while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum2), ::g::Uno::Collections::IEnumerator_typeof())))
             {
-                ::g::Uno::IO::BundleFile* bf = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum2), ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Uno::IO::BundleFile_typeof(), NULL)), &ret9), ret9);
-
-                if (::g::Uno::String::op_Equality(uPtr(bf)->SourcePath(), sourcePath))
+                while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum2), ::g::Uno::Collections::IEnumerator_typeof())))
                 {
-                    *bundleFile = bf;
-                    bool __uno_retval = true;
-                    ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::g::Uno::IDisposable_typeof()));
-                    return __uno_retval;
+                    ::g::Uno::IO::BundleFile* bf = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum2), ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Uno::IO::BundleFile_typeof(), NULL)), &ret9), ret9);
+
+                    if (::g::Uno::String::op_Equality(uPtr(bf)->SourcePath(), sourcePath))
+                    {
+                        *bundleFile = bf;
+                        bool __uno_retval = true;
+                        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::g::Uno::IDisposable_typeof()));
+                        return __uno_retval;
+                    }
                 }
             }
         }
-        {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::g::Uno::IDisposable_typeof()));
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::g::Uno::IDisposable_typeof()));
+            }
+                        throw __t;
+            goto __after_finally_1;
+        }
+
         {
             ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::g::Uno::IDisposable_typeof()));
         }
-                throw __t;
+        __after_finally_1:;
     }
 
     return false;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\Environment.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\Environment.uno
 // ------------------------------------------------------------------------------------
 
 // public sealed class Environment :51
@@ -745,15 +756,14 @@ Environment* Environment::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\Bundle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\Bundle.uno
 // -------------------------------------------------------------------------------
 
-// private sealed class Bundle.ExtractClosure :231
+// private sealed class Bundle.ExtractClosure :225
 // {
 static void Bundle__ExtractClosure_build(uType* type)
 {
     type->SetDependencies(
-        ::g::FuseJS::Bundle_typeof(),
         ::g::Uno::IO::Path_typeof());
     type->SetFields(0,
         ::g::Uno::String_typeof(), offsetof(Bundle__ExtractClosure, _searchPath), 0,
@@ -768,7 +778,7 @@ uType* Bundle__ExtractClosure_typeof()
 
     uTypeOptions options;
     options.FieldCount = 3;
-    options.DependencyCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(Bundle__ExtractClosure);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("FuseJS.Bundle.ExtractClosure", options);
@@ -776,25 +786,25 @@ uType* Bundle__ExtractClosure_typeof()
     return type;
 }
 
-// public ExtractClosure(string searchPath, string destinationPath, bool overwriteIfExists) :236
+// public ExtractClosure(string searchPath, string destinationPath, bool overwriteIfExists) :230
 void Bundle__ExtractClosure__ctor__fn(Bundle__ExtractClosure* __this, uString* searchPath, uString* destinationPath, bool* overwriteIfExists)
 {
     __this->ctor_(searchPath, destinationPath, *overwriteIfExists);
 }
 
-// public string Invoke() :242
+// public string Invoke() :236
 void Bundle__ExtractClosure__Invoke_fn(Bundle__ExtractClosure* __this, uString** __retval)
 {
     *__retval = __this->Invoke();
 }
 
-// public ExtractClosure New(string searchPath, string destinationPath, bool overwriteIfExists) :236
+// public ExtractClosure New(string searchPath, string destinationPath, bool overwriteIfExists) :230
 void Bundle__ExtractClosure__New1_fn(uString* searchPath, uString* destinationPath, bool* overwriteIfExists, Bundle__ExtractClosure** __retval)
 {
     *__retval = Bundle__ExtractClosure::New1(searchPath, destinationPath, *overwriteIfExists);
 }
 
-// public ExtractClosure(string searchPath, string destinationPath, bool overwriteIfExists) [instance] :236
+// public ExtractClosure(string searchPath, string destinationPath, bool overwriteIfExists) [instance] :230
 void Bundle__ExtractClosure::ctor_(uString* searchPath, uString* destinationPath, bool overwriteIfExists)
 {
     _searchPath = searchPath;
@@ -802,7 +812,7 @@ void Bundle__ExtractClosure::ctor_(uString* searchPath, uString* destinationPath
     _overwrite = overwriteIfExists;
 }
 
-// public string Invoke() [instance] :242
+// public string Invoke() [instance] :236
 uString* Bundle__ExtractClosure::Invoke()
 {
     ::g::Uno::IO::BundleFile* bfile;
@@ -819,7 +829,7 @@ uString* Bundle__ExtractClosure::Invoke()
     return _destPath;
 }
 
-// public ExtractClosure New(string searchPath, string destinationPath, bool overwriteIfExists) [static] :236
+// public ExtractClosure New(string searchPath, string destinationPath, bool overwriteIfExists) [static] :230
 Bundle__ExtractClosure* Bundle__ExtractClosure::New1(uString* searchPath, uString* destinationPath, bool overwriteIfExists)
 {
     Bundle__ExtractClosure* obj1 = (Bundle__ExtractClosure*)uNew(Bundle__ExtractClosure_typeof());
@@ -828,7 +838,7 @@ Bundle__ExtractClosure* Bundle__ExtractClosure::New1(uString* searchPath, uStrin
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\FileReader.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\FileReader.uno
 // -----------------------------------------------------------------------------------
 
 // private sealed class FileReaderImpl.FileReadCommand :14
@@ -912,7 +922,7 @@ FileReaderImpl__FileReadCommand* FileReaderImpl__FileReadCommand::New1(uString* 
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\FileReader.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\FileReader.uno
 // -----------------------------------------------------------------------------------
 
 // public sealed class FileReaderImpl :12
@@ -1010,7 +1020,7 @@ FileReaderImpl* FileReaderImpl::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\Globals.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\Globals.uno
 // --------------------------------------------------------------------------------
 
 // public sealed class Globals :8
@@ -1132,7 +1142,7 @@ uString* Globals::readAsText(uArray* args)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\Latin1Helpers.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\Latin1Helpers.uno
 // --------------------------------------------------------------------------------------
 
 // internal static class Latin1Helpers :7
@@ -1172,11 +1182,11 @@ void Latin1Helpers__EncodeLatin1_fn(uString* str, uString** __retval)
 uString* Latin1Helpers::DecodeLatin1(uString* base64Str)
 {
     uArray* bytes = ::g::Uno::Text::Base64::GetBytes(base64Str);
-    int len = uPtr(bytes)->Length();
+    int32_t len = uPtr(bytes)->Length();
     uArray* chars = uArray::New(::TYPES[12/*char[]*/], len);
 
-    for (int i = 0; i < len; i++)
-        uPtr(chars)->Item<uChar>(i) = (uChar)uPtr(bytes)->Item<uint8_t>(i);
+    for (int32_t i = 0; i < len; i++)
+        uPtr(chars)->Item<char16_t>(i) = (char16_t)uPtr(bytes)->Item<uint8_t>(i);
 
     return uString::CharArray(chars);
 }
@@ -1185,11 +1195,11 @@ uString* Latin1Helpers::DecodeLatin1(uString* base64Str)
 uString* Latin1Helpers::EncodeLatin1(uString* str)
 {
     uArray* bytes = uArray::New(::TYPES[4/*byte[]*/], uPtr(str)->Length());
-    int len = str->Length();
+    int32_t len = str->Length();
 
-    for (int i = 0; i < len; i++)
+    for (int32_t i = 0; i < len; i++)
     {
-        int c = (int)uPtr(str)->Item(i);
+        int32_t c = (int32_t)uPtr(str)->Item(i);
 
         if (c > 255)
             U_THROW(::g::Fuse::Scripting::Error::New4(::STRINGS[35/*"The string ...*/]));
@@ -1201,7 +1211,7 @@ uString* Latin1Helpers::EncodeLatin1(uString* str)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\Lifecycle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\Lifecycle.uno
 // ----------------------------------------------------------------------------------
 
 // public sealed class Lifecycle :97
@@ -1228,6 +1238,7 @@ static void Lifecycle_build(uType* type)
     ::TYPES[16] = ::g::Fuse::Scripting::ValueConverter_typeof()->MakeType(::g::Uno::Int_typeof(), ::g::Uno::Int_typeof(), NULL);
     ::TYPES[17] = ::g::Uno::Action1_typeof()->MakeType(::g::Fuse::Platform::ApplicationState_typeof(), NULL);
     type->SetDependencies(
+        ::g::Fuse::Platform::Lifecycle_typeof(),
         ::g::Uno::UX::Resource_typeof());
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Scripting::NativeModule_type, interface0),
@@ -1249,7 +1260,7 @@ static void Lifecycle_build(uType* type)
     options.BaseDefinition = ::g::Fuse::Scripting::NativeEventEmitterModule_typeof();
     options.FieldCount = 17;
     options.InterfaceCount = 2;
-    options.DependencyCount = 1;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(Lifecycle);
     options.TypeSize = sizeof(::g::Fuse::Scripting::NativeModule_type);
     type = (::g::Fuse::Scripting::NativeModule_type*)uClassType::New("FuseJS.Lifecycle", options);
@@ -1267,31 +1278,31 @@ void Lifecycle__ctor_3_fn(Lifecycle* __this)
 }
 
 // private static int Converter(Fuse.Scripting.Context context, int state) :275
-void Lifecycle__Converter_fn(::g::Fuse::Scripting::Context* context, int* state, int* __retval)
+void Lifecycle__Converter_fn(::g::Fuse::Scripting::Context* context, int32_t* state, int32_t* __retval)
 {
     *__retval = Lifecycle::Converter(context, *state);
 }
 
 // private static int GetApplicationStateBackground() :156
-void Lifecycle__GetApplicationStateBackground_fn(int* __retval)
+void Lifecycle__GetApplicationStateBackground_fn(int32_t* __retval)
 {
     *__retval = Lifecycle::GetApplicationStateBackground();
 }
 
 // private static int GetApplicationStateForeground() :164
-void Lifecycle__GetApplicationStateForeground_fn(int* __retval)
+void Lifecycle__GetApplicationStateForeground_fn(int32_t* __retval)
 {
     *__retval = Lifecycle::GetApplicationStateForeground();
 }
 
 // private static int GetApplicationStateInteractive() :172
-void Lifecycle__GetApplicationStateInteractive_fn(int* __retval)
+void Lifecycle__GetApplicationStateInteractive_fn(int32_t* __retval)
 {
     *__retval = Lifecycle::GetApplicationStateInteractive();
 }
 
 // private static int GetCurrentState() :188
-void Lifecycle__GetCurrentState_fn(int* __retval)
+void Lifecycle__GetCurrentState_fn(int32_t* __retval)
 {
     *__retval = Lifecycle::GetCurrentState();
 }
@@ -1303,31 +1314,31 @@ void Lifecycle__New3_fn(Lifecycle** __retval)
 }
 
 // private void OnEnteringBackground(Fuse.Platform.ApplicationState newState) :253
-void Lifecycle__OnEnteringBackground_fn(Lifecycle* __this, int* newState)
+void Lifecycle__OnEnteringBackground_fn(Lifecycle* __this, int32_t* newState)
 {
     __this->OnEnteringBackground(*newState);
 }
 
 // private void OnEnteringForeground(Fuse.Platform.ApplicationState newState) :205
-void Lifecycle__OnEnteringForeground_fn(Lifecycle* __this, int* newState)
+void Lifecycle__OnEnteringForeground_fn(Lifecycle* __this, int32_t* newState)
 {
     __this->OnEnteringForeground(*newState);
 }
 
 // private void OnEnteringInteractive(Fuse.Platform.ApplicationState newState) :221
-void Lifecycle__OnEnteringInteractive_fn(Lifecycle* __this, int* newState)
+void Lifecycle__OnEnteringInteractive_fn(Lifecycle* __this, int32_t* newState)
 {
     __this->OnEnteringInteractive(*newState);
 }
 
 // private void OnExitedInteractive(Fuse.Platform.ApplicationState newState) :237
-void Lifecycle__OnExitedInteractive_fn(Lifecycle* __this, int* newState)
+void Lifecycle__OnExitedInteractive_fn(Lifecycle* __this, int32_t* newState)
 {
     __this->OnExitedInteractive(*newState);
 }
 
 // private void OnStateChanged(Fuse.Platform.ApplicationState newState) :270
-void Lifecycle__OnStateChanged_fn(Lifecycle* __this, int* newState)
+void Lifecycle__OnStateChanged_fn(Lifecycle* __this, int32_t* newState)
 {
     __this->OnStateChanged(*newState);
 }
@@ -1374,61 +1385,61 @@ void Lifecycle::ctor_3()
 }
 
 // private void OnEnteringBackground(Fuse.Platform.ApplicationState newState) [instance] :253
-void Lifecycle::OnEnteringBackground(int newState)
+void Lifecycle::OnEnteringBackground(int32_t newState)
 {
     Emit(uArray::Init<uObject*>(::TYPES[13/*object[]*/], 1, ::STRINGS[39/*"enteringBac...*/]));
 }
 
 // private void OnEnteringForeground(Fuse.Platform.ApplicationState newState) [instance] :205
-void Lifecycle::OnEnteringForeground(int newState)
+void Lifecycle::OnEnteringForeground(int32_t newState)
 {
     Emit(uArray::Init<uObject*>(::TYPES[13/*object[]*/], 1, ::STRINGS[38/*"enteringFor...*/]));
 }
 
 // private void OnEnteringInteractive(Fuse.Platform.ApplicationState newState) [instance] :221
-void Lifecycle::OnEnteringInteractive(int newState)
+void Lifecycle::OnEnteringInteractive(int32_t newState)
 {
     Emit(uArray::Init<uObject*>(::TYPES[13/*object[]*/], 1, ::STRINGS[36/*"enteringInt...*/]));
 }
 
 // private void OnExitedInteractive(Fuse.Platform.ApplicationState newState) [instance] :237
-void Lifecycle::OnExitedInteractive(int newState)
+void Lifecycle::OnExitedInteractive(int32_t newState)
 {
     Emit(uArray::Init<uObject*>(::TYPES[13/*object[]*/], 1, ::STRINGS[37/*"exitedInter...*/]));
 }
 
 // private void OnStateChanged(Fuse.Platform.ApplicationState newState) [instance] :270
-void Lifecycle::OnStateChanged(int newState)
+void Lifecycle::OnStateChanged(int32_t newState)
 {
-    Emit(uArray::Init<uObject*>(::TYPES[13/*object[]*/], 2, ::STRINGS[40/*"stateChanged"*/], uBox<int>(::g::Uno::Int_typeof(), newState)));
+    Emit(uArray::Init<uObject*>(::TYPES[13/*object[]*/], 2, ::STRINGS[40/*"stateChanged"*/], uBox<int32_t>(::g::Uno::Int_typeof(), newState)));
 }
 
 // private static int Converter(Fuse.Scripting.Context context, int state) [static] :275
-int Lifecycle::Converter(::g::Fuse::Scripting::Context* context, int state)
+int32_t Lifecycle::Converter(::g::Fuse::Scripting::Context* context, int32_t state)
 {
     return state;
 }
 
 // private static int GetApplicationStateBackground() [static] :156
-int Lifecycle::GetApplicationStateBackground()
+int32_t Lifecycle::GetApplicationStateBackground()
 {
     return 1;
 }
 
 // private static int GetApplicationStateForeground() [static] :164
-int Lifecycle::GetApplicationStateForeground()
+int32_t Lifecycle::GetApplicationStateForeground()
 {
     return 2;
 }
 
 // private static int GetApplicationStateInteractive() [static] :172
-int Lifecycle::GetApplicationStateInteractive()
+int32_t Lifecycle::GetApplicationStateInteractive()
 {
     return 3;
 }
 
 // private static int GetCurrentState() [static] :188
-int Lifecycle::GetCurrentState()
+int32_t Lifecycle::GetCurrentState()
 {
     return ::g::Fuse::Platform::Lifecycle::State();
 }
@@ -1442,7 +1453,7 @@ Lifecycle* Lifecycle::New3()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\UserEvents.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\UserEvents.uno
 // -----------------------------------------------------------------------------------
 
 // internal sealed class RaiseEvent :8
@@ -1450,11 +1461,9 @@ Lifecycle* Lifecycle::New3()
 static void RaiseEvent_build(uType* type)
 {
     ::STRINGS[50] = uString::Const("Cannot find message with name: ");
-    ::STRINGS[51] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\FuseJS\\1.4.2\\UserEvents.uno");
+    ::STRINGS[51] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\FuseJS\\1.9.0\\UserEvents.uno");
     ::STRINGS[52] = uString::Const("Raise");
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Uno::UX::Selector_typeof(),
         ::g::Fuse::UserEventDispatch_typeof());
     type->SetFields(0,
         ::g::Fuse::Node_typeof(), offsetof(RaiseEvent, Source), 0,
@@ -1469,7 +1478,7 @@ uType* RaiseEvent_typeof()
 
     uTypeOptions options;
     options.FieldCount = 3;
-    options.DependencyCount = 3;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(RaiseEvent);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("FuseJS.RaiseEvent", options);
@@ -1504,7 +1513,7 @@ void RaiseEvent::ctor_()
 // public void Raise() [instance] :15
 void RaiseEvent::Raise()
 {
-    ::g::Fuse::UserEventDispatch* dispatch = ::g::Fuse::UserEventDispatch::GetByName(::g::Uno::UX::Selector__op_Implicit(Name));
+    ::g::Fuse::UserEventDispatch* dispatch = ::g::Fuse::UserEventDispatch::GetByName(::g::Uno::UX::Selector__op_Implicit1(Name));
 
     if (dispatch == NULL)
     {
@@ -1524,16 +1533,14 @@ RaiseEvent* RaiseEvent::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\Bundle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\Bundle.uno
 // -------------------------------------------------------------------------------
 
-// private sealed class Bundle.ReadBufferClosure :272
+// private sealed class Bundle.ReadBufferClosure :266
 // {
 static void Bundle__ReadBufferClosure_build(uType* type)
 {
     ::TYPES[4] = ::g::Uno::Byte_typeof()->Array();
-    type->SetDependencies(
-        ::g::FuseJS::Bundle_typeof());
     type->SetFields(0,
         ::g::Uno::String_typeof(), offsetof(Bundle__ReadBufferClosure, _filename), 0);
 }
@@ -1545,7 +1552,6 @@ uType* Bundle__ReadBufferClosure_typeof()
 
     uTypeOptions options;
     options.FieldCount = 1;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(Bundle__ReadBufferClosure);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("FuseJS.Bundle.ReadBufferClosure", options);
@@ -1553,31 +1559,31 @@ uType* Bundle__ReadBufferClosure_typeof()
     return type;
 }
 
-// public ReadBufferClosure(string filename) :276
+// public ReadBufferClosure(string filename) :270
 void Bundle__ReadBufferClosure__ctor__fn(Bundle__ReadBufferClosure* __this, uString* filename)
 {
     __this->ctor_(filename);
 }
 
-// public byte[] Invoke() :280
+// public byte[] Invoke() :274
 void Bundle__ReadBufferClosure__Invoke_fn(Bundle__ReadBufferClosure* __this, uArray** __retval)
 {
     *__retval = __this->Invoke();
 }
 
-// public ReadBufferClosure New(string filename) :276
+// public ReadBufferClosure New(string filename) :270
 void Bundle__ReadBufferClosure__New1_fn(uString* filename, Bundle__ReadBufferClosure** __retval)
 {
     *__retval = Bundle__ReadBufferClosure::New1(filename);
 }
 
-// public ReadBufferClosure(string filename) [instance] :276
+// public ReadBufferClosure(string filename) [instance] :270
 void Bundle__ReadBufferClosure::ctor_(uString* filename)
 {
     _filename = filename;
 }
 
-// public byte[] Invoke() [instance] :280
+// public byte[] Invoke() [instance] :274
 uArray* Bundle__ReadBufferClosure::Invoke()
 {
     ::g::Uno::IO::BundleFile* bfile;
@@ -1585,10 +1591,10 @@ uArray* Bundle__ReadBufferClosure::Invoke()
     if (::g::FuseJS::Bundle::TryGetBundleFile(_filename, &bfile))
         return uPtr(bfile)->ReadAllBytes();
 
-    return uArray::Init<int>(::TYPES[4/*byte[]*/], 0);
+    return uArray::Init<int32_t>(::TYPES[4/*byte[]*/], 0);
 }
 
-// public ReadBufferClosure New(string filename) [static] :276
+// public ReadBufferClosure New(string filename) [static] :270
 Bundle__ReadBufferClosure* Bundle__ReadBufferClosure::New1(uString* filename)
 {
     Bundle__ReadBufferClosure* obj1 = (Bundle__ReadBufferClosure*)uNew(Bundle__ReadBufferClosure_typeof());
@@ -1597,15 +1603,13 @@ Bundle__ReadBufferClosure* Bundle__ReadBufferClosure::New1(uString* filename)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\Bundle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\Bundle.uno
 // -------------------------------------------------------------------------------
 
-// private sealed class Bundle.ReadClosure :257
+// private sealed class Bundle.ReadClosure :251
 // {
 static void Bundle__ReadClosure_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::FuseJS::Bundle_typeof());
     type->SetFields(0,
         ::g::Uno::String_typeof(), offsetof(Bundle__ReadClosure, _filename), 0);
 }
@@ -1617,7 +1621,6 @@ uType* Bundle__ReadClosure_typeof()
 
     uTypeOptions options;
     options.FieldCount = 1;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(Bundle__ReadClosure);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("FuseJS.Bundle.ReadClosure", options);
@@ -1625,37 +1628,37 @@ uType* Bundle__ReadClosure_typeof()
     return type;
 }
 
-// public ReadClosure(string filename) :261
+// public ReadClosure(string filename) :255
 void Bundle__ReadClosure__ctor__fn(Bundle__ReadClosure* __this, uString* filename)
 {
     __this->ctor_(filename);
 }
 
-// public string Invoke() :266
+// public string Invoke() :260
 void Bundle__ReadClosure__Invoke_fn(Bundle__ReadClosure* __this, uString** __retval)
 {
     *__retval = __this->Invoke();
 }
 
-// public ReadClosure New(string filename) :261
+// public ReadClosure New(string filename) :255
 void Bundle__ReadClosure__New1_fn(uString* filename, Bundle__ReadClosure** __retval)
 {
     *__retval = Bundle__ReadClosure::New1(filename);
 }
 
-// public ReadClosure(string filename) [instance] :261
+// public ReadClosure(string filename) [instance] :255
 void Bundle__ReadClosure::ctor_(uString* filename)
 {
     _filename = filename;
 }
 
-// public string Invoke() [instance] :266
+// public string Invoke() [instance] :260
 uString* Bundle__ReadClosure::Invoke()
 {
     return ::g::FuseJS::Bundle::ReadSync1(_filename);
 }
 
-// public ReadClosure New(string filename) [static] :261
+// public ReadClosure New(string filename) [static] :255
 Bundle__ReadClosure* Bundle__ReadClosure::New1(uString* filename)
 {
     Bundle__ReadClosure* obj1 = (Bundle__ReadClosure*)uNew(Bundle__ReadClosure_typeof());
@@ -1664,7 +1667,7 @@ Bundle__ReadClosure* Bundle__ReadClosure::New1(uString* filename)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.4.2\UserEvents.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\FuseJS\1.9.0\UserEvents.uno
 // -----------------------------------------------------------------------------------
 
 // public sealed class UserEvents :30
@@ -1674,7 +1677,7 @@ static void UserEvents_build(uType* type)
     ::STRINGS[53] = uString::Const("FuseJS/UserEvents");
     ::STRINGS[54] = uString::Const("raise");
     ::STRINGS[55] = uString::Const("The FuseJS/UserEvents `Raise` function is deprecated. Use the `object.raise` on a named event instead.");
-    ::STRINGS[51] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\FuseJS\\1.4.2\\UserEvents.uno");
+    ::STRINGS[51] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\FuseJS\\1.9.0\\UserEvents.uno");
     ::STRINGS[52] = uString::Const("Raise");
     ::TYPES[0] = ::g::Fuse::Scripting::NativeCallback_typeof();
     ::TYPES[1] = ::g::Uno::String_typeof();
@@ -1682,8 +1685,8 @@ static void UserEvents_build(uType* type)
     ::TYPES[19] = ::g::Uno::Collections::Dictionary_typeof()->MakeType(::TYPES[1/*string*/], uObject_typeof(), NULL);
     ::TYPES[20] = ::g::Uno::Action_typeof();
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Uno::UX::Resource_typeof());
+        ::g::Uno::UX::Resource_typeof(),
+        ::g::Fuse::UpdateManager_typeof());
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Scripting::NativeModule_type, interface0),
         ::g::Fuse::Scripting::IModuleProvider_typeof(), offsetof(::g::Fuse::Scripting::NativeModule_type, interface1));
@@ -1771,7 +1774,7 @@ uObject* UserEvents::Raise(::g::Fuse::Scripting::Context* context, uArray* args)
         uArray* keys = uPtr(p)->Keys();
         postArgs = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[19/*Uno.Collections.Dictionary<string, object>*/]);
 
-        for (int index2 = 0, length3 = uPtr(keys)->Length(); index2 < length3; ++index2)
+        for (int32_t index2 = 0, length3 = uPtr(keys)->Length(); index2 < length3; ++index2)
         {
             uString* key = uPtr(keys)->Strong<uString*>(index2);
             ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(postArgs), key, uPtr(p)->Item(key));

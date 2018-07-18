@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/ListPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/ListPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_bundle.h>
@@ -30,6 +30,7 @@
 #include <Fuse.Controls.Control.h>
 #include <Fuse.Controls.Grid.h>
 #include <Fuse.Controls.Image.h>
+#include <Fuse.Controls.Panel.h>
 #include <Fuse.Controls.Rectangle.h>
 #include <Fuse.Controls.ScrollView.h>
 #include <Fuse.Controls.Shape.h>
@@ -53,7 +54,6 @@
 #include <Fuse.Gestures.WhilePressed.h>
 #include <Fuse.Layer.h>
 #include <Fuse.Layouts.Orientation.h>
-#include <Fuse.Navigation.Router.h>
 #include <Fuse.Reactive.BindingMode.h>
 #include <Fuse.Reactive.Case.h>
 #include <Fuse.Reactive.Data.h>
@@ -83,7 +83,7 @@
 #include <Uno.UX.FileSource.h>
 #include <Uno.UX.NameTable.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Resource.h>
 #include <Uno.UX.Selector.h>
 #include <Uno.UX.Size.h>
@@ -95,35 +95,39 @@ namespace g{
 
 // public partial sealed class ListPage :2
 // {
-// static ListPage() :575
+// static ListPage() :673
 static void ListPage__cctor_4_fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
+    ::g::AccountBook_bundle_typeof()->Init();
     ::g::Uno::UX::Resource_typeof()->Init();
-    ListPage::__g_static_nametable1_ = uArray::Init<uString*>(::g::Uno::String_typeof()->Array(), 30, uString::Const("EditOrDeletePopup"), uString::Const("ListEditPopup"), uString::Const("YearMonthEditPopup"), uString::Const("router"), uString::Const("cash"), uString::Const("temp_eb17"), uString::Const("card"), uString::Const("temp_eb18"), uString::Const("yearmonth"), uString::Const("lbutton"), uString::Const("temp_eb19"), uString::Const("rbutton"), uString::Const("temp_eb20"), uString::Const("ModalConfirm"), uString::Const("temp_eb25"), uString::Const("temp_eb26"), uString::Const("temp_eb27"), uString::Const("ModalConfirm2"), uString::Const("temp_eb28"), uString::Const("temp_eb29"), uString::Const("temp_eb30"), uString::Const("temp_eb31"), uString::Const("temp_eb32"), uString::Const("temp_eb33"), uString::Const("temp_eb34"), uString::Const("temp_eb35"), uString::Const("ModalConfirm3"), uString::Const("temp_eb36"), uString::Const("temp_eb37"), uString::Const("temp_eb38"));
-    ListPage::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Value"));
-    ListPage::__selector1_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Color"));
-    ListPage::__selector2_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("IsEnabled"));
-    ListPage::__selector3_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Items"));
-    ListPage::__selector4_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("ParentNode"));
-    ListPage::__selector5_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("text"));
-    ListPage::__selector6_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("EditOrDeletePopup"));
-    ListPage::__selector7_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("ListEditPopup"));
-    ListPage::__selector8_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("YearMonthEditPopup"));
-    ListPage::__selector9_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("cash"));
-    ListPage::__selector10_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("card"));
-    ListPage::__selector11_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("yearmonth"));
-    ListPage::__selector12_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("lbutton"));
-    ListPage::__selector13_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("rbutton"));
-    ListPage::__selector14_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("ModalConfirm"));
-    ListPage::__selector15_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("ModalConfirm2"));
-    ListPage::__selector16_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("ModalConfirm3"));
+    ListPage::__g_static_nametable1_ = uArray::Init<uString*>(::g::Uno::String_typeof()->Array(), 29, uString::Const("EditOrDeletePopup"), uString::Const("ListEditPopup"), uString::Const("YearMonthEditPopup"), uString::Const("cash"), uString::Const("temp_eb17"), uString::Const("card"), uString::Const("temp_eb18"), uString::Const("yearmonth"), uString::Const("lbutton"), uString::Const("temp_eb19"), uString::Const("rbutton"), uString::Const("temp_eb20"), uString::Const("ModalConfirm"), uString::Const("temp_eb25"), uString::Const("temp_eb26"), uString::Const("temp_eb27"), uString::Const("ModalConfirm2"), uString::Const("temp_eb28"), uString::Const("temp_eb29"), uString::Const("temp_eb30"), uString::Const("temp_eb31"), uString::Const("temp_eb32"), uString::Const("temp_eb33"), uString::Const("temp_eb34"), uString::Const("temp_eb35"), uString::Const("ModalConfirm3"), uString::Const("temp_eb36"), uString::Const("temp_eb37"), uString::Const("temp_eb38"));
+    ListPage::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Value"));
+    ListPage::__selector1_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Color"));
+    ListPage::__selector2_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("IsEnabled"));
+    ListPage::__selector3_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Items"));
+    ListPage::__selector4_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("ParentNode"));
+    ListPage::__selector5_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("text"));
+    ListPage::__selector6_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("EditOrDeletePopup"));
+    ListPage::__selector7_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("ListEditPopup"));
+    ListPage::__selector8_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("YearMonthEditPopup"));
+    ListPage::__selector9_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("cash"));
+    ListPage::__selector10_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("card"));
+    ListPage::__selector11_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("yearmonth"));
+    ListPage::__selector12_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("lbutton"));
+    ListPage::__selector13_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("rbutton"));
+    ListPage::__selector14_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("ModalConfirm"));
+    ListPage::__selector15_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("ModalConfirm2"));
+    ListPage::__selector16_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("ModalConfirm3"));
     ListPage::Bold_ = ::g::Fuse::Font::New2(::g::Uno::UX::BundleFileSource::New1(::g::AccountBook_bundle::NotoSansBoldd01b0e45()));
     ListPage::lArrow_ = ::g::Fuse::Controls::Image::New3();
     ListPage::rArrow_ = ::g::Fuse::Controls::Image::New3();
     ::g::Uno::UX::Resource::SetGlobalKey(ListPage::Bold_, uString::Const("Bold"));
+    uPtr(ListPage::lArrow_)->SourceLineNumber(7);
+    uPtr(ListPage::lArrow_)->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::UX::Resource::SetGlobalKey(ListPage::lArrow_, uString::Const("lArrow"));
     uPtr(ListPage::lArrow_)->File(::g::Uno::UX::BundleFileSource::New1(::g::AccountBook_bundle::lArrowc76aec54()));
+    uPtr(ListPage::rArrow_)->SourceLineNumber(8);
+    uPtr(ListPage::rArrow_)->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::UX::Resource::SetGlobalKey(ListPage::rArrow_, uString::Const("rArrow"));
     uPtr(ListPage::rArrow_)->File(::g::Uno::UX::BundleFileSource::New1(::g::AccountBook_bundle::rArrowd43ec882()));
 }
@@ -131,29 +135,29 @@ static void ListPage__cctor_4_fn(uType* __type)
 static void ListPage_build(uType* type)
 {
     type->SetDependencies(
-        ::g::Fuse::Drawing::Colors_typeof(),
-        ::g::Fuse::Controls::Grid_typeof());
+        ::g::AccountBook_bundle_typeof(),
+        ::g::Fuse::Drawing::Colors_typeof());
     type->SetInterfaces(
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface0),
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface5),
-        ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface6),
-        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface7),
-        ::g::Fuse::ITemplateSource_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface8),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Visual_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface9),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface10),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface11),
-        ::g::Fuse::Triggers::Actions::IShow_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface12),
-        ::g::Fuse::Triggers::Actions::IHide_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface13),
-        ::g::Fuse::Triggers::Actions::ICollapse_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface14),
-        ::g::Fuse::IActualPlacement_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface15),
-        ::g::Fuse::Animations::IResize_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface16),
-        ::g::Fuse::Drawing::ISurfaceDrawable_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface17));
-    type->SetFields(112,
-        ::g::Fuse::Navigation::Router_typeof(), offsetof(ListPage, router), 0,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface6),
+        ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface7),
+        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface8),
+        ::g::Fuse::ITemplateSource_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface9),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Visual_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface10),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface11),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(::g::Fuse::Controls::Panel_type, interface12),
+        ::g::Fuse::Triggers::Actions::IShow_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface13),
+        ::g::Fuse::Triggers::Actions::IHide_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface14),
+        ::g::Fuse::Triggers::Actions::ICollapse_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface15),
+        ::g::Fuse::IActualPlacement_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface16),
+        ::g::Fuse::Animations::IResize_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface17),
+        ::g::Fuse::Drawing::ISurfaceDrawable_typeof(), offsetof(::g::Fuse::Controls::Panel_type, interface18));
+    type->SetFields(121,
         ::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::String_typeof(), NULL), offsetof(ListPage, temp_Value_inst), 0,
         ::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::Float4_typeof(), NULL), offsetof(ListPage, cash_Color_inst), 0,
         ::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::Float4_typeof(), NULL), offsetof(ListPage, card_Color_inst), 0,
@@ -240,71 +244,75 @@ static void ListPage_build(uType* type)
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Controls::Panel_typeof();
-    options.FieldCount = 191;
-    options.InterfaceCount = 18;
+    options.BaseDefinition = ::g::Fuse::Controls::Page_typeof();
+    options.FieldCount = 199;
+    options.InterfaceCount = 19;
     options.DependencyCount = 2;
     options.ObjectSize = sizeof(ListPage);
     options.TypeSize = sizeof(::g::Fuse::Controls::Panel_type);
     type = (::g::Fuse::Controls::Panel_type*)uClassType::New("ListPage", options);
     type->fp_build_ = ListPage_build;
+    type->fp_ctor_ = (void*)ListPage__New5_fn;
     type->fp_cctor_ = ListPage__cctor_4_fn;
-    type->interface17.fp_Draw = (void(*)(uObject*, ::g::Fuse::Drawing::Surface*))::g::Fuse::Controls::Panel__FuseDrawingISurfaceDrawableDraw_fn;
-    type->interface17.fp_get_IsPrimary = (void(*)(uObject*, bool*))::g::Fuse::Controls::Panel__FuseDrawingISurfaceDrawableget_IsPrimary_fn;
-    type->interface17.fp_get_ElementSize = (void(*)(uObject*, ::g::Uno::Float2*))::g::Fuse::Controls::Panel__FuseDrawingISurfaceDrawableget_ElementSize_fn;
-    type->interface12.fp_Show = (void(*)(uObject*))::g::Fuse::Elements::Element__FuseTriggersActionsIShowShow_fn;
-    type->interface14.fp_Collapse = (void(*)(uObject*))::g::Fuse::Elements::Element__FuseTriggersActionsICollapseCollapse_fn;
-    type->interface13.fp_Hide = (void(*)(uObject*))::g::Fuse::Elements::Element__FuseTriggersActionsIHideHide_fn;
-    type->interface16.fp_SetSize = (void(*)(uObject*, ::g::Uno::Float2*))::g::Fuse::Elements::Element__FuseAnimationsIResizeSetSize_fn;
-    type->interface15.fp_get_ActualSize = (void(*)(uObject*, ::g::Uno::Float3*))::g::Fuse::Elements::Element__FuseIActualPlacementget_ActualSize_fn;
-    type->interface15.fp_add_Placed = (void(*)(uObject*, uDelegate*))::g::Fuse::Elements::Element__add_Placed_fn;
-    type->interface15.fp_remove_Placed = (void(*)(uObject*, uDelegate*))::g::Fuse::Elements::Element__remove_Placed_fn;
-    type->interface9.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Visual__UnoCollectionsIEnumerableFuseVisualGetEnumerator_fn;
-    type->interface10.fp_Clear = (void(*)(uObject*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeClear_fn;
-    type->interface10.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeContains_fn;
-    type->interface6.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Visual__UnoCollectionsIListFuseNodeRemoveAt_fn;
-    type->interface11.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Visual__UnoCollectionsIEnumerableFuseNodeGetEnumerator_fn;
-    type->interface10.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeget_Count_fn;
-    type->interface6.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Visual__UnoCollectionsIListFuseNodeget_Item_fn;
-    type->interface6.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Visual__Insert1_fn;
-    type->interface7.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))::g::Fuse::Controls::Control__OnPropertyChanged2_fn;
-    type->interface8.fp_FindTemplate = (void(*)(uObject*, uString*, ::g::Uno::UX::Template**))::g::Fuse::Visual__FindTemplate_fn;
-    type->interface10.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Visual__Add1_fn;
-    type->interface10.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Visual__Remove1_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface18.fp_Draw = (void(*)(uObject*, ::g::Fuse::Drawing::Surface*))::g::Fuse::Controls::Panel__FuseDrawingISurfaceDrawableDraw_fn;
+    type->interface18.fp_get_IsPrimary = (void(*)(uObject*, bool*))::g::Fuse::Controls::Panel__FuseDrawingISurfaceDrawableget_IsPrimary_fn;
+    type->interface18.fp_get_ElementSize = (void(*)(uObject*, ::g::Uno::Float2*))::g::Fuse::Controls::Panel__FuseDrawingISurfaceDrawableget_ElementSize_fn;
+    type->interface13.fp_Show = (void(*)(uObject*))::g::Fuse::Elements::Element__FuseTriggersActionsIShowShow_fn;
+    type->interface15.fp_Collapse = (void(*)(uObject*))::g::Fuse::Elements::Element__FuseTriggersActionsICollapseCollapse_fn;
+    type->interface14.fp_Hide = (void(*)(uObject*))::g::Fuse::Elements::Element__FuseTriggersActionsIHideHide_fn;
+    type->interface17.fp_SetSize = (void(*)(uObject*, ::g::Uno::Float2*))::g::Fuse::Elements::Element__FuseAnimationsIResizeSetSize_fn;
+    type->interface16.fp_get_ActualSize = (void(*)(uObject*, ::g::Uno::Float3*))::g::Fuse::Elements::Element__FuseIActualPlacementget_ActualSize_fn;
+    type->interface16.fp_add_Placed = (void(*)(uObject*, uDelegate*))::g::Fuse::Elements::Element__add_Placed_fn;
+    type->interface16.fp_remove_Placed = (void(*)(uObject*, uDelegate*))::g::Fuse::Elements::Element__remove_Placed_fn;
+    type->interface10.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Visual__UnoCollectionsIEnumerableFuseVisualGetEnumerator_fn;
+    type->interface11.fp_Clear = (void(*)(uObject*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeClear_fn;
+    type->interface11.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeContains_fn;
+    type->interface7.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Visual__UnoCollectionsIListFuseNodeRemoveAt_fn;
+    type->interface12.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Visual__UnoCollectionsIEnumerableFuseNodeGetEnumerator_fn;
+    type->interface11.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeget_Count_fn;
+    type->interface7.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Visual__UnoCollectionsIListFuseNodeget_Item_fn;
+    type->interface7.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Visual__Insert1_fn;
+    type->interface8.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))::g::Fuse::Controls::Control__OnPropertyChanged2_fn;
+    type->interface9.fp_FindTemplate = (void(*)(uObject*, uString*, ::g::Uno::UX::Template**))::g::Fuse::Visual__FindTemplate_fn;
+    type->interface11.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Visual__Add1_fn;
+    type->interface11.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Visual__Remove1_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
-// public ListPage(Fuse.Navigation.Router router) :587
-void ListPage__ctor_7_fn(ListPage* __this, ::g::Fuse::Navigation::Router* router1)
+// public ListPage() :689
+void ListPage__ctor_8_fn(ListPage* __this)
 {
-    __this->ctor_7(router1);
+    __this->ctor_8();
 }
 
-// private void InitializeUX() :593
+// private void InitializeUX() :693
 void ListPage__InitializeUX_fn(ListPage* __this)
 {
     __this->InitializeUX();
 }
 
-// public ListPage New(Fuse.Navigation.Router router) :587
-void ListPage__New4_fn(::g::Fuse::Navigation::Router* router1, ListPage** __retval)
+// public ListPage New() :689
+void ListPage__New5_fn(ListPage** __retval)
 {
-    *__retval = ListPage::New4(router1);
+    *__retval = ListPage::New5();
 }
 
 uSStrong< ::g::Fuse::Font*> ListPage::Bold_;
@@ -329,15 +337,14 @@ uSStrong<uArray*> ListPage::__g_static_nametable1_;
 ::g::Uno::UX::Selector ListPage::__selector15_;
 ::g::Uno::UX::Selector ListPage::__selector16_;
 
-// public ListPage(Fuse.Navigation.Router router) [instance] :587
-void ListPage::ctor_7(::g::Fuse::Navigation::Router* router1)
+// public ListPage() [instance] :689
+void ListPage::ctor_8()
 {
-    ctor_6();
-    router = router1;
+    ctor_7();
     InitializeUX();
 }
 
-// private void InitializeUX() [instance] :593
+// private void InitializeUX() [instance] :693
 void ListPage::InitializeUX()
 {
     __g_nametable1 = ::g::Uno::UX::NameTable::New1(NULL, ListPage::__g_static_nametable1_);
@@ -443,10 +450,10 @@ void ListPage::InitializeUX()
     ::g::Fuse::Reactive::Data* temp67 = ::g::Fuse::Reactive::Data::New1(uString::Const("YearMonthEditConfirm"));
     ModalConfirm3_ParentNode_inst = ::g::AccountBook_FuseAlternateRoot_ParentNode_Property::New1(ModalConfirm3, ListPage::__selector4_);
     ::g::Fuse::Reactive::Resource* temp68 = ::g::Fuse::Reactive::Resource::New1(uString::Const("FullWindow2"));
+    ::g::Fuse::Reactive::JavaScript* temp69 = ::g::Fuse::Reactive::JavaScript::New2(__g_nametable1);
     EditOrDeletePopup = ::g::Fuse::Controls::Panel::New3();
     ListEditPopup = ::g::Fuse::Controls::Panel::New3();
     YearMonthEditPopup = ::g::Fuse::Controls::Panel::New3();
-    ::g::Fuse::Reactive::JavaScript* temp69 = ::g::Fuse::Reactive::JavaScript::New2(__g_nametable1);
     ::g::Fuse::Controls::Grid* temp70 = ::g::Fuse::Controls::Grid::New4();
     ::g::Fuse::Controls::Panel* temp71 = ::g::Fuse::Controls::Panel::New3();
     ::g::Fuse::Controls::Text* temp72 = ::g::Fuse::Controls::Text::New3();
@@ -570,123 +577,199 @@ void ListPage::InitializeUX()
     ::g::Fuse::Drawing::StaticSolidColor* temp170 = ::g::Fuse::Drawing::StaticSolidColor::New2(::g::Uno::Float4__New2(1.0f, 1.0f, 1.0f, 1.0f));
     Height(::g::Uno::UX::Size__New1(86.0f, 4));
     Alignment(12);
+    SourceLineNumber(1);
+    SourceFileName(uString::Const("ListPage.ux"));
+    temp69->LineNumber(2);
+    temp69->FileName(uString::Const("ListPage.ux"));
+    temp69->SourceLineNumber(2);
+    temp69->SourceFileName(uString::Const("ListPage.ux"));
+    temp69->File(::g::Uno::UX::BundleFileSource::New1(::g::AccountBook_bundle::ListPage5d08328d()));
     uPtr(EditOrDeletePopup)->Layer(3);
     uPtr(EditOrDeletePopup)->Name(ListPage::__selector6_);
+    uPtr(EditOrDeletePopup)->SourceLineNumber(3);
+    uPtr(EditOrDeletePopup)->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(ListEditPopup)->Layer(3);
     uPtr(ListEditPopup)->Name(ListPage::__selector7_);
+    uPtr(ListEditPopup)->SourceLineNumber(4);
+    uPtr(ListEditPopup)->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(YearMonthEditPopup)->Layer(3);
     uPtr(YearMonthEditPopup)->Name(ListPage::__selector8_);
-    temp69->LineNumber(34);
-    temp69->FileName(uString::Const("ListPage.ux"));
-    temp69->File(::g::Uno::UX::BundleFileSource::New1(::g::AccountBook_bundle::ListPage5d08328d()));
+    uPtr(YearMonthEditPopup)->SourceLineNumber(5);
+    uPtr(YearMonthEditPopup)->SourceFileName(uString::Const("ListPage.ux"));
     temp70->RowCount(100);
+    temp70->SourceLineNumber(34);
+    temp70->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp70->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp71);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp70->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp72);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp70->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp70->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp74);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp70->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), yearmonth);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp70->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp92);
+    temp71->SourceLineNumber(35);
+    temp71->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetRowSpan(temp71, 1);
     temp72->Value(uString::Const("CurrentBalance"));
     temp72->FontSize(12.0f);
     temp72->Alignment(10);
+    temp72->SourceLineNumber(36);
+    temp72->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetRowSpan(temp72, 2);
     temp->FontSize(32.0f);
     temp->Color(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 1.0f));
     temp->Alignment(10);
+    temp->SourceLineNumber(37);
+    temp->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetRowSpan(temp, 12);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp73);
+    temp18->SourceLineNumber(37);
+    temp18->SourceFileName(uString::Const("ListPage.ux"));
     temp74->ColumnCount(2);
     temp74->Color(::g::Uno::Float4__New2(1.0f, 1.0f, 1.0f, 1.0f));
+    temp74->SourceLineNumber(38);
+    temp74->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetRowSpan(temp74, 5);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp74->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), cash);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp74->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), card);
+    uPtr(cash)->text(uString::Const("CASH"));
+    uPtr(cash)->textcolor(::g::Uno::Float4__New2(0.9333333f, 0.9333333f, 0.9333333f, 1.0f));
+    uPtr(cash)->fontsize(18);
     uPtr(cash)->Width(::g::Uno::UX::Size__New1(100.0f, 4));
     uPtr(cash)->Height(::g::Uno::UX::Size__New1(100.0f, 4));
     uPtr(cash)->Alignment(10);
     uPtr(cash)->Name(ListPage::__selector9_);
-    uPtr(cash)->text(uString::Const("CASH"));
-    uPtr(cash)->textcolor(::g::Uno::Float4__New2(0.9333333f, 0.9333333f, 0.9333333f, 1.0f));
-    uPtr(cash)->fontsize(18);
+    uPtr(cash)->SourceLineNumber(39);
+    uPtr(cash)->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(cash, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb17)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(cash)->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp75);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(cash)->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb17);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(cash)->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp77);
+    temp75->SourceLineNumber(40);
+    temp75->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp75->Animators()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Animations::Animator_typeof(), NULL)), temp76);
     ::g::Fuse::Animations::Change__set_Value_fn(temp76, uCRef(::g::Uno::Float4__New2(0.6f, 0.6f, 0.6f, 1.0f)));
     temp76->Duration(0.05);
     temp76->DurationBack(0.2);
+    temp19->SourceLineNumber(39);
+    temp19->SourceFileName(uString::Const("ListPage.ux"));
+    temp20->SourceLineNumber(39);
+    temp20->SourceFileName(uString::Const("ListPage.ux"));
+    uPtr(card)->text(uString::Const("CARD"));
+    uPtr(card)->textcolor(::g::Uno::Float4__New2(0.9333333f, 0.9333333f, 0.9333333f, 1.0f));
+    uPtr(card)->fontsize(18);
     uPtr(card)->Width(::g::Uno::UX::Size__New1(100.0f, 4));
     uPtr(card)->Height(::g::Uno::UX::Size__New1(100.0f, 4));
     uPtr(card)->Alignment(10);
     uPtr(card)->Name(ListPage::__selector10_);
-    uPtr(card)->text(uString::Const("CARD"));
-    uPtr(card)->textcolor(::g::Uno::Float4__New2(0.9333333f, 0.9333333f, 0.9333333f, 1.0f));
-    uPtr(card)->fontsize(18);
+    uPtr(card)->SourceLineNumber(44);
+    uPtr(card)->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(card, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb18)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(card)->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp78);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(card)->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb18);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(card)->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp80);
+    temp78->SourceLineNumber(45);
+    temp78->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp78->Animators()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Animations::Animator_typeof(), NULL)), temp79);
     ::g::Fuse::Animations::Change__set_Value_fn(temp79, uCRef(::g::Uno::Float4__New2(0.6f, 0.6f, 0.6f, 1.0f)));
     temp79->Duration(0.05);
     temp79->DurationBack(0.2);
+    temp21->SourceLineNumber(44);
+    temp21->SourceFileName(uString::Const("ListPage.ux"));
+    temp22->SourceLineNumber(44);
+    temp22->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(yearmonth)->Name(ListPage::__selector11_);
+    uPtr(yearmonth)->SourceLineNumber(50);
+    uPtr(yearmonth)->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetRowSpan(yearmonth, 7);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(yearmonth)->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp81);
     temp81->RowCount(7);
+    temp81->SourceLineNumber(51);
+    temp81->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp81->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp1);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp81->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp84);
     temp1->FontSize(12.0f);
     temp1->TextAlignment(1);
-    temp1->Color(::g::Fuse::Drawing::Colors::White_);
+    temp1->Color(::g::Fuse::Drawing::Colors::White());
     temp1->Width(::g::Uno::UX::Size__New1(100.0f, 4));
     temp1->Height(::g::Uno::UX::Size__New1(100.0f, 4));
+    temp1->SourceLineNumber(52);
+    temp1->SourceFileName(uString::Const("ListPage.ux"));
     temp1->Font(ListPage::Bold_);
     temp1->Background(temp83);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp1->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp82);
+    temp23->SourceLineNumber(52);
+    temp23->SourceFileName(uString::Const("ListPage.ux"));
     temp84->Orientation(0);
     temp84->Color(::g::Uno::Float4__New2(1.0f, 0.7411765f, 0.0f, 1.0f));
     temp84->Width(::g::Uno::UX::Size__New1(100.0f, 4));
     temp84->Height(::g::Uno::UX::Size__New1(100.0f, 4));
     temp84->Alignment(10);
+    temp84->SourceLineNumber(53);
+    temp84->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetRowSpan(temp84, 6);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp84->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp85);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp84->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp2);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp84->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp91);
     temp85->Alignment(10);
+    temp85->SourceLineNumber(54);
+    temp85->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp85, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb19)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp85->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), lbutton);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp85->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp86);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp85->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb19);
     uPtr(lbutton)->Height(::g::Uno::UX::Size__New1(80.0f, 4));
     uPtr(lbutton)->Name(ListPage::__selector12_);
+    uPtr(lbutton)->SourceLineNumber(55);
+    uPtr(lbutton)->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(lbutton)->File(::g::Uno::UX::BundleFileSource::New1(::g::AccountBook_bundle::lArrowc76aec54()));
+    temp86->SourceLineNumber(56);
+    temp86->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp86->Animators()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Animations::Animator_typeof(), NULL)), temp87);
     ::g::Fuse::Animations::Change__set_Value_fn(temp87, uCRef(::g::Uno::Float4__New2(0.6f, 0.6f, 0.6f, 1.0f)));
     temp87->Duration(0.05);
     temp87->DurationBack(0.2);
+    temp24->SourceLineNumber(54);
+    temp24->SourceFileName(uString::Const("ListPage.ux"));
     temp2->FontSize(30.0f);
-    temp2->Color(::g::Fuse::Drawing::Colors::White_);
+    temp2->Color(::g::Fuse::Drawing::Colors::White());
     temp2->Alignment(10);
+    temp2->SourceLineNumber(60);
+    temp2->SourceFileName(uString::Const("ListPage.ux"));
     temp2->Font(ListPage::Bold_);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp2->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp88);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp2->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp90);
+    temp88->SourceLineNumber(61);
+    temp88->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp88->Actions()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::TriggerAction_typeof(), NULL)), temp89);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp89, uCRef(true));
+    temp89->SourceLineNumber(62);
+    temp89->SourceFileName(uString::Const("ListPage.ux"));
+    temp25->SourceLineNumber(60);
+    temp25->SourceFileName(uString::Const("ListPage.ux"));
     temp91->Alignment(10);
+    temp91->SourceLineNumber(65);
+    temp91->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp91, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb20)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp91->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), rbutton);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp91->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb20);
     uPtr(rbutton)->Height(::g::Uno::UX::Size__New1(80.0f, 4));
     uPtr(rbutton)->Name(ListPage::__selector13_);
+    uPtr(rbutton)->SourceLineNumber(66);
+    uPtr(rbutton)->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(rbutton)->File(::g::Uno::UX::BundleFileSource::New1(::g::AccountBook_bundle::rArrowd43ec882()));
+    temp26->SourceLineNumber(65);
+    temp26->SourceFileName(uString::Const("ListPage.ux"));
     temp92->Padding(::g::Uno::Float4__New2(10.0f, 10.0f, 10.0f, 0.0f));
+    temp92->SourceLineNumber(71);
+    temp92->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetRowSpan(temp92, 75);
     temp92->Background(temp102);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp92->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp93);
+    temp93->SourceLineNumber(72);
+    temp93->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp93->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp3);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp93->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp4);
+    temp3->SourceLineNumber(73);
+    temp3->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp3->Cases()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Reactive::Case_typeof(), NULL)), temp94);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp3->Cases()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Reactive::Case_typeof(), NULL)), temp97);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp3->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp98);
@@ -694,29 +777,51 @@ void ListPage::InitializeUX()
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp94->Factories()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), temp95);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp94->Factories()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), temp96);
     temp97->Bool(false);
+    temp27->SourceLineNumber(73);
+    temp27->SourceFileName(uString::Const("ListPage.ux"));
+    temp4->SourceLineNumber(81);
+    temp4->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp4->Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), temp99);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp4->Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), temp100);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp4->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp101);
+    temp28->SourceLineNumber(81);
+    temp28->SourceFileName(uString::Const("ListPage.ux"));
     temp103->Key(uString::Const("FullWindow"));
+    temp103->SourceLineNumber(126);
+    temp103->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Resources::ResourceSetter__set_Value_fn(temp103, EditOrDeletePopup);
     temp104->Key(uString::Const("FullWindow2"));
+    temp104->SourceLineNumber(127);
+    temp104->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Resources::ResourceSetter__set_Value_fn(temp104, ListEditPopup);
     temp105->Key(uString::Const("FullWindow3"));
+    temp105->SourceLineNumber(128);
+    temp105->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Resources::ResourceSetter__set_Value_fn(temp105, YearMonthEditPopup);
     uPtr(ModalConfirm)->IsEnabled(false);
     uPtr(ModalConfirm)->Name(ListPage::__selector14_);
+    uPtr(ModalConfirm)->SourceLineNumber(129);
+    uPtr(ModalConfirm)->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(ModalConfirm)->Node(temp106);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(ModalConfirm)->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp117);
     temp106->Color(::g::Uno::Float4__New2(1.0f, 1.0f, 1.0f, 0.0f));
     temp106->Layer(3);
+    temp106->SourceLineNumber(130);
+    temp106->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp106->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp107);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp106->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp109);
+    temp107->SourceLineNumber(131);
+    temp107->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp107->Actions()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::TriggerAction_typeof(), NULL)), temp108);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp108, uCRef(false));
+    temp108->SourceLineNumber(132);
+    temp108->SourceFileName(uString::Const("ListPage.ux"));
     temp109->Width(::g::Uno::UX::Size__New1(150.0f, 1));
     temp109->Height(::g::Uno::UX::Size__New1(90.0f, 1));
     temp109->Alignment(10);
     temp109->Padding(::g::Uno::Float4__New2(10.0f, 10.0f, 10.0f, 10.0f));
+    temp109->SourceLineNumber(134);
+    temp109->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp109->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp110);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp109->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp112);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp109->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp115);
@@ -724,43 +829,73 @@ void ListPage::InitializeUX()
     temp110->CornerRadius(::g::Uno::Float4__New2(10.0f, 10.0f, 10.0f, 10.0f));
     temp110->Color(::g::Uno::Float4__New2(1.0f, 1.0f, 1.0f, 1.0f));
     temp110->Layer(1);
+    temp110->SourceLineNumber(135);
+    temp110->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp110->Strokes()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::Stroke_typeof(), NULL)), temp5);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp110->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp111);
     temp5->Width(2.0f);
-    temp112->Width(::g::Uno::UX::Size__New1(100.0f, 4));
+    temp29->SourceLineNumber(136);
+    temp29->SourceFileName(uString::Const("ListPage.ux"));
     temp112->text(uString::Const("EDIT"));
-    temp112->textcolor(::g::Fuse::Drawing::Colors::Black_);
+    temp112->textcolor(::g::Fuse::Drawing::Colors::Black());
     temp112->fontsize(18);
+    temp112->Width(::g::Uno::UX::Size__New1(100.0f, 4));
+    temp112->SourceLineNumber(138);
+    temp112->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp112, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb25)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp112->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp113);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp112->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb25);
+    temp113->SourceLineNumber(139);
+    temp113->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp113->Actions()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::TriggerAction_typeof(), NULL)), temp114);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp114, uCRef(true));
-    temp115->Width(::g::Uno::UX::Size__New1(100.0f, 4));
+    temp114->SourceLineNumber(140);
+    temp114->SourceFileName(uString::Const("ListPage.ux"));
+    temp30->SourceLineNumber(138);
+    temp30->SourceFileName(uString::Const("ListPage.ux"));
     temp115->text(uString::Const("DELETE"));
-    temp115->textcolor(::g::Fuse::Drawing::Colors::Black_);
+    temp115->textcolor(::g::Fuse::Drawing::Colors::Black());
     temp115->fontsize(18);
+    temp115->Width(::g::Uno::UX::Size__New1(100.0f, 4));
+    temp115->SourceLineNumber(143);
+    temp115->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp115, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb26)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp115->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb26);
-    temp116->Width(::g::Uno::UX::Size__New1(100.0f, 4));
+    temp31->SourceLineNumber(143);
+    temp31->SourceFileName(uString::Const("ListPage.ux"));
     temp116->text(uString::Const("Grouping"));
-    temp116->textcolor(::g::Fuse::Drawing::Colors::Black_);
+    temp116->textcolor(::g::Fuse::Drawing::Colors::Black());
     temp116->fontsize(18);
+    temp116->Width(::g::Uno::UX::Size__New1(100.0f, 4));
+    temp116->SourceLineNumber(144);
+    temp116->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp116, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb27)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp116->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb27);
+    temp32->SourceLineNumber(144);
+    temp32->SourceFileName(uString::Const("ListPage.ux"));
+    temp33->SourceLineNumber(129);
+    temp33->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(ModalConfirm2)->IsEnabled(false);
     uPtr(ModalConfirm2)->Name(ListPage::__selector15_);
+    uPtr(ModalConfirm2)->SourceLineNumber(168);
+    uPtr(ModalConfirm2)->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(ModalConfirm2)->Node(temp118);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(ModalConfirm2)->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp153);
     temp118->Color(::g::Uno::Float4__New2(1.0f, 0.7411765f, 0.0f, 1.0f));
     temp118->Padding(::g::Uno::Float4__New2(10.0f, 10.0f, 10.0f, 10.0f));
     temp118->Layer(3);
+    temp118->SourceLineNumber(169);
+    temp118->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp118->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp119);
+    temp119->SourceLineNumber(170);
+    temp119->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp119->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp120);
     temp120->RowCount(11);
     temp120->Width(::g::Uno::UX::Size__New1(100.0f, 4));
     temp120->Height(::g::Uno::UX::Size__New1(70.0f, 4));
     temp120->Padding(::g::Uno::Float4__New2(10.0f, 10.0f, 10.0f, 10.0f));
+    temp120->SourceLineNumber(171);
+    temp120->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp120->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp121);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp120->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp122);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp120->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp124);
@@ -775,93 +910,215 @@ void ListPage::InitializeUX()
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp120->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp150);
     temp121->Value(uString::Const("EDIT PAGE"));
     temp121->FontSize(30.0f);
-    temp121->TextColor(::g::Fuse::Drawing::Colors::Black_);
+    temp121->TextColor(::g::Fuse::Drawing::Colors::Black());
     temp121->Alignment(6);
+    temp121->SourceLineNumber(172);
+    temp121->SourceFileName(uString::Const("ListPage.ux"));
     temp122->CornerRadius(::g::Uno::Float4__New2(10.0f, 10.0f, 10.0f, 10.0f));
     temp122->Color(::g::Uno::Float4__New2(1.0f, 1.0f, 1.0f, 1.0f));
     temp122->Layer(1);
+    temp122->SourceLineNumber(173);
+    temp122->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp122->Strokes()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::Stroke_typeof(), NULL)), temp123);
-    temp123->Color(::g::Fuse::Drawing::Colors::Black_);
+    temp123->Color(::g::Fuse::Drawing::Colors::Black());
     temp123->Width(1.0f);
     temp124->ColumnCount(3);
+    temp124->SourceLineNumber(176);
+    temp124->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp124->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp125);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp124->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp126);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp124->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp127);
     temp125->Value(uString::Const("Year"));
+    temp125->SourceLineNumber(177);
+    temp125->SourceFileName(uString::Const("ListPage.ux"));
     temp126->Value(uString::Const("Month"));
+    temp126->SourceLineNumber(178);
+    temp126->SourceFileName(uString::Const("ListPage.ux"));
     temp127->Value(uString::Const("Day"));
+    temp127->SourceLineNumber(179);
+    temp127->SourceFileName(uString::Const("ListPage.ux"));
     temp128->ColumnCount(3);
+    temp128->SourceLineNumber(181);
+    temp128->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp128->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp6);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp128->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp7);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp128->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp8);
     temp6->InputHint(4);
+    temp6->SourceLineNumber(182);
+    temp6->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp6->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp129);
+    temp34->SourceLineNumber(182);
+    temp34->SourceFileName(uString::Const("ListPage.ux"));
+    temp35->SourceLineNumber(182);
+    temp35->SourceFileName(uString::Const("ListPage.ux"));
     temp7->InputHint(4);
+    temp7->SourceLineNumber(183);
+    temp7->SourceFileName(uString::Const("ListPage.ux"));
     temp7->add_ValueChanged(uDelegate::New(::g::Uno::UX::ValueChangedHandler_typeof()->MakeType(::g::Uno::String_typeof(), NULL), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb28)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp7->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb28);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp7->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp130);
+    temp36->SourceLineNumber(183);
+    temp36->SourceFileName(uString::Const("ListPage.ux"));
+    temp37->SourceLineNumber(183);
+    temp37->SourceFileName(uString::Const("ListPage.ux"));
+    temp38->SourceLineNumber(183);
+    temp38->SourceFileName(uString::Const("ListPage.ux"));
     temp8->InputHint(4);
+    temp8->SourceLineNumber(184);
+    temp8->SourceFileName(uString::Const("ListPage.ux"));
     temp8->add_ValueChanged(uDelegate::New(::g::Uno::UX::ValueChangedHandler_typeof()->MakeType(::g::Uno::String_typeof(), NULL), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb29)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp8->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb29);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp8->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp131);
+    temp39->SourceLineNumber(184);
+    temp39->SourceFileName(uString::Const("ListPage.ux"));
+    temp40->SourceLineNumber(184);
+    temp40->SourceFileName(uString::Const("ListPage.ux"));
+    temp41->SourceLineNumber(184);
+    temp41->SourceFileName(uString::Const("ListPage.ux"));
     temp132->ColumnCount(3);
+    temp132->SourceLineNumber(186);
+    temp132->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp132->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp133);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp132->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp134);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp132->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp135);
+    temp133->SourceLineNumber(187);
+    temp133->SourceFileName(uString::Const("ListPage.ux"));
     temp134->Value(uString::Const("Hour"));
+    temp134->SourceLineNumber(188);
+    temp134->SourceFileName(uString::Const("ListPage.ux"));
     temp135->Value(uString::Const("Minute"));
+    temp135->SourceLineNumber(189);
+    temp135->SourceFileName(uString::Const("ListPage.ux"));
     temp136->ColumnCount(3);
+    temp136->SourceLineNumber(191);
+    temp136->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp136->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp9);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp136->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp10);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp136->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp11);
-    temp9->textcolor(::g::Fuse::Drawing::Colors::Black_);
+    temp9->textcolor(::g::Fuse::Drawing::Colors::Black());
     temp9->fontsize(14);
+    temp9->SourceLineNumber(192);
+    temp9->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp9, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb30)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb30);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp137);
+    temp42->SourceLineNumber(192);
+    temp42->SourceFileName(uString::Const("ListPage.ux"));
+    temp43->SourceLineNumber(192);
+    temp43->SourceFileName(uString::Const("ListPage.ux"));
+    temp44->SourceLineNumber(192);
+    temp44->SourceFileName(uString::Const("ListPage.ux"));
     temp10->InputHint(4);
+    temp10->SourceLineNumber(193);
+    temp10->SourceFileName(uString::Const("ListPage.ux"));
     temp10->add_ValueChanged(uDelegate::New(::g::Uno::UX::ValueChangedHandler_typeof()->MakeType(::g::Uno::String_typeof(), NULL), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb31)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp10->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb31);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp10->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp138);
+    temp45->SourceLineNumber(193);
+    temp45->SourceFileName(uString::Const("ListPage.ux"));
+    temp46->SourceLineNumber(193);
+    temp46->SourceFileName(uString::Const("ListPage.ux"));
+    temp47->SourceLineNumber(193);
+    temp47->SourceFileName(uString::Const("ListPage.ux"));
     temp11->InputHint(4);
+    temp11->SourceLineNumber(194);
+    temp11->SourceFileName(uString::Const("ListPage.ux"));
     temp11->add_ValueChanged(uDelegate::New(::g::Uno::UX::ValueChangedHandler_typeof()->MakeType(::g::Uno::String_typeof(), NULL), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb32)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp11->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb32);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp11->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp139);
+    temp48->SourceLineNumber(194);
+    temp48->SourceFileName(uString::Const("ListPage.ux"));
+    temp49->SourceLineNumber(194);
+    temp49->SourceFileName(uString::Const("ListPage.ux"));
+    temp50->SourceLineNumber(194);
+    temp50->SourceFileName(uString::Const("ListPage.ux"));
     temp140->ColumnCount(2);
+    temp140->SourceLineNumber(196);
+    temp140->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp140->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp141);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp140->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp142);
     temp141->Value(uString::Const("Amount"));
+    temp141->SourceLineNumber(197);
+    temp141->SourceFileName(uString::Const("ListPage.ux"));
     temp142->Value(uString::Const("Usage"));
+    temp142->SourceLineNumber(198);
+    temp142->SourceFileName(uString::Const("ListPage.ux"));
     temp143->ColumnCount(8);
+    temp143->SourceLineNumber(200);
+    temp143->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp143->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp12);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp143->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp13);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp143->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp14);
-    temp12->textcolor(::g::Fuse::Drawing::Colors::Black_);
+    temp12->textcolor(::g::Fuse::Drawing::Colors::Black());
     temp12->fontsize(16);
+    temp12->SourceLineNumber(201);
+    temp12->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp12, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb33)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp12->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb33);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp12->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp144);
+    temp51->SourceLineNumber(201);
+    temp51->SourceFileName(uString::Const("ListPage.ux"));
+    temp52->SourceLineNumber(201);
+    temp52->SourceFileName(uString::Const("ListPage.ux"));
+    temp53->SourceLineNumber(201);
+    temp53->SourceFileName(uString::Const("ListPage.ux"));
     temp13->InputHint(4);
+    temp13->SourceLineNumber(202);
+    temp13->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetColumnSpan(temp13, 3);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp13->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp145);
+    temp54->SourceLineNumber(202);
+    temp54->SourceFileName(uString::Const("ListPage.ux"));
+    temp55->SourceLineNumber(202);
+    temp55->SourceFileName(uString::Const("ListPage.ux"));
+    temp14->SourceLineNumber(203);
+    temp14->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetColumnSpan(temp14, 4);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp14->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp146);
+    temp56->SourceLineNumber(203);
+    temp56->SourceFileName(uString::Const("ListPage.ux"));
+    temp57->SourceLineNumber(203);
+    temp57->SourceFileName(uString::Const("ListPage.ux"));
     temp147->Value(uString::Const("PayType"));
-    temp15->textcolor(::g::Fuse::Drawing::Colors::Black_);
+    temp147->SourceLineNumber(205);
+    temp147->SourceFileName(uString::Const("ListPage.ux"));
+    temp15->textcolor(::g::Fuse::Drawing::Colors::Black());
     temp15->fontsize(16);
+    temp15->SourceLineNumber(206);
+    temp15->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp15, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb34)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp15->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb34);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp15->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp148);
+    temp58->SourceLineNumber(206);
+    temp58->SourceFileName(uString::Const("ListPage.ux"));
+    temp59->SourceLineNumber(206);
+    temp59->SourceFileName(uString::Const("ListPage.ux"));
+    temp60->SourceLineNumber(206);
+    temp60->SourceFileName(uString::Const("ListPage.ux"));
+    temp149->SourceLineNumber(207);
+    temp149->SourceFileName(uString::Const("ListPage.ux"));
     temp150->text(uString::Const("OK"));
-    temp150->textcolor(::g::Fuse::Drawing::Colors::Black_);
+    temp150->textcolor(::g::Fuse::Drawing::Colors::Black());
     temp150->fontsize(16);
+    temp150->SourceLineNumber(208);
+    temp150->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp150, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb35)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp150->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp151);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp150->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb35);
+    temp151->SourceLineNumber(209);
+    temp151->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp151->Actions()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::TriggerAction_typeof(), NULL)), temp152);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp152, uCRef(false));
+    temp152->SourceLineNumber(210);
+    temp152->SourceFileName(uString::Const("ListPage.ux"));
+    temp61->SourceLineNumber(208);
+    temp61->SourceFileName(uString::Const("ListPage.ux"));
+    temp62->SourceLineNumber(168);
+    temp62->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(ModalConfirm3)->IsEnabled(false);
     uPtr(ModalConfirm3)->Name(ListPage::__selector16_);
+    uPtr(ModalConfirm3)->SourceLineNumber(217);
+    uPtr(ModalConfirm3)->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(ModalConfirm3)->Node(temp154);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(ModalConfirm3)->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp169);
     temp154->Color(::g::Uno::Float4__New2(1.0f, 0.7411765f, 0.0f, 1.0f));
@@ -869,25 +1126,35 @@ void ListPage::InitializeUX()
     temp154->Height(::g::Uno::UX::Size__New1(20.0f, 4));
     temp154->Padding(::g::Uno::Float4__New2(10.0f, 10.0f, 10.0f, 10.0f));
     temp154->Layer(3);
+    temp154->SourceLineNumber(218);
+    temp154->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp154->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp155);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp154->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp157);
     temp155->CornerRadius(::g::Uno::Float4__New2(10.0f, 10.0f, 10.0f, 10.0f));
     temp155->Color(::g::Uno::Float4__New2(1.0f, 1.0f, 1.0f, 1.0f));
     temp155->Layer(1);
+    temp155->SourceLineNumber(219);
+    temp155->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp155->Strokes()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Drawing::Stroke_typeof(), NULL)), temp156);
     temp156->Color(::g::Uno::Float4__New2(1.0f, 0.7411765f, 0.0f, 1.0f));
     temp156->Width(2.0f);
     temp157->RowCount(4);
     temp157->Width(::g::Uno::UX::Size__New1(100.0f, 4));
     temp157->Height(::g::Uno::UX::Size__New1(100.0f, 4));
+    temp157->SourceLineNumber(222);
+    temp157->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp157->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp158);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp157->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp159);
     temp158->Value(uString::Const("EDIT PAGE"));
     temp158->FontSize(20.0f);
-    temp158->TextColor(::g::Fuse::Drawing::Colors::Black_);
+    temp158->TextColor(::g::Fuse::Drawing::Colors::Black());
     temp158->Alignment(6);
+    temp158->SourceLineNumber(223);
+    temp158->SourceFileName(uString::Const("ListPage.ux"));
     temp159->RowCount(2);
     temp159->ColumnCount(4);
+    temp159->SourceLineNumber(224);
+    temp159->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetRowSpan(temp159, 3);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp159->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp160);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp159->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp16);
@@ -896,8 +1163,12 @@ void ListPage::InitializeUX()
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp159->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp166);
     temp160->Value(uString::Const("Year"));
     temp160->Alignment(10);
+    temp160->SourceLineNumber(225);
+    temp160->SourceFileName(uString::Const("ListPage.ux"));
     temp16->InputHint(4);
     temp16->Alignment(10);
+    temp16->SourceLineNumber(226);
+    temp16->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetColumnSpan(temp16, 3);
     temp16->add_ValueChanged(uDelegate::New(::g::Uno::UX::ValueChangedHandler_typeof()->MakeType(::g::Uno::String_typeof(), NULL), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb36)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp16->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp161);
@@ -908,10 +1179,20 @@ void ListPage::InitializeUX()
     temp161->Distance(1.0f);
     temp161->Spread(0.2f);
     temp161->Color(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 0.3764706f));
+    temp161->SourceLineNumber(227);
+    temp161->SourceFileName(uString::Const("ListPage.ux"));
+    temp63->SourceLineNumber(226);
+    temp63->SourceFileName(uString::Const("ListPage.ux"));
+    temp64->SourceLineNumber(226);
+    temp64->SourceFileName(uString::Const("ListPage.ux"));
     temp163->Value(uString::Const("Month"));
     temp163->Alignment(10);
+    temp163->SourceLineNumber(229);
+    temp163->SourceFileName(uString::Const("ListPage.ux"));
     temp17->InputHint(4);
     temp17->Alignment(10);
+    temp17->SourceLineNumber(230);
+    temp17->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Controls::Grid::SetColumnSpan(temp17, 3);
     temp17->add_ValueChanged(uDelegate::New(::g::Uno::UX::ValueChangedHandler_typeof()->MakeType(::g::Uno::String_typeof(), NULL), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb37)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp17->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp164);
@@ -922,20 +1203,35 @@ void ListPage::InitializeUX()
     temp164->Distance(1.0f);
     temp164->Spread(0.2f);
     temp164->Color(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 0.3764706f));
-    ::g::Fuse::Controls::Grid::SetColumnSpan(temp166, 4);
+    temp164->SourceLineNumber(231);
+    temp164->SourceFileName(uString::Const("ListPage.ux"));
+    temp65->SourceLineNumber(230);
+    temp65->SourceFileName(uString::Const("ListPage.ux"));
+    temp66->SourceLineNumber(230);
+    temp66->SourceFileName(uString::Const("ListPage.ux"));
     temp166->text(uString::Const("OK"));
-    temp166->textcolor(::g::Fuse::Drawing::Colors::Black_);
+    temp166->textcolor(::g::Fuse::Drawing::Colors::Black());
     temp166->fontsize(16);
+    temp166->SourceLineNumber(233);
+    temp166->SourceFileName(uString::Const("ListPage.ux"));
+    ::g::Fuse::Controls::Grid::SetColumnSpan(temp166, 4);
     ::g::Fuse::Gestures::Clicked::AddHandler(temp166, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(temp_eb38)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp166->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp167);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp166->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp_eb38);
+    temp167->SourceLineNumber(234);
+    temp167->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp167->Actions()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::TriggerAction_typeof(), NULL)), temp168);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp168, uCRef(false));
+    temp168->SourceLineNumber(235);
+    temp168->SourceFileName(uString::Const("ListPage.ux"));
+    temp67->SourceLineNumber(233);
+    temp67->SourceFileName(uString::Const("ListPage.ux"));
+    temp68->SourceLineNumber(217);
+    temp68->SourceFileName(uString::Const("ListPage.ux"));
     uPtr(__g_nametable1)->This(this);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__g_nametable1)->Objects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(uObject_typeof(), NULL)), EditOrDeletePopup);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__g_nametable1)->Objects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(uObject_typeof(), NULL)), ListEditPopup);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__g_nametable1)->Objects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(uObject_typeof(), NULL)), YearMonthEditPopup);
-    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__g_nametable1)->Objects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(uObject_typeof(), NULL)), router);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__g_nametable1)->Objects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(uObject_typeof(), NULL)), cash);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__g_nametable1)->Objects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(uObject_typeof(), NULL)), temp_eb17);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__g_nametable1)->Objects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(uObject_typeof(), NULL)), card);
@@ -963,10 +1259,10 @@ void ListPage::InitializeUX()
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__g_nametable1)->Objects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(uObject_typeof(), NULL)), temp_eb37);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__g_nametable1)->Objects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(uObject_typeof(), NULL)), temp_eb38);
     Background(temp170);
+    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp69);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), EditOrDeletePopup);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), ListEditPopup);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), YearMonthEditPopup);
-    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp69);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp70);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp103);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp104);
@@ -976,11 +1272,11 @@ void ListPage::InitializeUX()
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), ModalConfirm3);
 }
 
-// public ListPage New(Fuse.Navigation.Router router) [static] :587
-ListPage* ListPage::New4(::g::Fuse::Navigation::Router* router1)
+// public ListPage New() [static] :689
+ListPage* ListPage::New5()
 {
     ListPage* obj1 = (ListPage*)uNew(ListPage_typeof());
-    obj1->ctor_7(router1);
+    obj1->ctor_8();
     return obj1;
 }
 // }

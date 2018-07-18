@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Gestures/1.4.2/Swipe.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Gestures/1.9.0/Swipe.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -6,6 +6,7 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
@@ -26,13 +27,13 @@ namespace Gestures{
 // {
 struct SwipeGesture_type : ::g::Fuse::Node_type
 {
-    ::g::Uno::UX::IPropertyListener interface6;
+    ::g::Uno::UX::IPropertyListener interface7;
 };
 
 SwipeGesture_type* SwipeGesture_typeof();
 void SwipeGesture__ctor_3_fn(SwipeGesture* __this);
-void SwipeGesture__get_Direction_fn(SwipeGesture* __this, int* __retval);
-void SwipeGesture__set_Direction_fn(SwipeGesture* __this, int* value);
+void SwipeGesture__get_Direction_fn(SwipeGesture* __this, int32_t* __retval);
+void SwipeGesture__set_Direction_fn(SwipeGesture* __this, int32_t* value);
 void SwipeGesture__get_IsActive_fn(SwipeGesture* __this, bool* __retval);
 void SwipeGesture__set_IsActive_fn(SwipeGesture* __this, bool* value);
 void SwipeGesture__get_IsEnabled_fn(SwipeGesture* __this, bool* __retval);
@@ -45,26 +46,27 @@ void SwipeGesture__OnUnrooted_fn(SwipeGesture* __this);
 void SwipeGesture__get_Region_fn(SwipeGesture* __this, ::g::Fuse::Gestures::Internal::SwipeRegion** __retval);
 void SwipeGesture__SetActive_fn(SwipeGesture* __this, bool* value, uObject* origin, bool* bypass);
 void SwipeGesture__SetIsActive_fn(SwipeGesture* __this, bool* value, uObject* origin);
-void SwipeGesture__get_Type_fn(SwipeGesture* __this, int* __retval);
-void SwipeGesture__set_Type_fn(SwipeGesture* __this, int* value);
+void SwipeGesture__get_Type_fn(SwipeGesture* __this, int32_t* __retval);
+void SwipeGesture__set_Type_fn(SwipeGesture* __this, int32_t* value);
 void SwipeGesture__UnoUXIPropertyListenerOnPropertyChanged_fn(SwipeGesture* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::UX::Selector* prop);
 
 struct SwipeGesture : ::g::Fuse::Behavior
 {
     uStrong< ::g::Fuse::Gestures::Internal::Swiper*> _swiper;
     uStrong< ::g::Fuse::Gestures::Internal::SwipeRegion*> _region;
-    int _type;
+    int32_t _type;
     bool _hasDirection;
-    int _direction;
+    int32_t _direction;
     static ::g::Uno::UX::Selector GesturePriorityName_;
-    static ::g::Uno::UX::Selector& GesturePriorityName() { return GesturePriorityName_; }
-    int _gesturePriority;
+    static ::g::Uno::UX::Selector& GesturePriorityName() { return SwipeGesture_typeof()->Init(), GesturePriorityName_; }
+    int32_t _gesturePriority;
+    bool _hasThreshold;
     static ::g::Uno::UX::Selector _isActiveName_;
-    static ::g::Uno::UX::Selector& _isActiveName() { return _isActiveName_; }
+    static ::g::Uno::UX::Selector& _isActiveName() { return SwipeGesture_typeof()->Init(), _isActiveName_; }
 
     void ctor_3();
-    int Direction();
-    void Direction(int value);
+    int32_t Direction();
+    void Direction(int32_t value);
     bool IsActive();
     void IsActive(bool value);
     bool IsEnabled();
@@ -74,8 +76,8 @@ struct SwipeGesture : ::g::Fuse::Behavior
     ::g::Fuse::Gestures::Internal::SwipeRegion* Region();
     void SetActive(bool value, uObject* origin, bool bypass);
     void SetIsActive(bool value, uObject* origin);
-    int Type();
-    void Type(int value);
+    int32_t Type();
+    void Type(int32_t value);
     static SwipeGesture* New2();
 };
 // }

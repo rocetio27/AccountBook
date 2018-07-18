@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_acc-2d074dc4.h>
@@ -15,14 +15,13 @@ static uType* TYPES[3];
 
 namespace g{
 
-// internal sealed class AccountBook_accessor_myButton_text :151
+// internal sealed class AccountBook_accessor_myButton_text :171
 // {
-// static generated AccountBook_accessor_myButton_text() :151
+// static generated AccountBook_accessor_myButton_text() :171
 static void AccountBook_accessor_myButton_text__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     AccountBook_accessor_myButton_text::Singleton_ = AccountBook_accessor_myButton_text::New1();
-    AccountBook_accessor_myButton_text::_name_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"text"*/]);
+    AccountBook_accessor_myButton_text::_name_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"text"*/]);
 }
 
 static void AccountBook_accessor_myButton_text_build(uType* type)
@@ -58,43 +57,43 @@ static void AccountBook_accessor_myButton_text_build(uType* type)
     return type;
 }
 
-// public generated AccountBook_accessor_myButton_text() :151
+// public generated AccountBook_accessor_myButton_text() :171
 void AccountBook_accessor_myButton_text__ctor_1_fn(AccountBook_accessor_myButton_text* __this)
 {
     __this->ctor_1();
 }
 
-// public override sealed object GetAsObject(Uno.UX.PropertyObject obj) :157
+// public override sealed object GetAsObject(Uno.UX.PropertyObject obj) :177
 void AccountBook_accessor_myButton_text__GetAsObject_fn(AccountBook_accessor_myButton_text* __this, ::g::Uno::UX::PropertyObject* obj, uObject** __retval)
 {
     return *__retval = uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->text(), void();
 }
 
-// public override sealed Uno.UX.Selector get_Name() :154
+// public override sealed Uno.UX.Selector get_Name() :174
 void AccountBook_accessor_myButton_text__get_Name_fn(AccountBook_accessor_myButton_text* __this, ::g::Uno::UX::Selector* __retval)
 {
     return *__retval = AccountBook_accessor_myButton_text::_name_, void();
 }
 
-// public generated AccountBook_accessor_myButton_text New() :151
+// public generated AccountBook_accessor_myButton_text New() :171
 void AccountBook_accessor_myButton_text__New1_fn(AccountBook_accessor_myButton_text** __retval)
 {
     *__retval = AccountBook_accessor_myButton_text::New1();
 }
 
-// public override sealed Uno.Type get_PropertyType() :156
+// public override sealed Uno.Type get_PropertyType() :176
 void AccountBook_accessor_myButton_text__get_PropertyType_fn(AccountBook_accessor_myButton_text* __this, uType** __retval)
 {
     return *__retval = ::TYPES[1/*string*/], void();
 }
 
-// public override sealed void SetAsObject(Uno.UX.PropertyObject obj, object v, Uno.UX.IPropertyListener origin) :158
+// public override sealed void SetAsObject(Uno.UX.PropertyObject obj, object v, Uno.UX.IPropertyListener origin) :178
 void AccountBook_accessor_myButton_text__SetAsObject_fn(AccountBook_accessor_myButton_text* __this, ::g::Uno::UX::PropertyObject* obj, uObject* v, uObject* origin)
 {
     uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->Settext(uCast<uString*>(v, ::TYPES[1/*string*/]), origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :159
+// public override sealed bool get_SupportsOriginSetter() :179
 void AccountBook_accessor_myButton_text__get_SupportsOriginSetter_fn(AccountBook_accessor_myButton_text* __this, bool* __retval)
 {
     return *__retval = true, void();
@@ -103,13 +102,13 @@ void AccountBook_accessor_myButton_text__get_SupportsOriginSetter_fn(AccountBook
 uSStrong< ::g::Uno::UX::PropertyAccessor*> AccountBook_accessor_myButton_text::Singleton_;
 ::g::Uno::UX::Selector AccountBook_accessor_myButton_text::_name_;
 
-// public generated AccountBook_accessor_myButton_text() [instance] :151
+// public generated AccountBook_accessor_myButton_text() [instance] :171
 void AccountBook_accessor_myButton_text::ctor_1()
 {
     ctor_();
 }
 
-// public generated AccountBook_accessor_myButton_text New() [static] :151
+// public generated AccountBook_accessor_myButton_text New() [static] :171
 AccountBook_accessor_myButton_text* AccountBook_accessor_myButton_text::New1()
 {
     AccountBook_accessor_myButton_text* obj1 = (AccountBook_accessor_myButton_text*)uNew(AccountBook_accessor_myButton_text_typeof());

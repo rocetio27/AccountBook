@@ -3,7 +3,7 @@
 
 #include <Uno.Bool.h>
 #include <Uno.Delegate.h>
-#include <Uno.EventHandler-1.h>
+#include <Uno.EventHandler1-1.h>
 #include <Uno.Int.h>
 #include <Uno.Object.h>
 #include <Uno.Platform.Applicat-bf686309.h>
@@ -24,7 +24,7 @@ namespace Uno{
 namespace Platform{
 namespace EventSources{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Platform\EventSources.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Platform\EventSources.uno
 // ----------------------------------------------------------------------------------------------------------
 
 // public static class HardwareKeys :40
@@ -75,13 +75,13 @@ void HardwareKeys__remove_KeyUp_fn(uDelegate* value)
 }
 
 // internal static bool OnKeyDown(Uno.Platform.Key key, Uno.Platform.EventModifiers modifiers) :45
-void HardwareKeys__OnKeyDown_fn(int* key, int* modifiers, bool* __retval)
+void HardwareKeys__OnKeyDown_fn(int32_t* key, int32_t* modifiers, bool* __retval)
 {
     *__retval = HardwareKeys::OnKeyDown(*key, *modifiers);
 }
 
 // internal static bool OnKeyUp(Uno.Platform.Key key, Uno.Platform.EventModifiers modifiers) :55
-void HardwareKeys__OnKeyUp_fn(int* key, int* modifiers, bool* __retval)
+void HardwareKeys__OnKeyUp_fn(int32_t* key, int32_t* modifiers, bool* __retval)
 {
     *__retval = HardwareKeys::OnKeyUp(*key, *modifiers);
 }
@@ -90,7 +90,7 @@ uSStrong<uDelegate*> HardwareKeys::KeyDown1_;
 uSStrong<uDelegate*> HardwareKeys::KeyUp1_;
 
 // internal static bool OnKeyDown(Uno.Platform.Key key, Uno.Platform.EventModifiers modifiers) [static] :45
-bool HardwareKeys::OnKeyDown(int key, int modifiers)
+bool HardwareKeys::OnKeyDown(int32_t key, int32_t modifiers)
 {
     ::g::Uno::Platform::KeyEventArgs* args = ::g::Uno::Platform::KeyEventArgs::New2(key, modifiers, NULL);
     uDelegate* handler = HardwareKeys::KeyDown1_;
@@ -102,7 +102,7 @@ bool HardwareKeys::OnKeyDown(int key, int modifiers)
 }
 
 // internal static bool OnKeyUp(Uno.Platform.Key key, Uno.Platform.EventModifiers modifiers) [static] :55
-bool HardwareKeys::OnKeyUp(int key, int modifiers)
+bool HardwareKeys::OnKeyUp(int32_t key, int32_t modifiers)
 {
     ::g::Uno::Platform::KeyEventArgs* args = ::g::Uno::Platform::KeyEventArgs::New2(key, modifiers, NULL);
     uDelegate* handler = HardwareKeys::KeyUp1_;
@@ -138,7 +138,7 @@ void HardwareKeys::remove_KeyUp(uDelegate* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Platform\EventSources.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Platform\EventSources.uno
 // ----------------------------------------------------------------------------------------------------------
 
 // public static class InterAppInvoke :7
@@ -177,7 +177,7 @@ uClassType* InterAppInvoke_typeof()
 }
 
 // private static void DispatchDelayedUri(Uno.Platform.ApplicationState state) :25
-void InterAppInvoke__DispatchDelayedUri_fn(int* state)
+void InterAppInvoke__DispatchDelayedUri_fn(int32_t* state)
 {
     InterAppInvoke::DispatchDelayedUri(*state);
 }
@@ -204,8 +204,9 @@ uSStrong<uString*> InterAppInvoke::DelayedUri_;
 uSStrong<uDelegate*> InterAppInvoke::ReceivedURI1_;
 
 // private static void DispatchDelayedUri(Uno.Platform.ApplicationState state) [static] :25
-void InterAppInvoke::DispatchDelayedUri(int state)
+void InterAppInvoke::DispatchDelayedUri(int32_t state)
 {
+    InterAppInvoke_typeof()->Init();
     uDelegate* handler = InterAppInvoke::ReceivedURI1_;
 
     if (::g::Uno::Delegate::op_Inequality(handler, NULL))
@@ -218,6 +219,8 @@ void InterAppInvoke::DispatchDelayedUri(int state)
 // internal static void OnReceivedURI(string Uri) [static] :11
 void InterAppInvoke::OnReceivedURI(uString* Uri)
 {
+    InterAppInvoke_typeof()->Init();
+
     if ((::g::Uno::Platform::CoreApp::State() == 2) || (::g::Uno::Platform::CoreApp::State() == 3))
     {
         uDelegate* handler = InterAppInvoke::ReceivedURI1_;
@@ -235,12 +238,14 @@ void InterAppInvoke::OnReceivedURI(uString* Uri)
 // public static generated void add_ReceivedURI(Uno.EventHandler<string> value) [static] :9
 void InterAppInvoke::add_ReceivedURI(uDelegate* value)
 {
+    InterAppInvoke_typeof()->Init();
     InterAppInvoke::ReceivedURI1_ = uCast<uDelegate*>(::g::Uno::Delegate::Combine(InterAppInvoke::ReceivedURI1_, value), ::TYPES[2/*Uno.EventHandler<string>*/]);
 }
 
 // public static generated void remove_ReceivedURI(Uno.EventHandler<string> value) [static] :9
 void InterAppInvoke::remove_ReceivedURI(uDelegate* value)
 {
+    InterAppInvoke_typeof()->Init();
     InterAppInvoke::ReceivedURI1_ = uCast<uDelegate*>(::g::Uno::Delegate::Remove(InterAppInvoke::ReceivedURI1_, value), ::TYPES[2/*Uno.EventHandler<string>*/]);
 }
 // }

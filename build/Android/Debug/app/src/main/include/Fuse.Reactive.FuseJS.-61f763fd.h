@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting.JavaScript/1.4.2/FuseJS/Timer.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting.JavaScript/1.9.0/FuseJS/Timer.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -23,7 +23,7 @@ void TimerModule__Create_fn(TimerModule* __this, ::g::Fuse::Scripting::Context* 
 void TimerModule__Delete_fn(TimerModule* __this, ::g::Fuse::Scripting::Context* context, uArray* args, uObject** __retval);
 void TimerModule__New2_fn(TimerModule** __retval);
 void TimerModule__OnReset_fn(TimerModule* __this, uObject* sender, ::g::Uno::EventArgs* args);
-void TimerModule__UpdateModule_fn(TimerModule* __this);
+void TimerModule__UpdateModule_fn(TimerModule* __this, ::g::Fuse::Scripting::Context* context, bool* __retval);
 
 struct TimerModule : ::g::Fuse::Scripting::NativeModule
 {
@@ -35,7 +35,7 @@ struct TimerModule : ::g::Fuse::Scripting::NativeModule
     uObject* Create(::g::Fuse::Scripting::Context* context, uArray* args);
     uObject* Delete(::g::Fuse::Scripting::Context* context, uArray* args);
     void OnReset(uObject* sender, ::g::Uno::EventArgs* args);
-    void UpdateModule();
+    bool UpdateModule(::g::Fuse::Scripting::Context* context);
     static TimerModule* New2();
 };
 // }

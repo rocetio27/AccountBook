@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Effects/1.4.2/Mask.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Effects/1.9.0/Mask.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -7,6 +7,7 @@
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.Internal.IImageC-c450902.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
@@ -28,7 +29,7 @@ namespace Effects{
 // {
 struct Mask_type : ::g::Fuse::Effects::BasicEffect_type
 {
-    ::g::Fuse::Internal::IImageContainerOwner interface6;
+    ::g::Fuse::Internal::IImageContainerOwner interface7;
 };
 
 Mask_type* Mask_typeof();
@@ -43,7 +44,7 @@ void Mask__OnUnrooted_fn(Mask* __this);
 struct Mask : ::g::Fuse::Effects::BasicEffect
 {
     uStrong< ::g::Fuse::Internal::ImageContainer*> _container;
-    int _mode;
+    int32_t _mode;
     uStrong< ::g::Uno::Graphics::VertexBuffer*> OnRender_VertexData_e56a2f35_7_2_1;
     ::g::Uno::Float4x4 OnRender_LocalTransform_e56a2f35_4_9_2;
     ::g::Uno::Float4x4 OnRender_LocalTransform_e56a2f35_4_9_3;

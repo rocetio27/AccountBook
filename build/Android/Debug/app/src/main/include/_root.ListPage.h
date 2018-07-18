@@ -1,14 +1,15 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/ListPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/ListPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Fuse.Animations.IResize.h>
 #include <Fuse.Binding.h>
-#include <Fuse.Controls.Panel.h>
+#include <Fuse.Controls.Page.h>
 #include <Fuse.Drawing.ISurfaceDrawable.h>
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -23,7 +24,7 @@
 #include <Uno.UX.IPropertyListener.h>
 namespace g{namespace Fuse{namespace Controls{struct Button;}}}
 namespace g{namespace Fuse{namespace Controls{struct Image;}}}
-namespace g{namespace Fuse{namespace Navigation{struct Router;}}}
+namespace g{namespace Fuse{namespace Controls{struct Panel;}}}
 namespace g{namespace Fuse{namespace Reactive{struct EventBinding;}}}
 namespace g{namespace Fuse{struct AlternateRoot;}}
 namespace g{namespace Fuse{struct Font;}}
@@ -38,13 +39,12 @@ namespace g{
 // public partial sealed class ListPage :2
 // {
 ::g::Fuse::Controls::Panel_type* ListPage_typeof();
-void ListPage__ctor_7_fn(ListPage* __this, ::g::Fuse::Navigation::Router* router1);
+void ListPage__ctor_8_fn(ListPage* __this);
 void ListPage__InitializeUX_fn(ListPage* __this);
-void ListPage__New4_fn(::g::Fuse::Navigation::Router* router1, ListPage** __retval);
+void ListPage__New5_fn(ListPage** __retval);
 
-struct ListPage : ::g::Fuse::Controls::Panel
+struct ListPage : ::g::Fuse::Controls::Page
 {
-    uStrong< ::g::Fuse::Navigation::Router*> router;
     uStrong< ::g::Uno::UX::Property1*> temp_Value_inst;
     uStrong< ::g::Uno::UX::Property1*> cash_Color_inst;
     uStrong< ::g::Uno::UX::Property1*> card_Color_inst;
@@ -145,9 +145,9 @@ struct ListPage : ::g::Fuse::Controls::Panel
     static ::g::Uno::UX::Selector __selector16_;
     static ::g::Uno::UX::Selector& __selector16() { return ListPage_typeof()->Init(), __selector16_; }
 
-    void ctor_7(::g::Fuse::Navigation::Router* router1);
+    void ctor_8();
     void InitializeUX();
-    static ListPage* New4(::g::Fuse::Navigation::Router* router1);
+    static ListPage* New5();
 };
 // }
 

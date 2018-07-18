@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing/1.4.2/Internal/BufferCollections.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing/1.9.0/Internal/BufferCollections.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -16,32 +16,32 @@ namespace Internal{
 // public class TypedBuffer :20
 // {
 uType* TypedBuffer_typeof();
-void TypedBuffer__ctor_1_fn(TypedBuffer* __this, int* typeSize1, int* initSize);
+void TypedBuffer__ctor_1_fn(TypedBuffer* __this, int32_t* typeSize1, int32_t* initSize);
 void TypedBuffer__CheckGrow_fn(TypedBuffer* __this);
-void TypedBuffer__Count_fn(TypedBuffer* __this, int* __retval);
+void TypedBuffer__Count_fn(TypedBuffer* __this, int32_t* __retval);
 void TypedBuffer__GetDeviceIndex_fn(TypedBuffer* __this, ::g::Uno::Graphics::IndexBuffer** __retval);
 void TypedBuffer__GetDeviceVertex_fn(TypedBuffer* __this, ::g::Uno::Graphics::VertexBuffer** __retval);
-void TypedBuffer__Init_fn(TypedBuffer* __this, int* initSize);
-void TypedBuffer__InitDeviceIndex_fn(TypedBuffer* __this, int* bu);
-void TypedBuffer__InitDeviceVertex_fn(TypedBuffer* __this, int* bu);
+void TypedBuffer__Init_fn(TypedBuffer* __this, int32_t* initSize);
+void TypedBuffer__InitDeviceIndex_fn(TypedBuffer* __this, int32_t* bu);
+void TypedBuffer__InitDeviceVertex_fn(TypedBuffer* __this, int32_t* bu);
 
 struct TypedBuffer : uObject
 {
     uStrong< ::g::Uno::Buffer*> back;
-    int typeSize;
-    int capacity;
-    int size;
+    int32_t typeSize;
+    int32_t capacity;
+    int32_t size;
     uStrong< ::g::Uno::Graphics::IndexBuffer*> deviceIndex;
     uStrong< ::g::Uno::Graphics::VertexBuffer*> deviceVertex;
 
-    void ctor_1(int typeSize1, int initSize);
+    void ctor_1(int32_t typeSize1, int32_t initSize);
     void CheckGrow();
-    int Count();
+    int32_t Count();
     ::g::Uno::Graphics::IndexBuffer* GetDeviceIndex();
     ::g::Uno::Graphics::VertexBuffer* GetDeviceVertex();
-    void Init(int initSize);
-    void InitDeviceIndex(int bu);
-    void InitDeviceVertex(int bu);
+    void Init(int32_t initSize);
+    void InitDeviceIndex(int32_t bu);
+    void InitDeviceVertex(int32_t bu);
 };
 // }
 

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/IO/StringReader.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/IO/StringReader.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -16,14 +16,14 @@ namespace IO{
 void StringReader__ctor_1_fn(StringReader* __this, uString* text);
 void StringReader__Dispose1_fn(StringReader* __this, bool* disposing);
 void StringReader__New1_fn(uString* text, StringReader** __retval);
-void StringReader__Peek_fn(StringReader* __this, int* __retval);
-void StringReader__Read_fn(StringReader* __this, int* __retval);
+void StringReader__Peek_fn(StringReader* __this, int32_t* __retval);
+void StringReader__Read_fn(StringReader* __this, int32_t* __retval);
 
 struct StringReader : ::g::Uno::IO::TextReader
 {
     uStrong<uString*> _string;
-    int _index;
-    int _length;
+    int32_t _index;
+    int32_t _length;
 
     void ctor_1(uString* text);
     static StringReader* New1(uString* text);

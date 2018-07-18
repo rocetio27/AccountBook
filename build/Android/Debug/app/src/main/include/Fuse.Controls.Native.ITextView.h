@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Native/1.4.2/Interfaces.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Native/1.9.0/Interfaces.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -22,20 +22,20 @@ struct ITextView
     void(*fp_set_Font)(uObject*, ::g::Fuse::Font*);
     void(*fp_set_FontSize)(uObject*, float*);
     void(*fp_set_LineSpacing)(uObject*, float*);
-    void(*fp_set_MaxLength)(uObject*, int*);
-    void(*fp_set_TextAlignment)(uObject*, int*);
+    void(*fp_set_MaxLength)(uObject*, int32_t*);
+    void(*fp_set_TextAlignment)(uObject*, int32_t*);
     void(*fp_set_TextColor)(uObject*, ::g::Uno::Float4*);
-    void(*fp_set_TextTruncation)(uObject*, int*);
-    void(*fp_set_TextWrapping)(uObject*, int*);
+    void(*fp_set_TextTruncation)(uObject*, int32_t*);
+    void(*fp_set_TextWrapping)(uObject*, int32_t*);
     void(*fp_set_Value)(uObject*, uString*);
     static void Font(const uInterface& __this, ::g::Fuse::Font* value) { __this.VTable<ITextView>()->fp_set_Font(__this, value); }
     static void FontSize(const uInterface& __this, float value) { __this.VTable<ITextView>()->fp_set_FontSize(__this, &value); }
     static void LineSpacing(const uInterface& __this, float value) { __this.VTable<ITextView>()->fp_set_LineSpacing(__this, &value); }
-    static void MaxLength(const uInterface& __this, int value) { __this.VTable<ITextView>()->fp_set_MaxLength(__this, &value); }
-    static void TextAlignment(const uInterface& __this, int value) { __this.VTable<ITextView>()->fp_set_TextAlignment(__this, &value); }
+    static void MaxLength(const uInterface& __this, int32_t value) { __this.VTable<ITextView>()->fp_set_MaxLength(__this, &value); }
+    static void TextAlignment(const uInterface& __this, int32_t value) { __this.VTable<ITextView>()->fp_set_TextAlignment(__this, &value); }
     static void TextColor(const uInterface& __this, ::g::Uno::Float4 value);
-    static void TextTruncation(const uInterface& __this, int value) { __this.VTable<ITextView>()->fp_set_TextTruncation(__this, &value); }
-    static void TextWrapping(const uInterface& __this, int value) { __this.VTable<ITextView>()->fp_set_TextWrapping(__this, &value); }
+    static void TextTruncation(const uInterface& __this, int32_t value) { __this.VTable<ITextView>()->fp_set_TextTruncation(__this, &value); }
+    static void TextWrapping(const uInterface& __this, int32_t value) { __this.VTable<ITextView>()->fp_set_TextWrapping(__this, &value); }
     static void Value(const uInterface& __this, uString* value) { __this.VTable<ITextView>()->fp_set_Value(__this, value); }
 };
 

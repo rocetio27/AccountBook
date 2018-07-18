@@ -1,7 +1,7 @@
 // This file was generated based on '(multiple files)'.
 // WARNING: Changes might be lost if you edit this file directly.
 
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.ArgumentException.h>
 #include <Uno.Bool.h>
 #include <Uno.Byte.h>
@@ -13,7 +13,7 @@
 #include <Uno.Collections.List-1.h>
 #include <Uno.Delegate.h>
 #include <Uno.EventArgs.h>
-#include <Uno.EventHandler-1.h>
+#include <Uno.EventHandler1-1.h>
 #include <Uno.Float.h>
 #include <Uno.Float2.h>
 #include <Uno.IDisposable.h>
@@ -37,7 +37,7 @@
 #include <Uno.UX.IPropertyListener.h>
 #include <Uno.UX.NameTable.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.PropertyAccessor.h>
 #include <Uno.UX.PropertyObject.h>
 #include <Uno.UX.Resource.h>
@@ -57,7 +57,7 @@ namespace g{
 namespace Uno{
 namespace UX{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\BundleFileSource.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\BundleFileSource.uno
 // --------------------------------------------------------------------------------------------------------
 
 // public sealed class BundleFileSource :6
@@ -82,7 +82,7 @@ static void BundleFileSource_build(uType* type)
     type = (::g::Uno::UX::FileSource_type*)uClassType::New("Uno.UX.BundleFileSource", options);
     type->fp_build_ = BundleFileSource_build;
     type->fp_Equals = (void(*)(uObject*, uObject*, bool*))BundleFileSource__Equals_fn;
-    type->fp_GetHashCode = (void(*)(uObject*, int*))BundleFileSource__GetHashCode_fn;
+    type->fp_GetHashCode = (void(*)(uObject*, int32_t*))BundleFileSource__GetHashCode_fn;
     type->fp_OpenRead = (void(*)(::g::Uno::UX::FileSource*, ::g::Uno::IO::Stream**))BundleFileSource__OpenRead_fn;
     type->fp_ReadAllBytes = (void(*)(::g::Uno::UX::FileSource*, uArray**))BundleFileSource__ReadAllBytes_fn;
     type->fp_ReadAllText = (void(*)(::g::Uno::UX::FileSource*, uString**))BundleFileSource__ReadAllText_fn;
@@ -107,7 +107,7 @@ void BundleFileSource__Equals_fn(BundleFileSource* __this, uObject* o, bool* __r
 }
 
 // public override sealed int GetHashCode() :44
-void BundleFileSource__GetHashCode_fn(BundleFileSource* __this, int* __retval)
+void BundleFileSource__GetHashCode_fn(BundleFileSource* __this, int32_t* __retval)
 {
     return *__retval = ::g::Uno::Object::GetHashCode(uPtr(__this->BundleFile)), void();
 }
@@ -165,7 +165,7 @@ BundleFileSource* BundleFileSource::New1(::g::Uno::IO::BundleFile* bundleFile)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Set.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Set.uno
 // -------------------------------------------------------------------------------------------
 
 // public delegate T Expression<T>() :6
@@ -179,7 +179,7 @@ uDelegateType* Expression_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\FileSource.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\FileSource.uno
 // --------------------------------------------------------------------------------------------------
 
 // public abstract class FileSource :6
@@ -238,9 +238,9 @@ void FileSource__OnDataChanged_fn(FileSource* __this)
 }
 
 // public static implicit operator Uno.UX.FileSource(Uno.IO.BundleFile bundleFile) :27
-void FileSource__op_Implicit_fn(::g::Uno::IO::BundleFile* bundleFile, FileSource** __retval)
+void FileSource__op_Implicit1_fn(::g::Uno::IO::BundleFile* bundleFile, FileSource** __retval)
 {
-    *__retval = FileSource::op_Implicit(bundleFile);
+    *__retval = FileSource::op_Implicit1(bundleFile);
 }
 
 // public virtual byte[] ReadAllBytes() :34
@@ -282,17 +282,17 @@ void FileSource::OnDataChanged()
     uDelegate* dataChanged = DataChanged1;
 
     if (::g::Uno::Delegate::op_Inequality(dataChanged, NULL))
-        uPtr(dataChanged)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty_);
+        uPtr(dataChanged)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty());
 }
 
 // public static implicit operator Uno.UX.FileSource(Uno.IO.BundleFile bundleFile) [static] :27
-FileSource* FileSource::op_Implicit(::g::Uno::IO::BundleFile* bundleFile)
+FileSource* FileSource::op_Implicit1(::g::Uno::IO::BundleFile* bundleFile)
 {
     return ::g::Uno::UX::BundleFileSource::New1(bundleFile);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\PropertyObject.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\PropertyObject.uno
 // ------------------------------------------------------------------------------------------------------
 
 // public abstract interface IPropertyListener :6
@@ -307,7 +307,7 @@ uInterfaceType* IPropertyListener_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\NameTable.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\NameTable.uno
 // -------------------------------------------------------------------------------------------------
 
 // public sealed class NameTable :5
@@ -443,15 +443,13 @@ NameTable* NameTable::New1(NameTable* parentTable, uArray* entries)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Property.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Property.uno
 // ------------------------------------------------------------------------------------------------
 
 // public abstract class Property :24
 // {
 static void Property_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::Uno::UX::Selector_typeof());
     type->SetFields(0,
         ::g::Uno::UX::Selector_typeof(), offsetof(Property, _name), 0);
 }
@@ -464,13 +462,12 @@ Property_type* Property_typeof()
     uTypeOptions options;
     options.BaseDefinition = ::g::Uno::UX::PropertyAccessor_typeof();
     options.FieldCount = 1;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(Property);
     options.TypeSize = sizeof(Property_type);
     type = (Property_type*)uClassType::New("Uno.UX.Property", options);
     type->fp_build_ = Property_build;
     type->fp_Equals = (void(*)(uObject*, uObject*, bool*))Property__Equals_fn;
-    type->fp_GetHashCode = (void(*)(uObject*, int*))Property__GetHashCode_fn;
+    type->fp_GetHashCode = (void(*)(uObject*, int32_t*))Property__GetHashCode_fn;
     type->fp_get_Name = (void(*)(::g::Uno::UX::PropertyAccessor*, ::g::Uno::UX::Selector*))Property__get_Name_fn;
     return type;
 }
@@ -505,7 +502,7 @@ void Property__GetAsObject1_fn(Property* __this, uObject** __retval)
 }
 
 // public override sealed int GetHashCode() :57
-void Property__GetHashCode_fn(Property* __this, int* __retval)
+void Property__GetHashCode_fn(Property* __this, int32_t* __retval)
 {
     return *__retval = ::g::Uno::Object::GetHashCode(uPtr(__this->Object())) ^ __this->Name().Handle(), void();
 }
@@ -563,7 +560,7 @@ void Property::SetAsObject1(uObject* value, uObject* origin)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Property.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Property.uno
 // ------------------------------------------------------------------------------------------------
 
 // public abstract class Property<T> :66
@@ -655,7 +652,7 @@ void Property1::ctor_2(::g::Uno::UX::Selector name)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Property.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Property.uno
 // ------------------------------------------------------------------------------------------------
 
 // public abstract class PropertyAccessor :15
@@ -665,8 +662,6 @@ static void PropertyAccessor_build(uType* type)
     ::STRINGS[2] = uString::Const("Property '");
     ::STRINGS[3] = uString::Const("' cannot be read.");
     ::STRINGS[4] = uString::Const("' cannot be written to.");
-    type->SetDependencies(
-        ::g::Uno::UX::Selector_typeof());
 }
 
 PropertyAccessor_type* PropertyAccessor_typeof()
@@ -675,7 +670,6 @@ PropertyAccessor_type* PropertyAccessor_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(PropertyAccessor);
     options.TypeSize = sizeof(PropertyAccessor_type);
     type = (PropertyAccessor_type*)uClassType::New("Uno.UX.PropertyAccessor", options);
@@ -695,13 +689,13 @@ void PropertyAccessor__ctor__fn(PropertyAccessor* __this)
 // public virtual object GetAsObject(Uno.UX.PropertyObject obj) :21
 void PropertyAccessor__GetAsObject_fn(PropertyAccessor* __this, ::g::Uno::UX::PropertyObject* obj, uObject** __retval)
 {
-    U_THROW(::g::Uno::NotSupportedException::New5(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[2/*"Property '"*/], ::g::Uno::UX::Selector__op_Implicit1(__this->Name())), ::STRINGS[3/*"' cannot be...*/])));
+    U_THROW(::g::Uno::NotSupportedException::New5(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[2/*"Property '"*/], ::g::Uno::UX::Selector__op_Implicit2(__this->Name())), ::STRINGS[3/*"' cannot be...*/])));
 }
 
 // public virtual void SetAsObject(Uno.UX.PropertyObject obj, object value, Uno.UX.IPropertyListener origin) :20
 void PropertyAccessor__SetAsObject_fn(PropertyAccessor* __this, ::g::Uno::UX::PropertyObject* obj, uObject* value, uObject* origin)
 {
-    U_THROW(::g::Uno::NotSupportedException::New5(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[2/*"Property '"*/], ::g::Uno::UX::Selector__op_Implicit1(__this->Name())), ::STRINGS[4/*"' cannot be...*/])));
+    U_THROW(::g::Uno::NotSupportedException::New5(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[2/*"Property '"*/], ::g::Uno::UX::Selector__op_Implicit2(__this->Name())), ::STRINGS[4/*"' cannot be...*/])));
 }
 
 // public virtual bool get_SupportsOriginSetter() :19
@@ -716,7 +710,7 @@ void PropertyAccessor::ctor_()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\PropertyObject.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\PropertyObject.uno
 // ------------------------------------------------------------------------------------------------------
 
 // public class PropertyObject :11
@@ -801,9 +795,9 @@ void PropertyObject::OnPropertyChanged1(::g::Uno::UX::Selector property, uObject
 
     if (_propListeners != NULL)
 
-        for (int i = 0; i < uPtr(_propListeners)->Count(); i++)
+        for (int32_t i = 0; i < uPtr(_propListeners)->Count(); i++)
         {
-            uObject* listener = (::g::Uno::Collections::List__get_Item_fn(uPtr(_propListeners), uCRef<int>(i), &ret3), ret3);
+            uObject* listener = (::g::Uno::Collections::List__get_Item_fn(uPtr(_propListeners), uCRef<int32_t>(i), &ret3), ret3);
 
             if (listener != origin)
                 ::g::Uno::UX::IPropertyListener::OnPropertyChanged(uInterface(uPtr(listener), ::TYPES[7/*Uno.UX.IPropertyListener*/]), this, property_);
@@ -821,7 +815,7 @@ void PropertyObject::RemovePropertyListener(uObject* listener)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Resource.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Resource.uno
 // ------------------------------------------------------------------------------------------------
 
 // public sealed class Resource :68
@@ -976,79 +970,96 @@ void Resource::Value(uObject* value)
 // public static void AddGlobalKeyListener(Uno.Action<string> listener) [static] :88
 void Resource::AddGlobalKeyListener(uDelegate* listener)
 {
+    Resource_typeof()->Init();
     ::g::Uno::Threading::Monitor::Enter(Resource::_listeners_);
 
-    try
     {
+        try
         {
-            ::g::Uno::Collections::List__Add_fn(uPtr(Resource::_listeners_), listener);
+            {
+                ::g::Uno::Collections::List__Add_fn(uPtr(Resource::_listeners_), listener);
+            }
         }
-        {
-            ::g::Uno::Threading::Monitor::Exit(Resource::_listeners_);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::Threading::Monitor::Exit(Resource::_listeners_);
+            }
+                        throw __t;
+            goto __after_finally_0;
+        }
+
         {
             ::g::Uno::Threading::Monitor::Exit(Resource::_listeners_);
         }
-                throw __t;
+        __after_finally_0:;
     }
 }
 
 // public static string GetGlobalKey(object obj) [static] :138
 uString* Resource::GetGlobalKey(uObject* obj)
 {
+    Resource_typeof()->Init();
     ::g::Uno::Collections::Dictionary__Enumerator<uStrong<uString*>, uStrong< ::g::Uno::Collections::List*> > ret6;
     bool ret7;
     ::g::Uno::Threading::Monitor::Enter(Resource::_globals_);
 
-    try
     {
+        try
         {
-            ::g::Uno::Collections::Dictionary__Enumerator<uStrong<uString*>, uStrong< ::g::Uno::Collections::List*> > enum4 = (::g::Uno::Collections::Dictionary__GetEnumerator_fn(uPtr(Resource::_globals_), &ret6), ret6);
-
-            try
             {
-                {
-                    while (enum4.MoveNext(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]))
-                    {
-                        ::g::Uno::Collections::KeyValuePair<uStrong<uString*>, uStrong< ::g::Uno::Collections::List*> > list = enum4.Current(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
+                ::g::Uno::Collections::Dictionary__Enumerator<uStrong<uString*>, uStrong< ::g::Uno::Collections::List*> > enum4 = (::g::Uno::Collections::Dictionary__GetEnumerator_fn(uPtr(Resource::_globals_), &ret6), ret6);
 
-                        if ((::g::Uno::Collections::List__Contains_fn(uPtr(list.Value(::TYPES[11/*Uno.Collections.KeyValuePair<string, Uno.Collections.List<object>>*/])), obj, &ret7), ret7))
+                {
+                    try
+                    {
                         {
-                            uString* __uno_retval = list.Key(::TYPES[11/*Uno.Collections.KeyValuePair<string, Uno.Collections.List<object>>*/]);
-                            ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
-                            enum4.Dispose(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
-                            return __uno_retval;
+                            while (enum4.MoveNext(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]))
+                            {
+                                ::g::Uno::Collections::KeyValuePair<uStrong<uString*>, uStrong< ::g::Uno::Collections::List*> > list = enum4.Current(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
+
+                                if ((::g::Uno::Collections::List__Contains_fn(uPtr(list.Value(::TYPES[11/*Uno.Collections.KeyValuePair<string, Uno.Collections.List<object>>*/])), obj, &ret7), ret7))
+                                {
+                                    uString* __uno_retval = list.Key(::TYPES[11/*Uno.Collections.KeyValuePair<string, Uno.Collections.List<object>>*/]);
+                                    ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
+                                    enum4.Dispose(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
+                                    return __uno_retval;
+                                }
+                            }
                         }
                     }
-                }
-                {
-                    enum4.Dispose(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
+
+                    catch (const uThrowable& __t)
+                    {
+                        {
+                            enum4.Dispose(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
+                        }
+                                                throw __t;
+                        goto __after_finally_1;
+                    }
+
+                    {
+                        enum4.Dispose(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
+                    }
+                    __after_finally_1:;
                 }
             }
+        }
 
-            catch (const uThrowable& __t)
+        catch (const uThrowable& __t)
+        {
             {
-                {
-                    enum4.Dispose(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
-                }
-                                throw __t;
+                ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
             }
+                        throw __t;
+            goto __after_finally_2;
         }
-        {
-            ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
         {
             ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
         }
-                throw __t;
+        __after_finally_2:;
     }
 
     return NULL;
@@ -1060,57 +1071,68 @@ uObject* Resource::GetGlobalsOfType(uType* __type)
     uType* __types[] = {
         __type->Precalced(0/*Uno.Collections.List<T>*/),
     };
+    __type->Base->Init();
     ::g::Uno::Collections::Dictionary__Enumerator<uStrong<uString*>, uStrong< ::g::Uno::Collections::List*> > ret8;
     uObject* ret9;
     ::g::Uno::Collections::List* result = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(__types[0]);
     ::g::Uno::Threading::Monitor::Enter(Resource::_globals_);
 
-    try
     {
+        try
         {
-            ::g::Uno::Collections::Dictionary__Enumerator<uStrong<uString*>, uStrong< ::g::Uno::Collections::List*> > enum1 = (::g::Uno::Collections::Dictionary__GetEnumerator_fn(uPtr(Resource::_globals_), &ret8), ret8);
-
-            try
             {
+                ::g::Uno::Collections::Dictionary__Enumerator<uStrong<uString*>, uStrong< ::g::Uno::Collections::List*> > enum1 = (::g::Uno::Collections::Dictionary__GetEnumerator_fn(uPtr(Resource::_globals_), &ret8), ret8);
+
                 {
-                    while (enum1.MoveNext(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]))
+                    try
                     {
-                        ::g::Uno::Collections::KeyValuePair<uStrong<uString*>, uStrong< ::g::Uno::Collections::List*> > entry = enum1.Current(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
-                        ::g::Uno::Collections::List* list = entry.Value(::TYPES[11/*Uno.Collections.KeyValuePair<string, Uno.Collections.List<object>>*/]);
-
-                        for (int i = uPtr(list)->Count(); (i--) > 0; )
                         {
-                            uObject* v = (::g::Uno::Collections::List__get_Item_fn(uPtr(list), uCRef<int>(i), &ret9), ret9);
+                            while (enum1.MoveNext(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]))
+                            {
+                                ::g::Uno::Collections::KeyValuePair<uStrong<uString*>, uStrong< ::g::Uno::Collections::List*> > entry = enum1.Current(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
+                                ::g::Uno::Collections::List* list = entry.Value(::TYPES[11/*Uno.Collections.KeyValuePair<string, Uno.Collections.List<object>>*/]);
 
-                            if (uIs(v, __type->U(0)))
-                                ::g::Uno::Collections::List__Add_fn(uPtr(result), uUnboxAny(__type->U(0), v));
+                                for (int32_t i = uPtr(list)->Count(); (i--) > 0; )
+                                {
+                                    uObject* v = (::g::Uno::Collections::List__get_Item_fn(uPtr(list), uCRef<int32_t>(i), &ret9), ret9);
+
+                                    if (uIs(v, __type->U(0)))
+                                        ::g::Uno::Collections::List__Add_fn(uPtr(result), uUnboxAny(__type->U(0), v));
+                                }
+                            }
                         }
                     }
-                }
-                {
-                    enum1.Dispose(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
+
+                    catch (const uThrowable& __t)
+                    {
+                        {
+                            enum1.Dispose(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
+                        }
+                                                throw __t;
+                        goto __after_finally_3;
+                    }
+
+                    {
+                        enum1.Dispose(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
+                    }
+                    __after_finally_3:;
                 }
             }
+        }
 
-            catch (const uThrowable& __t)
+        catch (const uThrowable& __t)
+        {
             {
-                {
-                    enum1.Dispose(::TYPES[10/*Uno.Collections.Dictionary<string, Uno.Collections.List<object>>.Enumerator*/]);
-                }
-                                throw __t;
+                ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
             }
+                        throw __t;
+            goto __after_finally_4;
         }
-        {
-            ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
         {
             ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
         }
-                throw __t;
+        __after_finally_4:;
     }
 
     return (uObject*)result;
@@ -1127,84 +1149,101 @@ Resource* Resource::New1(uString* key, uObject* value)
 // public static void RemoveGlobalKeyListener(Uno.Action<string> listener) [static] :98
 void Resource::RemoveGlobalKeyListener(uDelegate* listener)
 {
+    Resource_typeof()->Init();
     bool ret10;
     ::g::Uno::Threading::Monitor::Enter(Resource::_listeners_);
 
-    try
     {
+        try
         {
-            ::g::Uno::Collections::List__Remove_fn(uPtr(Resource::_listeners_), listener, &ret10);
+            {
+                ::g::Uno::Collections::List__Remove_fn(uPtr(Resource::_listeners_), listener, &ret10);
+            }
         }
-        {
-            ::g::Uno::Threading::Monitor::Exit(Resource::_listeners_);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::Threading::Monitor::Exit(Resource::_listeners_);
+            }
+                        throw __t;
+            goto __after_finally_5;
+        }
+
         {
             ::g::Uno::Threading::Monitor::Exit(Resource::_listeners_);
         }
-                throw __t;
+        __after_finally_5:;
     }
 }
 
 // public static void SetGlobalKey(object obj, string key) [static] :115
 void Resource::SetGlobalKey(uObject* obj, uString* key)
 {
+    Resource_typeof()->Init();
     bool ret11;
     bool ret12;
     ::g::Uno::Threading::Monitor::Enter(Resource::_globals_);
 
-    try
     {
+        try
         {
-            ::g::Uno::Collections::List* objs;
-
-            if (!(::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(Resource::_globals_), key, (void**)(&objs), &ret11), ret11))
             {
-                objs = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[3/*Uno.Collections.List<object>*/]);
-                ::g::Uno::Collections::Dictionary__Add_fn(uPtr(Resource::_globals_), key, objs);
+                ::g::Uno::Collections::List* objs;
+
+                if (!(::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(Resource::_globals_), key, (void**)(&objs), &ret11), ret11))
+                {
+                    objs = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[3/*Uno.Collections.List<object>*/]);
+                    ::g::Uno::Collections::Dictionary__Add_fn(uPtr(Resource::_globals_), key, objs);
+                }
+
+                if (!(::g::Uno::Collections::List__Contains_fn(uPtr(objs), obj, &ret12), ret12))
+                    ::g::Uno::Collections::List__Add_fn(uPtr(objs), obj);
             }
-
-            if (!(::g::Uno::Collections::List__Contains_fn(uPtr(objs), obj, &ret12), ret12))
-                ::g::Uno::Collections::List__Add_fn(uPtr(objs), obj);
         }
+
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
+            }
+                        throw __t;
+            goto __after_finally_6;
+        }
+
         {
             ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
         }
-    }
-
-    catch (const uThrowable& __t)
-    {
-        {
-            ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
-        }
-                throw __t;
+        __after_finally_6:;
     }
 
     uArray* listeners = NULL;
     ::g::Uno::Threading::Monitor::Enter(Resource::_listeners_);
 
-    try
     {
+        try
         {
-            listeners = (uArray*)uPtr(Resource::_listeners_)->ToArray();
+            {
+                listeners = (uArray*)uPtr(Resource::_listeners_)->ToArray();
+            }
         }
+
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::Threading::Monitor::Exit(Resource::_listeners_);
+            }
+                        throw __t;
+            goto __after_finally_7;
+        }
+
         {
             ::g::Uno::Threading::Monitor::Exit(Resource::_listeners_);
         }
+        __after_finally_7:;
     }
 
-    catch (const uThrowable& __t)
-    {
-        {
-            ::g::Uno::Threading::Monitor::Exit(Resource::_listeners_);
-        }
-                throw __t;
-    }
-
-    for (int index2 = 0, length3 = uPtr(listeners)->Length(); index2 < length3; ++index2)
+    for (int32_t index2 = 0, length3 = uPtr(listeners)->Length(); index2 < length3; ++index2)
     {
         uDelegate* listener = uPtr(listeners)->Strong<uDelegate*>(index2);
         uPtr(listener)->InvokeVoid(key);
@@ -1214,41 +1253,47 @@ void Resource::SetGlobalKey(uObject* obj, uString* key)
 // public static bool TryFindGlobal(string key, Uno.Predicate<object> acceptor, object& res) [static] :171
 bool Resource::TryFindGlobal(uString* key, uDelegate* acceptor, uObject** res)
 {
+    Resource_typeof()->Init();
     bool ret13;
     uObject* ret14;
     bool ret15;
     ::g::Uno::Collections::List* list;
     ::g::Uno::Threading::Monitor::Enter(Resource::_globals_);
 
-    try
     {
+        try
         {
-            if ((::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(Resource::_globals_), key, (void**)(&list), &ret13), ret13))
+            {
+                if ((::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(Resource::_globals_), key, (void**)(&list), &ret13), ret13))
 
-                for (int i = uPtr(list)->Count(); (i--) > 0; )
-                {
-                    uObject* v = (::g::Uno::Collections::List__get_Item_fn(uPtr(list), uCRef<int>(i), &ret14), ret14);
-
-                    if (::g::Uno::Delegate::op_Equality(acceptor, NULL) || (uPtr(acceptor)->Invoke(&ret15, 1, v), ret15))
+                    for (int32_t i = uPtr(list)->Count(); (i--) > 0; )
                     {
-                        *res = v;
-                        bool __uno_retval = true;
-                        ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
-                        return __uno_retval;
-                    }
-                }
-        }
-        {
-            ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
-        }
-    }
+                        uObject* v = (::g::Uno::Collections::List__get_Item_fn(uPtr(list), uCRef<int32_t>(i), &ret14), ret14);
 
-    catch (const uThrowable& __t)
-    {
+                        if (::g::Uno::Delegate::op_Equality(acceptor, NULL) || (uPtr(acceptor)->Invoke(&ret15, 1, v), ret15))
+                        {
+                            *res = v;
+                            bool __uno_retval = true;
+                            ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
+                            return __uno_retval;
+                        }
+                    }
+            }
+        }
+
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
+            }
+                        throw __t;
+            goto __after_finally_8;
+        }
+
         {
             ::g::Uno::Threading::Monitor::Exit(Resource::_globals_);
         }
-                throw __t;
+        __after_finally_8:;
     }
 
     *res = NULL;
@@ -1256,7 +1301,7 @@ bool Resource::TryFindGlobal(uString* key, uDelegate* acceptor, uObject** res)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Selector.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Selector.uno
 // ------------------------------------------------------------------------------------------------
 
 // public struct Selector :38
@@ -1284,7 +1329,7 @@ uStructType* Selector_typeof()
     type = uStructType::New("Uno.UX.Selector", options);
     type->fp_build_ = Selector_build;
     type->fp_Equals_struct = (void(*)(void*, uType*, uObject*, bool*))Selector__Equals_fn;
-    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int*))Selector__GetHashCode_fn;
+    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int32_t*))Selector__GetHashCode_fn;
     type->fp_ToString_struct = (void(*)(void*, uType*, uString**))Selector__ToString_fn;
     return type;
 }
@@ -1313,13 +1358,13 @@ void Selector__Equals_fn(Selector* __this, uType* __type, uObject* obj, bool* __
 }
 
 // public override sealed int GetHashCode() :56
-void Selector__GetHashCode_fn(Selector* __this, uType* __type, int* __retval)
+void Selector__GetHashCode_fn(Selector* __this, uType* __type, int32_t* __retval)
 {
     return *__retval = __this->_handle, void();
 }
 
 // internal int get_Handle() :43
-void Selector__get_Handle_fn(Selector* __this, int* __retval)
+void Selector__get_Handle_fn(Selector* __this, int32_t* __retval)
 {
     *__retval = __this->Handle();
 }
@@ -1343,15 +1388,15 @@ void Selector__op_Equality_fn(Selector* a, Selector* b, bool* __retval)
 }
 
 // public static implicit operator Uno.UX.Selector(string s) :78
-void Selector__op_Implicit_fn(uString* s, Selector* __retval)
+void Selector__op_Implicit1_fn(uString* s, Selector* __retval)
 {
-    *__retval = Selector__op_Implicit(s);
+    *__retval = Selector__op_Implicit1(s);
 }
 
 // public static implicit operator string(Uno.UX.Selector s) :83
-void Selector__op_Implicit1_fn(Selector* s, uString** __retval)
+void Selector__op_Implicit2_fn(Selector* s, uString** __retval)
 {
-    *__retval = Selector__op_Implicit1(*s);
+    *__retval = Selector__op_Implicit2(*s);
 }
 
 // public static operator !=(Uno.UX.Selector a, Uno.UX.Selector b) :93
@@ -1376,7 +1421,7 @@ void Selector::ctor_(uString* value)
 }
 
 // internal int get_Handle() [instance] :43
-int Selector::Handle()
+int32_t Selector::Handle()
 {
     return _handle;
 }
@@ -1402,13 +1447,13 @@ bool Selector__op_Equality(Selector a, Selector b)
 }
 
 // public static implicit operator Uno.UX.Selector(string s) [static] :78
-Selector Selector__op_Implicit(uString* s)
+Selector Selector__op_Implicit1(uString* s)
 {
     return Selector__New1(s);
 }
 
 // public static implicit operator string(Uno.UX.Selector s) [static] :83
-uString* Selector__op_Implicit1(Selector s)
+uString* Selector__op_Implicit2(Selector s)
 {
     return s.ToString(Selector_typeof());
 }
@@ -1420,7 +1465,7 @@ bool Selector__op_Inequality(Selector a, Selector b)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Selector.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Selector.uno
 // ------------------------------------------------------------------------------------------------
 
 // internal static class SelectorRegistry :7
@@ -1460,13 +1505,13 @@ uClassType* SelectorRegistry_typeof()
 }
 
 // internal static int GetHandle(string value) :14
-void SelectorRegistry__GetHandle_fn(uString* value, int* __retval)
+void SelectorRegistry__GetHandle_fn(uString* value, int32_t* __retval)
 {
     *__retval = SelectorRegistry::GetHandle(value);
 }
 
 // public static string GetValue(int handle) :29
-void SelectorRegistry__GetValue_fn(int* handle, uString** __retval)
+void SelectorRegistry__GetValue_fn(int32_t* handle, uString** __retval)
 {
     *__retval = SelectorRegistry::GetValue(*handle);
 }
@@ -1474,73 +1519,85 @@ void SelectorRegistry__GetValue_fn(int* handle, uString** __retval)
 uSStrong<uObject*> SelectorRegistry::_mutex_;
 uSStrong< ::g::Uno::Collections::Dictionary*> SelectorRegistry::_stringToHandle_;
 uSStrong< ::g::Uno::Collections::Dictionary*> SelectorRegistry::_handleToString_;
-int SelectorRegistry::_counter_;
+int32_t SelectorRegistry::_counter_;
 
 // internal static int GetHandle(string value) [static] :14
-int SelectorRegistry::GetHandle(uString* value)
+int32_t SelectorRegistry::GetHandle(uString* value)
 {
+    SelectorRegistry_typeof()->Init();
     bool ret1;
     ::g::Uno::Threading::Monitor::Enter(SelectorRegistry::_mutex_);
 
-    try
     {
+        try
         {
-            int handle;
-
-            if (!(::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(SelectorRegistry::_stringToHandle_), value, &handle, &ret1), ret1))
             {
-                handle = SelectorRegistry::_counter_++;
-                ::g::Uno::Collections::Dictionary__Add_fn(uPtr(SelectorRegistry::_stringToHandle_), value, uCRef<int>(handle));
-                ::g::Uno::Collections::Dictionary__Add_fn(uPtr(SelectorRegistry::_handleToString_), uCRef<int>(handle), value);
+                int32_t handle;
+
+                if (!(::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(SelectorRegistry::_stringToHandle_), value, &handle, &ret1), ret1))
+                {
+                    handle = SelectorRegistry::_counter_++;
+                    ::g::Uno::Collections::Dictionary__Add_fn(uPtr(SelectorRegistry::_stringToHandle_), value, uCRef<int32_t>(handle));
+                    ::g::Uno::Collections::Dictionary__Add_fn(uPtr(SelectorRegistry::_handleToString_), uCRef<int32_t>(handle), value);
+                }
+
+                int32_t __uno_retval = handle;
+                ::g::Uno::Threading::Monitor::Exit(SelectorRegistry::_mutex_);
+                return __uno_retval;
             }
-
-            int __uno_retval = handle;
-            ::g::Uno::Threading::Monitor::Exit(SelectorRegistry::_mutex_);
-            return __uno_retval;
         }
+
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::Threading::Monitor::Exit(SelectorRegistry::_mutex_);
+            }
+                        throw __t;
+            goto __after_finally_9;
+        }
+
         {
             ::g::Uno::Threading::Monitor::Exit(SelectorRegistry::_mutex_);
         }
-    }
-
-    catch (const uThrowable& __t)
-    {
-        {
-            ::g::Uno::Threading::Monitor::Exit(SelectorRegistry::_mutex_);
-        }
-                throw __t;
+        __after_finally_9:;
     }
 }
 
 // public static string GetValue(int handle) [static] :29
-uString* SelectorRegistry::GetValue(int handle)
+uString* SelectorRegistry::GetValue(int32_t handle)
 {
+    SelectorRegistry_typeof()->Init();
     uString* ret2;
     ::g::Uno::Threading::Monitor::Enter(SelectorRegistry::_mutex_);
 
-    try
     {
+        try
         {
-            uString* __uno_retval = (::g::Uno::Collections::Dictionary__get_Item_fn(uPtr(SelectorRegistry::_handleToString_), uCRef<int>(handle), &ret2), ret2);
-            ::g::Uno::Threading::Monitor::Exit(SelectorRegistry::_mutex_);
-            return __uno_retval;
+            {
+                uString* __uno_retval = (::g::Uno::Collections::Dictionary__get_Item_fn(uPtr(SelectorRegistry::_handleToString_), uCRef<int32_t>(handle), &ret2), ret2);
+                ::g::Uno::Threading::Monitor::Exit(SelectorRegistry::_mutex_);
+                return __uno_retval;
+            }
         }
-        {
-            ::g::Uno::Threading::Monitor::Exit(SelectorRegistry::_mutex_);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::Threading::Monitor::Exit(SelectorRegistry::_mutex_);
+            }
+                        throw __t;
+            goto __after_finally_10;
+        }
+
         {
             ::g::Uno::Threading::Monitor::Exit(SelectorRegistry::_mutex_);
         }
-                throw __t;
+        __after_finally_10:;
     }
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Size.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Size.uno
 // --------------------------------------------------------------------------------------------
 
 // public struct Size :29
@@ -1574,13 +1631,13 @@ uStructType* Size_typeof()
     type = uStructType::New("Uno.UX.Size", options);
     type->fp_build_ = Size_build;
     type->fp_Equals_struct = (void(*)(void*, uType*, uObject*, bool*))Size__Equals_fn;
-    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int*))Size__GetHashCode_fn;
+    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int32_t*))Size__GetHashCode_fn;
     type->fp_ToString_struct = (void(*)(void*, uType*, uString**))Size__ToString_fn;
     return type;
 }
 
 // public Size(float value, Uno.UX.Unit unit) :34
-void Size__ctor__fn(Size* __this, float* value, int* unit)
+void Size__ctor__fn(Size* __this, float* value, int32_t* unit)
 {
     __this->ctor_(*value, *unit);
 }
@@ -1592,13 +1649,13 @@ void Size__get_Auto_fn(Size* __retval)
 }
 
 // public static Uno.UX.Unit Combine(Uno.UX.Unit a, Uno.UX.Unit b) :55
-void Size__Combine_fn(int* a, int* b, int* __retval)
+void Size__Combine_fn(int32_t* a, int32_t* b, int32_t* __retval)
 {
     *__retval = Size::Combine(*a, *b);
 }
 
 // public Uno.UX.Unit DetermineUnit() :63
-void Size__DetermineUnit_fn(Size* __this, int* __retval)
+void Size__DetermineUnit_fn(Size* __this, int32_t* __retval)
 {
     *__retval = __this->DetermineUnit();
 }
@@ -1635,7 +1692,7 @@ void Size__Equals_fn(Size* __this, uType* __type, uObject* obj, bool* __retval)
 }
 
 // public override sealed int GetHashCode() :160
-void Size__GetHashCode_fn(Size* __this, uType* __type, int* __retval)
+void Size__GetHashCode_fn(Size* __this, uType* __type, int32_t* __retval)
 {
     float ind7;
     return *__retval = ::g::Uno::Float::GetHashCode((ind7 = __this->Value, ind7), ::TYPES[16/*float*/]), void();
@@ -1648,7 +1705,7 @@ void Size__get_IsAuto_fn(Size* __this, bool* __retval)
 }
 
 // public Size New(float value, Uno.UX.Unit unit) :34
-void Size__New1_fn(float* value, int* unit, Size* __retval)
+void Size__New1_fn(float* value, int32_t* unit, Size* __retval)
 {
     *__retval = Size__New1(*value, *unit);
 }
@@ -1665,12 +1722,6 @@ void Size__op_Division1_fn(Size* a, Size* b, Size* __retval)
     *__retval = Size__op_Division1(*a, *b);
 }
 
-// public static operator ==(Uno.UX.Size a, Uno.UX.Size b) :99
-void Size__op_Equality_fn(Size* a, Size* b, bool* __retval)
-{
-    *__retval = Size__op_Equality(*a, *b);
-}
-
 // public static explicit operator float(Uno.UX.Size s) :50
 void Size__op_Explicit1_fn(Size* s, float* __retval)
 {
@@ -1678,15 +1729,15 @@ void Size__op_Explicit1_fn(Size* s, float* __retval)
 }
 
 // public static implicit operator Uno.UX.Size(float unspecifiedUnits) :40
-void Size__op_Implicit_fn(float* unspecifiedUnits, Size* __retval)
+void Size__op_Implicit1_fn(float* unspecifiedUnits, Size* __retval)
 {
-    *__retval = Size__op_Implicit(*unspecifiedUnits);
+    *__retval = Size__op_Implicit1(*unspecifiedUnits);
 }
 
 // public static implicit operator Uno.UX.Size(int unspecifiedUnits) :45
-void Size__op_Implicit1_fn(int* unspecifiedUnits, Size* __retval)
+void Size__op_Implicit2_fn(int32_t* unspecifiedUnits, Size* __retval)
 {
-    *__retval = Size__op_Implicit1(*unspecifiedUnits);
+    *__retval = Size__op_Implicit2(*unspecifiedUnits);
 }
 
 // public static operator !=(Uno.UX.Size a, Uno.UX.Size b) :104
@@ -1721,7 +1772,7 @@ void Size__ToString_fn(Size* __this, uType* __type, uString** __retval)
     float ind3;
     float ind4;
     float ind5;
-    int ind6;
+    int32_t ind6;
 
     switch (__this->Unit)
     {
@@ -1741,14 +1792,14 @@ void Size__ToString_fn(Size* __this, uType* __type, uString** __retval)
 }
 
 // public Size(float value, Uno.UX.Unit unit) [instance] :34
-void Size::ctor_(float value, int unit)
+void Size::ctor_(float value, int32_t unit)
 {
     Value = value;
     Unit = unit;
 }
 
 // public Uno.UX.Unit DetermineUnit() [instance] :63
-int Size::DetermineUnit()
+int32_t Size::DetermineUnit()
 {
     if (Unit == 1)
         return 2;
@@ -1763,7 +1814,7 @@ bool Size::IsAuto()
 }
 
 // public static Uno.UX.Unit Combine(Uno.UX.Unit a, Uno.UX.Unit b) [static] :55
-int Size::Combine(int a, int b)
+int32_t Size::Combine(int32_t a, int32_t b)
 {
     if (a == b)
         return a;
@@ -1778,7 +1829,7 @@ int Size::Combine(int a, int b)
 }
 
 // public Size New(float value, Uno.UX.Unit unit) [static] :34
-Size Size__New1(float value, int unit)
+Size Size__New1(float value, int32_t unit)
 {
     Size obj8;
     obj8.ctor_(value, unit);
@@ -1797,12 +1848,6 @@ Size Size__op_Division1(Size a, Size b)
     return Size__New1(a.Value / b.Value, Size::Combine(a.Unit, b.Unit));
 }
 
-// public static operator ==(Uno.UX.Size a, Uno.UX.Size b) [static] :99
-bool Size__op_Equality(Size a, Size b)
-{
-    return (a.Value == b.Value) && (a.Unit == b.Unit);
-}
-
 // public static explicit operator float(Uno.UX.Size s) [static] :50
 float Size__op_Explicit1(Size s)
 {
@@ -1810,13 +1855,13 @@ float Size__op_Explicit1(Size s)
 }
 
 // public static implicit operator Uno.UX.Size(float unspecifiedUnits) [static] :40
-Size Size__op_Implicit(float unspecifiedUnits)
+Size Size__op_Implicit1(float unspecifiedUnits)
 {
     return Size__New1(unspecifiedUnits, 1);
 }
 
 // public static implicit operator Uno.UX.Size(int unspecifiedUnits) [static] :45
-Size Size__op_Implicit1(int unspecifiedUnits)
+Size Size__op_Implicit2(int32_t unspecifiedUnits)
 {
     return Size__New1((float)unspecifiedUnits, 1);
 }
@@ -1852,7 +1897,7 @@ Size Size__Auto()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Size.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Size.uno
 // --------------------------------------------------------------------------------------------
 
 // public struct Size2 :178
@@ -1879,7 +1924,7 @@ uStructType* Size2_typeof()
     type = uStructType::New("Uno.UX.Size2", options);
     type->fp_build_ = Size2_build;
     type->fp_Equals_struct = (void(*)(void*, uType*, uObject*, bool*))Size2__Equals_fn;
-    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int*))Size2__GetHashCode_fn;
+    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int32_t*))Size2__GetHashCode_fn;
     type->fp_ToString_struct = (void(*)(void*, uType*, uString**))Size2__ToString_fn;
     return type;
 }
@@ -1916,7 +1961,7 @@ void Size2__Equals_fn(Size2* __this, uType* __type, uObject* obj, bool* __retval
 }
 
 // public override sealed int GetHashCode() :283
-void Size2__GetHashCode_fn(Size2* __this, uType* __type, int* __retval)
+void Size2__GetHashCode_fn(Size2* __this, uType* __type, int32_t* __retval)
 {
     ::g::Uno::UX::Size ind3;
     ::g::Uno::UX::Size ind4;
@@ -1941,12 +1986,6 @@ void Size2__op_Division1_fn(Size2* a, Size2* b, Size2* __retval)
     *__retval = Size2__op_Division1(*a, *b);
 }
 
-// public static operator ==(Uno.UX.Size2 a, Uno.UX.Size2 b) :236
-void Size2__op_Equality_fn(Size2* a, Size2* b, bool* __retval)
-{
-    *__retval = Size2__op_Equality(*a, *b);
-}
-
 // public static explicit operator float2(Uno.UX.Size2 v) :199
 void Size2__op_Explicit1_fn(Size2* v, ::g::Uno::Float2* __retval)
 {
@@ -1954,9 +1993,9 @@ void Size2__op_Explicit1_fn(Size2* v, ::g::Uno::Float2* __retval)
 }
 
 // public static implicit operator Uno.UX.Size2(float2 unspecifiedUnitsVector) :189
-void Size2__op_Implicit1_fn(::g::Uno::Float2* unspecifiedUnitsVector, Size2* __retval)
+void Size2__op_Implicit2_fn(::g::Uno::Float2* unspecifiedUnitsVector, Size2* __retval)
 {
-    *__retval = Size2__op_Implicit1(*unspecifiedUnitsVector);
+    *__retval = Size2__op_Implicit2(*unspecifiedUnitsVector);
 }
 
 // public static operator !=(Uno.UX.Size2 a, Uno.UX.Size2 b) :241
@@ -2018,12 +2057,6 @@ Size2 Size2__op_Division1(Size2 a, Size2 b)
     return Size2__New1(::g::Uno::UX::Size__op_Division1(a.X, b.X), ::g::Uno::UX::Size__op_Division1(a.Y, b.Y));
 }
 
-// public static operator ==(Uno.UX.Size2 a, Uno.UX.Size2 b) [static] :236
-bool Size2__op_Equality(Size2 a, Size2 b)
-{
-    return ::g::Uno::UX::Size__op_Equality(a.X, b.X) && ::g::Uno::UX::Size__op_Equality(a.Y, b.Y);
-}
-
 // public static explicit operator float2(Uno.UX.Size2 v) [static] :199
 ::g::Uno::Float2 Size2__op_Explicit1(Size2 v)
 {
@@ -2033,9 +2066,9 @@ bool Size2__op_Equality(Size2 a, Size2 b)
 }
 
 // public static implicit operator Uno.UX.Size2(float2 unspecifiedUnitsVector) [static] :189
-Size2 Size2__op_Implicit1(::g::Uno::Float2 unspecifiedUnitsVector)
+Size2 Size2__op_Implicit2(::g::Uno::Float2 unspecifiedUnitsVector)
 {
-    return Size2__New1(::g::Uno::UX::Size__op_Implicit(unspecifiedUnitsVector.X), ::g::Uno::UX::Size__op_Implicit(unspecifiedUnitsVector.Y));
+    return Size2__New1(::g::Uno::UX::Size__op_Implicit1(unspecifiedUnitsVector.X), ::g::Uno::UX::Size__op_Implicit1(unspecifiedUnitsVector.Y));
 }
 
 // public static operator !=(Uno.UX.Size2 a, Uno.UX.Size2 b) [static] :241
@@ -2069,7 +2102,7 @@ Size2 Size2__Auto()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\FileSource.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\FileSource.uno
 // --------------------------------------------------------------------------------------------------
 
 // internal static class StreamExtensions :45
@@ -2108,36 +2141,41 @@ void StreamExtensions__ToArray_fn(::g::Uno::IO::MemoryStream* memoryStream, uArr
 // public static byte[] ReadAllBytes(Uno.IO.BinaryReader reader) [static] :47
 uArray* StreamExtensions::ReadAllBytes(::g::Uno::IO::BinaryReader* reader)
 {
-    int bufferSize = 4096;
+    int32_t bufferSize = 4096;
     ::g::Uno::IO::MemoryStream* ms = ::g::Uno::IO::MemoryStream::New1();
 
-    try
     {
+        try
         {
-            uArray* buffer;
-
-            do
             {
-                buffer = uPtr(reader)->ReadBytes(4096);
-                uPtr(ms)->Write(buffer, 0, uPtr(buffer)->Length());
+                uArray* buffer;
+
+                do
+                {
+                    buffer = uPtr(reader)->ReadBytes(4096);
+                    uPtr(ms)->Write(buffer, 0, uPtr(buffer)->Length());
+                }
+                while (uPtr(buffer)->Length() == 4096);
+
+                uArray* __uno_retval = StreamExtensions::ToArray(ms);
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr((uObject*)ms), ::TYPES[19/*Uno.IDisposable*/]));
+                return __uno_retval;
             }
-            while (uPtr(buffer)->Length() == 4096);
-
-            uArray* __uno_retval = StreamExtensions::ToArray(ms);
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr((uObject*)ms), ::TYPES[19/*Uno.IDisposable*/]));
-            return __uno_retval;
         }
+
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr((uObject*)ms), ::TYPES[19/*Uno.IDisposable*/]));
+            }
+                        throw __t;
+            goto __after_finally_11;
+        }
+
         {
             ::g::Uno::IDisposable::Dispose(uInterface(uPtr((uObject*)ms), ::TYPES[19/*Uno.IDisposable*/]));
         }
-    }
-
-    catch (const uThrowable& __t)
-    {
-        {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr((uObject*)ms), ::TYPES[19/*Uno.IDisposable*/]));
-        }
-                throw __t;
+        __after_finally_11:;
     }
 
     U_THROW(::g::Uno::InvalidOperationException::New5(::STRINGS[13/*"Bug in Uno ...*/]));
@@ -2147,16 +2185,16 @@ uArray* StreamExtensions::ReadAllBytes(::g::Uno::IO::BinaryReader* reader)
 uArray* StreamExtensions::ToArray(::g::Uno::IO::MemoryStream* memoryStream)
 {
     uArray* buffer = uPtr(memoryStream)->GetBuffer();
-    uArray* bytes = uArray::New(::TYPES[20/*byte[]*/], (int)memoryStream->Length());
+    uArray* bytes = uArray::New(::TYPES[20/*byte[]*/], (int32_t)memoryStream->Length());
 
-    for (int i = 0; (int64_t)i < memoryStream->Length(); ++i)
+    for (int32_t i = 0; (int64_t)i < memoryStream->Length(); ++i)
         uPtr(bytes)->Item<uint8_t>(i) = uPtr(buffer)->Item<uint8_t>(i);
 
     return bytes;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Template.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Template.uno
 // ------------------------------------------------------------------------------------------------
 
 // public abstract class Template :12
@@ -2220,7 +2258,7 @@ uString* Template::Key()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Size.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Size.uno
 // --------------------------------------------------------------------------------------------
 
 // public enum Unit :6
@@ -2239,7 +2277,7 @@ uEnumType* Unit_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Property.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Property.uno
 // ------------------------------------------------------------------------------------------------
 
 // public class ValueChangedArgs<T> :3
@@ -2294,7 +2332,7 @@ void ValueChangedArgs__set_Value_fn(ValueChangedArgs* __this, void* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\UX\Property.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\UX\Property.uno
 // ------------------------------------------------------------------------------------------------
 
 // public delegate void ValueChangedHandler<T>(object sender, Uno.UX.ValueChangedArgs<T> args) :13

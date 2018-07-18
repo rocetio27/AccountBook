@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing/1.4.2/Brushes/LinearGradient.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing/1.9.0/Brushes/LinearGradient.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -22,10 +22,10 @@ void GradientStop__set_Offset_fn(GradientStop* __this, float* value);
 struct GradientStop : ::g::Uno::UX::PropertyObject
 {
     static ::g::Uno::UX::Selector _offsetName_;
-    static ::g::Uno::UX::Selector& _offsetName() { return _offsetName_; }
+    static ::g::Uno::UX::Selector& _offsetName() { return GradientStop_typeof()->Init(), _offsetName_; }
     float _offset;
     static ::g::Uno::UX::Selector _colorName_;
-    static ::g::Uno::UX::Selector& _colorName() { return _colorName_; }
+    static ::g::Uno::UX::Selector& _colorName() { return GradientStop_typeof()->Init(), _colorName_; }
     ::g::Uno::Float4 _color;
 
     ::g::Uno::Float4 Color();

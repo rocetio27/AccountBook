@@ -1,12 +1,13 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.4.2/ModifyRouteCommand.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.9.0/ModifyRouteCommand.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Reactive.IExpression.h>
 #include <Fuse.Reactive.VarArgFunction.h>
 namespace g{namespace Fuse{namespace Navigation{struct RouteModificationCommand;}}}
 namespace g{namespace Fuse{namespace Navigation{struct RouterRequest;}}}
-namespace g{namespace Fuse{namespace Reactive{struct VarArgFunction__Argument;}}}
+namespace g{namespace Fuse{namespace Reactive{struct Expression__Argument;}}}
 
 namespace g{
 namespace Fuse{

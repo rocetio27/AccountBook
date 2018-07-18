@@ -20,7 +20,7 @@ namespace g{
 namespace Fuse{
 namespace Testing{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Testing\1.4.2\JavaScriptTest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Testing\1.9.0\JavaScriptTest.uno
 // ---------------------------------------------------------------------------------------------
 
 // internal sealed class TestFailedException :9
@@ -72,7 +72,7 @@ TestFailedException* TestFailedException::New4(uString* message)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Testing\1.4.2\JavaScriptTest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Testing\1.9.0\JavaScriptTest.uno
 // ---------------------------------------------------------------------------------------------
 
 // private sealed class UnoTestingHelper.TestFailure :29
@@ -136,7 +136,7 @@ UnoTestingHelper__TestFailure* UnoTestingHelper__TestFailure::New1(uString* mess
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Testing\1.4.2\JavaScriptTest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Testing\1.9.0\JavaScriptTest.uno
 // ---------------------------------------------------------------------------------------------
 
 // public sealed class UnoTestingHelper :17
@@ -144,7 +144,8 @@ UnoTestingHelper__TestFailure* UnoTestingHelper__TestFailure::New1(uString* mess
 static void UnoTestingHelper_build(uType* type)
 {
     type->SetDependencies(
-        ::g::Uno::UX::Resource_typeof());
+        ::g::Uno::UX::Resource_typeof(),
+        ::g::Fuse::UpdateManager_typeof());
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Scripting::NativeModule_type, interface0),
         ::g::Fuse::Scripting::IModuleProvider_typeof(), offsetof(::g::Fuse::Scripting::NativeModule_type, interface1));
@@ -161,7 +162,7 @@ static void UnoTestingHelper_build(uType* type)
     options.BaseDefinition = ::g::Fuse::Scripting::NativeModule_typeof();
     options.FieldCount = 5;
     options.InterfaceCount = 2;
-    options.DependencyCount = 1;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(UnoTestingHelper);
     options.TypeSize = sizeof(::g::Fuse::Scripting::NativeModule_type);
     type = (::g::Fuse::Scripting::NativeModule_type*)uClassType::New("Fuse.Testing.UnoTestingHelper", options);

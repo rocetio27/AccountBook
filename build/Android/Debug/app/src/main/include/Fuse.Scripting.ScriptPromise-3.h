@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting/1.4.2/ScriptClass.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting/1.9.0/ScriptClass.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -11,7 +11,7 @@ namespace g{
 namespace Fuse{
 namespace Scripting{
 
-// public sealed class ScriptPromise<TSelf, TResult, TJSResult> :149
+// public sealed class ScriptPromise<TSelf, TResult, TJSResult> :294
 // {
 ::g::Fuse::Scripting::ScriptMethod_type* ScriptPromise_typeof();
 void ScriptPromise__Call_fn(ScriptPromise* __this, ::g::Fuse::Scripting::Context* c, uObject* obj, uArray* args, uObject** __retval);
@@ -19,6 +19,7 @@ void ScriptPromise__InvokeFutureFactory_fn(ScriptPromise* __this, ::g::Fuse::Scr
 
 struct ScriptPromise : ::g::Fuse::Scripting::ScriptMethod
 {
+    int32_t Thread;
     uStrong<uDelegate*> _futureFactory;
     uStrong<uDelegate*> _resultConverter;
 

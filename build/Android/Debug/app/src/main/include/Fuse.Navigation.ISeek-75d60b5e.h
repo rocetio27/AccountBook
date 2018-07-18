@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.4.2/INavigation.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.9.0/INavigation.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

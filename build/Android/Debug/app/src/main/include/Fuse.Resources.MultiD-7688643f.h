@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/Resources/MultiDensityImageSource.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/Resources/MultiDensityImageSource.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -27,14 +27,14 @@ void MultiDensityImageSource__OnActiveChanged_fn(MultiDensityImageSource* __this
 void MultiDensityImageSource__OnImageAdded_fn(MultiDensityImageSource* __this, ::g::Fuse::Resources::ImageSource* img);
 void MultiDensityImageSource__OnImageRemoved_fn(MultiDensityImageSource* __this, ::g::Fuse::Resources::ImageSource* img);
 void MultiDensityImageSource__OnPinChanged_fn(MultiDensityImageSource* __this);
-void MultiDensityImageSource__get_Orientation_fn(MultiDensityImageSource* __this, int* __retval);
+void MultiDensityImageSource__get_Orientation_fn(MultiDensityImageSource* __this, int32_t* __retval);
 void MultiDensityImageSource__get_PixelSize_fn(MultiDensityImageSource* __this, ::g::Uno::Int2* __retval);
 void MultiDensityImageSource__Reload_fn(MultiDensityImageSource* __this);
 void MultiDensityImageSource__SelectActive_fn(MultiDensityImageSource* __this);
 void MultiDensityImageSource__get_Size_fn(MultiDensityImageSource* __this, ::g::Uno::Float2* __retval);
 void MultiDensityImageSource__get_SizeDensity_fn(MultiDensityImageSource* __this, float* __retval);
 void MultiDensityImageSource__get_Sources_fn(MultiDensityImageSource* __this, uObject** __retval);
-void MultiDensityImageSource__get_State_fn(MultiDensityImageSource* __this, int* __retval);
+void MultiDensityImageSource__get_State_fn(MultiDensityImageSource* __this, int32_t* __retval);
 void MultiDensityImageSource__SwapActive_fn(MultiDensityImageSource* __this, ::g::Fuse::Resources::ImageSource* use);
 
 struct MultiDensityImageSource : ::g::Fuse::Resources::ImageSource

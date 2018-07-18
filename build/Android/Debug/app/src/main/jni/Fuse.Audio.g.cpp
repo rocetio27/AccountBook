@@ -20,7 +20,7 @@ namespace g{
 namespace Fuse{
 namespace Audio{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Audio\1.4.2\Android\AndroidAudio.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Audio\1.9.0\Android\AndroidAudio.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal sealed extern class SoundPlayer :23
@@ -28,8 +28,6 @@ namespace Audio{
 static void SoundPlayer_build(uType* type)
 {
     type->SetDependencies(
-        ::g::Fuse::Android::Bindings::AndroidDeviceInterop_typeof(),
-        ::g::Uno::Compiler::ExportTargetInterop::ForeignDataView_typeof(),
         ::g::Android::Base::Versions_typeof());
 }
 
@@ -39,7 +37,7 @@ uType* SoundPlayer_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.DependencyCount = 3;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(SoundPlayer);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Audio.SoundPlayer", options);
@@ -83,7 +81,7 @@ void SoundPlayer::PlaySoundFromAFD(::g::Java::Object* afd)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PlaySoundFromAFD383", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PlaySoundFromAFD377", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _uafd=afd;
         jobject _afd = (_uafd==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uafd, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_afd);
@@ -118,7 +116,7 @@ void SoundPlayer::PlaySoundFromByteArrayInner(::g::Java::Object* unoStream)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PlaySoundFromByteArrayInner384", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PlaySoundFromByteArrayInner378", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _uunoStream=unoStream;
         jobject _unoStream = (_uunoStream==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uunoStream, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_unoStream);
@@ -136,7 +134,7 @@ void SoundPlayer::PlaySoundFromMediaDataSource(::g::Java::Object* mediaDataSourc
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PlaySoundFromMediaDataSource385", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "PlaySoundFromMediaDataSource379", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _umediaDataSource=mediaDataSource;
         jobject _mediaDataSource = (_umediaDataSource==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_umediaDataSource, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_mediaDataSource);

@@ -1,10 +1,10 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Threading/1.4.3/Promise.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Threading/1.9.0/Promise.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Uno.IDisposable.h>
 #include <Uno.Object.h>
-#include <Uno.Threading.Future-1.h>
+#include <Uno.Threading.Future1-1.h>
 namespace g{namespace Uno{namespace Threading{struct Promise;}}}
 namespace g{namespace Uno{struct Exception;}}
 
@@ -12,7 +12,7 @@ namespace g{
 namespace Uno{
 namespace Threading{
 
-// public class Promise<T> :8
+// public class Promise<T> :48
 // {
 ::g::Uno::Threading::Future_type* Promise_typeof();
 void Promise__ctor_3_fn(Promise* __this);

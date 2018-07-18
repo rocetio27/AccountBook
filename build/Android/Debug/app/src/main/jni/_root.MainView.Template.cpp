@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/MainView.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/MainView.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-3cda4468.h>
@@ -24,6 +24,7 @@
 #include <Fuse.Reactive.Data.h>
 #include <Fuse.Reactive.DataBinding.h>
 #include <Fuse.Reactive.EventBinding.h>
+#include <Fuse.Reactive.Expression.h>
 #include <Fuse.Reactive.IExpression.h>
 #include <Fuse.Triggers.Actions.Set-1.h>
 #include <Fuse.Triggers.Actions-fcab7e57.h>
@@ -38,11 +39,11 @@
 #include <Uno.Object.h>
 #include <Uno.String.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Selector.h>
 #include <Uno.UX.Size.h>
 #include <Uno.UX.Unit.h>
-static uString* STRINGS[11];
+static uString* STRINGS[12];
 static uType* TYPES[5];
 
 namespace g{
@@ -52,14 +53,13 @@ namespace g{
 // static Template() :26
 static void MainView__Template__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    MainView__Template::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"Text"*/]);
-    MainView__Template::__selector1_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[1/*"Value"*/]);
-    MainView__Template::__selector2_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[2/*"Visibility"*/]);
-    MainView__Template::__selector3_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[3/*"aBtn"*/]);
-    MainView__Template::__selector4_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[4/*"bTBox"*/]);
-    MainView__Template::__selector5_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[5/*"bEdit"*/]);
-    MainView__Template::__selector6_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[6/*"OK"*/]);
+    MainView__Template::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"Text"*/]);
+    MainView__Template::__selector1_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[1/*"Value"*/]);
+    MainView__Template::__selector2_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[2/*"Visibility"*/]);
+    MainView__Template::__selector3_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[3/*"aBtn"*/]);
+    MainView__Template::__selector4_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[4/*"bTBox"*/]);
+    MainView__Template::__selector5_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[5/*"bEdit"*/]);
+    MainView__Template::__selector6_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[6/*"OK"*/]);
 }
 
 static void MainView__Template_build(uType* type)
@@ -74,14 +74,13 @@ static void MainView__Template_build(uType* type)
     ::STRINGS[7] = uString::Const("SelectAccount");
     ::STRINGS[8] = uString::Const("title");
     ::STRINGS[9] = uString::Const("editTitle");
-    ::STRINGS[10] = uString::Const("EDIT");
+    ::STRINGS[10] = uString::Const("MainView.ux");
+    ::STRINGS[11] = uString::Const("EDIT");
     ::TYPES[0] = ::g::Fuse::Triggers::Actions::Set_typeof()->MakeType(::g::Fuse::Elements::Visibility_typeof(), NULL);
     ::TYPES[1] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL);
     ::TYPES[2] = ::g::Fuse::Gestures::ClickedHandler_typeof();
     ::TYPES[3] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL);
     ::TYPES[4] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::TriggerAction_typeof(), NULL);
-    type->SetDependencies(
-        ::g::Fuse::Controls::Grid_typeof());
     type->SetFields(2,
         ::g::MainView_typeof(), offsetof(MainView__Template, __parent1), uFieldFlagsWeak,
         ::g::MainView_typeof(), offsetof(MainView__Template, __parentInstance1), uFieldFlagsWeak,
@@ -114,7 +113,6 @@ static void MainView__Template_build(uType* type)
     uTypeOptions options;
     options.BaseDefinition = ::g::Uno::UX::Template_typeof();
     options.FieldCount = 23;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(MainView__Template);
     options.TypeSize = sizeof(::g::Uno::UX::Template_type);
     type = (::g::Uno::UX::Template_type*)uClassType::New("MainView.Template", options);
@@ -169,11 +167,17 @@ void MainView__Template__New1_fn(MainView__Template* __this, uObject** __retval)
     __this->temp_eb41 = ::g::Fuse::Reactive::EventBinding::New1((uObject*)temp3);
     __self1->ColumnCount(10);
     __self1->Height(::g::Uno::UX::Size__New1(50.0f, 1));
+    __self1->SourceLineNumber(93);
+    __self1->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Fuse::Controls::Grid::SetRowSpan(__self1, 8);
+    temp4->SourceLineNumber(94);
+    temp4->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Fuse::Controls::Grid::SetColumnSpan(temp4, 8);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp4->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->aBtn);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp4->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->bTBox);
     uPtr(__this->aBtn)->Name(MainView__Template::__selector3_);
+    uPtr(__this->aBtn)->SourceLineNumber(95);
+    uPtr(__this->aBtn)->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Fuse::Gestures::Clicked::AddHandler(__this->aBtn, uDelegate::New(::TYPES[2/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb40)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->aBtn)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp5);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->aBtn)->Bindings()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Binding>*/]), __this->temp_eb40);
@@ -183,41 +187,83 @@ void MainView__Template__New1_fn(MainView__Template* __this, uObject** __retval)
     temp5->Distance(1.0f);
     temp5->Spread(0.2f);
     temp5->Color(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 0.3764706f));
+    temp5->SourceLineNumber(96);
+    temp5->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    temp->SourceLineNumber(95);
+    temp->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    temp1->SourceLineNumber(95);
+    temp1->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     uPtr(__this->bTBox)->Visibility(2);
     uPtr(__this->bTBox)->Name(MainView__Template::__selector4_);
+    uPtr(__this->bTBox)->SourceLineNumber(98);
+    uPtr(__this->bTBox)->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->bTBox)->Bindings()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Binding>*/]), temp7);
+    temp2->SourceLineNumber(98);
+    temp2->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    temp8->SourceLineNumber(100);
+    temp8->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Fuse::Controls::Grid::SetColumnSpan(temp8, 2);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp8->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->bEdit);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp8->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp14);
-    uPtr(__this->bEdit)->Text(::STRINGS[10/*"EDIT"*/]);
+    uPtr(__this->bEdit)->Text(::STRINGS[11/*"EDIT"*/]);
     uPtr(__this->bEdit)->Name(MainView__Template::__selector5_);
+    uPtr(__this->bEdit)->SourceLineNumber(101);
+    uPtr(__this->bEdit)->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->bEdit)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp9);
+    temp9->SourceLineNumber(102);
+    temp9->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp10);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp11);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp12);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp13);
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp10, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp11, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp12, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp13, uCRef<int>(0));
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp10, uCRef<int32_t>(0));
+    temp10->SourceLineNumber(103);
+    temp10->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp11, uCRef<int32_t>(2));
+    temp11->SourceLineNumber(104);
+    temp11->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp12, uCRef<int32_t>(2));
+    temp12->SourceLineNumber(105);
+    temp12->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp13, uCRef<int32_t>(0));
+    temp13->SourceLineNumber(106);
+    temp13->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     temp14->RowCount(2);
+    temp14->SourceLineNumber(109);
+    temp14->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp14->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp15);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp14->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->OK);
+    temp15->SourceLineNumber(110);
+    temp15->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    uPtr(__this->OK)->TextCol(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 1.0f));
     uPtr(__this->OK)->Text(::STRINGS[6/*"OK"*/]);
     uPtr(__this->OK)->Height(::g::Uno::UX::Size__New1(100.0f, 4));
     uPtr(__this->OK)->Name(MainView__Template::__selector6_);
-    uPtr(__this->OK)->TextCol(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 1.0f));
+    uPtr(__this->OK)->SourceLineNumber(111);
+    uPtr(__this->OK)->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Fuse::Gestures::Clicked::AddHandler(__this->OK, uDelegate::New(::TYPES[2/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb41)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->OK)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp16);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->OK)->Bindings()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Binding>*/]), __this->temp_eb41);
+    temp16->SourceLineNumber(112);
+    temp16->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp16->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp17);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp16->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp18);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp16->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp19);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp16->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp20);
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp17, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp18, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp19, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp20, uCRef<int>(0));
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp17, uCRef<int32_t>(0));
+    temp17->SourceLineNumber(113);
+    temp17->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp18, uCRef<int32_t>(2));
+    temp18->SourceLineNumber(114);
+    temp18->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp19, uCRef<int32_t>(0));
+    temp19->SourceLineNumber(115);
+    temp19->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp20, uCRef<int32_t>(0));
+    temp20->SourceLineNumber(116);
+    temp20->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
+    temp3->SourceLineNumber(111);
+    temp3->SourceFileName(::STRINGS[10/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp4);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp8);
     return *__retval = __self1, void();

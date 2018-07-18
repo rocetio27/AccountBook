@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Bindings/1.4.2/DataBinding.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Bindings/1.9.0/DataBinding.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -29,8 +29,9 @@ struct DataBinding_type : ::g::Fuse::Reactive::ExpressionBinding_type
 };
 
 DataBinding_type* DataBinding_typeof();
-void DataBinding__ctor_2_fn(DataBinding* __this, ::g::Uno::UX::Property* target, uObject* key, int* mode);
+void DataBinding__ctor_2_fn(DataBinding* __this, ::g::Uno::UX::Property* target, uObject* key, int32_t* mode);
 void DataBinding__Acceptor_fn(DataBinding* __this, uObject* obj, bool* __retval);
+void DataBinding__CleanSubscription_fn(DataBinding* __this);
 void DataBinding__get_Clear_fn(DataBinding* __this, bool* __retval);
 void DataBinding__ClearFailed_fn(DataBinding* __this);
 void DataBinding__ClearValue_fn(DataBinding* __this);
@@ -38,14 +39,15 @@ void DataBinding__FuseINameListenerOnNameChanged_fn(DataBinding* __this, ::g::Fu
 void DataBinding__FuseReactiveIObserverOnAdd_fn(DataBinding* __this, uObject* addedValue);
 void DataBinding__FuseReactiveIObserverOnClear_fn(DataBinding* __this);
 void DataBinding__FuseReactiveIObserverOnFailed_fn(DataBinding* __this, uString* message);
-void DataBinding__FuseReactiveIObserverOnInsertAt_fn(DataBinding* __this, int* index, uObject* value);
+void DataBinding__FuseReactiveIObserverOnInsertAt_fn(DataBinding* __this, int32_t* index, uObject* value);
 void DataBinding__FuseReactiveIObserverOnNewAll_fn(DataBinding* __this, uObject* values);
-void DataBinding__FuseReactiveIObserverOnNewAt_fn(DataBinding* __this, int* index, uObject* value);
-void DataBinding__FuseReactiveIObserverOnRemoveAt_fn(DataBinding* __this, int* index);
+void DataBinding__FuseReactiveIObserverOnNewAt_fn(DataBinding* __this, int32_t* index, uObject* value);
+void DataBinding__FuseReactiveIObserverOnRemoveAt_fn(DataBinding* __this, int32_t* index);
 void DataBinding__FuseReactiveIObserverOnSet_fn(DataBinding* __this, uObject* newValue);
 void DataBinding__InvalidListOperation_fn(DataBinding* __this);
+void DataBinding__LostValue_fn(DataBinding* __this);
 void DataBinding__MarkFailed_fn(DataBinding* __this, uString* message);
-void DataBinding__New1_fn(::g::Uno::UX::Property* target, uObject* key, int* mode, DataBinding** __retval);
+void DataBinding__New1_fn(::g::Uno::UX::Property* target, uObject* key, int32_t* mode, DataBinding** __retval);
 void DataBinding__NewValue_fn(DataBinding* __this, uObject* value);
 void DataBinding__OnRooted_fn(DataBinding* __this);
 void DataBinding__OnUnrooted_fn(DataBinding* __this);
@@ -66,15 +68,16 @@ void DataBinding__get_Write_fn(DataBinding* __this, bool* __retval);
 
 struct DataBinding : ::g::Fuse::Reactive::ExpressionBinding
 {
-    int _mode;
+    int32_t _mode;
     uStrong< ::g::Fuse::Triggers::BusyTask*> _busyTask;
     uStrong<uObject*> _subscription;
     uStrong<uObject*> _currentValue;
     uStrong<uString*> _registryName;
     uStrong< ::g::Uno::UX::Property*> _Target;
 
-    void ctor_2(::g::Uno::UX::Property* target, uObject* key, int mode);
+    void ctor_2(::g::Uno::UX::Property* target, uObject* key, int32_t mode);
     bool Acceptor(uObject* obj);
+    void CleanSubscription();
     bool Clear();
     void ClearFailed();
     void ClearValue();
@@ -90,7 +93,7 @@ struct DataBinding : ::g::Fuse::Reactive::ExpressionBinding
     bool TryPushAsValue(uObject* newValue);
     void UnlistenNameRegistry();
     bool Write();
-    static DataBinding* New1(::g::Uno::UX::Property* target, uObject* key, int mode);
+    static DataBinding* New1(::g::Uno::UX::Property* target, uObject* key, int32_t mode);
     static ::g::Uno::UX::Selector ToSelector(uObject* newValue);
     static uString* TypeToJSName(uType* t);
 };

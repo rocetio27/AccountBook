@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Common/1.4.2/Internal/PriorityQueue.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Common/1.9.0/Internal/PriorityQueue.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -16,35 +16,35 @@ namespace Collections{
 // internal sealed class PriorityQueue<T> :23
 // {
 uType* PriorityQueue_typeof();
-void PriorityQueue__ctor__fn(PriorityQueue* __this, int* type);
+void PriorityQueue__ctor__fn(PriorityQueue* __this, int32_t* type);
 void PriorityQueue__Add2_fn(PriorityQueue* __this, void* value, ::g::Uno::Float2* priority);
 void PriorityQueue__Add4_fn(PriorityQueue* __this, void* value, ::g::Uno::Float4* priority);
-void PriorityQueue__Compare_fn(uType* __type, ::g::Uno::Float4* a, ::g::Uno::Float4* b, int* __retval);
-void PriorityQueue__get_Count_fn(PriorityQueue* __this, int* __retval);
+void PriorityQueue__Compare_fn(uType* __type, ::g::Uno::Float4* a, ::g::Uno::Float4* b, int32_t* __retval);
+void PriorityQueue__get_Count_fn(PriorityQueue* __this, int32_t* __retval);
 void PriorityQueue__get_Empty_fn(PriorityQueue* __this, bool* __retval);
-void PriorityQueue__LowerBound_fn(PriorityQueue* __this, ::g::Uno::Float4* priority, int* __retval);
-void PriorityQueue__New1_fn(uType* __type, int* type, PriorityQueue** __retval);
+void PriorityQueue__LowerBound_fn(PriorityQueue* __this, ::g::Uno::Float4* priority, int32_t* __retval);
+void PriorityQueue__New1_fn(uType* __type, int32_t* type, PriorityQueue** __retval);
 void PriorityQueue__PopTop1_fn(PriorityQueue* __this, ::g::Uno::Float4* priority, uTRef __retval);
-void PriorityQueue__UpperBound_fn(PriorityQueue* __this, ::g::Uno::Float4* priority, int* __retval);
+void PriorityQueue__UpperBound_fn(PriorityQueue* __this, ::g::Uno::Float4* priority, int32_t* __retval);
 
 struct PriorityQueue : uObject
 {
     uStrong< ::g::Uno::Collections::List*> _items;
-    int _type;
+    int32_t _type;
 
-    void ctor_(int type);
+    void ctor_(int32_t type);
     template<class T>
     void Add2(T value, ::g::Uno::Float2 priority);
     template<class T>
     void Add4(T value, ::g::Uno::Float4 priority);
-    int Count();
+    int32_t Count();
     bool Empty();
-    int LowerBound(::g::Uno::Float4 priority);
+    int32_t LowerBound(::g::Uno::Float4 priority);
     template<class T>
     T PopTop1(::g::Uno::Float4* priority) { T __retval; return PriorityQueue__PopTop1_fn(this, priority, &__retval), __retval; }
-    int UpperBound(::g::Uno::Float4 priority);
-    static int Compare(uType* __type, ::g::Uno::Float4 a, ::g::Uno::Float4 b);
-    static PriorityQueue* New1(uType* __type, int type);
+    int32_t UpperBound(::g::Uno::Float4 priority);
+    static int32_t Compare(uType* __type, ::g::Uno::Float4 a, ::g::Uno::Float4 b);
+    static PriorityQueue* New1(uType* __type, int32_t type);
 };
 
 }}} // ::g::Uno::Collections

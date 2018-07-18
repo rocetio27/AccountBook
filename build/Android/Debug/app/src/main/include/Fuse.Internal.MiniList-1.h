@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Common/1.4.2/Internal/MiniList.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Common/1.9.0/Internal/MiniList.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -27,28 +27,28 @@ void MiniList__Add_fn(MiniList* __this, uType* __type, uObject* value);
 void MiniList__get_AsList_fn(MiniList* __this, uType* __type, ::g::Fuse::Internal::ObjectList** __retval);
 void MiniList__Clear_fn(MiniList* __this, uType* __type);
 void MiniList__Contains_fn(MiniList* __this, uType* __type, uObject* value, bool* __retval);
-void MiniList__get_Count_fn(MiniList* __this, uType* __type, int* __retval);
+void MiniList__get_Count_fn(MiniList* __this, uType* __type, int32_t* __retval);
 void MiniList__GetEnumerator_fn(MiniList* __this, uType* __type, uObject** __retval);
-void MiniList__Insert_fn(MiniList* __this, uType* __type, int* index, uObject* value);
-void MiniList__get_Item_fn(MiniList* __this, uType* __type, int* index, uObject** __retval);
+void MiniList__Insert_fn(MiniList* __this, uType* __type, int32_t* index, uObject* value);
+void MiniList__get_Item_fn(MiniList* __this, uType* __type, int32_t* index, uObject** __retval);
 void MiniList__Remove_fn(MiniList* __this, uType* __type, uObject* value, bool* __retval);
-void MiniList__RemoveAt_fn(MiniList* __this, uType* __type, int* index);
+void MiniList__RemoveAt_fn(MiniList* __this, uType* __type, int32_t* index);
 
 struct MiniList
 {
     uStrong<uObject*> _list;
-    int _mode;
+    int32_t _mode;
 
     void Add(uType* __type, uObject* value);
     ::g::Fuse::Internal::ObjectList* AsList(uType* __type);
     void Clear(uType* __type);
     bool Contains(uType* __type, uObject* value);
-    int Count(uType* __type);
+    int32_t Count(uType* __type);
     uObject* GetEnumerator(uType* __type);
-    void Insert(uType* __type, int index, uObject* value);
-    uObject* Item(uType* __type, int index);
+    void Insert(uType* __type, int32_t index, uObject* value);
+    uObject* Item(uType* __type, int32_t index);
     bool Remove(uType* __type, uObject* value);
-    void RemoveAt(uType* __type, int index);
+    void RemoveAt(uType* __type, int32_t index);
 };
 // }
 

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/Internal/ImageContainer.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/Internal/ImageContainer.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -46,16 +46,16 @@ void ImageContainer__add_ParamChanged_fn(ImageContainer* __this, uDelegate* valu
 void ImageContainer__remove_ParamChanged_fn(ImageContainer* __this, uDelegate* value);
 void ImageContainer__ReapplyOptions_fn(ImageContainer* __this, ::g::Fuse::Resources::ImageSource* src);
 void ImageContainer__ReleaseSource_fn(ImageContainer* __this);
-void ImageContainer__get_ResampleMode_fn(ImageContainer* __this, int* __retval);
-void ImageContainer__set_ResampleMode_fn(ImageContainer* __this, int* value);
+void ImageContainer__get_ResampleMode_fn(ImageContainer* __this, int32_t* __retval);
+void ImageContainer__set_ResampleMode_fn(ImageContainer* __this, int32_t* value);
 void ImageContainer__get_Source_fn(ImageContainer* __this, ::g::Fuse::Resources::ImageSource** __retval);
 void ImageContainer__set_Source_fn(ImageContainer* __this, ::g::Fuse::Resources::ImageSource* value);
 void ImageContainer__add_SourceChanged_fn(ImageContainer* __this, uDelegate* value);
 void ImageContainer__remove_SourceChanged_fn(ImageContainer* __this, uDelegate* value);
 void ImageContainer__add_SourceError_fn(ImageContainer* __this, uDelegate* value);
 void ImageContainer__remove_SourceError_fn(ImageContainer* __this, uDelegate* value);
-void ImageContainer__get_StretchMode_fn(ImageContainer* __this, int* __retval);
-void ImageContainer__set_StretchMode_fn(ImageContainer* __this, int* value);
+void ImageContainer__get_StretchMode_fn(ImageContainer* __this, int32_t* __retval);
+void ImageContainer__set_StretchMode_fn(ImageContainer* __this, int32_t* value);
 void ImageContainer__UpdateSourceListen_fn(ImageContainer* __this, bool* forceOff);
 
 struct ImageContainer : uObject
@@ -69,7 +69,7 @@ struct ImageContainer : uObject
     uStrong< ::g::Fuse::Resources::ImageSource*> _source;
     bool _isSourceListen;
     bool _isRooted;
-    int _resampleMode;
+    int32_t _resampleMode;
     bool _isVisible;
     uStrong<uDelegate*> ParamChanged1;
     uStrong<uDelegate*> SourceChanged1;
@@ -101,16 +101,16 @@ struct ImageContainer : uObject
     void remove_ParamChanged(uDelegate* value);
     void ReapplyOptions(::g::Fuse::Resources::ImageSource* src);
     void ReleaseSource();
-    int ResampleMode();
-    void ResampleMode(int value);
+    int32_t ResampleMode();
+    void ResampleMode(int32_t value);
     ::g::Fuse::Resources::ImageSource* Source();
     void Source(::g::Fuse::Resources::ImageSource* value);
     void add_SourceChanged(uDelegate* value);
     void remove_SourceChanged(uDelegate* value);
     void add_SourceError(uDelegate* value);
     void remove_SourceError(uDelegate* value);
-    int StretchMode();
-    void StretchMode(int value);
+    int32_t StretchMode();
+    void StretchMode(int32_t value);
     void UpdateSourceListen(bool forceOff);
     static ImageContainer* New1(uObject* owner);
 };

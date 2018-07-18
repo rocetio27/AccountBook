@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Type.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Type.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -13,7 +13,7 @@ uType* Type_typeof();
 void Type__get_BaseType_fn(uType* __this, uType** __retval);
 void Type__Equals_fn(uType* __this, uObject* obj, bool* __retval);
 void Type__get_FullName_fn(uType* __this, uString** __retval);
-void Type__GetHashCode_fn(uType* __this, int* __retval);
+void Type__GetHashCode_fn(uType* __this, int32_t* __retval);
 void Type__GetInterfaces_fn(uType* __this, uArray** __retval);
 void Type__get_IsClass_fn(uType* __this, bool* __retval);
 void Type__get_IsEnum_fn(uType* __this, bool* __retval);
@@ -27,7 +27,7 @@ void Type__ToString_fn(uType* __this, uString** __retval);
 struct Type
 {
     static uSStrong<uArray*> EmptyTypes_;
-    static uSStrong<uArray*>& EmptyTypes() { return EmptyTypes_; }
+    static uSStrong<uArray*>& EmptyTypes() { return Type_typeof()->Init(), EmptyTypes_; }
 
     static uType* BaseType(uType* __this);
     static uString* FullName(uType* __this);

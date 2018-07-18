@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Net.Sockets/1.4.3/NetworkStream.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Net.Sockets/1.9.0/NetworkStream.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -15,8 +15,10 @@ namespace Sockets{
 // public sealed class NetworkStream :10
 // {
 ::g::Uno::IO::Stream_type* NetworkStream_typeof();
-void NetworkStream__Read_fn(NetworkStream* __this, uArray* dst, int* byteOffset, int* byteCount, int* __retval);
-void NetworkStream__Write_fn(NetworkStream* __this, uArray* src, int* byteOffset, int* byteCount);
+void NetworkStream__Flush_fn(NetworkStream* __this);
+void NetworkStream__get_Length_fn(NetworkStream* __this, int64_t* __retval);
+void NetworkStream__Read_fn(NetworkStream* __this, uArray* dst, int32_t* byteOffset, int32_t* byteCount, int32_t* __retval);
+void NetworkStream__Write_fn(NetworkStream* __this, uArray* src, int32_t* byteOffset, int32_t* byteCount);
 
 struct NetworkStream : ::g::Uno::IO::Stream
 {

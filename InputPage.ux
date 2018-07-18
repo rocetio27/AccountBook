@@ -1,49 +1,58 @@
-<Panel ux:Class="InputPage">
-	<Router ux:Dependency="router"/>
+<Page ux:Class="InputPage" >
 	<JavaScript File="Modules/InputPage.js"/>
 	<Panel ux:Name="FullWindo" Layer="Overlay" />
-	<Grid RowCount="100"> 
-		<Panel RowSpan="21"/> 
-		<Text RowSpan="3" Alignment="Center" Value="{cashOrCardText}" Color="#000"/>
-		<Text RowSpan="3" Alignment="Center" Value="Current Balance" Color="#000"/>
-		<Text RowSpan="7" FontSize="45" Alignment="Center" Value="{currentBalance}" Color="#000"/>
-		<Text RowSpan="2" FontSize="30" Alignment="Center" TextColor="{addingValueColor}" Value="{inputVars.pmType} {addingValue}"/>
-		<Panel RowSpan="15"/>
-		<Each Count="2">
-		<Panel RowSpan="3">
-			<Rectangle Color="{Resource Col_type3}">
-				<DropShadow Angle="90" Distance="1" Spread="0.2" Size="0.4" Color="#00000060" />
-			</Rectangle>
-		</Panel>
-		<Panel RowSpan="3" />
-		</Each>
-		<!--  -->
-		<Panel RowSpan="3">
-			<Rectangle Color="{Resource Col_type3}">
-			</Rectangle>
-		</Panel>
-		<!--  -->
-		<Grid Row="66" RowSpan="35" Alignment="Bottom" Color="{Resource Col_type3}" Padding="5,10,5,10" Height="100%" RowCount="4" ColumnCount="5">
-			<!-- <DropShadow Angle="270" Distance="1" Spread="0.2" Size="4" Color="#00000060" /> -->
-			<wbButton Text="{payTypeText}" Clicked="{PayTypeChange}" ColumnSpan="3" >
-				<DropShadow Angle="90" Distance="1" Spread="0.2" Size="4" Color="#00000060" />
-			</wbButton>
-			
-			<Grid RowCount="1" ColumnCount="8" ColumnSpan="2">
-			<wbButton ux:Name="usage_button" ColumnSpan="8" Text="{selected}">
-				<Clicked>
-				<Set ModalConfirm.IsEnabled="true"/>
-				</Clicked>
-			</wbButton>
+	<Grid RowCount="100">
+		<DockPanel RowSpan="57">
+			<Grid ux:Name="ScreenGrid" RowCount="57">
+				<Panel RowSpan="21"/> 
+				<Panel RowSpan="3">
+					<Rectangle Color="#fff">
+					</Rectangle>
+				</Panel>
+				<Text RowSpan="3" Alignment="Center" Value="{cashOrCardText}" Color="#000"/>
+				<Text RowSpan="3" Alignment="Center" Value="Current Balance" Color="#000"/>
+				<Text RowSpan="7" FontSize="45" Alignment="Center" Value="{currentBalance}" Color="#000"/>
+				<Text RowSpan="2" FontSize="30" Alignment="Center" TextColor="{addingValueColor}" Value="{inputVars.pmType} {addingValue}"/>
+				<Panel RowSpan="15"/>
+				<Panel RowSpan="3">
+					<Rectangle Color="{Resource Col_type3}">
+					</Rectangle>
+				</Panel>
 			</Grid>
-			
-			<Each Items="{numSet}">
-				<wbButton Text="{}" Clicked="{BalanceAdd}" />
-			</Each>
-			<wbButton Text="<" Clicked="{Backspace}"/>
-			<pmButton ColumnSpan="2" Text="{pmTypeText}"/>
-			<wbButton Text="PUT" Clicked="{Submit}" ColumnSpan="2" />
-		</Grid>
+			<WhileKeyboardVisible>
+				<Change Target="ScreenGrid.Opacity" Value="0" Duration="0.3" />
+			</WhileKeyboardVisible>
+		</DockPanel>
+		<DockPanel RowSpan="43">	
+			<Grid RowSpan="43" Alignment="Bottom" Color="{Resource Col_type3}" Padding="0,10,0,10" Height="100%" ux:Name="KeyboardGrid" RowCount="5" ColumnCount="5">
+				
+				<TextInput ux:Name="usageTextInput" Padding="1" ColumnSpan="5" Value="{inputVars.usage}" Height="100%" Width="100%" TextColor="#000" TextAlignment="Center">
+					<Rectangle>
+				    	<SolidColor Color="#fff"/>
+				    	<Stroke Width="1" Color="#fff"/>
+					</Rectangle>
+				</TextInput>
+				<wbButton Text="{payTypeText}" Clicked="{PayTypeChange}" ColumnSpan="3" />
+				<Grid ColumnCount="8" ColumnSpan="2">
+				<wbButton ux:Name="usage_button" ColumnSpan="8" Text="BOOKMARK">
+					<Clicked>
+					<Set ModalConfirm.IsEnabled="true"/>
+					</Clicked>
+				</wbButton>
+				</Grid>
+				
+				<Each Items="{numSet}">
+					<wbButton Text="{}" Clicked="{BalanceAdd}" />
+				</Each>
+				<wbButton Text="<" Clicked="{Backspace}"/>
+				<pmButton ColumnSpan="2" Text="{pmTypeText}"/>
+				<wbButton Text="PUT" Clicked="{Submit}" ColumnSpan="2" />
+				
+				<WhileKeyboardVisible>
+					<Move RelativeTo="Keyboard" Y="-1" />
+				</WhileKeyboardVisible>
+			</Grid>
+		</DockPanel>
 	</Grid>
 	<ResourceObject Key="FullWindow" Value="FullWindo"/>
 	<AlternateRoot ux:Name="ModalConfirm" IsEnabled="false" ParentNode="{Resource FullWindow}">
@@ -107,4 +116,4 @@
 			</StackPanel>
 		</Panel>
 	</AlternateRoot>
-</Panel>
+</Page>

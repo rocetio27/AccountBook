@@ -1,7 +1,8 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.4.2/RouterModify.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.9.0/RouterModify.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Reactive.IListener.h>
 #include <Fuse.Triggers.Actions-fcab7e57.h>
 namespace g{namespace Fuse{namespace Navigation{struct Router;}}}
@@ -19,18 +20,17 @@ namespace Navigation{
 // {
 struct RouterModify_type : ::g::Fuse::Triggers::Actions::TriggerAction_type
 {
-    ::g::Fuse::Reactive::IListener interface0;
+    ::g::Fuse::Reactive::IListener interface1;
 };
 
 RouterModify_type* RouterModify_typeof();
-void RouterModify__ctor_3_fn(RouterModify* __this, int* flags);
-void RouterModify__get_Bookmark_fn(RouterModify* __this, uString** __retval);
-void RouterModify__set_Bookmark_fn(RouterModify* __this, uString* value);
+void RouterModify__ctor_3_fn(RouterModify* __this, int32_t* flags);
 void RouterModify__DisposePathSub_fn(RouterModify* __this);
+void RouterModify__FuseReactiveIListenerOnLostData_fn(RouterModify* __this, uObject* source);
 void RouterModify__FuseReactiveIListenerOnNewData_fn(RouterModify* __this, uObject* source, uObject* value);
-void RouterModify__get_How_fn(RouterModify* __this, int* __retval);
-void RouterModify__set_How_fn(RouterModify* __this, int* value);
-void RouterModify__New3_fn(int* flags, RouterModify** __retval);
+void RouterModify__get_How_fn(RouterModify* __this, int32_t* __retval);
+void RouterModify__set_How_fn(RouterModify* __this, int32_t* value);
+void RouterModify__New3_fn(int32_t* flags, RouterModify** __retval);
 void RouterModify__OnUnrooted_fn(RouterModify* __this);
 void RouterModify__get_Path_fn(RouterModify* __this, uObject** __retval);
 void RouterModify__set_Path_fn(RouterModify* __this, uObject* value);
@@ -46,18 +46,16 @@ struct RouterModify : ::g::Fuse::Triggers::Actions::TriggerAction
     uStrong< ::g::Fuse::Reactive::NodeExpressionBinding*> _pathSub;
     uStrong< ::g::Fuse::Navigation::Router*> _Router;
 
-    void ctor_3(int flags);
-    uString* Bookmark();
-    void Bookmark(uString* value);
+    void ctor_3(int32_t flags);
     void DisposePathSub();
-    int How();
-    void How(int value);
+    int32_t How();
+    void How(int32_t value);
     uObject* Path();
     void Path(uObject* value);
     void PerformRoute(::g::Fuse::Node* n, ::g::Fuse::Navigation::RouterPageRoute* route);
     ::g::Fuse::Navigation::Router* Router();
     void Router(::g::Fuse::Navigation::Router* value);
-    static RouterModify* New3(int flags);
+    static RouterModify* New3(int32_t flags);
 };
 // }
 

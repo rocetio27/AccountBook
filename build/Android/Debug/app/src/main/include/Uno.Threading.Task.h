@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Threading/1.4.3/Tasks/Tasks.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Threading/1.9.0/Tasks/Tasks.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -31,13 +31,13 @@ void Task__InvokeTaskDelegate_fn(Task* __this);
 void Task__New1_fn(uDelegate* taskDelegate, Task** __retval);
 void Task__Run_fn(uDelegate* taskDelegate, Task** __retval);
 void Task__Run1_fn(uDelegate* taskDelegate, uObject* scheduler, Task** __retval);
-void Task__get_Status_fn(Task* __this, int* __retval);
-void Task__set_Status_fn(Task* __this, int* value);
+void Task__get_Status_fn(Task* __this, int32_t* __retval);
+void Task__set_Status_fn(Task* __this, int32_t* value);
 
 struct Task : uObject
 {
     uStrong< ::g::Uno::AggregateException*> _exception;
-    int _taskStatus;
+    int32_t _taskStatus;
     uStrong< ::g::Uno::Threading::CancellationTokenSource*> _cancellationTokenSource;
     uStrong< ::g::Uno::Threading::ManualResetEvent*> _manualResetEvent;
     uStrong<uDelegate*> _taskDelegate;
@@ -49,8 +49,8 @@ struct Task : uObject
     void Exception(::g::Uno::AggregateException* value);
     void Execute();
     void InvokeTaskDelegate();
-    int Status();
-    void Status(int value);
+    int32_t Status();
+    void Status(int32_t value);
     static Task* New1(uDelegate* taskDelegate);
     static Task* Run(uDelegate* taskDelegate);
     static Task* Run1(uDelegate* taskDelegate, uObject* scheduler);

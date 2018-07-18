@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Android.TextRenderer/1.4.2/Internal/TextUtils.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Android.TextRenderer/1.9.0/Internal/TextUtils.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

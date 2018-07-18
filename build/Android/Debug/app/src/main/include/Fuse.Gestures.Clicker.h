@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Gestures/1.4.2/Internal/Clicker.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Gestures/1.9.0/Internal/Clicker.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -28,16 +28,16 @@ struct Clicker_type : uType
 
 Clicker_type* Clicker_typeof();
 void Clicker__ctor__fn(Clicker* __this, ::g::Fuse::Visual* visual);
-void Clicker__AttachClicker_fn(::g::Fuse::Visual* elm, int* priority, Clicker** __retval);
+void Clicker__AttachClicker_fn(::g::Fuse::Visual* elm, int32_t* priority, Clicker** __retval);
 void Clicker__add_ClickedEvent_fn(Clicker* __this, uDelegate* value);
 void Clicker__remove_ClickedEvent_fn(Clicker* __this, uDelegate* value);
 void Clicker__Detach_fn(Clicker* __this);
 void Clicker__DoneCapture_fn(Clicker* __this);
-void Clicker__FuseInputIGestureOnCaptureChanged_fn(Clicker* __this, ::g::Fuse::Input::PointerEventArgs* args, int* how, int* prev);
+void Clicker__FuseInputIGestureOnCaptureChanged_fn(Clicker* __this, ::g::Fuse::Input::PointerEventArgs* args, int32_t* how, int32_t* prev);
 void Clicker__FuseInputIGestureOnLostCapture_fn(Clicker* __this, bool* forced);
-void Clicker__FuseInputIGestureOnPointerMoved_fn(Clicker* __this, ::g::Fuse::Input::PointerMovedArgs* args, int* __retval);
-void Clicker__FuseInputIGestureOnPointerPressed_fn(Clicker* __this, ::g::Fuse::Input::PointerPressedArgs* args, int* __retval);
-void Clicker__FuseInputIGestureOnPointerReleased_fn(Clicker* __this, ::g::Fuse::Input::PointerReleasedArgs* args, int* __retval);
+void Clicker__FuseInputIGestureOnPointerMoved_fn(Clicker* __this, ::g::Fuse::Input::PointerMovedArgs* args, int32_t* __retval);
+void Clicker__FuseInputIGestureOnPointerPressed_fn(Clicker* __this, ::g::Fuse::Input::PointerPressedArgs* args, int32_t* __retval);
+void Clicker__FuseInputIGestureOnPointerReleased_fn(Clicker* __this, ::g::Fuse::Input::PointerReleasedArgs* args, int32_t* __retval);
 void Clicker__FuseInputIGestureget_Priority_fn(Clicker* __this, ::g::Fuse::Input::GesturePriorityConfig* __retval);
 void Clicker__add_LongPressedEvent_fn(Clicker* __this, uDelegate* value);
 void Clicker__remove_LongPressedEvent_fn(Clicker* __this, uDelegate* value);
@@ -58,17 +58,17 @@ struct Clicker : uObject
     float _maxTapTimeHeld;
     float _maxDoubleInterval;
     float _longPressTimeout;
-    int _priority;
-    int _attachCount;
+    int32_t _priority;
+    int32_t _attachCount;
     uStrong< ::g::Fuse::Visual*> _visual;
     static uSStrong< ::g::Fuse::PropertyHandle*> _clickerProperty_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _clickerProperty() { return _clickerProperty_; }
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _clickerProperty() { return Clicker_typeof()->Init(), _clickerProperty_; }
     uStrong< ::g::Fuse::Input::Gesture*> _gesture;
     ::g::Uno::Float2 _startCoord;
     ::g::Uno::Float2 _pressedPosition;
     double _startTime;
-    int _tapCount;
-    int _clickCount;
+    int32_t _tapCount;
+    int32_t _clickCount;
     double _lastUpTime;
     bool _maybeTap;
     bool _hasUpdate;
@@ -95,7 +95,7 @@ struct Clicker : uObject
     void add_TappedEvent(uDelegate* value);
     void remove_TappedEvent(uDelegate* value);
     void Update();
-    static Clicker* AttachClicker(::g::Fuse::Visual* elm, int priority);
+    static Clicker* AttachClicker(::g::Fuse::Visual* elm, int32_t priority);
     static Clicker* New1(::g::Fuse::Visual* visual);
 };
 // }

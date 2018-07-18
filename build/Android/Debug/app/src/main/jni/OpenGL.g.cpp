@@ -40,10 +40,12 @@
 #include <OpenGL.GLTextureUnit.h>
 #include <Uno.Bool.h>
 #include <Uno.Buffer.h>
+#include <Uno.Byte.h>
 #include <Uno.Float.h>
 #include <Uno.Float2.h>
 #include <Uno.Float2x2.h>
 #include <Uno.Float3.h>
+#include <Uno.Float3x3.h>
 #include <Uno.Float4.h>
 #include <Uno.Float4x4.h>
 #include <Uno.Int.h>
@@ -56,10 +58,10 @@ static uType* TYPES[1];
 namespace g{
 namespace OpenGL{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GL.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GL.uno
 // ------------------------------------------------------------------------------------------
 
-// public static extern class GL :10
+// public static extern class GL :12
 // {
 static void GL_build(uType* type)
 {
@@ -77,517 +79,559 @@ uClassType* GL_typeof()
     return type;
 }
 
-// public static void ActiveTexture(OpenGL.GLTextureUnit texture) :883
-void GL__ActiveTexture_fn(int* texture)
+// public static void ActiveTexture(OpenGL.GLTextureUnit texture) :933
+void GL__ActiveTexture_fn(int32_t* texture)
 {
     GL::ActiveTexture(*texture);
 }
 
-// public static void AttachShader(OpenGL.GLProgramHandle program, OpenGL.GLShaderHandle shader) :1041
+// public static void AttachShader(OpenGL.GLProgramHandle program, OpenGL.GLShaderHandle shader) :1197
 void GL__AttachShader_fn(uint32_t* program, uint32_t* shader)
 {
     GL::AttachShader(*program, *shader);
 }
 
-// public static void BindBuffer(OpenGL.GLBufferTarget target, OpenGL.GLBufferHandle buffer) :530
-void GL__BindBuffer_fn(int* target, uint32_t* buffer)
+// public static void BindBuffer(OpenGL.GLBufferTarget target, OpenGL.GLBufferHandle buffer) :532
+void GL__BindBuffer_fn(int32_t* target, uint32_t* buffer)
 {
     GL::BindBuffer(*target, *buffer);
 }
 
-// public static void BindFramebuffer(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferHandle fb) :647
-void GL__BindFramebuffer_fn(int* target, uint32_t* fb)
+// public static void BindFramebuffer(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferHandle fb) :697
+void GL__BindFramebuffer_fn(int32_t* target, uint32_t* fb)
 {
     GL::BindFramebuffer(*target, *fb);
 }
 
-// public static void BindRenderbuffer(OpenGL.GLRenderbufferTarget target, OpenGL.GLRenderbufferHandle renderbuffer) :783
-void GL__BindRenderbuffer_fn(int* target, uint32_t* renderbuffer)
+// public static void BindRenderbuffer(OpenGL.GLRenderbufferTarget target, OpenGL.GLRenderbufferHandle renderbuffer) :833
+void GL__BindRenderbuffer_fn(int32_t* target, uint32_t* renderbuffer)
 {
     GL::BindRenderbuffer(*target, *renderbuffer);
 }
 
-// public static void BindTexture(OpenGL.GLTextureTarget target, OpenGL.GLTextureHandle texture) :901
-void GL__BindTexture_fn(int* target, uint32_t* texture)
+// public static void BindTexture(OpenGL.GLTextureTarget target, OpenGL.GLTextureHandle texture) :951
+void GL__BindTexture_fn(int32_t* target, uint32_t* texture)
 {
     GL::BindTexture(*target, *texture);
 }
 
-// public static void BlendFuncSeparate(OpenGL.GLBlendingFactor srcRGB, OpenGL.GLBlendingFactor dstRGB, OpenGL.GLBlendingFactor srcAlpha, OpenGL.GLBlendingFactor dstAlpha) :349
-void GL__BlendFuncSeparate_fn(int* srcRGB, int* dstRGB, int* srcAlpha, int* dstAlpha)
+// public static void BlendFuncSeparate(OpenGL.GLBlendingFactor srcRGB, OpenGL.GLBlendingFactor dstRGB, OpenGL.GLBlendingFactor srcAlpha, OpenGL.GLBlendingFactor dstAlpha) :351
+void GL__BlendFuncSeparate_fn(int32_t* srcRGB, int32_t* dstRGB, int32_t* srcAlpha, int32_t* dstAlpha)
 {
     GL::BlendFuncSeparate(*srcRGB, *dstRGB, *srcAlpha, *dstAlpha);
 }
 
-// public static void BufferData(OpenGL.GLBufferTarget target, Uno.Buffer data, OpenGL.GLBufferUsage usage) :567
-void GL__BufferData1_fn(int* target, ::g::Uno::Buffer* data, int* usage)
+// public static void BufferData(OpenGL.GLBufferTarget target, byte[] data, OpenGL.GLBufferUsage usage) :570
+void GL__BufferData_fn(int32_t* target, uArray* data, int32_t* usage)
 {
-    GL::BufferData1(*target, data, *usage);
+    GL::BufferData(*target, data, *usage);
 }
 
-// public static void BufferSubData(OpenGL.GLBufferTarget target, int offset, Uno.Buffer data) :585
-void GL__BufferSubData_fn(int* target, int* offset, ::g::Uno::Buffer* data)
+// public static void BufferData(OpenGL.GLBufferTarget target, Uno.Buffer data, OpenGL.GLBufferUsage usage) :591
+void GL__BufferData2_fn(int32_t* target, ::g::Uno::Buffer* data, int32_t* usage)
+{
+    GL::BufferData2(*target, data, *usage);
+}
+
+// public static void BufferSubData(OpenGL.GLBufferTarget target, int offset, byte[] data) :612
+void GL__BufferSubData_fn(int32_t* target, int32_t* offset, uArray* data)
 {
     GL::BufferSubData(*target, *offset, data);
 }
 
-// public static OpenGL.GLFramebufferStatus CheckFramebufferStatus(OpenGL.GLFramebufferTarget target) :665
-void GL__CheckFramebufferStatus_fn(int* target, int* __retval)
+// public static void BufferSubData(OpenGL.GLBufferTarget target, int offset, Uno.Buffer data) :633
+void GL__BufferSubData1_fn(int32_t* target, int32_t* offset, ::g::Uno::Buffer* data)
+{
+    GL::BufferSubData1(*target, *offset, data);
+}
+
+// public static OpenGL.GLFramebufferStatus CheckFramebufferStatus(OpenGL.GLFramebufferTarget target) :715
+void GL__CheckFramebufferStatus_fn(int32_t* target, int32_t* __retval)
 {
     *__retval = GL::CheckFramebufferStatus(*target);
 }
 
-// public static void Clear(OpenGL.GLClearBufferMask mask) :192
-void GL__Clear_fn(int* mask)
+// public static void Clear(OpenGL.GLClearBufferMask mask) :194
+void GL__Clear_fn(int32_t* mask)
 {
     GL::Clear(*mask);
 }
 
-// public static void ClearColor(float red, float green, float blue, float alpha) :210
+// public static void ClearColor(float red, float green, float blue, float alpha) :212
 void GL__ClearColor_fn(float* red, float* green, float* blue, float* alpha)
 {
     GL::ClearColor(*red, *green, *blue, *alpha);
 }
 
-// public static void ClearDepth(float depth) :228
+// public static void ClearDepth(float depth) :230
 void GL__ClearDepth_fn(float* depth)
 {
     GL::ClearDepth(*depth);
 }
 
-// public static void ColorMask(bool red, bool green, bool blue, bool alpha) :251
+// public static void ColorMask(bool red, bool green, bool blue, bool alpha) :253
 void GL__ColorMask_fn(bool* red, bool* green, bool* blue, bool* alpha)
 {
     GL::ColorMask(*red, *green, *blue, *alpha);
 }
 
-// public static void CompileShader(OpenGL.GLShaderHandle shader) :1077
+// public static void CompileShader(OpenGL.GLShaderHandle shader) :1233
 void GL__CompileShader_fn(uint32_t* shader)
 {
     GL::CompileShader(*shader);
 }
 
-// public static OpenGL.GLBufferHandle CreateBuffer() :603
+// public static OpenGL.GLBufferHandle CreateBuffer() :653
 void GL__CreateBuffer_fn(uint32_t* __retval)
 {
     *__retval = GL::CreateBuffer();
 }
 
-// public static OpenGL.GLFramebufferHandle CreateFramebuffer() :683
+// public static OpenGL.GLFramebufferHandle CreateFramebuffer() :733
 void GL__CreateFramebuffer_fn(uint32_t* __retval)
 {
     *__retval = GL::CreateFramebuffer();
 }
 
-// public static OpenGL.GLProgramHandle CreateProgram() :1095
+// public static OpenGL.GLProgramHandle CreateProgram() :1251
 void GL__CreateProgram_fn(uint32_t* __retval)
 {
     *__retval = GL::CreateProgram();
 }
 
-// public static OpenGL.GLRenderbufferHandle CreateRenderbuffer() :801
+// public static OpenGL.GLRenderbufferHandle CreateRenderbuffer() :851
 void GL__CreateRenderbuffer_fn(uint32_t* __retval)
 {
     *__retval = GL::CreateRenderbuffer();
 }
 
-// public static OpenGL.GLShaderHandle CreateShader(OpenGL.GLShaderType type) :1113
-void GL__CreateShader_fn(int* type, uint32_t* __retval)
+// public static OpenGL.GLShaderHandle CreateShader(OpenGL.GLShaderType type) :1269
+void GL__CreateShader_fn(int32_t* type, uint32_t* __retval)
 {
     *__retval = GL::CreateShader(*type);
 }
 
-// public static OpenGL.GLTextureHandle CreateTexture() :922
+// public static OpenGL.GLTextureHandle CreateTexture() :972
 void GL__CreateTexture_fn(uint32_t* __retval)
 {
     *__retval = GL::CreateTexture();
 }
 
-// public static void CullFace(OpenGL.GLCullFaceMode mode) :394
-void GL__CullFace_fn(int* mode)
+// public static void CullFace(OpenGL.GLCullFaceMode mode) :396
+void GL__CullFace_fn(int32_t* mode)
 {
     GL::CullFace(*mode);
 }
 
-// public static void DeleteBuffer(OpenGL.GLBufferHandle buffer) :623
+// public static void DeleteBuffer(OpenGL.GLBufferHandle buffer) :673
 void GL__DeleteBuffer_fn(uint32_t* buffer)
 {
     GL::DeleteBuffer(*buffer);
 }
 
-// public static void DeleteFramebuffer(OpenGL.GLFramebufferHandle fb) :703
+// public static void DeleteFramebuffer(OpenGL.GLFramebufferHandle fb) :753
 void GL__DeleteFramebuffer_fn(uint32_t* fb)
 {
     GL::DeleteFramebuffer(*fb);
 }
 
-// public static void DeleteProgram(OpenGL.GLProgramHandle program) :1131
+// public static void DeleteProgram(OpenGL.GLProgramHandle program) :1287
 void GL__DeleteProgram_fn(uint32_t* program)
 {
     GL::DeleteProgram(*program);
 }
 
-// public static void DeleteRenderbuffer(OpenGL.GLRenderbufferHandle renderbuffer) :821
+// public static void DeleteRenderbuffer(OpenGL.GLRenderbufferHandle renderbuffer) :871
 void GL__DeleteRenderbuffer_fn(uint32_t* renderbuffer)
 {
     GL::DeleteRenderbuffer(*renderbuffer);
 }
 
-// public static void DeleteShader(OpenGL.GLShaderHandle shader) :1149
+// public static void DeleteShader(OpenGL.GLShaderHandle shader) :1305
 void GL__DeleteShader_fn(uint32_t* shader)
 {
     GL::DeleteShader(*shader);
 }
 
-// public static void DeleteTexture(OpenGL.GLTextureHandle texture) :942
+// public static void DeleteTexture(OpenGL.GLTextureHandle texture) :992
 void GL__DeleteTexture_fn(uint32_t* texture)
 {
     GL::DeleteTexture(*texture);
 }
 
-// public static void DepthFunc(OpenGL.GLDepthFunction func) :367
-void GL__DepthFunc_fn(int* func)
+// public static void DepthFunc(OpenGL.GLDepthFunction func) :369
+void GL__DepthFunc_fn(int32_t* func)
 {
     GL::DepthFunc(*func);
 }
 
-// public static void DepthMask(bool flag) :269
+// public static void DepthMask(bool flag) :271
 void GL__DepthMask_fn(bool* flag)
 {
     GL::DepthMask(*flag);
 }
 
-// public static void DetachShader(OpenGL.GLProgramHandle program, OpenGL.GLShaderHandle shader) :1167
+// public static void DetachShader(OpenGL.GLProgramHandle program, OpenGL.GLShaderHandle shader) :1323
 void GL__DetachShader_fn(uint32_t* program, uint32_t* shader)
 {
     GL::DetachShader(*program, *shader);
 }
 
-// public static void Disable(OpenGL.GLEnableCap cap) :57
-void GL__Disable_fn(int* cap)
+// public static void Disable(OpenGL.GLEnableCap cap) :59
+void GL__Disable_fn(int32_t* cap)
 {
     GL::Disable(*cap);
 }
 
-// public static void DisableVertexAttribArray(int index) :1401
-void GL__DisableVertexAttribArray_fn(int* index)
+// public static void DisableVertexAttribArray(int index) :1557
+void GL__DisableVertexAttribArray_fn(int32_t* index)
 {
     GL::DisableVertexAttribArray(*index);
 }
 
-// public static void DrawArrays(OpenGL.GLPrimitiveType mode, int first, int count) :1920
-void GL__DrawArrays_fn(int* mode, int* first, int* count)
+// public static void DrawArrays(OpenGL.GLPrimitiveType mode, int first, int count) :2076
+void GL__DrawArrays_fn(int32_t* mode, int32_t* first, int32_t* count)
 {
     GL::DrawArrays(*mode, *first, *count);
 }
 
-// public static void DrawElements(OpenGL.GLPrimitiveType mode, int count, OpenGL.GLIndexType type, int offset) :1938
-void GL__DrawElements_fn(int* mode, int* count, int* type, int* offset)
+// public static void DrawElements(OpenGL.GLPrimitiveType mode, int count, OpenGL.GLIndexType type, int offset) :2094
+void GL__DrawElements_fn(int32_t* mode, int32_t* count, int32_t* type, int32_t* offset)
 {
     GL::DrawElements(*mode, *count, *type, *offset);
 }
 
-// public static void Enable(OpenGL.GLEnableCap cap) :75
-void GL__Enable_fn(int* cap)
+// public static void Enable(OpenGL.GLEnableCap cap) :77
+void GL__Enable_fn(int32_t* cap)
 {
     GL::Enable(*cap);
 }
 
-// public static void EnableVertexAttribArray(int index) :1419
-void GL__EnableVertexAttribArray_fn(int* index)
+// public static void EnableVertexAttribArray(int index) :1575
+void GL__EnableVertexAttribArray_fn(int32_t* index)
 {
     GL::EnableVertexAttribArray(*index);
 }
 
-// public static void Finish() :93
+// public static void Finish() :95
 void GL__Finish_fn()
 {
     GL::Finish();
 }
 
-// public static void FramebufferRenderbuffer(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferAttachment attachment, OpenGL.GLRenderbufferTarget renderbuffertarget, OpenGL.GLRenderbufferHandle renderbuffer) :739
-void GL__FramebufferRenderbuffer_fn(int* target, int* attachment, int* renderbuffertarget, uint32_t* renderbuffer)
+// public static void FramebufferRenderbuffer(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferAttachment attachment, OpenGL.GLRenderbufferTarget renderbuffertarget, OpenGL.GLRenderbufferHandle renderbuffer) :789
+void GL__FramebufferRenderbuffer_fn(int32_t* target, int32_t* attachment, int32_t* renderbuffertarget, uint32_t* renderbuffer)
 {
     GL::FramebufferRenderbuffer(*target, *attachment, *renderbuffertarget, *renderbuffer);
 }
 
-// public static void FramebufferTexture2D(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferAttachment attachment, OpenGL.GLTextureTarget textarget, OpenGL.GLTextureHandle texture, int level) :721
-void GL__FramebufferTexture2D_fn(int* target, int* attachment, int* textarget, uint32_t* texture, int* level)
+// public static void FramebufferTexture2D(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferAttachment attachment, OpenGL.GLTextureTarget textarget, OpenGL.GLTextureHandle texture, int level) :771
+void GL__FramebufferTexture2D_fn(int32_t* target, int32_t* attachment, int32_t* textarget, uint32_t* texture, int32_t* level)
 {
     GL::FramebufferTexture2D(*target, *attachment, *textarget, *texture, *level);
 }
 
-// public static void FrontFace(OpenGL.GLFrontFaceDirection mode) :412
-void GL__FrontFace_fn(int* mode)
+// public static void FrontFace(OpenGL.GLFrontFaceDirection mode) :414
+void GL__FrontFace_fn(int32_t* mode)
 {
     GL::FrontFace(*mode);
 }
 
-// public static int GetAttribLocation(OpenGL.GLProgramHandle program, string name) :1440
-void GL__GetAttribLocation_fn(uint32_t* program, uString* name, int* __retval)
+// public static void GenerateMipmap(OpenGL.GLTextureTarget target) :1010
+void GL__GenerateMipmap_fn(int32_t* target)
+{
+    GL::GenerateMipmap(*target);
+}
+
+// public static int GetAttribLocation(OpenGL.GLProgramHandle program, string name) :1596
+void GL__GetAttribLocation_fn(uint32_t* program, uString* name, int32_t* __retval)
 {
     *__retval = GL::GetAttribLocation(*program, name);
 }
 
-// public static OpenGL.GLError GetError() :130
-void GL__GetError_fn(int* __retval)
+// public static OpenGL.GLError GetError() :132
+void GL__GetError_fn(int32_t* __retval)
 {
     *__retval = GL::GetError();
 }
 
-// public static OpenGL.GLFramebufferHandle GetFramebufferBinding() :760
+// public static OpenGL.GLFramebufferHandle GetFramebufferBinding() :810
 void GL__GetFramebufferBinding_fn(uint32_t* __retval)
 {
     *__retval = GL::GetFramebufferBinding();
 }
 
-// public static int4 GetInteger(OpenGL.GLInteger4Name name) :34
-void GL__GetInteger_fn(int* name, ::g::Uno::Int4* __retval)
+// public static int4 GetInteger(OpenGL.GLInteger4Name name) :36
+void GL__GetInteger_fn(int32_t* name, ::g::Uno::Int4* __retval)
 {
     *__retval = GL::GetInteger(*name);
 }
 
-// public static int GetInteger(OpenGL.GLIntegerName name) :14
-void GL__GetInteger1_fn(int* name, int* __retval)
+// public static int GetInteger(OpenGL.GLIntegerName name) :16
+void GL__GetInteger1_fn(int32_t* name, int32_t* __retval)
 {
     *__retval = GL::GetInteger1(*name);
 }
 
-// public static string GetProgramInfoLog(OpenGL.GLProgramHandle program) :1207
+// public static string GetProgramInfoLog(OpenGL.GLProgramHandle program) :1363
 void GL__GetProgramInfoLog_fn(uint32_t* program, uString** __retval)
 {
     *__retval = GL::GetProgramInfoLog(*program);
 }
 
-// public static int GetProgramParameter(OpenGL.GLProgramHandle program, OpenGL.GLProgramParameter pname) :1187
-void GL__GetProgramParameter_fn(uint32_t* program, int* pname, int* __retval)
+// public static int GetProgramParameter(OpenGL.GLProgramHandle program, OpenGL.GLProgramParameter pname) :1343
+void GL__GetProgramParameter_fn(uint32_t* program, int32_t* pname, int32_t* __retval)
 {
     *__retval = GL::GetProgramParameter(*program, *pname);
 }
 
-// public static OpenGL.GLRenderbufferHandle GetRenderbufferBinding() :860
+// public static OpenGL.GLRenderbufferHandle GetRenderbufferBinding() :910
 void GL__GetRenderbufferBinding_fn(uint32_t* __retval)
 {
     *__retval = GL::GetRenderbufferBinding();
 }
 
-// public static string GetShaderInfoLog(OpenGL.GLShaderHandle shader) :1249
+// public static string GetShaderInfoLog(OpenGL.GLShaderHandle shader) :1405
 void GL__GetShaderInfoLog_fn(uint32_t* shader, uString** __retval)
 {
     *__retval = GL::GetShaderInfoLog(*shader);
 }
 
-// public static int GetShaderParameter(OpenGL.GLShaderHandle shader, OpenGL.GLShaderParameter pname) :1229
-void GL__GetShaderParameter_fn(uint32_t* shader, int* pname, int* __retval)
+// public static int GetShaderParameter(OpenGL.GLShaderHandle shader, OpenGL.GLShaderParameter pname) :1385
+void GL__GetShaderParameter_fn(uint32_t* shader, int32_t* pname, int32_t* __retval)
 {
     *__retval = GL::GetShaderParameter(*shader, *pname);
 }
 
-// public static string GetString(OpenGL.GLStringName name) :148
-void GL__GetString_fn(int* name, uString** __retval)
+// public static string GetString(OpenGL.GLStringName name) :150
+void GL__GetString_fn(int32_t* name, uString** __retval)
 {
     *__retval = GL::GetString(*name);
 }
 
-// public static int GetUniformLocation(OpenGL.GLProgramHandle program, string name) :1460
-void GL__GetUniformLocation_fn(uint32_t* program, uString* name, int* __retval)
+// public static int GetUniformLocation(OpenGL.GLProgramHandle program, string name) :1616
+void GL__GetUniformLocation_fn(uint32_t* program, uString* name, int32_t* __retval)
 {
     *__retval = GL::GetUniformLocation(*program, name);
 }
 
-// public static void LineWidth(float width) :430
+// public static void LineWidth(float width) :432
 void GL__LineWidth_fn(float* width)
 {
     GL::LineWidth(*width);
 }
 
-// public static void LinkProgram(OpenGL.GLProgramHandle program) :1275
+// public static void LinkProgram(OpenGL.GLProgramHandle program) :1431
 void GL__LinkProgram_fn(uint32_t* program)
 {
     GL::LinkProgram(*program);
 }
 
-// public static void RenderbufferStorage(OpenGL.GLRenderbufferTarget target, OpenGL.GLRenderbufferStorage internalFormat, int width, int height) :842
-void GL__RenderbufferStorage_fn(int* target, int* internalFormat, int* width, int* height)
+// public static void RenderbufferStorage(OpenGL.GLRenderbufferTarget target, OpenGL.GLRenderbufferStorage internalFormat, int width, int height) :892
+void GL__RenderbufferStorage_fn(int32_t* target, int32_t* internalFormat, int32_t* width, int32_t* height)
 {
     GL::RenderbufferStorage(*target, *internalFormat, *width, *height);
 }
 
-// public static void Scissor(int x, int y, int width, int height) :491
-void GL__Scissor_fn(int* x, int* y, int* width, int* height)
+// public static void Scissor(int x, int y, int width, int height) :493
+void GL__Scissor_fn(int32_t* x, int32_t* y, int32_t* width, int32_t* height)
 {
     GL::Scissor(*x, *y, *width, *height);
 }
 
-// public static void ShaderSource(OpenGL.GLShaderHandle shader, string source) :1293
+// public static void ShaderSource(OpenGL.GLShaderHandle shader, string source) :1449
 void GL__ShaderSource_fn(uint32_t* shader, uString* source)
 {
     GL::ShaderSource(*shader, source);
 }
 
-// public static void TexImage2D(OpenGL.GLTextureTarget target, int level, OpenGL.GLPixelFormat internalFormat, int width, int height, int border, OpenGL.GLPixelFormat format, OpenGL.GLPixelType type, Uno.Buffer data) :981
-void GL__TexImage2D_fn(int* target, int* level, int* internalFormat, int* width, int* height, int* border, int* format, int* type, ::g::Uno::Buffer* data)
+// public static void TexImage2D(OpenGL.GLTextureTarget target, int level, OpenGL.GLPixelFormat internalFormat, int width, int height, int border, OpenGL.GLPixelFormat format, OpenGL.GLPixelType type, byte[] data) :1032
+void GL__TexImage2D_fn(int32_t* target, int32_t* level, int32_t* internalFormat, int32_t* width, int32_t* height, int32_t* border, int32_t* format, int32_t* type, uArray* data)
 {
     GL::TexImage2D(*target, *level, *internalFormat, *width, *height, *border, *format, *type, data);
 }
 
-// public static void TexParameter(OpenGL.GLTextureTarget target, OpenGL.GLTextureParameterName pname, OpenGL.GLTextureParameterValue param) :1018
-void GL__TexParameter_fn(int* target, int* pname, int* param)
+// public static void TexImage2D(OpenGL.GLTextureTarget target, int level, OpenGL.GLPixelFormat internalFormat, int width, int height, int border, OpenGL.GLPixelFormat format, OpenGL.GLPixelType type, Uno.Buffer data) :1071
+void GL__TexImage2D1_fn(int32_t* target, int32_t* level, int32_t* internalFormat, int32_t* width, int32_t* height, int32_t* border, int32_t* format, int32_t* type, ::g::Uno::Buffer* data)
+{
+    GL::TexImage2D1(*target, *level, *internalFormat, *width, *height, *border, *format, *type, data);
+}
+
+// public static void TexParameter(OpenGL.GLTextureTarget target, OpenGL.GLTextureParameterName pname, OpenGL.GLTextureParameterValue param) :1174
+void GL__TexParameter_fn(int32_t* target, int32_t* pname, int32_t* param)
 {
     GL::TexParameter(*target, *pname, *param);
 }
 
-// public static void Uniform1(int location, float value) :1557
-void GL__Uniform1_fn(int* location, float* value)
+// public static void Uniform1(int location, float value) :1713
+void GL__Uniform1_fn(int32_t* location, float* value)
 {
     GL::Uniform1(*location, *value);
 }
 
-// public static void Uniform1(int location, float[] value) :1766
-void GL__Uniform11_fn(int* location, uArray* value)
+// public static void Uniform1(int location, float[] value) :1922
+void GL__Uniform11_fn(int32_t* location, uArray* value)
 {
     GL::Uniform11(*location, value);
 }
 
-// public static void Uniform1(int location, int value) :1481
-void GL__Uniform12_fn(int* location, int* value)
+// public static void Uniform1(int location, int value) :1637
+void GL__Uniform12_fn(int32_t* location, int32_t* value)
 {
     GL::Uniform12(*location, *value);
 }
 
-// public static void Uniform2(int location, float2 value) :1576
-void GL__Uniform2_fn(int* location, ::g::Uno::Float2* value)
+// public static void Uniform2(int location, float2 value) :1732
+void GL__Uniform2_fn(int32_t* location, ::g::Uno::Float2* value)
 {
     GL::Uniform2(*location, *value);
 }
 
-// public static void Uniform2(int location, float2[] value) :1785
-void GL__Uniform21_fn(int* location, uArray* value)
+// public static void Uniform2(int location, float2[] value) :1941
+void GL__Uniform21_fn(int32_t* location, uArray* value)
 {
     GL::Uniform21(*location, value);
 }
 
-// public static void Uniform3(int location, float3 value) :1595
-void GL__Uniform3_fn(int* location, ::g::Uno::Float3* value)
+// public static void Uniform3(int location, float3 value) :1751
+void GL__Uniform3_fn(int32_t* location, ::g::Uno::Float3* value)
 {
     GL::Uniform3(*location, *value);
 }
 
-// public static void Uniform4(int location, float4 value) :1614
-void GL__Uniform4_fn(int* location, ::g::Uno::Float4* value)
+// public static void Uniform4(int location, float4 value) :1770
+void GL__Uniform4_fn(int32_t* location, ::g::Uno::Float4* value)
 {
     GL::Uniform4(*location, *value);
 }
 
-// public static void Uniform4(int location, float4[] value) :1823
-void GL__Uniform41_fn(int* location, uArray* value)
+// public static void Uniform4(int location, float4[] value) :1979
+void GL__Uniform41_fn(int32_t* location, uArray* value)
 {
     GL::Uniform41(*location, value);
 }
 
-// public static void UniformMatrix2(int location, bool transpose, float2x2 value) :1633
-void GL__UniformMatrix2_fn(int* location, bool* transpose, ::g::Uno::Float2x2* value)
+// public static void UniformMatrix2(int location, bool transpose, float2x2 value) :1789
+void GL__UniformMatrix2_fn(int32_t* location, bool* transpose, ::g::Uno::Float2x2* value)
 {
     GL::UniformMatrix2(*location, *transpose, *value);
 }
 
-// public static void UniformMatrix4(int location, bool transpose, float4x4 value) :1671
-void GL__UniformMatrix4_fn(int* location, bool* transpose, ::g::Uno::Float4x4* value)
+// public static void UniformMatrix3(int location, bool transpose, float3x3 value) :1808
+void GL__UniformMatrix3_fn(int32_t* location, bool* transpose, ::g::Uno::Float3x3* value)
+{
+    GL::UniformMatrix3(*location, *transpose, *value);
+}
+
+// public static void UniformMatrix4(int location, bool transpose, float4x4 value) :1827
+void GL__UniformMatrix4_fn(int32_t* location, bool* transpose, ::g::Uno::Float4x4* value)
 {
     GL::UniformMatrix4(*location, *transpose, *value);
 }
 
-// public static void UseProgram(OpenGL.GLProgramHandle program) :1329
+// public static void UseProgram(OpenGL.GLProgramHandle program) :1485
 void GL__UseProgram_fn(uint32_t* program)
 {
     GL::UseProgram(*program);
 }
 
-// public static void VertexAttribPointer(int index, int size, OpenGL.GLDataType type, bool normalized, int stride, int offset) :1900
-void GL__VertexAttribPointer_fn(int* index, int* size, int* type, bool* normalized, int* stride, int* offset)
+// public static void VertexAttribPointer(int index, int size, OpenGL.GLDataType type, bool normalized, int stride, int offset) :2056
+void GL__VertexAttribPointer_fn(int32_t* index, int32_t* size, int32_t* type, bool* normalized, int32_t* stride, int32_t* offset)
 {
     GL::VertexAttribPointer(*index, *size, *type, *normalized, *stride, *offset);
 }
 
-// public static void Viewport(int x, int y, int width, int height) :509
-void GL__Viewport_fn(int* x, int* y, int* width, int* height)
+// public static void Viewport(int x, int y, int width, int height) :511
+void GL__Viewport_fn(int32_t* x, int32_t* y, int32_t* width, int32_t* height)
 {
     GL::Viewport(*x, *y, *width, *height);
 }
 
-// public static void ActiveTexture(OpenGL.GLTextureUnit texture) [static] :883
-void GL::ActiveTexture(int texture)
+// public static void ActiveTexture(OpenGL.GLTextureUnit texture) [static] :933
+void GL::ActiveTexture(int32_t texture)
 {
     glActiveTexture(texture);
 }
 
-// public static void AttachShader(OpenGL.GLProgramHandle program, OpenGL.GLShaderHandle shader) [static] :1041
+// public static void AttachShader(OpenGL.GLProgramHandle program, OpenGL.GLShaderHandle shader) [static] :1197
 void GL::AttachShader(uint32_t program, uint32_t shader)
 {
     glAttachShader(program, shader);
 }
 
-// public static void BindBuffer(OpenGL.GLBufferTarget target, OpenGL.GLBufferHandle buffer) [static] :530
-void GL::BindBuffer(int target, uint32_t buffer)
+// public static void BindBuffer(OpenGL.GLBufferTarget target, OpenGL.GLBufferHandle buffer) [static] :532
+void GL::BindBuffer(int32_t target, uint32_t buffer)
 {
     glBindBuffer(target, buffer);
 }
 
-// public static void BindFramebuffer(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferHandle fb) [static] :647
-void GL::BindFramebuffer(int target, uint32_t fb)
+// public static void BindFramebuffer(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferHandle fb) [static] :697
+void GL::BindFramebuffer(int32_t target, uint32_t fb)
 {
     glBindFramebuffer(target, fb);
 }
 
-// public static void BindRenderbuffer(OpenGL.GLRenderbufferTarget target, OpenGL.GLRenderbufferHandle renderbuffer) [static] :783
-void GL::BindRenderbuffer(int target, uint32_t renderbuffer)
+// public static void BindRenderbuffer(OpenGL.GLRenderbufferTarget target, OpenGL.GLRenderbufferHandle renderbuffer) [static] :833
+void GL::BindRenderbuffer(int32_t target, uint32_t renderbuffer)
 {
     glBindRenderbuffer(target, renderbuffer);
 }
 
-// public static void BindTexture(OpenGL.GLTextureTarget target, OpenGL.GLTextureHandle texture) [static] :901
-void GL::BindTexture(int target, uint32_t texture)
+// public static void BindTexture(OpenGL.GLTextureTarget target, OpenGL.GLTextureHandle texture) [static] :951
+void GL::BindTexture(int32_t target, uint32_t texture)
 {
     glBindTexture(target, texture);
 }
 
-// public static void BlendFuncSeparate(OpenGL.GLBlendingFactor srcRGB, OpenGL.GLBlendingFactor dstRGB, OpenGL.GLBlendingFactor srcAlpha, OpenGL.GLBlendingFactor dstAlpha) [static] :349
-void GL::BlendFuncSeparate(int srcRGB, int dstRGB, int srcAlpha, int dstAlpha)
+// public static void BlendFuncSeparate(OpenGL.GLBlendingFactor srcRGB, OpenGL.GLBlendingFactor dstRGB, OpenGL.GLBlendingFactor srcAlpha, OpenGL.GLBlendingFactor dstAlpha) [static] :351
+void GL::BlendFuncSeparate(int32_t srcRGB, int32_t dstRGB, int32_t srcAlpha, int32_t dstAlpha)
 {
     glBlendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha);
 }
 
-// public static void BufferData(OpenGL.GLBufferTarget target, Uno.Buffer data, OpenGL.GLBufferUsage usage) [static] :567
-void GL::BufferData1(int target, ::g::Uno::Buffer* data, int usage)
+// public static void BufferData(OpenGL.GLBufferTarget target, byte[] data, OpenGL.GLBufferUsage usage) [static] :570
+void GL::BufferData(int32_t target, uArray* data, int32_t usage)
+{
+    glBufferData(target, data->Length(), data->Ptr(), usage);
+}
+
+// public static void BufferData(OpenGL.GLBufferTarget target, Uno.Buffer data, OpenGL.GLBufferUsage usage) [static] :591
+void GL::BufferData2(int32_t target, ::g::Uno::Buffer* data, int32_t usage)
 {
     glBufferData(target, U_BUFFER_SIZE(data), U_BUFFER_PTR(data), usage);
 }
 
-// public static void BufferSubData(OpenGL.GLBufferTarget target, int offset, Uno.Buffer data) [static] :585
-void GL::BufferSubData(int target, int offset, ::g::Uno::Buffer* data)
+// public static void BufferSubData(OpenGL.GLBufferTarget target, int offset, byte[] data) [static] :612
+void GL::BufferSubData(int32_t target, int32_t offset, uArray* data)
+{
+    glBufferSubData(target, offset, data->Length(), data->Ptr());
+}
+
+// public static void BufferSubData(OpenGL.GLBufferTarget target, int offset, Uno.Buffer data) [static] :633
+void GL::BufferSubData1(int32_t target, int32_t offset, ::g::Uno::Buffer* data)
 {
     glBufferSubData(target, offset, U_BUFFER_SIZE(data), U_BUFFER_PTR(data));
 }
 
-// public static OpenGL.GLFramebufferStatus CheckFramebufferStatus(OpenGL.GLFramebufferTarget target) [static] :665
-int GL::CheckFramebufferStatus(int target)
+// public static OpenGL.GLFramebufferStatus CheckFramebufferStatus(OpenGL.GLFramebufferTarget target) [static] :715
+int32_t GL::CheckFramebufferStatus(int32_t target)
 {
     return glCheckFramebufferStatus(target);
 }
 
-// public static void Clear(OpenGL.GLClearBufferMask mask) [static] :192
-void GL::Clear(int mask)
+// public static void Clear(OpenGL.GLClearBufferMask mask) [static] :194
+void GL::Clear(int32_t mask)
 {
     glClear(mask);
 }
 
-// public static void ClearColor(float red, float green, float blue, float alpha) [static] :210
+// public static void ClearColor(float red, float green, float blue, float alpha) [static] :212
 void GL::ClearColor(float red, float green, float blue, float alpha)
 {
     glClearColor(red, green, blue, alpha);
 }
 
-// public static void ClearDepth(float depth) [static] :228
+// public static void ClearDepth(float depth) [static] :230
 void GL::ClearDepth(float depth)
 {
     #ifdef U_GL_DESKTOP
@@ -597,19 +641,19 @@ void GL::ClearDepth(float depth)
     #endif
 }
 
-// public static void ColorMask(bool red, bool green, bool blue, bool alpha) [static] :251
+// public static void ColorMask(bool red, bool green, bool blue, bool alpha) [static] :253
 void GL::ColorMask(bool red, bool green, bool blue, bool alpha)
 {
     glColorMask(red, green, blue, alpha);
 }
 
-// public static void CompileShader(OpenGL.GLShaderHandle shader) [static] :1077
+// public static void CompileShader(OpenGL.GLShaderHandle shader) [static] :1233
 void GL::CompileShader(uint32_t shader)
 {
     glCompileShader(shader);
 }
 
-// public static OpenGL.GLBufferHandle CreateBuffer() [static] :603
+// public static OpenGL.GLBufferHandle CreateBuffer() [static] :653
 uint32_t GL::CreateBuffer()
 {
     GLuint handle;
@@ -617,7 +661,7 @@ uint32_t GL::CreateBuffer()
     return handle;
 }
 
-// public static OpenGL.GLFramebufferHandle CreateFramebuffer() [static] :683
+// public static OpenGL.GLFramebufferHandle CreateFramebuffer() [static] :733
 uint32_t GL::CreateFramebuffer()
 {
     GLuint handle;
@@ -625,13 +669,13 @@ uint32_t GL::CreateFramebuffer()
     return handle;
 }
 
-// public static OpenGL.GLProgramHandle CreateProgram() [static] :1095
+// public static OpenGL.GLProgramHandle CreateProgram() [static] :1251
 uint32_t GL::CreateProgram()
 {
     return glCreateProgram();
 }
 
-// public static OpenGL.GLRenderbufferHandle CreateRenderbuffer() [static] :801
+// public static OpenGL.GLRenderbufferHandle CreateRenderbuffer() [static] :851
 uint32_t GL::CreateRenderbuffer()
 {
     GLuint handle;
@@ -639,13 +683,13 @@ uint32_t GL::CreateRenderbuffer()
     return handle;
 }
 
-// public static OpenGL.GLShaderHandle CreateShader(OpenGL.GLShaderType type) [static] :1113
-uint32_t GL::CreateShader(int type)
+// public static OpenGL.GLShaderHandle CreateShader(OpenGL.GLShaderType type) [static] :1269
+uint32_t GL::CreateShader(int32_t type)
 {
     return glCreateShader(type);
 }
 
-// public static OpenGL.GLTextureHandle CreateTexture() [static] :922
+// public static OpenGL.GLTextureHandle CreateTexture() [static] :972
 uint32_t GL::CreateTexture()
 {
     GLuint handle;
@@ -653,139 +697,145 @@ uint32_t GL::CreateTexture()
     return handle;
 }
 
-// public static void CullFace(OpenGL.GLCullFaceMode mode) [static] :394
-void GL::CullFace(int mode)
+// public static void CullFace(OpenGL.GLCullFaceMode mode) [static] :396
+void GL::CullFace(int32_t mode)
 {
     glCullFace(mode);
 }
 
-// public static void DeleteBuffer(OpenGL.GLBufferHandle buffer) [static] :623
+// public static void DeleteBuffer(OpenGL.GLBufferHandle buffer) [static] :673
 void GL::DeleteBuffer(uint32_t buffer)
 {
     glDeleteBuffers(1, &buffer);
 }
 
-// public static void DeleteFramebuffer(OpenGL.GLFramebufferHandle fb) [static] :703
+// public static void DeleteFramebuffer(OpenGL.GLFramebufferHandle fb) [static] :753
 void GL::DeleteFramebuffer(uint32_t fb)
 {
     glDeleteFramebuffers(1, &fb);
 }
 
-// public static void DeleteProgram(OpenGL.GLProgramHandle program) [static] :1131
+// public static void DeleteProgram(OpenGL.GLProgramHandle program) [static] :1287
 void GL::DeleteProgram(uint32_t program)
 {
     glDeleteProgram(program);
 }
 
-// public static void DeleteRenderbuffer(OpenGL.GLRenderbufferHandle renderbuffer) [static] :821
+// public static void DeleteRenderbuffer(OpenGL.GLRenderbufferHandle renderbuffer) [static] :871
 void GL::DeleteRenderbuffer(uint32_t renderbuffer)
 {
     glDeleteRenderbuffers(1, &renderbuffer);
 }
 
-// public static void DeleteShader(OpenGL.GLShaderHandle shader) [static] :1149
+// public static void DeleteShader(OpenGL.GLShaderHandle shader) [static] :1305
 void GL::DeleteShader(uint32_t shader)
 {
     glDeleteShader(shader);
 }
 
-// public static void DeleteTexture(OpenGL.GLTextureHandle texture) [static] :942
+// public static void DeleteTexture(OpenGL.GLTextureHandle texture) [static] :992
 void GL::DeleteTexture(uint32_t texture)
 {
     glDeleteTextures(1, &texture);
 }
 
-// public static void DepthFunc(OpenGL.GLDepthFunction func) [static] :367
-void GL::DepthFunc(int func)
+// public static void DepthFunc(OpenGL.GLDepthFunction func) [static] :369
+void GL::DepthFunc(int32_t func)
 {
     glDepthFunc(func);
 }
 
-// public static void DepthMask(bool flag) [static] :269
+// public static void DepthMask(bool flag) [static] :271
 void GL::DepthMask(bool flag)
 {
     glDepthMask(flag);
 }
 
-// public static void DetachShader(OpenGL.GLProgramHandle program, OpenGL.GLShaderHandle shader) [static] :1167
+// public static void DetachShader(OpenGL.GLProgramHandle program, OpenGL.GLShaderHandle shader) [static] :1323
 void GL::DetachShader(uint32_t program, uint32_t shader)
 {
     glDetachShader(program, shader);
 }
 
-// public static void Disable(OpenGL.GLEnableCap cap) [static] :57
-void GL::Disable(int cap)
+// public static void Disable(OpenGL.GLEnableCap cap) [static] :59
+void GL::Disable(int32_t cap)
 {
     glDisable(cap);
 }
 
-// public static void DisableVertexAttribArray(int index) [static] :1401
-void GL::DisableVertexAttribArray(int index)
+// public static void DisableVertexAttribArray(int index) [static] :1557
+void GL::DisableVertexAttribArray(int32_t index)
 {
     glDisableVertexAttribArray(index);
 }
 
-// public static void DrawArrays(OpenGL.GLPrimitiveType mode, int first, int count) [static] :1920
-void GL::DrawArrays(int mode, int first, int count)
+// public static void DrawArrays(OpenGL.GLPrimitiveType mode, int first, int count) [static] :2076
+void GL::DrawArrays(int32_t mode, int32_t first, int32_t count)
 {
     glDrawArrays(mode, first, count);
 }
 
-// public static void DrawElements(OpenGL.GLPrimitiveType mode, int count, OpenGL.GLIndexType type, int offset) [static] :1938
-void GL::DrawElements(int mode, int count, int type, int offset)
+// public static void DrawElements(OpenGL.GLPrimitiveType mode, int count, OpenGL.GLIndexType type, int offset) [static] :2094
+void GL::DrawElements(int32_t mode, int32_t count, int32_t type, int32_t offset)
 {
     glDrawElements(mode, count, type, (const GLvoid*)(size_t)offset);
 }
 
-// public static void Enable(OpenGL.GLEnableCap cap) [static] :75
-void GL::Enable(int cap)
+// public static void Enable(OpenGL.GLEnableCap cap) [static] :77
+void GL::Enable(int32_t cap)
 {
     glEnable(cap);
 }
 
-// public static void EnableVertexAttribArray(int index) [static] :1419
-void GL::EnableVertexAttribArray(int index)
+// public static void EnableVertexAttribArray(int index) [static] :1575
+void GL::EnableVertexAttribArray(int32_t index)
 {
     glEnableVertexAttribArray(index);
 }
 
-// public static void Finish() [static] :93
+// public static void Finish() [static] :95
 void GL::Finish()
 {
     glFinish();
 }
 
-// public static void FramebufferRenderbuffer(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferAttachment attachment, OpenGL.GLRenderbufferTarget renderbuffertarget, OpenGL.GLRenderbufferHandle renderbuffer) [static] :739
-void GL::FramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, uint32_t renderbuffer)
+// public static void FramebufferRenderbuffer(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferAttachment attachment, OpenGL.GLRenderbufferTarget renderbuffertarget, OpenGL.GLRenderbufferHandle renderbuffer) [static] :789
+void GL::FramebufferRenderbuffer(int32_t target, int32_t attachment, int32_t renderbuffertarget, uint32_t renderbuffer)
 {
     glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
 }
 
-// public static void FramebufferTexture2D(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferAttachment attachment, OpenGL.GLTextureTarget textarget, OpenGL.GLTextureHandle texture, int level) [static] :721
-void GL::FramebufferTexture2D(int target, int attachment, int textarget, uint32_t texture, int level)
+// public static void FramebufferTexture2D(OpenGL.GLFramebufferTarget target, OpenGL.GLFramebufferAttachment attachment, OpenGL.GLTextureTarget textarget, OpenGL.GLTextureHandle texture, int level) [static] :771
+void GL::FramebufferTexture2D(int32_t target, int32_t attachment, int32_t textarget, uint32_t texture, int32_t level)
 {
     glFramebufferTexture2D(target, attachment, textarget, texture, level);
 }
 
-// public static void FrontFace(OpenGL.GLFrontFaceDirection mode) [static] :412
-void GL::FrontFace(int mode)
+// public static void FrontFace(OpenGL.GLFrontFaceDirection mode) [static] :414
+void GL::FrontFace(int32_t mode)
 {
     glFrontFace(mode);
 }
 
-// public static int GetAttribLocation(OpenGL.GLProgramHandle program, string name) [static] :1440
-int GL::GetAttribLocation(uint32_t program, uString* name)
+// public static void GenerateMipmap(OpenGL.GLTextureTarget target) [static] :1010
+void GL::GenerateMipmap(int32_t target)
 {
-    return glGetAttribLocation(program, uStringToXliString(name).Ptr());
+    glGenerateMipmap(target);
 }
 
-// public static OpenGL.GLError GetError() [static] :130
-int GL::GetError()
+// public static int GetAttribLocation(OpenGL.GLProgramHandle program, string name) [static] :1596
+int32_t GL::GetAttribLocation(uint32_t program, uString* name)
+{
+    return glGetAttribLocation(program, uCString(name).Ptr);
+}
+
+// public static OpenGL.GLError GetError() [static] :132
+int32_t GL::GetError()
 {
     return glGetError();
 }
 
-// public static OpenGL.GLFramebufferHandle GetFramebufferBinding() [static] :760
+// public static OpenGL.GLFramebufferHandle GetFramebufferBinding() [static] :810
 uint32_t GL::GetFramebufferBinding()
 {
     GLuint result;
@@ -793,23 +843,23 @@ uint32_t GL::GetFramebufferBinding()
     return result;
 }
 
-// public static int4 GetInteger(OpenGL.GLInteger4Name name) [static] :34
-::g::Uno::Int4 GL::GetInteger(int name)
+// public static int4 GetInteger(OpenGL.GLInteger4Name name) [static] :36
+::g::Uno::Int4 GL::GetInteger(int32_t name)
 {
     ::g::Uno::Int4 result;
     glGetIntegerv(name, (GLint*)&result);
     return result;
 }
 
-// public static int GetInteger(OpenGL.GLIntegerName name) [static] :14
-int GL::GetInteger1(int name)
+// public static int GetInteger(OpenGL.GLIntegerName name) [static] :16
+int32_t GL::GetInteger1(int32_t name)
 {
     int result;
     glGetIntegerv(name, (GLint*)&result);
     return result;
 }
 
-// public static string GetProgramInfoLog(OpenGL.GLProgramHandle program) [static] :1207
+// public static string GetProgramInfoLog(OpenGL.GLProgramHandle program) [static] :1363
 uString* GL::GetProgramInfoLog(uint32_t program)
 {
     int len = 0;
@@ -819,15 +869,15 @@ uString* GL::GetProgramInfoLog(uint32_t program)
     return uString::Utf8(buf, len);
 }
 
-// public static int GetProgramParameter(OpenGL.GLProgramHandle program, OpenGL.GLProgramParameter pname) [static] :1187
-int GL::GetProgramParameter(uint32_t program, int pname)
+// public static int GetProgramParameter(OpenGL.GLProgramHandle program, OpenGL.GLProgramParameter pname) [static] :1343
+int32_t GL::GetProgramParameter(uint32_t program, int32_t pname)
 {
     GLint result;
     glGetProgramiv(program, pname, &result);
     return result;
 }
 
-// public static OpenGL.GLRenderbufferHandle GetRenderbufferBinding() [static] :860
+// public static OpenGL.GLRenderbufferHandle GetRenderbufferBinding() [static] :910
 uint32_t GL::GetRenderbufferBinding()
 {
     GLuint result;
@@ -835,7 +885,7 @@ uint32_t GL::GetRenderbufferBinding()
     return result;
 }
 
-// public static string GetShaderInfoLog(OpenGL.GLShaderHandle shader) [static] :1249
+// public static string GetShaderInfoLog(OpenGL.GLShaderHandle shader) [static] :1405
 uString* GL::GetShaderInfoLog(uint32_t shader)
 {
     int len = 0;
@@ -845,56 +895,56 @@ uString* GL::GetShaderInfoLog(uint32_t shader)
     return uString::Utf8(buf, len);
 }
 
-// public static int GetShaderParameter(OpenGL.GLShaderHandle shader, OpenGL.GLShaderParameter pname) [static] :1229
-int GL::GetShaderParameter(uint32_t shader, int pname)
+// public static int GetShaderParameter(OpenGL.GLShaderHandle shader, OpenGL.GLShaderParameter pname) [static] :1385
+int32_t GL::GetShaderParameter(uint32_t shader, int32_t pname)
 {
     GLint result;
     glGetShaderiv(shader, pname, &result);
     return result;
 }
 
-// public static string GetString(OpenGL.GLStringName name) [static] :148
-uString* GL::GetString(int name)
+// public static string GetString(OpenGL.GLStringName name) [static] :150
+uString* GL::GetString(int32_t name)
 {
     const char* str = (const char*)glGetString(name);
     if (!str) str = "";
     return uString::Utf8(str);
 }
 
-// public static int GetUniformLocation(OpenGL.GLProgramHandle program, string name) [static] :1460
-int GL::GetUniformLocation(uint32_t program, uString* name)
+// public static int GetUniformLocation(OpenGL.GLProgramHandle program, string name) [static] :1616
+int32_t GL::GetUniformLocation(uint32_t program, uString* name)
 {
-    return glGetUniformLocation(program, uStringToXliString(name).Ptr());
+    return glGetUniformLocation(program, uCString(name).Ptr);
 }
 
-// public static void LineWidth(float width) [static] :430
+// public static void LineWidth(float width) [static] :432
 void GL::LineWidth(float width)
 {
     glLineWidth(width);
 }
 
-// public static void LinkProgram(OpenGL.GLProgramHandle program) [static] :1275
+// public static void LinkProgram(OpenGL.GLProgramHandle program) [static] :1431
 void GL::LinkProgram(uint32_t program)
 {
     glLinkProgram(program);
 }
 
-// public static void RenderbufferStorage(OpenGL.GLRenderbufferTarget target, OpenGL.GLRenderbufferStorage internalFormat, int width, int height) [static] :842
-void GL::RenderbufferStorage(int target, int internalFormat, int width, int height)
+// public static void RenderbufferStorage(OpenGL.GLRenderbufferTarget target, OpenGL.GLRenderbufferStorage internalFormat, int width, int height) [static] :892
+void GL::RenderbufferStorage(int32_t target, int32_t internalFormat, int32_t width, int32_t height)
 {
     glRenderbufferStorage(target, internalFormat, width, height);
 }
 
-// public static void Scissor(int x, int y, int width, int height) [static] :491
-void GL::Scissor(int x, int y, int width, int height)
+// public static void Scissor(int x, int y, int width, int height) [static] :493
+void GL::Scissor(int32_t x, int32_t y, int32_t width, int32_t height)
 {
     glScissor(x, y, width, height);
 }
 
-// public static void ShaderSource(OpenGL.GLShaderHandle shader, string source) [static] :1293
+// public static void ShaderSource(OpenGL.GLShaderHandle shader, string source) [static] :1449
 void GL::ShaderSource(uint32_t shader, uString* source)
 {
-    uBase::String utf8 = uStringToXliString(source);
+    uCString cstr(source);
     
     const char* code[] =
     {
@@ -903,110 +953,122 @@ void GL::ShaderSource(uint32_t shader, uString* source)
     #else
         "",
     #endif
-        utf8.Ptr(),
+        cstr.Ptr
     };
     
     GLint len[] =
     {
         (GLint)strlen(code[0]),
-        (GLint)utf8.Length(),
+        (GLint)cstr.Length
     };
     
     glShaderSource(shader, 2, code, len);
 }
 
-// public static void TexImage2D(OpenGL.GLTextureTarget target, int level, OpenGL.GLPixelFormat internalFormat, int width, int height, int border, OpenGL.GLPixelFormat format, OpenGL.GLPixelType type, Uno.Buffer data) [static] :981
-void GL::TexImage2D(int target, int level, int internalFormat, int width, int height, int border, int format, int type, ::g::Uno::Buffer* data)
+// public static void TexImage2D(OpenGL.GLTextureTarget target, int level, OpenGL.GLPixelFormat internalFormat, int width, int height, int border, OpenGL.GLPixelFormat format, OpenGL.GLPixelType type, byte[] data) [static] :1032
+void GL::TexImage2D(int32_t target, int32_t level, int32_t internalFormat, int32_t width, int32_t height, int32_t border, int32_t format, int32_t type, uArray* data)
+{
+    glTexImage2D(target, level, internalFormat, width, height, border, format, type, data ? data->Ptr() : NULL);
+}
+
+// public static void TexImage2D(OpenGL.GLTextureTarget target, int level, OpenGL.GLPixelFormat internalFormat, int width, int height, int border, OpenGL.GLPixelFormat format, OpenGL.GLPixelType type, Uno.Buffer data) [static] :1071
+void GL::TexImage2D1(int32_t target, int32_t level, int32_t internalFormat, int32_t width, int32_t height, int32_t border, int32_t format, int32_t type, ::g::Uno::Buffer* data)
 {
     glTexImage2D(target, level, internalFormat, width, height, border, format, type, data ? U_BUFFER_PTR(data) : NULL);
 }
 
-// public static void TexParameter(OpenGL.GLTextureTarget target, OpenGL.GLTextureParameterName pname, OpenGL.GLTextureParameterValue param) [static] :1018
-void GL::TexParameter(int target, int pname, int param)
+// public static void TexParameter(OpenGL.GLTextureTarget target, OpenGL.GLTextureParameterName pname, OpenGL.GLTextureParameterValue param) [static] :1174
+void GL::TexParameter(int32_t target, int32_t pname, int32_t param)
 {
     glTexParameteri(target, pname, param);
 }
 
-// public static void Uniform1(int location, float value) [static] :1557
-void GL::Uniform1(int location, float value)
+// public static void Uniform1(int location, float value) [static] :1713
+void GL::Uniform1(int32_t location, float value)
 {
     glUniform1f(location, value);
 }
 
-// public static void Uniform1(int location, float[] value) [static] :1766
-void GL::Uniform11(int location, uArray* value)
+// public static void Uniform1(int location, float[] value) [static] :1922
+void GL::Uniform11(int32_t location, uArray* value)
 {
     glUniform1fv(location, value->Length(), (const GLfloat*)value->Ptr());
 }
 
-// public static void Uniform1(int location, int value) [static] :1481
-void GL::Uniform12(int location, int value)
+// public static void Uniform1(int location, int value) [static] :1637
+void GL::Uniform12(int32_t location, int32_t value)
 {
     glUniform1i(location, value);
 }
 
-// public static void Uniform2(int location, float2 value) [static] :1576
-void GL::Uniform2(int location, ::g::Uno::Float2 value)
+// public static void Uniform2(int location, float2 value) [static] :1732
+void GL::Uniform2(int32_t location, ::g::Uno::Float2 value)
 {
     glUniform2fv(location, 1, (const GLfloat*)&value);
 }
 
-// public static void Uniform2(int location, float2[] value) [static] :1785
-void GL::Uniform21(int location, uArray* value)
+// public static void Uniform2(int location, float2[] value) [static] :1941
+void GL::Uniform21(int32_t location, uArray* value)
 {
     glUniform2fv(location, value->Length(), (const GLfloat*)value->Ptr());
 }
 
-// public static void Uniform3(int location, float3 value) [static] :1595
-void GL::Uniform3(int location, ::g::Uno::Float3 value)
+// public static void Uniform3(int location, float3 value) [static] :1751
+void GL::Uniform3(int32_t location, ::g::Uno::Float3 value)
 {
     glUniform3fv(location, 1, (const GLfloat*)&value);
 }
 
-// public static void Uniform4(int location, float4 value) [static] :1614
-void GL::Uniform4(int location, ::g::Uno::Float4 value)
+// public static void Uniform4(int location, float4 value) [static] :1770
+void GL::Uniform4(int32_t location, ::g::Uno::Float4 value)
 {
     glUniform4fv(location, 1, (const GLfloat*)&value);
 }
 
-// public static void Uniform4(int location, float4[] value) [static] :1823
-void GL::Uniform41(int location, uArray* value)
+// public static void Uniform4(int location, float4[] value) [static] :1979
+void GL::Uniform41(int32_t location, uArray* value)
 {
     glUniform4fv(location, value->Length(), (const GLfloat*)value->Ptr());
 }
 
-// public static void UniformMatrix2(int location, bool transpose, float2x2 value) [static] :1633
-void GL::UniformMatrix2(int location, bool transpose, ::g::Uno::Float2x2 value)
+// public static void UniformMatrix2(int location, bool transpose, float2x2 value) [static] :1789
+void GL::UniformMatrix2(int32_t location, bool transpose, ::g::Uno::Float2x2 value)
 {
     glUniformMatrix2fv(location, 1, transpose, (const GLfloat*)&value);
 }
 
-// public static void UniformMatrix4(int location, bool transpose, float4x4 value) [static] :1671
-void GL::UniformMatrix4(int location, bool transpose, ::g::Uno::Float4x4 value)
+// public static void UniformMatrix3(int location, bool transpose, float3x3 value) [static] :1808
+void GL::UniformMatrix3(int32_t location, bool transpose, ::g::Uno::Float3x3 value)
+{
+    glUniformMatrix3fv(location, 1, transpose, (const GLfloat*)&value);
+}
+
+// public static void UniformMatrix4(int location, bool transpose, float4x4 value) [static] :1827
+void GL::UniformMatrix4(int32_t location, bool transpose, ::g::Uno::Float4x4 value)
 {
     glUniformMatrix4fv(location, 1, transpose, (const GLfloat*)&value);
 }
 
-// public static void UseProgram(OpenGL.GLProgramHandle program) [static] :1329
+// public static void UseProgram(OpenGL.GLProgramHandle program) [static] :1485
 void GL::UseProgram(uint32_t program)
 {
     glUseProgram(program);
 }
 
-// public static void VertexAttribPointer(int index, int size, OpenGL.GLDataType type, bool normalized, int stride, int offset) [static] :1900
-void GL::VertexAttribPointer(int index, int size, int type, bool normalized, int stride, int offset)
+// public static void VertexAttribPointer(int index, int size, OpenGL.GLDataType type, bool normalized, int stride, int offset) [static] :2056
+void GL::VertexAttribPointer(int32_t index, int32_t size, int32_t type, bool normalized, int32_t stride, int32_t offset)
 {
     glVertexAttribPointer(index, size, type, normalized, stride, (const GLvoid*)(size_t)offset);
 }
 
-// public static void Viewport(int x, int y, int width, int height) [static] :509
-void GL::Viewport(int x, int y, int width, int height)
+// public static void Viewport(int x, int y, int width, int height) [static] :511
+void GL::Viewport(int32_t x, int32_t y, int32_t width, int32_t height)
 {
     glViewport(x, y, width, height);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLBlendEquation :216
@@ -1023,7 +1085,7 @@ uEnumType* GLBlendEquation_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLBlendingFactor :224
@@ -1048,7 +1110,7 @@ uEnumType* GLBlendingFactor_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLBufferHandle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLBufferHandle.uno
 // ------------------------------------------------------------------------------------------------------
 
 // public extern struct GLBufferHandle :11
@@ -1070,28 +1132,28 @@ uStructType* GLBufferHandle_typeof()
     type = uStructType::New("OpenGL.GLBufferHandle", options);
     type->fp_build_ = GLBufferHandle_build;
     type->fp_Equals_struct = (void(*)(void*, uType*, uObject*, bool*))GLBufferHandle__Equals_fn;
-    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int*))GLBufferHandle__GetHashCode_fn;
+    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int32_t*))GLBufferHandle__GetHashCode_fn;
     return type;
 }
 
-// public override sealed bool Equals(object obj) :42
+// public override sealed bool Equals(object obj) :59
 void GLBufferHandle__Equals_fn(uint32_t* __this, uType* __type, uObject* obj, bool* __retval)
 {
     bool ret1;
     return *__retval = (::g::Uno::Object__Equals_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), obj, &ret1), ret1), void();
 }
 
-// public override sealed int GetHashCode() :36
-void GLBufferHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int* __retval)
+// public override sealed int GetHashCode() :53
+void GLBufferHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int32_t* __retval)
 {
-    int ret2;
+    int32_t ret2;
     return *__retval = (::g::Uno::Object__GetHashCode_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), &ret2), ret2), void();
 }
 
 uint32_t GLBufferHandle::Zero_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLBufferTarget :38
@@ -1107,7 +1169,7 @@ uEnumType* GLBufferTarget_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLBufferUsage :45
@@ -1124,7 +1186,7 @@ uEnumType* GLBufferUsage_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLClearBufferMask :281
@@ -1141,7 +1203,7 @@ uEnumType* GLClearBufferMask_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLCullFaceMode :126
@@ -1159,7 +1221,7 @@ uEnumType* GLCullFaceMode_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLDataType :154
@@ -1180,7 +1242,7 @@ uEnumType* GLDataType_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLDepthFunction :113
@@ -1202,7 +1264,7 @@ uEnumType* GLDepthFunction_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLEnableCap :104
@@ -1220,7 +1282,7 @@ uEnumType* GLEnableCap_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLError :260
@@ -1240,7 +1302,7 @@ uEnumType* GLError_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLFramebufferAttachment :240
@@ -1257,7 +1319,7 @@ uEnumType* GLFramebufferAttachment_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLFramebufferHandle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLFramebufferHandle.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // public extern struct GLFramebufferHandle :11
@@ -1279,25 +1341,25 @@ uStructType* GLFramebufferHandle_typeof()
     type = uStructType::New("OpenGL.GLFramebufferHandle", options);
     type->fp_build_ = GLFramebufferHandle_build;
     type->fp_Equals_struct = (void(*)(void*, uType*, uObject*, bool*))GLFramebufferHandle__Equals_fn;
-    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int*))GLFramebufferHandle__GetHashCode_fn;
+    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int32_t*))GLFramebufferHandle__GetHashCode_fn;
     return type;
 }
 
-// public override sealed bool Equals(object obj) :42
+// public override sealed bool Equals(object obj) :59
 void GLFramebufferHandle__Equals_fn(uint32_t* __this, uType* __type, uObject* obj, bool* __retval)
 {
     bool ret1;
     return *__retval = (::g::Uno::Object__Equals_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), obj, &ret1), ret1), void();
 }
 
-// public override sealed int GetHashCode() :36
-void GLFramebufferHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int* __retval)
+// public override sealed int GetHashCode() :53
+void GLFramebufferHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int32_t* __retval)
 {
-    int ret2;
+    int32_t ret2;
     return *__retval = (::g::Uno::Object__GetHashCode_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), &ret2), ret2), void();
 }
 
-// public static operator !=(OpenGL.GLFramebufferHandle left, OpenGL.GLFramebufferHandle right) :20
+// public static operator !=(OpenGL.GLFramebufferHandle left, OpenGL.GLFramebufferHandle right) :45
 void GLFramebufferHandle__op_Inequality_fn(uint32_t* left, uint32_t* right, bool* __retval)
 {
     *__retval = GLFramebufferHandle::op_Inequality(*left, *right);
@@ -1305,14 +1367,14 @@ void GLFramebufferHandle__op_Inequality_fn(uint32_t* left, uint32_t* right, bool
 
 uint32_t GLFramebufferHandle::Zero_;
 
-// public static operator !=(OpenGL.GLFramebufferHandle left, OpenGL.GLFramebufferHandle right) [static] :20
+// public static operator !=(OpenGL.GLFramebufferHandle left, OpenGL.GLFramebufferHandle right) [static] :45
 bool GLFramebufferHandle::op_Inequality(uint32_t left, uint32_t right)
 {
     return left != right;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLFramebufferStatus :271
@@ -1331,7 +1393,7 @@ uEnumType* GLFramebufferStatus_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLFramebufferTarget :248
@@ -1346,7 +1408,7 @@ uEnumType* GLFramebufferTarget_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLFrontFaceDirection :135
@@ -1362,7 +1424,7 @@ uEnumType* GLFrontFaceDirection_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLIndexType :166
@@ -1378,7 +1440,7 @@ uEnumType* GLIndexType_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLInteger4Name :13
@@ -1394,7 +1456,7 @@ uEnumType* GLInteger4Name_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLIntegerName :7
@@ -1409,7 +1471,7 @@ uEnumType* GLIntegerName_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLPixelFormat :173
@@ -1433,7 +1495,7 @@ uEnumType* GLPixelFormat_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLPixelType :188
@@ -1457,7 +1519,7 @@ uEnumType* GLPixelType_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLPrimitiveType :142
@@ -1478,7 +1540,7 @@ uEnumType* GLPrimitiveType_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLProgramHandle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLProgramHandle.uno
 // -------------------------------------------------------------------------------------------------------
 
 // public extern struct GLProgramHandle :11
@@ -1500,28 +1562,28 @@ uStructType* GLProgramHandle_typeof()
     type = uStructType::New("OpenGL.GLProgramHandle", options);
     type->fp_build_ = GLProgramHandle_build;
     type->fp_Equals_struct = (void(*)(void*, uType*, uObject*, bool*))GLProgramHandle__Equals_fn;
-    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int*))GLProgramHandle__GetHashCode_fn;
+    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int32_t*))GLProgramHandle__GetHashCode_fn;
     return type;
 }
 
-// public override sealed bool Equals(object obj) :42
+// public override sealed bool Equals(object obj) :59
 void GLProgramHandle__Equals_fn(uint32_t* __this, uType* __type, uObject* obj, bool* __retval)
 {
     bool ret1;
     return *__retval = (::g::Uno::Object__Equals_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), obj, &ret1), ret1), void();
 }
 
-// public override sealed int GetHashCode() :36
-void GLProgramHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int* __retval)
+// public override sealed int GetHashCode() :53
+void GLProgramHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int32_t* __retval)
 {
-    int ret2;
+    int32_t ret2;
     return *__retval = (::g::Uno::Object__GetHashCode_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), &ret2), ret2), void();
 }
 
 uint32_t GLProgramHandle::Zero_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLProgramParameter :297
@@ -1540,7 +1602,7 @@ uEnumType* GLProgramParameter_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLRenderbufferHandle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLRenderbufferHandle.uno
 // ------------------------------------------------------------------------------------------------------------
 
 // public extern struct GLRenderbufferHandle :11
@@ -1562,25 +1624,25 @@ uStructType* GLRenderbufferHandle_typeof()
     type = uStructType::New("OpenGL.GLRenderbufferHandle", options);
     type->fp_build_ = GLRenderbufferHandle_build;
     type->fp_Equals_struct = (void(*)(void*, uType*, uObject*, bool*))GLRenderbufferHandle__Equals_fn;
-    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int*))GLRenderbufferHandle__GetHashCode_fn;
+    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int32_t*))GLRenderbufferHandle__GetHashCode_fn;
     return type;
 }
 
-// public override sealed bool Equals(object obj) :42
+// public override sealed bool Equals(object obj) :59
 void GLRenderbufferHandle__Equals_fn(uint32_t* __this, uType* __type, uObject* obj, bool* __retval)
 {
     bool ret1;
     return *__retval = (::g::Uno::Object__Equals_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), obj, &ret1), ret1), void();
 }
 
-// public override sealed int GetHashCode() :36
-void GLRenderbufferHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int* __retval)
+// public override sealed int GetHashCode() :53
+void GLRenderbufferHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int32_t* __retval)
 {
-    int ret2;
+    int32_t ret2;
     return *__retval = (::g::Uno::Object__GetHashCode_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), &ret2), ret2), void();
 }
 
-// public static operator !=(OpenGL.GLRenderbufferHandle left, OpenGL.GLRenderbufferHandle right) :20
+// public static operator !=(OpenGL.GLRenderbufferHandle left, OpenGL.GLRenderbufferHandle right) :45
 void GLRenderbufferHandle__op_Inequality_fn(uint32_t* left, uint32_t* right, bool* __retval)
 {
     *__retval = GLRenderbufferHandle::op_Inequality(*left, *right);
@@ -1588,14 +1650,14 @@ void GLRenderbufferHandle__op_Inequality_fn(uint32_t* left, uint32_t* right, boo
 
 uint32_t GLRenderbufferHandle::Zero_;
 
-// public static operator !=(OpenGL.GLRenderbufferHandle left, OpenGL.GLRenderbufferHandle right) [static] :20
+// public static operator !=(OpenGL.GLRenderbufferHandle left, OpenGL.GLRenderbufferHandle right) [static] :45
 bool GLRenderbufferHandle::op_Inequality(uint32_t left, uint32_t right)
 {
     return left != right;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLRenderbufferStorage :210
@@ -1610,7 +1672,7 @@ uEnumType* GLRenderbufferStorage_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLRenderbufferTarget :254
@@ -1625,7 +1687,7 @@ uEnumType* GLRenderbufferTarget_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLShaderHandle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLShaderHandle.uno
 // ------------------------------------------------------------------------------------------------------
 
 // public extern struct GLShaderHandle :11
@@ -1647,28 +1709,28 @@ uStructType* GLShaderHandle_typeof()
     type = uStructType::New("OpenGL.GLShaderHandle", options);
     type->fp_build_ = GLShaderHandle_build;
     type->fp_Equals_struct = (void(*)(void*, uType*, uObject*, bool*))GLShaderHandle__Equals_fn;
-    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int*))GLShaderHandle__GetHashCode_fn;
+    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int32_t*))GLShaderHandle__GetHashCode_fn;
     return type;
 }
 
-// public override sealed bool Equals(object obj) :42
+// public override sealed bool Equals(object obj) :59
 void GLShaderHandle__Equals_fn(uint32_t* __this, uType* __type, uObject* obj, bool* __retval)
 {
     bool ret1;
     return *__retval = (::g::Uno::Object__Equals_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), obj, &ret1), ret1), void();
 }
 
-// public override sealed int GetHashCode() :36
-void GLShaderHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int* __retval)
+// public override sealed int GetHashCode() :53
+void GLShaderHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int32_t* __retval)
 {
-    int ret2;
+    int32_t ret2;
     return *__retval = (::g::Uno::Object__GetHashCode_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), &ret2), ret2), void();
 }
 
 uint32_t GLShaderHandle::Zero_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLShaderParameter :289
@@ -1685,7 +1747,7 @@ uEnumType* GLShaderParameter_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLShaderType :20
@@ -1701,7 +1763,7 @@ uEnumType* GLShaderType_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLStringName :307
@@ -1720,7 +1782,7 @@ uEnumType* GLStringName_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLTextureHandle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLTextureHandle.uno
 // -------------------------------------------------------------------------------------------------------
 
 // public extern struct GLTextureHandle :11
@@ -1742,31 +1804,31 @@ uStructType* GLTextureHandle_typeof()
     type = uStructType::New("OpenGL.GLTextureHandle", options);
     type->fp_build_ = GLTextureHandle_build;
     type->fp_Equals_struct = (void(*)(void*, uType*, uObject*, bool*))GLTextureHandle__Equals_fn;
-    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int*))GLTextureHandle__GetHashCode_fn;
+    type->fp_GetHashCode_struct = (void(*)(void*, uType*, int32_t*))GLTextureHandle__GetHashCode_fn;
     return type;
 }
 
-// public override sealed bool Equals(object obj) :42
+// public override sealed bool Equals(object obj) :59
 void GLTextureHandle__Equals_fn(uint32_t* __this, uType* __type, uObject* obj, bool* __retval)
 {
     bool ret1;
     return *__retval = (::g::Uno::Object__Equals_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), obj, &ret1), ret1), void();
 }
 
-// public override sealed int GetHashCode() :36
-void GLTextureHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int* __retval)
+// public override sealed int GetHashCode() :53
+void GLTextureHandle__GetHashCode_fn(uint32_t* __this, uType* __type, int32_t* __retval)
 {
-    int ret2;
+    int32_t ret2;
     return *__retval = (::g::Uno::Object__GetHashCode_fn(uBox(__type, *__this, U_ALLOCA(__type->ObjectSize)), &ret2), ret2), void();
 }
 
-// public static extern explicit operator int(OpenGL.GLTextureHandle handle) :25
-void GLTextureHandle__op_Explicit2_fn(uint32_t* handle, int* __retval)
+// public static extern explicit operator int(OpenGL.GLTextureHandle handle) :23
+void GLTextureHandle__op_Explicit2_fn(uint32_t* handle, int32_t* __retval)
 {
     *__retval = GLTextureHandle::op_Explicit2(*handle);
 }
 
-// public static operator !=(OpenGL.GLTextureHandle left, OpenGL.GLTextureHandle right) :20
+// public static operator !=(OpenGL.GLTextureHandle left, OpenGL.GLTextureHandle right) :45
 void GLTextureHandle__op_Inequality_fn(uint32_t* left, uint32_t* right, bool* __retval)
 {
     *__retval = GLTextureHandle::op_Inequality(*left, *right);
@@ -1774,20 +1836,20 @@ void GLTextureHandle__op_Inequality_fn(uint32_t* left, uint32_t* right, bool* __
 
 uint32_t GLTextureHandle::Zero_;
 
-// public static extern explicit operator int(OpenGL.GLTextureHandle handle) [static] :25
-int GLTextureHandle::op_Explicit2(uint32_t handle)
+// public static extern explicit operator int(OpenGL.GLTextureHandle handle) [static] :23
+int32_t GLTextureHandle::op_Explicit2(uint32_t handle)
 {
     return handle;
 }
 
-// public static operator !=(OpenGL.GLTextureHandle left, OpenGL.GLTextureHandle right) [static] :20
+// public static operator !=(OpenGL.GLTextureHandle left, OpenGL.GLTextureHandle right) [static] :45
 bool GLTextureHandle::op_Inequality(uint32_t left, uint32_t right)
 {
     return left != right;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLTextureParameterName :80
@@ -1805,7 +1867,7 @@ uEnumType* GLTextureParameterName_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLTextureParameterValue :89
@@ -1827,7 +1889,7 @@ uEnumType* GLTextureParameterValue_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLTextureTarget :66
@@ -1850,7 +1912,7 @@ uEnumType* GLTextureTarget_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\OpenGL\GLEnums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\OpenGL\GLEnums.uno
 // -----------------------------------------------------------------------------------------------
 
 // public extern enum GLTextureUnit :53

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/LayoutParams.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/LayoutParams.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -52,9 +52,10 @@ void LayoutParams__get_RelativeY_fn(LayoutParams* __this, float* __retval);
 void LayoutParams__RemoveSize_fn(LayoutParams* __this, ::g::Uno::Float2* size);
 void LayoutParams__RemoveSize1_fn(LayoutParams* __this, ::g::Uno::Float4* size);
 void LayoutParams__Reset_fn(LayoutParams* __this);
+void LayoutParams__RetainAxesXY_fn(LayoutParams* __this, bool* x, bool* y);
 void LayoutParams__RetainMaxXY_fn(LayoutParams* __this, bool* x, bool* y);
 void LayoutParams__RetainXY_fn(LayoutParams* __this, bool* x, bool* y);
-void LayoutParams__SetFlag_fn(LayoutParams* __this, int* g, bool* val);
+void LayoutParams__SetFlag_fn(LayoutParams* __this, int32_t* g, bool* val);
 void LayoutParams__SetRelativeSize_fn(LayoutParams* __this, ::g::Uno::Float2* sz, bool* hasX, bool* hasY);
 void LayoutParams__SetSize_fn(LayoutParams* __this, ::g::Uno::Float2* xy, bool* hasX, bool* hasY);
 void LayoutParams__SetX_fn(LayoutParams* __this, float* x);
@@ -66,7 +67,7 @@ void LayoutParams__get_Y_fn(LayoutParams* __this, float* __retval);
 
 struct LayoutParams
 {
-    int _flags;
+    int32_t _flags;
     ::g::Uno::Float2 _size;
     ::g::Uno::Float2 _maxSize;
     ::g::Uno::Float2 _minSize;
@@ -111,9 +112,10 @@ struct LayoutParams
     void RemoveSize(::g::Uno::Float2 size);
     void RemoveSize1(::g::Uno::Float4 size);
     void Reset();
+    void RetainAxesXY(bool x, bool y);
     void RetainMaxXY(bool x, bool y);
     void RetainXY(bool x, bool y);
-    void SetFlag(int g, bool val);
+    void SetFlag(int32_t g, bool val);
     void SetRelativeSize(::g::Uno::Float2 sz, bool hasX, bool hasY);
     void SetSize(::g::Uno::Float2 xy, bool hasX, bool hasY);
     void SetX(float x);

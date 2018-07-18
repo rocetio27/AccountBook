@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/AspectBoxSizing.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/AspectBoxSizing.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -8,6 +8,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -49,11 +50,11 @@ namespace Elements{
 // {
 struct Element_type : ::g::Fuse::Visual_type
 {
-    ::g::Fuse::Triggers::Actions::IShow interface12;
-    ::g::Fuse::Triggers::Actions::IHide interface13;
-    ::g::Fuse::Triggers::Actions::ICollapse interface14;
-    ::g::Fuse::IActualPlacement interface15;
-    ::g::Fuse::Animations::IResize interface16;
+    ::g::Fuse::Triggers::Actions::IShow interface13;
+    ::g::Fuse::Triggers::Actions::IHide interface14;
+    ::g::Fuse::Triggers::Actions::ICollapse interface15;
+    ::g::Fuse::IActualPlacement interface16;
+    ::g::Fuse::Animations::IResize interface17;
     void(*fp_ArrangePaddingBox)(::g::Fuse::Elements::Element*, ::g::Fuse::LayoutParams*);
     void(*fp_CalcRenderBounds)(::g::Fuse::Elements::Element*, ::g::Fuse::VisualBounds**);
     void(*fp_DrawWithChildren)(::g::Fuse::Elements::Element*, ::g::Fuse::DrawContext*);
@@ -72,22 +73,20 @@ void Element__get_ActualAnchor_fn(Element* __this, ::g::Uno::Float2* __retval);
 void Element__set_ActualAnchor_fn(Element* __this, ::g::Uno::Float2* value);
 void Element__get_ActualPosition_fn(Element* __this, ::g::Uno::Float2* __retval);
 void Element__get_ActualSize_fn(Element* __this, ::g::Uno::Float2* __retval);
-void Element__get_Alignment_fn(Element* __this, int* __retval);
-void Element__set_Alignment_fn(Element* __this, int* value);
+void Element__get_Alignment_fn(Element* __this, int32_t* __retval);
+void Element__set_Alignment_fn(Element* __this, int32_t* value);
 void Element__get_AncestorElement_fn(Element* __this, Element** __retval);
 void Element__get_Anchor_fn(Element* __this, ::g::Uno::UX::Size2* __retval);
 void Element__set_Anchor_fn(Element* __this, ::g::Uno::UX::Size2* value);
 void Element__ArrangePaddingBox_fn(Element* __this, ::g::Fuse::LayoutParams* lp);
 void Element__get_Aspect_fn(Element* __this, float* __retval);
 void Element__set_Aspect_fn(Element* __this, float* value);
-void Element__get_AspectConstraint_fn(Element* __this, int* __retval);
-void Element__set_AspectConstraint_fn(Element* __this, int* value);
-void Element__get_BoxSizing_fn(Element* __this, int* __retval);
-void Element__set_BoxSizing_fn(Element* __this, int* value);
+void Element__get_AspectConstraint_fn(Element* __this, int32_t* __retval);
+void Element__set_AspectConstraint_fn(Element* __this, int32_t* value);
 void Element__get_BoxSizingObject_fn(Element* __this, ::g::Fuse::Elements::BoxSizing** __retval);
 void Element__get_Cache_fn(Element* __this, ::g::Fuse::Elements::Cache** __retval);
-void Element__get_CachingMode_fn(Element* __this, int* __retval);
-void Element__set_CachingMode_fn(Element* __this, int* value);
+void Element__get_CachingMode_fn(Element* __this, int32_t* __retval);
+void Element__set_CachingMode_fn(Element* __this, int32_t* value);
 void Element__CalcRenderBounds_fn(Element* __this, ::g::Fuse::VisualBounds** __retval);
 void Element__CalcRenderBoundsWithEffects_fn(Element* __this, ::g::Fuse::VisualBounds** __retval);
 void Element__get_CanAdjustMarginBox_fn(Element* __this, bool* __retval);
@@ -100,7 +99,6 @@ void Element__CompositEffects_fn(Element* __this, ::g::Fuse::DrawContext* dc);
 void Element__DispatchPlacement_fn(Element* __this);
 void Element__Draw_fn(Element* __this, ::g::Fuse::DrawContext* dc);
 void Element__DrawNonUnderlayChildren_fn(Element* __this, ::g::Fuse::DrawContext* dc);
-void Element__DrawSelection_fn(Element* __this, ::g::Fuse::DrawContext* dc);
 void Element__DrawUnderlayChildren_fn(Element* __this, ::g::Fuse::DrawContext* dc);
 void Element__DrawWithChildren_fn(Element* __this, ::g::Fuse::DrawContext* dc);
 void Element__get_Effects_fn(Element* __this, uObject** __retval);
@@ -126,8 +124,8 @@ void Element__set_Height_fn(Element* __this, ::g::Uno::UX::Size* value);
 void Element__get_HitTestChildrenBounds_fn(Element* __this, ::g::Fuse::VisualBounds** __retval);
 void Element__get_HitTestLocalBounds_fn(Element* __this, ::g::Fuse::VisualBounds** __retval);
 void Element__get_HitTestLocalVisualBounds_fn(Element* __this, ::g::Fuse::VisualBounds** __retval);
-void Element__get_HitTestMode_fn(Element* __this, int* __retval);
-void Element__set_HitTestMode_fn(Element* __this, int* value);
+void Element__get_HitTestMode_fn(Element* __this, int32_t* __retval);
+void Element__set_HitTestMode_fn(Element* __this, int32_t* value);
 void Element__get_IntendedPosition_fn(Element* __this, ::g::Uno::Float2* __retval);
 void Element__get_IntendedSize_fn(Element* __this, ::g::Uno::Float2* __retval);
 void Element__InternArrangePaddingBox_fn(Element* __this, ::g::Fuse::LayoutParams* lp);
@@ -135,7 +133,7 @@ void Element__InternGetContentSize_fn(Element* __this, ::g::Fuse::LayoutParams* 
 void Element__InvalidateLocalTransform_fn(Element* __this);
 void Element__InvalidateRenderBoundsWithEffects_fn(Element* __this);
 void Element__get_IsLocalVisible_fn(Element* __this, bool* __retval);
-void Element__IsMarginBoxDependent_fn(Element* __this, ::g::Fuse::Visual* child, int* __retval);
+void Element__IsMarginBoxDependent_fn(Element* __this, ::g::Fuse::Visual* child, int32_t* __retval);
 void Element__IsPointInside_fn(Element* __this, ::g::Uno::Float2* localPoint, bool* __retval);
 void Element__get_LimitHeight_fn(Element* __this, ::g::Uno::UX::Size* __retval);
 void Element__set_LimitHeight_fn(Element* __this, ::g::Uno::UX::Size* value);
@@ -153,6 +151,7 @@ void Element__set_MinHeight_fn(Element* __this, ::g::Uno::UX::Size* value);
 void Element__get_MinWidth_fn(Element* __this, ::g::Uno::UX::Size* __retval);
 void Element__set_MinWidth_fn(Element* __this, ::g::Uno::UX::Size* value);
 void Element__get_NeedsClipping_fn(Element* __this, bool* __retval);
+void Element__NotifyRenderBoundsChanged_fn(Element* __this);
 void Element__NotifyTreeRedererOpacityChanged_fn(Element* __this);
 void Element__NotifyTreeRendererHitTestModeChanged_fn(Element* __this);
 void Element__NotifyTreeRendererPlaced_fn(Element* __this);
@@ -187,7 +186,7 @@ void Element__OnPreplacement_fn(Element* __this);
 void Element__OnRooted_fn(Element* __this);
 void Element__OnRootedPreChildren_fn(Element* __this);
 void Element__OnUnrooted_fn(Element* __this);
-void Element__OnVisibilityChanged_fn(Element* __this, int* oldVisibility, uObject* origin);
+void Element__OnVisibilityChanged_fn(Element* __this, int32_t* oldVisibility, uObject* origin);
 void Element__OnZOrderChanged_fn(Element* __this);
 void Element__OnZOrderInvalidated_fn(Element* __this);
 void Element__get_Opacity_fn(Element* __this, float* __retval);
@@ -206,16 +205,16 @@ void Element__RemoveChildElementFromBatching_fn(Element* __this, Element* elm);
 void Element__get_RenderBoundsWithEffects_fn(Element* __this, ::g::Fuse::VisualBounds** __retval);
 void Element__get_RenderBoundsWithoutEffects_fn(Element* __this, ::g::Fuse::VisualBounds** __retval);
 void Element__RequestLayout_fn(Element* __this);
-void Element__SetHitTestMode_fn(Element* __this, int* value, uObject* origin);
+void Element__SetHitTestMode_fn(Element* __this, int32_t* value, uObject* origin);
 void Element__SetNewTransform_fn(Element* __this);
 void Element__SetOpacity_fn(Element* __this, float* value, uObject* origin);
-void Element__SetVisibility_fn(Element* __this, int* value, uObject* origin);
+void Element__SetVisibility_fn(Element* __this, int32_t* value, uObject* origin);
 void Element__ShouldBatch_fn(Element* __this, bool* __retval);
 void Element__get_TransformOrigin_fn(Element* __this, uObject** __retval);
 void Element__set_TransformOrigin_fn(Element* __this, uObject* value);
 void Element__get_TreeRenderer_fn(Element* __this, uObject** __retval);
-void Element__get_Visibility_fn(Element* __this, int* __retval);
-void Element__set_Visibility_fn(Element* __this, int* value);
+void Element__get_Visibility_fn(Element* __this, int32_t* __retval);
+void Element__set_Visibility_fn(Element* __this, int32_t* value);
 void Element__get_Width_fn(Element* __this, ::g::Uno::UX::Size* __retval);
 void Element__set_Width_fn(Element* __this, ::g::Uno::UX::Size* value);
 void Element__get_X_fn(Element* __this, ::g::Uno::UX::Size* __retval);
@@ -230,7 +229,7 @@ struct Element : ::g::Fuse::Visual
     uStrong< ::g::Fuse::VisualBounds*> _renderBoundsWithEffects;
     uStrong< ::g::Fuse::VisualBounds*> _renderBoundsWithoutEffects;
     uStrong< ::g::Uno::Collections::List*> _effects;
-    int _compositionEffects;
+    int32_t _compositionEffects;
     uStrong< ::g::Fuse::Elements::Cache*> _cache;
     bool _warnOpacityFlat;
     bool _warnNoCacheDraw;
@@ -240,8 +239,8 @@ struct Element : ::g::Fuse::Visual
     static ::g::Uno::UX::Selector& _hitTestModeName() { return Element_typeof()->Init(), _hitTestModeName_; }
     ::g::Uno::UX::Size _width;
     ::g::Uno::UX::Size _height;
-    int _alignment;
-    int _visibility;
+    int32_t _alignment;
+    int32_t _visibility;
     static ::g::Uno::UX::Selector _visibilityName_;
     static ::g::Uno::UX::Selector& _visibilityName() { return Element_typeof()->Init(), _visibilityName_; }
     static ::g::Uno::UX::Selector _clipToBoundsName_;
@@ -251,11 +250,10 @@ struct Element : ::g::Fuse::Visual
     bool _haveActualPositionCache;
     ::g::Uno::Float2 _actualSize;
     ::g::Uno::Float2 _intendedSize;
-    int _gmsCount;
-    int _gmsAt;
+    int32_t _gmsCount;
+    int32_t _gmsAt;
     uStrong<uArray*> _gmsCache;
     uStrong< ::g::Fuse::Elements::BoxSizing*> _boxSizing;
-    int _boxSizingMode;
     ::g::Uno::Float2 _actualAnchor;
     static bool _invalidValuesWarn_;
     static bool& _invalidValuesWarn() { return Element_typeof()->Init(), _invalidValuesWarn_; }
@@ -270,6 +268,7 @@ struct Element : ::g::Fuse::Visual
     static uSStrong<uObject*>& DefaultTransformOrigin() { return Element_typeof()->Init(), DefaultTransformOrigin_; }
     static ::g::Uno::UX::Selector ExplicitTransformOriginName_;
     static ::g::Uno::UX::Selector& ExplicitTransformOriginName() { return Element_typeof()->Init(), ExplicitTransformOriginName_; }
+    bool _hasNotifiedRenderBoundsChanged;
     uStrong< ::g::Fuse::Elements::ElementBatchEntry*> _ElementBatchEntry;
     uStrong<uDelegate*> Placed1;
     uStrong<uDelegate*> Preplacement1;
@@ -279,22 +278,20 @@ struct Element : ::g::Fuse::Visual
     void ActualAnchor(::g::Uno::Float2 value);
     ::g::Uno::Float2 ActualPosition();
     ::g::Uno::Float2 ActualSize();
-    int Alignment();
-    void Alignment(int value);
+    int32_t Alignment();
+    void Alignment(int32_t value);
     Element* AncestorElement();
     ::g::Uno::UX::Size2 Anchor();
     void Anchor(::g::Uno::UX::Size2 value);
     void ArrangePaddingBox(::g::Fuse::LayoutParams lp);
     float Aspect();
     void Aspect(float value);
-    int AspectConstraint();
-    void AspectConstraint(int value);
-    int BoxSizing();
-    void BoxSizing(int value);
+    int32_t AspectConstraint();
+    void AspectConstraint(int32_t value);
     ::g::Fuse::Elements::BoxSizing* BoxSizingObject();
     ::g::Fuse::Elements::Cache* Cache();
-    int CachingMode();
-    void CachingMode(int value);
+    int32_t CachingMode();
+    void CachingMode(int32_t value);
     ::g::Fuse::VisualBounds* CalcRenderBounds() { ::g::Fuse::VisualBounds* __retval; return (((Element_type*)__type)->fp_CalcRenderBounds)(this, &__retval), __retval; }
     ::g::Fuse::VisualBounds* CalcRenderBoundsWithEffects();
     ::g::Uno::Graphics::Framebuffer* CaptureRegion(::g::Fuse::DrawContext* dc, ::g::Uno::Rect region, ::g::Uno::Float2 padding);
@@ -322,8 +319,8 @@ struct Element : ::g::Fuse::Visual
     ::g::Uno::UX::Size Height();
     void Height(::g::Uno::UX::Size value);
     ::g::Fuse::VisualBounds* HitTestLocalVisualBounds() { ::g::Fuse::VisualBounds* __retval; return (((Element_type*)__type)->fp_get_HitTestLocalVisualBounds)(this, &__retval), __retval; }
-    int HitTestMode();
-    void HitTestMode(int value);
+    int32_t HitTestMode();
+    void HitTestMode(int32_t value);
     ::g::Uno::Float2 IntendedPosition();
     ::g::Uno::Float2 IntendedSize();
     void InternArrangePaddingBox(::g::Fuse::LayoutParams lp);
@@ -345,6 +342,7 @@ struct Element : ::g::Fuse::Visual
     ::g::Uno::UX::Size MinWidth();
     void MinWidth(::g::Uno::UX::Size value);
     bool NeedsClipping();
+    void NotifyRenderBoundsChanged();
     void NotifyTreeRedererOpacityChanged();
     void NotifyTreeRendererHitTestModeChanged();
     void NotifyTreeRendererPlaced();
@@ -365,7 +363,7 @@ struct Element : ::g::Fuse::Visual
     void OnInvalidateRenderBoundsWithEffects();
     void OnOpacityChanged(uObject* origin);
     void OnPreplacement();
-    void OnVisibilityChanged(int oldVisibility, uObject* origin);
+    void OnVisibilityChanged(int32_t oldVisibility, uObject* origin);
     void OnZOrderChanged();
     float Opacity();
     void Opacity(float value);
@@ -380,16 +378,16 @@ struct Element : ::g::Fuse::Visual
     ::g::Fuse::VisualBounds* RenderBoundsWithEffects();
     ::g::Fuse::VisualBounds* RenderBoundsWithoutEffects();
     void RequestLayout();
-    void SetHitTestMode(int value, uObject* origin);
+    void SetHitTestMode(int32_t value, uObject* origin);
     void SetNewTransform();
     void SetOpacity(float value, uObject* origin);
-    void SetVisibility(int value, uObject* origin);
+    void SetVisibility(int32_t value, uObject* origin);
     bool ShouldBatch();
     uObject* TransformOrigin();
     void TransformOrigin(uObject* value);
     uObject* TreeRenderer() { uObject* __retval; return (((Element_type*)__type)->fp_get_TreeRenderer)(this, &__retval), __retval; }
-    int Visibility();
-    void Visibility(int value);
+    int32_t Visibility();
+    void Visibility(int32_t value);
     ::g::Uno::UX::Size Width();
     void Width(::g::Uno::UX::Size value);
     ::g::Uno::UX::Size X();

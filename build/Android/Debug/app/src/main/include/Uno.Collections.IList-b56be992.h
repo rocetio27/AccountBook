@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Collections/1.0.1/extensions/$.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Collections/1.9.0/Extensions/IListExtensions.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -9,7 +9,7 @@ namespace g{
 namespace Uno{
 namespace Collections{
 
-// public static class IListExtensions :285
+// public static class IListExtensions :4
 // {
 uClassType* IListExtensions_typeof();
 void IListExtensions__RemoveLast_fn(uType* __type, uObject* self, uTRef __retval);

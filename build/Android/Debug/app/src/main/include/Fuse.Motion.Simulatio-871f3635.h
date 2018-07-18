@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Motion/1.4.2/Simulation/BoundedRegion2D.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Motion/1.9.0/Simulation/BoundedRegion2D.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -44,8 +44,8 @@ void BasicBoundedRegion2D__MoveFriction_fn(BasicBoundedRegion2D* __this, double*
 void BasicBoundedRegion2D__MoveSnap_fn(BasicBoundedRegion2D* __this, double* elapsed, bool* X, bool* Y, bool* __retval);
 void BasicBoundedRegion2D__MoveTo_fn(BasicBoundedRegion2D* __this, ::g::Uno::Float2* target);
 void BasicBoundedRegion2D__New1_fn(BasicBoundedRegion2D** __retval);
-void BasicBoundedRegion2D__get_Overflow_fn(BasicBoundedRegion2D* __this, int* __retval);
-void BasicBoundedRegion2D__set_Overflow_fn(BasicBoundedRegion2D* __this, int* value);
+void BasicBoundedRegion2D__get_Overflow_fn(BasicBoundedRegion2D* __this, int32_t* __retval);
+void BasicBoundedRegion2D__set_Overflow_fn(BasicBoundedRegion2D* __this, int32_t* value);
 void BasicBoundedRegion2D__get_OverflowExtent_fn(BasicBoundedRegion2D* __this, ::g::Uno::Float2* __retval);
 void BasicBoundedRegion2D__set_OverflowExtent_fn(BasicBoundedRegion2D* __this, ::g::Uno::Float2* value);
 void BasicBoundedRegion2D__get_Position_fn(BasicBoundedRegion2D* __this, ::g::Uno::Float2* __retval);
@@ -64,7 +64,7 @@ void BasicBoundedRegion2D__set_Velocity_fn(BasicBoundedRegion2D* __this, ::g::Un
 
 struct BasicBoundedRegion2D : uObject
 {
-    int _moveMode;
+    int32_t _moveMode;
     ::g::Uno::Float2 _maxPosition;
     ::g::Uno::Float2 _minPosition;
     ::g::Uno::Float2 _overflowExtent;
@@ -72,7 +72,7 @@ struct BasicBoundedRegion2D : uObject
     ::g::Uno::Float2 _velocity;
     uStrong<uObject*> _friction;
     uStrong<uObject*> _snap;
-    int _overflow;
+    int32_t _overflow;
     ::g::Uno::Float2 _Position;
 
     void ctor_();
@@ -94,8 +94,8 @@ struct BasicBoundedRegion2D : uObject
     void MoveFriction(double elapsed);
     bool MoveSnap(double elapsed, bool X, bool Y);
     void MoveTo(::g::Uno::Float2 target);
-    int Overflow();
-    void Overflow(int value);
+    int32_t Overflow();
+    void Overflow(int32_t value);
     ::g::Uno::Float2 OverflowExtent();
     void OverflowExtent(::g::Uno::Float2 value);
     ::g::Uno::Float2 Position();

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Gestures/1.4.2/Tapped.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Gestures/1.9.0/Tapped.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -8,6 +8,7 @@
 #include <Fuse.Gestures.ClickerTrigger.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
@@ -29,7 +30,7 @@ void Tapped__remove_Handler_fn(Tapped* __this, uDelegate* value);
 void Tapped__New2_fn(Tapped** __retval);
 void Tapped__New3_fn(uDelegate* handler, Tapped** __retval);
 void Tapped__OnRooted_fn(Tapped* __this);
-void Tapped__OnTapped_fn(Tapped* __this, ::g::Fuse::Input::PointerEventArgs* args, int* tapCount);
+void Tapped__OnTapped_fn(Tapped* __this, ::g::Fuse::Input::PointerEventArgs* args, int32_t* tapCount);
 void Tapped__OnUnrooted_fn(Tapped* __this);
 
 struct Tapped : ::g::Fuse::Gestures::ClickerTrigger
@@ -40,7 +41,7 @@ struct Tapped : ::g::Fuse::Gestures::ClickerTrigger
     void ctor_7(uDelegate* handler);
     void add_Handler(uDelegate* value);
     void remove_Handler(uDelegate* value);
-    void OnTapped(::g::Fuse::Input::PointerEventArgs* args, int tapCount);
+    void OnTapped(::g::Fuse::Input::PointerEventArgs* args, int32_t tapCount);
     static Tapped* New2();
     static Tapped* New3(uDelegate* handler);
 };

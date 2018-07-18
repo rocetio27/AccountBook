@@ -21,12 +21,12 @@
 #include <Uno.IO.Directory.h>
 #include <Uno.IO.File.h>
 #include <Uno.IO.FileMode.h>
+#include <Uno.IO.FileStream.h>
 #include <Uno.IO.Path.h>
-#include <Uno.IO.Stream.h>
 #include <Uno.IO.UserDirectory.h>
 #include <Uno.Object.h>
 #include <Uno.String.h>
-#include <Uno.Threading.Future-1.h>
+#include <Uno.Threading.Future1-1.h>
 #include <Uno.Threading.Promise-1.h>
 #include <Uno.UX.Resource.h>
 static uString* STRINGS[7];
@@ -36,7 +36,7 @@ namespace g{
 namespace Fuse{
 namespace Storage{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Storage\1.4.2\ApplicationDir.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Storage\1.9.0\ApplicationDir.uno
 // ---------------------------------------------------------------------------------------------
 
 // internal static class ApplicationDir :7
@@ -105,23 +105,28 @@ void ApplicationDir__WriteAsync_fn(uString* filename, uString* value, ::g::Uno::
 // private static void CreateFile(string filepath) [static] :24
 void ApplicationDir::CreateFile(uString* filepath)
 {
-    ::g::Uno::IO::Stream* stream = ::g::Uno::IO::File::Open(filepath, 2);
+    ::g::Uno::IO::FileStream* stream = ::g::Uno::IO::File::Open(filepath, 2);
 
-    try
     {
+        try
         {
+            {
+            }
         }
+
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr((uObject*)stream), ::g::Uno::IDisposable_typeof()));
+            }
+                        throw __t;
+            goto __after_finally_0;
+        }
+
         {
             ::g::Uno::IDisposable::Dispose(uInterface(uPtr((uObject*)stream), ::g::Uno::IDisposable_typeof()));
         }
-    }
-
-    catch (const uThrowable& __t)
-    {
-        {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr((uObject*)stream), ::g::Uno::IDisposable_typeof()));
-        }
-                throw __t;
+        __after_finally_0:;
     }
 }
 
@@ -131,7 +136,7 @@ bool ApplicationDir::Delete(uString* filename)
     if (::g::Uno::String::op_Equality(filename, NULL))
         U_THROW(::g::Uno::ArgumentNullException::New6(uString::Const("filename")));
 
-    uString* filepath = ::g::Uno::IO::Path::Combine(::g::Uno::IO::Directory::GetUserDirectory(1), filename);
+    uString* filepath = ::g::Uno::IO::Path::Combine(::g::Uno::IO::Directory::GetUserDirectory(2), filename);
 
     if (!::g::Uno::IO::File::Exists(filepath))
         return false;
@@ -175,11 +180,11 @@ bool ApplicationDir::TryRead(uString* filename, uString** content)
     if (::g::Uno::String::op_Equality(filename, NULL))
         U_THROW(::g::Uno::ArgumentNullException::New6(uString::Const("filename")));
 
-    uString* filepath = ::g::Uno::IO::Path::Combine(::g::Uno::IO::Directory::GetUserDirectory(1), filename);
+    uString* filepath = ::g::Uno::IO::Path::Combine(::g::Uno::IO::Directory::GetUserDirectory(2), filename);
 
     if (!::g::Uno::IO::File::Exists(filepath))
     {
-        *content = ::g::Uno::String::Empty_;
+        *content = ::g::Uno::String::Empty();
         return false;
     }
 
@@ -196,7 +201,7 @@ bool ApplicationDir::Write(uString* filename, uString* value)
     if (::g::Uno::String::op_Equality(value, NULL))
         U_THROW(::g::Uno::ArgumentNullException::New6(uString::Const("value")));
 
-    uString* filepath = ::g::Uno::IO::Path::Combine(::g::Uno::IO::Directory::GetUserDirectory(1), filename);
+    uString* filepath = ::g::Uno::IO::Path::Combine(::g::Uno::IO::Directory::GetUserDirectory(2), filename);
     ApplicationDir::CreateFile(filepath);
     ::g::Uno::IO::File::WriteAllText(filepath, value);
     return true;
@@ -209,15 +214,13 @@ bool ApplicationDir::Write(uString* filename, uString* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Storage\1.4.2\ApplicationDir.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Storage\1.9.0\ApplicationDir.uno
 // ---------------------------------------------------------------------------------------------
 
 // private sealed class ApplicationDir.ReadClosure :108
 // {
 static void ApplicationDir__ReadClosure_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::Fuse::Storage::ApplicationDir_typeof());
     type->SetFields(0,
         ::g::Uno::String_typeof(), offsetof(ApplicationDir__ReadClosure, _filename), 0);
 }
@@ -229,7 +232,6 @@ uType* ApplicationDir__ReadClosure_typeof()
 
     uTypeOptions options;
     options.FieldCount = 1;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(ApplicationDir__ReadClosure);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Storage.ApplicationDir.ReadClosure", options);
@@ -276,7 +278,7 @@ ApplicationDir__ReadClosure* ApplicationDir__ReadClosure::New1(uString* filename
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Storage\1.4.2\StorageModule.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Storage\1.9.0\StorageModule.uno
 // --------------------------------------------------------------------------------------------
 
 // public sealed class StorageModule :18
@@ -297,7 +299,6 @@ static void StorageModule_build(uType* type)
     ::TYPES[4] = ::g::Fuse::Scripting::FutureFactory_typeof()->MakeType(::g::Uno::String_typeof(), NULL);
     ::TYPES[5] = ::g::Uno::String_typeof();
     type->SetDependencies(
-        ::g::Fuse::Storage::ApplicationDir_typeof(),
         ::g::Uno::UX::Resource_typeof());
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Scripting::NativeModule_type, interface0),
@@ -315,7 +316,7 @@ static void StorageModule_build(uType* type)
     options.BaseDefinition = ::g::Fuse::Scripting::NativeModule_typeof();
     options.FieldCount = 5;
     options.InterfaceCount = 2;
-    options.DependencyCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(StorageModule);
     options.TypeSize = sizeof(::g::Fuse::Scripting::NativeModule_type);
     type = (::g::Fuse::Scripting::NativeModule_type*)uClassType::New("Fuse.Storage.StorageModule", options);
@@ -419,7 +420,7 @@ uObject* StorageModule::Read(::g::Fuse::Scripting::Context* c, uArray* args)
     if (::g::Fuse::Storage::ApplicationDir::TryRead((filename != NULL) ? filename : ::STRINGS[6/*""*/], &content))
         return content;
     else
-        return ::g::Uno::String::Empty_;
+        return ::g::Uno::String::Empty();
 }
 
 // private static Uno.Threading.Future<string> ReadAsync(object[] args) [static] :80
@@ -461,15 +462,13 @@ uObject* StorageModule::Write(::g::Fuse::Scripting::Context* c, uArray* args)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Storage\1.4.2\ApplicationDir.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Storage\1.9.0\ApplicationDir.uno
 // ---------------------------------------------------------------------------------------------
 
 // private sealed class ApplicationDir.WriteClosure :91
 // {
 static void ApplicationDir__WriteClosure_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::Fuse::Storage::ApplicationDir_typeof());
     type->SetFields(0,
         ::g::Uno::String_typeof(), offsetof(ApplicationDir__WriteClosure, _filename), 0,
         ::g::Uno::String_typeof(), offsetof(ApplicationDir__WriteClosure, _value), 0);
@@ -482,7 +481,6 @@ uType* ApplicationDir__WriteClosure_typeof()
 
     uTypeOptions options;
     options.FieldCount = 2;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(ApplicationDir__WriteClosure);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Storage.ApplicationDir.WriteClosure", options);

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/StatisticPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/StatisticPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_bundle.h>
@@ -19,6 +19,7 @@
 #include <Fuse.Reactive.Data.h>
 #include <Fuse.Reactive.DataBinding.h>
 #include <Fuse.Reactive.EventBinding.h>
+#include <Fuse.Reactive.Expression.h>
 #include <Fuse.Reactive.IExpression.h>
 #include <Fuse.Triggers.Actions-fcab7e57.h>
 #include <Fuse.Triggers.Trigger.h>
@@ -26,26 +27,26 @@
 #include <Uno.Bool.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IList-1.h>
+#include <Uno.Int.h>
 #include <Uno.IO.BundleFile.h>
 #include <Uno.Object.h>
 #include <Uno.String.h>
 #include <Uno.UX.BundleFileSource.h>
 #include <Uno.UX.FileSource.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Selector.h>
-static uString* STRINGS[3];
+static uString* STRINGS[4];
 static uType* TYPES[4];
 
 namespace g{
 
-// public partial sealed class StatisticPage.Template2 :71
+// public partial sealed class StatisticPage.Template2 :82
 // {
-// static Template2() :82
+// static Template2() :93
 static void StatisticPage__Template2__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    StatisticPage__Template2::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"Text"*/]);
+    StatisticPage__Template2::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"Text"*/]);
 }
 
 static void StatisticPage__Template2_build(uType* type)
@@ -53,15 +54,18 @@ static void StatisticPage__Template2_build(uType* type)
     ::STRINGS[0] = uString::Const("Text");
     ::STRINGS[1] = uString::Const("SelectUsage");
     ::STRINGS[2] = uString::Const("name");
+    ::STRINGS[3] = uString::Const("StatisticPage.ux");
     ::TYPES[0] = ::g::Fuse::Gestures::ClickedHandler_typeof();
     ::TYPES[1] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL);
     ::TYPES[2] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL);
     ::TYPES[3] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::TriggerAction_typeof(), NULL);
+    type->SetDependencies(
+        ::g::AccountBook_bundle_typeof());
     type->SetFields(2,
         ::g::StatisticPage_typeof(), offsetof(StatisticPage__Template2, __parent1), uFieldFlagsWeak,
         ::g::StatisticPage_typeof(), offsetof(StatisticPage__Template2, __parentInstance1), uFieldFlagsWeak,
         ::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::String_typeof(), NULL), offsetof(StatisticPage__Template2, temp_Text_inst), 0,
-        ::g::Fuse::Reactive::EventBinding_typeof(), offsetof(StatisticPage__Template2, temp_eb59), 0,
+        ::g::Fuse::Reactive::EventBinding_typeof(), offsetof(StatisticPage__Template2, temp_eb55), 0,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&StatisticPage__Template2::__selector0_, uFieldFlagsStatic);
 }
 
@@ -73,6 +77,7 @@ static void StatisticPage__Template2_build(uType* type)
     uTypeOptions options;
     options.BaseDefinition = ::g::Uno::UX::Template_typeof();
     options.FieldCount = 7;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(StatisticPage__Template2);
     options.TypeSize = sizeof(::g::Uno::UX::Template_type);
     type = (::g::Uno::UX::Template_type*)uClassType::New("StatisticPage.Template2", options);
@@ -82,13 +87,13 @@ static void StatisticPage__Template2_build(uType* type)
     return type;
 }
 
-// public Template2(StatisticPage parent, StatisticPage parentInstance) :75
+// public Template2(StatisticPage parent, StatisticPage parentInstance) :86
 void StatisticPage__Template2__ctor_1_fn(StatisticPage__Template2* __this, ::g::StatisticPage* parent, ::g::StatisticPage* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :85
+// public override sealed object New() :96
 void StatisticPage__Template2__New1_fn(StatisticPage__Template2* __this, uObject** __retval)
 {
     ::g::Fuse::Controls::ScrollView* __self1 = ::g::Fuse::Controls::ScrollView::New4();
@@ -98,20 +103,32 @@ void StatisticPage__Template2__New1_fn(StatisticPage__Template2* __this, uObject
     ::g::Fuse::Reactive::Data* temp2 = ::g::Fuse::Reactive::Data::New1(::STRINGS[2/*"name"*/]);
     ::g::Fuse::Gestures::Clicked* temp3 = ::g::Fuse::Gestures::Clicked::New2();
     ::g::Fuse::PlaySound* temp4 = ::g::Fuse::PlaySound::New2();
-    __this->temp_eb59 = ::g::Fuse::Reactive::EventBinding::New1((uObject*)temp1);
+    __this->temp_eb55 = ::g::Fuse::Reactive::EventBinding::New1((uObject*)temp1);
     ::g::Fuse::Reactive::DataBinding* temp5 = ::g::Fuse::Reactive::DataBinding::New1(__this->temp_Text_inst, (uObject*)temp2, 3);
     __self1->AllowedScrollDirections(3);
-    ::g::Fuse::Gestures::Clicked::AddHandler(temp, uDelegate::New(::TYPES[0/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb59)));
+    __self1->SourceLineNumber(154);
+    __self1->SourceFileName(::STRINGS[3/*"StatisticPa...*/]);
+    temp->SourceLineNumber(155);
+    temp->SourceFileName(::STRINGS[3/*"StatisticPa...*/]);
+    ::g::Fuse::Gestures::Clicked::AddHandler(temp, uDelegate::New(::TYPES[0/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb55)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp3);
-    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Bindings()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Binding>*/]), __this->temp_eb59);
+    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Bindings()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Binding>*/]), __this->temp_eb55);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Bindings()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Binding>*/]), temp5);
+    temp3->SourceLineNumber(156);
+    temp3->SourceFileName(::STRINGS[3/*"StatisticPa...*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp3->Actions()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp4);
+    temp4->SourceLineNumber(157);
+    temp4->SourceFileName(::STRINGS[3/*"StatisticPa...*/]);
     temp4->File(::g::Uno::UX::BundleFileSource::New1(::g::AccountBook_bundle::Clickd3560fbe()));
+    temp1->SourceLineNumber(155);
+    temp1->SourceFileName(::STRINGS[3/*"StatisticPa...*/]);
+    temp2->SourceLineNumber(155);
+    temp2->SourceFileName(::STRINGS[3/*"StatisticPa...*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp);
     return *__retval = __self1, void();
 }
 
-// public Template2 New(StatisticPage parent, StatisticPage parentInstance) :75
+// public Template2 New(StatisticPage parent, StatisticPage parentInstance) :86
 void StatisticPage__Template2__New2_fn(::g::StatisticPage* parent, ::g::StatisticPage* parentInstance, StatisticPage__Template2** __retval)
 {
     *__retval = StatisticPage__Template2::New2(parent, parentInstance);
@@ -119,7 +136,7 @@ void StatisticPage__Template2__New2_fn(::g::StatisticPage* parent, ::g::Statisti
 
 ::g::Uno::UX::Selector StatisticPage__Template2::__selector0_;
 
-// public Template2(StatisticPage parent, StatisticPage parentInstance) [instance] :75
+// public Template2(StatisticPage parent, StatisticPage parentInstance) [instance] :86
 void StatisticPage__Template2::ctor_1(::g::StatisticPage* parent, ::g::StatisticPage* parentInstance)
 {
     ctor_(NULL, false);
@@ -127,7 +144,7 @@ void StatisticPage__Template2::ctor_1(::g::StatisticPage* parent, ::g::Statistic
     __parentInstance1 = parentInstance;
 }
 
-// public Template2 New(StatisticPage parent, StatisticPage parentInstance) [static] :75
+// public Template2 New(StatisticPage parent, StatisticPage parentInstance) [static] :86
 StatisticPage__Template2* StatisticPage__Template2::New2(::g::StatisticPage* parent, ::g::StatisticPage* parentInstance)
 {
     StatisticPage__Template2* obj1 = (StatisticPage__Template2*)uNew(StatisticPage__Template2_typeof());

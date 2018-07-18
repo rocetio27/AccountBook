@@ -13,6 +13,7 @@
 #include <Uno.Byte.h>
 #include <Uno.Exception.h>
 #include <Uno.Int.h>
+#include <Uno.Long.h>
 #include <Uno.Net.NetworkHelpers.h>
 #include <Uno.Net.Sockets.NetworkStream.h>
 #include <Uno.Net.Sockets.Socke-432e1b25.h>
@@ -27,7 +28,7 @@ namespace Uno{
 namespace Net{
 namespace Sockets{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.4.3\NetworkStream.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.9.0\NetworkStream.uno
 // -----------------------------------------------------------------------------------------------
 
 // public sealed class NetworkStream :10
@@ -54,38 +55,51 @@ static void NetworkStream_build(uType* type)
     options.TypeSize = sizeof(::g::Uno::IO::Stream_type);
     type = (::g::Uno::IO::Stream_type*)uClassType::New("Uno.Net.Sockets.NetworkStream", options);
     type->fp_build_ = NetworkStream_build;
-    type->fp_Read = (void(*)(::g::Uno::IO::Stream*, uArray*, int*, int*, int*))NetworkStream__Read_fn;
-    type->fp_Write = (void(*)(::g::Uno::IO::Stream*, uArray*, int*, int*))NetworkStream__Write_fn;
+    type->fp_Flush = (void(*)(::g::Uno::IO::Stream*))NetworkStream__Flush_fn;
+    type->fp_get_Length = (void(*)(::g::Uno::IO::Stream*, int64_t*))NetworkStream__get_Length_fn;
+    type->fp_Read = (void(*)(::g::Uno::IO::Stream*, uArray*, int32_t*, int32_t*, int32_t*))NetworkStream__Read_fn;
+    type->fp_Write = (void(*)(::g::Uno::IO::Stream*, uArray*, int32_t*, int32_t*))NetworkStream__Write_fn;
     type->interface0.fp_Dispose = (void(*)(uObject*))::g::Uno::IO::Stream__Dispose_fn;
     return type;
 }
 
-// public override sealed int Read(byte[] dst, int byteOffset, int byteCount) :49
-void NetworkStream__Read_fn(NetworkStream* __this, uArray* dst, int* byteOffset, int* byteCount, int* __retval)
+// public override sealed void Flush() :67
+void NetworkStream__Flush_fn(NetworkStream* __this)
 {
-    int byteOffset_ = *byteOffset;
-    int byteCount_ = *byteCount;
+}
+
+// public override sealed long get_Length() :23
+void NetworkStream__get_Length_fn(NetworkStream* __this, int64_t* __retval)
+{
+    return *__retval = 0LL, void();
+}
+
+// public override sealed int Read(byte[] dst, int byteOffset, int byteCount) :49
+void NetworkStream__Read_fn(NetworkStream* __this, uArray* dst, int32_t* byteOffset, int32_t* byteCount, int32_t* __retval)
+{
+    int32_t byteOffset_ = *byteOffset;
+    int32_t byteCount_ = *byteCount;
     return *__retval = uPtr(__this->_socket)->Receive1(dst, byteOffset_, byteCount_, 0), void();
 }
 
 // public override sealed void Write(byte[] src, int byteOffset, int byteCount) :54
-void NetworkStream__Write_fn(NetworkStream* __this, uArray* src, int* byteOffset, int* byteCount)
+void NetworkStream__Write_fn(NetworkStream* __this, uArray* src, int32_t* byteOffset, int32_t* byteCount)
 {
-    int byteOffset_ = *byteOffset;
-    int byteCount_ = *byteCount;
-    int sent = uPtr(__this->_socket)->Send1(src, byteOffset_, byteCount_, 0);
+    int32_t byteOffset_ = *byteOffset;
+    int32_t byteCount_ = *byteCount;
+    int32_t sent = uPtr(__this->_socket)->Send1(src, byteOffset_, byteCount_, 0);
 
     if (sent != byteCount_)
         U_THROW(::g::Uno::Exception::New2(::STRINGS[0/*"sent != byt...*/]));
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.4.3\Socket.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.9.0\Socket.uno
 // ----------------------------------------------------------------------------------------
 
-// public sealed class Socket :261
+// public sealed class Socket :263
 // {
-// ~Socket() :538
+// ~Socket() :560
 static void Socket__Finalize_fn(Socket* __this)
 {
     __this->Dispose1(false);
@@ -116,37 +130,37 @@ Socket_type* Socket_typeof()
     return type;
 }
 
-// public void Dispose() :533
+// public void Dispose() :555
 void Socket__Dispose_fn(Socket* __this)
 {
     __this->Dispose();
 }
 
-// protected void Dispose(bool disposing) :514
+// protected void Dispose(bool disposing) :536
 void Socket__Dispose1_fn(Socket* __this, bool* disposing)
 {
     __this->Dispose1(*disposing);
 }
 
-// public int Receive(byte[] buffer, int offset, int length, Uno.Net.Sockets.SocketFlags flags) :408
-void Socket__Receive1_fn(Socket* __this, uArray* buffer, int* offset, int* length, int* flags, int* __retval)
+// public int Receive(byte[] buffer, int offset, int length, Uno.Net.Sockets.SocketFlags flags) :432
+void Socket__Receive1_fn(Socket* __this, uArray* buffer, int32_t* offset, int32_t* length, int32_t* flags, int32_t* __retval)
 {
     *__retval = __this->Receive1(buffer, *offset, *length, *flags);
 }
 
-// public int Send(byte[] buffer, int offset, int length, Uno.Net.Sockets.SocketFlags flags) :390
-void Socket__Send1_fn(Socket* __this, uArray* buffer, int* offset, int* length, int* flags, int* __retval)
+// public int Send(byte[] buffer, int offset, int length, Uno.Net.Sockets.SocketFlags flags) :414
+void Socket__Send1_fn(Socket* __this, uArray* buffer, int32_t* offset, int32_t* length, int32_t* flags, int32_t* __retval)
 {
     *__retval = __this->Send1(buffer, *offset, *length, *flags);
 }
 
-// public void Dispose() [instance] :533
+// public void Dispose() [instance] :555
 void Socket::Dispose()
 {
     Dispose1(true);
 }
 
-// protected void Dispose(bool disposing) [instance] :514
+// protected void Dispose(bool disposing) [instance] :536
 void Socket::Dispose1(bool disposing)
 {
     bool disposing_ = disposing;
@@ -154,20 +168,20 @@ void Socket::Dispose1(bool disposing)
     if (!disposing_)
         return;
 
-    int result;
+    int32_t result;
     result = close(_handle);
 
     if (result < 0)
         U_THROW(::g::Uno::Net::Sockets::SocketException::New4(::g::Uno::Net::NetworkHelpers::GetError()));
 }
 
-// public int Receive(byte[] buffer, int offset, int length, Uno.Net.Sockets.SocketFlags flags) [instance] :408
-int Socket::Receive1(uArray* buffer, int offset, int length, int flags)
+// public int Receive(byte[] buffer, int offset, int length, Uno.Net.Sockets.SocketFlags flags) [instance] :432
+int32_t Socket::Receive1(uArray* buffer, int32_t offset, int32_t length, int32_t flags)
 {
     if ((offset + length) > uPtr(buffer)->Length())
         U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(uString::Const("Offset and length out of range")));
 
-    int ret = recv(_handle, (char *)buffer->Ptr() + offset, length, 0);
+    int32_t ret = recv(_handle, (char *)buffer->Ptr() + offset, length, 0);
 
     if (ret < 0)
         U_THROW(::g::Uno::Net::Sockets::SocketException::New4(::g::Uno::Net::NetworkHelpers::GetError()));
@@ -175,10 +189,10 @@ int Socket::Receive1(uArray* buffer, int offset, int length, int flags)
     return ret;
 }
 
-// public int Send(byte[] buffer, int offset, int length, Uno.Net.Sockets.SocketFlags flags) [instance] :390
-int Socket::Send1(uArray* buffer, int offset, int length, int flags)
+// public int Send(byte[] buffer, int offset, int length, Uno.Net.Sockets.SocketFlags flags) [instance] :414
+int32_t Socket::Send1(uArray* buffer, int32_t offset, int32_t length, int32_t flags)
 {
-    int ret = send(_handle, (char *)buffer->Ptr() + offset, length, 0);
+    int32_t ret = send(_handle, (char *)buffer->Ptr() + offset, length, 0);
 
     if (ret < 0)
         U_THROW(::g::Uno::Net::Sockets::SocketException::New4(::g::Uno::Net::NetworkHelpers::GetError()));
@@ -187,10 +201,10 @@ int Socket::Send1(uArray* buffer, int offset, int length, int flags)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.4.3\Socket.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.9.0\Socket.uno
 // ----------------------------------------------------------------------------------------
 
-// public sealed class SocketException :545
+// public sealed class SocketException :567
 // {
 static void SocketException_build(uType* type)
 {
@@ -212,25 +226,25 @@ static void SocketException_build(uType* type)
     return type;
 }
 
-// internal SocketException(string message) :547
+// internal SocketException(string message) :569
 void SocketException__ctor_3_fn(SocketException* __this, uString* message)
 {
     __this->ctor_3(message);
 }
 
-// internal SocketException New(string message) :547
+// internal SocketException New(string message) :569
 void SocketException__New4_fn(uString* message, SocketException** __retval)
 {
     *__retval = SocketException::New4(message);
 }
 
-// internal SocketException(string message) [instance] :547
+// internal SocketException(string message) [instance] :569
 void SocketException::ctor_3(uString* message)
 {
     ctor_1(message);
 }
 
-// internal SocketException New(string message) [static] :547
+// internal SocketException New(string message) [static] :569
 SocketException* SocketException::New4(uString* message)
 {
     SocketException* obj1 = (SocketException*)uNew(SocketException_typeof());
@@ -239,7 +253,7 @@ SocketException* SocketException::New4(uString* message)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.4.3\Socket.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.9.0\Socket.uno
 // ----------------------------------------------------------------------------------------
 
 // public enum SocketFlags :45
@@ -254,10 +268,10 @@ uEnumType* SocketFlags_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.4.3\Socket.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.9.0\Socket.uno
 // ----------------------------------------------------------------------------------------
 
-// internal extern struct Socket.SocketHandle :268
+// internal extern struct Socket.SocketHandle :270
 // {
 static void Socket__SocketHandle_build(uType* type)
 {
@@ -276,6 +290,8 @@ uStructType* Socket__SocketHandle_typeof()
     type->fp_build_ = Socket__SocketHandle_build;
     return type;
 }
+
+int Socket__SocketHandle::Invalid_;
 // }
 
 }}}} // ::g::Uno::Net::Sockets

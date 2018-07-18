@@ -1,11 +1,11 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.FileSystem/1.4.2/FileSystemOperations.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.FileSystem/1.9.0/FileSystemOperations.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Uno.Object.h>
-namespace g{namespace Fuse{namespace FileSystem{struct FileSystemInfo;}}}
 namespace g{namespace Fuse{namespace FileSystem{struct FileSystemOperations;}}}
 namespace g{namespace Fuse{namespace FileSystem{struct Nothing;}}}
+namespace g{namespace Uno{namespace IO{struct FileSystemInfo;}}}
 namespace g{namespace Uno{namespace Threading{struct Future1;}}}
 
 namespace g{
@@ -29,9 +29,9 @@ void FileSystemOperations__DeleteSync_fn(FileSystemOperations* __this, uString* 
 void FileSystemOperations__Exists_fn(FileSystemOperations* __this, uString* path, ::g::Uno::Threading::Future1** __retval);
 void FileSystemOperations__ExistsSync_fn(FileSystemOperations* __this, uString* path, bool* __retval);
 void FileSystemOperations__GetDirectoryInfo_fn(FileSystemOperations* __this, uString* path, ::g::Uno::Threading::Future1** __retval);
-void FileSystemOperations__GetDirectoryInfoSync_fn(FileSystemOperations* __this, uString* path, ::g::Fuse::FileSystem::FileSystemInfo** __retval);
+void FileSystemOperations__GetDirectoryInfoSync_fn(FileSystemOperations* __this, uString* path, ::g::Uno::IO::FileSystemInfo** __retval);
 void FileSystemOperations__GetFileInfo_fn(FileSystemOperations* __this, uString* path, ::g::Uno::Threading::Future1** __retval);
-void FileSystemOperations__GetFileInfoSync_fn(FileSystemOperations* __this, uString* path, ::g::Fuse::FileSystem::FileSystemInfo** __retval);
+void FileSystemOperations__GetFileInfoSync_fn(FileSystemOperations* __this, uString* path, ::g::Uno::IO::FileSystemInfo** __retval);
 void FileSystemOperations__ListDirectories_fn(FileSystemOperations* __this, uString* path, ::g::Uno::Threading::Future1** __retval);
 void FileSystemOperations__ListDirectoriesSync_fn(FileSystemOperations* __this, uString* path, uArray** __retval);
 void FileSystemOperations__ListEntries_fn(FileSystemOperations* __this, uString* path, ::g::Uno::Threading::Future1** __retval);
@@ -71,9 +71,9 @@ struct FileSystemOperations : uObject
     ::g::Uno::Threading::Future1* Exists(uString* path);
     bool ExistsSync(uString* path);
     ::g::Uno::Threading::Future1* GetDirectoryInfo(uString* path);
-    ::g::Fuse::FileSystem::FileSystemInfo* GetDirectoryInfoSync(uString* path);
+    ::g::Uno::IO::FileSystemInfo* GetDirectoryInfoSync(uString* path);
     ::g::Uno::Threading::Future1* GetFileInfo(uString* path);
-    ::g::Fuse::FileSystem::FileSystemInfo* GetFileInfoSync(uString* path);
+    ::g::Uno::IO::FileSystemInfo* GetFileInfoSync(uString* path);
     ::g::Uno::Threading::Future1* ListDirectories(uString* path);
     uArray* ListDirectoriesSync(uString* path);
     ::g::Uno::Threading::Future1* ListEntries(uString* path);

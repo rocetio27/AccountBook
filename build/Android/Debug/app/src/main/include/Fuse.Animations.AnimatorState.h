@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.4.2/Animator.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.9.0/Animator.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -16,8 +16,8 @@ namespace Animations{
 struct AnimatorState_type : uType
 {
     void(*fp_Disable)(::g::Fuse::Animations::AnimatorState*);
-    void(*fp_SeekProgress)(::g::Fuse::Animations::AnimatorState*, double*, double*, int*, double*, int*);
-    void(*fp_SeekTime)(::g::Fuse::Animations::AnimatorState*, double*, double*, int*, double*, int*);
+    void(*fp_SeekProgress)(::g::Fuse::Animations::AnimatorState*, double*, double*, int32_t*, double*, int32_t*);
+    void(*fp_SeekTime)(::g::Fuse::Animations::AnimatorState*, double*, double*, int32_t*, double*, int32_t*);
 };
 
 AnimatorState_type* AnimatorState_typeof();
@@ -26,14 +26,14 @@ void AnimatorState__Disable_fn(AnimatorState* __this);
 
 struct AnimatorState : uObject
 {
-    int Variant;
+    int32_t Variant;
     uStrong< ::g::Fuse::Visual*> Visual;
     double TotalDuration;
 
     void ctor_(::g::Fuse::Animations::CreateStateParams* p, ::g::Fuse::Visual* useVisual);
     void Disable() { (((AnimatorState_type*)__type)->fp_Disable)(this); }
-    int SeekProgress(double progress, double interval, int dir, double strength) { int __retval; return (((AnimatorState_type*)__type)->fp_SeekProgress)(this, &progress, &interval, &dir, &strength, &__retval), __retval; }
-    int SeekTime(double nominal, double interval, int dir, double strength) { int __retval; return (((AnimatorState_type*)__type)->fp_SeekTime)(this, &nominal, &interval, &dir, &strength, &__retval), __retval; }
+    int32_t SeekProgress(double progress, double interval, int32_t dir, double strength) { int32_t __retval; return (((AnimatorState_type*)__type)->fp_SeekProgress)(this, &progress, &interval, &dir, &strength, &__retval), __retval; }
+    int32_t SeekTime(double nominal, double interval, int32_t dir, double strength) { int32_t __retval; return (((AnimatorState_type*)__type)->fp_SeekTime)(this, &nominal, &interval, &dir, &strength, &__retval), __retval; }
     static void Disable(AnimatorState* __this) { AnimatorState__Disable_fn(__this); }
 };
 // }

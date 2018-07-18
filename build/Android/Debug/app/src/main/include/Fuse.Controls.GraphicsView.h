@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Panels/1.4.2/GraphicsView.ux.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Panels/1.9.0/GraphicsView.ux.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -12,6 +12,7 @@
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
 #include <Fuse.IRenderViewport.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.IViewport.h>
 #include <Fuse.Node.h>
@@ -43,15 +44,15 @@ namespace g{
 namespace Fuse{
 namespace Controls{
 
-// public partial class GraphicsView :106
+// public partial class GraphicsView :107
 // {
 struct GraphicsView_type : ::g::Fuse::Controls::Control_type
 {
-    ::g::Fuse::IViewport interface17;
-    ::g::Fuse::IRenderViewport interface18;
-    ::g::Fuse::Elements::ITreeRenderer interface19;
-    ::g::Fuse::Controls::IProxyHost interface20;
-    ::g::Fuse::ICommonViewport interface21;
+    ::g::Fuse::IViewport interface18;
+    ::g::Fuse::IRenderViewport interface19;
+    ::g::Fuse::Elements::ITreeRenderer interface20;
+    ::g::Fuse::Controls::IProxyHost interface21;
+    ::g::Fuse::ICommonViewport interface22;
 };
 
 GraphicsView_type* GraphicsView_typeof();
@@ -73,6 +74,7 @@ void GraphicsView__FuseElementsITreeRendererIsVisibleChanged_fn(GraphicsView* __
 void GraphicsView__FuseElementsITreeRendererMeasure_fn(GraphicsView* __this, ::g::Fuse::Elements::Element* e, ::g::Fuse::LayoutParams* lp, ::g::Uno::Float2* size, bool* __retval);
 void GraphicsView__FuseElementsITreeRendererOpacityChanged_fn(GraphicsView* __this, ::g::Fuse::Elements::Element* e, float* opacity);
 void GraphicsView__FuseElementsITreeRendererPlaced_fn(GraphicsView* __this, ::g::Fuse::Elements::Element* e);
+void GraphicsView__FuseElementsITreeRendererRenderBoundsChanged_fn(GraphicsView* __this, ::g::Fuse::Elements::Element* e);
 void GraphicsView__FuseElementsITreeRendererRooted_fn(GraphicsView* __this, ::g::Fuse::Elements::Element* e);
 void GraphicsView__FuseElementsITreeRendererRootingStarted_fn(GraphicsView* __this, ::g::Fuse::Elements::Element* e);
 void GraphicsView__FuseElementsITreeRendererTransformChanged_fn(GraphicsView* __this, ::g::Fuse::Elements::Element* e);
@@ -80,8 +82,8 @@ void GraphicsView__FuseElementsITreeRendererUnrooted_fn(GraphicsView* __this, ::
 void GraphicsView__FuseElementsITreeRendererZOrderChanged_fn(GraphicsView* __this, ::g::Fuse::Elements::Element* e, uArray* zorder);
 void GraphicsView__GetTreeRenderer_fn(GraphicsView* __this, ::g::Fuse::Elements::Element* e, uObject** __retval);
 void GraphicsView__InitializeUX_fn(GraphicsView* __this);
-void GraphicsView__OnEnteringBackground_fn(GraphicsView* __this, int* s);
-void GraphicsView__OnEnteringForeground_fn(GraphicsView* __this, int* s);
+void GraphicsView__OnEnteringBackground_fn(GraphicsView* __this, int32_t* s);
+void GraphicsView__OnEnteringForeground_fn(GraphicsView* __this, int32_t* s);
 void GraphicsView__OnInvalidateVisual_fn(GraphicsView* __this);
 void GraphicsView__OnResized_fn(GraphicsView* __this, uObject* sender, ::g::Uno::EventArgs* args);
 void GraphicsView__OnRooted_fn(GraphicsView* __this);
@@ -89,10 +91,10 @@ void GraphicsView__OnUnrooted_fn(GraphicsView* __this);
 void GraphicsView__get_PixelsPerPoint_fn(GraphicsView* __this, float* __retval);
 void GraphicsView__PointToWorldRay_fn(GraphicsView* __this, ::g::Uno::Float2* pixelPos, ::g::Fuse::Ray* __retval);
 void GraphicsView__ScheduleFrame_fn(GraphicsView* __this);
-void GraphicsView__get_Size_fn(GraphicsView* __this, ::g::Uno::Float2* __retval);
+void GraphicsView__get_Size1_fn(GraphicsView* __this, ::g::Uno::Float2* __retval);
 void GraphicsView__get_TreeRenderer_fn(GraphicsView* __this, uObject** __retval);
 void GraphicsView__get_ViewProjectionTransform_fn(GraphicsView* __this, ::g::Uno::Float4x4* __retval);
-void GraphicsView__get_VisualContext_fn(GraphicsView* __this, int* __retval);
+void GraphicsView__get_VisualContext_fn(GraphicsView* __this, int32_t* __retval);
 void GraphicsView__WorldToLocalRay_fn(GraphicsView* __this, uObject* world, ::g::Fuse::Ray* worldRay, ::g::Fuse::Visual* where, ::g::Fuse::Ray* __retval);
 
 struct GraphicsView : ::g::Fuse::Controls::LayoutControl
@@ -103,7 +105,7 @@ struct GraphicsView : ::g::Fuse::Controls::LayoutControl
     ::g::Uno::Float4 _color;
     bool _frameScheduled;
     bool _inBackground;
-    int rotationHackRedrawCount;
+    int32_t rotationHackRedrawCount;
 
     void ctor_6();
     uObject* BaseTreeRenderer();
@@ -112,13 +114,13 @@ struct GraphicsView : ::g::Fuse::Controls::LayoutControl
     void DrawFrame();
     uObject* GetTreeRenderer(::g::Fuse::Elements::Element* e);
     void InitializeUX();
-    void OnEnteringBackground(int s);
-    void OnEnteringForeground(int s);
+    void OnEnteringBackground(int32_t s);
+    void OnEnteringForeground(int32_t s);
     void OnResized(uObject* sender, ::g::Uno::EventArgs* args);
     float PixelsPerPoint();
     ::g::Fuse::Ray PointToWorldRay(::g::Uno::Float2 pixelPos);
     void ScheduleFrame();
-    ::g::Uno::Float2 Size();
+    ::g::Uno::Float2 Size1();
     ::g::Uno::Float4x4 ViewProjectionTransform();
     ::g::Fuse::Ray WorldToLocalRay(uObject* world, ::g::Fuse::Ray worldRay, ::g::Fuse::Visual* where);
 };

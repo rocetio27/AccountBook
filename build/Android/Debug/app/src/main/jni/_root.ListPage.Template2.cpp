@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/ListPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/ListPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_day-96e90464.h>
@@ -39,20 +39,19 @@
 #include <Uno.Object.h>
 #include <Uno.String.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Selector.h>
 
 namespace g{
 
-// public partial sealed class ListPage.Template2 :51
+// public partial sealed class ListPage.Template2 :56
 // {
-// static Template2() :416
+// static Template2() :493
 static void ListPage__Template2__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    ListPage__Template2::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Visibility"));
-    ListPage__Template2::__selector1_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("text"));
-    ListPage__Template2::__selector2_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Items"));
+    ListPage__Template2::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Visibility"));
+    ListPage__Template2::__selector1_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("text"));
+    ListPage__Template2::__selector2_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Items"));
 }
 
 static void ListPage__Template2_build(uType* type)
@@ -86,13 +85,13 @@ static void ListPage__Template2_build(uType* type)
     return type;
 }
 
-// public Template2(ListPage parent, ListPage parentInstance) :55
+// public Template2(ListPage parent, ListPage parentInstance) :60
 void ListPage__Template2__ctor_1_fn(ListPage__Template2* __this, ::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :419
+// public override sealed object New() :496
 void ListPage__Template2__New1_fn(ListPage__Template2* __this, uObject** __retval)
 {
     ::g::Fuse::Controls::Rectangle* __self1 = ::g::Fuse::Controls::Rectangle::New3();
@@ -117,24 +116,44 @@ void ListPage__Template2__New1_fn(ListPage__Template2* __this, uObject** __retva
     ::g::Fuse::Reactive::DataBinding* temp13 = ::g::Fuse::Reactive::DataBinding::New1(__this->temp1_Items_inst, (uObject*)temp8, 3);
     __self1->CornerRadius(::g::Uno::Float4__New2(5.0f, 5.0f, 5.0f, 5.0f));
     __self1->Color(::g::Uno::Float4__New2(1.0f, 1.0f, 1.0f, 1.0f));
+    __self1->SourceLineNumber(82);
+    __self1->SourceFileName(uString::Const("ListPage.ux"));
     temp9->Padding(::g::Uno::Float4__New2(0.0f, 5.0f, 0.0f, 5.0f));
+    temp9->SourceLineNumber(83);
+    temp9->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp1);
-    temp->Alignment(10);
     temp->textcolor(::g::Uno::Float4__New2(0.2666667f, 0.2666667f, 0.2666667f, 1.0f));
     temp->fontsize(12);
+    temp->Alignment(10);
+    temp->SourceLineNumber(84);
+    temp->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Fuse::Gestures::Clicked::AddHandler(temp, uDelegate::New(::g::Fuse::Gestures::ClickedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb22)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp10);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp11);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), __this->temp_eb22);
+    temp2->SourceLineNumber(84);
+    temp2->SourceFileName(uString::Const("ListPage.ux"));
+    temp6->SourceLineNumber(84);
+    temp6->SourceFileName(uString::Const("ListPage.ux"));
+    temp4->SourceLineNumber(84);
+    temp4->SourceFileName(uString::Const("ListPage.ux"));
+    temp5->SourceLineNumber(84);
+    temp5->SourceFileName(uString::Const("ListPage.ux"));
+    temp7->SourceLineNumber(84);
+    temp7->SourceFileName(uString::Const("ListPage.ux"));
+    temp1->SourceLineNumber(85);
+    temp1->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp1->Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), grid);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp1->Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), temp12);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp1->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp13);
+    temp8->SourceLineNumber(85);
+    temp8->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp9);
     return *__retval = __self1, void();
 }
 
-// public Template2 New(ListPage parent, ListPage parentInstance) :55
+// public Template2 New(ListPage parent, ListPage parentInstance) :60
 void ListPage__Template2__New2_fn(::g::ListPage* parent, ::g::ListPage* parentInstance, ListPage__Template2** __retval)
 {
     *__retval = ListPage__Template2::New2(parent, parentInstance);
@@ -144,7 +163,7 @@ void ListPage__Template2__New2_fn(::g::ListPage* parent, ::g::ListPage* parentIn
 ::g::Uno::UX::Selector ListPage__Template2::__selector1_;
 ::g::Uno::UX::Selector ListPage__Template2::__selector2_;
 
-// public Template2(ListPage parent, ListPage parentInstance) [instance] :55
+// public Template2(ListPage parent, ListPage parentInstance) [instance] :60
 void ListPage__Template2::ctor_1(::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     ctor_(NULL, false);
@@ -152,7 +171,7 @@ void ListPage__Template2::ctor_1(::g::ListPage* parent, ::g::ListPage* parentIns
     __parentInstance1 = parentInstance;
 }
 
-// public Template2 New(ListPage parent, ListPage parentInstance) [static] :55
+// public Template2 New(ListPage parent, ListPage parentInstance) [static] :60
 ListPage__Template2* ListPage__Template2::New2(::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     ListPage__Template2* obj1 = (ListPage__Template2*)uNew(ListPage__Template2_typeof());

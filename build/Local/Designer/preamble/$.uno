@@ -5,6 +5,7 @@ using Uno.IO;
 using Outracks.Simulator;
 using Outracks.Simulator.Bytecode;
 using Outracks.Simulator.Runtime;
+using Outracks.Simulator.Client;
 namespace Outracks.Simulator 
 { 
 	public class GeneratedApplication : Outracks.Simulator.Client.Application
@@ -18,7 +19,7 @@ namespace Outracks.Simulator
 			Runtime.Bundle.Initialize("AccountBook");
 
 			if defined(DotNet)
-				Reflection = new UnoHostReflection();
+				Reflection = new DotNetReflectionWrapper(DotNetReflection.Load("C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/build/Local/Designer"));
 			if defined(CPLUSPLUS)
 				Reflection = new NativeReflection(new SimpleTypeMap());
 		}

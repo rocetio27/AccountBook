@@ -11,7 +11,7 @@
 #include <uImage/Jpeg.h>
 #include <uImage/Png.h>
 #include <uImage/Texture.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.Bool.h>
 #include <Uno.Buffer.h>
 #include <Uno.Exception.h>
@@ -27,7 +27,7 @@ namespace g{
 namespace Experimental{
 namespace TextureLoader{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.TextureLoader\1.4.2\TextureLoader.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.TextureLoader\1.9.0\TextureLoader.uno
 // ----------------------------------------------------------------------------------------------------------
 
 // internal sealed class Callback :9
@@ -91,7 +91,7 @@ Callback* Callback::New1(uDelegate* action)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.TextureLoader\1.4.2\TextureLoader.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.TextureLoader\1.9.0\TextureLoader.uno
 // ----------------------------------------------------------------------------------------------------------
 
 // public sealed class InvalidContentTypeException :25
@@ -143,7 +143,7 @@ InvalidContentTypeException* InvalidContentTypeException::New4(uString* reason)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.TextureLoader\1.4.2\TextureLoader.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.TextureLoader\1.9.0\TextureLoader.uno
 // ----------------------------------------------------------------------------------------------------------
 
 // public static class TextureLoader :30
@@ -199,11 +199,11 @@ void TextureLoader__PngByteArrayToTexture2D_fn(::g::Uno::Buffer* arr, uDelegate*
 // public static void ByteArrayToTexture2DContentType(Uno.Buffer arr, string contentType, Uno.Action<texture2D> callback) [static] :83
 void TextureLoader::ByteArrayToTexture2DContentType(::g::Uno::Buffer* arr, uString* contentType, uDelegate* callback)
 {
-    if ((::g::Uno::String::IndexOf1(uPtr(contentType), ::STRINGS[0/*"image/jpeg"*/], 0) != -1) || (::g::Uno::String::IndexOf1(uPtr(contentType), ::STRINGS[1/*"image/jpg"*/], 0) != -1))
+    if ((::g::Uno::String::IndexOf3(uPtr(contentType), ::STRINGS[0/*"image/jpeg"*/], 0) != -1) || (::g::Uno::String::IndexOf3(uPtr(contentType), ::STRINGS[1/*"image/jpg"*/], 0) != -1))
         TextureLoader::JpegByteArrayToTexture2D(arr, callback);
-    else if (::g::Uno::String::IndexOf1(uPtr(contentType), ::STRINGS[2/*"image/png"*/], 0) != -1)
+    else if (::g::Uno::String::IndexOf3(uPtr(contentType), ::STRINGS[2/*"image/png"*/], 0) != -1)
         TextureLoader::PngByteArrayToTexture2D(arr, callback);
-    else if (::g::Uno::String::IndexOf1(uPtr(contentType), ::STRINGS[3/*"application...*/], 0) != -1)
+    else if (::g::Uno::String::IndexOf3(uPtr(contentType), ::STRINGS[3/*"application...*/], 0) != -1)
         TextureLoader::JpegByteArrayToTexture2D(arr, callback);
     else
         U_THROW(::g::Experimental::TextureLoader::InvalidContentTypeException::New4(contentType));
@@ -281,7 +281,7 @@ void TextureLoader::PngByteArrayToTexture2D(::g::Uno::Buffer* arr, uDelegate* ca
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.TextureLoader\1.4.2\TextureLoaderImpl.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Experimental.TextureLoader\1.9.0\TextureLoaderImpl.uno
 // --------------------------------------------------------------------------------------------------------------
 
 // internal static class TextureLoaderImpl :7
@@ -318,62 +318,62 @@ void TextureLoaderImpl__PngByteArrayToTexture2D_fn(::g::Uno::Buffer* arr_, ::g::
 void TextureLoaderImpl::JpegByteArrayToTexture2D(::g::Uno::Buffer* arr_, ::g::Experimental::TextureLoader::Callback* callback_)
 {
     try
-    {
-        uBase::Auto<uBase::BufferPtr> bp = new uBase::BufferPtr(U_BUFFER_PTR(arr_), U_BUFFER_SIZE(arr_), false);
-        uBase::Auto<uBase::BufferStream> bs = new uBase::BufferStream(bp, true, false);
-        uBase::Auto<uImage::ImageReader> ir = uImage::Jpeg::CreateReader(bs);
-        uBase::Auto<uImage ::Bitmap> bmp = ir->ReadBitmap();
-        int originalWidth = bmp->GetWidth(), originalHeight = bmp->GetHeight();
+                    {
+                        uBase::Auto<uBase::BufferPtr> bp = new uBase::BufferPtr(U_BUFFER_PTR(arr_), U_BUFFER_SIZE(arr_), false);
+                        uBase::Auto<uBase::BufferStream> bs = new uBase::BufferStream(bp, true, false);
+                        uBase::Auto<uImage::ImageReader> ir = uImage::Jpeg::CreateReader(bs);
+                        uBase::Auto<uImage ::Bitmap> bmp = ir->ReadBitmap();
+                        int originalWidth = bmp->GetWidth(), originalHeight = bmp->GetHeight();
     
-        int maxTextureSize;
-        glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTextureSize);
-        while (bmp->GetWidth() > maxTextureSize ||
-               bmp->GetHeight() > maxTextureSize)
-        {
-            bmp = bmp->DownSample2x2();
-        }
+                        int maxTextureSize;
+                        glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTextureSize);
+                        while (bmp->GetWidth() > maxTextureSize ||
+                               bmp->GetHeight() > maxTextureSize)
+                        {
+                            bmp = bmp->DownSample2x2();
+                        }
     
-        uBase::Auto<uImage::Texture> tex = uImage::Texture::Create(bmp);
-        uGLTextureInfo info;
-        GLuint handle = uCreateGLTexture(tex, false, &info);
+                        uBase::Auto<uImage::Texture> tex = uImage::Texture::Create(bmp);
+                        uGLTextureInfo info;
+                        GLuint handle = uCreateGLTexture(tex, false, &info);
     
-        callback_->Execute(::g::Uno::Graphics::Texture2D::New2(handle, ::g::Uno::Int2__New2(originalWidth, originalHeight), info.MipCount, 0));
-    }
-    catch (const uBase::Exception &e)
-    {
-        U_THROW(::g::Uno::Exception::New2(uStringFromXliString(e.GetMessage())));
-    }
+                        callback_->Execute(::g::Uno::Graphics::Texture2D::New2(handle, ::g::Uno::Int2__New2(originalWidth, originalHeight), info.MipCount, 0));
+                    }
+                    catch (const uBase::Exception &e)
+                    {
+                        U_THROW(::g::Uno::Exception::New2(uStringFromXliString(e.GetMessage())));
+                    }
 }
 
 // public static void PngByteArrayToTexture2D(Uno.Buffer arr, Experimental.TextureLoader.Callback callback) [static] :19
 void TextureLoaderImpl::PngByteArrayToTexture2D(::g::Uno::Buffer* arr_, ::g::Experimental::TextureLoader::Callback* callback_)
 {
     try
-    {
-        uBase::Auto<uBase::BufferPtr> bp = new uBase::BufferPtr(U_BUFFER_PTR(arr_), U_BUFFER_SIZE(arr_), false);
-        uBase::Auto<uBase::BufferStream> bs = new uBase::BufferStream(bp, true, false);
-        uBase::Auto<uImage::ImageReader> ir = uImage::Png::CreateReader(bs);
-        uBase::Auto<uImage::Bitmap> bmp = ir->ReadBitmap();
-        int originalWidth = bmp->GetWidth(), originalHeight = bmp->GetHeight();
+                    {
+                        uBase::Auto<uBase::BufferPtr> bp = new uBase::BufferPtr(U_BUFFER_PTR(arr_), U_BUFFER_SIZE(arr_), false);
+                        uBase::Auto<uBase::BufferStream> bs = new uBase::BufferStream(bp, true, false);
+                        uBase::Auto<uImage::ImageReader> ir = uImage::Png::CreateReader(bs);
+                        uBase::Auto<uImage::Bitmap> bmp = ir->ReadBitmap();
+                        int originalWidth = bmp->GetWidth(), originalHeight = bmp->GetHeight();
     
-        int maxTextureSize;
-        glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTextureSize);
-        while (bmp->GetWidth() > maxTextureSize ||
-               bmp->GetHeight() > maxTextureSize)
-        {
-            bmp = bmp->DownSample2x2();
-        }
+                        int maxTextureSize;
+                        glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTextureSize);
+                        while (bmp->GetWidth() > maxTextureSize ||
+                               bmp->GetHeight() > maxTextureSize)
+                        {
+                            bmp = bmp->DownSample2x2();
+                        }
     
-        uBase::Auto<uImage::Texture> tex = uImage::Texture::Create(bmp);
-        uGLTextureInfo info;
-        GLuint handle = uCreateGLTexture(tex, false, &info);
+                        uBase::Auto<uImage::Texture> tex = uImage::Texture::Create(bmp);
+                        uGLTextureInfo info;
+                        GLuint handle = uCreateGLTexture(tex, false, &info);
     
-        callback_->Execute(::g::Uno::Graphics::Texture2D::New2(handle, ::g::Uno::Int2__New2(originalWidth, originalHeight), info.MipCount, 0));
-    }
-    catch (const uBase::Exception &e)
-    {
-        U_THROW(::g::Uno::Exception::New2(uStringFromXliString(e.GetMessage())));
-    }
+                        callback_->Execute(::g::Uno::Graphics::Texture2D::New2(handle, ::g::Uno::Int2__New2(originalWidth, originalHeight), info.MipCount, 0));
+                    }
+                    catch (const uBase::Exception &e)
+                    {
+                        U_THROW(::g::Uno::Exception::New2(uStringFromXliString(e.GetMessage())));
+                    }
 }
 // }
 

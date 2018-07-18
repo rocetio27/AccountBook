@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/Behaviors/Shadow.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/Behaviors/Shadow.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -6,6 +6,7 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
@@ -47,7 +48,7 @@ struct Shadow : ::g::Fuse::Behavior
     uStrong< ::g::Fuse::Effects::DropShadow*> _dropShadow;
     uStrong< ::g::Fuse::Controls::Primitives::ShadowElement*> _rectangle;
     uStrong< ::g::Fuse::Translation*> _rectangleTranslation;
-    int _mode;
+    int32_t _mode;
     float _angle;
     float _distance;
     float _size;

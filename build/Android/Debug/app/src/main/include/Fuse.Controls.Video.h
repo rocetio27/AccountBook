@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Video/1.4.2/Video.ScriptClass.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Video/1.9.0/Video.ScriptClass.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -9,6 +9,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -38,16 +39,16 @@ namespace Controls{
 // {
 struct Video_type : ::g::Fuse::Controls::Panel_type
 {
-    ::g::Fuse::Triggers::IMediaPlayback interface18;
-    ::g::Fuse::Triggers::IPlayback interface19;
-    ::g::Fuse::Triggers::IProgress interface20;
+    ::g::Fuse::Triggers::IMediaPlayback interface19;
+    ::g::Fuse::Triggers::IPlayback interface20;
+    ::g::Fuse::Triggers::IProgress interface21;
 };
 
 Video_type* Video_typeof();
 void Video__get_AutoPlay_fn(Video* __this, bool* __retval);
 void Video__set_AutoPlay_fn(Video* __this, bool* value);
-void Video__get_ContentAlignment_fn(Video* __this, int* __retval);
-void Video__set_ContentAlignment_fn(Video* __this, int* value);
+void Video__get_ContentAlignment_fn(Video* __this, int32_t* __retval);
+void Video__set_ContentAlignment_fn(Video* __this, int32_t* value);
 void Video__get_Duration_fn(Video* __this, double* __retval);
 void Video__get_File_fn(Video* __this, ::g::Uno::UX::FileSource** __retval);
 void Video__set_File_fn(Video* __this, ::g::Uno::UX::FileSource* value);
@@ -63,34 +64,34 @@ void Video__OnSourceChanged_fn(Video* __this);
 void Video__OnUnrooted_fn(Video* __this);
 void Video__add_ParamChanged_fn(Video* __this, uDelegate* value);
 void Video__remove_ParamChanged_fn(Video* __this, uDelegate* value);
-void Video__pause_fn(::g::Fuse::Scripting::Context* c, Video* v, uArray* args);
+void Video__pause_fn(Video* v);
 void Video__Pause_fn(Video* __this);
 void Video__get_Playback_fn(Video* __this, uObject** __retval);
 void Video__set_Playback_fn(Video* __this, uObject* value);
 void Video__PlayTo_fn(Video* __this, double* progress);
-void Video__get_Position_fn(Video* __this, double* __retval);
-void Video__set_Position_fn(Video* __this, double* value);
+void Video__get_Position1_fn(Video* __this, double* __retval);
+void Video__set_Position1_fn(Video* __this, double* value);
 void Video__get_Progress_fn(Video* __this, double* __retval);
 void Video__set_Progress_fn(Video* __this, double* value);
 void Video__add_ProgressChanged_fn(Video* __this, uDelegate* value);
 void Video__remove_ProgressChanged_fn(Video* __this, uDelegate* value);
 void Video__add_RenderParamChanged_fn(Video* __this, uDelegate* value);
 void Video__remove_RenderParamChanged_fn(Video* __this, uDelegate* value);
-void Video__resume_fn(::g::Fuse::Scripting::Context* c, Video* v, uArray* args);
+void Video__resume_fn(Video* v);
 void Video__Resume_fn(Video* __this);
 void Video__get_Scale9Margin_fn(Video* __this, ::g::Uno::Float4* __retval);
 void Video__set_Scale9Margin_fn(Video* __this, ::g::Uno::Float4* value);
 void Video__SetPlayback_fn(Video* __this, uObject* playback);
 void Video__add_SourceChanged_fn(Video* __this, uDelegate* value);
 void Video__remove_SourceChanged_fn(Video* __this, uDelegate* value);
-void Video__stop_fn(::g::Fuse::Scripting::Context* c, Video* v, uArray* args);
+void Video__stop_fn(Video* v);
 void Video__Stop_fn(Video* __this);
-void Video__get_StretchDirection_fn(Video* __this, int* __retval);
-void Video__set_StretchDirection_fn(Video* __this, int* value);
-void Video__get_StretchMode_fn(Video* __this, int* __retval);
-void Video__set_StretchMode_fn(Video* __this, int* value);
-void Video__get_StretchSizing_fn(Video* __this, int* __retval);
-void Video__set_StretchSizing_fn(Video* __this, int* value);
+void Video__get_StretchDirection_fn(Video* __this, int32_t* __retval);
+void Video__set_StretchDirection_fn(Video* __this, int32_t* value);
+void Video__get_StretchMode_fn(Video* __this, int32_t* __retval);
+void Video__set_StretchMode_fn(Video* __this, int32_t* value);
+void Video__get_StretchSizing_fn(Video* __this, int32_t* __retval);
+void Video__set_StretchSizing_fn(Video* __this, int32_t* value);
 void Video__UpdateScriptClass_fn(Video* __this, double* duration);
 void Video__get_Url_fn(Video* __this, uString** __retval);
 void Video__set_Url_fn(Video* __this, uString* value);
@@ -107,10 +108,10 @@ struct Video : ::g::Fuse::Controls::Panel
     bool _hasScale9Margin;
     bool _isLooping;
     bool _autoPlay;
-    int _stretchMode;
-    int _stretchDirection;
-    int _stretchSizing;
-    int _contentAlignment;
+    int32_t _stretchMode;
+    int32_t _stretchDirection;
+    int32_t _stretchSizing;
+    int32_t _contentAlignment;
     float _volume;
     uStrong<uObject*> _playback;
     static ::g::Uno::UX::Selector _positionName_;
@@ -126,8 +127,8 @@ struct Video : ::g::Fuse::Controls::Panel
 
     bool AutoPlay();
     void AutoPlay(bool value);
-    int ContentAlignment();
-    void ContentAlignment(int value);
+    int32_t ContentAlignment();
+    void ContentAlignment(int32_t value);
     double Duration();
     ::g::Uno::UX::FileSource* File();
     void File(::g::Uno::UX::FileSource* value);
@@ -144,8 +145,8 @@ struct Video : ::g::Fuse::Controls::Panel
     uObject* Playback();
     void Playback(uObject* value);
     void PlayTo(double progress);
-    double Position();
-    void Position(double value);
+    double Position1();
+    void Position1(double value);
     double Progress();
     void Progress(double value);
     void add_ProgressChanged(uDelegate* value);
@@ -159,21 +160,21 @@ struct Video : ::g::Fuse::Controls::Panel
     void add_SourceChanged(uDelegate* value);
     void remove_SourceChanged(uDelegate* value);
     void Stop();
-    int StretchDirection();
-    void StretchDirection(int value);
-    int StretchMode();
-    void StretchMode(int value);
-    int StretchSizing();
-    void StretchSizing(int value);
+    int32_t StretchDirection();
+    void StretchDirection(int32_t value);
+    int32_t StretchMode();
+    void StretchMode(int32_t value);
+    int32_t StretchSizing();
+    void StretchSizing(int32_t value);
     void UpdateScriptClass(double duration);
     uString* Url();
     void Url(uString* value);
     float Volume();
     void Volume(float value);
     static uObject* getDuration(::g::Fuse::Scripting::Context* c, Video* v, uArray* args);
-    static void pause(::g::Fuse::Scripting::Context* c, Video* v, uArray* args);
-    static void resume(::g::Fuse::Scripting::Context* c, Video* v, uArray* args);
-    static void stop(::g::Fuse::Scripting::Context* c, Video* v, uArray* args);
+    static void pause(Video* v);
+    static void resume(Video* v);
+    static void stop(Video* v);
 };
 // }
 

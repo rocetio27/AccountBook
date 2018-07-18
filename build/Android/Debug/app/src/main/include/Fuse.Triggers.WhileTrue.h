@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Triggers/1.4.2/WhileBool.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Triggers/1.9.0/WhileBool.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -7,6 +7,7 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Fuse.Triggers.Actions-b5190bae.h>
 #include <Fuse.Triggers.IPulseTrigger.h>
@@ -20,7 +21,7 @@ namespace g{
 namespace Fuse{
 namespace Triggers{
 
-// public class WhileTrue :85
+// public class WhileTrue :89
 // {
 ::g::Fuse::Triggers::WhileBool_type* WhileTrue_typeof();
 void WhileTrue__ctor_8_fn(WhileTrue* __this);

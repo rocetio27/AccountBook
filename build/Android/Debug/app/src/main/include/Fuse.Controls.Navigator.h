@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Navigation/1.4.2/Navigator.Interaction.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Navigation/1.9.0/Navigator.Interaction.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -10,6 +10,7 @@
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.Internal.MiniList-1.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Navigation.IBase-84e3f965.h>
 #include <Fuse.Navigation.INavigation.h>
@@ -51,11 +52,10 @@ namespace Controls{
 // {
 struct Navigator_type : ::g::Fuse::Controls::NavigationControl_type
 {
-    ::g::Fuse::Navigation::IRouterOutlet interface22;
+    ::g::Fuse::Navigation::IRouterOutlet interface23;
 };
 
 Navigator_type* Navigator_typeof();
-void Navigator__ctor_8_fn(Navigator* __this);
 void Navigator__AddToCache_fn(Navigator* __this, Navigator__NavPage* page, ::g::Fuse::Visual* target);
 void Navigator__BusyChanged_fn(Navigator* __this);
 void Navigator__CheckInteraction_fn(Navigator* __this);
@@ -65,65 +65,64 @@ void Navigator__CleanupPrepared_fn(Navigator* __this, ::g::Fuse::Visual* newTarg
 void Navigator__CreateTriggers_fn(Navigator* __this, ::g::Fuse::Elements::Element* c, ::g::Fuse::Controls::NavigationControl__ControlPageData* pd);
 void Navigator__get_DefaultPath_fn(Navigator* __this, uString** __retval);
 void Navigator__set_DefaultPath_fn(Navigator* __this, uString* value);
-void Navigator__get_DeferPageSwitch_fn(Navigator* __this, int* __retval);
-void Navigator__set_DeferPageSwitch_fn(Navigator* __this, int* value);
+void Navigator__get_DeferPageSwitch_fn(Navigator* __this, int32_t* __retval);
+void Navigator__set_DeferPageSwitch_fn(Navigator* __this, int32_t* value);
 void Navigator__get_DeferPageSwitchTimeout_fn(Navigator* __this, float* __retval);
 void Navigator__set_DeferPageSwitchTimeout_fn(Navigator* __this, float* value);
 void Navigator__EnablePageSwipeBack_fn(Navigator* __this);
 void Navigator__FindPage_fn(Navigator* __this, ::g::Uno::UX::Selector* path, ::g::Fuse::Visual** __retval);
 void Navigator__FuseNavigationIRouterOutletCancelPrepare_fn(Navigator* __this);
-void Navigator__FuseNavigationIRouterOutletCompareCurrent_fn(Navigator* __this, ::g::Fuse::Navigation::RouterPage* routerPage, ::g::Fuse::Visual** pageVisual, int* __retval);
+void Navigator__FuseNavigationIRouterOutletCompareCurrent_fn(Navigator* __this, ::g::Fuse::Navigation::RouterPage* routerPage, ::g::Fuse::Visual** pageVisual, int32_t* __retval);
 void Navigator__FuseNavigationIRouterOutletGetCurrent_fn(Navigator* __this, ::g::Fuse::Visual** pageVisual, ::g::Fuse::Navigation::RouterPage** __retval);
-void Navigator__FuseNavigationIRouterOutletGoto_fn(Navigator* __this, ::g::Fuse::Navigation::RouterPage* routerPage, int* gotoMode, int* operation, uString* operationStyle, ::g::Fuse::Visual** pageVisual, int* __retval);
+void Navigator__FuseNavigationIRouterOutletGoto_fn(Navigator* __this, ::g::Fuse::Navigation::RouterPage* routerPage, int32_t* gotoMode, int32_t* operation, uString* operationStyle, ::g::Fuse::Visual** pageVisual, int32_t* __retval);
 void Navigator__FuseNavigationIRouterOutletPartialPrepareGoto_fn(Navigator* __this, double* progress);
-void Navigator__FuseNavigationIRouterOutletget_Type_fn(Navigator* __this, int* __retval);
+void Navigator__FuseNavigationIRouterOutletget_Type_fn(Navigator* __this, int32_t* __retval);
 void Navigator__GetCache_fn(Navigator* __this, uString* path, ::g::Uno::Collections::List** __retval);
-void Navigator__GetRemove_fn(::g::Fuse::Visual* elm, int* __retval);
-void Navigator__GetReuse_fn(::g::Fuse::Visual* elm, int* __retval);
-void Navigator__GetSwipeBack_fn(::g::Fuse::Visual* elm, int* __retval);
+void Navigator__GetRemove_fn(::g::Fuse::Visual* elm, int32_t* __retval);
+void Navigator__GetReuse_fn(::g::Fuse::Visual* elm, int32_t* __retval);
+void Navigator__GetSwipeBack_fn(::g::Fuse::Visual* elm, int32_t* __retval);
 void Navigator__GetVisual_fn(Navigator* __this, uString* path, ::g::Fuse::Visual** __retval);
-void Navigator__GotoImpl_fn(Navigator* __this, ::g::Fuse::Navigation::RouterPage* routerPage, int* gotoMode, int* operation, uString* operationStyle, ::g::Fuse::Visual** pageVisual, int* __retval);
-void Navigator__get_GotoState_fn(Navigator* __this, int* __retval);
-void Navigator__set_GotoState_fn(Navigator* __this, int* value);
+void Navigator__GotoImpl_fn(Navigator* __this, ::g::Fuse::Navigation::RouterPage* routerPage, int32_t* gotoMode, int32_t* operation, uString* operationStyle, ::g::Fuse::Visual** pageVisual, int32_t* __retval);
+void Navigator__get_GotoState_fn(Navigator* __this, int32_t* __retval);
+void Navigator__set_GotoState_fn(Navigator* __this, int32_t* value);
 void Navigator__InstantiateTemplate_fn(Navigator* __this, ::g::Uno::UX::Template* f, uString* path, ::g::Fuse::Visual** __retval);
-void Navigator__IsRemoveLevel_fn(Navigator* __this, ::g::Fuse::Visual* elm, int* type, bool* __retval);
-void Navigator__IsReuseLevel_fn(Navigator* __this, ::g::Fuse::Visual* elm, int* type, bool* __retval);
+void Navigator__IsRemoveLevel_fn(Navigator* __this, ::g::Fuse::Visual* elm, int32_t* type, bool* __retval);
+void Navigator__IsReuseLevel_fn(Navigator* __this, ::g::Fuse::Visual* elm, int32_t* type, bool* __retval);
 void Navigator__get_Navigation1_fn(Navigator* __this, ::g::Fuse::Navigation::ExplicitNavigation** __retval);
 void Navigator__get_NavigatorSwipeBack_fn(Navigator* __this, ::g::Fuse::Controls::NavigatorSwipe** __retval);
-void Navigator__New4_fn(Navigator** __retval);
 void Navigator__OnChildRemoved_fn(Navigator* __this, ::g::Fuse::Node* elm);
 void Navigator__OnHistoryChanged_fn(Navigator* __this, uObject* sender);
 void Navigator__OnRooted_fn(Navigator* __this);
 void Navigator__OnSwitched_fn(Navigator* __this, ::g::Fuse::Controls::NavigatorSwitchedArgs* args);
 void Navigator__OnUnrooted_fn(Navigator* __this);
 void Navigator__OnUpdate_fn(Navigator* __this);
-void Navigator__PageSwipeBackDirection_fn(Navigator* __this, ::g::Fuse::Visual* elm, int* __retval);
-void Navigator__Prepare1_fn(Navigator* __this, Navigator__NavPage* curPage, ::g::Fuse::Navigation::RouterPage* routerPage, int* operation, Navigator__PrepareResult* __retval);
+void Navigator__PageSwipeBackDirection_fn(Navigator* __this, ::g::Fuse::Visual* elm, int32_t* __retval);
+void Navigator__Prepare1_fn(Navigator* __this, Navigator__NavPage* curPage, ::g::Fuse::Navigation::RouterPage* routerPage, int32_t* operation, Navigator__PrepareResult* __retval);
 void Navigator__ReleasePage_fn(Navigator* __this, ::g::Fuse::Visual* v);
-void Navigator__get_Remove_fn(Navigator* __this, int* __retval);
-void Navigator__set_Remove_fn(Navigator* __this, int* value);
+void Navigator__get_Remove_fn(Navigator* __this, int32_t* __retval);
+void Navigator__set_Remove_fn(Navigator* __this, int32_t* value);
 void Navigator__ResolveDeferred_fn(Navigator* __this);
-void Navigator__get_Reuse_fn(Navigator* __this, int* __retval);
-void Navigator__set_Reuse_fn(Navigator* __this, int* value);
+void Navigator__get_Reuse_fn(Navigator* __this, int32_t* __retval);
+void Navigator__set_Reuse_fn(Navigator* __this, int32_t* value);
 void Navigator__RootInteraction_fn(Navigator* __this);
 void Navigator__SetTransitionState_fn(Navigator* __this, uObject* owner, bool* on);
-void Navigator__get_SwipeBack_fn(Navigator* __this, int* __retval);
-void Navigator__set_SwipeBack_fn(Navigator* __this, int* value);
+void Navigator__get_SwipeBack_fn(Navigator* __this, int32_t* __retval);
+void Navigator__set_SwipeBack_fn(Navigator* __this, int32_t* value);
 void Navigator__SwitchDeferred_fn(Navigator* __this);
 void Navigator__add_Switched_fn(Navigator* __this, uDelegate* value);
 void Navigator__remove_Switched_fn(Navigator* __this, uDelegate* value);
-void Navigator__SwitchToPage_fn(Navigator* __this, Navigator__NavPage* newPage, int* gotoMode, int* operation, uString* operationStyle, bool* usedPrepared);
+void Navigator__SwitchToPage_fn(Navigator* __this, Navigator__NavPage* newPage, int32_t* gotoMode, int32_t* operation, uString* operationStyle, bool* usedPrepared);
 void Navigator__UnrootInteraction_fn(Navigator* __this);
 void Navigator__UpdateNavigationState_fn(Navigator* __this);
 
 struct Navigator : ::g::Fuse::Controls::NavigationControl
 {
-    int _swipeBack;
+    int32_t _swipeBack;
     uStrong< ::g::Fuse::Controls::NavigatorSwipe*> _navigatorSwipeBack;
     uStrong< ::g::Fuse::Navigation::Router*> _router;
     static uSStrong< ::g::Fuse::PropertyHandle*> _propSwipeBack_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _propSwipeBack() { return _propSwipeBack_; }
-    int _gotoState;
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _propSwipeBack() { return Navigator_typeof()->Init(), _propSwipeBack_; }
+    int32_t _gotoState;
     ::g::Fuse::Internal::MiniList _activeTransitions;
     uStrong< ::g::Uno::Collections::Dictionary*> _pathCache;
     bool _prepareBack;
@@ -132,19 +131,18 @@ struct Navigator : ::g::Fuse::Controls::NavigationControl
     uStrong< ::g::Fuse::Node*> _listenBusy;
     double _listenStart;
     bool _listenTimeout;
-    int _deferPageSwitch;
+    int32_t _deferPageSwitch;
     float _deferPageSwitchTimeout;
     uStrong<Navigator__DeferSwitch*> _deferred;
     static uSStrong< ::g::Fuse::PropertyHandle*> _propReuse_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _propReuse() { return _propReuse_; }
-    int _reuse;
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _propReuse() { return Navigator_typeof()->Init(), _propReuse_; }
+    int32_t _reuse;
     static uSStrong< ::g::Fuse::PropertyHandle*> _propRemove_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _propRemove() { return _propRemove_; }
-    int _remove;
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _propRemove() { return Navigator_typeof()->Init(), _propRemove_; }
+    int32_t _remove;
     uStrong<uString*> _DefaultPath;
     uStrong<uDelegate*> Switched1;
 
-    void ctor_8();
     void AddToCache(Navigator__NavPage* page, ::g::Fuse::Visual* target);
     void BusyChanged();
     void CheckInteraction();
@@ -153,47 +151,46 @@ struct Navigator : ::g::Fuse::Controls::NavigationControl
     void CleanupPrepared(::g::Fuse::Visual* newTarget);
     uString* DefaultPath();
     void DefaultPath(uString* value);
-    int DeferPageSwitch();
-    void DeferPageSwitch(int value);
+    int32_t DeferPageSwitch();
+    void DeferPageSwitch(int32_t value);
     float DeferPageSwitchTimeout();
     void DeferPageSwitchTimeout(float value);
     void EnablePageSwipeBack();
     ::g::Fuse::Visual* FindPage(::g::Uno::UX::Selector path);
     ::g::Uno::Collections::List* GetCache(uString* path);
     ::g::Fuse::Visual* GetVisual(uString* path);
-    int GotoImpl(::g::Fuse::Navigation::RouterPage* routerPage, int gotoMode, int operation, uString* operationStyle, ::g::Fuse::Visual** pageVisual);
-    int GotoState();
-    void GotoState(int value);
+    int32_t GotoImpl(::g::Fuse::Navigation::RouterPage* routerPage, int32_t gotoMode, int32_t operation, uString* operationStyle, ::g::Fuse::Visual** pageVisual);
+    int32_t GotoState();
+    void GotoState(int32_t value);
     ::g::Fuse::Visual* InstantiateTemplate(::g::Uno::UX::Template* f, uString* path);
-    bool IsRemoveLevel(::g::Fuse::Visual* elm, int type);
-    bool IsReuseLevel(::g::Fuse::Visual* elm, int type);
+    bool IsRemoveLevel(::g::Fuse::Visual* elm, int32_t type);
+    bool IsReuseLevel(::g::Fuse::Visual* elm, int32_t type);
     ::g::Fuse::Navigation::ExplicitNavigation* Navigation1();
     ::g::Fuse::Controls::NavigatorSwipe* NavigatorSwipeBack();
     void OnHistoryChanged(uObject* sender);
     void OnSwitched(::g::Fuse::Controls::NavigatorSwitchedArgs* args);
     void OnUpdate();
-    int PageSwipeBackDirection(::g::Fuse::Visual* elm);
-    Navigator__PrepareResult Prepare1(Navigator__NavPage* curPage, ::g::Fuse::Navigation::RouterPage* routerPage, int operation);
+    int32_t PageSwipeBackDirection(::g::Fuse::Visual* elm);
+    Navigator__PrepareResult Prepare1(Navigator__NavPage* curPage, ::g::Fuse::Navigation::RouterPage* routerPage, int32_t operation);
     void ReleasePage(::g::Fuse::Visual* v);
-    int Remove2();
-    void Remove2(int value);
+    int32_t Remove2();
+    void Remove2(int32_t value);
     void ResolveDeferred();
-    int Reuse();
-    void Reuse(int value);
+    int32_t Reuse();
+    void Reuse(int32_t value);
     void RootInteraction();
     void SetTransitionState(uObject* owner, bool on);
-    int SwipeBack();
-    void SwipeBack(int value);
+    int32_t SwipeBack();
+    void SwipeBack(int32_t value);
     void SwitchDeferred();
     void add_Switched(uDelegate* value);
     void remove_Switched(uDelegate* value);
-    void SwitchToPage(Navigator__NavPage* newPage, int gotoMode, int operation, uString* operationStyle, bool usedPrepared);
+    void SwitchToPage(Navigator__NavPage* newPage, int32_t gotoMode, int32_t operation, uString* operationStyle, bool usedPrepared);
     void UnrootInteraction();
     void UpdateNavigationState();
-    static int GetRemove(::g::Fuse::Visual* elm);
-    static int GetReuse(::g::Fuse::Visual* elm);
-    static int GetSwipeBack(::g::Fuse::Visual* elm);
-    static Navigator* New4();
+    static int32_t GetRemove(::g::Fuse::Visual* elm);
+    static int32_t GetReuse(::g::Fuse::Visual* elm);
+    static int32_t GetSwipeBack(::g::Fuse::Visual* elm);
 };
 // }
 

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Threading/1.4.3/Future.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Threading/1.9.0/Future.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -21,18 +21,18 @@ struct Future_type : uType
 
 Future_type* Future_typeof();
 void Future__ctor__fn(Future* __this);
-void Future__get_State_fn(Future* __this, int* __retval);
-void Future__set_State_fn(Future* __this, int* value);
+void Future__get_State_fn(Future* __this, int32_t* __retval);
+void Future__set_State_fn(Future* __this, int32_t* value);
 
 struct Future : uObject
 {
-    int _State;
+    int32_t _State;
 
     void ctor_();
     void Cancel(bool shutdownGracefully) { (((Future_type*)__type)->fp_Cancel)(this, &shutdownGracefully); }
     void Dispose() { (((Future_type*)__type)->fp_Dispose)(this); }
-    int State();
-    void State(int value);
+    int32_t State();
+    void State(int32_t value);
 };
 // }
 

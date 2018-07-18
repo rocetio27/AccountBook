@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Native/1.4.2/Android/Slider.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Native/1.9.0/Android/Slider.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

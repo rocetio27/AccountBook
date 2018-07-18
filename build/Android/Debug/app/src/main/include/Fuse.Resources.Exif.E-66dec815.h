@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/Resources/Exif/Exif.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/Resources/Exif/Exif.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -16,13 +16,13 @@ namespace Exif{
 // {
 uType* ExifAndroidImpl_typeof();
 void ExifAndroidImpl__FromByteArray_fn(uArray* bytes, ::g::Fuse::Resources::Exif::ExifData* __retval);
-void ExifAndroidImpl__GetOrientation_fn(::g::Java::Object* stream, int* __retval);
+void ExifAndroidImpl__GetOrientation_fn(::g::Java::Object* stream, int32_t* __retval);
 void ExifAndroidImpl__InputStreamFromByteArray_fn(::g::Java::Object* buf, ::g::Java::Object** __retval);
 
 struct ExifAndroidImpl : uObject
 {
     static ::g::Fuse::Resources::Exif::ExifData FromByteArray(uArray* bytes);
-    static int GetOrientation(::g::Java::Object* stream);
+    static int32_t GetOrientation(::g::Java::Object* stream);
     static ::g::Java::Object* InputStreamFromByteArray(::g::Java::Object* buf);
 };
 // }

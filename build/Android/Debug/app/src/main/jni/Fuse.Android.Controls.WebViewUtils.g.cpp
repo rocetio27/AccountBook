@@ -9,7 +9,7 @@
 #include <Java.Object.h>
 #include <jni.h>
 #include <Uno.Action.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.Bool.h>
 #include <Uno.Collections.List-1.h>
 #include <Uno.Compiler.ExportTa-39be7c2b.h>
@@ -28,7 +28,7 @@ namespace Android{
 namespace Controls{
 namespace WebViewUtils{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\Android\WebView.Eval.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\Android\WebView.Eval.uno
 // ------------------------------------------------------------------------------------------------------------
 
 // internal sealed extern class EvaluateJsCommand :12
@@ -108,7 +108,7 @@ EvaluateJsCommand* EvaluateJsCommand::New1(uString* javaScript, uDelegate* handl
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\Android\WebView.Eval.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\Android\WebView.Eval.uno
 // ------------------------------------------------------------------------------------------------------------
 
 // public sealed extern class JSEvalRequestManager :34
@@ -209,7 +209,7 @@ void JSEvalRequestManager::NextRequest()
     if (uPtr(_evaluateRequests)->Count() == 0)
         return;
 
-    _currentRequest = (::g::Uno::Collections::List__get_Item_fn(uPtr(_evaluateRequests), uCRef<int>(0), &ret2), ret2);
+    _currentRequest = (::g::Uno::Collections::List__get_Item_fn(uPtr(_evaluateRequests), uCRef<int32_t>(0), &ret2), ret2);
     uPtr(_evaluateRequests)->RemoveAt(0);
     uPtr(_currentRequest)->Execute(_webViewHandle, CreateExpression(uPtr(_currentRequest)->JavaScript));
 }
@@ -231,7 +231,7 @@ JSEvalRequestManager* JSEvalRequestManager::New1(::g::Java::Object* webViewHandl
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\Android\WebViewForeign.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\Android\WebViewForeign.uno
 // --------------------------------------------------------------------------------------------------------------
 
 // public static class WebViewForeign :12
@@ -342,7 +342,7 @@ void WebViewForeign::AddJavascriptInterface(::g::Java::Object* handle, uString* 
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "AddJavascriptInterface330", "(Ljava/lang/Object;Ljava/lang/String;Lcom/foreign/Uno/Action_String;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "AddJavascriptInterface324", "(Ljava/lang/Object;Ljava/lang/String;Lcom/foreign/Uno/Action_String;)V");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         uString* _uname=name;
@@ -366,7 +366,7 @@ bool WebViewForeign::CanGoBack(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CanGoBack331", "(Ljava/lang/Object;)Z");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CanGoBack325", "(Ljava/lang/Object;)Z");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         jboolean __jresult = U_JNIVAR->CallStaticBooleanMethod(__cls,__mtd,_handle);
@@ -384,7 +384,7 @@ bool WebViewForeign::CanGoForward(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CanGoForward332", "(Ljava/lang/Object;)Z");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CanGoForward326", "(Ljava/lang/Object;)Z");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         jboolean __jresult = U_JNIVAR->CallStaticBooleanMethod(__cls,__mtd,_handle);
@@ -402,7 +402,7 @@ bool WebViewForeign::CanGoForward(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateAndSetWebChromeClient333", "(Ljava/lang/Object;Lcom/foreign/Uno/Action_int;)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateAndSetWebChromeClient327", "(Ljava/lang/Object;Lcom/foreign/Uno/Action_int;)Ljava/lang/Object;");
         ::g::Java::Object* _uwebViewHandle=webViewHandle;
         jobject _webViewHandle = (_uwebViewHandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uwebViewHandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         uDelegate* _uonProgress=onProgress;
@@ -423,7 +423,7 @@ bool WebViewForeign::CanGoForward(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateAndSetWebViewClient334", "(Ljava/lang/Object;Lcom/foreign/Uno/Action;Lcom/foreign/Uno/Action;Lcom/foreign/Uno/Action;Lcom/foreign/Uno/Action_String;Lcom/uno/StringArray;Lcom/foreign/Uno/Func;)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateAndSetWebViewClient328", "(Ljava/lang/Object;Lcom/foreign/Uno/Action;Lcom/foreign/Uno/Action;Lcom/foreign/Uno/Action;Lcom/foreign/Uno/Action_String;Lcom/uno/StringArray;Lcom/foreign/Uno/Func;)Ljava/lang/Object;");
         ::g::Java::Object* _uwebViewHandle=webViewHandle;
         jobject _webViewHandle = (_uwebViewHandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uwebViewHandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         uDelegate* _uloaded=loaded;
@@ -459,7 +459,7 @@ bool WebViewForeign::CanGoForward(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateWebView335", "(ZZ)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "CreateWebView329", "(ZZ)Ljava/lang/Object;");
         bool _uzoomEnabled=zoomEnabled;
         jboolean _zoomEnabled = (jboolean)_uzoomEnabled;
         bool _uscrollEnabled=scrollEnabled;
@@ -480,7 +480,7 @@ double WebViewForeign::GetProgress(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "GetProgress336", "(Ljava/lang/Object;)D");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "GetProgress330", "(Ljava/lang/Object;)D");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         jdouble __jresult = U_JNIVAR->CallStaticDoubleMethod(__cls,__mtd,_handle);
@@ -498,7 +498,7 @@ uString* WebViewForeign::GetUrl(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "GetUrl338", "(Ljava/lang/Object;)Ljava/lang/String;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "GetUrl332", "(Ljava/lang/Object;)Ljava/lang/String;");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd,_handle);
@@ -517,7 +517,7 @@ void WebViewForeign::GoBack(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "GoBack339", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "GoBack333", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_handle);
@@ -535,7 +535,7 @@ void WebViewForeign::GoForward(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "GoForward340", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "GoForward334", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_handle);
@@ -553,7 +553,7 @@ void WebViewForeign::LoadHtml(::g::Java::Object* handle, uString* html, uString*
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "LoadHtml341", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "LoadHtml335", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         uString* _uhtml=html;
@@ -577,7 +577,7 @@ void WebViewForeign::LoadUrl(::g::Java::Object* handle, uString* url)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "LoadUrl342", "(Ljava/lang/Object;Ljava/lang/String;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "LoadUrl336", "(Ljava/lang/Object;Ljava/lang/String;)V");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         uString* _uurl=url;
@@ -598,7 +598,7 @@ void WebViewForeign::Reload(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "Reload343", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "Reload337", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_handle);
@@ -616,7 +616,7 @@ void WebViewForeign::StopLoading(::g::Java::Object* handle)
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "StopLoading344", "(Ljava/lang/Object;)V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "StopLoading338", "(Ljava/lang/Object;)V");
         ::g::Java::Object* _uhandle=handle;
         jobject _handle = (_uhandle==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_uhandle, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd,_handle);

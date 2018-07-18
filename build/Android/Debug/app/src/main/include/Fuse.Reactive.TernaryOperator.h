@@ -1,9 +1,11 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Expressions/1.4.2/TernaryOperator.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Expressions/1.9.0/TernaryOperator.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
-#include <Fuse.Reactive.Expression.h>
+#include <Fuse.ISourceLocation.h>
+#include <Fuse.Reactive.Compute-2d5dc615.h>
 #include <Fuse.Reactive.IExpression.h>
+namespace g{namespace Fuse{namespace Reactive{struct Expression__Argument;}}}
 namespace g{namespace Fuse{namespace Reactive{struct TernaryOperator;}}}
 
 namespace g{
@@ -12,41 +14,22 @@ namespace Reactive{
 
 // public abstract class TernaryOperator :8
 // {
-struct TernaryOperator_type : ::g::Fuse::Reactive::Expression_type
-{
-    void(*fp_Compute)(::g::Fuse::Reactive::TernaryOperator*, uObject*, uObject*, uObject*, uObject**);
-    void(*fp_get_IsThirdOptional)(::g::Fuse::Reactive::TernaryOperator*, bool*);
-};
-
-TernaryOperator_type* TernaryOperator_typeof();
-void TernaryOperator__get_First_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval);
-void TernaryOperator__set_First_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression* value);
+::g::Fuse::Reactive::ComputeExpression_type* TernaryOperator_typeof();
+void TernaryOperator__Compute_fn(TernaryOperator* __this, uObject* first, uObject* second, uObject* third, uObject** __retval);
+void TernaryOperator__GetFlags_fn(TernaryOperator* __this, int32_t* __retval);
 void TernaryOperator__get_IsFirstOptional_fn(TernaryOperator* __this, bool* __retval);
 void TernaryOperator__get_IsSecondOptional_fn(TernaryOperator* __this, bool* __retval);
 void TernaryOperator__get_IsThirdOptional_fn(TernaryOperator* __this, bool* __retval);
-void TernaryOperator__get_Second_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval);
-void TernaryOperator__set_Second_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression* value);
-void TernaryOperator__Subscribe_fn(TernaryOperator* __this, uObject* context, uObject* listener, uObject** __retval);
-void TernaryOperator__get_Third_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval);
-void TernaryOperator__set_Third_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression* value);
+void TernaryOperator__TryCompute_fn(TernaryOperator* __this, uArray* args, uObject** result, bool* __retval);
+void TernaryOperator__TryCompute1_fn(TernaryOperator* __this, uObject* first, uObject* second, uObject* third, uObject** result, bool* __retval);
 
-struct TernaryOperator : ::g::Fuse::Reactive::Expression
+struct TernaryOperator : ::g::Fuse::Reactive::ComputeExpression
 {
-    uStrong< ::g::Fuse::Reactive::Expression*> _First;
-    uStrong< ::g::Fuse::Reactive::Expression*> _Second;
-    uStrong< ::g::Fuse::Reactive::Expression*> _Third;
-
-    uObject* Compute(uObject* first, uObject* second, uObject* third) { uObject* __retval; return (((TernaryOperator_type*)__type)->fp_Compute)(this, first, second, third, &__retval), __retval; }
-    ::g::Fuse::Reactive::Expression* First();
-    void First(::g::Fuse::Reactive::Expression* value);
+    uObject* Compute(uObject* first, uObject* second, uObject* third);
     bool IsFirstOptional();
     bool IsSecondOptional();
-    bool IsThirdOptional() { bool __retval; return (((TernaryOperator_type*)__type)->fp_get_IsThirdOptional)(this, &__retval), __retval; }
-    ::g::Fuse::Reactive::Expression* Second();
-    void Second(::g::Fuse::Reactive::Expression* value);
-    ::g::Fuse::Reactive::Expression* Third();
-    void Third(::g::Fuse::Reactive::Expression* value);
-    static bool IsThirdOptional(TernaryOperator* __this) { bool __retval; return TernaryOperator__get_IsThirdOptional_fn(__this, &__retval), __retval; }
+    bool IsThirdOptional();
+    bool TryCompute1(uObject* first, uObject* second, uObject* third, uObject** result);
 };
 // }
 

@@ -1,8 +1,9 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting/1.4.2/NativeProperty.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting/1.9.0/NativeProperty.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Fuse.Scripting.NativeMember.h>
+namespace g{namespace Fuse{namespace Scripting{struct Context;}}}
 namespace g{namespace Fuse{namespace Scripting{struct NativeProperty;}}}
 
 namespace g{
@@ -21,12 +22,12 @@ NativeProperty_type* NativeProperty_typeof();
 void NativeProperty__ctor_1_fn(NativeProperty* __this, uString* name);
 void NativeProperty__ctor_2_fn(NativeProperty* __this, uString* name, uDelegate* getHandler, uDelegate* setHandler, uDelegate* valueConverter);
 void NativeProperty__ctor_3_fn(NativeProperty* __this, uString* name, void* value);
-void NativeProperty__CreateObject_fn(NativeProperty* __this, uObject** __retval);
+void NativeProperty__CreateObject_fn(NativeProperty* __this, ::g::Fuse::Scripting::Context* context, uObject** __retval);
 void NativeProperty__GetProperty_fn(NativeProperty* __this, uTRef __retval);
-void NativeProperty__GetProperty1_fn(NativeProperty* __this, uArray* args, uObject** __retval);
+void NativeProperty__GetProperty1_fn(NativeProperty* __this, ::g::Fuse::Scripting::Context* context, uArray* args, uObject** __retval);
 void NativeProperty__New2_fn(uType* __type, uString* name, uDelegate* getHandler, uDelegate* setHandler, uDelegate* valueConverter, NativeProperty** __retval);
 void NativeProperty__New3_fn(uType* __type, uString* name, void* value, NativeProperty** __retval);
-void NativeProperty__SetProperty_fn(NativeProperty* __this, uArray* args, uObject** __retval);
+void NativeProperty__SetProperty_fn(NativeProperty* __this, ::g::Fuse::Scripting::Context* context, uArray* args, uObject** __retval);
 void NativeProperty__SetProperty1_fn(NativeProperty* __this, void* value);
 
 struct NativeProperty : ::g::Fuse::Scripting::NativeMember
@@ -34,7 +35,7 @@ struct NativeProperty : ::g::Fuse::Scripting::NativeMember
     uStrong<uDelegate*> _setHandler;
     uStrong<uDelegate*> _getHandler;
     uStrong<uDelegate*> _valueConverter;
-    uTField _readonlyValue() { return __type->Field(this, 6); }
+    uTField _readonlyValue() { return __type->Field(this, 7); }
     bool _isReadonly;
 
     void ctor_1(uString* name);
@@ -44,8 +45,8 @@ struct NativeProperty : ::g::Fuse::Scripting::NativeMember
     template<class T>
     T GetProperty() { T __retval; return (((NativeProperty_type*)__type)->fp_GetProperty)(this, &__retval), __retval; }
     void GetProperty_ex(uTRef __retval) { (((NativeProperty_type*)__type)->fp_GetProperty)(this, __retval); }
-    uObject* GetProperty1(uArray* args);
-    uObject* SetProperty(uArray* args);
+    uObject* GetProperty1(::g::Fuse::Scripting::Context* context, uArray* args);
+    uObject* SetProperty(::g::Fuse::Scripting::Context* context, uArray* args);
     template<class TJSValue>
     void SetProperty1(TJSValue value) { (((NativeProperty_type*)__type)->fp_SetProperty1)(this, uConstrain(__type->GetBase(NativeProperty_typeof())->T(1), value)); }
     void SetProperty1_ex(void* value) { (((NativeProperty_type*)__type)->fp_SetProperty1)(this, value); }

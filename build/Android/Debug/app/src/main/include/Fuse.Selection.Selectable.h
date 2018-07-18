@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Selection/1.4.2/Selectable.ScriptClass.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Selection/1.9.0/Selectable.ScriptClass.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -6,11 +6,11 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
 #include <Uno.Collections.IList-1.h>
-namespace g{namespace Fuse{namespace Scripting{struct Context;}}}
 namespace g{namespace Fuse{namespace Selection{struct Selectable;}}}
 namespace g{namespace Fuse{namespace Selection{struct Selection;}}}
 namespace g{namespace Uno{namespace UX{struct Selector;}}}
@@ -22,13 +22,13 @@ namespace Selection{
 // public partial sealed class Selectable :9
 // {
 ::g::Fuse::Node_type* Selectable_typeof();
-void Selectable__add_fn(::g::Fuse::Scripting::Context* c, Selectable* s, uArray* args);
+void Selectable__add_fn(Selectable* s);
 void Selectable__Add1_fn(Selectable* __this);
 void Selectable__OnRooted_fn(Selectable* __this);
 void Selectable__OnUnrooted_fn(Selectable* __this);
-void Selectable__remove_fn(::g::Fuse::Scripting::Context* c, Selectable* s, uArray* args);
+void Selectable__remove_fn(Selectable* s);
 void Selectable__Remove1_fn(Selectable* __this);
-void Selectable__toggle_fn(::g::Fuse::Scripting::Context* c, Selectable* s, uArray* args);
+void Selectable__toggle_fn(Selectable* s);
 void Selectable__Toggle_fn(Selectable* __this);
 void Selectable__get_Value_fn(Selectable* __this, uString** __retval);
 void Selectable__set_Value_fn(Selectable* __this, uString* value);
@@ -45,9 +45,9 @@ struct Selectable : ::g::Fuse::Behavior
     void Toggle();
     uString* Value();
     void Value(uString* value);
-    static void add(::g::Fuse::Scripting::Context* c, Selectable* s, uArray* args);
-    static void remove(::g::Fuse::Scripting::Context* c, Selectable* s, uArray* args);
-    static void toggle(::g::Fuse::Scripting::Context* c, Selectable* s, uArray* args);
+    static void add(Selectable* s);
+    static void remove(Selectable* s);
+    static void toggle(Selectable* s);
 };
 // }
 

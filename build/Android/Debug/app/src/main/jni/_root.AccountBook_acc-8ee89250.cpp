@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_acc-8ee89250.h>
@@ -21,9 +21,8 @@ namespace g{
 // static generated AccountBook_accessor_wbButtonB_textcolor() :11
 static void AccountBook_accessor_wbButtonB_textcolor__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     AccountBook_accessor_wbButtonB_textcolor::Singleton_ = AccountBook_accessor_wbButtonB_textcolor::New1();
-    AccountBook_accessor_wbButtonB_textcolor::_name_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"textcolor"*/]);
+    AccountBook_accessor_wbButtonB_textcolor::_name_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"textcolor"*/]);
 }
 
 static void AccountBook_accessor_wbButtonB_textcolor_build(uType* type)

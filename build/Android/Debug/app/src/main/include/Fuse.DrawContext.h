@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/DrawContext.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/DrawContext.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -23,9 +23,9 @@ namespace Fuse{
 uType* DrawContext_typeof();
 void DrawContext__ctor__fn(DrawContext* __this, uObject* viewport);
 void DrawContext__CaptureRootbuffer_fn(DrawContext* __this);
-void DrawContext__CheckGLError_fn(DrawContext* __this, uString* filePath, int* lineNumber, uString* memberName);
+void DrawContext__CheckGLError_fn(DrawContext* __this, uString* filePath, int32_t* lineNumber, uString* memberName);
 void DrawContext__Clear_fn(DrawContext* __this, ::g::Uno::Float4* color, float* depth);
-void DrawContext__get_CullFace_fn(DrawContext* __this, int* __retval);
+void DrawContext__get_CullFace_fn(DrawContext* __this, int32_t* __retval);
 void DrawContext__GetLocalToClipTransform_fn(DrawContext* __this, ::g::Fuse::Visual* n, ::g::Uno::Float4x4* __retval);
 void DrawContext__GetRenderTargetEntry_fn(DrawContext* __this, ::g::Fuse::RenderTargetEntry** __retval);
 void DrawContext__get_GLFramebuffer_fn(DrawContext* __this, uint32_t* __retval);
@@ -70,15 +70,15 @@ struct DrawContext : uObject
     uStrong< ::g::Uno::Collections::List*> _glScissors;
     ::g::Uno::Int4 _glViewport;
     uStrong< ::g::Uno::Collections::List*> _cullFaces;
-    int _cullFace;
+    int32_t _cullFace;
     bool _IsCaching;
     uStrong<uDelegate*> RenderTargetChange1;
 
     void ctor_(uObject* viewport);
     void CaptureRootbuffer();
-    void CheckGLError(uString* filePath, int lineNumber, uString* memberName);
+    void CheckGLError(uString* filePath, int32_t lineNumber, uString* memberName);
     void Clear(::g::Uno::Float4 color, float depth);
-    int CullFace();
+    int32_t CullFace();
     ::g::Uno::Float4x4 GetLocalToClipTransform(::g::Fuse::Visual* n);
     ::g::Fuse::RenderTargetEntry* GetRenderTargetEntry();
     uint32_t GLFramebuffer();

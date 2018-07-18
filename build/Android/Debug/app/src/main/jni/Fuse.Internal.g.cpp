@@ -58,7 +58,7 @@
 #include <Fuse.SystemFont.Style.h>
 #include <Fuse.SystemFont.Weight.h>
 #include <jni.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.ArgumentNullException.h>
 #include <Uno.ArgumentOutOfRang-6803b39e.h>
 #include <Uno.Bool.h>
@@ -68,7 +68,7 @@
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
 #include <Uno.Collections.IEnumerator.h>
-#include <Uno.Collections.IEnumerator-1.h>
+#include <Uno.Collections.IEnumerator1-1.h>
 #include <Uno.Collections.IList-1.h>
 #include <Uno.Collections.Linke-712f9f5e.h>
 #include <Uno.Collections.LinkedList-1.h>
@@ -111,7 +111,7 @@ namespace g{
 namespace Fuse{
 namespace Internal{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\AndroidSystemFont.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\AndroidSystemFont.uno
 // --------------------------------------------------------------------------------------------------------
 
 // private struct AndroidSystemFont.Alias :45
@@ -139,26 +139,26 @@ uStructType* AndroidSystemFont__Alias_typeof()
 }
 
 // public Alias(string to, Fuse.SystemFont.Weight weight) :50
-void AndroidSystemFont__Alias__ctor__fn(AndroidSystemFont__Alias* __this, uString* to, int* weight)
+void AndroidSystemFont__Alias__ctor__fn(AndroidSystemFont__Alias* __this, uString* to, int32_t* weight)
 {
     __this->ctor_(to, *weight);
 }
 
 // public Alias New(string to, Fuse.SystemFont.Weight weight) :50
-void AndroidSystemFont__Alias__New1_fn(uString* to, int* weight, AndroidSystemFont__Alias* __retval)
+void AndroidSystemFont__Alias__New1_fn(uString* to, int32_t* weight, AndroidSystemFont__Alias* __retval)
 {
     *__retval = AndroidSystemFont__Alias__New1(to, *weight);
 }
 
 // public Alias(string to, Fuse.SystemFont.Weight weight) [instance] :50
-void AndroidSystemFont__Alias::ctor_(uString* to, int weight)
+void AndroidSystemFont__Alias::ctor_(uString* to, int32_t weight)
 {
     To = to;
     Weight = weight;
 }
 
 // public Alias New(string to, Fuse.SystemFont.Weight weight) [static] :50
-AndroidSystemFont__Alias AndroidSystemFont__Alias__New1(uString* to, int weight)
+AndroidSystemFont__Alias AndroidSystemFont__Alias__New1(uString* to, int32_t weight)
 {
     AndroidSystemFont__Alias obj1;
     obj1.ctor_(to, weight);
@@ -166,13 +166,15 @@ AndroidSystemFont__Alias AndroidSystemFont__Alias__New1(uString* to, int weight)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\AndroidSystemFont.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\AndroidSystemFont.uno
 // --------------------------------------------------------------------------------------------------------
 
 // internal static extern class AndroidSystemFont :11
 // {
 static void AndroidSystemFont_build(uType* type)
 {
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Uno::Collections::List_typeof()->MakeType(AndroidSystemFont__Family_typeof(), NULL), (uintptr_t)&AndroidSystemFont::_families_, uFieldFlagsStatic,
         ::g::Uno::Collections::Dictionary_typeof()->MakeType(::g::Uno::String_typeof(), AndroidSystemFont__Alias_typeof(), NULL), (uintptr_t)&AndroidSystemFont::_aliases_, uFieldFlagsStatic,
@@ -187,31 +189,32 @@ uClassType* AndroidSystemFont_typeof()
 
     uTypeOptions options;
     options.FieldCount = 4;
+    options.DependencyCount = 1;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Fuse.Internal.AndroidSystemFont", options);
     type->fp_build_ = AndroidSystemFont_build;
     return type;
 }
 
-// private static void AddAlias(string name, string to, int weight) :233
-void AndroidSystemFont__AddAlias_fn(uString* name, uString* to, int* weight)
+// private static void AddAlias(string name, string to, int weight) :227
+void AndroidSystemFont__AddAlias_fn(uString* name, uString* to, int32_t* weight)
 {
     AndroidSystemFont::AddAlias(name, to, *weight);
 }
 
-// private static void AddFamily(string name, string language, string variant) :211
+// private static void AddFamily(string name, string language, string variant) :205
 void AndroidSystemFont__AddFamily_fn(uString* name, uString* language, uString* variant)
 {
     AndroidSystemFont::AddFamily(name, language, variant);
 }
 
-// private static void AddFont(string path, int index, int weight, bool isItalic) :221
-void AndroidSystemFont__AddFont_fn(uString* path, int* index, int* weight, bool* isItalic)
+// private static void AddFont(string path, int index, int weight, bool isItalic) :215
+void AndroidSystemFont__AddFont_fn(uString* path, int32_t* index, int32_t* weight, bool* isItalic)
 {
     AndroidSystemFont::AddFont(path, *index, *weight, *isItalic);
 }
 
-// private static void AddFonts() :176
+// private static void AddFonts() :170
 void AndroidSystemFont__AddFonts_fn()
 {
     AndroidSystemFont::AddFonts();
@@ -223,20 +226,20 @@ void AndroidSystemFont__get_Default_fn(::g::Uno::Collections::List** __retval)
     *__retval = AndroidSystemFont::Default();
 }
 
-// private static void EnsureFontsAdded() :164
+// private static void EnsureFontsAdded() :158
 void AndroidSystemFont__EnsureFontsAdded_fn()
 {
     AndroidSystemFont::EnsureFontsAdded();
 }
 
-// private static Fuse.Internal.FontFaceDescriptor Get(Fuse.Internal.AndroidSystemFont.Family family, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) :136
-void AndroidSystemFont__Get_fn(AndroidSystemFont__Family* family, int* style, int* weight, ::g::Fuse::Internal::FontFaceDescriptor** __retval)
+// private static Fuse.Internal.FontFaceDescriptor Get(Fuse.Internal.AndroidSystemFont.Family family, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) :130
+void AndroidSystemFont__Get_fn(AndroidSystemFont__Family* family, int32_t* style, int32_t* weight, ::g::Fuse::Internal::FontFaceDescriptor** __retval)
 {
     *__retval = AndroidSystemFont::Get(*family, *style, *weight);
 }
 
-// public static Uno.Collections.List<Fuse.Internal.FontFaceDescriptor> Get(string familyName, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) :101
-void AndroidSystemFont__Get1_fn(uString* familyName, int* style, int* weight, ::g::Uno::Collections::List** __retval)
+// public static Uno.Collections.List<Fuse.Internal.FontFaceDescriptor> Get(string familyName, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) :95
+void AndroidSystemFont__Get1_fn(uString* familyName, int32_t* style, int32_t* weight, ::g::Uno::Collections::List** __retval)
 {
     *__retval = AndroidSystemFont::Get1(familyName, *style, *weight);
 }
@@ -247,14 +250,14 @@ void AndroidSystemFont__GetFallback_fn(::g::Uno::UX::FileSource* file, ::g::Uno:
     *__retval = AndroidSystemFont::GetFallback(file);
 }
 
-// private static void ThrowUno(string message) :206
+// private static void ThrowUno(string message) :200
 void AndroidSystemFont__ThrowUno_fn(uString* message)
 {
     AndroidSystemFont::ThrowUno(message);
 }
 
-// private static Fuse.SystemFont.Weight ToWeight(int w) :231
-void AndroidSystemFont__ToWeight_fn(int* w, int* __retval)
+// private static Fuse.SystemFont.Weight ToWeight(int w) :225
+void AndroidSystemFont__ToWeight_fn(int32_t* w, int32_t* __retval)
 {
     *__retval = AndroidSystemFont::ToWeight(*w);
 }
@@ -264,8 +267,8 @@ uSStrong< ::g::Uno::Collections::Dictionary*> AndroidSystemFont::_aliases_;
 uSStrong< ::g::Uno::Collections::HashSet*> AndroidSystemFont::_familyNames_;
 uSStrong< ::g::Uno::Collections::List*> AndroidSystemFont::_default_;
 
-// private static void AddAlias(string name, string to, int weight) [static] :233
-void AndroidSystemFont::AddAlias(uString* name, uString* to, int weight)
+// private static void AddAlias(string name, string to, int weight) [static] :227
+void AndroidSystemFont::AddAlias(uString* name, uString* to, int32_t weight)
 {
     bool ret2;
     bool ret3;
@@ -280,7 +283,7 @@ void AndroidSystemFont::AddAlias(uString* name, uString* to, int weight)
     }
 }
 
-// private static void AddFamily(string name, string language, string variant) [static] :211
+// private static void AddFamily(string name, string language, string variant) [static] :205
 void AndroidSystemFont::AddFamily(uString* name, uString* language, uString* variant)
 {
     bool ret5;
@@ -292,20 +295,20 @@ void AndroidSystemFont::AddFamily(uString* name, uString* language, uString* var
         ::g::Uno::Collections::HashSet__Add_fn(uPtr(AndroidSystemFont::_familyNames_), lowerName, &ret6);
 }
 
-// private static void AddFont(string path, int index, int weight, bool isItalic) [static] :221
-void AndroidSystemFont::AddFont(uString* path, int index, int weight, bool isItalic)
+// private static void AddFont(string path, int index, int weight, bool isItalic) [static] :215
+void AndroidSystemFont::AddFont(uString* path, int32_t index, int32_t weight, bool isItalic)
 {
     AndroidSystemFont__Family ret7;
-    ::g::Uno::Collections::List__Add_fn(uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(AndroidSystemFont::_families_), uCRef<int>(uPtr(AndroidSystemFont::_families_)->Count() - 1), &ret7), ret7).Fonts), uCRef(AndroidSystemFont__FontDescriptor__New1(path, index, isItalic ? 1 : 0, AndroidSystemFont::ToWeight(weight))));
+    ::g::Uno::Collections::List__Add_fn(uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(AndroidSystemFont::_families_), uCRef<int32_t>(uPtr(AndroidSystemFont::_families_)->Count() - 1), &ret7), ret7).Fonts), uCRef(AndroidSystemFont__FontDescriptor__New1(path, index, isItalic ? 1 : 0, AndroidSystemFont::ToWeight(weight))));
 }
 
-// private static void AddFonts() [static] :176
+// private static void AddFonts() [static] :170
 void AndroidSystemFont::AddFonts()
 {
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "AddFonts111", "()V");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "AddFonts116", "()V");
         U_JNIVAR->CallStaticVoidMethod(__cls,__mtd);
         
         ::g::Android::Base::JNI::CheckException();
@@ -314,7 +317,7 @@ void AndroidSystemFont::AddFonts()
     
 }
 
-// private static void EnsureFontsAdded() [static] :164
+// private static void EnsureFontsAdded() [static] :158
 void AndroidSystemFont::EnsureFontsAdded()
 {
     if (AndroidSystemFont::_families_ == NULL)
@@ -326,21 +329,21 @@ void AndroidSystemFont::EnsureFontsAdded()
     }
 }
 
-// private static Fuse.Internal.FontFaceDescriptor Get(Fuse.Internal.AndroidSystemFont.Family family, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) [static] :136
-::g::Fuse::Internal::FontFaceDescriptor* AndroidSystemFont::Get(AndroidSystemFont__Family family, int style, int weight)
+// private static Fuse.Internal.FontFaceDescriptor Get(Fuse.Internal.AndroidSystemFont.Family family, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) [static] :130
+::g::Fuse::Internal::FontFaceDescriptor* AndroidSystemFont::Get(AndroidSystemFont__Family family, int32_t style, int32_t weight)
 {
     AndroidSystemFont__FontDescriptor ret8;
     AndroidSystemFont__FontDescriptor ret9;
-    int lowestDiff = 2147483647;
-    int lowestIndex = -1;
+    int32_t lowestDiff = 2147483647;
+    int32_t lowestIndex = -1;
 
-    for (int i = 0; i < uPtr(family.Fonts)->Count(); ++i)
+    for (int32_t i = 0; i < uPtr(family.Fonts)->Count(); ++i)
     {
-        AndroidSystemFont__FontDescriptor font = (::g::Uno::Collections::List__get_Item_fn(uPtr(family.Fonts), uCRef<int>(i), &ret8), ret8);
+        AndroidSystemFont__FontDescriptor font = (::g::Uno::Collections::List__get_Item_fn(uPtr(family.Fonts), uCRef<int32_t>(i), &ret8), ret8);
 
         if (::g::Uno::IO::File::Exists(font.FilePath))
         {
-            int diff = (100 * ::g::Uno::Math::Abs5(style - font.Style)) + ::g::Uno::Math::Abs5(weight - font.Weight);
+            int32_t diff = (100 * ::g::Uno::Math::Abs5(style - font.Style)) + ::g::Uno::Math::Abs5(weight - font.Weight);
 
             if (diff < lowestDiff)
             {
@@ -355,15 +358,15 @@ void AndroidSystemFont::EnsureFontsAdded()
 
     if (lowestIndex >= 0)
     {
-        AndroidSystemFont__FontDescriptor font1 = (::g::Uno::Collections::List__get_Item_fn(uPtr(family.Fonts), uCRef<int>(lowestIndex), &ret9), ret9);
+        AndroidSystemFont__FontDescriptor font1 = (::g::Uno::Collections::List__get_Item_fn(uPtr(family.Fonts), uCRef<int32_t>(lowestIndex), &ret9), ret9);
         return ::g::Fuse::Internal::FontFaceDescriptor::New1(::g::Fuse::Resources::SystemFileSource::New1(font1.FilePath), font1.Index);
     }
 
     return NULL;
 }
 
-// public static Uno.Collections.List<Fuse.Internal.FontFaceDescriptor> Get(string familyName, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) [static] :101
-::g::Uno::Collections::List* AndroidSystemFont::Get1(uString* familyName, int style, int weight)
+// public static Uno.Collections.List<Fuse.Internal.FontFaceDescriptor> Get(string familyName, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) [static] :95
+::g::Uno::Collections::List* AndroidSystemFont::Get1(uString* familyName, int32_t style, int32_t weight)
 {
     bool ret10;
     ::g::Uno::Collections::List__Enumerator<AndroidSystemFont__Family> ret11;
@@ -381,37 +384,42 @@ void AndroidSystemFont::EnsureFontsAdded()
     bool realMatch = false;
     ::g::Uno::Collections::List__Enumerator<AndroidSystemFont__Family> enum1 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(AndroidSystemFont::_families_), &ret11), ret11);
 
-    try
     {
+        try
         {
-            while (enum1.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(AndroidSystemFont__Family_typeof(), NULL)))
             {
-                AndroidSystemFont__Family family = enum1.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(AndroidSystemFont__Family_typeof(), NULL));
-
-                if ((::g::Uno::String::op_Equality(familyName, NULL) || ::g::Uno::String::op_Equality(family.Name, NULL)) || ::g::Uno::String::op_Equality(familyName, family.Name))
+                while (enum1.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(AndroidSystemFont__Family_typeof(), NULL)))
                 {
-                    realMatch = realMatch || ::g::Uno::String::op_Equality(familyName, family.Name);
-                    ::g::Fuse::Internal::FontFaceDescriptor* descriptor = AndroidSystemFont::Get(family, style, weight);
+                    AndroidSystemFont__Family family = enum1.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(AndroidSystemFont__Family_typeof(), NULL));
 
-                    if (descriptor != NULL)
-                        ::g::Uno::Collections::List__Add_fn(uPtr(result), descriptor);
+                    if ((::g::Uno::String::op_Equality(familyName, NULL) || ::g::Uno::String::op_Equality(family.Name, NULL)) || ::g::Uno::String::op_Equality(familyName, family.Name))
+                    {
+                        realMatch = realMatch || ::g::Uno::String::op_Equality(familyName, family.Name);
+                        ::g::Fuse::Internal::FontFaceDescriptor* descriptor = AndroidSystemFont::Get(family, style, weight);
+
+                        if (descriptor != NULL)
+                            ::g::Uno::Collections::List__Add_fn(uPtr(result), descriptor);
+                    }
                 }
             }
         }
+
+        catch (const uThrowable& __t)
+        {
+            {
+                enum1.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(AndroidSystemFont__Family_typeof(), NULL));
+            }
+                        throw __t;
+            goto __after_finally_0;
+        }
+
         {
             enum1.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(AndroidSystemFont__Family_typeof(), NULL));
         }
+        __after_finally_0:;
     }
 
-    catch (const uThrowable& __t)
-    {
-        {
-            enum1.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(AndroidSystemFont__Family_typeof(), NULL));
-        }
-                throw __t;
-    }
-
-    if ((realMatch || (style != 0)) || (weight != 3))
+    if ((result->Count() > 0) && ((realMatch || (style != 0)) || (weight != 3)))
         return result;
     else
         return AndroidSystemFont::Default();
@@ -422,22 +430,18 @@ void AndroidSystemFont::EnsureFontsAdded()
 {
     ::g::Uno::Collections::List* result = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Internal::FontFaceDescriptor_typeof(), NULL));
     ::g::Uno::Collections::List__Add_fn(result, ::g::Fuse::Internal::FontFaceDescriptor::New1(file, 0));
-    ::g::Uno::Collections::List* normal = AndroidSystemFont::Get1(NULL, 0, 3);
-
-    if (normal != NULL)
-        uPtr(result)->AddRange((uObject*)normal);
-
+    result->AddRange((uObject*)AndroidSystemFont::Get1(NULL, 0, 3));
     return result;
 }
 
-// private static void ThrowUno(string message) [static] :206
+// private static void ThrowUno(string message) [static] :200
 void AndroidSystemFont::ThrowUno(uString* message)
 {
     U_THROW(::g::Uno::Exception::New2(message));
 }
 
-// private static Fuse.SystemFont.Weight ToWeight(int w) [static] :231
-int AndroidSystemFont::ToWeight(int w)
+// private static Fuse.SystemFont.Weight ToWeight(int w) [static] :225
+int32_t AndroidSystemFont::ToWeight(int32_t w)
 {
     return (w / 100) - 1;
 }
@@ -452,14 +456,14 @@ int AndroidSystemFont::ToWeight(int w)
         AndroidSystemFont::EnsureFontsAdded();
 
         if (uPtr(AndroidSystemFont::_families_)->Count() >= 1)
-            AndroidSystemFont::_default_ = AndroidSystemFont::Get1((::g::Uno::Collections::List__get_Item_fn(uPtr(AndroidSystemFont::_families_), uCRef<int>(0), &ret12), ret12).Name, 0, 3);
+            AndroidSystemFont::_default_ = AndroidSystemFont::Get1((::g::Uno::Collections::List__get_Item_fn(uPtr(AndroidSystemFont::_families_), uCRef<int32_t>(0), &ret12), ret12).Name, 0, 3);
     }
 
     return AndroidSystemFont::_default_;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Blender.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Blender.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal abstract class Blender<T> :62
@@ -522,7 +526,7 @@ void Blender::ctor_()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Blender.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Blender.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal sealed class BlenderMap :9
@@ -593,6 +597,7 @@ uSStrong< ::g::Uno::Collections::Dictionary*> BlenderMap::_scalarBlenders_;
     uType* __types[] = {
         __type->Precalced(0/*Fuse.Internal.Blender<T>*/),
     };
+    __type->Base->Init();
     bool ret2;
     uObject* blender;
 
@@ -627,6 +632,7 @@ uSStrong< ::g::Uno::Collections::Dictionary*> BlenderMap::_scalarBlenders_;
     uType* __types[] = {
         __type->Precalced(0/*Fuse.Internal.ScalarBlender<T>*/),
     };
+    __type->Base->Init();
     bool ret3;
     uObject* blender;
 
@@ -646,7 +652,7 @@ uSStrong< ::g::Uno::Collections::Dictionary*> BlenderMap::_scalarBlenders_;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Curves.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Curves.uno
 // ---------------------------------------------------------------------------------------------
 
 // internal static class Curves :5
@@ -711,7 +717,7 @@ void Curves::KochanekBartelTangent(::g::Uno::Float4 pa, ::g::Uno::Float4 pb, ::g
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Blender.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Blender.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal sealed class DoubleBlender :147
@@ -719,6 +725,8 @@ void Curves::KochanekBartelTangent(::g::Uno::Float4 pa, ::g::Uno::Float4 pb, ::g
 static void DoubleBlender_build(uType* type)
 {
     type->SetBase(::g::Fuse::Internal::ScalarBlender_typeof()->MakeType(::g::Uno::Double_typeof(), NULL));
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
 }
 
 ::g::Fuse::Internal::ScalarBlender_type* DoubleBlender_typeof()
@@ -728,6 +736,7 @@ static void DoubleBlender_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Internal::ScalarBlender_typeof();
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(DoubleBlender);
     options.TypeSize = sizeof(::g::Fuse::Internal::ScalarBlender_type);
     type = (::g::Fuse::Internal::ScalarBlender_type*)uClassType::New("Fuse.Internal.DoubleBlender", options);
@@ -840,7 +849,7 @@ DoubleBlender* DoubleBlender::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Nodes\1.4.2\DrawManager.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Nodes\1.9.0\DrawManager.uno
 // ----------------------------------------------------------------------------------------
 
 // internal static class DrawManager :5
@@ -921,7 +930,7 @@ void DrawManager::remove_Prepared(uDelegate* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\MiniList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\MiniList.uno
 // -----------------------------------------------------------------------------------------------
 
 // public struct MiniList<T>.Enumerator :189
@@ -1130,7 +1139,7 @@ MiniList__Enumerator MiniList__Enumerator__New1(uType* __type, ::g::Fuse::Intern
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\ObjectList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\ObjectList.uno
 // -------------------------------------------------------------------------------------------------
 
 // public struct ObjectList<T>.Enumerator :386
@@ -1337,7 +1346,7 @@ ObjectList__Enumerator ObjectList__Enumerator__New1(uType* __type, ::g::Fuse::In
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\ObjectList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\ObjectList.uno
 // -------------------------------------------------------------------------------------------------
 
 // public sealed class ObjectList<T>.EnumeratorClass :351
@@ -1466,7 +1475,7 @@ ObjectList__EnumeratorClass* ObjectList__EnumeratorClass::New1(uType* __type, ::
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\ObjectList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\ObjectList.uno
 // -------------------------------------------------------------------------------------------------
 
 // public enum ObjectList<T>.Equality :61
@@ -1482,7 +1491,7 @@ uEnumType* ObjectList__Equality_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\AndroidSystemFont.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\AndroidSystemFont.uno
 // --------------------------------------------------------------------------------------------------------
 
 // private struct AndroidSystemFont.Family :13
@@ -1542,7 +1551,7 @@ AndroidSystemFont__Family AndroidSystemFont__Family__New1(uString* name, uString
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Blender.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Blender.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal sealed class Float2Blender :165
@@ -1550,6 +1559,8 @@ AndroidSystemFont__Family AndroidSystemFont__Family__New1(uString* name, uString
 static void Float2Blender_build(uType* type)
 {
     type->SetBase(::g::Fuse::Internal::Blender_typeof()->MakeType(::g::Uno::Float2_typeof(), NULL));
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
 }
 
 ::g::Fuse::Internal::Blender_type* Float2Blender_typeof()
@@ -1559,6 +1570,7 @@ static void Float2Blender_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Internal::Blender_typeof();
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(Float2Blender);
     options.TypeSize = sizeof(::g::Fuse::Internal::Blender_type);
     type = (::g::Fuse::Internal::Blender_type*)uClassType::New("Fuse.Internal.Float2Blender", options);
@@ -1655,7 +1667,7 @@ Float2Blender* Float2Blender::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Blender.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Blender.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal sealed class Float3Blender :181
@@ -1663,6 +1675,8 @@ Float2Blender* Float2Blender::New1()
 static void Float3Blender_build(uType* type)
 {
     type->SetBase(::g::Fuse::Internal::Blender_typeof()->MakeType(::g::Uno::Float3_typeof(), NULL));
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
 }
 
 ::g::Fuse::Internal::Blender_type* Float3Blender_typeof()
@@ -1672,6 +1686,7 @@ static void Float3Blender_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Internal::Blender_typeof();
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(Float3Blender);
     options.TypeSize = sizeof(::g::Fuse::Internal::Blender_type);
     type = (::g::Fuse::Internal::Blender_type*)uClassType::New("Fuse.Internal.Float3Blender", options);
@@ -1768,7 +1783,7 @@ Float3Blender* Float3Blender::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Blender.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Blender.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal sealed class Float4Blender :197
@@ -1776,6 +1791,8 @@ Float3Blender* Float3Blender::New1()
 static void Float4Blender_build(uType* type)
 {
     type->SetBase(::g::Fuse::Internal::Blender_typeof()->MakeType(::g::Uno::Float4_typeof(), NULL));
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
 }
 
 ::g::Fuse::Internal::Blender_type* Float4Blender_typeof()
@@ -1785,6 +1802,7 @@ static void Float4Blender_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Internal::Blender_typeof();
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(Float4Blender);
     options.TypeSize = sizeof(::g::Fuse::Internal::Blender_type);
     type = (::g::Fuse::Internal::Blender_type*)uClassType::New("Fuse.Internal.Float4Blender", options);
@@ -1881,7 +1899,7 @@ Float4Blender* Float4Blender::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Blender.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Blender.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal sealed class FloatBlender :129
@@ -1889,6 +1907,8 @@ Float4Blender* Float4Blender::New1()
 static void FloatBlender_build(uType* type)
 {
     type->SetBase(::g::Fuse::Internal::ScalarBlender_typeof()->MakeType(::g::Uno::Float_typeof(), NULL));
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
 }
 
 ::g::Fuse::Internal::ScalarBlender_type* FloatBlender_typeof()
@@ -1898,6 +1918,7 @@ static void FloatBlender_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Internal::ScalarBlender_typeof();
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(FloatBlender);
     options.TypeSize = sizeof(::g::Fuse::Internal::ScalarBlender_type);
     type = (::g::Fuse::Internal::ScalarBlender_type*)uClassType::New("Fuse.Internal.FloatBlender", options);
@@ -2010,7 +2031,7 @@ FloatBlender* FloatBlender::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\AndroidSystemFont.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\AndroidSystemFont.uno
 // --------------------------------------------------------------------------------------------------------
 
 // private struct AndroidSystemFont.FontDescriptor :29
@@ -2040,19 +2061,19 @@ uStructType* AndroidSystemFont__FontDescriptor_typeof()
 }
 
 // public FontDescriptor(string filePath, int index, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) :36
-void AndroidSystemFont__FontDescriptor__ctor__fn(AndroidSystemFont__FontDescriptor* __this, uString* filePath, int* index, int* style, int* weight)
+void AndroidSystemFont__FontDescriptor__ctor__fn(AndroidSystemFont__FontDescriptor* __this, uString* filePath, int32_t* index, int32_t* style, int32_t* weight)
 {
     __this->ctor_(filePath, *index, *style, *weight);
 }
 
 // public FontDescriptor New(string filePath, int index, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) :36
-void AndroidSystemFont__FontDescriptor__New1_fn(uString* filePath, int* index, int* style, int* weight, AndroidSystemFont__FontDescriptor* __retval)
+void AndroidSystemFont__FontDescriptor__New1_fn(uString* filePath, int32_t* index, int32_t* style, int32_t* weight, AndroidSystemFont__FontDescriptor* __retval)
 {
     *__retval = AndroidSystemFont__FontDescriptor__New1(filePath, *index, *style, *weight);
 }
 
 // public FontDescriptor(string filePath, int index, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) [instance] :36
-void AndroidSystemFont__FontDescriptor::ctor_(uString* filePath, int index, int style, int weight)
+void AndroidSystemFont__FontDescriptor::ctor_(uString* filePath, int32_t index, int32_t style, int32_t weight)
 {
     FilePath = filePath;
     Index = index;
@@ -2061,7 +2082,7 @@ void AndroidSystemFont__FontDescriptor::ctor_(uString* filePath, int index, int 
 }
 
 // public FontDescriptor New(string filePath, int index, Fuse.SystemFont.Style style, Fuse.SystemFont.Weight weight) [static] :36
-AndroidSystemFont__FontDescriptor AndroidSystemFont__FontDescriptor__New1(uString* filePath, int index, int style, int weight)
+AndroidSystemFont__FontDescriptor AndroidSystemFont__FontDescriptor__New1(uString* filePath, int32_t index, int32_t style, int32_t weight)
 {
     AndroidSystemFont__FontDescriptor obj1;
     obj1.ctor_(filePath, index, style, weight);
@@ -2069,7 +2090,7 @@ AndroidSystemFont__FontDescriptor AndroidSystemFont__FontDescriptor__New1(uStrin
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\SystemFont.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\SystemFont.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal sealed class FontFaceDescriptor :8
@@ -2078,7 +2099,7 @@ static void FontFaceDescriptor_build(uType* type)
 {
     ::TYPES[8] = ::g::Uno::Runtime::Implementation::Internal::ArrayEnumerable_typeof()->MakeType(::g::Uno::String_typeof(), NULL);
     ::TYPES[9] = ::g::Uno::String_typeof()->Array();
-    ::TYPES[10] = ::g::Uno::Collections::EnumerableExtensions_typeof()->MakeMethod(5/*SequenceEqual<string>*/, ::g::Uno::String_typeof(), NULL);
+    ::TYPES[10] = ::g::Uno::Collections::EnumerableExtensions_typeof()->MakeMethod(4/*SequenceEqual<string>*/, ::g::Uno::String_typeof(), NULL);
     ::TYPES[11] = ::g::Uno::Int_typeof();
     ::TYPES[12] = ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Uno::String_typeof(), NULL);
     ::TYPES[13] = ::g::Uno::Collections::IEnumerator_typeof();
@@ -2102,12 +2123,12 @@ uType* FontFaceDescriptor_typeof()
     type = uClassType::New("Fuse.Internal.FontFaceDescriptor", options);
     type->fp_build_ = FontFaceDescriptor_build;
     type->fp_Equals = (void(*)(uObject*, uObject*, bool*))FontFaceDescriptor__Equals_fn;
-    type->fp_GetHashCode = (void(*)(uObject*, int*))FontFaceDescriptor__GetHashCode_fn;
+    type->fp_GetHashCode = (void(*)(uObject*, int32_t*))FontFaceDescriptor__GetHashCode_fn;
     return type;
 }
 
 // public FontFaceDescriptor(Uno.UX.FileSource fileSource, int index) :23
-void FontFaceDescriptor__ctor__fn(FontFaceDescriptor* __this, ::g::Uno::UX::FileSource* fileSource, int* index)
+void FontFaceDescriptor__ctor__fn(FontFaceDescriptor* __this, ::g::Uno::UX::FileSource* fileSource, int32_t* index)
 {
     __this->ctor_(fileSource, *index);
 }
@@ -2120,48 +2141,53 @@ void FontFaceDescriptor__Equals_fn(FontFaceDescriptor* __this, uObject* o, bool*
 }
 
 // public override sealed int GetHashCode() :44
-void FontFaceDescriptor__GetHashCode_fn(FontFaceDescriptor* __this, int* __retval)
+void FontFaceDescriptor__GetHashCode_fn(FontFaceDescriptor* __this, int32_t* __retval)
 {
-    int ind1;
+    int32_t ind1;
     uString* ret5;
-    int hash = 17;
+    int32_t hash = 17;
     hash = (hash * 23) + uPtr(uPtr(__this->FileSource)->Name)->GetHashCode();
     hash = (hash * 23) + ::g::Uno::Int::GetHashCode((ind1 = __this->Index, ind1), ::TYPES[11/*int*/]);
     uObject* enum2 = (uObject*)::g::Uno::Collections::IEnumerable::GetEnumerator(uInterface(uPtr(__this->Styles), ::TYPES[12/*Uno.Collections.IEnumerable<string>*/]));
 
-    try
     {
+        try
         {
-            while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum2), ::TYPES[13/*Uno.Collections.IEnumerator*/])))
             {
-                uString* s = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum2), ::TYPES[14/*Uno.Collections.IEnumerator<string>*/]), &ret5), ret5);
-                hash = (hash * 23) + uPtr(s)->GetHashCode();
+                while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum2), ::TYPES[13/*Uno.Collections.IEnumerator*/])))
+                {
+                    uString* s = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum2), ::TYPES[14/*Uno.Collections.IEnumerator<string>*/]), &ret5), ret5);
+                    hash = (hash * 23) + uPtr(s)->GetHashCode();
+                }
             }
         }
-        {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::TYPES[15/*Uno.IDisposable*/]));
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::TYPES[15/*Uno.IDisposable*/]));
+            }
+                        throw __t;
+            goto __after_finally_1;
+        }
+
         {
             ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::TYPES[15/*Uno.IDisposable*/]));
         }
-                throw __t;
+        __after_finally_1:;
     }
 
     return *__retval = hash, void();
 }
 
 // public FontFaceDescriptor New(Uno.UX.FileSource fileSource, int index) :23
-void FontFaceDescriptor__New1_fn(::g::Uno::UX::FileSource* fileSource, int* index, FontFaceDescriptor** __retval)
+void FontFaceDescriptor__New1_fn(::g::Uno::UX::FileSource* fileSource, int32_t* index, FontFaceDescriptor** __retval)
 {
     *__retval = FontFaceDescriptor::New1(fileSource, *index);
 }
 
 // public FontFaceDescriptor(Uno.UX.FileSource fileSource, int index) [instance] :23
-void FontFaceDescriptor::ctor_(::g::Uno::UX::FileSource* fileSource, int index)
+void FontFaceDescriptor::ctor_(::g::Uno::UX::FileSource* fileSource, int32_t index)
 {
     FileSource = fileSource;
     Index = index;
@@ -2169,7 +2195,7 @@ void FontFaceDescriptor::ctor_(::g::Uno::UX::FileSource* fileSource, int index)
 }
 
 // public FontFaceDescriptor New(Uno.UX.FileSource fileSource, int index) [static] :23
-FontFaceDescriptor* FontFaceDescriptor::New1(::g::Uno::UX::FileSource* fileSource, int index)
+FontFaceDescriptor* FontFaceDescriptor::New1(::g::Uno::UX::FileSource* fileSource, int32_t index)
 {
     FontFaceDescriptor* obj4 = (FontFaceDescriptor*)uNew(FontFaceDescriptor_typeof());
     obj4->ctor_(fileSource, index);
@@ -2177,13 +2203,15 @@ FontFaceDescriptor* FontFaceDescriptor::New1(::g::Uno::UX::FileSource* fileSourc
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\FrustumMatrix.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\FrustumMatrix.uno
 // ----------------------------------------------------------------------------------------------------
 
 // internal static class FrustumMatrix :5
 // {
 static void FrustumMatrix_build(uType* type)
 {
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
 }
 
 uClassType* FrustumMatrix_typeof()
@@ -2192,6 +2220,7 @@ uClassType* FrustumMatrix_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
+    options.DependencyCount = 1;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Fuse.Internal.FrustumMatrix", options);
     type->fp_build_ = FrustumMatrix_build;
@@ -2276,7 +2305,7 @@ bool FrustumMatrix::TryOrthoRH(float width, float height, float zNear, float zFa
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Internal\ImageContainer.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Internal\ImageContainer.uno
 // -------------------------------------------------------------------------------------------------------
 
 // internal abstract interface IImageContainerOwner :11
@@ -2291,7 +2320,7 @@ uInterfaceType* IImageContainerOwner_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Internal\ImageContainer.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Internal\ImageContainer.uno
 // -------------------------------------------------------------------------------------------------------
 
 // internal sealed class ImageContainer :18
@@ -2299,7 +2328,7 @@ uInterfaceType* IImageContainerOwner_typeof()
 static void ImageContainer_build(uType* type)
 {
     ::STRINGS[1] = uString::Const("Switching listen state on null Image");
-    ::STRINGS[2] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.4.2\\Internal\\ImageContainer.uno");
+    ::STRINGS[2] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.9.0\\Internal\\ImageContainer.uno");
     ::STRINGS[3] = uString::Const("UpdateSourceListen");
     ::STRINGS[4] = uString::Const("ResampleMode.Mipmap has been deprecated. Use ResampleMode.Linear instead.");
     ::STRINGS[5] = uString::Const("set_ResampleMode");
@@ -2320,7 +2349,6 @@ static void ImageContainer_build(uType* type)
     ::TYPES[28] = ::g::Uno::Collections::IList_typeof()->MakeType(::g::Uno::UX::FileSource_typeof(), NULL);
     ::TYPES[29] = ::g::Uno::Collections::RootableList_typeof()->MakeType(::g::Uno::UX::FileSource_typeof(), NULL);
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
         ::g::Uno::EventArgs_typeof(),
         ::g::Fuse::Resources::MemoryPolicy_typeof());
     type->SetFields(0,
@@ -2347,7 +2375,7 @@ uType* ImageContainer_typeof()
 
     uTypeOptions options;
     options.FieldCount = 14;
-    options.DependencyCount = 3;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(ImageContainer);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Internal.ImageContainer", options);
@@ -2518,13 +2546,13 @@ void ImageContainer__ReleaseSource_fn(ImageContainer* __this)
 }
 
 // public Fuse.Drawing.ResampleMode get_ResampleMode() :287
-void ImageContainer__get_ResampleMode_fn(ImageContainer* __this, int* __retval)
+void ImageContainer__get_ResampleMode_fn(ImageContainer* __this, int32_t* __retval)
 {
     *__retval = __this->ResampleMode();
 }
 
 // public void set_ResampleMode(Fuse.Drawing.ResampleMode value) :288
-void ImageContainer__set_ResampleMode_fn(ImageContainer* __this, int* value)
+void ImageContainer__set_ResampleMode_fn(ImageContainer* __this, int32_t* value)
 {
     __this->ResampleMode(*value);
 }
@@ -2566,13 +2594,13 @@ void ImageContainer__remove_SourceError_fn(ImageContainer* __this, uDelegate* va
 }
 
 // public Fuse.Elements.StretchMode get_StretchMode() :311
-void ImageContainer__get_StretchMode_fn(ImageContainer* __this, int* __retval)
+void ImageContainer__get_StretchMode_fn(ImageContainer* __this, int32_t* __retval)
 {
     *__retval = __this->StretchMode();
 }
 
 // public void set_StretchMode(Fuse.Elements.StretchMode value) :312
-void ImageContainer__set_StretchMode_fn(ImageContainer* __this, int* value)
+void ImageContainer__set_StretchMode_fn(ImageContainer* __this, int32_t* value)
 {
     __this->StretchMode(*value);
 }
@@ -2588,7 +2616,7 @@ void ImageContainer::ctor_(uObject* owner)
 {
     Sizing = ::g::Fuse::Internal::SizingContainer::New1();
     _density = 1.0f;
-    _memoryPolicy = ::g::Fuse::Resources::MemoryPolicy::PreloadRetain_;
+    _memoryPolicy = ::g::Fuse::Resources::MemoryPolicy::PreloadRetain();
     _resampleMode = 1;
     _isVisible = true;
     _owner = owner;
@@ -2626,26 +2654,31 @@ void ImageContainer::CreateMultiDensitySource()
     ::g::Fuse::Resources::MultiDensityImageSource* s = ::g::Fuse::Resources::MultiDensityImageSource::New2();
     uObject* enum4 = (uObject*)uPtr(_files)->GetEnumerator();
 
-    try
     {
+        try
         {
-            while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum4), ::TYPES[13/*Uno.Collections.IEnumerator*/])))
             {
-                ::g::Uno::UX::FileSource* f = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum4), ::TYPES[16/*Uno.Collections.IEnumerator<Uno.UX.FileSource>*/]), &ret14), ret14);
-                ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(s)->Sources()), ::TYPES[17/*Uno.Collections.ICollection<Fuse.Resources.ImageSource>*/]), (collection5 = ::g::Fuse::Resources::FileImageSource::New3(f), ind9 = Density(), uPtr(collection5)->Density(ind9), ind9, ind10 = MemoryPolicy(), uPtr(collection5)->DefaultPolicy(ind10), ind10, collection5));
+                while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum4), ::TYPES[13/*Uno.Collections.IEnumerator*/])))
+                {
+                    ::g::Uno::UX::FileSource* f = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum4), ::TYPES[16/*Uno.Collections.IEnumerator<Uno.UX.FileSource>*/]), &ret14), ret14);
+                    ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(s)->Sources()), ::TYPES[17/*Uno.Collections.ICollection<Fuse.Resources.ImageSource>*/]), (collection5 = ::g::Fuse::Resources::FileImageSource::New3(f), ind9 = Density(), uPtr(collection5)->Density(ind9), ind9, ind10 = MemoryPolicy(), uPtr(collection5)->DefaultPolicy(ind10), ind10, collection5));
+                }
             }
         }
-        {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum4), ::TYPES[15/*Uno.IDisposable*/]));
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum4), ::TYPES[15/*Uno.IDisposable*/]));
+            }
+                        throw __t;
+            goto __after_finally_2;
+        }
+
         {
             ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum4), ::TYPES[15/*Uno.IDisposable*/]));
         }
-                throw __t;
+        __after_finally_2:;
     }
 
     Source(s);
@@ -2675,7 +2708,7 @@ void ImageContainer::Density(float value)
     if (_files == NULL)
         return NULL;
     else
-        return (::g::Uno::Collections::RootableList__get_Item_fn(uPtr(_files), uCRef<int>(0), &ret17), ret17);
+        return (::g::Uno::Collections::RootableList__get_Item_fn(uPtr(_files), uCRef<int32_t>(0), &ret17), ret17);
 }
 
 // public void set_File(Uno.UX.FileSource value) [instance] :37
@@ -2684,7 +2717,7 @@ void ImageContainer::File(::g::Uno::UX::FileSource* value)
     ::g::Uno::UX::FileSource* ret18;
     uObject* files = Files();
 
-    if (((::g::Uno::Collections::ICollection::Count(uInterface(uPtr(files), ::TYPES[27/*Uno.Collections.ICollection<Uno.UX.FileSource>*/])) == 0) || (::g::Uno::Collections::ICollection::Count(uInterface(uPtr(files), ::TYPES[27/*Uno.Collections.ICollection<Uno.UX.FileSource>*/])) > 1)) || ((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(files), ::TYPES[28/*Uno.Collections.IList<Uno.UX.FileSource>*/]), uCRef<int>(0), &ret18), ret18) != value))
+    if (((::g::Uno::Collections::ICollection::Count(uInterface(uPtr(files), ::TYPES[27/*Uno.Collections.ICollection<Uno.UX.FileSource>*/])) == 0) || (::g::Uno::Collections::ICollection::Count(uInterface(uPtr(files), ::TYPES[27/*Uno.Collections.ICollection<Uno.UX.FileSource>*/])) > 1)) || ((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(files), ::TYPES[28/*Uno.Collections.IList<Uno.UX.FileSource>*/]), uCRef<int32_t>(0), &ret18), ret18) != value))
     {
         ::g::Uno::Collections::ICollection::Clear(uInterface(uPtr(files), ::TYPES[27/*Uno.Collections.ICollection<Uno.UX.FileSource>*/]));
         ::g::Uno::Collections::ICollection::Add_ex(uInterface(files, ::TYPES[27/*Uno.Collections.ICollection<Uno.UX.FileSource>*/]), value);
@@ -2779,7 +2812,7 @@ void ImageContainer::OnFilesChanged(::g::Uno::UX::FileSource* ignoreFile)
     if (uPtr(_files)->Count() == 0)
         Source(NULL);
     else if (uPtr(_files)->Count() == 1)
-        Source((collection3 = ::g::Fuse::Resources::FileImageSource::New2(), ind6 = Density(), uPtr(collection3)->Density(ind6), ind6, ind7 = (::g::Uno::Collections::RootableList__get_Item_fn(uPtr(_files), uCRef<int>(0), &ret15), ret15), uPtr(collection3)->File(ind7), ind7, ind8 = MemoryPolicy(), uPtr(collection3)->DefaultPolicy(ind8), ind8, collection3));
+        Source((collection3 = ::g::Fuse::Resources::FileImageSource::New2(), ind6 = Density(), uPtr(collection3)->Density(ind6), ind6, ind7 = (::g::Uno::Collections::RootableList__get_Item_fn(uPtr(_files), uCRef<int32_t>(0), &ret15), ret15), uPtr(collection3)->File(ind7), ind7, ind8 = MemoryPolicy(), uPtr(collection3)->DefaultPolicy(ind8), ind8, collection3));
     else
         CreateMultiDensitySource();
 }
@@ -2788,7 +2821,7 @@ void ImageContainer::OnFilesChanged(::g::Uno::UX::FileSource* ignoreFile)
 void ImageContainer::OnParamChanged()
 {
     if (::g::Uno::Delegate::op_Inequality(ParamChanged1, NULL))
-        uPtr(ParamChanged1)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty_);
+        uPtr(ParamChanged1)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty());
 
     if (_owner != NULL)
         ::g::Fuse::Internal::IImageContainerOwner::OnParamChanged(uInterface(uPtr(_owner), ::TYPES[18/*Fuse.Internal.IImageContainerOwner*/]));
@@ -2819,7 +2852,7 @@ void ImageContainer::OnSourceChanged(uObject* s, uObject* a)
     CheckPinning();
 
     if (::g::Uno::Delegate::op_Inequality(SourceChanged1, NULL))
-        uPtr(SourceChanged1)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty_);
+        uPtr(SourceChanged1)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty());
 
     if (_owner != NULL)
         ::g::Fuse::Internal::IImageContainerOwner::OnSourceChanged(uInterface(uPtr(_owner), ::TYPES[18/*Fuse.Internal.IImageContainerOwner*/]));
@@ -2871,26 +2904,31 @@ void ImageContainer::ReapplyOptions(::g::Fuse::Resources::ImageSource* src)
     {
         uObject* enum2 = (uObject*)::g::Uno::Collections::IEnumerable::GetEnumerator(uInterface(uPtr(uPtr(mf)->Sources()), ::TYPES[23/*Uno.Collections.IEnumerable<Fuse.Resources.ImageSource>*/]));
 
-        try
         {
+            try
             {
-                while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum2), ::TYPES[13/*Uno.Collections.IEnumerator*/])))
                 {
-                    ::g::Fuse::Resources::ImageSource* s = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum2), ::TYPES[24/*Uno.Collections.IEnumerator<Fuse.Resources.ImageSource>*/]), &ret16), ret16);
-                    ReapplyOptions(s);
+                    while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum2), ::TYPES[13/*Uno.Collections.IEnumerator*/])))
+                    {
+                        ::g::Fuse::Resources::ImageSource* s = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum2), ::TYPES[24/*Uno.Collections.IEnumerator<Fuse.Resources.ImageSource>*/]), &ret16), ret16);
+                        ReapplyOptions(s);
+                    }
                 }
             }
-            {
-                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::TYPES[15/*Uno.IDisposable*/]));
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
+            {
+                {
+                    ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::TYPES[15/*Uno.IDisposable*/]));
+                }
+                                throw __t;
+                goto __after_finally_3;
+            }
+
             {
                 ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum2), ::TYPES[15/*Uno.IDisposable*/]));
             }
-                        throw __t;
+            __after_finally_3:;
         }
     }
 }
@@ -2913,13 +2951,13 @@ void ImageContainer::ReleaseSource()
 }
 
 // public Fuse.Drawing.ResampleMode get_ResampleMode() [instance] :287
-int ImageContainer::ResampleMode()
+int32_t ImageContainer::ResampleMode()
 {
     return _resampleMode;
 }
 
 // public void set_ResampleMode(Fuse.Drawing.ResampleMode value) [instance] :288
-void ImageContainer::ResampleMode(int value)
+void ImageContainer::ResampleMode(int32_t value)
 {
     if (_resampleMode != value)
     {
@@ -2974,13 +3012,13 @@ void ImageContainer::remove_SourceError(uDelegate* value)
 }
 
 // public Fuse.Elements.StretchMode get_StretchMode() [instance] :311
-int ImageContainer::StretchMode()
+int32_t ImageContainer::StretchMode()
 {
     return uPtr(Sizing)->stretchMode;
 }
 
 // public void set_StretchMode(Fuse.Elements.StretchMode value) [instance] :312
-void ImageContainer::StretchMode(int value)
+void ImageContainer::StretchMode(int32_t value)
 {
     if (uPtr(Sizing)->SetStretchMode(value))
         OnSizingChanged();
@@ -3024,25 +3062,25 @@ ImageContainer* ImageContainer::New1(uObject* owner)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\MiniList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\MiniList.uno
 // -----------------------------------------------------------------------------------------------
 
 // internal struct MiniList<T> :25
 // {
 // public void Insert(int index, T value) [adapter] :57
-static void MiniList__Insert_ex(uObject* __this, int* index, uObject* value)
+static void MiniList__Insert_ex(uObject* __this, int32_t* index, uObject* value)
 {
     MiniList__Insert_fn((MiniList*)((uint8_t*)__this + sizeof(uObject)), __this->__type, index, value);
 }
 
 // public void RemoveAt(int index) [adapter] :103
-static void MiniList__RemoveAt_ex(uObject* __this, int* index)
+static void MiniList__RemoveAt_ex(uObject* __this, int32_t* index)
 {
     MiniList__RemoveAt_fn((MiniList*)((uint8_t*)__this + sizeof(uObject)), __this->__type, index);
 }
 
 // public T get_Item(int index) [adapter] :158
-static void MiniList__get_Item_ex(uObject* __this, int* index, uObject** __retval)
+static void MiniList__get_Item_ex(uObject* __this, int32_t* index, uObject** __retval)
 {
     MiniList__get_Item_fn((MiniList*)((uint8_t*)__this + sizeof(uObject)), __this->__type, index, __retval);
 }
@@ -3072,7 +3110,7 @@ static void MiniList__Contains_ex(uObject* __this, uObject* value, bool* __retva
 }
 
 // public int get_Count() [adapter] :35
-static void MiniList__get_Count_ex(uObject* __this, int* __retval)
+static void MiniList__get_Count_ex(uObject* __this, int32_t* __retval)
 {
     MiniList__get_Count_fn((MiniList*)((uint8_t*)__this + sizeof(uObject)), __this->__type, __retval);
 }
@@ -3112,9 +3150,9 @@ MiniList_type* MiniList_typeof()
     options.TypeSize = sizeof(MiniList_type);
     type = (MiniList_type*)uStructType::New("Fuse.Internal.MiniList`1", options);
     type->fp_build_ = MiniList_build;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))MiniList__Insert_ex;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))MiniList__Insert_ex;
     type->interface0.fp_RemoveAt = MiniList__RemoveAt_ex;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))MiniList__get_Item_ex;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))MiniList__get_Item_ex;
     type->interface1.fp_Clear = MiniList__Clear_ex;
     type->interface1.fp_Add = (void(*)(uObject*, void*))MiniList__Add_ex;
     type->interface1.fp_Remove = (void(*)(uObject*, void*, bool*))MiniList__Remove_ex;
@@ -3149,7 +3187,7 @@ void MiniList__Contains_fn(MiniList* __this, uType* __type, uObject* value, bool
 }
 
 // public int get_Count() :35
-void MiniList__get_Count_fn(MiniList* __this, uType* __type, int* __retval)
+void MiniList__get_Count_fn(MiniList* __this, uType* __type, int32_t* __retval)
 {
     *__retval = __this->Count(__type);
 }
@@ -3161,13 +3199,13 @@ void MiniList__GetEnumerator_fn(MiniList* __this, uType* __type, uObject** __ret
 }
 
 // public void Insert(int index, T value) :57
-void MiniList__Insert_fn(MiniList* __this, uType* __type, int* index, uObject* value)
+void MiniList__Insert_fn(MiniList* __this, uType* __type, int32_t* index, uObject* value)
 {
     __this->Insert(__type, *index, value);
 }
 
 // public T get_Item(int index) :158
-void MiniList__get_Item_fn(MiniList* __this, uType* __type, int* index, uObject** __retval)
+void MiniList__get_Item_fn(MiniList* __this, uType* __type, int32_t* index, uObject** __retval)
 {
     *__retval = __this->Item(__type, *index);
 }
@@ -3179,7 +3217,7 @@ void MiniList__Remove_fn(MiniList* __this, uType* __type, uObject* value, bool* 
 }
 
 // public void RemoveAt(int index) :103
-void MiniList__RemoveAt_fn(MiniList* __this, uType* __type, int* index)
+void MiniList__RemoveAt_fn(MiniList* __this, uType* __type, int32_t* index)
 {
     __this->RemoveAt(__type, *index);
 }
@@ -3237,7 +3275,7 @@ bool MiniList::Contains(uType* __type, uObject* value)
 }
 
 // public int get_Count() [instance] :35
-int MiniList::Count(uType* __type)
+int32_t MiniList::Count(uType* __type)
 {
     switch (_mode)
     {
@@ -3262,7 +3300,7 @@ uObject* MiniList::GetEnumerator(uType* __type)
 }
 
 // public void Insert(int index, T value) [instance] :57
-void MiniList::Insert(uType* __type, int index, uObject* value)
+void MiniList::Insert(uType* __type, int32_t index, uObject* value)
 {
     uType* __types[] = {
         __type->Precalced(1/*Fuse.Internal.ObjectList<T>*/),
@@ -3293,7 +3331,7 @@ void MiniList::Insert(uType* __type, int index, uObject* value)
 }
 
 // public T get_Item(int index) [instance] :158
-uObject* MiniList::Item(uType* __type, int index)
+uObject* MiniList::Item(uType* __type, int32_t index)
 {
     switch (_mode)
     {
@@ -3333,7 +3371,7 @@ bool MiniList::Remove(uType* __type, uObject* value)
 }
 
 // public void RemoveAt(int index) [instance] :103
-void MiniList::RemoveAt(uType* __type, int index)
+void MiniList::RemoveAt(uType* __type, int32_t index)
 {
     if (_mode == 0)
         U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(uString::Const("index")));
@@ -3352,7 +3390,7 @@ void MiniList::RemoveAt(uType* __type, int index)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\MiniList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\MiniList.uno
 // -----------------------------------------------------------------------------------------------
 
 // internal enum MiniListMode :9
@@ -3369,7 +3407,7 @@ uEnumType* MiniListMode_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\ObjectList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\ObjectList.uno
 // -------------------------------------------------------------------------------------------------
 
 // private struct ObjectList<T>.Node :15
@@ -3418,7 +3456,7 @@ void ObjectList__Node::Clear(uType* __type)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\ObjectList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\ObjectList.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal sealed class ObjectList<T> :13
@@ -3461,20 +3499,20 @@ ObjectList_type* ObjectList_typeof()
     options.TypeSize = sizeof(ObjectList_type);
     type = (ObjectList_type*)uClassType::New("Fuse.Internal.ObjectList`1", options);
     type->fp_build_ = ObjectList_build;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))ObjectList__Insert_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))ObjectList__RemoveAt_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))ObjectList__get_Item_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))ObjectList__Insert_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))ObjectList__RemoveAt_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))ObjectList__get_Item_fn;
     type->interface1.fp_Clear = (void(*)(uObject*))ObjectList__Clear_fn;
     type->interface1.fp_Add = (void(*)(uObject*, void*))ObjectList__Add_fn;
     type->interface1.fp_Remove = (void(*)(uObject*, void*, bool*))ObjectList__Remove_fn;
     type->interface1.fp_Contains = (void(*)(uObject*, void*, bool*))ObjectList__Contains_fn;
-    type->interface1.fp_get_Count = (void(*)(uObject*, int*))ObjectList__get_Count_fn;
+    type->interface1.fp_get_Count = (void(*)(uObject*, int32_t*))ObjectList__get_Count_fn;
     type->interface2.fp_GetEnumerator = (void(*)(uObject*, uObject**))ObjectList__GetEnumerator_fn;
     return type;
 }
 
 // public ObjectList([Fuse.Internal.ObjectList<T>.Equality equality]) :68
-void ObjectList__ctor__fn(ObjectList* __this, int* equality)
+void ObjectList__ctor__fn(ObjectList* __this, int32_t* equality)
 {
     __this->ctor_(*equality);
 }
@@ -3486,7 +3524,7 @@ void ObjectList__Add_fn(ObjectList* __this, uObject* value)
 }
 
 // private int AllocNext() :124
-void ObjectList__AllocNext_fn(ObjectList* __this, int* __retval)
+void ObjectList__AllocNext_fn(ObjectList* __this, int32_t* __retval)
 {
     *__retval = __this->AllocNext();
 }
@@ -3504,7 +3542,7 @@ void ObjectList__Clear_fn(ObjectList* __this)
 }
 
 // private void CollapseNode(int q) :243
-void ObjectList__CollapseNode_fn(ObjectList* __this, int* q)
+void ObjectList__CollapseNode_fn(ObjectList* __this, int32_t* q)
 {
     __this->CollapseNode(*q);
 }
@@ -3516,7 +3554,7 @@ void ObjectList__Contains_fn(ObjectList* __this, uObject* value, bool* __retval)
 }
 
 // public int get_Count() :76
-void ObjectList__get_Count_fn(ObjectList* __this, int* __retval)
+void ObjectList__get_Count_fn(ObjectList* __this, int32_t* __retval)
 {
     *__retval = __this->Count();
 }
@@ -3540,19 +3578,19 @@ void ObjectList__GetEnumeratorStruct_fn(ObjectList* __this, bool* versionLock, O
 }
 
 // private void Grow(int ncap) :102
-void ObjectList__Grow_fn(ObjectList* __this, int* ncap)
+void ObjectList__Grow_fn(ObjectList* __this, int32_t* ncap)
 {
     __this->Grow(*ncap);
 }
 
 // public void Insert(int index, T value) :189
-void ObjectList__Insert_fn(ObjectList* __this, int* index, uObject* value)
+void ObjectList__Insert_fn(ObjectList* __this, int32_t* index, uObject* value)
 {
     __this->Insert(*index, value);
 }
 
 // public T get_Item(int index) :330
-void ObjectList__get_Item_fn(ObjectList* __this, int* index, uObject** __retval)
+void ObjectList__get_Item_fn(ObjectList* __this, int32_t* index, uObject** __retval)
 {
     *__retval = __this->Item(*index);
 }
@@ -3564,19 +3602,19 @@ void ObjectList__Lock_fn(ObjectList* __this, int8_t* __retval)
 }
 
 // public ObjectList New([Fuse.Internal.ObjectList<T>.Equality equality]) :68
-void ObjectList__New1_fn(uType* __type, int* equality, ObjectList** __retval)
+void ObjectList__New1_fn(uType* __type, int32_t* equality, ObjectList** __retval)
 {
     *__retval = ObjectList::New1(__type, *equality);
 }
 
 // private int NodeAt(int index) :306
-void ObjectList__NodeAt_fn(ObjectList* __this, int* index, int* __retval)
+void ObjectList__NodeAt_fn(ObjectList* __this, int32_t* index, int32_t* __retval)
 {
     *__retval = __this->NodeAt(*index);
 }
 
 // private int NodeFor(T value) :293
-void ObjectList__NodeFor_fn(ObjectList* __this, uObject* value, int* __retval)
+void ObjectList__NodeFor_fn(ObjectList* __this, uObject* value, int32_t* __retval)
 {
     *__retval = __this->NodeFor(value);
 }
@@ -3594,19 +3632,19 @@ void ObjectList__Remove_fn(ObjectList* __this, uObject* value, bool* __retval)
 }
 
 // public void RemoveAt(int index) :260
-void ObjectList__RemoveAt_fn(ObjectList* __this, int* index)
+void ObjectList__RemoveAt_fn(ObjectList* __this, int32_t* index)
 {
     __this->RemoveAt(*index);
 }
 
 // private void RemoveNode(int q) :228
-void ObjectList__RemoveNode_fn(ObjectList* __this, int* q)
+void ObjectList__RemoveNode_fn(ObjectList* __this, int32_t* q)
 {
     __this->RemoveNode(*q);
 }
 
 // private void Unalloc(int q) :135
-void ObjectList__Unalloc_fn(ObjectList* __this, int* q)
+void ObjectList__Unalloc_fn(ObjectList* __this, int32_t* q)
 {
     __this->Unalloc(*q);
 }
@@ -3618,7 +3656,7 @@ void ObjectList__Unlock_fn(ObjectList* __this)
 }
 
 // public ObjectList([Fuse.Internal.ObjectList<T>.Equality equality]) [instance] :68
-void ObjectList::ctor_(int equality)
+void ObjectList::ctor_(int32_t equality)
 {
     _nodeHead = -1;
     _nodeTail = -1;
@@ -3632,7 +3670,7 @@ void ObjectList::ctor_(int equality)
 // public void Add(T value) [instance] :79
 void ObjectList::Add(uObject* value)
 {
-    int q = AllocNext();
+    int32_t q = AllocNext();
     _ordered = false;
 
     if (_nodeHead == -1)
@@ -3654,12 +3692,12 @@ void ObjectList::Add(uObject* value)
 }
 
 // private int AllocNext() [instance] :124
-int ObjectList::AllocNext()
+int32_t ObjectList::AllocNext()
 {
     if (_free == -1)
         Grow(_capacity * 2);
 
-    int q = _free;
+    int32_t q = _free;
     _free = uPtr(_nodes)->Item<ObjectList__Node>(q).Next;
     uPtr(_nodes)->Item<ObjectList__Node>(q).Next = -1;
     return q;
@@ -3669,11 +3707,11 @@ int ObjectList::AllocNext()
 void ObjectList::CleanupVersion()
 {
     _lockVersion = 0;
-    int n = _nodeHead;
+    int32_t n = _nodeHead;
 
     while (n != -1)
     {
-        int p = n;
+        int32_t p = n;
         n = uPtr(_nodes)->Item<ObjectList__Node>(n).Next;
         uPtr(_nodes)->Item<ObjectList__Node>(p).AddVersion = 0;
 
@@ -3685,11 +3723,11 @@ void ObjectList::CleanupVersion()
 // public void Clear() [instance] :265
 void ObjectList::Clear()
 {
-    int q = _nodeHead;
+    int32_t q = _nodeHead;
 
     while (q != -1)
     {
-        int n = uPtr(_nodes)->Item<ObjectList__Node>(q).Next;
+        int32_t n = uPtr(_nodes)->Item<ObjectList__Node>(q).Next;
         Unalloc(q);
         q = n;
     }
@@ -3701,16 +3739,16 @@ void ObjectList::Clear()
 }
 
 // private void CollapseNode(int q) [instance] :243
-void ObjectList::CollapseNode(int q)
+void ObjectList::CollapseNode(int32_t q)
 {
-    int p = uPtr(_nodes)->Item<ObjectList__Node>(q).Prev;
+    int32_t p = uPtr(_nodes)->Item<ObjectList__Node>(q).Prev;
 
     if (p != -1)
         uPtr(_nodes)->Item<ObjectList__Node>(p).Next = uPtr(_nodes)->Item<ObjectList__Node>(q).Next;
     else
         _nodeHead = uPtr(_nodes)->Item<ObjectList__Node>(q).Next;
 
-    int n = uPtr(_nodes)->Item<ObjectList__Node>(q).Next;
+    int32_t n = uPtr(_nodes)->Item<ObjectList__Node>(q).Next;
 
     if (n != -1)
         uPtr(_nodes)->Item<ObjectList__Node>(n).Prev = uPtr(_nodes)->Item<ObjectList__Node>(q).Prev;
@@ -3727,7 +3765,7 @@ bool ObjectList::Contains(uObject* value)
 }
 
 // public int get_Count() [instance] :76
-int ObjectList::Count()
+int32_t ObjectList::Count()
 {
     return _size;
 }
@@ -3760,7 +3798,7 @@ ObjectList__Enumerator ObjectList::GetEnumeratorStruct(bool versionLock)
 }
 
 // private void Grow(int ncap) [instance] :102
-void ObjectList::Grow(int ncap)
+void ObjectList::Grow(int32_t ncap)
 {
     uType* __types[] = {
         __type->Precalced(0/*Fuse.Internal.ObjectList<T>.Node[]*/),
@@ -3772,10 +3810,10 @@ void ObjectList::Grow(int ncap)
 
     uArray* next = uArray::New(__types[0], ncap);
 
-    for (int i = 0; i < _capacity; ++i)
+    for (int32_t i = 0; i < _capacity; ++i)
         uPtr(next)->Item<ObjectList__Node>(i) = uPtr(_nodes)->Item<ObjectList__Node>(i);
 
-    for (int i1 = _capacity; i1 < ncap; ++i1)
+    for (int32_t i1 = _capacity; i1 < ncap; ++i1)
     {
         uPtr(next)->Item<ObjectList__Node>(i1).Clear(__types[1]);
         next->Item<ObjectList__Node>(i1).Next = _free;
@@ -3790,7 +3828,7 @@ void ObjectList::Grow(int ncap)
 }
 
 // public void Insert(int index, T value) [instance] :189
-void ObjectList::Insert(int index, uObject* value)
+void ObjectList::Insert(int32_t index, uObject* value)
 {
     if ((index < 0) || (index > _size))
         U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(uString::Const("index")));
@@ -3801,10 +3839,10 @@ void ObjectList::Insert(int index, uObject* value)
         return;
     }
 
-    int cur = NodeAt(index);
-    int nu = AllocNext();
+    int32_t cur = NodeAt(index);
+    int32_t nu = AllocNext();
     _ordered = false;
-    int p = uPtr(_nodes)->Item<ObjectList__Node>(cur).Prev;
+    int32_t p = uPtr(_nodes)->Item<ObjectList__Node>(cur).Prev;
 
     if (p != -1)
         uPtr(_nodes)->Item<ObjectList__Node>(p).Next = nu;
@@ -3820,7 +3858,7 @@ void ObjectList::Insert(int index, uObject* value)
 }
 
 // public T get_Item(int index) [instance] :330
-uObject* ObjectList::Item(int index)
+uObject* ObjectList::Item(int32_t index)
 {
     if (_lockVersion > 0)
         return uPtr(_nodes)->Item<ObjectList__Node>(NodeAt(index)).Value;
@@ -3845,12 +3883,12 @@ int8_t ObjectList::Lock()
 }
 
 // private int NodeAt(int index) [instance] :306
-int ObjectList::NodeAt(int index)
+int32_t ObjectList::NodeAt(int32_t index)
 {
     if (index < 0)
         U_THROW(::g::Uno::ArgumentOutOfRangeException::New6(uString::Const("index")));
 
-    int n = _nodeHead;
+    int32_t n = _nodeHead;
 
     while (n != -1)
     {
@@ -3870,9 +3908,9 @@ int ObjectList::NodeAt(int index)
 }
 
 // private int NodeFor(T value) [instance] :293
-int ObjectList::NodeFor(uObject* value)
+int32_t ObjectList::NodeFor(uObject* value)
 {
-    int n = _nodeHead;
+    int32_t n = _nodeHead;
 
     while (n != -1)
     {
@@ -3888,8 +3926,8 @@ int ObjectList::NodeFor(uObject* value)
 // private void Order() [instance] :144
 void ObjectList::Order()
 {
-    int c = 0;
-    int n = _nodeHead;
+    int32_t c = 0;
+    int32_t n = _nodeHead;
 
     while (n != -1)
     {
@@ -3904,7 +3942,7 @@ void ObjectList::Order()
 // public bool Remove(T value) [instance] :219
 bool ObjectList::Remove(uObject* value)
 {
-    int q = NodeFor(value);
+    int32_t q = NodeFor(value);
 
     if (q == -1)
         return false;
@@ -3914,13 +3952,13 @@ bool ObjectList::Remove(uObject* value)
 }
 
 // public void RemoveAt(int index) [instance] :260
-void ObjectList::RemoveAt(int index)
+void ObjectList::RemoveAt(int32_t index)
 {
     RemoveNode(NodeAt(index));
 }
 
 // private void RemoveNode(int q) [instance] :228
-void ObjectList::RemoveNode(int q)
+void ObjectList::RemoveNode(int32_t q)
 {
     if (_lockVersion > 0)
     {
@@ -3936,7 +3974,7 @@ void ObjectList::RemoveNode(int q)
 }
 
 // private void Unalloc(int q) [instance] :135
-void ObjectList::Unalloc(int q)
+void ObjectList::Unalloc(int32_t q)
 {
     uType* __types[] = {
         __type->Precalced(3/*Fuse.Internal.ObjectList<T>.Node*/),
@@ -3960,7 +3998,7 @@ void ObjectList::Unlock()
 }
 
 // public ObjectList New([Fuse.Internal.ObjectList<T>.Equality equality]) [static] :68
-ObjectList* ObjectList::New1(uType* __type, int equality)
+ObjectList* ObjectList::New1(uType* __type, int32_t equality)
 {
     ObjectList* obj1 = (ObjectList*)uNew(__type);
     obj1->ctor_(equality);
@@ -3968,7 +4006,7 @@ ObjectList* ObjectList::New1(uType* __type, int equality)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\RawPointer.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\RawPointer.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal struct RawPointer<T> :13
@@ -3999,9 +4037,9 @@ void RawPointer__op_Explicit1_fn(uType* __type, void** weak, uObject** __retval)
 }
 
 // public static implicit operator Fuse.Internal.RawPointer<T>(T obj) :27
-void RawPointer__op_Implicit_fn(uType* __type, uObject* obj, void** __retval)
+void RawPointer__op_Implicit1_fn(uType* __type, uObject* obj, void** __retval)
 {
-    *__retval = RawPointer::op_Implicit(__type, obj);
+    *__retval = RawPointer::op_Implicit1(__type, obj);
 }
 
 // public static explicit operator T(Fuse.Internal.RawPointer<T> weak) [static] :19
@@ -4011,13 +4049,13 @@ uObject* RawPointer::op_Explicit1(uType* __type, void* weak)
 }
 
 // public static implicit operator Fuse.Internal.RawPointer<T>(T obj) [static] :27
-void* RawPointer::op_Implicit(uType* __type, uObject* obj)
+void* RawPointer::op_Implicit1(uType* __type, uObject* obj)
 {
     return (void*) obj;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\RectPacker.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\RectPacker.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal sealed class RectPacker :26
@@ -4025,6 +4063,8 @@ void* RawPointer::op_Implicit(uType* __type, uObject* obj)
 static void RectPacker_build(uType* type)
 {
     ::TYPES[30] = ::g::Uno::Collections::LinkedList_typeof()->MakeType(::g::Fuse::Internal::SkylineNode_typeof(), NULL);
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::TYPES[30/*Uno.Collections.LinkedList<Fuse.Internal.SkylineNode>*/], offsetof(RectPacker, _skyline), 0,
         ::g::Uno::Int2_typeof(), offsetof(RectPacker, _Size), 0);
@@ -4037,6 +4077,7 @@ uType* RectPacker_typeof()
 
     uTypeOptions options;
     options.FieldCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(RectPacker);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Internal.RectPacker", options);
@@ -4087,7 +4128,7 @@ void RectPacker__TryAdd_fn(RectPacker* __this, ::g::Uno::Int2* size, ::g::Uno::R
 }
 
 // private bool TryFit(Uno.Collections.LinkedListNode<Fuse.Internal.SkylineNode> node, int2 size, int& height) :74
-void RectPacker__TryFit_fn(RectPacker* __this, ::g::Uno::Collections::LinkedListNode* node, ::g::Uno::Int2* size, int* height, bool* __retval)
+void RectPacker__TryFit_fn(RectPacker* __this, ::g::Uno::Collections::LinkedListNode* node, ::g::Uno::Int2* size, int32_t* height, bool* __retval)
 {
     *__retval = __this->TryFit(node, *size, height);
 }
@@ -4148,7 +4189,7 @@ void RectPacker::ReplaceNodes(::g::Uno::Collections::LinkedListNode* node, ::g::
     ::g::Fuse::Internal::SkylineNode ret12;
     ::g::Uno::Collections::LinkedListNode* ret13;
     ::g::Uno::Collections::LinkedListNode* newNode = (::g::Uno::Collections::LinkedList__AddBefore_fn(uPtr(_skyline), node, uCRef(newSkyline), &ret9), ret9);
-    int remainingWidth = newSkyline.Width;
+    int32_t remainingWidth = newSkyline.Width;
 
     while ((node != NULL) && ((::g::Uno::Collections::LinkedListNode__get_Value_fn(uPtr(node), &ret10), ret10).Width <= remainingWidth))
     {
@@ -4185,12 +4226,12 @@ bool RectPacker::TryAdd(::g::Uno::Int2 size, ::g::Uno::Recti* rect)
 {
     ::g::Fuse::Internal::SkylineNode ret14;
     ::g::Uno::Collections::LinkedListNode* lowestNode = NULL;
-    int lowest = 2147483647;
+    int32_t lowest = 2147483647;
     ::g::Uno::Collections::LinkedListNode* node = (::g::Uno::Collections::LinkedListNode*)uPtr(_skyline)->First();
 
     while (node != NULL)
     {
-        int height;
+        int32_t height;
 
         if (TryFit(node, size, &height))
         {
@@ -4211,7 +4252,7 @@ bool RectPacker::TryAdd(::g::Uno::Int2 size, ::g::Uno::Recti* rect)
     }
     else
     {
-        int x = (::g::Uno::Collections::LinkedListNode__get_Value_fn(uPtr(lowestNode), &ret14), ret14).Position.X;
+        int32_t x = (::g::Uno::Collections::LinkedListNode__get_Value_fn(uPtr(lowestNode), &ret14), ret14).Position.X;
         *rect = ::g::Uno::Recti__New2(::g::Uno::Int2__New2(x, lowest), size);
         ReplaceNodes(lowestNode, ::g::Fuse::Internal::SkylineNode__New1(::g::Uno::Int2__New2(x, lowest + size.Y), size.X));
         return true;
@@ -4219,11 +4260,11 @@ bool RectPacker::TryAdd(::g::Uno::Int2 size, ::g::Uno::Recti* rect)
 }
 
 // private bool TryFit(Uno.Collections.LinkedListNode<Fuse.Internal.SkylineNode> node, int2 size, int& height) [instance] :74
-bool RectPacker::TryFit(::g::Uno::Collections::LinkedListNode* node, ::g::Uno::Int2 size, int* height)
+bool RectPacker::TryFit(::g::Uno::Collections::LinkedListNode* node, ::g::Uno::Int2 size, int32_t* height)
 {
     ::g::Fuse::Internal::SkylineNode ret15;
     ::g::Fuse::Internal::SkylineNode ret16;
-    int remainingWidth = size.X;
+    int32_t remainingWidth = size.X;
     *height = 0;
 
     while (node != NULL)
@@ -4253,7 +4294,7 @@ RectPacker* RectPacker::New1(::g::Uno::Int2 size)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Blender.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Blender.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal abstract class ScalarBlender<T> :123
@@ -4291,7 +4332,7 @@ void ScalarBlender::ctor_1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Blender.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Blender.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal sealed class Size2Blender :104
@@ -4389,7 +4430,7 @@ void Size2Blender__Weight_fn(Size2Blender* __this, ::g::Uno::UX::Size2* v, doubl
 // public override sealed Uno.UX.Size2 get_Zero() :110
 void Size2Blender__get_Zero_fn(Size2Blender* __this, ::g::Uno::UX::Size2* __retval)
 {
-    return *__retval = ::g::Uno::UX::Size2__op_Implicit1(::g::Uno::Float2__New2(0.0f, 0.0f)), void();
+    return *__retval = ::g::Uno::UX::Size2__op_Implicit2(::g::Uno::Float2__New2(0.0f, 0.0f)), void();
 }
 
 // public generated Size2Blender() [instance] :104
@@ -4407,7 +4448,7 @@ Size2Blender* Size2Blender::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Blender.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Blender.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal sealed class SizeBlender :88
@@ -4415,6 +4456,8 @@ Size2Blender* Size2Blender::New1()
 static void SizeBlender_build(uType* type)
 {
     type->SetBase(::g::Fuse::Internal::Blender_typeof()->MakeType(::g::Uno::UX::Size_typeof(), NULL));
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
 }
 
 ::g::Fuse::Internal::Blender_type* SizeBlender_typeof()
@@ -4424,6 +4467,7 @@ static void SizeBlender_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Internal::Blender_typeof();
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(SizeBlender);
     options.TypeSize = sizeof(::g::Fuse::Internal::Blender_type);
     type = (::g::Fuse::Internal::Blender_type*)uClassType::New("Fuse.Internal.SizeBlender", options);
@@ -4502,7 +4546,7 @@ void SizeBlender__Weight_fn(SizeBlender* __this, ::g::Uno::UX::Size* v, double* 
 // public override sealed Uno.UX.Size get_Zero() :94
 void SizeBlender__get_Zero_fn(SizeBlender* __this, ::g::Uno::UX::Size* __retval)
 {
-    return *__retval = ::g::Uno::UX::Size__op_Implicit1(0), void();
+    return *__retval = ::g::Uno::UX::Size__op_Implicit2(0), void();
 }
 
 // public generated SizeBlender() [instance] :88
@@ -4520,13 +4564,15 @@ SizeBlender* SizeBlender::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Internal\SizingContainer.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Internal\SizingContainer.uno
 // --------------------------------------------------------------------------------------------------------
 
 // internal sealed class SizingContainer :7
 // {
 static void SizingContainer_build(uType* type)
 {
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Fuse::Elements::StretchMode_typeof(), offsetof(SizingContainer, stretchMode), 0,
         ::g::Fuse::Elements::StretchDirection_typeof(), offsetof(SizingContainer, stretchDirection), 0,
@@ -4544,6 +4590,7 @@ uType* SizingContainer_typeof()
 
     uTypeOptions options;
     options.FieldCount = 7;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(SizingContainer);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Internal.SizingContainer", options);
@@ -4558,7 +4605,7 @@ void SizingContainer__ctor__fn(SizingContainer* __this)
     __this->ctor_();
 }
 
-// public float4 CalcClip(float2 availableSize, float2& origin, float2& contentActualSize) :232
+// public float4 CalcClip(float2 availableSize, float2& origin, float2& contentActualSize) :240
 void SizingContainer__CalcClip_fn(SizingContainer* __this, ::g::Uno::Float2* availableSize, ::g::Uno::Float2* origin, ::g::Uno::Float2* contentActualSize, ::g::Uno::Float4* __retval)
 {
     *__retval = __this->CalcClip(*availableSize, origin, contentActualSize);
@@ -4570,7 +4617,7 @@ void SizingContainer__CalcContentSize_fn(SizingContainer* __this, ::g::Uno::Floa
     *__retval = __this->CalcContentSize(*size, *pixelSize);
 }
 
-// public float2 CalcOrigin(float2 availableSize, float2 contentActualSize) :190
+// public float2 CalcOrigin(float2 availableSize, float2 contentActualSize) :198
 void SizingContainer__CalcOrigin_fn(SizingContainer* __this, ::g::Uno::Float2* availableSize, ::g::Uno::Float2* contentActualSize, ::g::Uno::Float2* __retval)
 {
     *__retval = __this->CalcOrigin(*availableSize, *contentActualSize);
@@ -4588,7 +4635,7 @@ void SizingContainer__CalcScale1_fn(SizingContainer* __this, ::g::Uno::Float2* a
     *__retval = __this->CalcScale1(*availableSize, *desiredSize, *autoWidth, *autoHeight);
 }
 
-// public float2 ExpandFillSize(float2 size, Fuse.LayoutParams lp) :277
+// public float2 ExpandFillSize(float2 size, Fuse.LayoutParams lp) :285
 void SizingContainer__ExpandFillSize_fn(SizingContainer* __this, ::g::Uno::Float2* size, ::g::Fuse::LayoutParams* lp, ::g::Uno::Float2* __retval)
 {
     *__retval = __this->ExpandFillSize(*size, *lp);
@@ -4613,25 +4660,25 @@ void SizingContainer__get_PaddingWidth_fn(SizingContainer* __this, float* __retv
 }
 
 // public bool SetAlignment(Fuse.Elements.Alignment a) :30
-void SizingContainer__SetAlignment_fn(SizingContainer* __this, int* a, bool* __retval)
+void SizingContainer__SetAlignment_fn(SizingContainer* __this, int32_t* a, bool* __retval)
 {
     *__retval = __this->SetAlignment(*a);
 }
 
 // public bool SetStretchDirection(Fuse.Elements.StretchDirection dir) :22
-void SizingContainer__SetStretchDirection_fn(SizingContainer* __this, int* dir, bool* __retval)
+void SizingContainer__SetStretchDirection_fn(SizingContainer* __this, int32_t* dir, bool* __retval)
 {
     *__retval = __this->SetStretchDirection(*dir);
 }
 
 // public bool SetStretchMode(Fuse.Elements.StretchMode mode) :14
-void SizingContainer__SetStretchMode_fn(SizingContainer* __this, int* mode, bool* __retval)
+void SizingContainer__SetStretchMode_fn(SizingContainer* __this, int32_t* mode, bool* __retval)
 {
     *__retval = __this->SetStretchMode(*mode);
 }
 
 // public bool SetStretchSizing(Fuse.Elements.StretchSizing ss) :38
-void SizingContainer__SetStretchSizing_fn(SizingContainer* __this, int* ss, bool* __retval)
+void SizingContainer__SetStretchSizing_fn(SizingContainer* __this, int32_t* ss, bool* __retval)
 {
     *__retval = __this->SetStretchSizing(*ss);
 }
@@ -4651,7 +4698,7 @@ void SizingContainer::ctor_()
     absoluteZoom = 1.0f;
 }
 
-// public float4 CalcClip(float2 availableSize, float2& origin, float2& contentActualSize) [instance] :232
+// public float4 CalcClip(float2 availableSize, float2& origin, float2& contentActualSize) [instance] :240
 ::g::Uno::Float4 SizingContainer::CalcClip(::g::Uno::Float2 availableSize, ::g::Uno::Float2* origin, ::g::Uno::Float2* contentActualSize)
 {
     ::g::Uno::Float4 ind1;
@@ -4730,7 +4777,7 @@ void SizingContainer::ctor_()
     return SnapSize(size);
 }
 
-// public float2 CalcOrigin(float2 availableSize, float2 contentActualSize) [instance] :190
+// public float2 CalcOrigin(float2 availableSize, float2 contentActualSize) [instance] :198
 ::g::Uno::Float2 SizingContainer::CalcOrigin(::g::Uno::Float2 availableSize, ::g::Uno::Float2 contentActualSize)
 {
     ::g::Uno::Float2 origin = ::g::Uno::Float2__New1(0.0f);
@@ -4805,7 +4852,9 @@ void SizingContainer::ctor_()
     }
     else
     {
-        ::g::Uno::Float2 s = ::g::Uno::Float2__New2((desiredSize.X < 1e-05f) ? 0.0f : d.X / desiredSize.X, (desiredSize.Y < 1e-05f) ? 0.0f : d.Y / desiredSize.Y);
+        bool zeroX = desiredSize.X < 1e-05f;
+        bool zeroY = desiredSize.Y < 1e-05f;
+        ::g::Uno::Float2 s = ::g::Uno::Float2__New2(zeroX ? 0.0f : d.X / desiredSize.X, zeroY ? 0.0f : d.Y / desiredSize.Y);
 
         switch (stretchMode)
         {
@@ -4824,7 +4873,7 @@ void SizingContainer::ctor_()
             }
             case 5:
             {
-                float sm = autoWidth ? s.Y : autoHeight ? s.X : ::g::Uno::Math::Min1(s.X, s.Y);
+                float sm = autoWidth ? s.Y : autoHeight ? s.X : zeroX ? s.Y : zeroY ? s.X : ::g::Uno::Math::Min1(s.X, s.Y);
                 scale = ::g::Uno::Float2__New1(sm);
                 break;
             }
@@ -4861,7 +4910,7 @@ void SizingContainer::ctor_()
     return scale;
 }
 
-// public float2 ExpandFillSize(float2 size, Fuse.LayoutParams lp) [instance] :277
+// public float2 ExpandFillSize(float2 size, Fuse.LayoutParams lp) [instance] :285
 ::g::Uno::Float2 SizingContainer::ExpandFillSize(::g::Uno::Float2 size, ::g::Fuse::LayoutParams lp)
 {
     bool autoWidth = !lp.HasX();
@@ -4920,7 +4969,7 @@ float SizingContainer::PaddingWidth()
 }
 
 // public bool SetAlignment(Fuse.Elements.Alignment a) [instance] :30
-bool SizingContainer::SetAlignment(int a)
+bool SizingContainer::SetAlignment(int32_t a)
 {
     if (a == align)
         return false;
@@ -4930,7 +4979,7 @@ bool SizingContainer::SetAlignment(int a)
 }
 
 // public bool SetStretchDirection(Fuse.Elements.StretchDirection dir) [instance] :22
-bool SizingContainer::SetStretchDirection(int dir)
+bool SizingContainer::SetStretchDirection(int32_t dir)
 {
     if (dir == stretchDirection)
         return false;
@@ -4940,7 +4989,7 @@ bool SizingContainer::SetStretchDirection(int dir)
 }
 
 // public bool SetStretchMode(Fuse.Elements.StretchMode mode) [instance] :14
-bool SizingContainer::SetStretchMode(int mode)
+bool SizingContainer::SetStretchMode(int32_t mode)
 {
     if (mode == stretchMode)
         return false;
@@ -4950,7 +4999,7 @@ bool SizingContainer::SetStretchMode(int mode)
 }
 
 // public bool SetStretchSizing(Fuse.Elements.StretchSizing ss) [instance] :38
-bool SizingContainer::SetStretchSizing(int ss)
+bool SizingContainer::SetStretchSizing(int32_t ss)
 {
     if (ss == stretchSizing)
         return false;
@@ -4962,7 +5011,7 @@ bool SizingContainer::SetStretchSizing(int ss)
 // private float2 SnapSize(float2 sz) [instance] :100
 ::g::Uno::Float2 SizingContainer::SnapSize(::g::Uno::Float2 sz)
 {
-    return ::g::Uno::Float2__op_Division1(::g::Uno::Math::Round4(::g::Uno::Float2__op_Multiply1(sz, absoluteZoom)), absoluteZoom);
+    return ::g::Uno::Float2__op_Division1(::g::Uno::Math::Floor2(::g::Uno::Float2__op_Addition1(::g::Uno::Float2__op_Multiply1(sz, absoluteZoom), 0.5f)), absoluteZoom);
 }
 
 // public generated SizingContainer New() [static] :7
@@ -4974,7 +5023,7 @@ SizingContainer* SizingContainer::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\RectPacker.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\RectPacker.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal struct SkylineNode :6
@@ -5002,26 +5051,26 @@ uStructType* SkylineNode_typeof()
 }
 
 // public SkylineNode(int2 position, int width) :19
-void SkylineNode__ctor__fn(SkylineNode* __this, ::g::Uno::Int2* position, int* width)
+void SkylineNode__ctor__fn(SkylineNode* __this, ::g::Uno::Int2* position, int32_t* width)
 {
     __this->ctor_(*position, *width);
 }
 
 // public SkylineNode New(int2 position, int width) :19
-void SkylineNode__New1_fn(::g::Uno::Int2* position, int* width, SkylineNode* __retval)
+void SkylineNode__New1_fn(::g::Uno::Int2* position, int32_t* width, SkylineNode* __retval)
 {
     *__retval = SkylineNode__New1(*position, *width);
 }
 
 // public SkylineNode(int2 position, int width) [instance] :19
-void SkylineNode::ctor_(::g::Uno::Int2 position, int width)
+void SkylineNode::ctor_(::g::Uno::Int2 position, int32_t width)
 {
     Position = position;
     Width = width;
 }
 
 // public SkylineNode New(int2 position, int width) [static] :19
-SkylineNode SkylineNode__New1(::g::Uno::Int2 position, int width)
+SkylineNode SkylineNode__New1(::g::Uno::Int2 position, int32_t width)
 {
     SkylineNode obj1;
     obj1.ctor_(position, width);
@@ -5029,13 +5078,15 @@ SkylineNode SkylineNode__New1(::g::Uno::Int2 position, int width)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\Statistics.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\Statistics.uno
 // -------------------------------------------------------------------------------------------------
 
 // public static class Statistics :5
 // {
 static void Statistics_build(uType* type)
 {
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
 }
 
 uClassType* Statistics_typeof()
@@ -5044,6 +5095,7 @@ uClassType* Statistics_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
+    options.DependencyCount = 1;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Fuse.Internal.Statistics", options);
     type->fp_build_ = Statistics_build;
@@ -5063,7 +5115,7 @@ double Statistics::ContinuousFilterAlpha(double elapsed, double period)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\SystemFont.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\SystemFont.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal static class SystemFont :57
@@ -5092,7 +5144,7 @@ void SystemFont__get_Default_fn(::g::Uno::Collections::List** __retval)
 }
 
 // public static Uno.Collections.List<Fuse.Internal.FontFaceDescriptor> Get(string family, [Fuse.SystemFont.Style style], [Fuse.SystemFont.Weight weight]) :69
-void SystemFont__Get_fn(uString* family, int* style, int* weight, ::g::Uno::Collections::List** __retval)
+void SystemFont__Get_fn(uString* family, int32_t* style, int32_t* weight, ::g::Uno::Collections::List** __retval)
 {
     *__retval = SystemFont::Get(family, *style, *weight);
 }
@@ -5104,7 +5156,7 @@ void SystemFont__GetFallback_fn(::g::Uno::UX::FileSource* file, ::g::Uno::Collec
 }
 
 // public static Uno.Collections.List<Fuse.Internal.FontFaceDescriptor> Get(string family, [Fuse.SystemFont.Style style], [Fuse.SystemFont.Weight weight]) [static] :69
-::g::Uno::Collections::List* SystemFont::Get(uString* family, int style, int weight)
+::g::Uno::Collections::List* SystemFont::Get(uString* family, int32_t style, int32_t weight)
 {
     return ::g::Fuse::Internal::AndroidSystemFont::Get1(::g::Uno::String::op_Equality(family, NULL) ? uCast<uString*>(NULL, ::TYPES[31/*string*/]) : (uString*)::g::Uno::String::ToLower(uPtr(family)), style, weight);
 }
@@ -5122,13 +5174,15 @@ void SystemFont__GetFallback_fn(::g::Uno::UX::FileSource* file, ::g::Uno::Collec
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.4.2\Internal\VectorUtil.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\Internal\VectorUtil.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal static class VectorUtil :5
 // {
 static void VectorUtil_build(uType* type)
 {
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
 }
 
 uClassType* VectorUtil_typeof()
@@ -5137,6 +5191,7 @@ uClassType* VectorUtil_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
+    options.DependencyCount = 1;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Fuse.Internal.VectorUtil", options);
     type->fp_build_ = VectorUtil_build;

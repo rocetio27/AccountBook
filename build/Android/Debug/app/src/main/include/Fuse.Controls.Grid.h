@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Panels/1.4.2/Grid.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Panels/1.9.0/Grid.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -9,6 +9,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -32,28 +33,28 @@ namespace Controls{
 // {
 ::g::Fuse::Controls::Panel_type* Grid_typeof();
 void Grid__ctor_7_fn(Grid* __this);
-void Grid__get_ColumnCount_fn(Grid* __this, int* __retval);
-void Grid__set_ColumnCount_fn(Grid* __this, int* value);
+void Grid__get_ColumnCount_fn(Grid* __this, int32_t* __retval);
+void Grid__set_ColumnCount_fn(Grid* __this, int32_t* value);
 void Grid__New4_fn(Grid** __retval);
-void Grid__get_RowCount_fn(Grid* __this, int* __retval);
-void Grid__set_RowCount_fn(Grid* __this, int* value);
-void Grid__SetColumnSpan_fn(::g::Fuse::Elements::Element* elm, int* span);
-void Grid__SetRow_fn(::g::Fuse::Elements::Element* elm, int* row);
-void Grid__SetRowSpan_fn(::g::Fuse::Elements::Element* elm, int* span);
+void Grid__get_RowCount_fn(Grid* __this, int32_t* __retval);
+void Grid__set_RowCount_fn(Grid* __this, int32_t* value);
+void Grid__SetColumnSpan_fn(::g::Fuse::Elements::Element* elm, int32_t* span);
+void Grid__SetRow_fn(::g::Fuse::Elements::Element* elm, int32_t* row);
+void Grid__SetRowSpan_fn(::g::Fuse::Elements::Element* elm, int32_t* span);
 
 struct Grid : ::g::Fuse::Controls::Panel
 {
     uStrong< ::g::Fuse::Layouts::GridLayout*> _gridLayout;
 
     void ctor_7();
-    int ColumnCount();
-    void ColumnCount(int value);
-    int RowCount();
-    void RowCount(int value);
+    int32_t ColumnCount();
+    void ColumnCount(int32_t value);
+    int32_t RowCount();
+    void RowCount(int32_t value);
     static Grid* New4();
-    static void SetColumnSpan(::g::Fuse::Elements::Element* elm, int span);
-    static void SetRow(::g::Fuse::Elements::Element* elm, int row);
-    static void SetRowSpan(::g::Fuse::Elements::Element* elm, int span);
+    static void SetColumnSpan(::g::Fuse::Elements::Element* elm, int32_t span);
+    static void SetRow(::g::Fuse::Elements::Element* elm, int32_t row);
+    static void SetRowSpan(::g::Fuse::Elements::Element* elm, int32_t span);
 };
 // }
 

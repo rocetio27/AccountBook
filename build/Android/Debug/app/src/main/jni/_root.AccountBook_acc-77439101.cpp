@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_acc-77439101.h>
@@ -16,14 +16,13 @@ static uType* TYPES[2];
 
 namespace g{
 
-// internal sealed class AccountBook_accessor_myButton_fontsize :131
+// internal sealed class AccountBook_accessor_myButton_fontsize :151
 // {
-// static generated AccountBook_accessor_myButton_fontsize() :131
+// static generated AccountBook_accessor_myButton_fontsize() :151
 static void AccountBook_accessor_myButton_fontsize__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     AccountBook_accessor_myButton_fontsize::Singleton_ = AccountBook_accessor_myButton_fontsize::New1();
-    AccountBook_accessor_myButton_fontsize::_name_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"fontsize"*/]);
+    AccountBook_accessor_myButton_fontsize::_name_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"fontsize"*/]);
 }
 
 static void AccountBook_accessor_myButton_fontsize_build(uType* type)
@@ -58,43 +57,43 @@ static void AccountBook_accessor_myButton_fontsize_build(uType* type)
     return type;
 }
 
-// public generated AccountBook_accessor_myButton_fontsize() :131
+// public generated AccountBook_accessor_myButton_fontsize() :151
 void AccountBook_accessor_myButton_fontsize__ctor_1_fn(AccountBook_accessor_myButton_fontsize* __this)
 {
     __this->ctor_1();
 }
 
-// public override sealed object GetAsObject(Uno.UX.PropertyObject obj) :137
+// public override sealed object GetAsObject(Uno.UX.PropertyObject obj) :157
 void AccountBook_accessor_myButton_fontsize__GetAsObject_fn(AccountBook_accessor_myButton_fontsize* __this, ::g::Uno::UX::PropertyObject* obj, uObject** __retval)
 {
-    return *__retval = uBox<int>(::g::Uno::Int_typeof(), uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->fontsize()), void();
+    return *__retval = uBox<int32_t>(::g::Uno::Int_typeof(), uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->fontsize()), void();
 }
 
-// public override sealed Uno.UX.Selector get_Name() :134
+// public override sealed Uno.UX.Selector get_Name() :154
 void AccountBook_accessor_myButton_fontsize__get_Name_fn(AccountBook_accessor_myButton_fontsize* __this, ::g::Uno::UX::Selector* __retval)
 {
     return *__retval = AccountBook_accessor_myButton_fontsize::_name_, void();
 }
 
-// public generated AccountBook_accessor_myButton_fontsize New() :131
+// public generated AccountBook_accessor_myButton_fontsize New() :151
 void AccountBook_accessor_myButton_fontsize__New1_fn(AccountBook_accessor_myButton_fontsize** __retval)
 {
     *__retval = AccountBook_accessor_myButton_fontsize::New1();
 }
 
-// public override sealed Uno.Type get_PropertyType() :136
+// public override sealed Uno.Type get_PropertyType() :156
 void AccountBook_accessor_myButton_fontsize__get_PropertyType_fn(AccountBook_accessor_myButton_fontsize* __this, uType** __retval)
 {
     return *__retval = ::g::Uno::Int_typeof(), void();
 }
 
-// public override sealed void SetAsObject(Uno.UX.PropertyObject obj, object v, Uno.UX.IPropertyListener origin) :138
+// public override sealed void SetAsObject(Uno.UX.PropertyObject obj, object v, Uno.UX.IPropertyListener origin) :158
 void AccountBook_accessor_myButton_fontsize__SetAsObject_fn(AccountBook_accessor_myButton_fontsize* __this, ::g::Uno::UX::PropertyObject* obj, uObject* v, uObject* origin)
 {
-    uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->Setfontsize(uUnbox<int>(::g::Uno::Int_typeof(), v), origin);
+    uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->Setfontsize(uUnbox<int32_t>(::g::Uno::Int_typeof(), v), origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :139
+// public override sealed bool get_SupportsOriginSetter() :159
 void AccountBook_accessor_myButton_fontsize__get_SupportsOriginSetter_fn(AccountBook_accessor_myButton_fontsize* __this, bool* __retval)
 {
     return *__retval = true, void();
@@ -103,13 +102,13 @@ void AccountBook_accessor_myButton_fontsize__get_SupportsOriginSetter_fn(Account
 uSStrong< ::g::Uno::UX::PropertyAccessor*> AccountBook_accessor_myButton_fontsize::Singleton_;
 ::g::Uno::UX::Selector AccountBook_accessor_myButton_fontsize::_name_;
 
-// public generated AccountBook_accessor_myButton_fontsize() [instance] :131
+// public generated AccountBook_accessor_myButton_fontsize() [instance] :151
 void AccountBook_accessor_myButton_fontsize::ctor_1()
 {
     ctor_();
 }
 
-// public generated AccountBook_accessor_myButton_fontsize New() [static] :131
+// public generated AccountBook_accessor_myButton_fontsize New() [static] :151
 AccountBook_accessor_myButton_fontsize* AccountBook_accessor_myButton_fontsize::New1()
 {
     AccountBook_accessor_myButton_fontsize* obj1 = (AccountBook_accessor_myButton_fontsize*)uNew(AccountBook_accessor_myButton_fontsize_typeof());

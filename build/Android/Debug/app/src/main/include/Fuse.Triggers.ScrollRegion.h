@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.ScrollView/1.4.2/Triggers/ScrollRegion.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.ScrollView/1.9.0/Triggers/ScrollRegion.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -19,7 +19,7 @@ void ScrollRegion__IsInZone_fn(ScrollRegion* __this, ::g::Fuse::Controls::Scroll
 
 struct ScrollRegion : uObject
 {
-    int To;
+    int32_t To;
     float Within;
     uStrong<uObject*> RelativeTo;
 

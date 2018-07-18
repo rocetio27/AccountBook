@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.4.2/RouterPage.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.9.0/RouterPage.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -11,14 +11,14 @@ namespace g{
 namespace Fuse{
 namespace Navigation{
 
-// internal sealed class RouterPageRoute :130
+// internal sealed class RouterPageRoute :145
 // {
 uType* RouterPageRoute_typeof();
 void RouterPageRoute__ctor__fn(RouterPageRoute* __this, ::g::Fuse::Navigation::RouterPage* routerPage, RouterPageRoute* sub);
 void RouterPageRoute__Append_fn(RouterPageRoute* __this, RouterPageRoute* subRoute, RouterPageRoute** __retval);
 void RouterPageRoute__Format_fn(RouterPageRoute* __this, uString** __retval);
 void RouterPageRoute__New1_fn(::g::Fuse::Navigation::RouterPage* routerPage, RouterPageRoute* sub, RouterPageRoute** __retval);
-void RouterPageRoute__SubDepth_fn(RouterPageRoute* __this, int* count, RouterPageRoute** __retval);
+void RouterPageRoute__SubDepth_fn(RouterPageRoute* __this, int32_t* count, RouterPageRoute** __retval);
 void RouterPageRoute__ToRoute_fn(RouterPageRoute* __this, ::g::Fuse::Navigation::Route** __retval);
 void RouterPageRoute__Up_fn(RouterPageRoute* __this, RouterPageRoute** __retval);
 
@@ -30,7 +30,7 @@ struct RouterPageRoute : uObject
     void ctor_(::g::Fuse::Navigation::RouterPage* routerPage, RouterPageRoute* sub);
     RouterPageRoute* Append(RouterPageRoute* subRoute);
     uString* Format();
-    RouterPageRoute* SubDepth(int count);
+    RouterPageRoute* SubDepth(int32_t count);
     ::g::Fuse::Navigation::Route* ToRoute();
     RouterPageRoute* Up();
     static RouterPageRoute* New1(::g::Fuse::Navigation::RouterPage* routerPage, RouterPageRoute* sub);

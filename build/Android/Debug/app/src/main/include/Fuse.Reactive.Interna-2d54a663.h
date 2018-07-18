@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Bindings/1.4.2/Internal/PatchList.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Bindings/1.9.0/Internal/PatchList.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -15,13 +15,13 @@ namespace Internal{
 // internal sealed class PatchList :38
 // {
 uType* PatchList_typeof();
-void PatchList__Patch_fn(uType* __type, uObject* from, uObject* to, int* algo, void* emptyKey, ::g::Uno::Collections::List** __retval);
+void PatchList__Patch_fn(uType* __type, uObject* from, uObject* to, int32_t* algo, void* emptyKey, ::g::Uno::Collections::List** __retval);
 void PatchList__PatchRemoveAll_fn(uType* __type, uObject* from, uObject* to, ::g::Uno::Collections::List** __retval);
 
 struct PatchList : uObject
 {
     template<class T>
-    static ::g::Uno::Collections::List* Patch(uType* __type, uObject* from, uObject* to, int algo, T emptyKey) { ::g::Uno::Collections::List* __retval; return PatchList__Patch_fn(__type, from, to, &algo, uConstrain(__type->U(0), emptyKey), &__retval), __retval; }
+    static ::g::Uno::Collections::List* Patch(uType* __type, uObject* from, uObject* to, int32_t algo, T emptyKey) { ::g::Uno::Collections::List* __retval; return PatchList__Patch_fn(__type, from, to, &algo, uConstrain(__type->U(0), emptyKey), &__retval), __retval; }
     static ::g::Uno::Collections::List* PatchRemoveAll(uType* __type, uObject* from, uObject* to);
 };
 // }

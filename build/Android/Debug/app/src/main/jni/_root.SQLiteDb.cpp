@@ -118,10 +118,10 @@ uObject* SQLiteDb::Close(::g::Fuse::Scripting::Context* c, uArray* args)
 uObject* SQLiteDb::Execute(::g::Fuse::Scripting::Context* c, uArray* args)
 {
     uString* statement = uAs<uString*>(uPtr(args)->Strong<uObject*>(0), ::TYPES[1/*string*/]);
-    int param_len = args->Length() - 1;
+    int32_t param_len = args->Length() - 1;
     uArray* param = uArray::New(::TYPES[2/*string[]*/], param_len);
 
-    for (int i = 0; i < param_len; i++)
+    for (int32_t i = 0; i < param_len; i++)
         uPtr(param)->Strong<uString*>(i) = ::g::Uno::Object::ToString(uPtr(uPtr(args)->Strong<uObject*>(i + 1)));
 
     ::g::SQLiteImpl::ExecImpl(db, statement, param);
@@ -140,10 +140,10 @@ uObject* SQLiteDb::Prepare(::g::Fuse::Scripting::Context* c, uArray* args)
 uObject* SQLiteDb::Query(::g::Fuse::Scripting::Context* context, uArray* args)
 {
     uString* statement = uAs<uString*>(uPtr(args)->Strong<uObject*>(0), ::TYPES[1/*string*/]);
-    int param_len = args->Length() - 1;
+    int32_t param_len = args->Length() - 1;
     uArray* param = uArray::New(::TYPES[2/*string[]*/], param_len);
 
-    for (int j = 0; j < param_len; j++)
+    for (int32_t j = 0; j < param_len; j++)
         uPtr(param)->Strong<uString*>(j) = ::g::Uno::Object::ToString(uPtr(uPtr(args)->Strong<uObject*>(j + 1)));
 
     ::g::Bolav::ForeignHelpers::JSList* jslist = ::g::Bolav::ForeignHelpers::JSList::New1(context);

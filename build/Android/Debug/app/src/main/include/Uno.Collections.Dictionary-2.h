@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Collections/Dictionary.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Collections/Dictionary.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -31,7 +31,7 @@ void Dictionary__ctor__fn(Dictionary* __this);
 void Dictionary__Add_fn(Dictionary* __this, void* key, void* value);
 void Dictionary__Clear_fn(Dictionary* __this);
 void Dictionary__ContainsKey_fn(Dictionary* __this, void* key, bool* __retval);
-void Dictionary__get_Count_fn(Dictionary* __this, int* __retval);
+void Dictionary__get_Count_fn(Dictionary* __this, int32_t* __retval);
 void Dictionary__GetEnumerator_fn(Dictionary* __this, uTRef __retval);
 void Dictionary__GetEnumerator_boxed_fn(Dictionary* __this, uObject** __retval);
 void Dictionary__get_Item_fn(Dictionary* __this, void* key, uTRef __retval);
@@ -48,10 +48,10 @@ void Dictionary__get_Values_fn(Dictionary* __this, Dictionary__ValueCollection**
 
 struct Dictionary : uObject
 {
-    int _count;
-    int _dummies;
+    int32_t _count;
+    int32_t _dummies;
     uStrong<uArray*> _buckets;
-    int _version;
+    int32_t _version;
 
     void ctor_();
     template<class TKey, class TValue>
@@ -59,7 +59,7 @@ struct Dictionary : uObject
     void Clear();
     template<class TKey>
     bool ContainsKey(TKey key) { bool __retval; return Dictionary__ContainsKey_fn(this, uConstrain(__type->T(0), key), &__retval), __retval; }
-    int Count();
+    int32_t Count();
     template<class TKey, class TValue>
     Dictionary__Enumerator<TKey, TValue> GetEnumerator();
     uObject* GetEnumerator_boxed();

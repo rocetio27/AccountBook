@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_acc-2c9dedce.h>
@@ -16,14 +16,13 @@ static uType* TYPES[3];
 
 namespace g{
 
-// internal sealed class AccountBook_accessor_myButton_font :121
+// internal sealed class AccountBook_accessor_myButton_font :141
 // {
-// static generated AccountBook_accessor_myButton_font() :121
+// static generated AccountBook_accessor_myButton_font() :141
 static void AccountBook_accessor_myButton_font__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     AccountBook_accessor_myButton_font::Singleton_ = AccountBook_accessor_myButton_font::New1();
-    AccountBook_accessor_myButton_font::_name_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"font"*/]);
+    AccountBook_accessor_myButton_font::_name_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"font"*/]);
 }
 
 static void AccountBook_accessor_myButton_font_build(uType* type)
@@ -59,43 +58,43 @@ static void AccountBook_accessor_myButton_font_build(uType* type)
     return type;
 }
 
-// public generated AccountBook_accessor_myButton_font() :121
+// public generated AccountBook_accessor_myButton_font() :141
 void AccountBook_accessor_myButton_font__ctor_1_fn(AccountBook_accessor_myButton_font* __this)
 {
     __this->ctor_1();
 }
 
-// public override sealed object GetAsObject(Uno.UX.PropertyObject obj) :127
+// public override sealed object GetAsObject(Uno.UX.PropertyObject obj) :147
 void AccountBook_accessor_myButton_font__GetAsObject_fn(AccountBook_accessor_myButton_font* __this, ::g::Uno::UX::PropertyObject* obj, uObject** __retval)
 {
     return *__retval = uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->font(), void();
 }
 
-// public override sealed Uno.UX.Selector get_Name() :124
+// public override sealed Uno.UX.Selector get_Name() :144
 void AccountBook_accessor_myButton_font__get_Name_fn(AccountBook_accessor_myButton_font* __this, ::g::Uno::UX::Selector* __retval)
 {
     return *__retval = AccountBook_accessor_myButton_font::_name_, void();
 }
 
-// public generated AccountBook_accessor_myButton_font New() :121
+// public generated AccountBook_accessor_myButton_font New() :141
 void AccountBook_accessor_myButton_font__New1_fn(AccountBook_accessor_myButton_font** __retval)
 {
     *__retval = AccountBook_accessor_myButton_font::New1();
 }
 
-// public override sealed Uno.Type get_PropertyType() :126
+// public override sealed Uno.Type get_PropertyType() :146
 void AccountBook_accessor_myButton_font__get_PropertyType_fn(AccountBook_accessor_myButton_font* __this, uType** __retval)
 {
     return *__retval = ::TYPES[1/*Fuse.Font*/], void();
 }
 
-// public override sealed void SetAsObject(Uno.UX.PropertyObject obj, object v, Uno.UX.IPropertyListener origin) :128
+// public override sealed void SetAsObject(Uno.UX.PropertyObject obj, object v, Uno.UX.IPropertyListener origin) :148
 void AccountBook_accessor_myButton_font__SetAsObject_fn(AccountBook_accessor_myButton_font* __this, ::g::Uno::UX::PropertyObject* obj, uObject* v, uObject* origin)
 {
     uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->Setfont(uCast< ::g::Fuse::Font*>(v, ::TYPES[1/*Fuse.Font*/]), origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :129
+// public override sealed bool get_SupportsOriginSetter() :149
 void AccountBook_accessor_myButton_font__get_SupportsOriginSetter_fn(AccountBook_accessor_myButton_font* __this, bool* __retval)
 {
     return *__retval = true, void();
@@ -104,13 +103,13 @@ void AccountBook_accessor_myButton_font__get_SupportsOriginSetter_fn(AccountBook
 uSStrong< ::g::Uno::UX::PropertyAccessor*> AccountBook_accessor_myButton_font::Singleton_;
 ::g::Uno::UX::Selector AccountBook_accessor_myButton_font::_name_;
 
-// public generated AccountBook_accessor_myButton_font() [instance] :121
+// public generated AccountBook_accessor_myButton_font() [instance] :141
 void AccountBook_accessor_myButton_font::ctor_1()
 {
     ctor_();
 }
 
-// public generated AccountBook_accessor_myButton_font New() [static] :121
+// public generated AccountBook_accessor_myButton_font New() [static] :141
 AccountBook_accessor_myButton_font* AccountBook_accessor_myButton_font::New1()
 {
     AccountBook_accessor_myButton_font* obj1 = (AccountBook_accessor_myButton_font*)uNew(AccountBook_accessor_myButton_font_typeof());

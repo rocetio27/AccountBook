@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Bindings/1.4.2/Instance.API.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Bindings/1.9.0/Instantiator.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -7,16 +7,18 @@
 #include <Fuse.IDeferred.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Node.ISubtreeDataProvider.h>
-#include <Fuse.Reactive.IObserver.h>
+#include <Fuse.Reactive.ItemsWi-e7592013.h>
+#include <Fuse.Reactive.WindowItem.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
 #include <Uno.Collections.IList-1.h>
 namespace g{namespace Fuse{namespace Internal{struct ObjectList;}}}
 namespace g{namespace Fuse{namespace Reactive{struct Instantiator;}}}
-namespace g{namespace Fuse{namespace Reactive{struct Instantiator__TemplateMatch;}}}
-namespace g{namespace Fuse{namespace Reactive{struct Instantiator__WindowItem;}}}
+namespace g{namespace Fuse{namespace Reactive{struct ItemsWindowList;}}}
+namespace g{namespace Fuse{namespace Reactive{struct TemplateMatch;}}}
 namespace g{namespace Fuse{namespace Triggers{struct BusyTask;}}}
 namespace g{namespace Fuse{struct Node;}}
 namespace g{namespace Uno{namespace Collections{struct Dictionary;}}}
@@ -27,199 +29,147 @@ namespace g{
 namespace Fuse{
 namespace Reactive{
 
-// public partial class Instantiator :53
+// public partial class Instantiator :116
 // {
 struct Instantiator_type : ::g::Fuse::Node_type
 {
-    ::g::Fuse::Reactive::IObserver interface6;
     ::g::Fuse::Node__ISubtreeDataProvider interface7;
     ::g::Fuse::IDeferred interface8;
+    ::g::Fuse::Reactive::ItemsWindowList__IListener interface9;
 };
 
 Instantiator_type* Instantiator_typeof();
 void Instantiator__ctor_3_fn(Instantiator* __this);
-void Instantiator__AddMatchingTemplates_fn(Instantiator* __this, Instantiator__WindowItem* item, Instantiator__TemplateMatch* f, bool* __retval);
-void Instantiator__AddTemplate_fn(Instantiator* __this, Instantiator__WindowItem* item, ::g::Uno::UX::Template* f);
-void Instantiator__Append_fn(Instantiator* __this);
-void Instantiator__CalcOffsetLimitCountOf_fn(Instantiator* __this, int* length, int* __retval);
-void Instantiator__CompleteActionGood_fn(Instantiator* __this);
+void Instantiator__AddMatchingTemplates_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* item, ::g::Fuse::Reactive::TemplateMatch* f, bool* __retval);
+void Instantiator__AddTemplate_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* item, ::g::Uno::UX::Template* f);
+void Instantiator__BroadcastDataChange1_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi, uObject* oldData);
+void Instantiator__CleanupWindowItem_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi);
 void Instantiator__CompletedRemove_fn(Instantiator* __this, ::g::Fuse::Node* n);
-void Instantiator__CompleteNodeAction_fn(Instantiator* __this);
-void Instantiator__CompleteWindowItem_fn(Instantiator* __this, Instantiator__WindowItem* wi, int* windowIndex);
+void Instantiator__CompleteWindowItem_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi, int32_t* windowIndex);
 void Instantiator__CompleteWindowItems_fn(Instantiator* __this, bool* one, bool* __retval);
 void Instantiator__CompleteWindowItemsAction_fn(Instantiator* __this);
-void Instantiator__get_Count_fn(Instantiator* __this, int* __retval);
-void Instantiator__set_Count_fn(Instantiator* __this, int* value);
-void Instantiator__get_DataCount_fn(Instantiator* __this, int* __retval);
-void Instantiator__DataIndexOfChild_fn(Instantiator* __this, ::g::Fuse::Node* child, int* __retval);
-void Instantiator__DataToWindowIndex_fn(Instantiator* __this, int* dataIndex, int* __retval);
-void Instantiator__get_Defer_fn(Instantiator* __this, int* __retval);
-void Instantiator__set_Defer_fn(Instantiator* __this, int* value);
+void Instantiator__get_DataCount_fn(Instantiator* __this, int32_t* __retval);
+void Instantiator__DataIndexOfChild_fn(Instantiator* __this, ::g::Fuse::Node* child, int32_t* __retval);
+void Instantiator__get_Defaults_fn(Instantiator* __this, int32_t* __retval);
+void Instantiator__set_Defaults_fn(Instantiator* __this, int32_t* value);
+void Instantiator__get_Defer_fn(Instantiator* __this, int32_t* __retval);
+void Instantiator__set_Defer_fn(Instantiator* __this, int32_t* value);
 void Instantiator__get_DeferredPriority_fn(Instantiator* __this, float* __retval);
 void Instantiator__set_DeferredPriority_fn(Instantiator* __this, float* value);
-void Instantiator__DisposeItemsSubscription_fn(Instantiator* __this);
+void Instantiator__DisposeWindowItem_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi);
 void Instantiator__FuseIDeferredPerform_fn(Instantiator* __this, bool* __retval);
-void Instantiator__FuseNodeISubtreeDataProviderGetData_fn(Instantiator* __this, ::g::Fuse::Node* n, uObject** __retval);
-void Instantiator__FuseReactiveIObserverOnAdd_fn(Instantiator* __this, uObject* addedValue);
-void Instantiator__FuseReactiveIObserverOnClear_fn(Instantiator* __this);
-void Instantiator__FuseReactiveIObserverOnFailed_fn(Instantiator* __this, uString* message);
-void Instantiator__FuseReactiveIObserverOnInsertAt_fn(Instantiator* __this, int* index, uObject* value);
-void Instantiator__FuseReactiveIObserverOnNewAll_fn(Instantiator* __this, uObject* values);
-void Instantiator__FuseReactiveIObserverOnNewAt_fn(Instantiator* __this, int* index, uObject* value);
-void Instantiator__FuseReactiveIObserverOnRemoveAt_fn(Instantiator* __this, int* index);
-void Instantiator__FuseReactiveIObserverOnSet_fn(Instantiator* __this, uObject* newValue);
-void Instantiator__GetAvailableNodes_fn(Instantiator* __this, Instantiator__TemplateMatch* f, uObject* id, Instantiator__WindowItem** __retval);
-void Instantiator__GetData_fn(Instantiator* __this, int* dataIndex, uObject** __retval);
-void Instantiator__GetDataCount_fn(Instantiator* __this, int* __retval);
-void Instantiator__GetDataId_fn(Instantiator* __this, uObject* data, uObject** __retval);
-void Instantiator__GetDataKey_fn(Instantiator* __this, uObject* data, uString* key, uObject** __retval);
-void Instantiator__GetDataTemplate_fn(Instantiator* __this, uObject* data, Instantiator__TemplateMatch* __retval);
+void Instantiator__FuseNodeISubtreeDataProviderTryGetDataProvider_fn(Instantiator* __this, ::g::Fuse::Node* n, int32_t* type, uObject** provider, int32_t* __retval);
+void Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerAddedWindowItem_fn(Instantiator* __this, int32_t* windowIndex, ::g::Fuse::Reactive::WindowItem* wi);
+void Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerOnCurrentDataChanged_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi, uObject* oldData);
+void Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerRemovedWindowItem_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi);
+void Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerSetFailed_fn(Instantiator* __this, uString* message);
+void Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerSetValid_fn(Instantiator* __this);
+void Instantiator__GetAvailableNodes_fn(Instantiator* __this, ::g::Fuse::Reactive::TemplateMatch* f, uObject* id, ::g::Fuse::Reactive::WindowItem** __retval);
+void Instantiator__GetDataTemplate_fn(Instantiator* __this, uObject* data, ::g::Fuse::Reactive::TemplateMatch* __retval);
 void Instantiator__GetItems_fn(Instantiator* __this, uObject** __retval);
-void Instantiator__GetLastNodeFromIndex_fn(Instantiator* __this, int* windowIndex, ::g::Fuse::Node** __retval);
+void Instantiator__GetLastNodeFromIndex_fn(Instantiator* __this, int32_t* windowIndex, ::g::Fuse::Node** __retval);
 void Instantiator__GetLastNodeInGroup_fn(Instantiator* __this, ::g::Fuse::Node** __retval);
 void Instantiator__get_HasLimit_fn(Instantiator* __this, bool* __retval);
-void Instantiator__get_Identity_fn(Instantiator* __this, int* __retval);
-void Instantiator__set_Identity_fn(Instantiator* __this, int* value);
-void Instantiator__get_IdentityKey_fn(Instantiator* __this, uString** __retval);
-void Instantiator__set_IdentityKey_fn(Instantiator* __this, uString* value);
-void Instantiator__InsertNew_fn(Instantiator* __this, int* dataIndex);
-void Instantiator__InsertNewWindowItem_fn(Instantiator* __this, int* windowIndex, uObject* data);
-void Instantiator__get_IsListeningItems_fn(Instantiator* __this, bool* __retval);
-void Instantiator__get_Limit_fn(Instantiator* __this, int* __retval);
-void Instantiator__set_Limit_fn(Instantiator* __this, int* value);
+void Instantiator__get_Limit_fn(Instantiator* __this, int32_t* __retval);
+void Instantiator__set_Limit_fn(Instantiator* __this, int32_t* value);
+void Instantiator__get_Match_fn(Instantiator* __this, uString** __retval);
+void Instantiator__set_Match_fn(Instantiator* __this, uString* value);
 void Instantiator__get_MatchKey_fn(Instantiator* __this, uString** __retval);
 void Instantiator__set_MatchKey_fn(Instantiator* __this, uString* value);
-void Instantiator__get_Offset_fn(Instantiator* __this, int* __retval);
-void Instantiator__set_Offset_fn(Instantiator* __this, int* value);
+void Instantiator__get_Offset_fn(Instantiator* __this, int32_t* __retval);
+void Instantiator__set_Offset_fn(Instantiator* __this, int32_t* value);
 void Instantiator__OnRooted_fn(Instantiator* __this);
 void Instantiator__OnTemplatesChanged_fn(Instantiator* __this, ::g::Uno::UX::Template* factory);
 void Instantiator__OnUnrooted_fn(Instantiator* __this);
 void Instantiator__OnUpdatedWindowItems_fn(Instantiator* __this);
-void Instantiator__PatchTo_fn(Instantiator* __this, uObject* values);
 void Instantiator__PostUpdatedWindowItems_fn(Instantiator* __this);
-void Instantiator__RefreshItems_fn(Instantiator* __this);
-void Instantiator__RemoveAll_fn(Instantiator* __this);
-void Instantiator__RemoveAt_fn(Instantiator* __this, int* dataIndex);
+void Instantiator__PrepareDataContext_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi);
+void Instantiator__PrepareWindowItem_fn(Instantiator* __this, int32_t* windowIndex, ::g::Fuse::Reactive::WindowItem* wi);
+void Instantiator__RecreateTemplates_fn(Instantiator* __this);
+void Instantiator__RemoveAvailableItems_fn(Instantiator* __this);
+void Instantiator__RemoveAvailableItemsAction_fn(Instantiator* __this);
 void Instantiator__RemoveFromParent_fn(Instantiator* __this, ::g::Fuse::Node* n);
-void Instantiator__RemoveLastActive_fn(Instantiator* __this);
-void Instantiator__RemovePendingAvailableItems_fn(Instantiator* __this);
-void Instantiator__RemovePendingAvailableItemsAction_fn(Instantiator* __this);
-void Instantiator__RemoveWindowItem_fn(Instantiator* __this, Instantiator__WindowItem* wi);
-void Instantiator__Repopulate_fn(Instantiator* __this);
-void Instantiator__get_Reuse_fn(Instantiator* __this, int* __retval);
-void Instantiator__set_Reuse_fn(Instantiator* __this, int* value);
-void Instantiator__SetFailed_fn(Instantiator* __this, uString* message);
+void Instantiator__get_Reuse_fn(Instantiator* __this, int32_t* __retval);
+void Instantiator__set_Reuse_fn(Instantiator* __this, int32_t* value);
+void Instantiator__ScheduleRemoveAvailableItems_fn(Instantiator* __this);
 void Instantiator__SetItems_fn(Instantiator* __this, uObject* value);
-void Instantiator__SetValid_fn(Instantiator* __this);
-void Instantiator__StartListeningItems_fn(Instantiator* __this);
 void Instantiator__get_TemplateKey_fn(Instantiator* __this, uString** __retval);
 void Instantiator__set_TemplateKey_fn(Instantiator* __this, uString* value);
 void Instantiator__get_Templates_fn(Instantiator* __this, uObject** __retval);
-void Instantiator__TrimAndPad_fn(Instantiator* __this);
-void Instantiator__TryUpdateAt_fn(Instantiator* __this, int* dataIndex, uObject* newData, bool* __retval);
-void Instantiator__UpdateData_fn(Instantiator* __this, Instantiator__WindowItem* item, uObject* oldData);
 void Instantiator__add_UpdatedWindowItems_fn(Instantiator* __this, uDelegate* value);
 void Instantiator__remove_UpdatedWindowItems_fn(Instantiator* __this, uDelegate* value);
 
 struct Instantiator : ::g::Fuse::Behavior
 {
+    uStrong< ::g::Fuse::Triggers::BusyTask*> _busyTask;
+    uStrong<uDelegate*> _completedRemove;
     uStrong<uObject*> _templates;
     uStrong< ::g::Uno::Collections::RootableList*> _rootTemplates;
-    int _defer;
-    int _reuse;
-    int _identity;
-    uStrong<uString*> _identityKey;
+    int32_t _defer;
+    int32_t _reuse;
     float _deferredPriority;
     uWeak<uObject*> _weakTemplateSource;
     uStrong<uObject*> _templateSource;
-    int _offset;
-    int _limit;
-    bool _hasLimit;
-    uStrong<uObject*> _items;
-    int _count;
+    uStrong<uString*> _templateKey;
     uStrong<uString*> _matchKey;
+    uStrong<uString*> _match;
+    int32_t _defaults;
     uStrong< ::g::Uno::Collections::Dictionary*> _dataMap;
-    uStrong<uObject*> _itemsSubscription;
-    bool _isListeningItems;
-    uStrong< ::g::Fuse::Triggers::BusyTask*> _busyTask;
-    uStrong<uDelegate*> _completedRemove;
     bool _pendingNew;
     uStrong< ::g::Uno::Collections::Dictionary*> _availableItemsById;
     uStrong< ::g::Fuse::Internal::ObjectList*> _availableItems;
     bool _pendingAvailableItems;
-    uStrong< ::g::Fuse::Internal::ObjectList*> _windowItems;
+    uStrong< ::g::Fuse::Reactive::ItemsWindowList*> _watcher;
     bool _pendingUpdateWindowItems;
-    uStrong<uString*> _TemplateKey;
     uStrong<uDelegate*> UpdatedWindowItems1;
 
     void ctor_3();
-    bool AddMatchingTemplates(Instantiator__WindowItem* item, Instantiator__TemplateMatch f);
-    void AddTemplate(Instantiator__WindowItem* item, ::g::Uno::UX::Template* f);
-    void Append();
-    int CalcOffsetLimitCountOf(int length);
-    void CompleteActionGood();
+    bool AddMatchingTemplates(::g::Fuse::Reactive::WindowItem* item, ::g::Fuse::Reactive::TemplateMatch f);
+    void AddTemplate(::g::Fuse::Reactive::WindowItem* item, ::g::Uno::UX::Template* f);
+    void BroadcastDataChange1(::g::Fuse::Reactive::WindowItem* wi, uObject* oldData);
+    void CleanupWindowItem(::g::Fuse::Reactive::WindowItem* wi);
     void CompletedRemove(::g::Fuse::Node* n);
-    void CompleteNodeAction();
-    void CompleteWindowItem(Instantiator__WindowItem* wi, int windowIndex);
+    void CompleteWindowItem(::g::Fuse::Reactive::WindowItem* wi, int32_t windowIndex);
     bool CompleteWindowItems(bool one);
     void CompleteWindowItemsAction();
-    int Count();
-    void Count(int value);
-    int DataCount();
-    int DataIndexOfChild(::g::Fuse::Node* child);
-    int DataToWindowIndex(int dataIndex);
-    int Defer();
-    void Defer(int value);
+    int32_t DataCount();
+    int32_t DataIndexOfChild(::g::Fuse::Node* child);
+    int32_t Defaults();
+    void Defaults(int32_t value);
+    int32_t Defer();
+    void Defer(int32_t value);
     float DeferredPriority();
     void DeferredPriority(float value);
-    void DisposeItemsSubscription();
-    Instantiator__WindowItem* GetAvailableNodes(Instantiator__TemplateMatch f, uObject* id);
-    uObject* GetData(int dataIndex);
-    int GetDataCount();
-    uObject* GetDataId(uObject* data);
-    uObject* GetDataKey(uObject* data, uString* key);
-    Instantiator__TemplateMatch GetDataTemplate(uObject* data);
+    void DisposeWindowItem(::g::Fuse::Reactive::WindowItem* wi);
+    ::g::Fuse::Reactive::WindowItem* GetAvailableNodes(::g::Fuse::Reactive::TemplateMatch f, uObject* id);
+    ::g::Fuse::Reactive::TemplateMatch GetDataTemplate(uObject* data);
     uObject* GetItems();
-    ::g::Fuse::Node* GetLastNodeFromIndex(int windowIndex);
+    ::g::Fuse::Node* GetLastNodeFromIndex(int32_t windowIndex);
     bool HasLimit();
-    int Identity();
-    void Identity(int value);
-    uString* IdentityKey();
-    void IdentityKey(uString* value);
-    void InsertNew(int dataIndex);
-    void InsertNewWindowItem(int windowIndex, uObject* data);
-    bool IsListeningItems();
-    int Limit();
-    void Limit(int value);
+    int32_t Limit();
+    void Limit(int32_t value);
+    uString* Match();
+    void Match(uString* value);
     uString* MatchKey();
     void MatchKey(uString* value);
-    int Offset();
-    void Offset(int value);
+    int32_t Offset();
+    void Offset(int32_t value);
     void OnTemplatesChanged(::g::Uno::UX::Template* factory);
     void OnUpdatedWindowItems();
-    void PatchTo(uObject* values);
     void PostUpdatedWindowItems();
-    void RefreshItems();
-    void RemoveAll();
-    void RemoveAt(int dataIndex);
+    void PrepareDataContext(::g::Fuse::Reactive::WindowItem* wi);
+    void PrepareWindowItem(int32_t windowIndex, ::g::Fuse::Reactive::WindowItem* wi);
+    void RecreateTemplates();
+    void RemoveAvailableItems();
+    void RemoveAvailableItemsAction();
     void RemoveFromParent(::g::Fuse::Node* n);
-    void RemoveLastActive();
-    void RemovePendingAvailableItems();
-    void RemovePendingAvailableItemsAction();
-    void RemoveWindowItem(Instantiator__WindowItem* wi);
-    void Repopulate();
-    int Reuse();
-    void Reuse(int value);
-    void SetFailed(uString* message);
+    int32_t Reuse();
+    void Reuse(int32_t value);
+    void ScheduleRemoveAvailableItems();
     void SetItems(uObject* value);
-    void SetValid();
-    void StartListeningItems();
     uString* TemplateKey();
     void TemplateKey(uString* value);
     uObject* Templates();
-    void TrimAndPad();
-    bool TryUpdateAt(int dataIndex, uObject* newData);
-    void UpdateData(Instantiator__WindowItem* item, uObject* oldData);
     void add_UpdatedWindowItems(uDelegate* value);
     void remove_UpdatedWindowItems(uDelegate* value);
 };

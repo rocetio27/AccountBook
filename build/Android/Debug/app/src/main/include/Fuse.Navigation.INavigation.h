@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.4.2/INavigation.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.9.0/INavigation.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -18,28 +18,24 @@ uInterfaceType* INavigation_typeof();
 struct INavigation
 {
     void(*fp_get_ActivePage)(uObject*, ::g::Fuse::Visual**);
-    void(*fp_add_ActivePageChanged)(uObject*, uDelegate*);
-    void(*fp_remove_ActivePageChanged)(uObject*, uDelegate*);
     void(*fp_GetPageState)(uObject*, ::g::Fuse::Visual*, ::g::Fuse::Navigation::NavigationPageState*);
-    void(*fp_Goto)(uObject*, ::g::Fuse::Visual*, int*);
+    void(*fp_Goto)(uObject*, ::g::Fuse::Visual*, int32_t*);
     void(*fp_add_Navigated)(uObject*, uDelegate*);
     void(*fp_remove_Navigated)(uObject*, uDelegate*);
     void(*fp_add_PageProgressChanged)(uObject*, uDelegate*);
     void(*fp_remove_PageProgressChanged)(uObject*, uDelegate*);
-    void(*fp_get_State)(uObject*, int*);
+    void(*fp_get_State)(uObject*, int32_t*);
     void(*fp_add_StateChanged)(uObject*, uDelegate*);
     void(*fp_remove_StateChanged)(uObject*, uDelegate*);
     void(*fp_Toggle)(uObject*, ::g::Fuse::Visual*);
     static ::g::Fuse::Visual* ActivePage(const uInterface& __this) { ::g::Fuse::Visual* __retval; return __this.VTable<INavigation>()->fp_get_ActivePage(__this, &__retval), __retval; }
-    static void add_ActivePageChanged(const uInterface& __this, uDelegate* value) { __this.VTable<INavigation>()->fp_add_ActivePageChanged(__this, value); }
-    static void remove_ActivePageChanged(const uInterface& __this, uDelegate* value) { __this.VTable<INavigation>()->fp_remove_ActivePageChanged(__this, value); }
     static ::g::Fuse::Navigation::NavigationPageState GetPageState(const uInterface& __this, ::g::Fuse::Visual* page);
-    static void Goto(const uInterface& __this, ::g::Fuse::Visual* node, int mode) { __this.VTable<INavigation>()->fp_Goto(__this, node, &mode); }
+    static void Goto(const uInterface& __this, ::g::Fuse::Visual* node, int32_t mode) { __this.VTable<INavigation>()->fp_Goto(__this, node, &mode); }
     static void add_Navigated(const uInterface& __this, uDelegate* value) { __this.VTable<INavigation>()->fp_add_Navigated(__this, value); }
     static void remove_Navigated(const uInterface& __this, uDelegate* value) { __this.VTable<INavigation>()->fp_remove_Navigated(__this, value); }
     static void add_PageProgressChanged(const uInterface& __this, uDelegate* value) { __this.VTable<INavigation>()->fp_add_PageProgressChanged(__this, value); }
     static void remove_PageProgressChanged(const uInterface& __this, uDelegate* value) { __this.VTable<INavigation>()->fp_remove_PageProgressChanged(__this, value); }
-    static int State(const uInterface& __this) { int __retval; return __this.VTable<INavigation>()->fp_get_State(__this, &__retval), __retval; }
+    static int32_t State(const uInterface& __this) { int32_t __retval; return __this.VTable<INavigation>()->fp_get_State(__this, &__retval), __retval; }
     static void add_StateChanged(const uInterface& __this, uDelegate* value) { __this.VTable<INavigation>()->fp_add_StateChanged(__this, value); }
     static void remove_StateChanged(const uInterface& __this, uDelegate* value) { __this.VTable<INavigation>()->fp_remove_StateChanged(__this, value); }
     static void Toggle(const uInterface& __this, ::g::Fuse::Visual* node) { __this.VTable<INavigation>()->fp_Toggle(__this, node); }

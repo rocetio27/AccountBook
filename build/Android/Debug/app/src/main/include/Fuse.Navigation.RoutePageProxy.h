@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.4.2/RoutePageProxy.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.9.0/RoutePageProxy.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -18,11 +18,11 @@ namespace Navigation{
 // {
 uType* RoutePageProxy_typeof();
 void RoutePageProxy__ctor_1_fn(RoutePageProxy* __this, ::g::Fuse::Visual* source, uDelegate* progressUpdated);
-void RoutePageProxy__DiscardLevels_fn(RoutePageProxy* __this, int* start);
+void RoutePageProxy__DiscardLevels_fn(RoutePageProxy* __this, int32_t* start);
 void RoutePageProxy__Dispose_fn(RoutePageProxy* __this);
 void RoutePageProxy__Dispose1_fn(RoutePageProxy* __this, RoutePageProxy__Level* level);
 void RoutePageProxy__ExtendListen_fn(RoutePageProxy* __this, RoutePageProxy__Level* level, bool* __retval);
-void RoutePageProxy__GetLevel_fn(RoutePageProxy* __this, uObject* sender, int* __retval);
+void RoutePageProxy__GetLevel_fn(RoutePageProxy* __this, uObject* sender, int32_t* __retval);
 void RoutePageProxy__GetProgress_fn(RoutePageProxy* __this, double* __retval);
 void RoutePageProxy__GetState_fn(RoutePageProxy* __this, bool* isActive, bool* isStable);
 void RoutePageProxy__Init_fn(RoutePageProxy* __this);
@@ -34,18 +34,18 @@ void RoutePageProxy__New2_fn(::g::Fuse::Visual* source, uDelegate* progressUpdat
 void RoutePageProxy__OnActivePageChanged_fn(RoutePageProxy* __this, uObject* s, ::g::Fuse::Visual* active);
 void RoutePageProxy__OnNavigationProgressChanged_fn(RoutePageProxy* __this, uObject* sender, ::g::Fuse::Navigation::NavigationArgs* state);
 void RoutePageProxy__OnStateChanged_fn(RoutePageProxy* __this, uObject* s, ::g::Uno::UX::ValueChangedArgs* state);
-void RoutePageProxy__get_Path_fn(RoutePageProxy* __this, int* __retval);
-void RoutePageProxy__set_Path_fn(RoutePageProxy* __this, int* value);
+void RoutePageProxy__get_Path_fn(RoutePageProxy* __this, int32_t* __retval);
+void RoutePageProxy__set_Path_fn(RoutePageProxy* __this, int32_t* value);
 void RoutePageProxy__ScheduleActiveChanged_fn(RoutePageProxy* __this);
-void RoutePageProxy__get_TriggerWhen_fn(RoutePageProxy* __this, int* __retval);
-void RoutePageProxy__set_TriggerWhen_fn(RoutePageProxy* __this, int* value);
+void RoutePageProxy__get_TriggerWhen_fn(RoutePageProxy* __this, int32_t* __retval);
+void RoutePageProxy__set_TriggerWhen_fn(RoutePageProxy* __this, int32_t* value);
 void RoutePageProxy__Unlisten_fn(RoutePageProxy* __this, RoutePageProxy__Level* level);
 void RoutePageProxy__UpdateActive_fn(RoutePageProxy* __this);
 
 struct RoutePageProxy : uObject
 {
-    int _path;
-    int _triggerWhen;
+    int32_t _path;
+    int32_t _triggerWhen;
     uStrong< ::g::Fuse::Visual*> _source;
     uStrong<uDelegate*> _progressUpdated;
     uStrong<uDelegate*> _activeChanged;
@@ -54,11 +54,11 @@ struct RoutePageProxy : uObject
     bool _activeChangedPending;
 
     void ctor_1(::g::Fuse::Visual* source, uDelegate* progressUpdated);
-    void DiscardLevels(int start);
+    void DiscardLevels(int32_t start);
     void Dispose();
     void Dispose1(RoutePageProxy__Level level);
     bool ExtendListen(RoutePageProxy__Level level);
-    int GetLevel(uObject* sender);
+    int32_t GetLevel(uObject* sender);
     double GetProgress();
     void GetState(bool* isActive, bool* isStable);
     void Init();
@@ -69,11 +69,11 @@ struct RoutePageProxy : uObject
     void OnActivePageChanged(uObject* s, ::g::Fuse::Visual* active);
     void OnNavigationProgressChanged(uObject* sender, ::g::Fuse::Navigation::NavigationArgs* state);
     void OnStateChanged(uObject* s, ::g::Uno::UX::ValueChangedArgs* state);
-    int Path();
-    void Path(int value);
+    int32_t Path();
+    void Path(int32_t value);
     void ScheduleActiveChanged();
-    int TriggerWhen();
-    void TriggerWhen(int value);
+    int32_t TriggerWhen();
+    void TriggerWhen(int32_t value);
     void Unlisten(RoutePageProxy__Level level);
     void UpdateActive();
     static RoutePageProxy* New2(::g::Fuse::Visual* source, uDelegate* progressUpdated);

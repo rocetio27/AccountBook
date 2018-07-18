@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/TextControls/TextControl.Forwarding.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/TextControls/TextControl.Forwarding.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -8,6 +8,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -39,12 +40,12 @@ namespace Controls{
 // {
 struct TextControl_type : ::g::Fuse::Controls::Control_type
 {
-    ::g::Fuse::Triggers::IValue interface17;
+    ::g::Fuse::Triggers::IValue interface18;
     void(*fp_InvalidateRenderer)(::g::Fuse::Controls::TextControl*);
     void(*fp_OnValueChanged)(::g::Fuse::Controls::TextControl*, uObject*);
     void(*fp_get_RenderValue)(::g::Fuse::Controls::TextControl*, uString**);
-    void(*fp_get_TextTruncation)(::g::Fuse::Controls::TextControl*, int*);
-    void(*fp_set_TextTruncation)(::g::Fuse::Controls::TextControl*, int*);
+    void(*fp_get_TextTruncation)(::g::Fuse::Controls::TextControl*, int32_t*);
+    void(*fp_set_TextTruncation)(::g::Fuse::Controls::TextControl*, int32_t*);
 };
 
 TextControl_type* TextControl_typeof();
@@ -68,8 +69,8 @@ void TextControl__InvalidateRenderer_fn(TextControl* __this);
 void TextControl__InvalidateTextRenderer_fn(TextControl* __this);
 void TextControl__get_LineSpacing_fn(TextControl* __this, float* __retval);
 void TextControl__set_LineSpacing_fn(TextControl* __this, float* value);
-void TextControl__get_MaxLength_fn(TextControl* __this, int* __retval);
-void TextControl__set_MaxLength_fn(TextControl* __this, int* value);
+void TextControl__get_MaxLength_fn(TextControl* __this, int32_t* __retval);
+void TextControl__set_MaxLength_fn(TextControl* __this, int32_t* value);
 void TextControl__OnColorChanged_fn(TextControl* __this, uObject* origin);
 void TextControl__OnFontChanged_fn(TextControl* __this);
 void TextControl__OnFontSizeChanged_fn(TextControl* __this);
@@ -83,21 +84,22 @@ void TextControl__OnTextWrappingChanged_fn(TextControl* __this);
 void TextControl__OnUnrooted_fn(TextControl* __this);
 void TextControl__OnValueChanged_fn(TextControl* __this, uObject* origin);
 void TextControl__PushPropertiesToNativeView_fn(TextControl* __this);
+void TextControl__get_RenderColor_fn(TextControl* __this, ::g::Uno::Float4* __retval);
 void TextControl__get_RenderValue_fn(TextControl* __this, uString** __retval);
 void TextControl__SetColor_fn(TextControl* __this, ::g::Uno::Float4* color, uObject* origin);
 void TextControl__SetValue_fn(TextControl* __this, uString* value, uObject* origin);
 void TextControl__SetValueInternal_fn(TextControl* __this, uString* newValue);
 void TextControl__SoftDispose_fn(TextControl* __this);
-void TextControl__get_TextAlignment_fn(TextControl* __this, int* __retval);
-void TextControl__set_TextAlignment_fn(TextControl* __this, int* value);
+void TextControl__get_TextAlignment_fn(TextControl* __this, int32_t* __retval);
+void TextControl__set_TextAlignment_fn(TextControl* __this, int32_t* value);
 void TextControl__get_TextColor_fn(TextControl* __this, ::g::Uno::Float4* __retval);
 void TextControl__set_TextColor_fn(TextControl* __this, ::g::Uno::Float4* value);
 void TextControl__get_TextRendererFactory_fn(uDelegate** __retval);
 void TextControl__set_TextRendererFactory_fn(uDelegate* value);
-void TextControl__get_TextTruncation_fn(TextControl* __this, int* __retval);
-void TextControl__set_TextTruncation_fn(TextControl* __this, int* value);
-void TextControl__get_TextWrapping_fn(TextControl* __this, int* __retval);
-void TextControl__set_TextWrapping_fn(TextControl* __this, int* value);
+void TextControl__get_TextTruncation_fn(TextControl* __this, int32_t* __retval);
+void TextControl__set_TextTruncation_fn(TextControl* __this, int32_t* value);
+void TextControl__get_TextWrapping_fn(TextControl* __this, int32_t* __retval);
+void TextControl__set_TextWrapping_fn(TextControl* __this, int32_t* value);
 void TextControl__get_Value_fn(TextControl* __this, uString** __retval);
 void TextControl__set_Value_fn(TextControl* __this, uString* value);
 void TextControl__add_ValueChanged_fn(TextControl* __this, uDelegate* value);
@@ -129,7 +131,7 @@ struct TextControl : ::g::Fuse::Controls::LayoutControl
     static ::g::Uno::UX::Selector& LoadAsyncPropertyName() { return TextControl_typeof()->Init(), LoadAsyncPropertyName_; }
     uStrong<uObject*> _textRenderer;
     uStrong<uString*> _value;
-    int _maxLength;
+    int32_t _maxLength;
     float _fontSize;
     uStrong< ::g::Fuse::Font*> _font;
     ::g::Uno::Float4 _color;
@@ -151,8 +153,8 @@ struct TextControl : ::g::Fuse::Controls::LayoutControl
     void InvalidateTextRenderer();
     float LineSpacing();
     void LineSpacing(float value);
-    int MaxLength();
-    void MaxLength(int value);
+    int32_t MaxLength();
+    void MaxLength(int32_t value);
     void OnColorChanged(uObject* origin);
     void OnFontChanged();
     void OnFontSizeChanged();
@@ -162,18 +164,19 @@ struct TextControl : ::g::Fuse::Controls::LayoutControl
     void OnTextTruncationChanged();
     void OnTextWrappingChanged();
     void OnValueChanged(uObject* origin) { (((TextControl_type*)__type)->fp_OnValueChanged)(this, origin); }
+    ::g::Uno::Float4 RenderColor();
     uString* RenderValue() { uString* __retval; return (((TextControl_type*)__type)->fp_get_RenderValue)(this, &__retval), __retval; }
     void SetColor(::g::Uno::Float4 color, uObject* origin);
     void SetValue(uString* value, uObject* origin);
     void SetValueInternal(uString* newValue);
-    int TextAlignment();
-    void TextAlignment(int value);
+    int32_t TextAlignment();
+    void TextAlignment(int32_t value);
     ::g::Uno::Float4 TextColor();
     void TextColor(::g::Uno::Float4 value);
-    int TextTruncation() { int __retval; return (((TextControl_type*)__type)->fp_get_TextTruncation)(this, &__retval), __retval; }
-    void TextTruncation(int value) { (((TextControl_type*)__type)->fp_set_TextTruncation)(this, &value); }
-    int TextWrapping();
-    void TextWrapping(int value);
+    int32_t TextTruncation() { int32_t __retval; return (((TextControl_type*)__type)->fp_get_TextTruncation)(this, &__retval), __retval; }
+    void TextTruncation(int32_t value) { (((TextControl_type*)__type)->fp_set_TextTruncation)(this, &value); }
+    int32_t TextWrapping();
+    void TextWrapping(int32_t value);
     uString* Value();
     void Value(uString* value);
     void add_ValueChanged(uDelegate* value);
@@ -183,8 +186,8 @@ struct TextControl : ::g::Fuse::Controls::LayoutControl
     static uString* RenderValue(TextControl* __this) { uString* __retval; return TextControl__get_RenderValue_fn(__this, &__retval), __retval; }
     static uDelegate* TextRendererFactory();
     static void TextRendererFactory(uDelegate* value);
-    static int TextTruncation(TextControl* __this) { int __retval; return TextControl__get_TextTruncation_fn(__this, &__retval), __retval; }
-    static void TextTruncation(TextControl* __this, int value) { TextControl__set_TextTruncation_fn(__this, &value); }
+    static int32_t TextTruncation(TextControl* __this) { int32_t __retval; return TextControl__get_TextTruncation_fn(__this, &__retval), __retval; }
+    static void TextTruncation(TextControl* __this, int32_t value) { TextControl__set_TextTruncation_fn(__this, &value); }
 };
 // }
 

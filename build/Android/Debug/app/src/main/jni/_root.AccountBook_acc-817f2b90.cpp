@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_acc-817f2b90.h>
@@ -20,9 +20,8 @@ namespace g{
 // static generated AccountBook_accessor_ccButton_text() :71
 static void AccountBook_accessor_ccButton_text__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     AccountBook_accessor_ccButton_text::Singleton_ = AccountBook_accessor_ccButton_text::New1();
-    AccountBook_accessor_ccButton_text::_name_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"text"*/]);
+    AccountBook_accessor_ccButton_text::_name_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"text"*/]);
 }
 
 static void AccountBook_accessor_ccButton_text_build(uType* type)

@@ -9,7 +9,7 @@ namespace g{
 namespace Uno{
 namespace Net{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.4.3\NetworkHelpers.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Sockets\1.9.0\NetworkHelpers.uno
 // ------------------------------------------------------------------------------------------------
 
 // internal sealed extern class NetworkHelpers :8

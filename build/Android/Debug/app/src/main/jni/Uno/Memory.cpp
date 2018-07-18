@@ -1,24 +1,20 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Backends/CPlusPlus/Uno/Memory.cpp.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Backends/CPlusPlus/Uno/Memory.cpp.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <Uno/_internal.h>
-#include <Uno/Support.h>
-#include <uBase/Atomic.h>
-#include <uBase/HashMap.h>
-#include <uBase/String.h>
-#include <uBase/StringBuilder.h>
+#include <Uno/ObjectMonitor.h>
 #include <uBase/Thread.h>
-#include <uBase/Traits.h>
-#include <uBase/Unicode.h>
+#include <string>
+#include <sstream>
 #include <Uno.Type.h>
 #include <Uno.String.h>
 
-static void* _MainThread;
+static bool _Initialized;
+static std::mutex _Mutex;
 static uBase::ThreadLocal* _ThreadLocal;
-static uBase::Mutex* _WeakMutex;
 
 #ifdef DEBUG_DUMPS
-static uBase::HashMap<uObject*, bool>* _HeapObjects;
+static std::unordered_map<uObject*, bool>* _HeapObjects;
 #endif
 
 static bool uTryClearWeak(uObject*);
@@ -53,22 +49,19 @@ static void uFreeThreadData(void* value)
 
 uRuntime::uRuntime()
 {
-    if (_MainThread)
+    if (_Initialized)
         uFatal(NULL, "There is only room for one Uno Runtime object in this process.");
 
-    _MainThread = uBase::GetThread();
+    _Initialized = true;
     _ThreadLocal = uBase::CreateThreadLocal(uFreeThreadData);
-    _WeakMutex = uBase::CreateMutex();
-
 #ifdef DEBUG_DUMPS
-    _HeapObjects = new uBase::HashMap<uObject*, bool>();
+    _HeapObjects = new std::unordered_map<uObject*, bool>();
 #endif
 
     uAutoReleasePool pool;
 //#if #(REFLECTION:Defined)
 //    uInitReflection();
 //#endif
-    uInitSupport();
     uInitObjectModel();
 //#if #(REFLECTION:Defined)
 //    uRegisterIntrinsics();
@@ -77,26 +70,14 @@ uRuntime::uRuntime()
 
 uRuntime::~uRuntime()
 {
-    uFreeSupport();
     uFreeObjectModel();
 //#if #(REFLECTION:Defined)
 //    uFreeReflection();
 //#endif
-
 #ifdef DEBUG_DUMPS
     delete _HeapObjects;
 #endif
-
     uBase::DeleteThreadLocal(_ThreadLocal);
-    uBase::DeleteMutex(_WeakMutex);
-}
-
-uType* uSwapThreadType(uType* type)
-{
-    uThreadData* thread = uGetThreadData();
-    uType* result = thread->CurrentType;
-    thread->CurrentType = type;
-    return result;
 }
 
 uStackFrame::uStackFrame(const char* type, const char* function)
@@ -123,40 +104,41 @@ uStackFrame::~uStackFrame()
 
 uString* uGetStackTrace()
 {
-    uBase::StringBuilder sb;
+    std::stringstream sb;
     uThreadData* thread = uGetThreadData();
 
     for (uCallStackFrame* frame = thread->CallStackPtr;
          frame >= thread->CallStack;
          frame--)
     {
-        if (sb.GetLength() > 0)
-            sb += '\n';
+        if (sb.tellp() > 0)
+            sb << '\n';
 
-        sb += "   at ";
-        sb += frame->Type;
-        sb += '.';
-        sb += frame->Function;
+        sb << "   at ";
+        sb << frame->Type;
+        sb << '.';
+        sb << frame->Function;
     }
 
-    return uStringFromXliString(sb.ToString());
+    std::string str = sb.str();
+    return uString::Utf8(str.c_str(), str.size());
 }
 
 #ifdef DEBUG_ARC
-static uBase::String uGetCaller()
+static std::string uGetCaller()
 {
     uThreadData* thread = uGetThreadData();
 
     if (thread->CallStackPtr < thread->CallStack)
         return "";
 
-    uBase::StringBuilder sb;
+    std::stringstream sb;
     uCallStackFrame* frame = thread->CallStackPtr;
-    sb += " -- at ";
-    sb += frame->Type;
-    sb += '.';
-    sb += frame->Function;
-    return sb.ToString();
+    sb << " -- at ";
+    sb << frame->Type;
+    sb << '.';
+    sb << frame->Function;
+    return sb.str();
 }
 #endif
 
@@ -164,7 +146,7 @@ static void uPushAutoReleasePool(uThreadData* thread)
 {
     uAutoReleaseFrame* frame = ++thread->AutoReleasePtr;
     U_ASSERT(frame < thread->AutoReleaseEnd);
-    frame->StartIndex = thread->AutoReleaseList.Length();
+    frame->StartIndex = thread->AutoReleaseList.size();
 
 #ifdef DEBUG_ARC
     frame->AllocCount = 0;
@@ -179,7 +161,7 @@ static void uPopAutoReleasePool(uThreadData* thread)
     uAutoReleaseFrame* frame = thread->AutoReleasePtr;
     U_ASSERT(thread->AutoReleasePtr >= thread->AutoReleaseStack);
 
-    for (size_t i = frame->StartIndex; i < thread->AutoReleaseList.Length(); i++)
+    for (size_t i = frame->StartIndex; i < thread->AutoReleaseList.size(); i++)
     {
         uObject* object = thread->AutoReleaseList[i];
 #ifdef DEBUG_ARC
@@ -193,7 +175,7 @@ static void uPopAutoReleasePool(uThreadData* thread)
     U_LOG("--- Alloc'd %d objects (%d bytes), Free'd %d objects (%d bytes) ---",
           frame->AllocCount, frame->AllocSize, frame->FreeCount, frame->FreeSize);
 #endif
-    thread->AutoReleaseList.Resize(frame->StartIndex);
+    thread->AutoReleaseList.resize(frame->StartIndex);
     thread->AutoReleasePtr--;
 }
 
@@ -235,7 +217,7 @@ void uAutoRelease(uObject* object)
     if (object)
     {
         uThreadData* thread = uGetThreadData();
-        thread->AutoReleaseList.Add(object);
+        thread->AutoReleaseList.push_back(object);
         U_ASSERT(thread->AutoReleasePtr >= thread->AutoReleaseStack);
 #ifdef DEBUG_ARC
         int releaseCount = 0;
@@ -247,13 +229,13 @@ void uAutoRelease(uObject* object)
         if (retainCount < 0)
         {
             U_LOG("*** BAD AUTORELEASE: %s #%d (%d bytes, %d retains) ***%s",
-                  object->__type->FullName, object->__id, object->__size, retainCount, uGetCaller().Ptr());
+                  object->__type->FullName, object->__id, object->__size, retainCount, uGetCaller().c_str());
             U_FATAL();
         }
 #endif
 #if DEBUG_ARC >= 4
         U_LOG("autorelease %s #%d (%d bytes, %d retains)%s",
-              object->__type->FullName, object->__id, object->__size, object->__retains, uGetCaller().Ptr());
+              object->__type->FullName, object->__id, object->__size, object->__retains, uGetCaller().c_str());
 #endif
     }
 }
@@ -261,7 +243,7 @@ void uAutoRelease(uObject* object)
 void uRetainStruct(uType* type, void* address)
 {
 #if DEBUG_ARC >= 4
-    U_LOG("retain %s [struct] (%d bytes)%s", type->FullName, type->ValueSize, uGetCaller().Ptr());
+    U_LOG("retain %s [struct] (%d bytes)%s", type->FullName, type->ValueSize, uGetCaller().c_str());
 #endif
     for (size_t i = 0; i < type->Refs.StrongCount; i++)
         uRetain(*(uObject**)((uint8_t*)address + type->Refs.Strong[i]));
@@ -270,7 +252,7 @@ void uRetainStruct(uType* type, void* address)
 void uReleaseStruct(uType* type, void* address)
 {
 #if DEBUG_ARC >= 4
-    U_LOG("release %s [struct] (%d bytes)%s", type->FullName, type->ValueSize, uGetCaller().Ptr());
+    U_LOG("release %s [struct] (%d bytes)%s", type->FullName, type->ValueSize, uGetCaller().c_str());
 #endif
     for (size_t i = 0; i < type->Refs.StrongCount; i++)
     {
@@ -286,7 +268,7 @@ void uReleaseStruct(uType* type, void* address)
 void uAutoReleaseStruct(uType* type, void* address)
 {
 #if DEBUG_ARC >= 4
-    U_LOG("autorelease %s [struct] (%d bytes)%s", type->FullName, type->ValueSize, uGetCaller().Ptr());
+    U_LOG("autorelease %s [struct] (%d bytes)%s", type->FullName, type->ValueSize, uGetCaller().c_str());
 #endif
     for (size_t i = 0; i < type->Refs.StrongCount; i++)
         uAutoRelease(*(uObject**)((uint8_t*)address + type->Refs.Strong[i]));
@@ -296,10 +278,10 @@ void uRetain(uObject* object)
 {
     if (object)
     {
-        uBase::AtomicIncrement(&object->__retains);
+        ++object->__retains;
 #if DEBUG_ARC >= 3
         U_LOG("retain %s #%d (%d bytes, %d retains)%s",
-              object->__type->FullName, object->__id, object->__size, object->__retains, uGetCaller().Ptr());
+              object->__type->FullName, object->__id, object->__size, object->__retains, uGetCaller().c_str());
 #endif
     }
 }
@@ -308,7 +290,7 @@ void uRelease(uObject* object)
 {
     if (object)
     {
-        if (uBase::AtomicDecrement(&object->__retains) == 0)
+        if (--object->__retains == 0)
         {
             if (!uTryClearWeak(object))
                 return;
@@ -337,7 +319,7 @@ void uRelease(uObject* object)
                     if (baseType->fp_Finalize)
                     {
                         try { (*baseType->fp_Finalize)(object); }
-                        catch (...) { uLog(uLogLevelError, "Runtime Error: Unhandled exception in finalizer for %s", baseType->FullName); }
+                        catch (const std::exception& e) { uLog(uLogLevelError, "Runtime Error: Unhandled exception in finalizer for %s: %s", baseType->FullName, e.what()); }
                     }
                 } while ((baseType = baseType->Base));
                 uReleaseStruct(type, object);
@@ -390,19 +372,16 @@ void uRelease(uObject* object)
                 break;
             }
 
-            if (object->__lockptr)
-                uBase::DeleteMutex(object->__lockptr);
-            if (object->__condptr)
-                uBase::DeleteCond(object->__condptr);
+            delete object->__monitor;
 
 #if DEBUG_ARC >= 2
             U_LOG("free %s #%d (%d bytes)%s",
-                  object->__type->FullName, object->__id, object->__size, uGetCaller().Ptr());
+                  object->__type->FullName, object->__id, object->__size, uGetCaller().c_str());
 #endif
 #ifdef DEBUG_DUMPS
-            uEnterCritical();
-            _HeapObjects->Remove(object);
-            uExitCritical();
+            _Mutex.lock();
+            _HeapObjects->erase(object);
+            _Mutex.unlock();
 #endif
             U_ASSERT(object->__type != ::g::Uno::Type_typeof());
             free(object);
@@ -413,7 +392,7 @@ void uRelease(uObject* object)
         {
 #if DEBUG_ARC >= 4
             U_LOG("*** BAD OBJECT: %s #%d (%d retains) ***%s",
-                  object->__type->FullName, object->__id, object->__retains, uGetCaller().Ptr());
+                  object->__type->FullName, object->__id, object->__retains, uGetCaller().c_str());
 #else
             U_LOG("*** BAD OBJECT: 0x%llx ***", (uintptr_t)object);
 #endif
@@ -423,7 +402,7 @@ void uRelease(uObject* object)
         {
 #if DEBUG_ARC >= 3
             U_LOG("release %s #%d (%d bytes, %d retains)%s",
-                  object->__type->FullName, object->__id, object->__size, object->__retains, uGetCaller().Ptr());
+                  object->__type->FullName, object->__id, object->__size, object->__retains, uGetCaller().c_str());
 #endif
         }
     }
@@ -597,7 +576,7 @@ void uWeakStateIntercept::SetCallback(uWeakObject* weak, uWeakStateIntercept::Ca
 template<class RT, class T0>
 static RT uCallWithWeakRefLock(RT(*func)(T0), T0 t0)
 {
-    uBase::MutexLock lock(_WeakMutex);
+    std::lock_guard<std::mutex> lock(_Mutex);
     return func(t0);
 }
 
@@ -628,7 +607,7 @@ static bool uTryClearWeak(uObject* object)
 
     if (object->__weakptr)
     {
-        if (uBase::AtomicDecrement(&object->__weakptr->RefCount) == 0)
+        if (--object->__weakptr->RefCount == 0)
             free(object->__weakptr);
 
         object->__weakptr = NULL;
@@ -652,7 +631,7 @@ static void uNewWeak(uObject* object)
 
 void uStoreWeak(uWeakObject** address, uObject* object)
 {
-    if (*address && uBase::AtomicDecrement(&(*address)->RefCount) == 0)
+    if (*address && --(*address)->RefCount == 0)
         free(*address);
 
     if (!object)
@@ -664,7 +643,7 @@ void uStoreWeak(uWeakObject** address, uObject* object)
     if (!object->__weakptr)
         uCallWithWeakRefLock(&uNewWeak, object);
 
-    uBase::AtomicIncrement(&object->__weakptr->RefCount);
+    ++object->__weakptr->RefCount;
     *address = object->__weakptr;
 }
 
@@ -717,13 +696,13 @@ static uObject* uInitObject(uType* type, void* ptr, size_t size)
 #endif
 
 #if DEBUG_ARC >= 2
-    U_LOG("alloc %s #%d (%d bytes)%s", type->FullName, object->__id, size, uGetCaller().Ptr());
+    U_LOG("alloc %s #%d (%d bytes)%s", type->FullName, object->__id, size, uGetCaller().c_str());
 #endif
 
 #ifdef DEBUG_DUMPS
-    uEnterCritical();
+    _Mutex.lock();
     (*_HeapObjects)[object] = true;
-    uExitCritical();
+    _Mutex.unlock();
 #endif
     uAutoRelease(object);
     return object;
@@ -743,16 +722,24 @@ uObject* uNew(uType* type, size_t size)
     return uInitObject(type, calloc(1, size), size);
 }
 
-uString* uString::New(int length)
+static uString* uInitString(int32_t length)
 {
-    if (!length && ::g::Uno::String::Empty_)
-        return ::g::Uno::String::Empty_;
-
-    size_t size = sizeof(uString) + sizeof(uChar) * length + sizeof(uChar);
+    size_t size = sizeof(uString) + sizeof(char16_t) * length + sizeof(char16_t);
     uString* string = (uString*)uInitObject(::g::Uno::String_typeof(), calloc(1, size), size);
-    string->_ptr = (uChar*)((uint8_t*)string + sizeof(uString));
+    string->_ptr = (char16_t*)((uint8_t*)string + sizeof(uString));
     string->_length = length;
     return string;
+}
+
+uString* uString::New(int32_t length)
+{
+    if (length == 0)
+    {
+        static uStrong<uString*> empty = uInitString(0);
+        return empty;
+    }
+
+    return uInitString(length);
 }
 
 #ifdef DEBUG_DUMPS
@@ -795,10 +782,9 @@ static void uDumpAllStrongRefs(FILE* fp, uObject* object, void* base, uType* typ
                 uObject* target = *(uObject**)((char *)base + fieldInfo.Offset);
                 if (target)
                 {
-                    const char *fieldName = uAllocCStr(field->Name);
-                    char *label = new char[strlen(labelPrefix) + strlen(fieldName) + 1];
-                    sprintf(label, "%s%s", labelPrefix, fieldName);
-                    uFreeCStr(fieldName);
+                    uCString fieldName(field->Name);
+                    char *label = new char[strlen(labelPrefix) + fieldName.Length + 1];
+                    sprintf(label, "%s%s", labelPrefix, fieldName.Ptr);
 
                     uDumpStrongRef(fp, object, label, target);
 
@@ -807,10 +793,9 @@ static void uDumpAllStrongRefs(FILE* fp, uObject* object, void* base, uType* typ
             }
             else if (U_IS_VALUE(fieldInfo.Type))
             {
-                const char *fieldName = uAllocCStr(field->Name);
-                char *newLabelPrefix = new char[strlen(labelPrefix) + strlen(fieldName) + 2];
-                sprintf(newLabelPrefix, "%s%s.", labelPrefix, fieldName);
-                uFreeCStr(fieldName);
+                uCString fieldName(field->Name);
+                char *newLabelPrefix = new char[strlen(labelPrefix) + fieldName.Length + 2];
+                sprintf(newLabelPrefix, "%s%s.", labelPrefix, fieldName.Ptr);
 
                 void* target = (void*)((uint8_t*)base + fieldInfo.Offset);
                 uDumpAllStrongRefs(fp, object, target, fieldInfo.Type, newLabelPrefix);
@@ -867,7 +852,7 @@ static void uDumpObjectAndStrongRefs(FILE* fp, uObject* object)
         case uTypeTypeInterface:
         case uTypeTypeDelegate:
         case uTypeTypeArray:
-            for (int i = 0; i < array->Length(); ++i)
+            for (int32_t i = 0; i < array->Length(); ++i)
             {
                 uObject* target = ((uObject**)array->Ptr())[i];
                 char label[20];
@@ -880,7 +865,7 @@ static void uDumpObjectAndStrongRefs(FILE* fp, uObject* object)
             break;
 
         case uTypeTypeStruct:
-            for (int i = 0; i < array->Length(); ++i)
+            for (int32_t i = 0; i < array->Length(); ++i)
             {
                 uint8_t* address = (uint8_t*)array->Ptr() + i * elmType->ValueSize;
                 char labelPrefix[20];
@@ -917,11 +902,10 @@ static void uDumpStaticStrongRefs(FILE* fp, uType* type)
             uObject* target = field->GetValue(NULL);
             if (target)
             {
-                const char *fieldName = uAllocCStr(field->Name);
-                char *label = new char[fullNameLength + strlen(fieldName) + 2];
-                sprintf(label, "%s.%s", type->FullName, fieldName);
+                uCString fieldName(field->Name);
+                char *label = new char[fullNameLength + fieldName.Length + 2];
+                sprintf(label, "%s.%s", type->FullName, fieldName.Ptr);
                 uDumpGlobalRef(fp, (uObject**)fieldInfo.Address, label);
-                uFreeCStr(fieldName);
                 delete[] label;
             }
         }
@@ -935,18 +919,17 @@ void uDumpAllStrongRefs(const char* path)
         return;
 
     fprintf(fp, "digraph object_dump {\n");
-    uEnterCritical();
+    _Mutex.lock();
 
-    for (int i = _HeapObjects->Begin();
-         i != _HeapObjects->End();
-         i = _HeapObjects->Next(i))
-        uDumpObjectAndStrongRefs(fp, _HeapObjects->GetKey(i));
+    for (auto it = _HeapObjects->begin();
+         it != _HeapObjects->end(); ++it)
+        uDumpObjectAndStrongRefs(fp, it->first);
 
     uArray* allTypes = uReflection::GetTypes();
-    for (int i = 0; i < allTypes->_length; ++i)
+    for (int32_t i = 0; i < allTypes->_length; ++i)
         uDumpStaticStrongRefs(fp, allTypes->Unsafe<uType*>(i));
 
-    uExitCritical();
+    _Mutex.unlock();
     fprintf(fp, "}\n");
     fclose(fp);
 }

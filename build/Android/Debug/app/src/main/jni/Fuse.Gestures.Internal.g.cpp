@@ -44,7 +44,7 @@
 #include <Fuse.Visual.h>
 #include <Fuse.VisualEvent-2.h>
 #include <Uno.Action.h>
-#include <Uno.Action-2.h>
+#include <Uno.Action2-2.h>
 #include <Uno.Bool.h>
 #include <Uno.Collections.List-1.h>
 #include <Uno.Delegate.h>
@@ -65,7 +65,7 @@ namespace Fuse{
 namespace Gestures{
 namespace Internal{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Swiper.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Swiper.uno
 // -----------------------------------------------------------------------------------------------
 
 // private sealed class SwipeRegion.DoSwiped :156
@@ -132,7 +132,7 @@ SwipeRegion__DoSwiped* SwipeRegion__DoSwiped::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\EdgeSwiper.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\EdgeSwiper.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal sealed class EdgeSwiper :10
@@ -158,7 +158,9 @@ static void EdgeSwiper_build(uType* type)
     ::TYPES[9] = ::g::Fuse::Input::PointerReleasedHandler_typeof();
     ::TYPES[10] = ::g::Uno::Action2_typeof()->MakeType(uObject_typeof(), ::g::Uno::Double_typeof(), NULL);
     type->SetDependencies(
-        ::g::Fuse::Motion::Simulation::SmoothSnap_typeof()->MakeType(::g::Uno::Float_typeof(), NULL));
+        ::g::Uno::Math_typeof(),
+        ::g::Fuse::Input::Pointer_typeof(),
+        ::g::Fuse::UpdateManager_typeof());
     type->SetFields(0,
         ::TYPES[5/*Fuse.Motion.Simulation.DestinationSimulation<float>*/], offsetof(EdgeSwiper, _pointBody1D), 0,
         ::g::Uno::Float_typeof(), offsetof(EdgeSwiper, _edgeThreshold), 0,
@@ -188,7 +190,7 @@ uType* EdgeSwiper_typeof()
 
     uTypeOptions options;
     options.FieldCount = 19;
-    options.DependencyCount = 1;
+    options.DependencyCount = 3;
     options.ObjectSize = sizeof(EdgeSwiper);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Gestures.Internal.EdgeSwiper", options);
@@ -223,13 +225,13 @@ void EdgeSwiper__Disable_fn(EdgeSwiper* __this)
 }
 
 // public Fuse.Gestures.Edge get_Edge() :14
-void EdgeSwiper__get_Edge_fn(EdgeSwiper* __this, int* __retval)
+void EdgeSwiper__get_Edge_fn(EdgeSwiper* __this, int32_t* __retval)
 {
     *__retval = __this->Edge();
 }
 
 // public void set_Edge(Fuse.Gestures.Edge value) :15
-void EdgeSwiper__set_Edge_fn(EdgeSwiper* __this, int* value)
+void EdgeSwiper__set_Edge_fn(EdgeSwiper* __this, int32_t* value)
 {
     __this->Edge(*value);
 }
@@ -415,13 +417,13 @@ void EdgeSwiper::Disable()
 }
 
 // public Fuse.Gestures.Edge get_Edge() [instance] :14
-int EdgeSwiper::Edge()
+int32_t EdgeSwiper::Edge()
 {
     return _edge;
 }
 
 // public void set_Edge(Fuse.Gestures.Edge value) [instance] :15
-void EdgeSwiper::Edge(int value)
+void EdgeSwiper::Edge(int32_t value)
 {
     _edge = value;
 }
@@ -487,7 +489,7 @@ void EdgeSwiper::MoveUser(::g::Uno::Float2 coord, bool release)
     double t = ::g::Uno::Diagnostics::Clock::GetSeconds();
     double elapsed = t - _prevTime;
     _prevTime = t;
-    ::g::Fuse::Motion::Simulation::PointerVelocity__AddSample_fn(uPtr(_velocity), uCRef(_currentCoord), uCRef((double)(float)elapsed), uCRef<int>((!_isHardCapture ? 1 : 0) | (release ? 2 : 0)));
+    ::g::Fuse::Motion::Simulation::PointerVelocity__AddSample_fn(uPtr(_velocity), uCRef(_currentCoord), uCRef((double)(float)elapsed), uCRef<int32_t>((!_isHardCapture ? 1 : 0) | (release ? 2 : 0)));
 }
 
 // private void OnLostCapture() [instance] :136
@@ -686,7 +688,7 @@ EdgeSwiper* EdgeSwiper::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Swiper.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Swiper.uno
 // -----------------------------------------------------------------------------------------------
 
 // public enum SwipeRegion.ProgressFlags :51
@@ -703,7 +705,7 @@ uEnumType* SwipeRegion__ProgressFlags_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Swiper.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Swiper.uno
 // -----------------------------------------------------------------------------------------------
 
 // internal sealed class Swiper :287
@@ -718,7 +720,7 @@ static void Swiper__cctor__fn(uType* __type)
 static void Swiper_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("incomplete swipe detected");
-    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Gestures\\1.4.2\\Internal\\Swiper.uno");
+    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Gestures\\1.9.0\\Internal\\Swiper.uno");
     ::STRINGS[2] = uString::Const("CheckNeedUpdated");
     ::STRINGS[3] = uString::Const("invalid OnCapture");
     ::STRINGS[4] = uString::Const("Fuse.Input.IGesture.OnCaptureChanged");
@@ -729,8 +731,9 @@ static void Swiper_build(uType* type)
     ::TYPES[3] = ::g::Fuse::Motion::Simulation::Simulation_typeof();
     ::TYPES[5] = ::g::Fuse::Motion::Simulation::DestinationSimulation_typeof()->MakeType(::g::Uno::Float_typeof(), NULL);
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Fuse::Input::Gestures_typeof());
+        ::g::Fuse::Input::Gestures_typeof(),
+        ::g::Uno::Math_typeof(),
+        ::g::Fuse::UpdateManager_typeof());
     type->SetInterfaces(
         ::g::Fuse::Input::IGesture_typeof(), offsetof(Swiper_type, interface0));
     type->SetFields(0,
@@ -760,17 +763,17 @@ Swiper_type* Swiper_typeof()
     uTypeOptions options;
     options.FieldCount = 16;
     options.InterfaceCount = 1;
-    options.DependencyCount = 2;
+    options.DependencyCount = 3;
     options.ObjectSize = sizeof(Swiper);
     options.TypeSize = sizeof(Swiper_type);
     type = (Swiper_type*)uClassType::New("Fuse.Gestures.Internal.Swiper", options);
     type->fp_build_ = Swiper_build;
     type->fp_cctor_ = Swiper__cctor__fn;
     type->interface0.fp_OnLostCapture = (void(*)(uObject*, bool*))Swiper__FuseInputIGestureOnLostCapture_fn;
-    type->interface0.fp_OnPointerPressed = (void(*)(uObject*, ::g::Fuse::Input::PointerPressedArgs*, int*))Swiper__FuseInputIGestureOnPointerPressed_fn;
-    type->interface0.fp_OnCaptureChanged = (void(*)(uObject*, ::g::Fuse::Input::PointerEventArgs*, int*, int*))Swiper__FuseInputIGestureOnCaptureChanged_fn;
-    type->interface0.fp_OnPointerMoved = (void(*)(uObject*, ::g::Fuse::Input::PointerMovedArgs*, int*))Swiper__FuseInputIGestureOnPointerMoved_fn;
-    type->interface0.fp_OnPointerReleased = (void(*)(uObject*, ::g::Fuse::Input::PointerReleasedArgs*, int*))Swiper__FuseInputIGestureOnPointerReleased_fn;
+    type->interface0.fp_OnPointerPressed = (void(*)(uObject*, ::g::Fuse::Input::PointerPressedArgs*, int32_t*))Swiper__FuseInputIGestureOnPointerPressed_fn;
+    type->interface0.fp_OnCaptureChanged = (void(*)(uObject*, ::g::Fuse::Input::PointerEventArgs*, int32_t*, int32_t*))Swiper__FuseInputIGestureOnCaptureChanged_fn;
+    type->interface0.fp_OnPointerMoved = (void(*)(uObject*, ::g::Fuse::Input::PointerMovedArgs*, int32_t*))Swiper__FuseInputIGestureOnPointerMoved_fn;
+    type->interface0.fp_OnPointerReleased = (void(*)(uObject*, ::g::Fuse::Input::PointerReleasedArgs*, int32_t*))Swiper__FuseInputIGestureOnPointerReleased_fn;
     type->interface0.fp_get_Priority = (void(*)(uObject*, ::g::Fuse::Input::GesturePriorityConfig*))Swiper__FuseInputIGestureget_Priority_fn;
     return type;
 }
@@ -812,7 +815,7 @@ void Swiper__FromWindow_fn(Swiper* __this, ::g::Uno::Float2* p, ::g::Uno::Float2
 }
 
 // private void Fuse.Input.IGesture.OnCaptureChanged(Fuse.Input.PointerEventArgs args, Fuse.Input.CaptureType how, Fuse.Input.CaptureType prev) :468
-void Swiper__FuseInputIGestureOnCaptureChanged_fn(Swiper* __this, ::g::Fuse::Input::PointerEventArgs* args, int* how, int* prev)
+void Swiper__FuseInputIGestureOnCaptureChanged_fn(Swiper* __this, ::g::Fuse::Input::PointerEventArgs* args, int32_t* how, int32_t* prev)
 {
     if (uPtr(__this->_pointerRegions)->Count() == 0)
     {
@@ -833,8 +836,8 @@ void Swiper__FuseInputIGestureOnLostCapture_fn(Swiper* __this, bool* forced)
 
     if (forced_)
     {
-        for (int i = 0; i < uPtr(__this->_pointerRegions)->Count(); ++i)
-            ::g::Fuse::Motion::Simulation::MotionSimulation::set_Position_ex(uInterface(uPtr(uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(__this->_pointerRegions), uCRef<int>(i), &ret4), ret4))->PointBody1D), ::TYPES[6/*Fuse.Motion.Simulation.MotionSimulation<float>*/]), uCRef((float)uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(__this->_pointerRegions), uCRef<int>(i), &ret5), ret5))->Progress()));
+        for (int32_t i = 0; i < uPtr(__this->_pointerRegions)->Count(); ++i)
+            ::g::Fuse::Motion::Simulation::MotionSimulation::set_Position_ex(uInterface(uPtr(uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(__this->_pointerRegions), uCRef<int32_t>(i), &ret4), ret4))->PointBody1D), ::TYPES[6/*Fuse.Motion.Simulation.MotionSimulation<float>*/]), uCRef((float)uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(__this->_pointerRegions), uCRef<int32_t>(i), &ret5), ret5))->Progress()));
 
         if (__this->_pointerRegion != NULL)
             ::g::Fuse::Motion::Simulation::MotionSimulation::set_Position_ex(uInterface(uPtr(uPtr(__this->_pointerRegion)->PointBody1D), ::TYPES[6/*Fuse.Motion.Simulation.MotionSimulation<float>*/]), uCRef((float)uPtr(__this->_pointerRegion)->Progress()));
@@ -844,13 +847,13 @@ void Swiper__FuseInputIGestureOnLostCapture_fn(Swiper* __this, bool* forced)
 }
 
 // private Fuse.Input.GestureRequest Fuse.Input.IGesture.OnPointerMoved(Fuse.Input.PointerMovedArgs args) :502
-void Swiper__FuseInputIGestureOnPointerMoved_fn(Swiper* __this, ::g::Fuse::Input::PointerMovedArgs* args, int* __retval)
+void Swiper__FuseInputIGestureOnPointerMoved_fn(Swiper* __this, ::g::Fuse::Input::PointerMovedArgs* args, int32_t* __retval)
 {
     __this->MoveUser(__this->FromWindow(uPtr(args)->WindowPoint()), uPtr(args)->Timestamp() - __this->_prevTime, false);
     ::g::Uno::Float2 currentCoord = __this->FromWindow(args->WindowPoint());
     __this->_prevTime = args->Timestamp();
 
-    for (int i = 0; i < 2; ++i)
+    for (int32_t i = 0; i < 2; ++i)
     {
         ::g::Uno::Float2 diff = ::g::Uno::Float2__op_Subtraction2(currentCoord, __this->_startCoord);
 
@@ -899,7 +902,7 @@ void Swiper__FuseInputIGestureOnPointerMoved_fn(Swiper* __this, ::g::Fuse::Input
 }
 
 // private Fuse.Input.GestureRequest Fuse.Input.IGesture.OnPointerPressed(Fuse.Input.PointerPressedArgs args) :449
-void Swiper__FuseInputIGestureOnPointerPressed_fn(Swiper* __this, ::g::Fuse::Input::PointerPressedArgs* args, int* __retval)
+void Swiper__FuseInputIGestureOnPointerPressed_fn(Swiper* __this, ::g::Fuse::Input::PointerPressedArgs* args, int32_t* __retval)
 {
     ::g::Fuse::Gestures::Internal::SwipeRegion* ret6;
     ::g::Uno::Float2 coord = __this->FromWindow(uPtr(args)->WindowPoint());
@@ -909,9 +912,9 @@ void Swiper__FuseInputIGestureOnPointerPressed_fn(Swiper* __this, ::g::Fuse::Inp
     __this->_excludeRegion = NULL;
     __this->_significance = 0.0f;
 
-    for (int i = 0; i < uPtr(__this->_regions)->Count(); ++i)
+    for (int32_t i = 0; i < uPtr(__this->_regions)->Count(); ++i)
     {
-        ::g::Fuse::Gestures::Internal::SwipeRegion* region = (::g::Uno::Collections::List__get_Item_fn(uPtr(__this->_regions), uCRef<int>(i), &ret6), ret6);
+        ::g::Fuse::Gestures::Internal::SwipeRegion* region = (::g::Uno::Collections::List__get_Item_fn(uPtr(__this->_regions), uCRef<int32_t>(i), &ret6), ret6);
 
         if (uPtr(region)->IsSelectable() && uPtr(region)->IsPointInside(__this->_element, coord))
             ::g::Uno::Collections::List__Add_fn(uPtr(__this->_pointerRegions), region);
@@ -924,7 +927,7 @@ void Swiper__FuseInputIGestureOnPointerPressed_fn(Swiper* __this, ::g::Fuse::Inp
 }
 
 // private Fuse.Input.GestureRequest Fuse.Input.IGesture.OnPointerReleased(Fuse.Input.PointerReleasedArgs args) :585
-void Swiper__FuseInputIGestureOnPointerReleased_fn(Swiper* __this, ::g::Fuse::Input::PointerReleasedArgs* args, int* __retval)
+void Swiper__FuseInputIGestureOnPointerReleased_fn(Swiper* __this, ::g::Fuse::Input::PointerReleasedArgs* args, int32_t* __retval)
 {
     ::g::Uno::Float2 ret7;
 
@@ -943,9 +946,9 @@ void Swiper__FuseInputIGestureOnPointerReleased_fn(Swiper* __this, ::g::Fuse::In
     else if (v > __this->_velocityThreshold)
         on = true;
     else if (pdiff >= 0.0)
-        on = uPtr(__this->_pointerRegion)->Progress() > (double)uPtr(__this->_pointerRegion)->ActivationThreshold;
+        on = uPtr(__this->_pointerRegion)->Progress() >= (double)uPtr(__this->_pointerRegion)->ActivationThreshold;
     else
-        on = !(uPtr(__this->_pointerRegion)->Progress() < (double)uPtr(__this->_pointerRegion)->DeactivationThreshold);
+        on = !(uPtr(__this->_pointerRegion)->Progress() <= (double)uPtr(__this->_pointerRegion)->DeactivationThreshold);
 
     __this->SetActivation(__this->_pointerRegion, on, false);
     return *__retval = 2, void();
@@ -1028,13 +1031,13 @@ void Swiper::ctor_(::g::Fuse::Elements::Element* elm)
 void Swiper::AddRegion(::g::Fuse::Gestures::Internal::SwipeRegion* region)
 {
     ::g::Fuse::Gestures::Internal::SwipeRegion* ret2;
-    int i = 0;
+    int32_t i = 0;
 
     for (i = 0; i < uPtr(_regions)->Count(); ++i)
-        if (uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_regions), uCRef<int>(i), &ret2), ret2))->Priority > uPtr(region)->Priority)
+        if (uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_regions), uCRef<int32_t>(i), &ret2), ret2))->Priority > uPtr(region)->Priority)
             break;
 
-    ::g::Uno::Collections::List__Insert_fn(uPtr(_regions), uCRef<int>(i), region);
+    ::g::Uno::Collections::List__Insert_fn(uPtr(_regions), uCRef<int32_t>(i), region);
     CheckNeedUpdated(false);
 }
 
@@ -1044,9 +1047,9 @@ void Swiper::CheckNeedUpdated(bool off)
     ::g::Fuse::Gestures::Internal::SwipeRegion* ret3;
     bool needUpdated = false;
 
-    for (int i = 0; i < uPtr(_regions)->Count(); ++i)
+    for (int32_t i = 0; i < uPtr(_regions)->Count(); ++i)
     {
-        ::g::Fuse::Gestures::Internal::SwipeRegion* region = (::g::Uno::Collections::List__get_Item_fn(uPtr(_regions), uCRef<int>(i), &ret3), ret3);
+        ::g::Fuse::Gestures::Internal::SwipeRegion* region = (::g::Uno::Collections::List__get_Item_fn(uPtr(_regions), uCRef<int32_t>(i), &ret3), ret3);
 
         if (!uPtr(region)->IsStatic())
             needUpdated = true;
@@ -1096,7 +1099,7 @@ void Swiper::Detach()
 // private void MoveUser(float2 coord, double elapsed, [bool release]) [instance] :488
 void Swiper::MoveUser(::g::Uno::Float2 coord, double elapsed, bool release)
 {
-    ::g::Fuse::Motion::Simulation::PointerVelocity__AddSample_fn(uPtr(_velocity), uCRef(coord), uCRef((double)(float)elapsed), uCRef<int>((!uPtr(_gesture)->IsHardCapture() ? 1 : 0) | (release ? 2 : 0)));
+    ::g::Fuse::Motion::Simulation::PointerVelocity__AddSample_fn(uPtr(_velocity), uCRef(coord), uCRef((double)(float)elapsed), uCRef<int32_t>((!uPtr(_gesture)->IsHardCapture() ? 1 : 0) | (release ? 2 : 0)));
 }
 
 // private void OnRooted(Fuse.Elements.Element n) [instance] :351
@@ -1121,9 +1124,9 @@ void Swiper::OnUpdated()
     ::g::Fuse::Gestures::Internal::SwipeRegion* ret8;
     float ret9;
 
-    for (int i = 0; i < uPtr(_regions)->Count(); ++i)
+    for (int32_t i = 0; i < uPtr(_regions)->Count(); ++i)
     {
-        ::g::Fuse::Gestures::Internal::SwipeRegion* region = (::g::Uno::Collections::List__get_Item_fn(uPtr(_regions), uCRef<int>(i), &ret8), ret8);
+        ::g::Fuse::Gestures::Internal::SwipeRegion* region = (::g::Uno::Collections::List__get_Item_fn(uPtr(_regions), uCRef<int32_t>(i), &ret8), ret8);
 
         if (uPtr(region)->IsStatic() && !uPtr(region)->InProgress())
             continue;
@@ -1158,9 +1161,9 @@ void Swiper::RestartMove(::g::Uno::Float2 currentCoord)
     ::g::Fuse::Gestures::Internal::SwipeRegion* ret11;
     ::g::Fuse::Gestures::Internal::SwipeRegion* sel = NULL;
 
-    for (int i = 0; i < uPtr(_pointerRegions)->Count(); i++)
+    for (int32_t i = 0; i < uPtr(_pointerRegions)->Count(); i++)
     {
-        ::g::Fuse::Gestures::Internal::SwipeRegion* region = (::g::Uno::Collections::List__get_Item_fn(uPtr(_pointerRegions), uCRef<int>(i), &ret11), ret11);
+        ::g::Fuse::Gestures::Internal::SwipeRegion* region = (::g::Uno::Collections::List__get_Item_fn(uPtr(_pointerRegions), uCRef<int32_t>(i), &ret11), ret11);
         float str = uPtr(region)->ActivateStrength(diff);
 
         if (str <= 0.0f)
@@ -1206,6 +1209,7 @@ void Swiper::SetActivation(::g::Fuse::Gestures::Internal::SwipeRegion* region, b
 // public static Fuse.Gestures.Internal.Swiper AttachSwiper(Fuse.Elements.Element elm) [static] :299
 Swiper* Swiper::AttachSwiper(::g::Fuse::Elements::Element* elm)
 {
+    Swiper_typeof()->Init();
     uObject* v;
 
     if (uPtr(uPtr(elm)->Properties())->TryGet(Swiper::_swiperProperty_, &v))
@@ -1230,7 +1234,7 @@ Swiper* Swiper::New1(::g::Fuse::Elements::Element* elm)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Swiper.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Swiper.uno
 // -----------------------------------------------------------------------------------------------
 
 // internal sealed class SwipeRegion :19
@@ -1238,17 +1242,16 @@ Swiper* Swiper::New1(::g::Fuse::Elements::Element* elm)
 // static generated SwipeRegion() :19
 static void SwipeRegion__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    SwipeRegion::InProgressName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("InProgress"));
-    SwipeRegion::ProgressName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Progress"));
-    SwipeRegion::_isActiveName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("IsActive"));
+    SwipeRegion::InProgressName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("InProgress"));
+    SwipeRegion::ProgressName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Progress"));
+    SwipeRegion::_isActiveName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("IsActive"));
 }
 
 static void SwipeRegion_build(uType* type)
 {
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Fuse::Motion::Simulation::SmoothSnap_typeof()->MakeType(::g::Uno::Float_typeof(), NULL));
+        ::g::Uno::Math_typeof(),
+        ::g::Fuse::UpdateManager_typeof());
     type->SetInterfaces(
         ::g::Uno::UX::IPropertyListener_typeof(), offsetof(SwipeRegion_type, interface0));
     type->SetFields(1,
@@ -1325,13 +1328,13 @@ void SwipeRegion__get_EffectiveLength_fn(SwipeRegion* __this, double* __retval)
 }
 
 // public Fuse.Input.GesturePriority get_GesturePriority() :35
-void SwipeRegion__get_GesturePriority_fn(SwipeRegion* __this, int* __retval)
+void SwipeRegion__get_GesturePriority_fn(SwipeRegion* __this, int32_t* __retval)
 {
     *__retval = __this->GesturePriority();
 }
 
 // public void set_GesturePriority(Fuse.Input.GesturePriority value) :36
-void SwipeRegion__set_GesturePriority_fn(SwipeRegion* __this, int* value)
+void SwipeRegion__set_GesturePriority_fn(SwipeRegion* __this, int32_t* value)
 {
     __this->GesturePriority(*value);
 }
@@ -1433,7 +1436,7 @@ void SwipeRegion__SetIsActive_fn(SwipeRegion* __this, bool* value, uObject* orig
 }
 
 // internal bool SetProgress(double value, [Fuse.Gestures.Internal.SwipeRegion.ProgressFlags flags]) :79
-void SwipeRegion__SetProgress_fn(SwipeRegion* __this, double* value, int* flags, bool* __retval)
+void SwipeRegion__SetProgress_fn(SwipeRegion* __this, double* value, int32_t* flags, bool* __retval)
 {
     *__retval = __this->SetProgress(*value, *flags);
 }
@@ -1474,8 +1477,7 @@ void SwipeRegion::ctor_1()
     PointBody1D = (uObject*)((::g::Fuse::Motion::Simulation::SmoothSnap*)::g::Fuse::Motion::Simulation::SmoothSnap::CreateNormalized(::TYPES[1/*Fuse.Motion.Simulation.SmoothSnap<float>*/]));
     AreaVectorDistance = 100.0f;
     Length = 100.0;
-    ActivationThreshold = 0.5f;
-    DeactivationThreshold = 0.5f;
+    ActivationThreshold = 1.0f;
     IsInterruptible = true;
     TimeMultiplier = 1.0;
     ctor_();
@@ -1518,13 +1520,13 @@ double SwipeRegion::EffectiveLength()
 }
 
 // public Fuse.Input.GesturePriority get_GesturePriority() [instance] :35
-int SwipeRegion::GesturePriority()
+int32_t SwipeRegion::GesturePriority()
 {
     return _gesturePriority;
 }
 
 // public void set_GesturePriority(Fuse.Input.GesturePriority value) [instance] :36
-void SwipeRegion::GesturePriority(int value)
+void SwipeRegion::GesturePriority(int32_t value)
 {
     _gesturePriority = value;
 }
@@ -1550,7 +1552,7 @@ bool SwipeRegion::InteractProgress(::g::Uno::Float2 diff, double startProgress)
 {
     float l = ScalarDistance(diff);
     double p = ::g::Uno::Math::Clamp(((double)l / EffectiveLength()) + startProgress, 0.0, 1.0);
-    int flags = 1;
+    int32_t flags = 1;
 
     if (AutoTrigger && (p == 1.0))
         flags = flags | 2;
@@ -1650,7 +1652,7 @@ void SwipeRegion::SetIsActive(bool value, uObject* origin)
 }
 
 // internal bool SetProgress(double value, [Fuse.Gestures.Internal.SwipeRegion.ProgressFlags flags]) [instance] :79
-bool SwipeRegion::SetProgress(double value, int flags)
+bool SwipeRegion::SetProgress(double value, int32_t flags)
 {
     SwipeRegion__DoSwiped* collection1;
     bool interacting = (flags & 1) == 1;
@@ -1719,7 +1721,7 @@ SwipeRegion* SwipeRegion::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Swiper.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Swiper.uno
 // -----------------------------------------------------------------------------------------------
 
 // internal enum SwipeRegionArea :13

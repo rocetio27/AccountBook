@@ -9,36 +9,49 @@
 #include <Fuse.Internal.ObjectList-1.h>
 #include <Fuse.IObject.h>
 #include <Fuse.ITemplateSource.h>
+#include <Fuse.Json.h>
 #include <Fuse.LayoutPriority.h>
 #include <Fuse.Marshal.h>
 #include <Fuse.MarshalException.h>
 #include <Fuse.NameRegistry.h>
+#include <Fuse.Node.ContextDataResult.h>
+#include <Fuse.Node.DataType.h>
 #include <Fuse.Node.h>
+#include <Fuse.Node.NodeDataSubscription.h>
+#include <Fuse.Platform.SystemUI.h>
 #include <Fuse.Properties.h>
 #include <Fuse.PropertyHandle.h>
 #include <Fuse.Reactive.Add.h>
-#include <Fuse.Reactive.BinaryO-44e56a7e.h>
 #include <Fuse.Reactive.BinaryOperator.h>
 #include <Fuse.Reactive.BindingMode.h>
+#include <Fuse.Reactive.CapsObj-14c0d77e.h>
+#include <Fuse.Reactive.CapsObject.h>
 #include <Fuse.Reactive.Case.h>
-#include <Fuse.Reactive.Clamp.h>
-#include <Fuse.Reactive.Conditional.h>
+#include <Fuse.Reactive.Compute-2d5dc615.h>
+#include <Fuse.Reactive.Compute-37d95ed4.h>
+#include <Fuse.Reactive.Compute-7b0008a8.h>
+#include <Fuse.Reactive.Concat.h>
 #include <Fuse.Reactive.Console.h>
 #include <Fuse.Reactive.Constan-264ec80.h>
 #include <Fuse.Reactive.Constant.h>
 #include <Fuse.Reactive.Data.h>
 #include <Fuse.Reactive.DataBinding.h>
+#include <Fuse.Reactive.DataFun-b1d67e21.h>
+#include <Fuse.Reactive.DataFunction.h>
 #include <Fuse.Reactive.DataSubscription.h>
+#include <Fuse.Reactive.DataToR-16f9ac8f.h>
+#include <Fuse.Reactive.DataToResource.h>
 #include <Fuse.Reactive.DebugLog.h>
-#include <Fuse.Reactive.Divide.h>
+#include <Fuse.Reactive.DeviceCaps.h>
 #include <Fuse.Reactive.Each.h>
-#include <Fuse.Reactive.Equal.h>
 #include <Fuse.Reactive.EventBinding.h>
 #include <Fuse.Reactive.EventRecord.h>
+#include <Fuse.Reactive.Express-2cf41af6.h>
+#include <Fuse.Reactive.Express-46994d37.h>
+#include <Fuse.Reactive.Express-6b713f70.h>
+#include <Fuse.Reactive.Express-bdb0a595.h>
 #include <Fuse.Reactive.Express-ee33104d.h>
 #include <Fuse.Reactive.Expression.h>
-#include <Fuse.Reactive.GreaterOrEqual.h>
-#include <Fuse.Reactive.GreaterThan.h>
 #include <Fuse.Reactive.IContext.h>
 #include <Fuse.Reactive.IEventHandler.h>
 #include <Fuse.Reactive.IEventRecord.h>
@@ -47,15 +60,13 @@
 #include <Fuse.Reactive.InfixOperator.h>
 #include <Fuse.Reactive.InnerLi-d480603c.h>
 #include <Fuse.Reactive.InnerListener.h>
+#include <Fuse.Reactive.InstanceDefaults.h>
 #include <Fuse.Reactive.InstanceDefer.h>
 #include <Fuse.Reactive.InstanceIdentity.h>
 #include <Fuse.Reactive.InstanceReuse.h>
 #include <Fuse.Reactive.Instant-2359146.h>
+#include <Fuse.Reactive.Instant-28638d5d.h>
 #include <Fuse.Reactive.Instant-75b959b5.h>
-#include <Fuse.Reactive.Instant-b1231a0d.h>
-#include <Fuse.Reactive.Instant-c0c79dff.h>
-#include <Fuse.Reactive.Instant-ca0b61c8.h>
-#include <Fuse.Reactive.Instant-d843266f.h>
 #include <Fuse.Reactive.Instantiator.h>
 #include <Fuse.Reactive.Interna-2d54a663.h>
 #include <Fuse.Reactive.Interna-5501e448.h>
@@ -67,28 +78,34 @@
 #include <Fuse.Reactive.IObserver.h>
 #include <Fuse.Reactive.IProper-5c136cab.h>
 #include <Fuse.Reactive.IProper-fa34e162.h>
+#include <Fuse.Reactive.IsAndro-6431d4fd.h>
+#include <Fuse.Reactive.IsDefined.h>
+#include <Fuse.Reactive.IsDeskt-39804416.h>
+#include <Fuse.Reactive.IsIOSFunction.h>
+#include <Fuse.Reactive.IsMobileFunction.h>
+#include <Fuse.Reactive.IsOSXFunction.h>
 #include <Fuse.Reactive.ISubscription.h>
+#include <Fuse.Reactive.IsWindo-55989659.h>
+#include <Fuse.Reactive.ItemsWi-215702d0.h>
+#include <Fuse.Reactive.ItemsWi-e7592013.h>
 #include <Fuse.Reactive.IWriteable.h>
 #include <Fuse.Reactive.JavaScr-6ae501cc.h>
 #include <Fuse.Reactive.JavaScript.h>
-#include <Fuse.Reactive.Lerp.h>
-#include <Fuse.Reactive.LessOrEqual.h>
-#include <Fuse.Reactive.LessThan.h>
-#include <Fuse.Reactive.LogicalAnd.h>
-#include <Fuse.Reactive.LogicalOr.h>
 #include <Fuse.Reactive.LookUp.-f2be5323.h>
 #include <Fuse.Reactive.LookUp.h>
 #include <Fuse.Reactive.Match.h>
-#include <Fuse.Reactive.Member.-74fc418b.h>
+#include <Fuse.Reactive.Member.-80cd0e57.h>
 #include <Fuse.Reactive.Member.h>
-#include <Fuse.Reactive.Multiply.h>
 #include <Fuse.Reactive.NodeExp-869eb6a1.h>
-#include <Fuse.Reactive.NotEqual.h>
+#include <Fuse.Reactive.NonNull.h>
 #include <Fuse.Reactive.NullCoalesce.h>
 #include <Fuse.Reactive.ObserverMap-1.h>
+#include <Fuse.Reactive.Paramet-3c258f00.h>
+#include <Fuse.Reactive.Parameter.h>
+#include <Fuse.Reactive.Platfor-dd4a5534.h>
+#include <Fuse.Reactive.PlatformFunction.h>
 #include <Fuse.Reactive.Propert-3b65e5e6.h>
 #include <Fuse.Reactive.Property.h>
-#include <Fuse.Reactive.Quatern-13eb7fcd.h>
 #include <Fuse.Reactive.Quatern-4692c3b2.h>
 #include <Fuse.Reactive.Resourc-a4dc08c7.h>
 #include <Fuse.Reactive.Resource.h>
@@ -96,32 +113,38 @@
 #include <Fuse.Reactive.SimpleV-737a24c.h>
 #include <Fuse.Reactive.Snapsho-9e1b433f.h>
 #include <Fuse.Reactive.Snapshot.h>
-#include <Fuse.Reactive.Subtract.h>
-#include <Fuse.Reactive.Ternary-ba5fcd50.h>
+#include <Fuse.Reactive.TemplateMatch.h>
 #include <Fuse.Reactive.TernaryOperator.h>
-#include <Fuse.Reactive.UnaryOp-a08b90b8.h>
 #include <Fuse.Reactive.UnaryOperator.h>
 #include <Fuse.Reactive.UnmappedView-1.h>
 #include <Fuse.Reactive.ValueFo-a26c06f.h>
 #include <Fuse.Reactive.ValueForwarder.h>
 #include <Fuse.Reactive.ValueObserver.h>
-#include <Fuse.Reactive.VarArgF-8afe3c06.h>
 #include <Fuse.Reactive.VarArgF-cd333e8.h>
 #include <Fuse.Reactive.VarArgFunction.h>
+#include <Fuse.Reactive.WindowCaps.h>
+#include <Fuse.Reactive.WindowF-2ad7cf81.h>
+#include <Fuse.Reactive.WindowFunction.h>
+#include <Fuse.Reactive.WindowItem.h>
+#include <Fuse.Reactive.WindowL-23794a38.h>
+#include <Fuse.Reactive.WindowList-1.h>
+#include <Fuse.Reactive.WindowListItem.h>
 #include <Fuse.Resources.Resour-fabdcc8b.h>
+#include <Fuse.RootViewport.h>
 #include <Fuse.Scripting.AppInitialized.h>
 #include <Fuse.Scripting.Array.h>
 #include <Fuse.Scripting.Callback.h>
 #include <Fuse.Scripting.Context.h>
 #include <Fuse.Scripting.Function.h>
 #include <Fuse.Scripting.IScriptEvent.h>
+#include <Fuse.Scripting.IThreadWorker.h>
+#include <Fuse.Scripting.JavaSc-523a45a7.h>
+#include <Fuse.Scripting.JavaSc-c105a89e.h>
+#include <Fuse.Scripting.JavaSc-d44b1a66.h>
 #include <Fuse.Scripting.Module.h>
-#include <Fuse.Scripting.ModuleInstance.h>
 #include <Fuse.Scripting.NativeModule.h>
 #include <Fuse.Scripting.Object.h>
-#include <Fuse.Scripting.Rootab-eb1392c3.h>
 #include <Fuse.Scripting.ScriptModule.h>
-#include <Fuse.Scripting.ThreadWorker.h>
 #include <Fuse.Scripting.ValueMirror.h>
 #include <Fuse.Triggers.BusyTask.h>
 #include <Fuse.Triggers.BusyTaskActivity.h>
@@ -129,16 +152,18 @@
 #include <Fuse.UpdateStage.h>
 #include <Fuse.Visual.h>
 #include <Uno.Action.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.Bool.h>
+#include <Uno.Collections.Dicti-87d2e37d.h>
 #include <Uno.Collections.Dicti-98f6bc43.h>
 #include <Uno.Collections.Dicti-d1699346.h>
 #include <Uno.Collections.Dicti-d6e3a7c5.h>
 #include <Uno.Collections.Dictionary-2.h>
+#include <Uno.Collections.Enume-8ddd045.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
 #include <Uno.Collections.IEnumerator.h>
-#include <Uno.Collections.IEnumerator-1.h>
+#include <Uno.Collections.IEnumerator1-1.h>
 #include <Uno.Collections.IList-1.h>
 #include <Uno.Collections.KeyValuePair-2.h>
 #include <Uno.Collections.List-1.h>
@@ -149,13 +174,14 @@
 #include <Uno.Diagnostics.Debug-5d778620.h>
 #include <Uno.Double.h>
 #include <Uno.EventArgs.h>
+#include <Uno.EventHandler.h>
 #include <Uno.Exception.h>
 #include <Uno.Float.h>
 #include <Uno.Float2.h>
-#include <Uno.Float3.h>
 #include <Uno.Float4.h>
 #include <Uno.IDisposable.h>
 #include <Uno.Int.h>
+#include <Uno.Int3.h>
 #include <Uno.Math.h>
 #include <Uno.Object.h>
 #include <Uno.Predicate-1.h>
@@ -170,166 +196,171 @@
 #include <Uno.UX.Resource.h>
 #include <Uno.UX.Selector.h>
 #include <Uno.UX.Template.h>
-static uString* STRINGS[71];
-static uType* TYPES[51];
+static uString* STRINGS[105];
+static uType* TYPES[58];
 
 namespace g{
 namespace Fuse{
 namespace Reactive{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Operators.uno
 // -----------------------------------------------------------------------------------------------------
 
-// public sealed class Add :19
+// public sealed class Add :49
 // {
 static void Add_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("+");
+    ::TYPES[0] = ::g::Uno::String_typeof();
+    type->SetDependencies(
+        ::g::Fuse::Marshal_typeof());
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::BinaryOperator_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::BinaryOperator_type, interface1));
+    type->SetFields(5);
 }
 
-::g::Fuse::Reactive::InfixOperator_type* Add_typeof()
+::g::Fuse::Reactive::BinaryOperator_type* Add_typeof()
 {
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
+    static uSStrong< ::g::Fuse::Reactive::BinaryOperator_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(Add);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.Add", options);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::BinaryOperator_type);
+    type = (::g::Fuse::Reactive::BinaryOperator_type*)uClassType::New("Fuse.Reactive.Add", options);
     type->fp_build_ = Add_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))Add__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))Add__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
+    type->fp_TryCompute1 = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**, bool*))Add__TryCompute1_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// public Add(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) :22
-void Add__ctor_3_fn(Add* __this, ::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right)
+// public Add(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) :52
+void Add__ctor_6_fn(Add* __this, ::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right)
 {
-    __this->ctor_3(left, right);
+    __this->ctor_6(left, right);
 }
 
-// protected override sealed object Compute(object left, object right) :23
-void Add__Compute_fn(Add* __this, uObject* left, uObject* right, uObject** __retval)
-{
-    return *__retval = ::g::Fuse::Marshal::Add(left, right), void();
-}
-
-// public Add New(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) :22
+// public Add New(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) :52
 void Add__New1_fn(::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right, Add** __retval)
 {
     *__retval = Add::New1(left, right);
 }
 
-// public override sealed string get_Symbol() :28
-void Add__get_Symbol_fn(Add* __this, uString** __retval)
+// protected override sealed bool TryCompute(object left, object right, object& result) :54
+void Add__TryCompute1_fn(Add* __this, uObject* left, uObject* right, uObject** result, bool* __retval)
 {
-    return *__retval = ::STRINGS[0/*"+"*/], void();
+    if (uIs(left, ::TYPES[0/*string*/]) || uIs(right, ::TYPES[0/*string*/]))
+        return *__retval = ::g::Fuse::Reactive::Concat::TryComputeImpl(left, right, result), void();
+
+    return *__retval = ::g::Fuse::Marshal::TryAdd(left, right, result), void();
 }
 
-// public Add(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) [instance] :22
-void Add::ctor_3(::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right)
+// public Add(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) [instance] :52
+void Add::ctor_6(::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right)
 {
-    ctor_2(left, right);
+    ctor_5(left, right, ::STRINGS[0/*"+"*/], 0);
 }
 
-// public Add New(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) [static] :22
+// public Add New(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) [static] :52
 Add* Add::New1(::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right)
 {
     Add* obj1 = (Add*)uNew(Add_typeof());
-    obj1->ctor_3(left, right);
+    obj1->ctor_6(left, right);
     return obj1;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\VarArgFunction.uno
-// ----------------------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Expression.uno
+// ------------------------------------------------------------------------------------------------------
 
-// public sealed class VarArgFunction.Argument :16
+// public sealed class Expression.Argument :14
 // {
-static void VarArgFunction__Argument_build(uType* type)
+static void Expression__Argument_build(uType* type)
 {
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
     type->SetFields(0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(VarArgFunction__Argument, Subscription), 0,
-        ::g::Uno::Bool_typeof(), offsetof(VarArgFunction__Argument, _HasValue), 0,
-        uObject_typeof(), offsetof(VarArgFunction__Argument, _Value), 0);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(Expression__Argument, Source), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(Expression__Argument, Subscription), 0,
+        ::g::Uno::Bool_typeof(), offsetof(Expression__Argument, _HasValue), 0,
+        uObject_typeof(), offsetof(Expression__Argument, _Value), 0);
 }
 
-uType* VarArgFunction__Argument_typeof()
+uType* Expression__Argument_typeof()
 {
     static uSStrong<uType*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 3;
-    options.ObjectSize = sizeof(VarArgFunction__Argument);
+    options.FieldCount = 4;
+    options.ObjectSize = sizeof(Expression__Argument);
     options.TypeSize = sizeof(uType);
-    type = uClassType::New("Fuse.Reactive.VarArgFunction.Argument", options);
-    type->fp_build_ = VarArgFunction__Argument_build;
-    type->fp_ctor_ = (void*)VarArgFunction__Argument__New1_fn;
+    type = uClassType::New("Fuse.Reactive.Expression.Argument", options);
+    type->fp_build_ = Expression__Argument_build;
+    type->fp_ctor_ = (void*)Expression__Argument__New1_fn;
     return type;
 }
 
-// public generated Argument() :16
-void VarArgFunction__Argument__ctor__fn(VarArgFunction__Argument* __this)
+// public generated Argument() :14
+void Expression__Argument__ctor__fn(Expression__Argument* __this)
 {
     __this->ctor_();
 }
 
-// internal void Dispose() :28
-void VarArgFunction__Argument__Dispose_fn(VarArgFunction__Argument* __this)
+// internal void Dispose() :27
+void Expression__Argument__Dispose_fn(Expression__Argument* __this)
 {
     __this->Dispose();
 }
 
-// public generated bool get_HasValue() :26
-void VarArgFunction__Argument__get_HasValue_fn(VarArgFunction__Argument* __this, bool* __retval)
+// public generated bool get_HasValue() :25
+void Expression__Argument__get_HasValue_fn(Expression__Argument* __this, bool* __retval)
 {
     *__retval = __this->HasValue();
 }
 
-// internal generated void set_HasValue(bool value) :26
-void VarArgFunction__Argument__set_HasValue_fn(VarArgFunction__Argument* __this, bool* value)
+// internal generated void set_HasValue(bool value) :25
+void Expression__Argument__set_HasValue_fn(Expression__Argument* __this, bool* value)
 {
     __this->HasValue(*value);
 }
 
-// public generated Argument New() :16
-void VarArgFunction__Argument__New1_fn(VarArgFunction__Argument** __retval)
+// public generated Argument New() :14
+void Expression__Argument__New1_fn(Expression__Argument** __retval)
 {
-    *__retval = VarArgFunction__Argument::New1();
+    *__retval = Expression__Argument::New1();
 }
 
-// public generated object get_Value() :21
-void VarArgFunction__Argument__get_Value_fn(VarArgFunction__Argument* __this, uObject** __retval)
+// public generated object get_Value() :20
+void Expression__Argument__get_Value_fn(Expression__Argument* __this, uObject** __retval)
 {
     *__retval = __this->Value();
 }
 
-// internal generated void set_Value(object value) :21
-void VarArgFunction__Argument__set_Value_fn(VarArgFunction__Argument* __this, uObject* value)
+// internal generated void set_Value(object value) :20
+void Expression__Argument__set_Value_fn(Expression__Argument* __this, uObject* value)
 {
     __this->Value(value);
 }
 
-// public generated Argument() [instance] :16
-void VarArgFunction__Argument::ctor_()
+// public generated Argument() [instance] :14
+void Expression__Argument::ctor_()
 {
 }
 
-// internal void Dispose() [instance] :28
-void VarArgFunction__Argument::Dispose()
+// internal void Dispose() [instance] :27
+void Expression__Argument::Dispose()
 {
     if (Subscription != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(Subscription), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(Subscription), ::TYPES[1/*Uno.IDisposable*/]));
         Subscription = NULL;
     }
 
@@ -337,51 +368,54 @@ void VarArgFunction__Argument::Dispose()
     HasValue(false);
 }
 
-// public generated bool get_HasValue() [instance] :26
-bool VarArgFunction__Argument::HasValue()
+// public generated bool get_HasValue() [instance] :25
+bool Expression__Argument::HasValue()
 {
     return _HasValue;
 }
 
-// internal generated void set_HasValue(bool value) [instance] :26
-void VarArgFunction__Argument::HasValue(bool value)
+// internal generated void set_HasValue(bool value) [instance] :25
+void Expression__Argument::HasValue(bool value)
 {
     _HasValue = value;
 }
 
-// public generated object get_Value() [instance] :21
-uObject* VarArgFunction__Argument::Value()
+// public generated object get_Value() [instance] :20
+uObject* Expression__Argument::Value()
 {
     return _Value;
 }
 
-// internal generated void set_Value(object value) [instance] :21
-void VarArgFunction__Argument::Value(uObject* value)
+// internal generated void set_Value(object value) [instance] :20
+void Expression__Argument::Value(uObject* value)
 {
     _Value = value;
 }
 
-// public generated Argument New() [static] :16
-VarArgFunction__Argument* VarArgFunction__Argument::New1()
+// public generated Argument New() [static] :14
+Expression__Argument* Expression__Argument::New1()
 {
-    VarArgFunction__Argument* obj1 = (VarArgFunction__Argument*)uNew(VarArgFunction__Argument_typeof());
+    Expression__Argument* obj1 = (Expression__Argument*)uNew(Expression__Argument_typeof());
     obj1->ctor_();
     return obj1;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\BinaryOperator.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\BinaryOperator.uno
 // ----------------------------------------------------------------------------------------------------------
 
-// public abstract class BinaryOperator :12
+// public abstract class BinaryOperator :8
 // {
 static void BinaryOperator_build(uType* type)
 {
+    ::STRINGS[1] = uString::Const(" No `TryCompute`, or a deprecated form, overriden. Migrate your code to override the one with `bool` return. ");
+    ::STRINGS[2] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Expressions\\1.9.0\\BinaryOperator.uno");
+    ::STRINGS[3] = uString::Const("TryCompute");
+    ::TYPES[2] = ::g::Fuse::Reactive::Expression_typeof()->Array();
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(BinaryOperator_type, interface0));
-    type->SetFields(0,
-        ::g::Fuse::Reactive::Expression_typeof(), offsetof(BinaryOperator, _Left), 0,
-        ::g::Fuse::Reactive::Expression_typeof(), offsetof(BinaryOperator, _Right), 0);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(BinaryOperator_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(BinaryOperator_type, interface1));
+    type->SetFields(5);
 }
 
 BinaryOperator_type* BinaryOperator_typeof()
@@ -390,126 +424,117 @@ BinaryOperator_type* BinaryOperator_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
+    options.BaseDefinition = ::g::Fuse::Reactive::ComputeExpression_typeof();
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(BinaryOperator);
     options.TypeSize = sizeof(BinaryOperator_type);
     type = (BinaryOperator_type*)uClassType::New("Fuse.Reactive.BinaryOperator", options);
     type->fp_build_ = BinaryOperator_build;
-    type->fp_Compute = BinaryOperator__Compute_fn;
-    type->fp_get_IsLeftOptional = BinaryOperator__get_IsLeftOptional_fn;
-    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))BinaryOperator__Subscribe_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))BinaryOperator__Subscribe_fn;
+    type->fp_GetFlags = (void(*)(::g::Fuse::Reactive::ComputeExpression*, int32_t*))BinaryOperator__GetFlags_fn;
+    type->fp_TryCompute = (void(*)(::g::Fuse::Reactive::ComputeExpression*, uArray*, uObject**, bool*))BinaryOperator__TryCompute_fn;
+    type->fp_TryCompute1 = BinaryOperator__TryCompute1_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// protected BinaryOperator(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) :16
-void BinaryOperator__ctor_1_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right)
+// protected BinaryOperator(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right, string name, [Fuse.Reactive.ComputeExpression.Flags flags]) :18
+void BinaryOperator__ctor_3_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right, uString* name, int32_t* flags)
 {
-    __this->ctor_1(left, right);
+    __this->ctor_3(left, right, name, *flags);
 }
 
-// protected virtual object Compute(object left, object right) :30
+// protected object Compute(object left, object right) :41
 void BinaryOperator__Compute_fn(BinaryOperator* __this, uObject* left, uObject* right, uObject** __retval)
 {
-    U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition2(::g::Uno::Type::FullName(uPtr(::g::Uno::Object::GetType(__this))), uString::Const(" does not implement the required methods"))));
+    *__retval = __this->Compute(left, right);
 }
 
-// protected virtual bool get_IsLeftOptional() :27
+// internal override sealed Fuse.Reactive.ComputeExpression.Flags GetFlags() :23
+void BinaryOperator__GetFlags_fn(BinaryOperator* __this, int32_t* __retval)
+{
+    return *__retval = (0 | (__this->IsLeftOptional() ? 1 : 0)) | (__this->IsRightOptional() ? 2 : 0), void();
+}
+
+// protected bool get_IsLeftOptional() :30
 void BinaryOperator__get_IsLeftOptional_fn(BinaryOperator* __this, bool* __retval)
 {
-    return *__retval = false, void();
+    *__retval = __this->IsLeftOptional();
 }
 
-// protected bool get_IsRightOptional() :28
+// protected bool get_IsRightOptional() :31
 void BinaryOperator__get_IsRightOptional_fn(BinaryOperator* __this, bool* __retval)
 {
     *__retval = __this->IsRightOptional();
 }
 
-// public generated Fuse.Reactive.Expression get_Left() :14
+// public Fuse.Reactive.Expression get_Left() :10
 void BinaryOperator__get_Left_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval)
 {
     *__retval = __this->Left();
 }
 
-// private generated void set_Left(Fuse.Reactive.Expression value) :14
-void BinaryOperator__set_Left_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression* value)
-{
-    __this->Left(value);
-}
-
-// protected void OnNewOperands(Fuse.Reactive.IListener listener, object left, object right) :35
-void BinaryOperator__OnNewOperands_fn(BinaryOperator* __this, uObject* listener, uObject* left, uObject* right)
-{
-    __this->OnNewOperands(listener, left, right);
-}
-
-// public generated Fuse.Reactive.Expression get_Right() :15
+// public Fuse.Reactive.Expression get_Right() :11
 void BinaryOperator__get_Right_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval)
 {
     *__retval = __this->Right();
 }
 
-// private generated void set_Right(Fuse.Reactive.Expression value) :15
-void BinaryOperator__set_Right_fn(BinaryOperator* __this, ::g::Fuse::Reactive::Expression* value)
+// protected override sealed bool TryCompute(Fuse.Reactive.Expression.Argument[] args, object& result) :43
+void BinaryOperator__TryCompute_fn(BinaryOperator* __this, uArray* args, uObject** result, bool* __retval)
 {
-    __this->Right(value);
+    return *__retval = __this->TryCompute1(uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->Value(), uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(1))->Value(), result), void();
 }
 
-// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :22
-void BinaryOperator__Subscribe_fn(BinaryOperator* __this, uObject* context, uObject* listener, uObject** __retval)
+// protected virtual bool TryCompute(object left, object right, object& result) :33
+void BinaryOperator__TryCompute1_fn(BinaryOperator* __this, uObject* left, uObject* right, uObject** result, bool* __retval)
 {
-    return *__retval = (uObject*)BinaryOperator__Subscription::Create(__this, context, listener), void();
+    ::g::Fuse::Diagnostics::Deprecated(::STRINGS[1/*" No `TryCom...*/], __this, ::STRINGS[2/*"C:\\Users\\...*/], 35, ::STRINGS[3/*"TryCompute"*/]);
+    *result = __this->Compute(left, right);
+    return *__retval = true, void();
 }
 
-// protected BinaryOperator(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) [instance] :16
-void BinaryOperator::ctor_1(::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right)
+// protected BinaryOperator(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right, string name, [Fuse.Reactive.ComputeExpression.Flags flags]) [instance] :18
+void BinaryOperator::ctor_3(::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right, uString* name, int32_t flags)
 {
-    ctor_();
-    Left(left);
-    Right(right);
+    ctor_1(uArray::Init< ::g::Fuse::Reactive::Expression*>(::TYPES[2/*Fuse.Reactive.Expression[]*/], 2, left, right), flags, name);
 }
 
-// protected bool get_IsRightOptional() [instance] :28
+// protected object Compute(object left, object right) [instance] :41
+uObject* BinaryOperator::Compute(uObject* left, uObject* right)
+{
+    return NULL;
+}
+
+// protected bool get_IsLeftOptional() [instance] :30
+bool BinaryOperator::IsLeftOptional()
+{
+    return false;
+}
+
+// protected bool get_IsRightOptional() [instance] :31
 bool BinaryOperator::IsRightOptional()
 {
     return false;
 }
 
-// public generated Fuse.Reactive.Expression get_Left() [instance] :14
+// public Fuse.Reactive.Expression get_Left() [instance] :10
 ::g::Fuse::Reactive::Expression* BinaryOperator::Left()
 {
-    return _Left;
+    return GetArgument(0);
 }
 
-// private generated void set_Left(Fuse.Reactive.Expression value) [instance] :14
-void BinaryOperator::Left(::g::Fuse::Reactive::Expression* value)
-{
-    _Left = value;
-}
-
-// protected void OnNewOperands(Fuse.Reactive.IListener listener, object left, object right) [instance] :35
-void BinaryOperator::OnNewOperands(uObject* listener, uObject* left, uObject* right)
-{
-    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), (uObject*)this, Compute(left, right));
-}
-
-// public generated Fuse.Reactive.Expression get_Right() [instance] :15
+// public Fuse.Reactive.Expression get_Right() [instance] :11
 ::g::Fuse::Reactive::Expression* BinaryOperator::Right()
 {
-    return _Right;
-}
-
-// private generated void set_Right(Fuse.Reactive.Expression value) [instance] :15
-void BinaryOperator::Right(::g::Fuse::Reactive::Expression* value)
-{
-    _Right = value;
+    return GetArgument(1);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\DataBinding.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\DataBinding.uno
 // ----------------------------------------------------------------------------------------------------
 
 // public enum BindingMode :8
@@ -531,23 +556,166 @@ uEnumType* BindingMode_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\MatchCase.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Device.uno
+// --------------------------------------------------------------------------------------------------
+
+// public class CapsObject :7
+// {
+static void CapsObject_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IObservableObject_typeof(), offsetof(CapsObject_type, interface0),
+        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(CapsObject_type, interface1),
+        ::g::Fuse::IObject_typeof(), offsetof(CapsObject_type, interface2));
+    type->SetFields(1,
+        ::g::Uno::Collections::Dictionary_typeof()->MakeType(::g::Uno::String_typeof(), uObject_typeof(), NULL), offsetof(CapsObject, _props), 0);
+}
+
+CapsObject_type* CapsObject_typeof()
+{
+    static uSStrong<CapsObject_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Uno::UX::PropertyObject_typeof();
+    options.FieldCount = 2;
+    options.InterfaceCount = 3;
+    options.ObjectSize = sizeof(CapsObject);
+    options.TypeSize = sizeof(CapsObject_type);
+    type = (CapsObject_type*)uClassType::New("Fuse.Reactive.CapsObject", options);
+    type->fp_build_ = CapsObject_build;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject**))CapsObject__FuseReactiveIObservableObjectSubscribe_fn;
+    type->interface1.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))CapsObject__UnoUXIPropertyListenerOnPropertyChanged_fn;
+    type->interface2.fp_ContainsKey = (void(*)(uObject*, uString*, bool*))CapsObject__ContainsKey_fn;
+    type->interface2.fp_get_Item = (void(*)(uObject*, uString*, uObject**))CapsObject__get_Item_fn;
+    type->interface2.fp_get_Keys = (void(*)(uObject*, uArray**))CapsObject__get_Keys_fn;
+    return type;
+}
+
+// internal CapsObject() :12
+void CapsObject__ctor_1_fn(CapsObject* __this)
+{
+    __this->ctor_1();
+}
+
+// protected void ChangeProperty(Uno.UX.Selector name, object value) :43
+void CapsObject__ChangeProperty_fn(CapsObject* __this, ::g::Uno::UX::Selector* name, uObject* value)
+{
+    __this->ChangeProperty(*name, value);
+}
+
+// public bool ContainsKey(string key) :14
+void CapsObject__ContainsKey_fn(CapsObject* __this, uString* key, bool* __retval)
+{
+    *__retval = __this->ContainsKey(key);
+}
+
+// private Fuse.Reactive.IPropertySubscription Fuse.Reactive.IObservableObject.Subscribe(Fuse.Reactive.IPropertyObserver observer) :36
+void CapsObject__FuseReactiveIObservableObjectSubscribe_fn(CapsObject* __this, uObject* observer, uObject** __retval)
+{
+    CapsObject__PropertySubscription* sub = CapsObject__PropertySubscription::New1(__this, observer);
+    __this->AddPropertyListener((uObject*)sub);
+    return *__retval = (uObject*)sub, void();
+}
+
+// private object GetValue(string key) :23
+void CapsObject__GetValue_fn(CapsObject* __this, uString* key, uObject** __retval)
+{
+    *__retval = __this->GetValue(key);
+}
+
+// public object get_Item(string key) :21
+void CapsObject__get_Item_fn(CapsObject* __this, uString* key, uObject** __retval)
+{
+    *__retval = __this->Item(key);
+}
+
+// public string[] get_Keys() :33
+void CapsObject__get_Keys_fn(CapsObject* __this, uArray** __retval)
+{
+    *__retval = __this->Keys();
+}
+
+// protected Uno.Collections.Dictionary<string, object> get_Props() :10
+void CapsObject__get_Props_fn(CapsObject* __this, ::g::Uno::Collections::Dictionary** __retval)
+{
+    *__retval = __this->Props();
+}
+
+// private void Uno.UX.IPropertyListener.OnPropertyChanged(Uno.UX.PropertyObject obj, Uno.UX.Selector name) :49
+void CapsObject__UnoUXIPropertyListenerOnPropertyChanged_fn(CapsObject* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::UX::Selector* name)
+{
+}
+
+// internal CapsObject() [instance] :12
+void CapsObject::ctor_1()
+{
+    _props = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[32/*Uno.Collections.Dictionary<string, object>*/]));
+    ctor_();
+}
+
+// protected void ChangeProperty(Uno.UX.Selector name, object value) [instance] :43
+void CapsObject::ChangeProperty(::g::Uno::UX::Selector name, uObject* value)
+{
+    ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(_props), ::g::Uno::UX::Selector__op_Implicit2(name), value);
+    OnPropertyChanged1(name, (uObject*)this);
+}
+
+// public bool ContainsKey(string key) [instance] :14
+bool CapsObject::ContainsKey(uString* key)
+{
+    bool ret2;
+    return (::g::Uno::Collections::Dictionary__ContainsKey_fn(uPtr(_props), key, &ret2), ret2);
+}
+
+// private object GetValue(string key) [instance] :23
+uObject* CapsObject::GetValue(uString* key)
+{
+    bool ret3;
+    uObject* value;
+
+    if ((::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(_props), key, (void**)(&value), &ret3), ret3))
+        return value;
+
+    return NULL;
+}
+
+// public object get_Item(string key) [instance] :21
+uObject* CapsObject::Item(uString* key)
+{
+    return GetValue(key);
+}
+
+// public string[] get_Keys() [instance] :33
+uArray* CapsObject::Keys()
+{
+    return (uArray*)::g::Uno::Collections::EnumerableExtensions::ToArray(::g::Uno::Collections::EnumerableExtensions_typeof()->MakeMethod(5/*ToArray<string>*/, ::TYPES[0/*string*/], NULL), (uObject*)((::g::Uno::Collections::Dictionary__KeyCollection*)uPtr(_props)->Keys()));
+}
+
+// protected Uno.Collections.Dictionary<string, object> get_Props() [instance] :10
+::g::Uno::Collections::Dictionary* CapsObject::Props()
+{
+    return _props;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\MatchCase.uno
 // --------------------------------------------------------------------------------------------------
 
 // public sealed class Case :274
 // {
 static void Case_build(uType* type)
 {
-    ::STRINGS[1] = uString::Const("Case already has a Match");
-    ::TYPES[1] = ::g::Uno::Action1_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL);
-    ::TYPES[2] = ::g::Uno::Bool_typeof();
-    ::TYPES[3] = ::g::Uno::Collections::RootableList_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL);
-    ::TYPES[4] = ::g::Uno::String_typeof();
+    ::STRINGS[4] = uString::Const("Case already has a Match");
+    ::TYPES[3] = ::g::Uno::Action1_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL);
+    ::TYPES[4] = ::g::Uno::Bool_typeof();
+    ::TYPES[5] = ::g::Uno::Collections::RootableList_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL);
+    ::TYPES[0] = ::g::Uno::String_typeof();
     type->SetFields(0,
         ::g::Fuse::Reactive::Match_typeof(), offsetof(Case, _match), 0,
         uObject_typeof(), offsetof(Case, _value), 0,
-        ::TYPES[3/*Uno.Collections.RootableList<Uno.UX.Template>*/], offsetof(Case, _factories), 0,
-        ::TYPES[2/*bool*/], offsetof(Case, _IsDefault), 0);
+        ::TYPES[5/*Uno.Collections.RootableList<Uno.UX.Template>*/], offsetof(Case, _factories), 0,
+        ::TYPES[4/*bool*/], offsetof(Case, _IsDefault), 0);
 }
 
 uType* Case_typeof()
@@ -669,13 +837,13 @@ void Case::ctor_()
 // public bool get_Bool() [instance] :333
 bool Case::Bool()
 {
-    return uIs((uObject*)_value, ::TYPES[2/*bool*/]) ? uUnbox<bool>(::TYPES[2/*bool*/], _value) : false;
+    return uIs((uObject*)_value, ::TYPES[4/*bool*/]) ? uUnbox<bool>(::TYPES[4/*bool*/], _value) : false;
 }
 
 // public void set_Bool(bool value) [instance] :334
 void Case::Bool(bool value)
 {
-    Value(uBox(::TYPES[2/*bool*/], value));
+    Value(uBox(::TYPES[4/*bool*/], value));
 }
 
 // public Uno.Collections.IList<Uno.UX.Template> get_Factories() [instance] :353
@@ -683,10 +851,10 @@ uObject* Case::Factories()
 {
     if (_factories == NULL)
     {
-        _factories = ((::g::Uno::Collections::RootableList*)::g::Uno::Collections::RootableList::New1(::TYPES[3/*Uno.Collections.RootableList<Uno.UX.Template>*/]));
+        _factories = ((::g::Uno::Collections::RootableList*)::g::Uno::Collections::RootableList::New1(::TYPES[5/*Uno.Collections.RootableList<Uno.UX.Template>*/]));
 
         if (IsRooted())
-            uPtr(_factories)->Subscribe(uDelegate::New(::TYPES[1/*Uno.Action<Uno.UX.Template>*/], (void*)Case__OnFactoriesChanged_fn, this), uDelegate::New(::TYPES[1/*Uno.Action<Uno.UX.Template>*/], (void*)Case__OnFactoriesChanged_fn, this));
+            uPtr(_factories)->Subscribe(uDelegate::New(::TYPES[3/*Uno.Action<Uno.UX.Template>*/], (void*)Case__OnFactoriesChanged_fn, this), uDelegate::New(::TYPES[3/*Uno.Action<Uno.UX.Template>*/], (void*)Case__OnFactoriesChanged_fn, this));
     }
 
     return (uObject*)_factories;
@@ -727,18 +895,18 @@ void Case::OnFactoriesChanged(::g::Uno::UX::Template* f)
 void Case::Root(::g::Fuse::Reactive::Match* match)
 {
     if (_match != NULL)
-        U_THROW(::g::Uno::Exception::New2(::STRINGS[1/*"Case alread...*/]));
+        U_THROW(::g::Uno::Exception::New2(::STRINGS[4/*"Case alread...*/]));
 
     _match = match;
 
     if (_factories != NULL)
-        uPtr(_factories)->Subscribe(uDelegate::New(::TYPES[1/*Uno.Action<Uno.UX.Template>*/], (void*)Case__OnFactoriesChanged_fn, this), uDelegate::New(::TYPES[1/*Uno.Action<Uno.UX.Template>*/], (void*)Case__OnFactoriesChanged_fn, this));
+        uPtr(_factories)->Subscribe(uDelegate::New(::TYPES[3/*Uno.Action<Uno.UX.Template>*/], (void*)Case__OnFactoriesChanged_fn, this), uDelegate::New(::TYPES[3/*Uno.Action<Uno.UX.Template>*/], (void*)Case__OnFactoriesChanged_fn, this));
 }
 
 // public string get_String() [instance] :317
 uString* Case::String()
 {
-    return uAs<uString*>(_value, ::TYPES[4/*string*/]);
+    return uAs<uString*>(_value, ::TYPES[0/*string*/]);
 }
 
 // public void set_String(string value) [instance] :318
@@ -781,167 +949,243 @@ Case* Case::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\MathFunctions.uno
-// ---------------------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\ExpressionListener.uno
+// --------------------------------------------------------------------------------------------------------------
 
-// public sealed class Clamp :467
+// public abstract class ComputeExpression :223
 // {
-static void Clamp_build(uType* type)
+static void ComputeExpression_build(uType* type)
 {
-    ::STRINGS[2] = uString::Const("clamp(");
-    ::STRINGS[3] = uString::Const(",");
-    ::STRINGS[4] = uString::Const(")");
-    ::TYPES[5] = ::g::Fuse::Marshal_typeof()->MakeMethod(1/*TryToType<float>*/, ::g::Uno::Float_typeof(), NULL);
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::TernaryOperator_type, interface0));
-    type->SetFields(3);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(ComputeExpression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(ComputeExpression_type, interface1));
+    type->SetFields(2,
+        ::g::Fuse::Reactive::Expression_typeof()->Array(), offsetof(ComputeExpression, _args), 0,
+        ComputeExpression__Flags_typeof(), offsetof(ComputeExpression, _flags), 0,
+        ::g::Uno::String_typeof(), offsetof(ComputeExpression, _name), 0);
 }
 
-::g::Fuse::Reactive::TernaryOperator_type* Clamp_typeof()
+ComputeExpression_type* ComputeExpression_typeof()
 {
-    static uSStrong< ::g::Fuse::Reactive::TernaryOperator_type*> type;
+    static uSStrong<ComputeExpression_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::TernaryOperator_typeof();
-    options.FieldCount = 3;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(Clamp);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::TernaryOperator_type);
-    type = (::g::Fuse::Reactive::TernaryOperator_type*)uClassType::New("Fuse.Reactive.Clamp", options);
-    type->fp_build_ = Clamp_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::TernaryOperator*, uObject*, uObject*, uObject*, uObject**))Clamp__Compute_fn;
-    type->fp_ToString = (void(*)(uObject*, uString**))Clamp__ToString_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::TernaryOperator__Subscribe_fn;
+    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(ComputeExpression);
+    options.TypeSize = sizeof(ComputeExpression_type);
+    type = (ComputeExpression_type*)uClassType::New("Fuse.Reactive.ComputeExpression", options);
+    type->fp_build_ = ComputeExpression_build;
+    type->fp_GetFlags = ComputeExpression__GetFlags_fn;
+    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))ComputeExpression__Subscribe_fn;
+    type->fp_ToString = (void(*)(uObject*, uString**))ComputeExpression__ToString_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// protected override sealed object Compute(object a, object mn, object mx) :475
-void Clamp__Compute_fn(Clamp* __this, uObject* a, uObject* mn, uObject* mx, uObject** __retval)
+// protected ComputeExpression(Fuse.Reactive.Expression[] args, [Fuse.Reactive.ComputeExpression.Flags flags], [string name]) :253
+void ComputeExpression__ctor_1_fn(ComputeExpression* __this, uArray* args, int32_t* flags, uString* name)
+{
+    __this->ctor_1(args, *flags, name);
+}
+
+// private Fuse.Reactive.ExpressionSubscriber.Flags get_EffectiveFlags() :299
+void ComputeExpression__get_EffectiveFlags_fn(ComputeExpression* __this, int32_t* __retval)
+{
+    *__retval = __this->EffectiveFlags();
+}
+
+// protected Fuse.Reactive.Expression GetArgument(int i) :246
+void ComputeExpression__GetArgument_fn(ComputeExpression* __this, int32_t* i, ::g::Fuse::Reactive::Expression** __retval)
+{
+    *__retval = __this->GetArgument(*i);
+}
+
+// internal virtual Fuse.Reactive.ComputeExpression.Flags GetFlags() :313
+void ComputeExpression__GetFlags_fn(ComputeExpression* __this, int32_t* __retval)
+{
+    return *__retval = __this->_flags, void();
+}
+
+// protected string get_Name() :277
+void ComputeExpression__get_Name_fn(ComputeExpression* __this, uString** __retval)
+{
+    *__retval = __this->Name();
+}
+
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :322
+void ComputeExpression__Subscribe_fn(ComputeExpression* __this, uObject* context, uObject* listener, uObject** __retval)
+{
+    ComputeExpression__Subscription* sub = ComputeExpression__Subscription::New1(__this, listener);
+    sub->Init(context);
+    return *__retval = (uObject*)sub, void();
+}
+
+// public override string ToString() :284
+void ComputeExpression__ToString_fn(ComputeExpression* __this, uString** __retval)
+{
+    uString* r = ::g::Uno::String::op_Addition2(__this->Name(), ::STRINGS[49/*"("*/]);
+
+    for (int32_t i = 0; i < uPtr(__this->_args)->Length(); ++i)
+    {
+        if (i > 0)
+            r = ::g::Uno::String::op_Addition2(r, uString::Const(", "));
+
+        r = ::g::Uno::String::op_Addition1(r, uPtr(__this->_args)->Strong< ::g::Fuse::Reactive::Expression*>(i));
+    }
+
+    r = ::g::Uno::String::op_Addition2(r, ::STRINGS[50/*")"*/]);
+    return *__retval = r, void();
+}
+
+// protected ComputeExpression(Fuse.Reactive.Expression[] args, [Fuse.Reactive.ComputeExpression.Flags flags], [string name]) [instance] :253
+void ComputeExpression::ctor_1(uArray* args, int32_t flags, uString* name)
+{
+    ctor_();
+    _flags = flags;
+    _args = args;
+    _name = name;
+
+    if ((_flags & 1024) == 1024)
+        ::g::Fuse::Diagnostics::Deprecated(uString::Const("This constructor and use of the Is*Optional virtuals is deprecated. Pass the optionals as flags to the constructor, or specifiy Flags.None to avoid the message"), this, ::STRINGS[74/*"C:\\Users\\...*/], 262, ::STRINGS[84/*".ctor"*/]);
+
+    if ((_flags & 2048) == 2048)
+    {
+        if (!uIs(this, ::TYPES[51/*Fuse.Reactive.UnaryOperator*/]) || (uPtr(args)->Length() != 1))
+            U_THROW(::g::Uno::Exception::New2(uString::Const("DeprecatedVirtualUnary supported only on UnaryOperator with 1 argument")));
+
+        ::g::Fuse::Diagnostics::Deprecated(uString::Const("Overiding the UnaryOperator.OnNewOperand/OnLostData is deprecated. Implement `Compute` and call the other constructor, or pass Flags.None, or implement an `Expression` and `ExpressionListener` if you need the behavior (rare)."), this, ::STRINGS[74/*"C:\\Users\\...*/], 270, ::STRINGS[84/*".ctor"*/]);
+    }
+}
+
+// private Fuse.Reactive.ExpressionSubscriber.Flags get_EffectiveFlags() [instance] :299
+int32_t ComputeExpression::EffectiveFlags()
+{
+    int32_t flags = ((_flags & 1024) == 1024) ? GetFlags() : _flags;
+    return ((((0 | (((flags & 1) == 1) ? 1 : 0)) | (((flags & 2) == 2) ? 2 : 0)) | (((flags & 4) == 4) ? 4 : 0)) | (((flags & 8) == 8) ? 8 : 0)) | (((flags & 16) == 16) ? 1024 : 0);
+}
+
+// protected Fuse.Reactive.Expression GetArgument(int i) [instance] :246
+::g::Fuse::Reactive::Expression* ComputeExpression::GetArgument(int32_t i)
+{
+    return uPtr(_args)->Strong< ::g::Fuse::Reactive::Expression*>(i);
+}
+
+// protected string get_Name() [instance] :277
+uString* ComputeExpression::Name()
+{
+    return _name;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Operators.uno
+// -----------------------------------------------------------------------------------------------------
+
+// public sealed class Concat :26
+// {
+static void Concat_build(uType* type)
+{
+    ::TYPES[6] = ::g::Fuse::Marshal_typeof()->MakeMethod(1/*TryToType<string>*/, ::g::Uno::String_typeof(), NULL);
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::BinaryOperator_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::BinaryOperator_type, interface1));
+    type->SetFields(5);
+}
+
+::g::Fuse::Reactive::BinaryOperator_type* Concat_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::BinaryOperator_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(Concat);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::BinaryOperator_type);
+    type = (::g::Fuse::Reactive::BinaryOperator_type*)uClassType::New("Fuse.Reactive.Concat", options);
+    type->fp_build_ = Concat_build;
+    type->fp_TryCompute1 = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**, bool*))Concat__TryCompute1_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed bool TryCompute(object left, object right, object& result) :31
+void Concat__TryCompute1_fn(Concat* __this, uObject* left, uObject* right, uObject** result, bool* __retval)
+{
+    return *__retval = Concat::TryComputeImpl(left, right, result), void();
+}
+
+// internal static bool TryComputeImpl(object left, object right, object& result) :36
+void Concat__TryComputeImpl_fn(uObject* left, uObject* right, uObject** result, bool* __retval)
+{
+    *__retval = Concat::TryComputeImpl(left, right, result);
+}
+
+// internal static bool TryComputeImpl(object left, object right, object& result) [static] :36
+bool Concat::TryComputeImpl(uObject* left, uObject* right, uObject** result)
 {
     bool ret2;
     bool ret3;
-    ::g::Uno::Float4 av = ::g::Uno::Float4__New1(0.0f);
-    float mxv = 0.0f, mnv = 0.0f;
-    int size = 0;
+    *result = NULL;
+    uString* a = NULL, *b = NULL;
 
-    if ((!::g::Fuse::Marshal::TryToZeroFloat4(a, &av, &size) || !(::g::Fuse::Marshal__TryToType_fn(::TYPES[5/*Fuse.Marshal.TryToType<float>*/], mn, &mnv, &ret2), ret2)) || !(::g::Fuse::Marshal__TryToType_fn(::TYPES[5/*Fuse.Marshal.TryToType<float>*/], mx, &mxv, &ret3), ret3))
-        return *__retval = NULL, void();
+    if (!(::g::Fuse::Marshal__TryToType_fn(::TYPES[6/*Fuse.Marshal.TryToType<string>*/], left, (void**)(&a), &ret2), ret2) || !(::g::Fuse::Marshal__TryToType_fn(::TYPES[6/*Fuse.Marshal.TryToType<string>*/], right, (void**)(&b), &ret3), ret3))
+        return false;
 
-    if (size == 1)
-        return *__retval = uBox(::TYPES[7/*float*/], ::g::Uno::Math::Clamp1(av.X, mnv, mxv)), void();
-
-    if (size == 2)
-        return *__retval = uBox(::g::Uno::Float2_typeof(), ::g::Uno::Math::Clamp2(::g::Uno::Float2__New2(av.X, av.Y), mnv, mxv)), void();
-
-    if (size == 3)
-        return *__retval = uBox(::g::Uno::Float3_typeof(), ::g::Uno::Math::Clamp4(::g::Uno::Float3__New2(av.X, av.Y, av.Z), mnv, mxv)), void();
-
-    if (size == 4)
-        return *__retval = uBox(::g::Uno::Float4_typeof(), ::g::Uno::Math::Clamp6(av, mnv, mxv)), void();
-
-    return *__retval = NULL, void();
-}
-
-// public override sealed string ToString() :496
-void Clamp__ToString_fn(Clamp* __this, uString** __retval)
-{
-    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[2/*"clamp("*/], __this->First()), ::STRINGS[3/*","*/]), __this->Second()), ::STRINGS[3/*","*/]), __this->Third()), ::STRINGS[4/*")"*/]), void();
+    *result = ::g::Uno::String::op_Addition2(a, b);
+    return true;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
-
-// public sealed class Conditional :83
-// {
-static void Conditional_build(uType* type)
-{
-    ::STRINGS[5] = uString::Const("(");
-    ::STRINGS[6] = uString::Const(" ? ");
-    ::STRINGS[7] = uString::Const(" : ");
-    ::STRINGS[4] = uString::Const(")");
-    type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::TernaryOperator_type, interface0));
-    type->SetFields(3);
-}
-
-::g::Fuse::Reactive::TernaryOperator_type* Conditional_typeof()
-{
-    static uSStrong< ::g::Fuse::Reactive::TernaryOperator_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::TernaryOperator_typeof();
-    options.FieldCount = 3;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(Conditional);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::TernaryOperator_type);
-    type = (::g::Fuse::Reactive::TernaryOperator_type*)uClassType::New("Fuse.Reactive.Conditional", options);
-    type->fp_build_ = Conditional_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::TernaryOperator*, uObject*, uObject*, uObject*, uObject**))Conditional__Compute_fn;
-    type->fp_get_IsThirdOptional = (void(*)(::g::Fuse::Reactive::TernaryOperator*, bool*))Conditional__get_IsThirdOptional_fn;
-    type->fp_ToString = (void(*)(uObject*, uString**))Conditional__ToString_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::TernaryOperator__Subscribe_fn;
-    return type;
-}
-
-// protected override sealed object Compute(object cond, object trueVal, object falseVal) :89
-void Conditional__Compute_fn(Conditional* __this, uObject* cond, uObject* trueVal, uObject* falseVal, uObject** __retval)
-{
-    if (cond == NULL)
-        return *__retval = NULL, void();
-
-    if (::g::Fuse::Marshal::ToBool(cond))
-        return *__retval = trueVal, void();
-
-    return *__retval = falseVal, void();
-}
-
-// protected override sealed bool get_IsThirdOptional() :96
-void Conditional__get_IsThirdOptional_fn(Conditional* __this, bool* __retval)
-{
-    return *__retval = true, void();
-}
-
-// public override sealed string ToString() :98
-void Conditional__ToString_fn(Conditional* __this, uString** __retval)
-{
-    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[5/*"("*/], __this->First()), ::STRINGS[6/*" ? "*/]), __this->Second()), ::STRINGS[7/*" : "*/]), __this->Third()), ::STRINGS[4/*")"*/]), void();
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Scripting.JavaScript\1.4.2\FuseJS\DebugLog.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Scripting.JavaScript\1.9.0\FuseJS\DebugLog.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // internal static class Console :24
 // {
 static void Console_build(uType* type)
 {
-    ::STRINGS[8] = uString::Const("C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting.JavaScript/1.4.2/FuseJS/DebugLog.uno");
-    ::STRINGS[9] = uString::Const("null");
-    ::STRINGS[10] = uString::Const("\"");
-    ::STRINGS[11] = uString::Const("function");
-    ::STRINGS[12] = uString::Const("Object");
-    ::STRINGS[13] = uString::Const("");
-    ::STRINGS[14] = uString::Const(": ");
-    ::STRINGS[15] = uString::Const("Array[");
-    ::STRINGS[16] = uString::Const("]");
-    ::STRINGS[17] = uString::Const("  ");
-    ::STRINGS[18] = uString::Const("log");
-    ::STRINGS[19] = uString::Const("dir");
-    ::STRINGS[20] = uString::Const("console");
-    ::TYPES[6] = ::g::Uno::Int_typeof();
-    ::TYPES[7] = ::g::Uno::Float_typeof();
-    ::TYPES[8] = ::g::Uno::Double_typeof();
-    ::TYPES[2] = ::g::Uno::Bool_typeof();
-    ::TYPES[4] = ::g::Uno::String_typeof();
-    ::TYPES[9] = ::g::Fuse::Scripting::Function_typeof();
-    ::TYPES[10] = ::g::Fuse::Scripting::Object_typeof();
-    ::TYPES[11] = ::g::Fuse::Scripting::Array_typeof();
-    ::TYPES[12] = ::g::Fuse::Scripting::Callback_typeof();
+    ::STRINGS[5] = uString::Const("C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting.JavaScript/1.9.0/FuseJS/DebugLog.uno");
+    ::STRINGS[6] = uString::Const("null");
+    ::STRINGS[7] = uString::Const("\"");
+    ::STRINGS[8] = uString::Const("function");
+    ::STRINGS[9] = uString::Const("Object");
+    ::STRINGS[10] = uString::Const("");
+    ::STRINGS[11] = uString::Const(": ");
+    ::STRINGS[12] = uString::Const("Array[");
+    ::STRINGS[13] = uString::Const("]");
+    ::STRINGS[14] = uString::Const(" ");
+    ::STRINGS[15] = uString::Const("  ");
+    ::STRINGS[16] = uString::Const("log");
+    ::STRINGS[17] = uString::Const("warn");
+    ::STRINGS[18] = uString::Const("info");
+    ::STRINGS[19] = uString::Const("error");
+    ::STRINGS[20] = uString::Const("dir");
+    ::STRINGS[21] = uString::Const("console");
+    ::STRINGS[22] = uString::Const("fuse-builtins");
+    ::STRINGS[23] = uString::Const("(function(obj) {\tif (obj instanceof Error) return obj.stack;\treturn '' + obj;})");
+    ::TYPES[7] = ::g::Uno::Int_typeof();
+    ::TYPES[8] = ::g::Uno::Float_typeof();
+    ::TYPES[9] = ::g::Uno::Double_typeof();
+    ::TYPES[4] = ::g::Uno::Bool_typeof();
+    ::TYPES[0] = ::g::Uno::String_typeof();
+    ::TYPES[10] = ::g::Fuse::Scripting::Function_typeof();
+    ::TYPES[11] = ::g::Fuse::Scripting::Object_typeof();
+    ::TYPES[12] = ::g::Fuse::Scripting::Array_typeof();
+    ::TYPES[13] = ::g::Fuse::Scripting::Callback_typeof();
+    ::TYPES[14] = uObject_typeof()->Array();
     type->SetDependencies(
         ::g::Uno::Diagnostics::Debug_typeof());
+    type->SetFields(0,
+        ::TYPES[10/*Fuse.Scripting.Function*/], (uintptr_t)&Console::_toStringFunction_, uFieldFlagsStatic);
 }
 
 uClassType* Console_typeof()
@@ -950,6 +1194,7 @@ uClassType* Console_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
+    options.FieldCount = 1;
     options.DependencyCount = 1;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Fuse.Reactive.Console", options);
@@ -957,22 +1202,40 @@ uClassType* Console_typeof()
     return type;
 }
 
-// private static object Dir(object[] args) :45
-void Console__Dir_fn(uArray* args, uObject** __retval)
+// private static object Dir(Fuse.Scripting.Context context, object[] args) :96
+void Console__Dir_fn(::g::Fuse::Scripting::Context* context, uArray* args, uObject** __retval)
 {
-    *__retval = Console::Dir(args);
+    *__retval = Console::Dir(context, args);
 }
 
-// private static void Dir(Uno.Text.StringBuilder builder, object obj, [int maxDepth], [int indent]) :57
-void Console__Dir1_fn(::g::Uno::Text::StringBuilder* builder, uObject* obj, int* maxDepth, int* indent)
+// private static void Dir(Uno.Text.StringBuilder builder, object obj, [int maxDepth], [int indent]) :108
+void Console__Dir1_fn(::g::Uno::Text::StringBuilder* builder, uObject* obj, int32_t* maxDepth, int32_t* indent)
 {
     Console::Dir1(builder, obj, *maxDepth, *indent);
 }
 
-// private static void Indent(Uno.Text.StringBuilder builder, int indent) :126
-void Console__Indent_fn(::g::Uno::Text::StringBuilder* builder, int* indent)
+// private static object Error(Fuse.Scripting.Context context, object[] args) :60
+void Console__Error_fn(::g::Fuse::Scripting::Context* context, uArray* args, uObject** __retval)
+{
+    *__retval = Console::Error(context, args);
+}
+
+// private static string Format(Fuse.Scripting.Context context, object[] args) :65
+void Console__Format_fn(::g::Fuse::Scripting::Context* context, uArray* args, uString** __retval)
+{
+    *__retval = Console::Format(context, args);
+}
+
+// private static void Indent(Uno.Text.StringBuilder builder, int indent) :177
+void Console__Indent_fn(::g::Uno::Text::StringBuilder* builder, int32_t* indent)
 {
     Console::Indent(builder, *indent);
+}
+
+// private static object Info(Fuse.Scripting.Context context, object[] args) :55
+void Console__Info_fn(::g::Fuse::Scripting::Context* context, uArray* args, uObject** __retval)
+{
+    *__retval = Console::Info(context, args);
 }
 
 // public static void Init(Fuse.Scripting.Context c) :26
@@ -981,67 +1244,87 @@ void Console__Init_fn(::g::Fuse::Scripting::Context* c)
     Console::Init(c);
 }
 
-// private static object Log(object[] args) :35
-void Console__Log_fn(uArray* args, uObject** __retval)
+// private static object Log(Fuse.Scripting.Context context, object[] args) :45
+void Console__Log_fn(::g::Fuse::Scripting::Context* context, uArray* args, uObject** __retval)
 {
-    *__retval = Console::Log(args);
+    *__retval = Console::Log(context, args);
 }
 
-// private static object Dir(object[] args) [static] :45
-uObject* Console::Dir(uArray* args)
+// private static object LogInternal(Fuse.Scripting.Context context, object[] args, Uno.Diagnostics.DebugMessageType debugMessageType) :38
+void Console__LogInternal_fn(::g::Fuse::Scripting::Context* context, uArray* args, int32_t* debugMessageType, uObject** __retval)
 {
-    int maxDepth = 1;
+    *__retval = Console::LogInternal(context, args, *debugMessageType);
+}
+
+// private static string ToString(Fuse.Scripting.Context context, object obj) :81
+void Console__ToString_fn(::g::Fuse::Scripting::Context* context, uObject* obj, uString** __retval)
+{
+    *__retval = Console::ToString(context, obj);
+}
+
+// private static object Warn(Fuse.Scripting.Context context, object[] args) :50
+void Console__Warn_fn(::g::Fuse::Scripting::Context* context, uArray* args, uObject** __retval)
+{
+    *__retval = Console::Warn(context, args);
+}
+
+uSStrong< ::g::Fuse::Scripting::Function*> Console::_toStringFunction_;
+
+// private static object Dir(Fuse.Scripting.Context context, object[] args) [static] :96
+uObject* Console::Dir(::g::Fuse::Scripting::Context* context, uArray* args)
+{
+    int32_t maxDepth = 1;
     ::g::Uno::Text::StringBuilder* builder = ::g::Uno::Text::StringBuilder::New1();
 
-    for (int i = 0; i < uPtr(args)->Length(); i++)
+    for (int32_t i = 0; i < uPtr(args)->Length(); i++)
         Console::Dir1(builder, uPtr(args)->Strong<uObject*>(i), 1, 0);
 
-    ::g::Uno::Diagnostics::Debug::Log5(builder->ToString(), 0, ::STRINGS[8/*"C:/Users/Sp...*/], 53);
+    ::g::Uno::Diagnostics::Debug::Log3(builder->ToString(), 0, ::STRINGS[5/*"C:/Users/Sp...*/], 104);
     return NULL;
 }
 
-// private static void Dir(Uno.Text.StringBuilder builder, object obj, [int maxDepth], [int indent]) [static] :57
-void Console::Dir1(::g::Uno::Text::StringBuilder* builder, uObject* obj, int maxDepth, int indent)
+// private static void Dir(Uno.Text.StringBuilder builder, object obj, [int maxDepth], [int indent]) [static] :108
+void Console::Dir1(::g::Uno::Text::StringBuilder* builder, uObject* obj, int32_t maxDepth, int32_t indent)
 {
     uArray* array1;
-    int index2;
-    int length3;
+    int32_t index2;
+    int32_t length3;
     indent++;
 
     if (obj == NULL)
     {
-        uPtr(builder)->AppendLine(::STRINGS[9/*"null"*/]);
+        uPtr(builder)->AppendLine(::STRINGS[6/*"null"*/]);
         return;
     }
 
-    if ((uIs(obj, ::TYPES[6/*int*/]) || uIs(obj, ::TYPES[7/*float*/])) || uIs(obj, ::TYPES[8/*double*/]))
+    if ((uIs(obj, ::TYPES[7/*int*/]) || uIs(obj, ::TYPES[8/*float*/])) || uIs(obj, ::TYPES[9/*double*/]))
     {
         uPtr(builder)->AppendLine(::g::Uno::Object::ToString(uPtr(obj)));
         return;
     }
 
-    if (uIs(obj, ::TYPES[2/*bool*/]))
+    if (uIs(obj, ::TYPES[4/*bool*/]))
     {
         uPtr(builder)->AppendLine(::g::Uno::String::ToLower(uPtr(::g::Uno::Object::ToString(uPtr(obj)))));
         return;
     }
 
-    if (uIs(obj, ::TYPES[4/*string*/]))
+    if (uIs(obj, ::TYPES[0/*string*/]))
     {
-        uPtr(builder)->AppendLine(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[10/*"\""*/], ::g::Uno::Object::ToString(uPtr(obj))), ::STRINGS[10/*"\""*/]));
+        uPtr(builder)->AppendLine(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[7/*"\""*/], ::g::Uno::Object::ToString(uPtr(obj))), ::STRINGS[7/*"\""*/]));
         return;
     }
 
-    if (uIs(obj, ::TYPES[9/*Fuse.Scripting.Function*/]))
+    if (uIs(obj, ::TYPES[10/*Fuse.Scripting.Function*/]))
     {
-        uPtr(builder)->AppendLine(::STRINGS[11/*"function"*/]);
+        uPtr(builder)->AppendLine(::STRINGS[8/*"function"*/]);
         return;
     }
 
-    if (uIs(obj, ::TYPES[10/*Fuse.Scripting.Object*/]))
+    if (uIs(obj, ::TYPES[11/*Fuse.Scripting.Object*/]))
     {
-        ::g::Fuse::Scripting::Object* o = uCast< ::g::Fuse::Scripting::Object*>(obj, ::TYPES[10/*Fuse.Scripting.Object*/]);
-        uPtr(builder)->AppendLine(::STRINGS[12/*"Object"*/]);
+        ::g::Fuse::Scripting::Object* o = uCast< ::g::Fuse::Scripting::Object*>(obj, ::TYPES[11/*Fuse.Scripting.Object*/]);
+        uPtr(builder)->AppendLine(::STRINGS[9/*"Object"*/]);
 
         if (indent <= maxDepth)
 
@@ -1049,24 +1332,24 @@ void Console::Dir1(::g::Uno::Text::StringBuilder* builder, uObject* obj, int max
             {
                 uString* k = uPtr(array1)->Strong<uString*>(index2);
                 Console::Indent(builder, indent);
-                uPtr(builder)->Append2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[13/*""*/], k), ::STRINGS[14/*": "*/]));
+                uPtr(builder)->Append2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[10/*""*/], k), ::STRINGS[11/*": "*/]));
                 Console::Dir1(builder, uPtr(o)->Item(k), maxDepth, indent);
             }
 
         return;
     }
 
-    if (uIs(obj, ::TYPES[11/*Fuse.Scripting.Array*/]))
+    if (uIs(obj, ::TYPES[12/*Fuse.Scripting.Array*/]))
     {
-        ::g::Fuse::Scripting::Array* a = uCast< ::g::Fuse::Scripting::Array*>(obj, ::TYPES[11/*Fuse.Scripting.Array*/]);
-        uPtr(builder)->AppendLine(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[15/*"Array["*/], uBox<int>(::TYPES[6/*int*/], uPtr(a)->Length())), ::STRINGS[16/*"]"*/]));
+        ::g::Fuse::Scripting::Array* a = uCast< ::g::Fuse::Scripting::Array*>(obj, ::TYPES[12/*Fuse.Scripting.Array*/]);
+        uPtr(builder)->AppendLine(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[12/*"Array["*/], uBox<int32_t>(::TYPES[7/*int*/], uPtr(a)->Length())), ::STRINGS[13/*"]"*/]));
 
         if (indent <= maxDepth)
 
-            for (int i = 0; i < uPtr(a)->Length(); i++)
+            for (int32_t i = 0; i < uPtr(a)->Length(); i++)
             {
                 Console::Indent(builder, indent);
-                uPtr(builder)->Append2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[13/*""*/], uBox<int>(::TYPES[6/*int*/], i)), ::STRINGS[14/*": "*/]));
+                uPtr(builder)->Append2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[10/*""*/], uBox<int32_t>(::TYPES[7/*int*/], i)), ::STRINGS[11/*": "*/]));
                 Console::Dir1(builder, uPtr(a)->Item(i), maxDepth, indent);
             }
 
@@ -1076,43 +1359,95 @@ void Console::Dir1(::g::Uno::Text::StringBuilder* builder, uObject* obj, int max
     uPtr(builder)->AppendLine(::g::Uno::Object::ToString(uPtr(obj)));
 }
 
-// private static void Indent(Uno.Text.StringBuilder builder, int indent) [static] :126
-void Console::Indent(::g::Uno::Text::StringBuilder* builder, int indent)
+// private static object Error(Fuse.Scripting.Context context, object[] args) [static] :60
+uObject* Console::Error(::g::Fuse::Scripting::Context* context, uArray* args)
 {
-    for (int i = 0; i < indent; i++)
-        uPtr(builder)->Append2(::STRINGS[17/*"  "*/]);
+    return Console::LogInternal(context, args, 3);
+}
+
+// private static string Format(Fuse.Scripting.Context context, object[] args) [static] :65
+uString* Console::Format(::g::Fuse::Scripting::Context* context, uArray* args)
+{
+    ::g::Uno::Text::StringBuilder* sb = ::g::Uno::Text::StringBuilder::New1();
+
+    for (int32_t i = 0; i < uPtr(args)->Length(); ++i)
+    {
+        if (i != 0)
+            uPtr(sb)->Append2(::STRINGS[14/*" "*/]);
+
+        uPtr(sb)->Append2(Console::ToString(context, uPtr(args)->Strong<uObject*>(i)));
+    }
+
+    return sb->ToString();
+}
+
+// private static void Indent(Uno.Text.StringBuilder builder, int indent) [static] :177
+void Console::Indent(::g::Uno::Text::StringBuilder* builder, int32_t indent)
+{
+    for (int32_t i = 0; i < indent; i++)
+        uPtr(builder)->Append2(::STRINGS[15/*"  "*/]);
+}
+
+// private static object Info(Fuse.Scripting.Context context, object[] args) [static] :55
+uObject* Console::Info(::g::Fuse::Scripting::Context* context, uArray* args)
+{
+    return Console::LogInternal(context, args, 1);
 }
 
 // public static void Init(Fuse.Scripting.Context c) [static] :26
 void Console::Init(::g::Fuse::Scripting::Context* c)
 {
     ::g::Fuse::Scripting::Object* console = uPtr(c)->NewObject();
-    uPtr(console)->Item(::STRINGS[18/*"log"*/], uDelegate::New(::TYPES[12/*Fuse.Scripting.Callback*/], (void*)Console__Log_fn));
-    console->Item(::STRINGS[19/*"dir"*/], uDelegate::New(::TYPES[12/*Fuse.Scripting.Callback*/], (void*)Console__Dir_fn));
-    uPtr(c->GlobalObject())->Item(::STRINGS[20/*"console"*/], console);
+    uPtr(console)->Item(::STRINGS[16/*"log"*/], uDelegate::New(::TYPES[13/*Fuse.Scripting.Callback*/], (void*)Console__Log_fn));
+    console->Item(::STRINGS[17/*"warn"*/], uDelegate::New(::TYPES[13/*Fuse.Scripting.Callback*/], (void*)Console__Warn_fn));
+    console->Item(::STRINGS[18/*"info"*/], uDelegate::New(::TYPES[13/*Fuse.Scripting.Callback*/], (void*)Console__Info_fn));
+    console->Item(::STRINGS[19/*"error"*/], uDelegate::New(::TYPES[13/*Fuse.Scripting.Callback*/], (void*)Console__Error_fn));
+    console->Item(::STRINGS[20/*"dir"*/], uDelegate::New(::TYPES[13/*Fuse.Scripting.Callback*/], (void*)Console__Dir_fn));
+    uPtr(c->GlobalObject())->Item(::STRINGS[21/*"console"*/], console);
 }
 
-// private static object Log(object[] args) [static] :35
-uObject* Console::Log(uArray* args)
+// private static object Log(Fuse.Scripting.Context context, object[] args) [static] :45
+uObject* Console::Log(::g::Fuse::Scripting::Context* context, uArray* args)
 {
-    for (int i = 0; i < uPtr(args)->Length(); i++)
-        ::g::Uno::Diagnostics::Debug::Log5((uPtr(args)->Strong<uObject*>(i) != NULL) ? (uString*)::g::Uno::Object::ToString(uPtr(uPtr(args)->Strong<uObject*>(i))) : ::STRINGS[9/*"null"*/], 0, ::STRINGS[8/*"C:/Users/Sp...*/], 39);
+    return Console::LogInternal(context, args, 0);
+}
 
+// private static object LogInternal(Fuse.Scripting.Context context, object[] args, Uno.Diagnostics.DebugMessageType debugMessageType) [static] :38
+uObject* Console::LogInternal(::g::Fuse::Scripting::Context* context, uArray* args, int32_t debugMessageType)
+{
+    uString* formatted = Console::Format(context, args);
+    ::g::Uno::Diagnostics::Debug::Log2(formatted, debugMessageType);
     return NULL;
+}
+
+// private static string ToString(Fuse.Scripting.Context context, object obj) [static] :81
+uString* Console::ToString(::g::Fuse::Scripting::Context* context, uObject* obj)
+{
+    if (Console::_toStringFunction_ == NULL)
+        Console::_toStringFunction_ = uCast< ::g::Fuse::Scripting::Function*>(uPtr(context)->Evaluate(::STRINGS[22/*"fuse-builtins"*/], ::STRINGS[23/*"(function(o...*/]), ::TYPES[10/*Fuse.Scripting.Function*/]);
+
+    return ::g::Uno::Object::ToString(uPtr(uPtr(Console::_toStringFunction_)->Call(context, uArray::Init<uObject*>(::TYPES[14/*object[]*/], 1, obj))));
+}
+
+// private static object Warn(Fuse.Scripting.Context context, object[] args) [static] :50
+uObject* Console::Warn(::g::Fuse::Scripting::Context* context, uArray* args)
+{
+    return Console::LogInternal(context, args, 2);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Expression.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Expression.uno
 // ------------------------------------------------------------------------------------------------------
 
-// public sealed class Constant :24
+// public sealed class Constant :61
 // {
 static void Constant_build(uType* type)
 {
-    ::STRINGS[21] = uString::Const("'");
+    ::STRINGS[24] = uString::Const("'");
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::ConstantExpression_type, interface0));
-    type->SetFields(0,
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::ConstantExpression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::ConstantExpression_type, interface1));
+    type->SetFields(2,
         uObject_typeof(), offsetof(Constant, _Value), 0);
 }
 
@@ -1123,74 +1458,77 @@ static void Constant_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::ConstantExpression_typeof();
-    options.FieldCount = 1;
-    options.InterfaceCount = 1;
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(Constant);
     options.TypeSize = sizeof(::g::Fuse::Reactive::ConstantExpression_type);
     type = (::g::Fuse::Reactive::ConstantExpression_type*)uClassType::New("Fuse.Reactive.Constant", options);
     type->fp_build_ = Constant_build;
     type->fp_GetValue = (void(*)(::g::Fuse::Reactive::ConstantExpression*, uObject*, uObject**))Constant__GetValue_fn;
     type->fp_ToString = (void(*)(uObject*, uString**))Constant__ToString_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ConstantExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// public Constant(object value) :28
+// public Constant(object value) :65
 void Constant__ctor_2_fn(Constant* __this, uObject* value)
 {
     __this->ctor_2(value);
 }
 
-// public override sealed object GetValue(Fuse.Reactive.IContext context) :29
+// public override sealed object GetValue(Fuse.Reactive.IContext context) :66
 void Constant__GetValue_fn(Constant* __this, uObject* context, uObject** __retval)
 {
     return *__retval = __this->Value(), void();
 }
 
-// public Constant New(object value) :28
+// public Constant New(object value) :65
 void Constant__New1_fn(uObject* value, Constant** __retval)
 {
     *__retval = Constant::New1(value);
 }
 
-// public override sealed string ToString() :31
+// public override sealed string ToString() :68
 void Constant__ToString_fn(Constant* __this, uString** __retval)
 {
-    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[21/*"'"*/], ::g::Uno::Object::ToString(uPtr(__this->Value()))), ::STRINGS[21/*"'"*/]), void();
+    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[24/*"'"*/], ::g::Uno::Object::ToString(uPtr(__this->Value()))), ::STRINGS[24/*"'"*/]), void();
 }
 
-// public generated object get_Value() :26
+// public generated object get_Value() :63
 void Constant__get_Value_fn(Constant* __this, uObject** __retval)
 {
     *__retval = __this->Value();
 }
 
-// private generated void set_Value(object value) :26
+// private generated void set_Value(object value) :63
 void Constant__set_Value_fn(Constant* __this, uObject* value)
 {
     __this->Value(value);
 }
 
-// public Constant(object value) [instance] :28
+// public Constant(object value) [instance] :65
 void Constant::ctor_2(uObject* value)
 {
     ctor_1();
     Value(value);
 }
 
-// public generated object get_Value() [instance] :26
+// public generated object get_Value() [instance] :63
 uObject* Constant::Value()
 {
     return _Value;
 }
 
-// private generated void set_Value(object value) [instance] :26
+// private generated void set_Value(object value) [instance] :63
 void Constant::Value(uObject* value)
 {
     _Value = value;
 }
 
-// public Constant New(object value) [static] :28
+// public Constant New(object value) [static] :65
 Constant* Constant::New1(uObject* value)
 {
     Constant* obj1 = (Constant*)uNew(Constant_typeof());
@@ -1199,16 +1537,18 @@ Constant* Constant::New1(uObject* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Expression.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Expression.uno
 // ------------------------------------------------------------------------------------------------------
 
-// public abstract class ConstantExpression :13
+// public abstract class ConstantExpression :50
 // {
 static void ConstantExpression_build(uType* type)
 {
-    ::TYPES[13] = ::g::Fuse::Reactive::IListener_typeof();
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(ConstantExpression_type, interface0));
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(ConstantExpression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(ConstantExpression_type, interface1));
+    type->SetFields(2);
 }
 
 ConstantExpression_type* ConstantExpression_typeof()
@@ -1218,98 +1558,54 @@ ConstantExpression_type* ConstantExpression_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.InterfaceCount = 1;
+    options.FieldCount = 2;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(ConstantExpression);
     options.TypeSize = sizeof(ConstantExpression_type);
     type = (ConstantExpression_type*)uClassType::New("Fuse.Reactive.ConstantExpression", options);
     type->fp_build_ = ConstantExpression_build;
     type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))ConstantExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))ConstantExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// protected generated ConstantExpression() :13
+// protected generated ConstantExpression() :50
 void ConstantExpression__ctor_1_fn(ConstantExpression* __this)
 {
     __this->ctor_1();
 }
 
-// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :17
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :54
 void ConstantExpression__Subscribe_fn(ConstantExpression* __this, uObject* context, uObject* listener, uObject** __retval)
 {
-    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), (uObject*)__this, __this->GetValue(context));
+    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)__this, __this->GetValue(context));
     return *__retval = NULL, void();
 }
 
-// protected generated ConstantExpression() [instance] :13
+// protected generated ConstantExpression() [instance] :50
 void ConstantExpression::ctor_1()
 {
     ctor_();
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Instance.API.uno
-// -----------------------------------------------------------------------------------------------------
-
-// private sealed class Instantiator.CountItem :317
-// {
-static void Instantiator__CountItem_build(uType* type)
-{
-}
-
-uType* Instantiator__CountItem_typeof()
-{
-    static uSStrong<uType*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.ObjectSize = sizeof(Instantiator__CountItem);
-    options.TypeSize = sizeof(uType);
-    type = uClassType::New("Fuse.Reactive.Instantiator.CountItem", options);
-    type->fp_build_ = Instantiator__CountItem_build;
-    type->fp_ctor_ = (void*)Instantiator__CountItem__New1_fn;
-    return type;
-}
-
-// public generated CountItem() :317
-void Instantiator__CountItem__ctor__fn(Instantiator__CountItem* __this)
-{
-    __this->ctor_();
-}
-
-// public generated CountItem New() :317
-void Instantiator__CountItem__New1_fn(Instantiator__CountItem** __retval)
-{
-    *__retval = Instantiator__CountItem::New1();
-}
-
-// public generated CountItem() [instance] :317
-void Instantiator__CountItem::ctor_()
-{
-}
-
-// public generated CountItem New() [static] :317
-Instantiator__CountItem* Instantiator__CountItem::New1()
-{
-    Instantiator__CountItem* obj1 = (Instantiator__CountItem*)uNew(Instantiator__CountItem_typeof());
-    obj1->ctor_();
-    return obj1;
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Expression.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Expression.uno
 // ------------------------------------------------------------------------------------------------------
 
-// public sealed class Data :37
+// public sealed class Data :74
 // {
 static void Data_build(uType* type)
 {
-    ::STRINGS[22] = uString::Const("{");
-    ::STRINGS[23] = uString::Const("}");
-    ::TYPES[14] = ::g::Fuse::Reactive::IContext_typeof();
+    ::STRINGS[25] = uString::Const("{");
+    ::STRINGS[26] = uString::Const("}");
+    ::TYPES[16] = ::g::Fuse::Reactive::IContext_typeof();
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0));
-    type->SetFields(0,
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2,
         ::g::Uno::String_typeof(), offsetof(Data, _Key), 0);
 }
 
@@ -1320,74 +1616,77 @@ static void Data_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.FieldCount = 1;
-    options.InterfaceCount = 1;
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(Data);
     options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
     type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.Data", options);
     type->fp_build_ = Data_build;
     type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))Data__Subscribe_fn;
     type->fp_ToString = (void(*)(uObject*, uString**))Data__ToString_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))Data__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// public Data(string key) :41
+// public Data(string key) :78
 void Data__ctor_1_fn(Data* __this, uString* key)
 {
     __this->ctor_1(key);
 }
 
-// public generated string get_Key() :39
+// public generated string get_Key() :76
 void Data__get_Key_fn(Data* __this, uString** __retval)
 {
     *__retval = __this->Key();
 }
 
-// private generated void set_Key(string value) :39
+// private generated void set_Key(string value) :76
 void Data__set_Key_fn(Data* __this, uString* value)
 {
     __this->Key(value);
 }
 
-// public Data New(string key) :41
+// public Data New(string key) :78
 void Data__New1_fn(uString* key, Data** __retval)
 {
     *__retval = Data::New1(key);
 }
 
-// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :43
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :80
 void Data__Subscribe_fn(Data* __this, uObject* context, uObject* listener, uObject** __retval)
 {
-    return *__retval = ::g::Fuse::Reactive::IContext::Subscribe(uInterface(uPtr(context), ::TYPES[14/*Fuse.Reactive.IContext*/]), (uObject*)__this, __this->Key(), listener), void();
+    return *__retval = ::g::Fuse::Reactive::IContext::Subscribe(uInterface(uPtr(context), ::TYPES[16/*Fuse.Reactive.IContext*/]), (uObject*)__this, __this->Key(), listener), void();
 }
 
-// public override sealed string ToString() :48
+// public override sealed string ToString() :85
 void Data__ToString_fn(Data* __this, uString** __retval)
 {
-    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[22/*"{"*/], __this->Key()), ::STRINGS[23/*"}"*/]), void();
+    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[25/*"{"*/], __this->Key()), ::STRINGS[26/*"}"*/]), void();
 }
 
-// public Data(string key) [instance] :41
+// public Data(string key) [instance] :78
 void Data::ctor_1(uString* key)
 {
     ctor_();
     Key(key);
 }
 
-// public generated string get_Key() [instance] :39
+// public generated string get_Key() [instance] :76
 uString* Data::Key()
 {
     return _Key;
 }
 
-// private generated void set_Key(string value) [instance] :39
+// private generated void set_Key(string value) [instance] :76
 void Data::Key(uString* value)
 {
     _Key = value;
 }
 
-// public Data New(string key) [static] :41
+// public Data New(string key) [static] :78
 Data* Data::New1(uString* key)
 {
     Data* obj1 = (Data*)uNew(Data_typeof());
@@ -1396,37 +1695,37 @@ Data* Data::New1(uString* key)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\DataBinding.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\DataBinding.uno
 // ----------------------------------------------------------------------------------------------------
 
 // public sealed class DataBinding :45
 // {
 static void DataBinding_build(uType* type)
 {
-    ::STRINGS[13] = uString::Const("");
-    ::STRINGS[24] = uString::Const("Cannot bind '");
-    ::STRINGS[25] = uString::Const("' to property '");
-    ::STRINGS[26] = uString::Const("'. The observable must contain exactly one ");
-    ::STRINGS[27] = uString::Const(".");
-    ::STRINGS[28] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.4.2\\DataBinding.uno");
-    ::STRINGS[29] = uString::Const("InvalidListOperation");
-    ::STRINGS[30] = uString::Const("TryPushAsMarshalledValue");
-    ::STRINGS[31] = uString::Const("number");
-    ::STRINGS[32] = uString::Const("string");
-    ::STRINGS[33] = uString::Const("value that can be converted to type ");
-    ::TYPES[15] = ::g::Fuse::IArray_typeof();
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[16] = ::g::Uno::Type_typeof();
-    ::TYPES[17] = ::g::Fuse::Reactive::IObservableArray_typeof();
-    ::TYPES[18] = ::g::Uno::UX::Selector_typeof();
-    ::TYPES[4] = ::g::Uno::String_typeof();
-    ::TYPES[19] = ::g::Uno::Exception_typeof();
-    ::TYPES[20] = ::g::Uno::Predicate_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL);
-    ::TYPES[21] = ::g::Fuse::Reactive::ISubscription_typeof();
+    ::STRINGS[10] = uString::Const("");
+    ::STRINGS[27] = uString::Const("Cannot bind '");
+    ::STRINGS[28] = uString::Const("' to property '");
+    ::STRINGS[29] = uString::Const("'. The observable must contain exactly one ");
+    ::STRINGS[30] = uString::Const(".");
+    ::STRINGS[31] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.9.0\\DataBinding.uno");
+    ::STRINGS[32] = uString::Const("InvalidListOperation");
+    ::STRINGS[33] = uString::Const("TryPushAsMarshalledValue");
+    ::STRINGS[34] = uString::Const("number");
+    ::STRINGS[35] = uString::Const("string");
+    ::STRINGS[36] = uString::Const("value that can be converted to type ");
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[17] = ::g::Fuse::IArray_typeof();
+    ::TYPES[18] = ::g::Uno::Type_typeof();
+    ::TYPES[19] = ::g::Fuse::Reactive::IObservableArray_typeof();
+    ::TYPES[20] = ::g::Uno::UX::Selector_typeof();
+    ::TYPES[0] = ::g::Uno::String_typeof();
+    ::TYPES[21] = ::g::Uno::Exception_typeof();
+    ::TYPES[22] = ::g::Uno::Predicate_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL);
+    ::TYPES[23] = ::g::Fuse::Reactive::ISubscription_typeof();
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
+        ::g::Fuse::Triggers::BusyTask_typeof(),
+        ::g::Fuse::Marshal_typeof(),
         ::g::Fuse::NameRegistry_typeof(),
-        ::g::Uno::UX::Selector_typeof(),
         ::g::Uno::Type_typeof());
     type->SetInterfaces(
         ::g::Fuse::Reactive::IContext_typeof(), offsetof(DataBinding_type, interface0),
@@ -1437,9 +1736,9 @@ static void DataBinding_build(uType* type)
     type->SetFields(3,
         ::g::Fuse::Reactive::BindingMode_typeof(), offsetof(DataBinding, _mode), 0,
         ::g::Fuse::Triggers::BusyTask_typeof(), offsetof(DataBinding, _busyTask), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(DataBinding, _subscription), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(DataBinding, _subscription), 0,
         uObject_typeof(), offsetof(DataBinding, _currentValue), 0,
-        ::TYPES[4/*string*/], offsetof(DataBinding, _registryName), 0,
+        ::TYPES[0/*string*/], offsetof(DataBinding, _registryName), 0,
         ::g::Uno::UX::Property_typeof(), offsetof(DataBinding, _Target), 0);
 }
 
@@ -1457,6 +1756,7 @@ DataBinding_type* DataBinding_typeof()
     options.TypeSize = sizeof(DataBinding_type);
     type = (DataBinding_type*)uClassType::New("Fuse.Reactive.DataBinding", options);
     type->fp_build_ = DataBinding_build;
+    type->fp_LostValue = (void(*)(::g::Fuse::Reactive::ExpressionBinding*))DataBinding__LostValue_fn;
     type->fp_NewValue = (void(*)(::g::Fuse::Reactive::ExpressionBinding*, uObject*))DataBinding__NewValue_fn;
     type->fp_OnRooted = (void(*)(::g::Fuse::Binding*))DataBinding__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Binding*))DataBinding__OnUnrooted_fn;
@@ -1464,30 +1764,37 @@ DataBinding_type* DataBinding_typeof()
     type->interface2.fp_OnClear = (void(*)(uObject*))DataBinding__FuseReactiveIObserverOnClear_fn;
     type->interface2.fp_OnSet = (void(*)(uObject*, uObject*))DataBinding__FuseReactiveIObserverOnSet_fn;
     type->interface2.fp_OnAdd = (void(*)(uObject*, uObject*))DataBinding__FuseReactiveIObserverOnAdd_fn;
-    type->interface2.fp_OnNewAt = (void(*)(uObject*, int*, uObject*))DataBinding__FuseReactiveIObserverOnNewAt_fn;
+    type->interface2.fp_OnNewAt = (void(*)(uObject*, int32_t*, uObject*))DataBinding__FuseReactiveIObserverOnNewAt_fn;
     type->interface2.fp_OnFailed = (void(*)(uObject*, uString*))DataBinding__FuseReactiveIObserverOnFailed_fn;
     type->interface2.fp_OnNewAll = (void(*)(uObject*, uObject*))DataBinding__FuseReactiveIObserverOnNewAll_fn;
-    type->interface2.fp_OnRemoveAt = (void(*)(uObject*, int*))DataBinding__FuseReactiveIObserverOnRemoveAt_fn;
-    type->interface2.fp_OnInsertAt = (void(*)(uObject*, int*, uObject*))DataBinding__FuseReactiveIObserverOnInsertAt_fn;
+    type->interface2.fp_OnRemoveAt = (void(*)(uObject*, int32_t*))DataBinding__FuseReactiveIObserverOnRemoveAt_fn;
+    type->interface2.fp_OnInsertAt = (void(*)(uObject*, int32_t*, uObject*))DataBinding__FuseReactiveIObserverOnInsertAt_fn;
     type->interface3.fp_OnNameChanged = (void(*)(uObject*, ::g::Fuse::Node*, ::g::Uno::UX::Selector*))DataBinding__FuseINameListenerOnNameChanged_fn;
     type->interface4.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))DataBinding__UnoUXIPropertyListenerOnPropertyChanged_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uString*, uObject*, uObject**))::g::Fuse::Reactive::ExpressionBinding__FuseReactiveIContextSubscribe_fn;
     type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::ExpressionBinding__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ExpressionBinding__FuseReactiveIListenerOnLostData_fn;
     type->interface0.fp_get_Node = (void(*)(uObject*, ::g::Fuse::Node**))::g::Fuse::Reactive::ExpressionBinding__FuseReactiveIContextget_Node_fn;
     type->interface0.fp_SubscribeResource = (void(*)(uObject*, uObject*, uString*, uObject*, uObject**))DataBinding__SubscribeResource_fn;
     return type;
 }
 
 // public DataBinding(Uno.UX.Property target, Fuse.Reactive.IExpression key, Fuse.Reactive.BindingMode mode) :53
-void DataBinding__ctor_2_fn(DataBinding* __this, ::g::Uno::UX::Property* target, uObject* key, int* mode)
+void DataBinding__ctor_2_fn(DataBinding* __this, ::g::Uno::UX::Property* target, uObject* key, int32_t* mode)
 {
     __this->ctor_2(target, key, *mode);
 }
 
-// private bool Acceptor(object obj) :299
+// private bool Acceptor(object obj) :309
 void DataBinding__Acceptor_fn(DataBinding* __this, uObject* obj, bool* __retval)
 {
     *__retval = __this->Acceptor(obj);
+}
+
+// private void CleanSubscription() :197
+void DataBinding__CleanSubscription_fn(DataBinding* __this)
+{
+    __this->CleanSubscription();
 }
 
 // private bool get_Clear() :69
@@ -1534,7 +1841,7 @@ void DataBinding__FuseReactiveIObserverOnFailed_fn(DataBinding* __this, uString*
 }
 
 // private void Fuse.Reactive.IObserver.OnInsertAt(int index, object value) :120
-void DataBinding__FuseReactiveIObserverOnInsertAt_fn(DataBinding* __this, int* index, uObject* value)
+void DataBinding__FuseReactiveIObserverOnInsertAt_fn(DataBinding* __this, int32_t* index, uObject* value)
 {
     __this->InvalidListOperation();
 }
@@ -1542,18 +1849,18 @@ void DataBinding__FuseReactiveIObserverOnInsertAt_fn(DataBinding* __this, int* i
 // private void Fuse.Reactive.IObserver.OnNewAll(Fuse.IArray values) :109
 void DataBinding__FuseReactiveIObserverOnNewAll_fn(DataBinding* __this, uObject* values)
 {
-    if (::g::Fuse::IArray::Length(uInterface(uPtr(values), ::TYPES[15/*Fuse.IArray*/])) > 0)
+    if (::g::Fuse::IArray::Length(uInterface(uPtr(values), ::TYPES[17/*Fuse.IArray*/])) > 0)
         __this->InvalidListOperation();
 }
 
 // private void Fuse.Reactive.IObserver.OnNewAt(int index, object value) :98
-void DataBinding__FuseReactiveIObserverOnNewAt_fn(DataBinding* __this, int* index, uObject* value)
+void DataBinding__FuseReactiveIObserverOnNewAt_fn(DataBinding* __this, int32_t* index, uObject* value)
 {
     __this->InvalidListOperation();
 }
 
 // private void Fuse.Reactive.IObserver.OnRemoveAt(int index) :115
-void DataBinding__FuseReactiveIObserverOnRemoveAt_fn(DataBinding* __this, int* index)
+void DataBinding__FuseReactiveIObserverOnRemoveAt_fn(DataBinding* __this, int32_t* index)
 {
     __this->InvalidListOperation();
 }
@@ -1570,6 +1877,13 @@ void DataBinding__InvalidListOperation_fn(DataBinding* __this)
     __this->InvalidListOperation();
 }
 
+// internal override sealed void LostValue() :231
+void DataBinding__LostValue_fn(DataBinding* __this)
+{
+    __this->CleanSubscription();
+    __this->ClearValue();
+}
+
 // private void MarkFailed(string message) :133
 void DataBinding__MarkFailed_fn(DataBinding* __this, uString* message)
 {
@@ -1577,30 +1891,26 @@ void DataBinding__MarkFailed_fn(DataBinding* __this, uString* message)
 }
 
 // public DataBinding New(Uno.UX.Property target, Fuse.Reactive.IExpression key, Fuse.Reactive.BindingMode mode) :53
-void DataBinding__New1_fn(::g::Uno::UX::Property* target, uObject* key, int* mode, DataBinding** __retval)
+void DataBinding__New1_fn(::g::Uno::UX::Property* target, uObject* key, int32_t* mode, DataBinding** __retval)
 {
     *__retval = DataBinding::New1(target, key, *mode);
 }
 
-// internal override sealed void NewValue(object value) :198
+// internal override sealed void NewValue(object value) :206
 void DataBinding__NewValue_fn(DataBinding* __this, uObject* value)
 {
-    if (__this->_subscription != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_subscription), ::TYPES[0/*Uno.IDisposable*/]));
-        __this->_subscription = NULL;
-    }
+    __this->CleanSubscription();
 
     if (::g::Fuse::Marshal::Is(value, uPtr(__this->Target())->PropertyType()))
         __this->PushValue(value);
-    else if (::g::Fuse::Marshal::Is(value, ::TYPES[33/*Fuse.Reactive.IObservable*/]))
+    else if (::g::Fuse::Marshal::Is(value, ::TYPES[35/*Fuse.Reactive.IObservable*/]))
     {
         uObject* obs = (uObject*)value;
 
-        if (::g::Fuse::IArray::Length(uInterface(uPtr(obs), ::TYPES[15/*Fuse.IArray*/])) > 0)
-            __this->PushValue(::g::Fuse::IArray::Item(uInterface(uPtr(obs), ::TYPES[15/*Fuse.IArray*/]), 0));
+        if (::g::Fuse::IArray::Length(uInterface(uPtr(obs), ::TYPES[17/*Fuse.IArray*/])) > 0)
+            __this->PushValue(::g::Fuse::IArray::Item(uInterface(uPtr(obs), ::TYPES[17/*Fuse.IArray*/]), 0));
 
-        __this->_subscription = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[17/*Fuse.Reactive.IObservableArray*/]), (uObject*)__this);
+        __this->_subscription = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[19/*Fuse.Reactive.IObservableArray*/]), (uObject*)__this);
     }
     else
         __this->PushValue(value);
@@ -1626,7 +1936,7 @@ void DataBinding__OnUnrooted_fn(DataBinding* __this)
 
     if (__this->_subscription != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_subscription), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_subscription), ::TYPES[1/*Uno.IDisposable*/]));
         __this->_subscription = NULL;
     }
 
@@ -1634,7 +1944,7 @@ void DataBinding__OnUnrooted_fn(DataBinding* __this)
     ::g::Fuse::Reactive::ExpressionBinding__OnUnrooted_fn(__this);
 }
 
-// protected void PushValue(object newValue) :229
+// protected void PushValue(object newValue) :239
 void DataBinding__PushValue_fn(DataBinding* __this, uObject* newValue)
 {
     __this->PushValue(newValue);
@@ -1670,25 +1980,25 @@ void DataBinding__set_Target_fn(DataBinding* __this, ::g::Uno::UX::Property* val
     __this->Target(value);
 }
 
-// private static Uno.UX.Selector ToSelector(object newValue) :292
+// private static Uno.UX.Selector ToSelector(object newValue) :302
 void DataBinding__ToSelector_fn(uObject* newValue, ::g::Uno::UX::Selector* __retval)
 {
     *__retval = DataBinding::ToSelector(newValue);
 }
 
-// private void TryPushAsMarshalledValue(object newValue) :304
+// private void TryPushAsMarshalledValue(object newValue) :314
 void DataBinding__TryPushAsMarshalledValue_fn(DataBinding* __this, uObject* newValue)
 {
     __this->TryPushAsMarshalledValue(newValue);
 }
 
-// private bool TryPushAsName(object newValue) :263
+// private bool TryPushAsName(object newValue) :273
 void DataBinding__TryPushAsName_fn(DataBinding* __this, uObject* newValue, bool* __retval)
 {
     *__retval = __this->TryPushAsName(newValue);
 }
 
-// private bool TryPushAsValue(object newValue) :241
+// private bool TryPushAsValue(object newValue) :251
 void DataBinding__TryPushAsValue_fn(DataBinding* __this, uObject* newValue, bool* __retval)
 {
     *__retval = __this->TryPushAsValue(newValue);
@@ -1700,7 +2010,7 @@ void DataBinding__TypeToJSName_fn(uType* t, uString** __retval)
     *__retval = DataBinding::TypeToJSName(t);
 }
 
-// private void UnlistenNameRegistry() :254
+// private void UnlistenNameRegistry() :264
 void DataBinding__UnlistenNameRegistry_fn(DataBinding* __this)
 {
     __this->UnlistenNameRegistry();
@@ -1717,10 +2027,10 @@ void DataBinding__UnoUXIPropertyListenerOnPropertyChanged_fn(DataBinding* __this
         {
             if (__this->Write())
             {
-                uObject* sub = uAs<uObject*>(__this->_subscription, ::TYPES[21/*Fuse.Reactive.ISubscription*/]);
+                uObject* sub = uAs<uObject*>(__this->_subscription, ::TYPES[23/*Fuse.Reactive.ISubscription*/]);
 
                 if (sub != NULL)
-                    ::g::Fuse::Reactive::ISubscription::SetExclusive(uInterface(uPtr(sub), ::TYPES[21/*Fuse.Reactive.ISubscription*/]), uPtr(__this->Target())->GetAsObject1());
+                    ::g::Fuse::Reactive::ISubscription::SetExclusive(uInterface(uPtr(sub), ::TYPES[23/*Fuse.Reactive.ISubscription*/]), uPtr(__this->Target())->GetAsObject1());
             }
         }
         else if (__this->CanWriteBack())
@@ -1735,17 +2045,27 @@ void DataBinding__get_Write_fn(DataBinding* __this, bool* __retval)
 }
 
 // public DataBinding(Uno.UX.Property target, Fuse.Reactive.IExpression key, Fuse.Reactive.BindingMode mode) [instance] :53
-void DataBinding::ctor_2(::g::Uno::UX::Property* target, uObject* key, int mode)
+void DataBinding::ctor_2(::g::Uno::UX::Property* target, uObject* key, int32_t mode)
 {
     ctor_1(key);
     _mode = mode;
     Target(target);
 }
 
-// private bool Acceptor(object obj) [instance] :299
+// private bool Acceptor(object obj) [instance] :309
 bool DataBinding::Acceptor(uObject* obj)
 {
     return ::g::Fuse::Marshal::Is(obj, uPtr(Target())->PropertyType());
+}
+
+// private void CleanSubscription() [instance] :197
+void DataBinding::CleanSubscription()
+{
+    if (_subscription != NULL)
+    {
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_subscription), ::TYPES[1/*Uno.IDisposable*/]));
+        _subscription = NULL;
+    }
 }
 
 // private bool get_Clear() [instance] :69
@@ -1758,7 +2078,7 @@ bool DataBinding::Clear()
 void DataBinding::ClearFailed()
 {
     if (Parent() != NULL)
-        ::g::Fuse::Triggers::BusyTask::SetBusy(Parent(), &_busyTask, 0, ::STRINGS[13/*""*/]);
+        ::g::Fuse::Triggers::BusyTask::SetBusy(Parent(), &_busyTask, 0, ::STRINGS[10/*""*/]);
 }
 
 // private void ClearValue() [instance] :167
@@ -1771,7 +2091,7 @@ void DataBinding::ClearValue()
 // private void InvalidListOperation() [instance] :88
 void DataBinding::InvalidListOperation()
 {
-    ::g::Fuse::Diagnostics::UserError(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[24/*"Cannot bind '"*/], Key()), ::STRINGS[25/*"' to proper...*/]), ::g::Uno::UX::Selector__op_Implicit1(uPtr(Target())->Name())), ::STRINGS[26/*"'. The obse...*/]), DataBinding::TypeToJSName(uPtr(Target())->PropertyType())), ::STRINGS[27/*"."*/]), this, ::STRINGS[28/*"C:\\Users\\...*/], 90, ::STRINGS[29/*"InvalidList...*/], NULL);
+    ::g::Fuse::Diagnostics::UserError(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[27/*"Cannot bind '"*/], Key()), ::STRINGS[28/*"' to proper...*/]), ::g::Uno::UX::Selector__op_Implicit2(uPtr(Target())->Name())), ::STRINGS[29/*"'. The obse...*/]), DataBinding::TypeToJSName(uPtr(Target())->PropertyType())), ::STRINGS[30/*"."*/]), this, ::STRINGS[31/*"C:\\Users\\...*/], 90, ::STRINGS[32/*"InvalidList...*/], NULL);
 }
 
 // private void MarkFailed(string message) [instance] :133
@@ -1780,7 +2100,7 @@ void DataBinding::MarkFailed(uString* message)
     ::g::Fuse::Triggers::BusyTask::SetBusy(Parent(), &_busyTask, 16, message);
 }
 
-// protected void PushValue(object newValue) [instance] :229
+// protected void PushValue(object newValue) [instance] :239
 void DataBinding::PushValue(uObject* newValue)
 {
     if (!Read())
@@ -1824,7 +2144,7 @@ void DataBinding::Target(::g::Uno::UX::Property* value)
     _Target = value;
 }
 
-// private void TryPushAsMarshalledValue(object newValue) [instance] :304
+// private void TryPushAsMarshalledValue(object newValue) [instance] :314
 void DataBinding::TryPushAsMarshalledValue(uObject* newValue)
 {
     uObject* res;
@@ -1842,12 +2162,12 @@ void DataBinding::TryPushAsMarshalledValue(uObject* newValue)
         {
             ::g::Uno::Exception* e = __t.Exception;
             MarkFailed(uPtr(e)->ToString());
-            ::g::Fuse::Diagnostics::UserError(e->ToString(), Target(), ::STRINGS[28/*"C:\\Users\\...*/], 317, ::STRINGS[30/*"TryPushAsMa...*/], NULL);
+            ::g::Fuse::Diagnostics::UserError(e->ToString(), Target(), ::STRINGS[31/*"C:\\Users\\...*/], 327, ::STRINGS[33/*"TryPushAsMa...*/], NULL);
         }
     }
 }
 
-// private bool TryPushAsName(object newValue) [instance] :263
+// private bool TryPushAsName(object newValue) [instance] :273
 bool DataBinding::TryPushAsName(uObject* newValue)
 {
     ::g::Uno::UX::Selector name = DataBinding::ToSelector(newValue);
@@ -1855,9 +2175,9 @@ bool DataBinding::TryPushAsName(uObject* newValue)
     if (!name.IsNull())
     {
         UnlistenNameRegistry();
-        _registryName = ::g::Uno::UX::Selector__op_Implicit1(name);
-        ::g::Fuse::NameRegistry::AddListener(::g::Uno::UX::Selector__op_Implicit(_registryName), (uObject*)this);
-        ::g::Fuse::Node* k = uPtr(Parent())->FindNodeByName(name, uDelegate::New(::TYPES[20/*Uno.Predicate<Fuse.Node>*/], (void*)DataBinding__Acceptor_fn, this));
+        _registryName = ::g::Uno::UX::Selector__op_Implicit2(name);
+        ::g::Fuse::NameRegistry::AddListener(::g::Uno::UX::Selector__op_Implicit1(_registryName), (uObject*)this);
+        ::g::Fuse::Node* k = uPtr(Parent())->FindNodeByName(name, uDelegate::New(::TYPES[22/*Uno.Predicate<Fuse.Node>*/], (void*)DataBinding__Acceptor_fn, this));
 
         if (k != NULL)
         {
@@ -1872,7 +2192,7 @@ bool DataBinding::TryPushAsName(uObject* newValue)
     return false;
 }
 
-// private bool TryPushAsValue(object newValue) [instance] :241
+// private bool TryPushAsValue(object newValue) [instance] :251
 bool DataBinding::TryPushAsValue(uObject* newValue)
 {
     if (::g::Fuse::Marshal::Is(newValue, uPtr(Target())->PropertyType()))
@@ -1885,12 +2205,12 @@ bool DataBinding::TryPushAsValue(uObject* newValue)
     return false;
 }
 
-// private void UnlistenNameRegistry() [instance] :254
+// private void UnlistenNameRegistry() [instance] :264
 void DataBinding::UnlistenNameRegistry()
 {
     if (::g::Uno::String::op_Inequality(_registryName, NULL))
     {
-        ::g::Fuse::NameRegistry::RemoveListener1(::g::Uno::UX::Selector__op_Implicit(_registryName), (uObject*)this);
+        ::g::Fuse::NameRegistry::RemoveListener1(::g::Uno::UX::Selector__op_Implicit1(_registryName), (uObject*)this);
         _registryName = NULL;
     }
 }
@@ -1902,61 +2222,111 @@ bool DataBinding::Write()
 }
 
 // public DataBinding New(Uno.UX.Property target, Fuse.Reactive.IExpression key, Fuse.Reactive.BindingMode mode) [static] :53
-DataBinding* DataBinding::New1(::g::Uno::UX::Property* target, uObject* key, int mode)
+DataBinding* DataBinding::New1(::g::Uno::UX::Property* target, uObject* key, int32_t mode)
 {
     DataBinding* obj1 = (DataBinding*)uNew(DataBinding_typeof());
     obj1->ctor_2(target, key, mode);
     return obj1;
 }
 
-// private static Uno.UX.Selector ToSelector(object newValue) [static] :292
+// private static Uno.UX.Selector ToSelector(object newValue) [static] :302
 ::g::Uno::UX::Selector DataBinding::ToSelector(uObject* newValue)
 {
-    return uIs(newValue, ::TYPES[18/*Uno.UX.Selector*/]) ? uUnbox< ::g::Uno::UX::Selector>(::TYPES[18/*Uno.UX.Selector*/], newValue) : uIs(newValue, ::TYPES[4/*string*/]) ? ::g::Uno::UX::Selector__New1(uCast<uString*>(newValue, ::TYPES[4/*string*/])) : uDefault< ::g::Uno::UX::Selector>();
+    return uIs(newValue, ::TYPES[20/*Uno.UX.Selector*/]) ? uUnbox< ::g::Uno::UX::Selector>(::TYPES[20/*Uno.UX.Selector*/], newValue) : uIs(newValue, ::TYPES[0/*string*/]) ? ::g::Uno::UX::Selector__New1(uCast<uString*>(newValue, ::TYPES[0/*string*/])) : uDefault< ::g::Uno::UX::Selector>();
 }
 
 // private static string TypeToJSName(Uno.Type t) [static] :81
 uString* DataBinding::TypeToJSName(uType* t)
 {
-    if ((::g::Uno::Type::op_Equality(t, ::TYPES[6/*int*/]) || ::g::Uno::Type::op_Equality(t, ::TYPES[7/*float*/])) || ::g::Uno::Type::op_Equality(t, ::TYPES[8/*double*/]))
-        return ::STRINGS[31/*"number"*/];
+    if ((::g::Uno::Type::op_Equality(t, ::TYPES[7/*int*/]) || ::g::Uno::Type::op_Equality(t, ::TYPES[8/*float*/])) || ::g::Uno::Type::op_Equality(t, ::TYPES[9/*double*/]))
+        return ::STRINGS[34/*"number"*/];
 
-    if (::g::Uno::Type::op_Equality(t, ::TYPES[4/*string*/]))
-        return ::STRINGS[32/*"string"*/];
+    if (::g::Uno::Type::op_Equality(t, ::TYPES[0/*string*/]))
+        return ::STRINGS[35/*"string"*/];
 
-    return ::g::Uno::String::op_Addition2(::STRINGS[33/*"value that ...*/], ::g::Uno::Type::FullName(uPtr(t)));
+    return ::g::Uno::String::op_Addition2(::STRINGS[36/*"value that ...*/], ::g::Uno::Type::FullName(uPtr(t)));
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Subscription\DataSubscription.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\DataFunction.uno
+// -----------------------------------------------------------------------------------------------------
+
+// public sealed class DataFunction :21
+// {
+static void DataFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2);
+}
+
+::g::Fuse::Reactive::Expression_type* DataFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::Expression_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
+    options.FieldCount = 2;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(DataFunction);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
+    type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.DataFunction", options);
+    type->fp_build_ = DataFunction_build;
+    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))DataFunction__Subscribe_fn;
+    type->fp_ToString = (void(*)(uObject*, uString**))DataFunction__ToString_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))DataFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :33
+void DataFunction__Subscribe_fn(DataFunction* __this, uObject* context, uObject* listener, uObject** __retval)
+{
+    DataFunction__Subscription* sub = DataFunction__Subscription::New1(__this, listener, ::g::Fuse::Reactive::IContext::Node(uInterface(uPtr(context), ::TYPES[16/*Fuse.Reactive.IContext*/])));
+    sub->Init();
+    return *__retval = (uObject*)sub, void();
+}
+
+// public override sealed string ToString() :28
+void DataFunction__ToString_fn(DataFunction* __this, uString** __retval)
+{
+    return *__retval = uString::Const("data()"), void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Subscription\DataSubscription.uno
 // ----------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class DataSubscription :6
 // {
 static void DataSubscription_build(uType* type)
 {
-    ::STRINGS[22] = uString::Const("{");
-    ::STRINGS[34] = uString::Const("} not found in data context");
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[22] = ::g::Fuse::Reactive::IPropertySubscription_typeof();
-    ::TYPES[23] = ::g::Fuse::Reactive::IObservableObject_typeof();
-    ::TYPES[13] = ::g::Fuse::Reactive::IListener_typeof();
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
+    ::STRINGS[25] = uString::Const("{");
+    ::STRINGS[37] = uString::Const("} not found in data context");
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[24] = ::g::Fuse::Reactive::IObservableObject_typeof();
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
+    ::TYPES[25] = ::g::Fuse::Reactive::IPropertySubscription_typeof();
     type->SetInterfaces(
-        ::g::Fuse::Node__IDataEnumerator_typeof(), offsetof(DataSubscription_type, interface0),
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(DataSubscription_type, interface1),
-        ::g::Fuse::Node__IDataListener_typeof(), offsetof(DataSubscription_type, interface2),
-        ::g::Fuse::Reactive::IPropertyObserver_typeof(), offsetof(DataSubscription_type, interface3),
-        ::g::Fuse::Reactive::IWriteable_typeof(), offsetof(DataSubscription_type, interface4));
-    type->SetFields(1,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(DataSubscription_type, interface0),
+        ::g::Fuse::Node__IDataListener_typeof(), offsetof(DataSubscription_type, interface1),
+        ::g::Fuse::Reactive::IPropertyObserver_typeof(), offsetof(DataSubscription_type, interface2),
+        ::g::Fuse::Reactive::IWriteable_typeof(), offsetof(DataSubscription_type, interface3));
+    type->SetFields(0,
         ::g::Fuse::Reactive::IExpression_typeof(), offsetof(DataSubscription, _source), 0,
         ::g::Fuse::Node_typeof(), offsetof(DataSubscription, _origin), 0,
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(DataSubscription, _listener), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(DataSubscription, _diag), 0,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(DataSubscription, _listener), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(DataSubscription, _diag), 0,
+        ::g::Uno::String_typeof(), offsetof(DataSubscription, _key), 0,
+        ::g::Fuse::Node__NodeDataSubscription_typeof(), offsetof(DataSubscription, _dataSub), 0,
         ::g::Uno::Bool_typeof(), offsetof(DataSubscription, _isResolved), 0,
+        ::g::Uno::Bool_typeof(), offsetof(DataSubscription, _hasData), 0,
         uObject_typeof(), offsetof(DataSubscription, _currentData), 0,
-        ::TYPES[22/*Fuse.Reactive.IPropertySubscription*/], offsetof(DataSubscription, _sub), 0);
+        ::TYPES[25/*Fuse.Reactive.IPropertySubscription*/], offsetof(DataSubscription, _sub), 0);
 }
 
 DataSubscription_type* DataSubscription_typeof()
@@ -1965,181 +2335,382 @@ DataSubscription_type* DataSubscription_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Node__DataFinder_typeof();
-    options.FieldCount = 8;
-    options.InterfaceCount = 5;
-    options.DependencyCount = 1;
+    options.FieldCount = 10;
+    options.InterfaceCount = 4;
     options.ObjectSize = sizeof(DataSubscription);
     options.TypeSize = sizeof(DataSubscription_type);
     type = (DataSubscription_type*)uClassType::New("Fuse.Reactive.DataSubscription", options);
     type->fp_build_ = DataSubscription_build;
-    type->fp_Resolve = (void(*)(::g::Fuse::Node__DataFinder*, uObject*, uObject*))DataSubscription__Resolve_fn;
-    type->interface4.fp_TrySetExclusive = (void(*)(uObject*, uObject*, bool*))DataSubscription__FuseReactiveIWriteableTrySetExclusive_fn;
-    type->interface2.fp_OnDataChanged = (void(*)(uObject*))DataSubscription__FuseNodeIDataListenerOnDataChanged_fn;
-    type->interface1.fp_Dispose = (void(*)(uObject*))DataSubscription__Dispose_fn;
-    type->interface0.fp_NextData = (void(*)(uObject*, uObject*, bool*))::g::Fuse::Node__DataFinder__NextData_fn;
+    type->interface3.fp_TrySetExclusive = (void(*)(uObject*, uObject*, bool*))DataSubscription__FuseReactiveIWriteableTrySetExclusive_fn;
+    type->interface2.fp_OnPropertyChanged = (void(*)(uObject*, uObject*, uString*, uObject*))DataSubscription__FuseReactiveIPropertyObserverOnPropertyChanged_fn;
+    type->interface1.fp_OnDataChanged = (void(*)(uObject*))DataSubscription__FuseNodeIDataListenerOnDataChanged_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))DataSubscription__Dispose_fn;
     return type;
 }
 
-// public DataSubscription(Fuse.Reactive.IExpression source, Fuse.Node origin, string key, Fuse.Reactive.IListener listener) :13
-void DataSubscription__ctor_1_fn(DataSubscription* __this, uObject* source, ::g::Fuse::Node* origin, uString* key, uObject* listener)
+// public DataSubscription(Fuse.Reactive.IExpression source, Fuse.Node origin, string key, Fuse.Reactive.IListener listener) :15
+void DataSubscription__ctor__fn(DataSubscription* __this, uObject* source, ::g::Fuse::Node* origin, uString* key, uObject* listener)
 {
-    __this->ctor_1(source, origin, key, listener);
+    __this->ctor_(source, origin, key, listener);
 }
 
-// private void ClearDiagnostic() :102
+// private void ClearDiagnostic() :120
 void DataSubscription__ClearDiagnostic_fn(DataSubscription* __this)
 {
     __this->ClearDiagnostic();
 }
 
-// public void Dispose() :87
+// public void Dispose() :101
 void DataSubscription__Dispose_fn(DataSubscription* __this)
 {
     __this->Dispose();
 }
 
-// private void DisposeSubscription() :41
+// private void DisposeSubscription() :59
 void DataSubscription__DisposeSubscription_fn(DataSubscription* __this)
 {
     __this->DisposeSubscription();
 }
 
-// private void FindData() :26
+// private void FindData() :29
 void DataSubscription__FindData_fn(DataSubscription* __this)
 {
     __this->FindData();
 }
 
-// private void Fuse.Node.IDataListener.OnDataChanged() :97
+// private void Fuse.Node.IDataListener.OnDataChanged() :115
 void DataSubscription__FuseNodeIDataListenerOnDataChanged_fn(DataSubscription* __this)
 {
     __this->FindData();
 }
 
-// private bool Fuse.Reactive.IWriteable.TrySetExclusive(object newValue) :50
+// private void Fuse.Reactive.IPropertyObserver.OnPropertyChanged(Uno.IDisposable sub, string propertyName, object newValue) :83
+void DataSubscription__FuseReactiveIPropertyObserverOnPropertyChanged_fn(DataSubscription* __this, uObject* sub, uString* propertyName, uObject* newValue)
+{
+    if (sub != __this->_sub)
+        return;
+
+    if (::g::Uno::String::op_Inequality(propertyName, __this->_key))
+        return;
+
+    __this->ResolveInner(newValue);
+}
+
+// private bool Fuse.Reactive.IWriteable.TrySetExclusive(object newValue) :68
 void DataSubscription__FuseReactiveIWriteableTrySetExclusive_fn(DataSubscription* __this, uObject* newValue, bool* __retval)
 {
-    uObject* w = uAs<uObject*>(__this->_sub, ::TYPES[22/*Fuse.Reactive.IPropertySubscription*/]);
+    uObject* w = uAs<uObject*>(__this->_sub, ::TYPES[25/*Fuse.Reactive.IPropertySubscription*/]);
 
     if (w != NULL)
-        return *__retval = ::g::Fuse::Reactive::IPropertySubscription::TrySetExclusive(uInterface(uPtr(w), ::TYPES[22/*Fuse.Reactive.IPropertySubscription*/]), __this->Key(), newValue), void();
+    {
+        if (::g::Fuse::Reactive::IPropertySubscription::TrySetExclusive(uInterface(uPtr(w), ::TYPES[25/*Fuse.Reactive.IPropertySubscription*/]), __this->_key, newValue))
+        {
+            __this->_currentData = newValue;
+            return *__retval = true, void();
+        }
+    }
 
     return *__retval = false, void();
 }
 
-// public DataSubscription New(Fuse.Reactive.IExpression source, Fuse.Node origin, string key, Fuse.Reactive.IListener listener) :13
+// public DataSubscription New(Fuse.Reactive.IExpression source, Fuse.Node origin, string key, Fuse.Reactive.IListener listener) :15
 void DataSubscription__New1_fn(uObject* source, ::g::Fuse::Node* origin, uString* key, uObject* listener, DataSubscription** __retval)
 {
     *__retval = DataSubscription::New1(source, origin, key, listener);
 }
 
-// protected override sealed void Resolve(Fuse.IObject provider, object data) :59
-void DataSubscription__Resolve_fn(DataSubscription* __this, uObject* provider, uObject* data)
-{
-    __this->DisposeSubscription();
-    uObject* obs = uAs<uObject*>(provider, ::TYPES[23/*Fuse.Reactive.IObservableObject*/]);
-
-    if (obs != NULL)
-        __this->_sub = ::g::Fuse::Reactive::IObservableObject::Subscribe(uInterface(uPtr(obs), ::TYPES[23/*Fuse.Reactive.IObservableObject*/]), (uObject*)__this);
-
-    __this->ResolveInner(data);
-}
-
-// private void ResolveInner(object data) :77
+// private void ResolveInner(object data) :90
 void DataSubscription__ResolveInner_fn(DataSubscription* __this, uObject* data)
 {
     __this->ResolveInner(data);
 }
 
-// public DataSubscription(Fuse.Reactive.IExpression source, Fuse.Node origin, string key, Fuse.Reactive.IListener listener) [instance] :13
-void DataSubscription::ctor_1(uObject* source, ::g::Fuse::Node* origin, uString* key, uObject* listener)
+// public DataSubscription(Fuse.Reactive.IExpression source, Fuse.Node origin, string key, Fuse.Reactive.IListener listener) [instance] :15
+void DataSubscription::ctor_(uObject* source, ::g::Fuse::Node* origin, uString* key, uObject* listener)
 {
-    ctor_(key);
+    _key = key;
     _source = source;
     _origin = origin;
     _listener = listener;
-    uPtr(_origin)->AddDataListener(key, (uObject*)this);
+    _dataSub = uPtr(_origin)->SubscribeData(key, (uObject*)this);
     FindData();
 }
 
-// private void ClearDiagnostic() [instance] :102
+// private void ClearDiagnostic() [instance] :120
 void DataSubscription::ClearDiagnostic()
 {
     if (_diag != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_diag), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_diag), ::TYPES[1/*Uno.IDisposable*/]));
         _diag = NULL;
     }
 }
 
-// public void Dispose() [instance] :87
+// public void Dispose() [instance] :101
 void DataSubscription::Dispose()
 {
     DisposeSubscription();
     ClearDiagnostic();
-    uPtr(_origin)->RemoveDataListener(Key(), (uObject*)this);
     _origin = NULL;
     _source = NULL;
     _listener = NULL;
+
+    if (_dataSub != NULL)
+    {
+        uPtr(_dataSub)->Dispose();
+        _dataSub = NULL;
+    }
 }
 
-// private void DisposeSubscription() [instance] :41
+// private void DisposeSubscription() [instance] :59
 void DataSubscription::DisposeSubscription()
 {
     if (_sub != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_sub), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_sub), ::TYPES[1/*Uno.IDisposable*/]));
         _sub = NULL;
     }
 }
 
-// private void FindData() [instance] :26
+// private void FindData() [instance] :29
 void DataSubscription::FindData()
 {
-    if (_origin == NULL)
+    if (_dataSub == NULL)
         return;
 
     ClearDiagnostic();
+    DisposeSubscription();
     _isResolved = false;
-    uPtr(_origin)->EnumerateData((uObject*)this);
 
-    if (!_isResolved)
-        _diag = ::g::Fuse::Diagnostics::ReportTemporalUserWarning(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[22/*"{"*/], Key()), ::STRINGS[34/*"} not found...*/]), _origin);
+    if (uPtr(_dataSub)->HasData())
+    {
+        uObject* obs = uAs<uObject*>(uPtr(_dataSub)->Provider(), ::TYPES[24/*Fuse.Reactive.IObservableObject*/]);
+
+        if (obs != NULL)
+            _sub = ::g::Fuse::Reactive::IObservableObject::Subscribe(uInterface(uPtr(obs), ::TYPES[24/*Fuse.Reactive.IObservableObject*/]), (uObject*)this);
+
+        ResolveInner(uPtr(_dataSub)->Data());
+    }
+    else
+    {
+        _diag = ::g::Fuse::Diagnostics::ReportTemporalUserWarning(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[25/*"{"*/], _key), ::STRINGS[37/*"} not found...*/]), _origin);
+
+        if (_hasData)
+        {
+            ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), _source);
+            _hasData = false;
+        }
+    }
 }
 
-// private void ResolveInner(object data) [instance] :77
+// private void ResolveInner(object data) [instance] :90
 void DataSubscription::ResolveInner(uObject* data)
 {
     _isResolved = true;
 
-    if (data != _currentData)
+    if ((data != _currentData) || !_hasData)
     {
+        _hasData = true;
         _currentData = data;
-        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), _source, data);
+        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), _source, data);
     }
 }
 
-// public DataSubscription New(Fuse.Reactive.IExpression source, Fuse.Node origin, string key, Fuse.Reactive.IListener listener) [static] :13
+// public DataSubscription New(Fuse.Reactive.IExpression source, Fuse.Node origin, string key, Fuse.Reactive.IListener listener) [static] :15
 DataSubscription* DataSubscription::New1(uObject* source, ::g::Fuse::Node* origin, uString* key, uObject* listener)
 {
     DataSubscription* obj1 = (DataSubscription*)uNew(DataSubscription_typeof());
-    obj1->ctor_1(source, origin, key, listener);
+    obj1->ctor_(source, origin, key, listener);
     return obj1;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Scripting.JavaScript\1.4.2\FuseJS\DebugLog.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\DataToResource.uno
+// ----------------------------------------------------------------------------------------------------------
+
+// public sealed class DataToResource :33
+// {
+static void DataToResource_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2,
+        ::g::Fuse::Reactive::Expression_typeof(), offsetof(DataToResource, _data), 0);
+}
+
+::g::Fuse::Reactive::Expression_type* DataToResource_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::Expression_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(DataToResource);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
+    type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.DataToResource", options);
+    type->fp_build_ = DataToResource_build;
+    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))DataToResource__Subscribe_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))DataToResource__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :42
+void DataToResource__Subscribe_fn(DataToResource* __this, uObject* context, uObject* listener, uObject** __retval)
+{
+    DataToResource__DataToResourceSubscription* dtr = DataToResource__DataToResourceSubscription::New1(__this, context, listener);
+    dtr->Init(context);
+    return *__retval = (uObject*)dtr, void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\DataToResource.uno
+// ----------------------------------------------------------------------------------------------------------
+
+// private sealed class DataToResource.DataToResourceSubscription :49
+// {
+static void DataToResource__DataToResourceSubscription_build(uType* type)
+{
+    ::TYPES[2] = ::g::Fuse::Reactive::Expression_typeof()->Array();
+    ::TYPES[16] = ::g::Fuse::Reactive::IContext_typeof();
+    ::TYPES[0] = ::g::Uno::String_typeof();
+    ::TYPES[26] = ::g::Uno::Action_typeof();
+    type->SetDependencies(
+        ::g::Fuse::Resources::ResourceRegistry_typeof());
+    type->SetInterfaces(
+        ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Reactive::ExpressionListener_type, interface0),
+        ::g::Fuse::Reactive::IListener_typeof(), offsetof(::g::Fuse::Reactive::ExpressionListener_type, interface1));
+    type->SetFields(9,
+        ::g::Fuse::Node_typeof(), offsetof(DataToResource__DataToResourceSubscription, _node), 0,
+        ::TYPES[0/*string*/], offsetof(DataToResource__DataToResourceSubscription, _key), 0);
+}
+
+::g::Fuse::Reactive::ExpressionListener_type* DataToResource__DataToResourceSubscription_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::ExpressionListener_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::ExpressionListener_typeof();
+    options.FieldCount = 11;
+    options.InterfaceCount = 2;
+    options.DependencyCount = 1;
+    options.ObjectSize = sizeof(DataToResource__DataToResourceSubscription);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::ExpressionListener_type);
+    type = (::g::Fuse::Reactive::ExpressionListener_type*)uClassType::New("Fuse.Reactive.DataToResource.DataToResourceSubscription", options);
+    type->fp_build_ = DataToResource__DataToResourceSubscription_build;
+    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))DataToResource__DataToResourceSubscription__Dispose_fn;
+    type->fp_OnArguments = (void(*)(::g::Fuse::Reactive::ExpressionSubscriber*, uArray*))DataToResource__DataToResourceSubscription__OnArguments_fn;
+    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnLostData_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))DataToResource__DataToResourceSubscription__Dispose_fn;
+    return type;
+}
+
+// public DataToResourceSubscription(Fuse.Reactive.DataToResource dtr, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :52
+void DataToResource__DataToResourceSubscription__ctor_3_fn(DataToResource__DataToResourceSubscription* __this, ::g::Fuse::Reactive::DataToResource* dtr, uObject* context, uObject* listener)
+{
+    __this->ctor_3(dtr, context, listener);
+}
+
+// public override sealed void Dispose() :58
+void DataToResource__DataToResourceSubscription__Dispose_fn(DataToResource__DataToResourceSubscription* __this)
+{
+    ::g::Fuse::Reactive::ExpressionListener__Dispose_fn(__this);
+    __this->_node = NULL;
+    __this->Unsubscribe();
+}
+
+// public DataToResourceSubscription New(Fuse.Reactive.DataToResource dtr, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :52
+void DataToResource__DataToResourceSubscription__New1_fn(::g::Fuse::Reactive::DataToResource* dtr, uObject* context, uObject* listener, DataToResource__DataToResourceSubscription** __retval)
+{
+    *__retval = DataToResource__DataToResourceSubscription::New1(dtr, context, listener);
+}
+
+// protected override sealed void OnArguments(Fuse.Reactive.Expression.Argument[] args) :67
+void DataToResource__DataToResourceSubscription__OnArguments_fn(DataToResource__DataToResourceSubscription* __this, uArray* args)
+{
+    __this->Unsubscribe();
+    __this->_key = uAs<uString*>(uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->Value(), ::TYPES[0/*string*/]);
+    __this->Subscribe();
+    __this->OnChanged();
+}
+
+// private void OnChanged() :87
+void DataToResource__DataToResourceSubscription__OnChanged_fn(DataToResource__DataToResourceSubscription* __this)
+{
+    __this->OnChanged();
+}
+
+// private void Subscribe() :75
+void DataToResource__DataToResourceSubscription__Subscribe_fn(DataToResource__DataToResourceSubscription* __this)
+{
+    __this->Subscribe();
+}
+
+// private void Unsubscribe() :81
+void DataToResource__DataToResourceSubscription__Unsubscribe_fn(DataToResource__DataToResourceSubscription* __this)
+{
+    __this->Unsubscribe();
+}
+
+// public DataToResourceSubscription(Fuse.Reactive.DataToResource dtr, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [instance] :52
+void DataToResource__DataToResourceSubscription::ctor_3(::g::Fuse::Reactive::DataToResource* dtr, uObject* context, uObject* listener)
+{
+    ctor_2(dtr, listener, uArray::Init< ::g::Fuse::Reactive::Expression*>(::TYPES[2/*Fuse.Reactive.Expression[]*/], 1, (::g::Fuse::Reactive::Expression*)uPtr(dtr)->_data), 0);
+    _node = ::g::Fuse::Reactive::IContext::Node(uInterface(uPtr(context), ::TYPES[16/*Fuse.Reactive.IContext*/]));
+}
+
+// private void OnChanged() [instance] :87
+void DataToResource__DataToResourceSubscription::OnChanged()
+{
+    uObject* v = NULL;
+
+    if ((::g::Uno::String::op_Inequality(_key, NULL) && (_node != NULL)) && uPtr(_node)->TryGetResource(_key, NULL, &v))
+        SetData(v);
+    else
+        ClearData();
+}
+
+// private void Subscribe() [instance] :75
+void DataToResource__DataToResourceSubscription::Subscribe()
+{
+    if (::g::Uno::String::op_Inequality(_key, NULL))
+        ::g::Fuse::Resources::ResourceRegistry::AddResourceChangedHandler(_key, uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)DataToResource__DataToResourceSubscription__OnChanged_fn, this));
+}
+
+// private void Unsubscribe() [instance] :81
+void DataToResource__DataToResourceSubscription::Unsubscribe()
+{
+    if (::g::Uno::String::op_Inequality(_key, NULL))
+        ::g::Fuse::Resources::ResourceRegistry::RemoveResourceChangedHandler(_key, uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)DataToResource__DataToResourceSubscription__OnChanged_fn, this));
+}
+
+// public DataToResourceSubscription New(Fuse.Reactive.DataToResource dtr, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :52
+DataToResource__DataToResourceSubscription* DataToResource__DataToResourceSubscription::New1(::g::Fuse::Reactive::DataToResource* dtr, uObject* context, uObject* listener)
+{
+    DataToResource__DataToResourceSubscription* obj1 = (DataToResource__DataToResourceSubscription*)uNew(DataToResource__DataToResourceSubscription_typeof());
+    obj1->ctor_3(dtr, context, listener);
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Scripting.JavaScript\1.9.0\FuseJS\DebugLog.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // internal static class DebugLog :6
 // {
 static void DebugLog_build(uType* type)
 {
-    ::STRINGS[35] = uString::Const("debug_log");
-    ::STRINGS[9] = uString::Const("null");
-    ::STRINGS[8] = uString::Const("C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting.JavaScript/1.4.2/FuseJS/DebugLog.uno");
-    ::TYPES[12] = ::g::Fuse::Scripting::Callback_typeof();
+    ::STRINGS[38] = uString::Const("debug_log");
+    ::STRINGS[6] = uString::Const("null");
+    ::STRINGS[5] = uString::Const("C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Scripting.JavaScript/1.9.0/FuseJS/DebugLog.uno");
+    ::TYPES[13] = ::g::Fuse::Scripting::Callback_typeof();
     type->SetDependencies(
         ::g::Uno::Diagnostics::Debug_typeof());
 }
@@ -2163,45 +2734,45 @@ void DebugLog__Init_fn(::g::Fuse::Scripting::Context* c)
     DebugLog::Init(c);
 }
 
-// private static object Log(object[] args) :13
-void DebugLog__Log_fn(uArray* args, uObject** __retval)
+// private static object Log(Fuse.Scripting.Context context, object[] args) :13
+void DebugLog__Log_fn(::g::Fuse::Scripting::Context* context, uArray* args, uObject** __retval)
 {
-    *__retval = DebugLog::Log(args);
+    *__retval = DebugLog::Log(context, args);
 }
 
 // public static void Init(Fuse.Scripting.Context c) [static] :8
 void DebugLog::Init(::g::Fuse::Scripting::Context* c)
 {
-    uPtr(uPtr(c)->GlobalObject())->Item(::STRINGS[35/*"debug_log"*/], uDelegate::New(::TYPES[12/*Fuse.Scripting.Callback*/], (void*)DebugLog__Log_fn));
+    uPtr(uPtr(c)->GlobalObject())->Item(::STRINGS[38/*"debug_log"*/], uDelegate::New(::TYPES[13/*Fuse.Scripting.Callback*/], (void*)DebugLog__Log_fn));
 }
 
-// private static object Log(object[] args) [static] :13
-uObject* DebugLog::Log(uArray* args)
+// private static object Log(Fuse.Scripting.Context context, object[] args) [static] :13
+uObject* DebugLog::Log(::g::Fuse::Scripting::Context* context, uArray* args)
 {
-    for (int i = 0; i < uPtr(args)->Length(); i++)
-        ::g::Uno::Diagnostics::Debug::Log5((uPtr(args)->Strong<uObject*>(i) != NULL) ? (uString*)::g::Uno::Object::ToString(uPtr(uPtr(args)->Strong<uObject*>(i))) : ::STRINGS[9/*"null"*/], 0, ::STRINGS[8/*"C:/Users/Sp...*/], 17);
+    for (int32_t i = 0; i < uPtr(args)->Length(); i++)
+        ::g::Uno::Diagnostics::Debug::Log3((uPtr(args)->Strong<uObject*>(i) != NULL) ? (uString*)::g::Uno::Object::ToString(uPtr(uPtr(args)->Strong<uObject*>(i))) : ::STRINGS[6/*"null"*/], 0, ::STRINGS[5/*"C:/Users/Sp...*/], 17);
 
     return NULL;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Scripting.JavaScript\1.4.2\JavaScript.Dependencies.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Scripting.JavaScript\1.9.0\JavaScript.Dependencies.uno
 // -------------------------------------------------------------------------------------------------------------------
 
 // public sealed class JavaScript.Dependency :12
 // {
 static void JavaScript__Dependency_build(uType* type)
 {
-    ::TYPES[24] = ::g::Fuse::Reactive::IExpression_typeof();
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[27] = ::g::Fuse::Reactive::IExpression_typeof();
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
     type->SetInterfaces(
         ::g::Fuse::Reactive::IListener_typeof(), offsetof(JavaScript__Dependency_type, interface0));
     type->SetFields(0,
         ::g::Fuse::Reactive::JavaScript_typeof(), offsetof(JavaScript__Dependency, _script), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(JavaScript__Dependency, _expSubscription), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(JavaScript__Dependency, _expSubscription), 0,
         ::g::Uno::Bool_typeof(), offsetof(JavaScript__Dependency, HasValue), 0,
         uObject_typeof(), offsetof(JavaScript__Dependency, Value), 0,
-        ::TYPES[24/*Fuse.Reactive.IExpression*/], offsetof(JavaScript__Dependency, _Expression), 0,
+        ::TYPES[27/*Fuse.Reactive.IExpression*/], offsetof(JavaScript__Dependency, _Expression), 0,
         ::g::Uno::String_typeof(), offsetof(JavaScript__Dependency, _Name), 0);
 }
 
@@ -2218,6 +2789,7 @@ JavaScript__Dependency_type* JavaScript__Dependency_typeof()
     type = (JavaScript__Dependency_type*)uClassType::New("Fuse.Reactive.JavaScript.Dependency", options);
     type->fp_build_ = JavaScript__Dependency_build;
     type->interface0.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))JavaScript__Dependency__FuseReactiveIListenerOnNewData_fn;
+    type->interface0.fp_OnLostData = (void(*)(uObject*, uObject*))JavaScript__Dependency__FuseReactiveIListenerOnLostData_fn;
     return type;
 }
 
@@ -2231,6 +2803,11 @@ void JavaScript__Dependency__get_Expression_fn(JavaScript__Dependency* __this, u
 void JavaScript__Dependency__set_Expression_fn(JavaScript__Dependency* __this, uObject* value)
 {
     __this->Expression(value);
+}
+
+// private void Fuse.Reactive.IListener.OnLostData(Fuse.Reactive.IExpression source) :59
+void JavaScript__Dependency__FuseReactiveIListenerOnLostData_fn(JavaScript__Dependency* __this, uObject* source)
+{
 }
 
 // private void Fuse.Reactive.IListener.OnNewData(Fuse.Reactive.IExpression source, object data) :49
@@ -2297,7 +2874,7 @@ void JavaScript__Dependency::Subscribe(::g::Fuse::Reactive::JavaScript* script)
 {
     Unsubscribe();
     _script = script;
-    _expSubscription = ::g::Fuse::Reactive::IExpression::Subscribe(uInterface(uPtr(Expression()), ::TYPES[24/*Fuse.Reactive.IExpression*/]), (uObject*)script, (uObject*)this);
+    _expSubscription = ::g::Fuse::Reactive::IExpression::Subscribe(uInterface(uPtr(Expression()), ::TYPES[27/*Fuse.Reactive.IExpression*/]), (uObject*)script, (uObject*)this);
 }
 
 // internal void Unsubscribe() [instance] :34
@@ -2305,7 +2882,7 @@ void JavaScript__Dependency::Unsubscribe()
 {
     if (_expSubscription != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_expSubscription), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_expSubscription), ::TYPES[1/*Uno.IDisposable*/]));
         _expSubscription = NULL;
     }
 
@@ -2315,52 +2892,118 @@ void JavaScript__Dependency::Unsubscribe()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Device.uno
+// --------------------------------------------------------------------------------------------------
 
-// public sealed class Divide :55
+// public sealed class DeviceCaps :114
 // {
-static void Divide_build(uType* type)
+// static generated DeviceCaps() :114
+static void DeviceCaps__cctor__fn(uType* __type)
 {
-    ::STRINGS[36] = uString::Const("/");
-    type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
+    DeviceCaps::NameIsAndroid_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[39/*"isAndroid"*/]);
+    DeviceCaps::NameIsIOS_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[40/*"isIOS"*/]);
+    DeviceCaps::NameIsMac_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[41/*"isMac"*/]);
+    DeviceCaps::NameIsWindows_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[42/*"isWindows"*/]);
+    DeviceCaps::NameIsPreview_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[43/*"isPreview"*/]);
+    DeviceCaps::NameOSVersion_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[44/*"osVersion"*/]);
+    DeviceCaps::NameAPILevel_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[45/*"apiLevel"*/]);
+    DeviceCaps::Device_ = DeviceCaps::New3();
 }
 
-::g::Fuse::Reactive::InfixOperator_type* Divide_typeof()
+static void DeviceCaps_build(uType* type)
 {
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
+    ::STRINGS[39] = uString::Const("isAndroid");
+    ::STRINGS[40] = uString::Const("isIOS");
+    ::STRINGS[41] = uString::Const("isMac");
+    ::STRINGS[42] = uString::Const("isWindows");
+    ::STRINGS[43] = uString::Const("isPreview");
+    ::STRINGS[44] = uString::Const("osVersion");
+    ::STRINGS[45] = uString::Const("apiLevel");
+    type->SetDependencies(
+        ::g::Fuse::Platform::SystemUI_typeof());
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IObservableObject_typeof(), offsetof(::g::Fuse::Reactive::CapsObject_type, interface0),
+        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(::g::Fuse::Reactive::CapsObject_type, interface1),
+        ::g::Fuse::IObject_typeof(), offsetof(::g::Fuse::Reactive::CapsObject_type, interface2));
+    type->SetFields(2,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&DeviceCaps::NameIsAndroid_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&DeviceCaps::NameIsIOS_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&DeviceCaps::NameIsMac_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&DeviceCaps::NameIsWindows_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&DeviceCaps::NameIsPreview_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&DeviceCaps::NameOSVersion_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&DeviceCaps::NameAPILevel_, uFieldFlagsStatic,
+        type, (uintptr_t)&DeviceCaps::Device_, uFieldFlagsStatic);
+}
+
+::g::Fuse::Reactive::CapsObject_type* DeviceCaps_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::CapsObject_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(Divide);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.Divide", options);
-    type->fp_build_ = Divide_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))Divide__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))Divide__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
+    options.BaseDefinition = ::g::Fuse::Reactive::CapsObject_typeof();
+    options.FieldCount = 10;
+    options.InterfaceCount = 3;
+    options.DependencyCount = 1;
+    options.ObjectSize = sizeof(DeviceCaps);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::CapsObject_type);
+    type = (::g::Fuse::Reactive::CapsObject_type*)uClassType::New("Fuse.Reactive.DeviceCaps", options);
+    type->fp_build_ = DeviceCaps_build;
+    type->fp_ctor_ = (void*)DeviceCaps__New3_fn;
+    type->fp_cctor_ = DeviceCaps__cctor__fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject**))::g::Fuse::Reactive::CapsObject__FuseReactiveIObservableObjectSubscribe_fn;
+    type->interface1.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))::g::Fuse::Reactive::CapsObject__UnoUXIPropertyListenerOnPropertyChanged_fn;
+    type->interface2.fp_ContainsKey = (void(*)(uObject*, uString*, bool*))::g::Fuse::Reactive::CapsObject__ContainsKey_fn;
+    type->interface2.fp_get_Item = (void(*)(uObject*, uString*, uObject**))::g::Fuse::Reactive::CapsObject__get_Item_fn;
+    type->interface2.fp_get_Keys = (void(*)(uObject*, uArray**))::g::Fuse::Reactive::CapsObject__get_Keys_fn;
     return type;
 }
 
-// protected override sealed object Compute(object left, object right) :59
-void Divide__Compute_fn(Divide* __this, uObject* left, uObject* right, uObject** __retval)
+// private DeviceCaps() :127
+void DeviceCaps__ctor_2_fn(DeviceCaps* __this)
 {
-    return *__retval = ::g::Fuse::Marshal::Divide(left, right), void();
+    __this->ctor_2();
 }
 
-// public override sealed string get_Symbol() :64
-void Divide__get_Symbol_fn(Divide* __this, uString** __retval)
+// private DeviceCaps New() :127
+void DeviceCaps__New3_fn(DeviceCaps** __retval)
 {
-    return *__retval = ::STRINGS[36/*"/"*/], void();
+    *__retval = DeviceCaps::New3();
+}
+
+::g::Uno::UX::Selector DeviceCaps::NameIsAndroid_;
+::g::Uno::UX::Selector DeviceCaps::NameIsIOS_;
+::g::Uno::UX::Selector DeviceCaps::NameIsMac_;
+::g::Uno::UX::Selector DeviceCaps::NameIsWindows_;
+::g::Uno::UX::Selector DeviceCaps::NameIsPreview_;
+::g::Uno::UX::Selector DeviceCaps::NameOSVersion_;
+::g::Uno::UX::Selector DeviceCaps::NameAPILevel_;
+uSStrong<DeviceCaps*> DeviceCaps::Device_;
+
+// private DeviceCaps() [instance] :127
+void DeviceCaps::ctor_2()
+{
+    ctor_1();
+    ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(Props()), ::g::Uno::UX::Selector__op_Implicit2(DeviceCaps::NameIsAndroid_), uBox(::TYPES[4/*bool*/], true));
+    ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(Props()), ::g::Uno::UX::Selector__op_Implicit2(DeviceCaps::NameIsIOS_), uBox(::TYPES[4/*bool*/], false));
+    ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(Props()), ::g::Uno::UX::Selector__op_Implicit2(DeviceCaps::NameIsMac_), uBox(::TYPES[4/*bool*/], false));
+    ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(Props()), ::g::Uno::UX::Selector__op_Implicit2(DeviceCaps::NameIsWindows_), uBox(::TYPES[4/*bool*/], false));
+    ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(Props()), ::g::Uno::UX::Selector__op_Implicit2(DeviceCaps::NameIsPreview_), uBox(::TYPES[4/*bool*/], false));
+    ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(Props()), ::g::Uno::UX::Selector__op_Implicit2(DeviceCaps::NameOSVersion_), uBox(::g::Uno::Int3_typeof(), ::g::Fuse::Platform::SystemUI::OSVersion()));
+    ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(Props()), ::g::Uno::UX::Selector__op_Implicit2(DeviceCaps::NameAPILevel_), uBox<int32_t>(::TYPES[7/*int*/], ::g::Fuse::Platform::SystemUI::APILevel()));
+}
+
+// private DeviceCaps New() [static] :127
+DeviceCaps* DeviceCaps::New3()
+{
+    DeviceCaps* obj1 = (DeviceCaps*)uNew(DeviceCaps_typeof());
+    obj1->ctor_2();
+    return obj1;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Each.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Each.uno
 // ---------------------------------------------------------------------------------------------
 
 // public sealed class Each :94
@@ -2379,12 +3022,13 @@ static void Each_build(uType* type)
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Reactive::Instantiator_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Reactive::Instantiator_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Reactive::Instantiator_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Reactive::Instantiator_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Reactive::Instantiator_type, interface5),
-        ::g::Fuse::Reactive::IObserver_typeof(), offsetof(::g::Fuse::Reactive::Instantiator_type, interface6),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Instantiator_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Reactive::Instantiator_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Reactive::Instantiator_type, interface6),
         ::g::Fuse::Node__ISubtreeDataProvider_typeof(), offsetof(::g::Fuse::Reactive::Instantiator_type, interface7),
-        ::g::Fuse::IDeferred_typeof(), offsetof(::g::Fuse::Reactive::Instantiator_type, interface8));
-    type->SetFields(43,
+        ::g::Fuse::IDeferred_typeof(), offsetof(::g::Fuse::Reactive::Instantiator_type, interface8),
+        ::g::Fuse::Reactive::ItemsWindowList__IListener_typeof()->MakeType(::g::Fuse::Reactive::WindowItem_typeof(), NULL), offsetof(::g::Fuse::Reactive::Instantiator_type, interface9));
+    type->SetFields(38,
         ::g::Fuse::PropertyHandle_typeof(), (uintptr_t)&Each::_eachHandle_, uFieldFlagsStatic);
 }
 
@@ -2395,39 +3039,39 @@ static void Each_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::Instantiator_typeof();
-    options.FieldCount = 44;
-    options.InterfaceCount = 9;
+    options.FieldCount = 39;
+    options.InterfaceCount = 10;
     options.ObjectSize = sizeof(Each);
     options.TypeSize = sizeof(::g::Fuse::Reactive::Instantiator_type);
     type = (::g::Fuse::Reactive::Instantiator_type*)uClassType::New("Fuse.Reactive.Each", options);
     type->fp_build_ = Each_build;
     type->fp_ctor_ = (void*)Each__New4_fn;
     type->fp_cctor_ = Each__cctor_1_fn;
-    type->interface7.fp_GetData = (void(*)(uObject*, ::g::Fuse::Node*, uObject**))::g::Fuse::Reactive::Instantiator__FuseNodeISubtreeDataProviderGetData_fn;
-    type->interface6.fp_OnSet = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::Instantiator__FuseReactiveIObserverOnSet_fn;
-    type->interface6.fp_OnFailed = (void(*)(uObject*, uString*))::g::Fuse::Reactive::Instantiator__FuseReactiveIObserverOnFailed_fn;
-    type->interface6.fp_OnAdd = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::Instantiator__FuseReactiveIObserverOnAdd_fn;
-    type->interface6.fp_OnRemoveAt = (void(*)(uObject*, int*))::g::Fuse::Reactive::Instantiator__FuseReactiveIObserverOnRemoveAt_fn;
-    type->interface6.fp_OnInsertAt = (void(*)(uObject*, int*, uObject*))::g::Fuse::Reactive::Instantiator__FuseReactiveIObserverOnInsertAt_fn;
-    type->interface6.fp_OnNewAt = (void(*)(uObject*, int*, uObject*))::g::Fuse::Reactive::Instantiator__FuseReactiveIObserverOnNewAt_fn;
-    type->interface6.fp_OnNewAll = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::Instantiator__FuseReactiveIObserverOnNewAll_fn;
-    type->interface6.fp_OnClear = (void(*)(uObject*))::g::Fuse::Reactive::Instantiator__FuseReactiveIObserverOnClear_fn;
+    type->interface9.fp_SetValid = (void(*)(uObject*))::g::Fuse::Reactive::Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerSetValid_fn;
+    type->interface9.fp_SetFailed = (void(*)(uObject*, uString*))::g::Fuse::Reactive::Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerSetFailed_fn;
+    type->interface7.fp_TryGetDataProvider = (void(*)(uObject*, ::g::Fuse::Node*, int32_t*, uObject**, int32_t*))::g::Fuse::Reactive::Instantiator__FuseNodeISubtreeDataProviderTryGetDataProvider_fn;
+    type->interface9.fp_AddedWindowItem = (void(*)(uObject*, int32_t*, ::g::Fuse::Reactive::WindowListItem*))::g::Fuse::Reactive::Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerAddedWindowItem_fn;
     type->interface8.fp_Perform = (void(*)(uObject*, bool*))::g::Fuse::Reactive::Instantiator__FuseIDeferredPerform_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface9.fp_RemovedWindowItem = (void(*)(uObject*, ::g::Fuse::Reactive::WindowListItem*))::g::Fuse::Reactive::Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerRemovedWindowItem_fn;
+    type->interface9.fp_OnCurrentDataChanged = (void(*)(uObject*, ::g::Fuse::Reactive::WindowListItem*, uObject*))::g::Fuse::Reactive::Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerOnCurrentDataChanged_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -2435,18 +3079,6 @@ static void Each_build(uType* type)
 void Each__ctor_5_fn(Each* __this)
 {
     __this->ctor_5();
-}
-
-// public new int get_Count() :172
-void Each__get_Count1_fn(Each* __this, int* __retval)
-{
-    *__retval = __this->Count1();
-}
-
-// public new void set_Count(int value) :173
-void Each__set_Count1_fn(Each* __this, int* value)
-{
-    __this->Count1(*value);
 }
 
 // public object get_Items() :161
@@ -2461,14 +3093,14 @@ void Each__set_Items_fn(Each* __this, uObject* value)
     __this->Items(value);
 }
 
-// public new int get_Limit() :198
-void Each__get_Limit1_fn(Each* __this, int* __retval)
+// public new int get_Limit() :212
+void Each__get_Limit1_fn(Each* __this, int32_t* __retval)
 {
     *__retval = __this->Limit1();
 }
 
-// public new void set_Limit(int value) :199
-void Each__set_Limit1_fn(Each* __this, int* value)
+// public new void set_Limit(int value) :213
+void Each__set_Limit1_fn(Each* __this, int32_t* value)
 {
     __this->Limit1(*value);
 }
@@ -2479,14 +3111,14 @@ void Each__New4_fn(Each** __retval)
     *__retval = Each::New4();
 }
 
-// public new int get_Offset() :185
-void Each__get_Offset1_fn(Each* __this, int* __retval)
+// public new int get_Offset() :199
+void Each__get_Offset1_fn(Each* __this, int32_t* __retval)
 {
     *__retval = __this->Offset1();
 }
 
-// public new void set_Offset(int value) :186
-void Each__set_Offset1_fn(Each* __this, int* value)
+// public new void set_Offset(int value) :200
+void Each__set_Offset1_fn(Each* __this, int32_t* value)
 {
     __this->Offset1(*value);
 }
@@ -2497,18 +3129,6 @@ uSStrong< ::g::Fuse::PropertyHandle*> Each::_eachHandle_;
 void Each::ctor_5()
 {
     ctor_3();
-}
-
-// public new int get_Count() [instance] :172
-int Each::Count1()
-{
-    return Count();
-}
-
-// public new void set_Count(int value) [instance] :173
-void Each::Count1(int value)
-{
-    Count(value);
 }
 
 // public object get_Items() [instance] :161
@@ -2524,26 +3144,26 @@ void Each::Items(uObject* value)
         SetItems(value);
 }
 
-// public new int get_Limit() [instance] :198
-int Each::Limit1()
+// public new int get_Limit() [instance] :212
+int32_t Each::Limit1()
 {
     return Limit();
 }
 
-// public new void set_Limit(int value) [instance] :199
-void Each::Limit1(int value)
+// public new void set_Limit(int value) [instance] :213
+void Each::Limit1(int32_t value)
 {
     Limit(value);
 }
 
-// public new int get_Offset() [instance] :185
-int Each::Offset1()
+// public new int get_Offset() [instance] :199
+int32_t Each::Offset1()
 {
     return Offset();
 }
 
-// public new void set_Offset(int value) [instance] :186
-void Each::Offset1(int value)
+// public new void set_Offset(int value) [instance] :200
+void Each::Offset1(int32_t value)
 {
     Offset(value);
 }
@@ -2557,68 +3177,23 @@ Each* Each::New4()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
-
-// public sealed class Equal :154
-// {
-static void Equal_build(uType* type)
-{
-    ::STRINGS[37] = uString::Const("==");
-    type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
-}
-
-::g::Fuse::Reactive::InfixOperator_type* Equal_typeof()
-{
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(Equal);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.Equal", options);
-    type->fp_build_ = Equal_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))Equal__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))Equal__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
-    return type;
-}
-
-// protected override sealed object Compute(object left, object right) :158
-void Equal__Compute_fn(Equal* __this, uObject* left, uObject* right, uObject** __retval)
-{
-    return *__retval = ::g::Fuse::Marshal::EqualTo(left, right), void();
-}
-
-// public override sealed string get_Symbol() :163
-void Equal__get_Symbol_fn(Equal* __this, uString** __retval)
-{
-    return *__retval = ::STRINGS[37/*"=="*/], void();
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\EventBinding.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\EventBinding.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public sealed class EventBinding :26
 // {
 static void EventBinding_build(uType* type)
 {
-    ::TYPES[25] = ::g::Fuse::Reactive::IEventHandler_typeof();
-    ::TYPES[26] = ::g::Fuse::Scripting::IScriptEvent_typeof();
-    ::TYPES[27] = ::g::Fuse::Node_typeof();
-    ::TYPES[28] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Reactive::EventRecord_typeof(), NULL);
+    ::TYPES[28] = ::g::Fuse::Reactive::IEventHandler_typeof();
+    ::TYPES[29] = ::g::Fuse::Scripting::IScriptEvent_typeof();
+    ::TYPES[30] = ::g::Fuse::Node_typeof();
+    ::TYPES[31] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Reactive::EventRecord_typeof(), NULL);
     type->SetInterfaces(
         ::g::Fuse::Reactive::IContext_typeof(), offsetof(::g::Fuse::Reactive::ExpressionBinding_type, interface0),
         ::g::Fuse::Reactive::IListener_typeof(), offsetof(::g::Fuse::Reactive::ExpressionBinding_type, interface1));
     type->SetFields(3,
-        ::TYPES[25/*Fuse.Reactive.IEventHandler*/], offsetof(EventBinding, _eventHandler), 0,
-        ::TYPES[28/*Uno.Collections.List<Fuse.Reactive.EventRecord>*/], offsetof(EventBinding, _queuedEvents), 0);
+        ::TYPES[28/*Fuse.Reactive.IEventHandler*/], offsetof(EventBinding, _eventHandler), 0,
+        ::TYPES[31/*Uno.Collections.List<Fuse.Reactive.EventRecord>*/], offsetof(EventBinding, _queuedEvents), 0);
 }
 
 ::g::Fuse::Reactive::ExpressionBinding_type* EventBinding_typeof()
@@ -2634,10 +3209,12 @@ static void EventBinding_build(uType* type)
     options.TypeSize = sizeof(::g::Fuse::Reactive::ExpressionBinding_type);
     type = (::g::Fuse::Reactive::ExpressionBinding_type*)uClassType::New("Fuse.Reactive.EventBinding", options);
     type->fp_build_ = EventBinding_build;
+    type->fp_LostValue = (void(*)(::g::Fuse::Reactive::ExpressionBinding*))EventBinding__LostValue_fn;
     type->fp_NewValue = (void(*)(::g::Fuse::Reactive::ExpressionBinding*, uObject*))EventBinding__NewValue_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Binding*))EventBinding__OnUnrooted_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uString*, uObject*, uObject**))::g::Fuse::Reactive::ExpressionBinding__FuseReactiveIContextSubscribe_fn;
     type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::ExpressionBinding__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ExpressionBinding__FuseReactiveIListenerOnLostData_fn;
     type->interface0.fp_get_Node = (void(*)(uObject*, ::g::Fuse::Node**))::g::Fuse::Reactive::ExpressionBinding__FuseReactiveIContextget_Node_fn;
     type->interface0.fp_SubscribeResource = (void(*)(uObject*, uObject*, uString*, uObject*, uObject**))::g::Fuse::Reactive::ExpressionBinding__SubscribeResource_fn;
     return type;
@@ -2649,6 +3226,12 @@ void EventBinding__ctor_2_fn(EventBinding* __this, uObject* key)
     __this->ctor_2(key);
 }
 
+// internal override sealed void LostValue() :55
+void EventBinding__LostValue_fn(EventBinding* __this)
+{
+    __this->_eventHandler = NULL;
+}
+
 // public EventBinding New(Fuse.Reactive.IExpression key) :29
 void EventBinding__New1_fn(uObject* key, EventBinding** __retval)
 {
@@ -2658,17 +3241,17 @@ void EventBinding__New1_fn(uObject* key, EventBinding** __retval)
 // internal override sealed void NewValue(object obj) :49
 void EventBinding__NewValue_fn(EventBinding* __this, uObject* obj)
 {
-    __this->_eventHandler = uAs<uObject*>(obj, ::TYPES[25/*Fuse.Reactive.IEventHandler*/]);
+    __this->_eventHandler = uAs<uObject*>(obj, ::TYPES[28/*Fuse.Reactive.IEventHandler*/]);
     __this->ProcessQueuedEvents();
 }
 
-// public void OnEvent(object sender, Uno.EventArgs args) :62
+// public void OnEvent(object sender, Uno.EventArgs args) :67
 void EventBinding__OnEvent_fn(EventBinding* __this, uObject* sender, ::g::Uno::EventArgs* args)
 {
     __this->OnEvent(sender, args);
 }
 
-// protected override sealed void OnUnrooted() :55
+// protected override sealed void OnUnrooted() :60
 void EventBinding__OnUnrooted_fn(EventBinding* __this)
 {
     ::g::Fuse::Reactive::ExpressionBinding__OnUnrooted_fn(__this);
@@ -2688,20 +3271,20 @@ void EventBinding::ctor_2(uObject* key)
     ctor_1(key);
 }
 
-// public void OnEvent(object sender, Uno.EventArgs args) [instance] :62
+// public void OnEvent(object sender, Uno.EventArgs args) [instance] :67
 void EventBinding::OnEvent(uObject* sender, ::g::Uno::EventArgs* args)
 {
     if (Parent() == NULL)
         return;
 
-    ::g::Fuse::Reactive::EventRecord* e = ::g::Fuse::Reactive::EventRecord::New1(uAs<uObject*>(args, ::TYPES[26/*Fuse.Scripting.IScriptEvent*/]), uAs< ::g::Fuse::Node*>(sender, ::TYPES[27/*Fuse.Node*/]));
+    ::g::Fuse::Reactive::EventRecord* e = ::g::Fuse::Reactive::EventRecord::New1(uAs<uObject*>(args, ::TYPES[29/*Fuse.Scripting.IScriptEvent*/]), uAs< ::g::Fuse::Node*>(sender, ::TYPES[30/*Fuse.Node*/]));
 
     if (_eventHandler != NULL)
-        ::g::Fuse::Reactive::IEventHandler::Dispatch(uInterface(uPtr(_eventHandler), ::TYPES[25/*Fuse.Reactive.IEventHandler*/]), (uObject*)e);
+        ::g::Fuse::Reactive::IEventHandler::Dispatch(uInterface(uPtr(_eventHandler), ::TYPES[28/*Fuse.Reactive.IEventHandler*/]), (uObject*)e);
     else
     {
         if (_queuedEvents == NULL)
-            _queuedEvents = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[28/*Uno.Collections.List<Fuse.Reactive.EventRecord>*/]));
+            _queuedEvents = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[31/*Uno.Collections.List<Fuse.Reactive.EventRecord>*/]));
 
         ::g::Uno::Collections::List__Add_fn(uPtr(_queuedEvents), e);
     }
@@ -2717,8 +3300,8 @@ void EventBinding::ProcessQueuedEvents()
         ::g::Uno::Collections::List* events = _queuedEvents;
         _queuedEvents = NULL;
 
-        for (int i = 0; i < uPtr(events)->Count(); i++)
-            ::g::Fuse::Reactive::IEventHandler::Dispatch(uInterface(uPtr(_eventHandler), ::TYPES[25/*Fuse.Reactive.IEventHandler*/]), (uObject*)(::g::Uno::Collections::List__get_Item_fn(uPtr(events), uCRef<int>(i), &ret2), ret2));
+        for (int32_t i = 0; i < uPtr(events)->Count(); i++)
+            ::g::Fuse::Reactive::IEventHandler::Dispatch(uInterface(uPtr(_eventHandler), ::TYPES[28/*Fuse.Reactive.IEventHandler*/]), (uObject*)(::g::Uno::Collections::List__get_Item_fn(uPtr(events), uCRef<int32_t>(i), &ret2), ret2));
     }
 }
 
@@ -2731,26 +3314,24 @@ EventBinding* EventBinding::New1(uObject* key)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\EventRecord.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\EventRecord.uno
 // ----------------------------------------------------------------------------------------------------
 
 // internal sealed class EventRecord :9
 // {
 static void EventRecord_build(uType* type)
 {
-    ::TYPES[27] = ::g::Fuse::Node_typeof();
-    ::TYPES[26] = ::g::Fuse::Scripting::IScriptEvent_typeof();
-    ::TYPES[29] = ::g::Uno::Collections::Dictionary_typeof()->MakeType(::g::Uno::String_typeof(), uObject_typeof(), NULL);
-    type->SetDependencies(
-        ::g::Uno::UX::Selector_typeof());
+    ::TYPES[30] = ::g::Fuse::Node_typeof();
+    ::TYPES[29] = ::g::Fuse::Scripting::IScriptEvent_typeof();
+    ::TYPES[32] = ::g::Uno::Collections::Dictionary_typeof()->MakeType(::g::Uno::String_typeof(), uObject_typeof(), NULL);
     type->SetInterfaces(
         ::g::Fuse::Reactive::IEventRecord_typeof(), offsetof(EventRecord_type, interface0),
         ::g::Fuse::Scripting::IEventSerializer_typeof(), offsetof(EventRecord_type, interface1));
     type->SetFields(0,
-        ::TYPES[27/*Fuse.Node*/], offsetof(EventRecord, _node), 0,
+        ::TYPES[30/*Fuse.Node*/], offsetof(EventRecord, _node), 0,
         uObject_typeof(), offsetof(EventRecord, _data), 0,
         ::g::Uno::UX::Selector_typeof(), offsetof(EventRecord, _sender), 0,
-        ::TYPES[29/*Uno.Collections.Dictionary<string, object>*/], offsetof(EventRecord, _args), 0);
+        ::TYPES[32/*Uno.Collections.Dictionary<string, object>*/], offsetof(EventRecord, _args), 0);
 }
 
 EventRecord_type* EventRecord_typeof()
@@ -2761,14 +3342,13 @@ EventRecord_type* EventRecord_typeof()
     uTypeOptions options;
     options.FieldCount = 4;
     options.InterfaceCount = 2;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(EventRecord);
     options.TypeSize = sizeof(EventRecord_type);
     type = (EventRecord_type*)uClassType::New("Fuse.Reactive.EventRecord", options);
     type->fp_build_ = EventRecord_build;
     type->interface1.fp_AddObject = (void(*)(uObject*, uString*, uObject*))EventRecord__FuseScriptingIEventSerializerAddObject_fn;
     type->interface1.fp_AddString = (void(*)(uObject*, uString*, uString*))EventRecord__FuseScriptingIEventSerializerAddString_fn;
-    type->interface1.fp_AddInt = (void(*)(uObject*, uString*, int*))EventRecord__FuseScriptingIEventSerializerAddInt_fn;
+    type->interface1.fp_AddInt = (void(*)(uObject*, uString*, int32_t*))EventRecord__FuseScriptingIEventSerializerAddInt_fn;
     type->interface1.fp_AddDouble = (void(*)(uObject*, uString*, double*))EventRecord__FuseScriptingIEventSerializerAddDouble_fn;
     type->interface1.fp_AddBool = (void(*)(uObject*, uString*, bool*))EventRecord__FuseScriptingIEventSerializerAddBool_fn;
     type->interface0.fp_get_Node = (void(*)(uObject*, ::g::Fuse::Node**))EventRecord__get_Node_fn;
@@ -2806,21 +3386,21 @@ void EventRecord__get_Data_fn(EventRecord* __this, uObject** __retval)
 void EventRecord__FuseScriptingIEventSerializerAddBool_fn(EventRecord* __this, uString* key, bool* value)
 {
     bool value_ = *value;
-    __this->AddObject(key, uBox(::TYPES[2/*bool*/], value_));
+    __this->AddObject(key, uBox(::TYPES[4/*bool*/], value_));
 }
 
 // private void Fuse.Scripting.IEventSerializer.AddDouble(string key, double value) :57
 void EventRecord__FuseScriptingIEventSerializerAddDouble_fn(EventRecord* __this, uString* key, double* value)
 {
     double value_ = *value;
-    __this->AddObject(key, uBox(::TYPES[8/*double*/], value_));
+    __this->AddObject(key, uBox(::TYPES[9/*double*/], value_));
 }
 
 // private void Fuse.Scripting.IEventSerializer.AddInt(string key, int value) :52
-void EventRecord__FuseScriptingIEventSerializerAddInt_fn(EventRecord* __this, uString* key, int* value)
+void EventRecord__FuseScriptingIEventSerializerAddInt_fn(EventRecord* __this, uString* key, int32_t* value)
 {
-    int value_ = *value;
-    __this->AddObject(key, uBox(::TYPES[8/*double*/], (double)value_));
+    int32_t value_ = *value;
+    __this->AddObject(key, uBox(::TYPES[9/*double*/], (double)value_));
 }
 
 // private void Fuse.Scripting.IEventSerializer.AddObject(string key, object value) :42
@@ -2856,25 +3436,25 @@ void EventRecord__get_Sender_fn(EventRecord* __this, ::g::Uno::UX::Selector* __r
 // internal EventRecord(Fuse.Scripting.IScriptEvent args, object sender) [instance] :16
 void EventRecord::ctor_(uObject* args, uObject* sender)
 {
-    _node = uAs< ::g::Fuse::Node*>(sender, ::TYPES[27/*Fuse.Node*/]);
+    _node = uAs< ::g::Fuse::Node*>(sender, ::TYPES[30/*Fuse.Node*/]);
 
     if (_node != NULL)
     {
-        _data = uPtr(_node)->GetFirstData();
+        uPtr(_node)->TryGetPrimeDataContext(&_data);
 
-        if (::g::Uno::String::op_Inequality(::g::Uno::UX::Selector__op_Implicit1(uPtr(_node)->Name()), NULL))
+        if (::g::Uno::String::op_Inequality(::g::Uno::UX::Selector__op_Implicit2(uPtr(_node)->Name()), NULL))
             _sender = uPtr(_node)->Name();
     }
 
     if (args != NULL)
-        ::g::Fuse::Scripting::IScriptEvent::Serialize(uInterface(uPtr(args), ::TYPES[26/*Fuse.Scripting.IScriptEvent*/]), (uObject*)this);
+        ::g::Fuse::Scripting::IScriptEvent::Serialize(uInterface(uPtr(args), ::TYPES[29/*Fuse.Scripting.IScriptEvent*/]), (uObject*)this);
 }
 
 // private void AddObject(string key, object value) [instance] :36
 void EventRecord::AddObject(uString* key, uObject* value)
 {
     if (_args == NULL)
-        _args = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[29/*Uno.Collections.Dictionary<string, object>*/]));
+        _args = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[32/*Uno.Collections.Dictionary<string, object>*/]));
 
     ::g::Uno::Collections::Dictionary__Add_fn(uPtr(_args), key, value);
 }
@@ -2912,7 +3492,7 @@ EventRecord* EventRecord::New1(uObject* args, uObject* sender)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Expression.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Expression.uno
 // ------------------------------------------------------------------------------------------------------
 
 // public abstract class Expression :7
@@ -2920,7 +3500,11 @@ EventRecord* EventRecord::New1(uObject* args, uObject* sender)
 static void Expression_build(uType* type)
 {
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(Expression_type, interface0));
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(Expression_type, interface1));
+    type->SetFields(0,
+        ::g::Uno::String_typeof(), offsetof(Expression, _SourceFileName), 0,
+        ::g::Uno::Int_typeof(), offsetof(Expression, _SourceLineNumber), 0);
 }
 
 Expression_type* Expression_typeof()
@@ -2929,11 +3513,15 @@ Expression_type* Expression_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.InterfaceCount = 1;
+    options.FieldCount = 2;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(Expression);
     options.TypeSize = sizeof(Expression_type);
     type = (Expression_type*)uClassType::New("Fuse.Reactive.Expression", options);
     type->fp_build_ = Expression_build;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))Expression__get_SourceFileName_fn;
     return type;
 }
 
@@ -2943,29 +3531,83 @@ void Expression__ctor__fn(Expression* __this)
     __this->ctor_();
 }
 
+// private Fuse.ISourceLocation Fuse.ISourceLocation.get_SourceNearest() :47
+void Expression__FuseISourceLocationget_SourceNearest_fn(Expression* __this, uObject** __retval)
+{
+    return *__retval = (uObject*)__this, void();
+}
+
+// public generated string get_SourceFileName() :45
+void Expression__get_SourceFileName_fn(Expression* __this, uString** __retval)
+{
+    *__retval = __this->SourceFileName();
+}
+
+// public generated void set_SourceFileName(string value) :45
+void Expression__set_SourceFileName_fn(Expression* __this, uString* value)
+{
+    __this->SourceFileName(value);
+}
+
+// public generated int get_SourceLineNumber() :42
+void Expression__get_SourceLineNumber_fn(Expression* __this, int32_t* __retval)
+{
+    *__retval = __this->SourceLineNumber();
+}
+
+// public generated void set_SourceLineNumber(int value) :42
+void Expression__set_SourceLineNumber_fn(Expression* __this, int32_t* value)
+{
+    __this->SourceLineNumber(*value);
+}
+
 // protected generated Expression() [instance] :7
 void Expression::ctor_()
 {
 }
+
+// public generated string get_SourceFileName() [instance] :45
+uString* Expression::SourceFileName()
+{
+    return _SourceFileName;
+}
+
+// public generated void set_SourceFileName(string value) [instance] :45
+void Expression::SourceFileName(uString* value)
+{
+    _SourceFileName = value;
+}
+
+// public generated int get_SourceLineNumber() [instance] :42
+int32_t Expression::SourceLineNumber()
+{
+    return _SourceLineNumber;
+}
+
+// public generated void set_SourceLineNumber(int value) [instance] :42
+void Expression::SourceLineNumber(int32_t value)
+{
+    _SourceLineNumber = value;
+}
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\ExpressionBinding.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\ExpressionBinding.uno
 // ----------------------------------------------------------------------------------------------------------
 
 // public abstract class ExpressionBinding :6
 // {
 static void ExpressionBinding_build(uType* type)
 {
-    ::STRINGS[38] = uString::Const("The binding type does not support resource subscriptions");
-    ::TYPES[24] = ::g::Fuse::Reactive::IExpression_typeof();
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[30] = ::g::Fuse::Reactive::IWriteable_typeof();
+    ::STRINGS[46] = uString::Const("The binding type does not support resource subscriptions");
+    ::TYPES[27] = ::g::Fuse::Reactive::IExpression_typeof();
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[33] = ::g::Fuse::Reactive::IWriteable_typeof();
     type->SetInterfaces(
         ::g::Fuse::Reactive::IContext_typeof(), offsetof(ExpressionBinding_type, interface0),
         ::g::Fuse::Reactive::IListener_typeof(), offsetof(ExpressionBinding_type, interface1));
     type->SetFields(1,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(ExpressionBinding, _expressionSub), 0,
-        ::TYPES[24/*Fuse.Reactive.IExpression*/], offsetof(ExpressionBinding, _Key), 0);
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(ExpressionBinding, _expressionSub), 0,
+        ::TYPES[27/*Fuse.Reactive.IExpression*/], offsetof(ExpressionBinding, _Key), 0);
 }
 
 ExpressionBinding_type* ExpressionBinding_typeof()
@@ -2986,6 +3628,7 @@ ExpressionBinding_type* ExpressionBinding_typeof()
     type->fp_SubscribeResource = ExpressionBinding__SubscribeResource_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uString*, uObject*, uObject**))ExpressionBinding__FuseReactiveIContextSubscribe_fn;
     type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))ExpressionBinding__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))ExpressionBinding__FuseReactiveIListenerOnLostData_fn;
     type->interface0.fp_get_Node = (void(*)(uObject*, ::g::Fuse::Node**))ExpressionBinding__FuseReactiveIContextget_Node_fn;
     type->interface0.fp_SubscribeResource = (void(*)(uObject*, uObject*, uString*, uObject*, uObject**))ExpressionBinding__SubscribeResource_fn;
     return type;
@@ -3015,6 +3658,12 @@ void ExpressionBinding__FuseReactiveIContextSubscribe_fn(ExpressionBinding* __th
     return *__retval = (uObject*)::g::Fuse::Reactive::DataSubscription::New1(source, __this->Parent(), key, listener), void();
 }
 
+// private void Fuse.Reactive.IListener.OnLostData(Fuse.Reactive.IExpression source) :49
+void ExpressionBinding__FuseReactiveIListenerOnLostData_fn(ExpressionBinding* __this, uObject* source)
+{
+    __this->LostValue();
+}
+
 // private void Fuse.Reactive.IListener.OnNewData(Fuse.Reactive.IExpression source, object obj) :48
 void ExpressionBinding__FuseReactiveIListenerOnNewData_fn(ExpressionBinding* __this, uObject* source, uObject* obj)
 {
@@ -3037,7 +3686,7 @@ void ExpressionBinding__set_Key_fn(ExpressionBinding* __this, uObject* value)
 void ExpressionBinding__OnRooted_fn(ExpressionBinding* __this)
 {
     ::g::Fuse::Binding__OnRooted_fn(__this);
-    __this->_expressionSub = ::g::Fuse::Reactive::IExpression::Subscribe(uInterface(uPtr(__this->Key()), ::TYPES[24/*Fuse.Reactive.IExpression*/]), (uObject*)__this, (uObject*)__this);
+    __this->_expressionSub = ::g::Fuse::Reactive::IExpression::Subscribe(uInterface(uPtr(__this->Key()), ::TYPES[27/*Fuse.Reactive.IExpression*/]), (uObject*)__this, (uObject*)__this);
 }
 
 // protected override void OnUnrooted() :38
@@ -3045,7 +3694,7 @@ void ExpressionBinding__OnUnrooted_fn(ExpressionBinding* __this)
 {
     if (__this->_expressionSub != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_expressionSub), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_expressionSub), ::TYPES[1/*Uno.IDisposable*/]));
         __this->_expressionSub = NULL;
     }
 
@@ -3055,7 +3704,7 @@ void ExpressionBinding__OnUnrooted_fn(ExpressionBinding* __this)
 // public virtual Uno.IDisposable SubscribeResource(Fuse.Reactive.IExpression source, string key, Fuse.Reactive.IListener listener) :33
 void ExpressionBinding__SubscribeResource_fn(ExpressionBinding* __this, uObject* source, uString* key, uObject* listener, uObject** __retval)
 {
-    U_THROW(::g::Uno::Exception::New2(::STRINGS[38/*"The binding...*/]));
+    U_THROW(::g::Uno::Exception::New2(::STRINGS[46/*"The binding...*/]));
 }
 
 // protected internal void WriteBack(object value) :18
@@ -3074,7 +3723,7 @@ void ExpressionBinding::ctor_1(uObject* key)
 // protected internal bool get_CanWriteBack() [instance] :17
 bool ExpressionBinding::CanWriteBack()
 {
-    return uIs((uObject*)_expressionSub, ::TYPES[30/*Fuse.Reactive.IWriteable*/]);
+    return uIs((uObject*)_expressionSub, ::TYPES[33/*Fuse.Reactive.IWriteable*/]);
 }
 
 // public generated Fuse.Reactive.IExpression get_Key() [instance] :8
@@ -3092,107 +3741,372 @@ void ExpressionBinding::Key(uObject* value)
 // protected internal void WriteBack(object value) [instance] :18
 void ExpressionBinding::WriteBack(uObject* value)
 {
-    ::g::Fuse::Reactive::IWriteable::TrySetExclusive(uInterface(uPtr(_expressionSub), ::TYPES[30/*Fuse.Reactive.IWriteable*/]), value);
+    ::g::Fuse::Reactive::IWriteable::TrySetExclusive(uInterface(uPtr(_expressionSub), ::TYPES[33/*Fuse.Reactive.IWriteable*/]), value);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\ExpressionListener.uno
+// --------------------------------------------------------------------------------------------------------------
 
-// public sealed class GreaterOrEqual :128
+// public abstract class ExpressionListener :152
 // {
-static void GreaterOrEqual_build(uType* type)
+static void ExpressionListener_build(uType* type)
 {
-    ::STRINGS[39] = uString::Const(">=");
+    ::STRINGS[47] = uString::Const("May not be null: listener");
+    ::STRINGS[48] = uString::Const("May not be null: source");
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
+        ::g::Uno::IDisposable_typeof(), offsetof(ExpressionListener_type, interface0),
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(ExpressionListener_type, interface1));
+    type->SetFields(5,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(ExpressionListener, _listener), 0,
+        ::g::Uno::Bool_typeof(), offsetof(ExpressionListener, _hasData), 0,
+        uObject_typeof(), offsetof(ExpressionListener, _curData), 0,
+        ::g::Fuse::Reactive::Expression_typeof(), offsetof(ExpressionListener, _source1), 0);
 }
 
-::g::Fuse::Reactive::InfixOperator_type* GreaterOrEqual_typeof()
+ExpressionListener_type* ExpressionListener_typeof()
 {
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
+    static uSStrong<ExpressionListener_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(GreaterOrEqual);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.GreaterOrEqual", options);
-    type->fp_build_ = GreaterOrEqual_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))GreaterOrEqual__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))GreaterOrEqual__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
+    options.BaseDefinition = ::g::Fuse::Reactive::ExpressionSubscriber_typeof();
+    options.FieldCount = 9;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(ExpressionListener);
+    options.TypeSize = sizeof(ExpressionListener_type);
+    type = (ExpressionListener_type*)uClassType::New("Fuse.Reactive.ExpressionListener", options);
+    type->fp_build_ = ExpressionListener_build;
+    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))ExpressionListener__Dispose_fn;
+    type->fp_OnClearData = (void(*)(::g::Fuse::Reactive::ExpressionSubscriber*))ExpressionListener__OnClearData_fn;
+    type->fp_OnDataCleared = ExpressionListener__OnDataCleared_fn;
+    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnLostData_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))ExpressionListener__Dispose_fn;
     return type;
 }
 
-// protected override sealed object Compute(object left, object right) :132
-void GreaterOrEqual__Compute_fn(GreaterOrEqual* __this, uObject* left, uObject* right, uObject** __retval)
+// protected ExpressionListener(Fuse.Reactive.Expression source, Fuse.Reactive.IListener listener, Fuse.Reactive.Expression[] args, [Fuse.Reactive.ExpressionSubscriber.Flags flags]) :162
+void ExpressionListener__ctor_2_fn(ExpressionListener* __this, ::g::Fuse::Reactive::Expression* source, uObject* listener, uArray* args, int32_t* flags)
 {
-    if ((left == NULL) || (right == NULL))
-        return *__retval = NULL, void();
-
-    return *__retval = uBox(::TYPES[2/*bool*/], uUnbox<bool>(::TYPES[2/*bool*/], ::g::Fuse::Marshal::GreaterThan(left, right)) || uUnbox<bool>(::TYPES[2/*bool*/], ::g::Fuse::Marshal::EqualTo(left, right))), void();
+    __this->ctor_2(source, listener, args, *flags);
 }
 
-// public override sealed string get_Symbol() :138
-void GreaterOrEqual__get_Symbol_fn(GreaterOrEqual* __this, uString** __retval)
+// protected void ClearData() :190
+void ExpressionListener__ClearData_fn(ExpressionListener* __this)
 {
-    return *__retval = ::STRINGS[39/*">="*/], void();
+    __this->ClearData();
+}
+
+// public override void Dispose() :174
+void ExpressionListener__Dispose_fn(ExpressionListener* __this)
+{
+    __this->_listener = NULL;
+    __this->_hasData = false;
+    __this->_curData = NULL;
+    ::g::Fuse::Reactive::ExpressionSubscriber__Dispose_fn(__this);
+}
+
+// internal Fuse.Reactive.IListener get_Listener() :160
+void ExpressionListener__get_Listener_fn(ExpressionListener* __this, uObject** __retval)
+{
+    *__retval = __this->Listener();
+}
+
+// internal override void OnClearData() :185
+void ExpressionListener__OnClearData_fn(ExpressionListener* __this)
+{
+    __this->ClearData();
+}
+
+// protected virtual void OnDataCleared() :202
+void ExpressionListener__OnDataCleared_fn(ExpressionListener* __this)
+{
+}
+
+// protected void SetData(object value) :205
+void ExpressionListener__SetData_fn(ExpressionListener* __this, uObject* value)
+{
+    __this->SetData(value);
+}
+
+// protected ExpressionListener(Fuse.Reactive.Expression source, Fuse.Reactive.IListener listener, Fuse.Reactive.Expression[] args, [Fuse.Reactive.ExpressionSubscriber.Flags flags]) [instance] :162
+void ExpressionListener::ctor_2(::g::Fuse::Reactive::Expression* source, uObject* listener, uArray* args, int32_t flags)
+{
+    ctor_1(args, flags, source);
+
+    if (listener == NULL)
+        U_THROW(::g::Uno::Exception::New2(::STRINGS[47/*"May not be ...*/]));
+
+    if (source == NULL)
+        U_THROW(::g::Uno::Exception::New2(::STRINGS[48/*"May not be ...*/]));
+
+    _listener = listener;
+    _source1 = source;
+}
+
+// protected void ClearData() [instance] :190
+void ExpressionListener::ClearData()
+{
+    if (_hasData && (_listener != NULL))
+    {
+        _hasData = false;
+        _curData = NULL;
+        ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_source1);
+    }
+
+    OnDataCleared();
+}
+
+// internal Fuse.Reactive.IListener get_Listener() [instance] :160
+uObject* ExpressionListener::Listener()
+{
+    return _listener;
+}
+
+// protected void SetData(object value) [instance] :205
+void ExpressionListener::SetData(uObject* value)
+{
+    if (!_hasData || (value != _curData))
+    {
+        _hasData = true;
+        _curData = value;
+        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_source1, value);
+    }
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\ExpressionListener.uno
+// --------------------------------------------------------------------------------------------------------------
 
-// public sealed class GreaterThan :116
+// public abstract class ExpressionSubscriber :14
 // {
-static void GreaterThan_build(uType* type)
+static void ExpressionSubscriber_build(uType* type)
 {
-    ::STRINGS[40] = uString::Const(">");
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
+        ::g::Uno::IDisposable_typeof(), offsetof(ExpressionSubscriber_type, interface0),
+        ::g::Fuse::Reactive::IListener_typeof(), offsetof(ExpressionSubscriber_type, interface1));
+    type->SetFields(2,
+        uObject_typeof(), offsetof(ExpressionSubscriber, _source), 0,
+        ExpressionSubscriber__Flags_typeof(), offsetof(ExpressionSubscriber, _flags), 0,
+        ::g::Fuse::Reactive::Expression__Argument_typeof()->Array(), offsetof(ExpressionSubscriber, _args), 0);
 }
 
-::g::Fuse::Reactive::InfixOperator_type* GreaterThan_typeof()
+ExpressionSubscriber_type* ExpressionSubscriber_typeof()
 {
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
+    static uSStrong<ExpressionSubscriber_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(GreaterThan);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.GreaterThan", options);
-    type->fp_build_ = GreaterThan_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))GreaterThan__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))GreaterThan__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
+    options.BaseDefinition = ::g::Fuse::Reactive::InnerListener_typeof();
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(ExpressionSubscriber);
+    options.TypeSize = sizeof(ExpressionSubscriber_type);
+    type = (ExpressionSubscriber_type*)uClassType::New("Fuse.Reactive.ExpressionSubscriber", options);
+    type->fp_build_ = ExpressionSubscriber_build;
+    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))ExpressionSubscriber__Dispose_fn;
+    type->fp_OnLostData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*))ExpressionSubscriber__OnLostData_fn;
+    type->fp_OnNewData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*, uObject*))ExpressionSubscriber__OnNewData_fn;
+    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnLostData_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))ExpressionSubscriber__Dispose_fn;
     return type;
 }
 
-// protected override sealed object Compute(object left, object right) :120
-void GreaterThan__Compute_fn(GreaterThan* __this, uObject* left, uObject* right, uObject** __retval)
+// internal ExpressionSubscriber(Fuse.Reactive.Expression[] args, Fuse.Reactive.ExpressionSubscriber.Flags flags, [object source]) :32
+void ExpressionSubscriber__ctor_1_fn(ExpressionSubscriber* __this, uArray* args, int32_t* flags, uObject* source)
 {
-    return *__retval = ::g::Fuse::Marshal::GreaterThan(left, right), void();
+    __this->ctor_1(args, *flags, source);
 }
 
-// public override sealed string get_Symbol() :125
-void GreaterThan__get_Symbol_fn(GreaterThan* __this, uString** __retval)
+// public override void Dispose() :125
+void ExpressionSubscriber__Dispose_fn(ExpressionSubscriber* __this)
 {
-    return *__retval = ::STRINGS[40/*">"*/], void();
+    for (int32_t i = 0; i < uPtr(__this->_args)->Length(); ++i)
+        uPtr(uPtr(__this->_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->Dispose();
+
+    __this->_source = NULL;
+    ::g::Fuse::Reactive::InnerListener__Dispose_fn(__this);
+}
+
+// public void Init(Fuse.Reactive.IContext context) :48
+void ExpressionSubscriber__Init_fn(ExpressionSubscriber* __this, uObject* context)
+{
+    __this->Init(context);
+}
+
+// private bool IsOptional(int index) :82
+void ExpressionSubscriber__IsOptional_fn(ExpressionSubscriber* __this, int32_t* index, bool* __retval)
+{
+    *__retval = __this->IsOptional(*index);
+}
+
+// protected override sealed void OnLostData(Fuse.Reactive.IExpression source) :68
+void ExpressionSubscriber__OnLostData_fn(ExpressionSubscriber* __this, uObject* source)
+{
+    for (int32_t i = 0; i < uPtr(__this->_args)->Length(); ++i)
+        if (uPtr(uPtr(__this->_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->Source == source)
+        {
+            uPtr(uPtr(__this->_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->Value(NULL);
+            uPtr(uPtr(__this->_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->HasValue(false);
+        }
+
+    __this->UpdateOperands();
+}
+
+// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object value) :55
+void ExpressionSubscriber__OnNewData_fn(ExpressionSubscriber* __this, uObject* source, uObject* value)
+{
+    for (int32_t i = 0; i < uPtr(__this->_args)->Length(); ++i)
+        if (uPtr(uPtr(__this->_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->Source == source)
+        {
+            uPtr(uPtr(__this->_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->Value(value);
+            uPtr(uPtr(__this->_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->HasValue(true);
+        }
+
+    __this->UpdateOperands();
+}
+
+// private void UpdateOperands() :97
+void ExpressionSubscriber__UpdateOperands_fn(ExpressionSubscriber* __this)
+{
+    __this->UpdateOperands();
+}
+
+// internal ExpressionSubscriber(Fuse.Reactive.Expression[] args, Fuse.Reactive.ExpressionSubscriber.Flags flags, [object source]) [instance] :32
+void ExpressionSubscriber::ctor_1(uArray* args, int32_t flags, uObject* source)
+{
+    ::g::Fuse::Reactive::Expression__Argument* collection1;
+    ctor_();
+    _flags = flags;
+    _source = ((source != NULL) ? source : this);
+    _args = uArray::New(::g::Fuse::Reactive::Expression__Argument_typeof()->Array(), uPtr(args)->Length());
+
+    for (int32_t i = 0; i < args->Length(); ++i)
+    {
+        if (uPtr(args)->Strong< ::g::Fuse::Reactive::Expression*>(i) == NULL)
+            U_THROW(::g::Uno::Exception::New2(uString::Const("May not contain null: args")));
+
+        uPtr(_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i) = (collection1 = ::g::Fuse::Reactive::Expression__Argument::New1(), uPtr(collection1)->Source = (uObject*)uPtr(args)->Strong< ::g::Fuse::Reactive::Expression*>(i), collection1);
+    }
+}
+
+// public void Init(Fuse.Reactive.IContext context) [instance] :48
+void ExpressionSubscriber::Init(uObject* context)
+{
+    for (int32_t i = 0; i < uPtr(_args)->Length(); ++i)
+        uPtr(uPtr(_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->Subscription = ::g::Fuse::Reactive::IExpression::Subscribe(uInterface(uPtr(uPtr(uPtr(_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->Source), ::TYPES[27/*Fuse.Reactive.IExpression*/]), context, (uObject*)this);
+
+    UpdateOperands();
+}
+
+// private bool IsOptional(int index) [instance] :82
+bool ExpressionSubscriber::IsOptional(int32_t index)
+{
+    if ((_flags & 1024) == 1024)
+        return true;
+
+    if (index == 0)
+        return (_flags & 1) == 1;
+
+    if (index == 1)
+        return (_flags & 2) == 2;
+
+    if (index == 2)
+        return (_flags & 4) == 4;
+
+    if (index == 3)
+        return (_flags & 8) == 8;
+
+    return false;
+}
+
+// private void UpdateOperands() [instance] :97
+void ExpressionSubscriber::UpdateOperands()
+{
+    ClearDiagnostic();
+
+    try
+    {
+        {
+            bool okay = true;
+
+            for (int32_t i = 0; i < uPtr(_args)->Length(); ++i)
+                if (!uPtr(uPtr(_args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->HasValue() && !IsOptional(i))
+                {
+                    okay = false;
+                    break;
+                }
+
+            if (okay)
+                OnArguments(_args);
+            else
+                OnClearData();
+        }
+    }
+
+    catch (const uThrowable& __t)
+    {
+        if (uIs(__t.Exception, ::TYPES[36/*Fuse.MarshalException*/]))
+        {
+            ::g::Fuse::MarshalException* me = (::g::Fuse::MarshalException*)__t.Exception;
+            OnClearData();
+            SetDiagnostic(uPtr(me)->Message(), _source);
+        }
+        else         throw __t;
+    }
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IExpression.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\ExpressionListener.uno
+// --------------------------------------------------------------------------------------------------------------
+
+// public enum ComputeExpression.Flags :226
+uEnumType* ComputeExpression__Flags_typeof()
+{
+    static uSStrong<uEnumType*> type;
+    if (type != NULL) return type;
+
+    type = uEnumType::New("Fuse.Reactive.ComputeExpression.Flags", ::g::Uno::Int_typeof(), 9);
+    type->SetLiterals(
+        "None", 0LL,
+        "Optional0", 1LL,
+        "Optional1", 2LL,
+        "Optional2", 4LL,
+        "Optional3", 8LL,
+        "AllOptional", 16LL,
+        "OmitComputeWarning", 32LL,
+        "DeprecatedVirtualFlags", 1024LL,
+        "DeprecatedVirtualUnary", 2048LL);
+    return type;
+}
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\ExpressionListener.uno
+// --------------------------------------------------------------------------------------------------------------
+
+// public enum ExpressionSubscriber.Flags :17
+uEnumType* ExpressionSubscriber__Flags_typeof()
+{
+    static uSStrong<uEnumType*> type;
+    if (type != NULL) return type;
+
+    type = uEnumType::New("Fuse.Reactive.ExpressionSubscriber.Flags", ::g::Uno::Int_typeof(), 6);
+    type->SetLiterals(
+        "None", 0LL,
+        "Optional0", 1LL,
+        "Optional1", 2LL,
+        "Optional2", 4LL,
+        "Optional3", 8LL,
+        "AllOptional", 1024LL);
+    return type;
+}
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IExpression.uno
 // -------------------------------------------------------------------------------------------
 
-// public abstract interface IContext :13
+// public abstract interface IContext :20
 // {
 uInterfaceType* IContext_typeof()
 {
@@ -3204,7 +4118,22 @@ uInterfaceType* IContext_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IEventHandler.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\WindowList.uno
+// ---------------------------------------------------------------------------------------------------
+
+// public abstract interface WindowListItem.IDataWatcher :13
+// {
+uInterfaceType* WindowListItem__IDataWatcher_typeof()
+{
+    static uSStrong<uInterfaceType*> type;
+    if (type != NULL) return type;
+
+    type = uInterfaceType::New("Fuse.Reactive.WindowListItem.IDataWatcher", 0, 0);
+    return type;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IEventHandler.uno
 // ---------------------------------------------------------------------------------------------
 
 // public abstract interface IEventHandler :16
@@ -3219,7 +4148,7 @@ uInterfaceType* IEventHandler_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IEventHandler.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IEventHandler.uno
 // ---------------------------------------------------------------------------------------------
 
 // public abstract interface IEventRecord :8
@@ -3234,10 +4163,10 @@ uInterfaceType* IEventRecord_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IExpression.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IExpression.uno
 // -------------------------------------------------------------------------------------------
 
-// public abstract interface IExpression :38
+// public abstract interface IExpression :45
 // {
 uInterfaceType* IExpression_typeof()
 {
@@ -3249,7 +4178,22 @@ uInterfaceType* IExpression_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IExpression.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\ItemsWindowList.uno
+// --------------------------------------------------------------------------------------------------------
+
+// public abstract interface ItemsWindowList<T>.IListener :15
+// {
+uInterfaceType* ItemsWindowList__IListener_typeof()
+{
+    static uSStrong<uInterfaceType*> type;
+    if (type != NULL) return type;
+
+    type = uInterfaceType::New("Fuse.Reactive.ItemsWindowList`1.IListener", 1, 0);
+    return type;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IExpression.uno
 // -------------------------------------------------------------------------------------------
 
 // public abstract interface IListener :8
@@ -3264,67 +4208,83 @@ uInterfaceType* IListener_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Operators.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public abstract class InfixOperator :7
 // {
 static void InfixOperator_build(uType* type)
 {
-    ::STRINGS[5] = uString::Const("(");
-    ::STRINGS[41] = uString::Const(" ");
-    ::STRINGS[4] = uString::Const(")");
+    ::STRINGS[49] = uString::Const("(");
+    ::STRINGS[14] = uString::Const(" ");
+    ::STRINGS[50] = uString::Const(")");
+    ::STRINGS[10] = uString::Const("");
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(InfixOperator_type, interface0));
-    type->SetFields(2);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::BinaryOperator_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::BinaryOperator_type, interface1));
+    type->SetFields(5);
 }
 
-InfixOperator_type* InfixOperator_typeof()
+::g::Fuse::Reactive::BinaryOperator_type* InfixOperator_typeof()
 {
-    static uSStrong<InfixOperator_type*> type;
+    static uSStrong< ::g::Fuse::Reactive::BinaryOperator_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::BinaryOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(InfixOperator);
-    options.TypeSize = sizeof(InfixOperator_type);
-    type = (InfixOperator_type*)uClassType::New("Fuse.Reactive.InfixOperator", options);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::BinaryOperator_type);
+    type = (::g::Fuse::Reactive::BinaryOperator_type*)uClassType::New("Fuse.Reactive.InfixOperator", options);
     type->fp_build_ = InfixOperator_build;
     type->fp_ToString = (void(*)(uObject*, uString**))InfixOperator__ToString_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// protected InfixOperator(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) :9
-void InfixOperator__ctor_2_fn(InfixOperator* __this, ::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right)
+// protected InfixOperator(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right, string symbol, [Fuse.Reactive.ComputeExpression.Flags flags]) :13
+void InfixOperator__ctor_5_fn(InfixOperator* __this, ::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right, uString* symbol, int32_t* flags)
 {
-    __this->ctor_2(left, right);
+    __this->ctor_5(left, right, symbol, *flags);
 }
 
-// public override sealed string ToString() :13
+// public string get_Symbol() :18
+void InfixOperator__get_Symbol_fn(InfixOperator* __this, uString** __retval)
+{
+    *__retval = __this->Symbol();
+}
+
+// public override sealed string ToString() :20
 void InfixOperator__ToString_fn(InfixOperator* __this, uString** __retval)
 {
-    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[5/*"("*/], __this->Left()), ::STRINGS[41/*" "*/]), __this->Symbol()), ::STRINGS[41/*" "*/]), __this->Right()), ::STRINGS[4/*")"*/]), void();
+    uString* ind1;
+    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[49/*"("*/], __this->Left()), ::STRINGS[14/*" "*/]), (ind1 = __this->Name(), (ind1 != NULL) ? ind1 : (uString*)__this->Symbol())), ::STRINGS[14/*" "*/]), __this->Right()), ::STRINGS[50/*")"*/]), void();
 }
 
-// protected InfixOperator(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right) [instance] :9
-void InfixOperator::ctor_2(::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right)
+// protected InfixOperator(Fuse.Reactive.Expression left, Fuse.Reactive.Expression right, string symbol, [Fuse.Reactive.ComputeExpression.Flags flags]) [instance] :13
+void InfixOperator::ctor_5(::g::Fuse::Reactive::Expression* left, ::g::Fuse::Reactive::Expression* right, uString* symbol, int32_t flags)
 {
-    ctor_1(left, right);
+    ctor_3(left, right, symbol, flags);
+}
+
+// public string get_Symbol() [instance] :18
+uString* InfixOperator::Symbol()
+{
+    return ::STRINGS[10/*""*/];
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Subscription.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Subscription.uno
 // --------------------------------------------------------------------------------------------------------
 
-// public abstract class InnerListener :14
+// public abstract class InnerListener :19
 // {
 static void InnerListener_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(InnerListener_type, interface0),
         ::g::Fuse::Reactive::IListener_typeof(), offsetof(InnerListener_type, interface1));
@@ -3341,30 +4301,30 @@ InnerListener_type* InnerListener_typeof()
     uTypeOptions options;
     options.FieldCount = 2;
     options.InterfaceCount = 2;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(InnerListener);
     options.TypeSize = sizeof(InnerListener_type);
     type = (InnerListener_type*)uClassType::New("Fuse.Reactive.InnerListener", options);
     type->fp_build_ = InnerListener_build;
     type->fp_Dispose = InnerListener__Dispose_fn;
     type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))InnerListener__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))InnerListener__FuseReactiveIListenerOnLostData_fn;
     type->interface0.fp_Dispose = (void(*)(uObject*))InnerListener__Dispose_fn;
     return type;
 }
 
-// protected generated InnerListener() :14
+// protected generated InnerListener() :19
 void InnerListener__ctor__fn(InnerListener* __this)
 {
     __this->ctor_();
 }
 
-// public void ClearDiagnostic() :26
+// public void ClearDiagnostic() :32
 void InnerListener__ClearDiagnostic_fn(InnerListener* __this)
 {
     __this->ClearDiagnostic();
 }
 
-// public virtual void Dispose() :35
+// public virtual void Dispose() :41
 void InnerListener__Dispose_fn(InnerListener* __this)
 {
     ::g::Uno::Collections::Dictionary__ValueCollection__Enumerator<uStrong<InnerListener__ObservableSubscription*> > ret2;
@@ -3374,26 +4334,31 @@ void InnerListener__Dispose_fn(InnerListener* __this)
     {
         ::g::Uno::Collections::Dictionary__ValueCollection__Enumerator<uStrong<InnerListener__ObservableSubscription*> > enum1 = (::g::Uno::Collections::Dictionary__ValueCollection__GetEnumerator_fn(uPtr((::g::Uno::Collections::Dictionary__ValueCollection*)uPtr(__this->_obsSubs)->Values()), &ret2), ret2);
 
-        try
         {
+            try
             {
-                while (enum1.MoveNext(::g::Uno::Collections::Dictionary__ValueCollection__Enumerator_typeof()->MakeType(::TYPES[24/*Fuse.Reactive.IExpression*/], InnerListener__ObservableSubscription_typeof(), NULL)))
                 {
-                    InnerListener__ObservableSubscription* k = enum1.Current(::g::Uno::Collections::Dictionary__ValueCollection__Enumerator_typeof()->MakeType(::TYPES[24/*Fuse.Reactive.IExpression*/], InnerListener__ObservableSubscription_typeof(), NULL));
-                    uPtr(k)->Dispose();
+                    while (enum1.MoveNext(::g::Uno::Collections::Dictionary__ValueCollection__Enumerator_typeof()->MakeType(::TYPES[27/*Fuse.Reactive.IExpression*/], InnerListener__ObservableSubscription_typeof(), NULL)))
+                    {
+                        InnerListener__ObservableSubscription* k = enum1.Current(::g::Uno::Collections::Dictionary__ValueCollection__Enumerator_typeof()->MakeType(::TYPES[27/*Fuse.Reactive.IExpression*/], InnerListener__ObservableSubscription_typeof(), NULL));
+                        uPtr(k)->Dispose();
+                    }
                 }
             }
-            {
-                enum1.Dispose(::g::Uno::Collections::Dictionary__ValueCollection__Enumerator_typeof()->MakeType(::TYPES[24/*Fuse.Reactive.IExpression*/], InnerListener__ObservableSubscription_typeof(), NULL));
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
             {
-                enum1.Dispose(::g::Uno::Collections::Dictionary__ValueCollection__Enumerator_typeof()->MakeType(::TYPES[24/*Fuse.Reactive.IExpression*/], InnerListener__ObservableSubscription_typeof(), NULL));
+                {
+                    enum1.Dispose(::g::Uno::Collections::Dictionary__ValueCollection__Enumerator_typeof()->MakeType(::TYPES[27/*Fuse.Reactive.IExpression*/], InnerListener__ObservableSubscription_typeof(), NULL));
+                }
+                                throw __t;
+                goto __after_finally_0;
             }
-                        throw __t;
+
+            {
+                enum1.Dispose(::g::Uno::Collections::Dictionary__ValueCollection__Enumerator_typeof()->MakeType(::TYPES[27/*Fuse.Reactive.IExpression*/], InnerListener__ObservableSubscription_typeof(), NULL));
+            }
+            __after_finally_0:;
         }
 
         uPtr(__this->_obsSubs)->Clear();
@@ -3401,7 +4366,13 @@ void InnerListener__Dispose_fn(InnerListener* __this)
     }
 }
 
-// private void Fuse.Reactive.IListener.OnNewData(Fuse.Reactive.IExpression source, object value) :49
+// private void Fuse.Reactive.IListener.OnLostData(Fuse.Reactive.IExpression source) :77
+void InnerListener__FuseReactiveIListenerOnLostData_fn(InnerListener* __this, uObject* source)
+{
+    __this->OnLostData(source);
+}
+
+// private void Fuse.Reactive.IListener.OnNewData(Fuse.Reactive.IExpression source, object value) :55
 void InnerListener__FuseReactiveIListenerOnNewData_fn(InnerListener* __this, uObject* source, uObject* value)
 {
     bool ret3;
@@ -3414,12 +4385,12 @@ void InnerListener__FuseReactiveIListenerOnNewData_fn(InnerListener* __this, uOb
         ::g::Uno::Collections::Dictionary__Remove_fn(uPtr(__this->_obsSubs), source, &ret4);
     }
 
-    uObject* obs = uAs<uObject*>(value, ::TYPES[33/*Fuse.Reactive.IObservable*/]);
+    uObject* obs = uAs<uObject*>(value, ::TYPES[35/*Fuse.Reactive.IObservable*/]);
 
     if (obs != NULL)
     {
         if (__this->_obsSubs == NULL)
-            __this->_obsSubs = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::g::Uno::Collections::Dictionary_typeof()->MakeType(::TYPES[24/*Fuse.Reactive.IExpression*/], InnerListener__ObservableSubscription_typeof(), NULL)));
+            __this->_obsSubs = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::g::Uno::Collections::Dictionary_typeof()->MakeType(::TYPES[27/*Fuse.Reactive.IExpression*/], InnerListener__ObservableSubscription_typeof(), NULL)));
 
         ::g::Uno::Collections::Dictionary__Add_fn(uPtr(__this->_obsSubs), source, InnerListener__ObservableSubscription::New1(source, obs, __this));
     }
@@ -3427,28 +4398,28 @@ void InnerListener__FuseReactiveIListenerOnNewData_fn(InnerListener* __this, uOb
         __this->OnNewData(source, value);
 }
 
-// public void SetDiagnostic(string message, Fuse.Reactive.IExpression source) :20
+// public void SetDiagnostic(string message, object source) :26
 void InnerListener__SetDiagnostic_fn(InnerListener* __this, uString* message, uObject* source)
 {
     __this->SetDiagnostic(message, source);
 }
 
-// protected generated InnerListener() [instance] :14
+// protected generated InnerListener() [instance] :19
 void InnerListener::ctor_()
 {
 }
 
-// public void ClearDiagnostic() [instance] :26
+// public void ClearDiagnostic() [instance] :32
 void InnerListener::ClearDiagnostic()
 {
     if (_diag != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_diag), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_diag), ::TYPES[1/*Uno.IDisposable*/]));
         _diag = NULL;
     }
 }
 
-// public void SetDiagnostic(string message, Fuse.Reactive.IExpression source) [instance] :20
+// public void SetDiagnostic(string message, object source) [instance] :26
 void InnerListener::SetDiagnostic(uString* message, uObject* source)
 {
     ClearDiagnostic();
@@ -3456,10 +4427,27 @@ void InnerListener::SetDiagnostic(uString* message, uObject* source)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Instance.API.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Instantiator.uno
 // -----------------------------------------------------------------------------------------------------
 
-// public enum InstanceDefer :14
+// public enum InstanceDefaults :58
+uEnumType* InstanceDefaults_typeof()
+{
+    static uSStrong<uEnumType*> type;
+    if (type != NULL) return type;
+
+    type = uEnumType::New("Fuse.Reactive.InstanceDefaults", ::g::Uno::Int_typeof(), 3);
+    type->SetLiterals(
+        "Standard", 0LL,
+        "Default", 1LL,
+        "None", 2LL);
+    return type;
+}
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Instantiator.uno
+// -----------------------------------------------------------------------------------------------------
+
+// public enum InstanceDefer :15
 uEnumType* InstanceDefer_typeof()
 {
     static uSStrong<uEnumType*> type;
@@ -3473,10 +4461,10 @@ uEnumType* InstanceDefer_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Instance.API.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Instantiator.uno
 // -----------------------------------------------------------------------------------------------------
 
-// public enum InstanceIdentity :42
+// public enum InstanceIdentity :43
 uEnumType* InstanceIdentity_typeof()
 {
     static uSStrong<uEnumType*> type;
@@ -3490,10 +4478,10 @@ uEnumType* InstanceIdentity_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Instance.API.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Instantiator.uno
 // -----------------------------------------------------------------------------------------------------
 
-// public enum InstanceReuse :29
+// public enum InstanceReuse :30
 uEnumType* InstanceReuse_typeof()
 {
     static uSStrong<uEnumType*> type;
@@ -3506,54 +4494,49 @@ uEnumType* InstanceReuse_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Instance.API.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Instantiator.uno
 // -----------------------------------------------------------------------------------------------------
 
-// public partial class Instantiator :53
+// public partial class Instantiator :116
 // {
 static void Instantiator_build(uType* type)
 {
     type->SetDependencies(
+        ::g::Fuse::Triggers::BusyTask_typeof(),
         ::g::Fuse::DeferredManager_typeof(),
-        ::g::Fuse::Diagnostics_typeof());
+        ::g::Fuse::UpdateManager_typeof());
     type->SetInterfaces(
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Instantiator_type, interface0),
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(Instantiator_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(Instantiator_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(Instantiator_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Instantiator_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Instantiator_type, interface5),
-        ::g::Fuse::Reactive::IObserver_typeof(), offsetof(Instantiator_type, interface6),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(Instantiator_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Instantiator_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Instantiator_type, interface6),
         ::g::Fuse::Node__ISubtreeDataProvider_typeof(), offsetof(Instantiator_type, interface7),
-        ::g::Fuse::IDeferred_typeof(), offsetof(Instantiator_type, interface8));
-    type->SetFields(15,
+        ::g::Fuse::IDeferred_typeof(), offsetof(Instantiator_type, interface8),
+        ::g::Fuse::Reactive::ItemsWindowList__IListener_typeof()->MakeType(::g::Fuse::Reactive::WindowItem_typeof(), NULL), offsetof(Instantiator_type, interface9));
+    type->SetFields(17,
+        ::g::Fuse::Triggers::BusyTask_typeof(), offsetof(Instantiator, _busyTask), 0,
+        ::g::Uno::Action1_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(Instantiator, _completedRemove), 0,
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL), offsetof(Instantiator, _templates), 0,
         ::g::Uno::Collections::RootableList_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL), offsetof(Instantiator, _rootTemplates), 0,
         ::g::Fuse::Reactive::InstanceDefer_typeof(), offsetof(Instantiator, _defer), 0,
         ::g::Fuse::Reactive::InstanceReuse_typeof(), offsetof(Instantiator, _reuse), 0,
-        ::g::Fuse::Reactive::InstanceIdentity_typeof(), offsetof(Instantiator, _identity), 0,
-        ::g::Uno::String_typeof(), offsetof(Instantiator, _identityKey), 0,
         ::g::Uno::Float_typeof(), offsetof(Instantiator, _deferredPriority), 0,
         ::g::Fuse::ITemplateSource_typeof(), offsetof(Instantiator, _weakTemplateSource), uFieldFlagsWeak,
         ::g::Fuse::ITemplateSource_typeof(), offsetof(Instantiator, _templateSource), 0,
-        ::g::Uno::Int_typeof(), offsetof(Instantiator, _offset), 0,
-        ::g::Uno::Int_typeof(), offsetof(Instantiator, _limit), 0,
-        ::g::Uno::Bool_typeof(), offsetof(Instantiator, _hasLimit), 0,
-        uObject_typeof(), offsetof(Instantiator, _items), 0,
-        ::g::Uno::Int_typeof(), offsetof(Instantiator, _count), 0,
+        ::g::Uno::String_typeof(), offsetof(Instantiator, _templateKey), 0,
         ::g::Uno::String_typeof(), offsetof(Instantiator, _matchKey), 0,
-        ::g::Uno::Collections::Dictionary_typeof()->MakeType(::g::Fuse::Node_typeof(), Instantiator__WindowItem_typeof(), NULL), offsetof(Instantiator, _dataMap), 0,
-        ::g::Uno::IDisposable_typeof(), offsetof(Instantiator, _itemsSubscription), 0,
-        ::g::Uno::Bool_typeof(), offsetof(Instantiator, _isListeningItems), 0,
-        ::g::Fuse::Triggers::BusyTask_typeof(), offsetof(Instantiator, _busyTask), 0,
-        ::g::Uno::Action1_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(Instantiator, _completedRemove), 0,
+        ::g::Uno::String_typeof(), offsetof(Instantiator, _match), 0,
+        ::g::Fuse::Reactive::InstanceDefaults_typeof(), offsetof(Instantiator, _defaults), 0,
+        ::g::Uno::Collections::Dictionary_typeof()->MakeType(::g::Fuse::Node_typeof(), ::g::Fuse::Reactive::WindowItem_typeof(), NULL), offsetof(Instantiator, _dataMap), 0,
         ::g::Uno::Bool_typeof(), offsetof(Instantiator, _pendingNew), 0,
-        ::g::Uno::Collections::Dictionary_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL), offsetof(Instantiator, _availableItemsById), 0,
-        ::g::Fuse::Internal::ObjectList_typeof()->MakeType(Instantiator__WindowItem_typeof(), NULL), offsetof(Instantiator, _availableItems), 0,
+        ::g::Uno::Collections::Dictionary_typeof()->MakeType(uObject_typeof(), ::g::Fuse::Reactive::WindowItem_typeof(), NULL), offsetof(Instantiator, _availableItemsById), 0,
+        ::g::Fuse::Internal::ObjectList_typeof()->MakeType(::g::Fuse::Reactive::WindowItem_typeof(), NULL), offsetof(Instantiator, _availableItems), 0,
         ::g::Uno::Bool_typeof(), offsetof(Instantiator, _pendingAvailableItems), 0,
-        ::g::Fuse::Internal::ObjectList_typeof()->MakeType(Instantiator__WindowItem_typeof(), NULL), offsetof(Instantiator, _windowItems), 0,
+        ::g::Fuse::Reactive::ItemsWindowList_typeof()->MakeType(::g::Fuse::Reactive::WindowItem_typeof(), NULL), offsetof(Instantiator, _watcher), 0,
         ::g::Uno::Bool_typeof(), offsetof(Instantiator, _pendingUpdateWindowItems), 0,
-        ::g::Uno::String_typeof(), offsetof(Instantiator, _TemplateKey), 0,
         ::g::Uno::Action_typeof(), offsetof(Instantiator, UpdatedWindowItems1), 0);
 }
 
@@ -3564,9 +4547,9 @@ Instantiator_type* Instantiator_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Behavior_typeof();
-    options.FieldCount = 43;
-    options.InterfaceCount = 9;
-    options.DependencyCount = 2;
+    options.FieldCount = 38;
+    options.InterfaceCount = 10;
+    options.DependencyCount = 3;
     options.ObjectSize = sizeof(Instantiator);
     options.TypeSize = sizeof(Instantiator_type);
     type = (Instantiator_type*)uClassType::New("Fuse.Reactive.Instantiator", options);
@@ -3574,441 +4557,354 @@ Instantiator_type* Instantiator_typeof()
     type->fp_GetLastNodeInGroup = (void(*)(::g::Fuse::Node*, ::g::Fuse::Node**))Instantiator__GetLastNodeInGroup_fn;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))Instantiator__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))Instantiator__OnUnrooted_fn;
-    type->interface7.fp_GetData = (void(*)(uObject*, ::g::Fuse::Node*, uObject**))Instantiator__FuseNodeISubtreeDataProviderGetData_fn;
-    type->interface6.fp_OnSet = (void(*)(uObject*, uObject*))Instantiator__FuseReactiveIObserverOnSet_fn;
-    type->interface6.fp_OnFailed = (void(*)(uObject*, uString*))Instantiator__FuseReactiveIObserverOnFailed_fn;
-    type->interface6.fp_OnAdd = (void(*)(uObject*, uObject*))Instantiator__FuseReactiveIObserverOnAdd_fn;
-    type->interface6.fp_OnRemoveAt = (void(*)(uObject*, int*))Instantiator__FuseReactiveIObserverOnRemoveAt_fn;
-    type->interface6.fp_OnInsertAt = (void(*)(uObject*, int*, uObject*))Instantiator__FuseReactiveIObserverOnInsertAt_fn;
-    type->interface6.fp_OnNewAt = (void(*)(uObject*, int*, uObject*))Instantiator__FuseReactiveIObserverOnNewAt_fn;
-    type->interface6.fp_OnNewAll = (void(*)(uObject*, uObject*))Instantiator__FuseReactiveIObserverOnNewAll_fn;
-    type->interface6.fp_OnClear = (void(*)(uObject*))Instantiator__FuseReactiveIObserverOnClear_fn;
+    type->interface9.fp_SetValid = (void(*)(uObject*))Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerSetValid_fn;
+    type->interface9.fp_SetFailed = (void(*)(uObject*, uString*))Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerSetFailed_fn;
+    type->interface7.fp_TryGetDataProvider = (void(*)(uObject*, ::g::Fuse::Node*, int32_t*, uObject**, int32_t*))Instantiator__FuseNodeISubtreeDataProviderTryGetDataProvider_fn;
+    type->interface9.fp_AddedWindowItem = (void(*)(uObject*, int32_t*, ::g::Fuse::Reactive::WindowListItem*))Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerAddedWindowItem_fn;
     type->interface8.fp_Perform = (void(*)(uObject*, bool*))Instantiator__FuseIDeferredPerform_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface9.fp_RemovedWindowItem = (void(*)(uObject*, ::g::Fuse::Reactive::WindowListItem*))Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerRemovedWindowItem_fn;
+    type->interface9.fp_OnCurrentDataChanged = (void(*)(uObject*, ::g::Fuse::Reactive::WindowListItem*, uObject*))Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerOnCurrentDataChanged_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
-// protected internal Instantiator() :74
+// protected internal Instantiator() :127
 void Instantiator__ctor_3_fn(Instantiator* __this)
 {
     __this->ctor_3();
 }
 
-// private bool AddMatchingTemplates(Fuse.Reactive.Instantiator.WindowItem item, Fuse.Reactive.Instantiator.TemplateMatch f) :224
-void Instantiator__AddMatchingTemplates_fn(Instantiator* __this, Instantiator__WindowItem* item, Instantiator__TemplateMatch* f, bool* __retval)
+// private bool AddMatchingTemplates(Fuse.Reactive.WindowItem item, Fuse.Reactive.TemplateMatch f) :690
+void Instantiator__AddMatchingTemplates_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* item, ::g::Fuse::Reactive::TemplateMatch* f, bool* __retval)
 {
     *__retval = __this->AddMatchingTemplates(item, *f);
 }
 
-// private void AddTemplate(Fuse.Reactive.Instantiator.WindowItem item, Uno.UX.Template f) :258
-void Instantiator__AddTemplate_fn(Instantiator* __this, Instantiator__WindowItem* item, ::g::Uno::UX::Template* f)
+// private void AddTemplate(Fuse.Reactive.WindowItem item, Uno.UX.Template f) :736
+void Instantiator__AddTemplate_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* item, ::g::Uno::UX::Template* f)
 {
     __this->AddTemplate(item, f);
 }
 
-// private void Append() :426
-void Instantiator__Append_fn(Instantiator* __this)
+// private void BroadcastDataChange(Fuse.Reactive.WindowItem wi, object oldData) :914
+void Instantiator__BroadcastDataChange1_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi, uObject* oldData)
 {
-    __this->Append();
+    __this->BroadcastDataChange1(wi, oldData);
 }
 
-// private int CalcOffsetLimitCountOf(int length) :127
-void Instantiator__CalcOffsetLimitCountOf_fn(Instantiator* __this, int* length, int* __retval)
+// private void CleanupWindowItem(Fuse.Reactive.WindowItem wi) :843
+void Instantiator__CleanupWindowItem_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi)
 {
-    *__retval = __this->CalcOffsetLimitCountOf(*length);
+    __this->CleanupWindowItem(wi);
 }
 
-// private void CompleteActionGood() :10
-void Instantiator__CompleteActionGood_fn(Instantiator* __this)
-{
-    __this->CompleteActionGood();
-}
-
-// private void CompletedRemove(Fuse.Node n) :155
+// private void CompletedRemove(Fuse.Node n) :184
 void Instantiator__CompletedRemove_fn(Instantiator* __this, ::g::Fuse::Node* n)
 {
     __this->CompletedRemove(n);
 }
 
-// private void CompleteNodeAction() :321
-void Instantiator__CompleteNodeAction_fn(Instantiator* __this)
-{
-    __this->CompleteNodeAction();
-}
-
-// private void CompleteWindowItem(Fuse.Reactive.Instantiator.WindowItem wi, int windowIndex) :166
-void Instantiator__CompleteWindowItem_fn(Instantiator* __this, Instantiator__WindowItem* wi, int* windowIndex)
+// private void CompleteWindowItem(Fuse.Reactive.WindowItem wi, int windowIndex) :664
+void Instantiator__CompleteWindowItem_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi, int32_t* windowIndex)
 {
     __this->CompleteWindowItem(wi, *windowIndex);
 }
 
-// private bool CompleteWindowItems(bool one) :87
+// private bool CompleteWindowItems(bool one) :592
 void Instantiator__CompleteWindowItems_fn(Instantiator* __this, bool* one, bool* __retval)
 {
     *__retval = __this->CompleteWindowItems(*one);
 }
 
-// private void CompleteWindowItemsAction() :81
+// private void CompleteWindowItemsAction() :586
 void Instantiator__CompleteWindowItemsAction_fn(Instantiator* __this)
 {
     __this->CompleteWindowItemsAction();
 }
 
-// protected internal int get_Count() :323
-void Instantiator__get_Count_fn(Instantiator* __this, int* __retval)
-{
-    *__retval = __this->Count();
-}
-
-// protected internal void set_Count(int value) :324
-void Instantiator__set_Count_fn(Instantiator* __this, int* value)
-{
-    __this->Count(*value);
-}
-
-// internal int get_DataCount() :54
-void Instantiator__get_DataCount_fn(Instantiator* __this, int* __retval)
+// internal int get_DataCount() :517
+void Instantiator__get_DataCount_fn(Instantiator* __this, int32_t* __retval)
 {
     *__retval = __this->DataCount();
 }
 
-// internal int DataIndexOfChild(Fuse.Node child) :14
-void Instantiator__DataIndexOfChild_fn(Instantiator* __this, ::g::Fuse::Node* child, int* __retval)
+// internal int DataIndexOfChild(Fuse.Node child) :499
+void Instantiator__DataIndexOfChild_fn(Instantiator* __this, ::g::Fuse::Node* child, int32_t* __retval)
 {
     *__retval = __this->DataIndexOfChild(child);
 }
 
-// private int DataToWindowIndex(int dataIndex) :403
-void Instantiator__DataToWindowIndex_fn(Instantiator* __this, int* dataIndex, int* __retval)
+// public Fuse.Reactive.InstanceDefaults get_Defaults() :486
+void Instantiator__get_Defaults_fn(Instantiator* __this, int32_t* __retval)
 {
-    *__retval = __this->DataToWindowIndex(*dataIndex);
+    *__retval = __this->Defaults();
 }
 
-// public Fuse.Reactive.InstanceDefer get_Defer() :85
-void Instantiator__get_Defer_fn(Instantiator* __this, int* __retval)
+// public void set_Defaults(Fuse.Reactive.InstanceDefaults value) :487
+void Instantiator__set_Defaults_fn(Instantiator* __this, int32_t* value)
+{
+    __this->Defaults(*value);
+}
+
+// public Fuse.Reactive.InstanceDefer get_Defer() :231
+void Instantiator__get_Defer_fn(Instantiator* __this, int32_t* __retval)
 {
     *__retval = __this->Defer();
 }
 
-// public void set_Defer(Fuse.Reactive.InstanceDefer value) :86
-void Instantiator__set_Defer_fn(Instantiator* __this, int* value)
+// public void set_Defer(Fuse.Reactive.InstanceDefer value) :232
+void Instantiator__set_Defer_fn(Instantiator* __this, int32_t* value)
 {
     __this->Defer(*value);
 }
 
-// public float get_DeferredPriority() :156
+// public float get_DeferredPriority() :296
 void Instantiator__get_DeferredPriority_fn(Instantiator* __this, float* __retval)
 {
     *__retval = __this->DeferredPriority();
 }
 
-// public void set_DeferredPriority(float value) :157
+// public void set_DeferredPriority(float value) :297
 void Instantiator__set_DeferredPriority_fn(Instantiator* __this, float* value)
 {
     __this->DeferredPriority(*value);
 }
 
-// private void DisposeItemsSubscription() :95
-void Instantiator__DisposeItemsSubscription_fn(Instantiator* __this)
+// private void DisposeWindowItem(Fuse.Reactive.WindowItem wi) :837
+void Instantiator__DisposeWindowItem_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi)
 {
-    __this->DisposeItemsSubscription();
+    __this->DisposeWindowItem(wi);
 }
 
-// private bool Fuse.IDeferred.Perform() :75
+// private bool Fuse.IDeferred.Perform() :580
 void Instantiator__FuseIDeferredPerform_fn(Instantiator* __this, bool* __retval)
 {
     __this->_pendingNew = __this->CompleteWindowItems(true);
     return *__retval = !__this->_pendingNew, void();
 }
 
-// private object Fuse.Node.ISubtreeDataProvider.GetData(Fuse.Node n) :56
-void Instantiator__FuseNodeISubtreeDataProviderGetData_fn(Instantiator* __this, ::g::Fuse::Node* n, uObject** __retval)
+// private Fuse.Node.ContextDataResult Fuse.Node.ISubtreeDataProvider.TryGetDataProvider(Fuse.Node n, Fuse.Node.DataType type, object& provider) :519
+void Instantiator__FuseNodeISubtreeDataProviderTryGetDataProvider_fn(Instantiator* __this, ::g::Fuse::Node* n, int32_t* type, uObject** provider, int32_t* __retval)
 {
-    bool ret12;
-    Instantiator__WindowItem* v;
+    bool ret15;
+    int32_t type_ = *type;
+    *provider = NULL;
+    ::g::Fuse::Reactive::WindowItem* v;
 
-    if ((::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(__this->_dataMap), n, (void**)(&v), &ret12), ret12))
+    if ((::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(__this->_dataMap), n, (void**)(&v), &ret15), ret15))
     {
-        if (uIs((uObject*)uPtr(v)->Data, Instantiator__CountItem_typeof()))
-            return *__retval = NULL, void();
+        if (uIs((uObject*)uPtr(v)->Data(), Instantiator__NoContextItem_typeof()))
+            return *__retval = 0, void();
 
-        return *__retval = uPtr(v)->CurrentData(), void();
+        *provider = uPtr(v)->CurrentData();
+        return *__retval = (type_ == 1) ? 2 : 0, void();
     }
 
-    return *__retval = NULL, void();
+    return *__retval = 0, void();
 }
 
-// private void Fuse.Reactive.IObserver.OnAdd(object addedValue) :35
-void Instantiator__FuseReactiveIObserverOnAdd_fn(Instantiator* __this, uObject* addedValue)
+// private void Fuse.Reactive.ItemsWindowList<Fuse.Reactive.WindowItem>.IListener.AddedWindowItem(int windowIndex, Fuse.Reactive.WindowItem wi) :558
+void Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerAddedWindowItem_fn(Instantiator* __this, int32_t* windowIndex, ::g::Fuse::Reactive::WindowItem* wi)
 {
-    if (!__this->IsListeningItems())
-        return;
-
-    __this->CompleteActionGood();
+    int32_t windowIndex_ = *windowIndex;
+    __this->PrepareWindowItem(windowIndex_, wi);
+    __this->OnUpdatedWindowItems();
 }
 
-// private void Fuse.Reactive.IObserver.OnClear() :117
-void Instantiator__FuseReactiveIObserverOnClear_fn(Instantiator* __this)
+// private void Fuse.Reactive.ItemsWindowList<Fuse.Reactive.WindowItem>.IListener.OnCurrentDataChanged(Fuse.Reactive.WindowItem wi, object oldData) :894
+void Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerOnCurrentDataChanged_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi, uObject* oldData)
 {
-    if (!__this->IsListeningItems())
-        return;
+    ::g::Fuse::Reactive::TemplateMatch tpl = __this->GetDataTemplate(uPtr(wi)->CurrentData());
 
-    __this->RemoveAll();
-    __this->CompleteActionGood();
-}
-
-// private void Fuse.Reactive.IObserver.OnFailed(string message) :25
-void Instantiator__FuseReactiveIObserverOnFailed_fn(Instantiator* __this, uString* message)
-{
-    if (!__this->IsListeningItems())
-        return;
-
-    __this->RemoveAll();
-    __this->SetFailed(message);
-    __this->CompleteNodeAction();
-}
-
-// private void Fuse.Reactive.IObserver.OnInsertAt(int index, object value) :50
-void Instantiator__FuseReactiveIObserverOnInsertAt_fn(Instantiator* __this, int* index, uObject* value)
-{
-    int index_ = *index;
-
-    if (!__this->IsListeningItems())
-        return;
-
-    __this->InsertNew(index_);
-    __this->CompleteActionGood();
-}
-
-// private void Fuse.Reactive.IObserver.OnNewAll(Fuse.IArray values) :106
-void Instantiator__FuseReactiveIObserverOnNewAll_fn(Instantiator* __this, uObject* values)
-{
-    if (!__this->IsListeningItems())
-        return;
-
-    if (__this->Identity() != 0)
-        __this->PatchTo(values);
-    else
-        __this->RemoveAll();
-
-    __this->CompleteActionGood();
-}
-
-// private void Fuse.Reactive.IObserver.OnNewAt(int index, object value) :58
-void Instantiator__FuseReactiveIObserverOnNewAt_fn(Instantiator* __this, int* index, uObject* value)
-{
-    int index_ = *index;
-
-    if (!__this->IsListeningItems())
-        return;
-
-    if (!__this->TryUpdateAt(index_, value))
+    if (!tpl.Matches(wi->Template))
     {
-        __this->RemoveAt(index_);
-        __this->InsertNew(index_);
+        int32_t index = uPtr(__this->_watcher)->GetWindowItemIndex(wi);
+
+        if (index == -1)
+        {
+            ::g::Fuse::Diagnostics::InternalError(uString::Const("Invalid WindowItem updated"), __this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.9.0\\Instantiator.uno"), 903, uString::Const("Fuse.Reactive.ItemsWindowList<Fuse.Reactive.WindowItem>.IListener.OnCurrentDataChanged"));
+            return;
+        }
+
+        __this->CleanupWindowItem(wi);
+        __this->PrepareWindowItem(index, wi);
+        return;
     }
 
-    __this->CompleteActionGood();
+    __this->BroadcastDataChange1(wi, oldData);
 }
 
-// private void Fuse.Reactive.IObserver.OnRemoveAt(int index) :42
-void Instantiator__FuseReactiveIObserverOnRemoveAt_fn(Instantiator* __this, int* index)
+// private void Fuse.Reactive.ItemsWindowList<Fuse.Reactive.WindowItem>.IListener.RemovedWindowItem(Fuse.Reactive.WindowItem wi) :854
+void Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerRemovedWindowItem_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi)
 {
-    int index_ = *index;
+    bool ret16;
 
-    if (!__this->IsListeningItems())
+    if ((uPtr(wi)->Nodes == NULL) || (uPtr(uPtr(wi)->Nodes)->Count() == 0))
         return;
 
-    __this->RemoveAt(index_);
-    __this->CompleteActionGood();
+    bool generic = uPtr(wi)->Id() == NULL;
+
+    if (wi->Id() != NULL)
+    {
+        if (__this->_availableItemsById == NULL)
+            __this->_availableItemsById = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::g::Uno::Collections::Dictionary_typeof()->MakeType(uObject_typeof(), ::g::Fuse::Reactive::WindowItem_typeof(), NULL)));
+
+        if ((::g::Uno::Collections::Dictionary__ContainsKey_fn(uPtr(__this->_availableItemsById), uPtr(wi)->Id(), &ret16), ret16))
+            generic = true;
+        else
+            ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(__this->_availableItemsById), uPtr(wi)->Id(), wi);
+    }
+
+    if (generic)
+    {
+        if (__this->_availableItems == NULL)
+            __this->_availableItems = ((::g::Fuse::Internal::ObjectList*)::g::Fuse::Internal::ObjectList::New1(::TYPES[57/*Fuse.Internal.ObjectList`1*/]->MakeType(::g::Fuse::Reactive::WindowItem_typeof(), NULL), 0));
+
+        uPtr(__this->_availableItems)->Add(wi);
+    }
+
+    __this->ScheduleRemoveAvailableItems();
+    __this->OnUpdatedWindowItems();
 }
 
-// private void Fuse.Reactive.IObserver.OnSet(object newValue) :17
-void Instantiator__FuseReactiveIObserverOnSet_fn(Instantiator* __this, uObject* newValue)
+// private void Fuse.Reactive.ItemsWindowList<Fuse.Reactive.WindowItem>.IListener.SetFailed(string message) :169
+void Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerSetFailed_fn(Instantiator* __this, uString* message)
 {
-    if (!__this->IsListeningItems())
-        return;
-
-    __this->RemoveAll();
-    __this->CompleteActionGood();
+    if (__this->Parent() != NULL)
+        ::g::Fuse::Triggers::BusyTask::SetBusy(__this->Parent(), &__this->_busyTask, 16, message);
 }
 
-// private Fuse.Reactive.Instantiator.WindowItem GetAvailableNodes(Fuse.Reactive.Instantiator.TemplateMatch f, object id) :283
-void Instantiator__GetAvailableNodes_fn(Instantiator* __this, Instantiator__TemplateMatch* f, uObject* id, Instantiator__WindowItem** __retval)
+// private void Fuse.Reactive.ItemsWindowList<Fuse.Reactive.WindowItem>.IListener.SetValid() :163
+void Instantiator__FuseReactiveItemsWindowListFuseReactiveWindowItemIListenerSetValid_fn(Instantiator* __this)
+{
+    if (__this->Parent() != NULL)
+        ::g::Fuse::Triggers::BusyTask::SetBusy(__this->Parent(), &__this->_busyTask, 0, ::STRINGS[10/*""*/]);
+}
+
+// private Fuse.Reactive.WindowItem GetAvailableNodes(Fuse.Reactive.TemplateMatch f, object id) :755
+void Instantiator__GetAvailableNodes_fn(Instantiator* __this, ::g::Fuse::Reactive::TemplateMatch* f, uObject* id, ::g::Fuse::Reactive::WindowItem** __retval)
 {
     *__retval = __this->GetAvailableNodes(*f, id);
 }
 
-// private object GetData(int dataIndex) :32
-void Instantiator__GetData_fn(Instantiator* __this, int* dataIndex, uObject** __retval)
-{
-    *__retval = __this->GetData(*dataIndex);
-}
-
-// private int GetDataCount() :43
-void Instantiator__GetDataCount_fn(Instantiator* __this, int* __retval)
-{
-    *__retval = __this->GetDataCount();
-}
-
-// private object GetDataId(object data) :113
-void Instantiator__GetDataId_fn(Instantiator* __this, uObject* data, uObject** __retval)
-{
-    *__retval = __this->GetDataId(data);
-}
-
-// private object GetDataKey(object data, string key) :96
-void Instantiator__GetDataKey_fn(Instantiator* __this, uObject* data, uString* key, uObject** __retval)
-{
-    *__retval = __this->GetDataKey(data, key);
-}
-
-// private Fuse.Reactive.Instantiator.TemplateMatch GetDataTemplate(object data) :127
-void Instantiator__GetDataTemplate_fn(Instantiator* __this, uObject* data, Instantiator__TemplateMatch* __retval)
+// private Fuse.Reactive.TemplateMatch GetDataTemplate(object data) :618
+void Instantiator__GetDataTemplate_fn(Instantiator* __this, uObject* data, ::g::Fuse::Reactive::TemplateMatch* __retval)
 {
     *__retval = __this->GetDataTemplate(data);
 }
 
-// protected object GetItems() :301
+// protected object GetItems() :391
 void Instantiator__GetItems_fn(Instantiator* __this, uObject** __retval)
 {
     *__retval = __this->GetItems();
 }
 
-// private Fuse.Node GetLastNodeFromIndex(int windowIndex) :13
-void Instantiator__GetLastNodeFromIndex_fn(Instantiator* __this, int* windowIndex, ::g::Fuse::Node** __retval)
+// private Fuse.Node GetLastNodeFromIndex(int windowIndex) :538
+void Instantiator__GetLastNodeFromIndex_fn(Instantiator* __this, int32_t* windowIndex, ::g::Fuse::Node** __retval)
 {
     *__retval = __this->GetLastNodeFromIndex(*windowIndex);
 }
 
-// internal override sealed Fuse.Node GetLastNodeInGroup() :161
+// internal override sealed Fuse.Node GetLastNodeInGroup() :190
 void Instantiator__GetLastNodeInGroup_fn(Instantiator* __this, ::g::Fuse::Node** __retval)
 {
-    return *__retval = __this->GetLastNodeFromIndex(uPtr(__this->_windowItems)->Count() - 1), void();
+    return *__retval = __this->GetLastNodeFromIndex(uPtr(__this->_watcher)->WindowItemCount() - 1), void();
 }
 
-// internal bool get_HasLimit() :297
+// internal bool get_HasLimit() :388
 void Instantiator__get_HasLimit_fn(Instantiator* __this, bool* __retval)
 {
     *__retval = __this->HasLimit();
 }
 
-// public Fuse.Reactive.InstanceIdentity get_Identity() :121
-void Instantiator__get_Identity_fn(Instantiator* __this, int* __retval)
-{
-    *__retval = __this->Identity();
-}
-
-// public void set_Identity(Fuse.Reactive.InstanceIdentity value) :122
-void Instantiator__set_Identity_fn(Instantiator* __this, int* value)
-{
-    __this->Identity(*value);
-}
-
-// public string get_IdentityKey() :140
-void Instantiator__get_IdentityKey_fn(Instantiator* __this, uString** __retval)
-{
-    *__retval = __this->IdentityKey();
-}
-
-// public void set_IdentityKey(string value) :141
-void Instantiator__set_IdentityKey_fn(Instantiator* __this, uString* value)
-{
-    __this->IdentityKey(value);
-}
-
-// private void InsertNew(int dataIndex) :37
-void Instantiator__InsertNew_fn(Instantiator* __this, int* dataIndex)
-{
-    __this->InsertNew(*dataIndex);
-}
-
-// private void InsertNewWindowItem(int windowIndex, object data) :54
-void Instantiator__InsertNewWindowItem_fn(Instantiator* __this, int* windowIndex, uObject* data)
-{
-    __this->InsertNewWindowItem(*windowIndex, data);
-}
-
-// private bool get_IsListeningItems() :106
-void Instantiator__get_IsListeningItems_fn(Instantiator* __this, bool* __retval)
-{
-    *__retval = __this->IsListeningItems();
-}
-
-// internal int get_Limit() :278
-void Instantiator__get_Limit_fn(Instantiator* __this, int* __retval)
+// internal int get_Limit() :384
+void Instantiator__get_Limit_fn(Instantiator* __this, int32_t* __retval)
 {
     *__retval = __this->Limit();
 }
 
-// internal void set_Limit(int value) :279
-void Instantiator__set_Limit_fn(Instantiator* __this, int* value)
+// internal void set_Limit(int value) :385
+void Instantiator__set_Limit_fn(Instantiator* __this, int32_t* value)
 {
     __this->Limit(*value);
 }
 
-// public string get_MatchKey() :379
+// public string get_Match() :457
+void Instantiator__get_Match_fn(Instantiator* __this, uString** __retval)
+{
+    *__retval = __this->Match();
+}
+
+// public void set_Match(string value) :458
+void Instantiator__set_Match_fn(Instantiator* __this, uString* value)
+{
+    __this->Match(value);
+}
+
+// public string get_MatchKey() :429
 void Instantiator__get_MatchKey_fn(Instantiator* __this, uString** __retval)
 {
     *__retval = __this->MatchKey();
 }
 
-// public void set_MatchKey(string value) :380
+// public void set_MatchKey(string value) :430
 void Instantiator__set_MatchKey_fn(Instantiator* __this, uString* value)
 {
     __this->MatchKey(value);
 }
 
-// internal int get_Offset() :230
-void Instantiator__get_Offset_fn(Instantiator* __this, int* __retval)
+// internal int get_Offset() :378
+void Instantiator__get_Offset_fn(Instantiator* __this, int32_t* __retval)
 {
     *__retval = __this->Offset();
 }
 
-// internal void set_Offset(int value) :231
-void Instantiator__set_Offset_fn(Instantiator* __this, int* value)
+// internal void set_Offset(int value) :379
+void Instantiator__set_Offset_fn(Instantiator* __this, int32_t* value)
 {
     __this->Offset(*value);
 }
 
-// protected override sealed void OnRooted() :84
+// protected override sealed void OnRooted() :138
 void Instantiator__OnRooted_fn(Instantiator* __this)
 {
     ::g::Fuse::Node__OnRooted_fn(__this);
-    __this->RefreshItems();
+    uPtr(__this->_watcher)->Rooted();
 
     if (__this->_rootTemplates != NULL)
-        uPtr(__this->_rootTemplates)->Subscribe(uDelegate::New(::TYPES[1/*Uno.Action<Uno.UX.Template>*/], (void*)Instantiator__OnTemplatesChanged_fn, __this), uDelegate::New(::TYPES[1/*Uno.Action<Uno.UX.Template>*/], (void*)Instantiator__OnTemplatesChanged_fn, __this));
+        uPtr(__this->_rootTemplates)->Subscribe(uDelegate::New(::TYPES[3/*Uno.Action<Uno.UX.Template>*/], (void*)Instantiator__OnTemplatesChanged_fn, __this), uDelegate::New(::TYPES[3/*Uno.Action<Uno.UX.Template>*/], (void*)Instantiator__OnTemplatesChanged_fn, __this));
 
     __this->_templateSource = __this->_weakTemplateSource;
 }
 
-// private void OnTemplatesChanged(Uno.UX.Template factory) :78
+// private void OnTemplatesChanged(Uno.UX.Template factory) :132
 void Instantiator__OnTemplatesChanged_fn(Instantiator* __this, ::g::Uno::UX::Template* factory)
 {
     __this->OnTemplatesChanged(factory);
 }
 
-// protected override sealed void OnUnrooted() :112
+// protected override sealed void OnUnrooted() :149
 void Instantiator__OnUnrooted_fn(Instantiator* __this)
 {
-    __this->DisposeItemsSubscription();
-    __this->RemoveAll();
-    __this->RemovePendingAvailableItems();
+    uPtr(__this->_watcher)->Unrooted();
+    __this->RemoveAvailableItems();
 
     if (__this->_rootTemplates != NULL)
         uPtr(__this->_rootTemplates)->Unsubscribe();
@@ -4018,181 +4914,127 @@ void Instantiator__OnUnrooted_fn(Instantiator* __this)
     ::g::Fuse::Node__OnUnrooted_fn(__this);
 }
 
-// private void OnUpdatedWindowItems() :515
+// private void OnUpdatedWindowItems() :927
 void Instantiator__OnUpdatedWindowItems_fn(Instantiator* __this)
 {
     __this->OnUpdatedWindowItems();
 }
 
-// private void PatchTo(Fuse.IArray values) :71
-void Instantiator__PatchTo_fn(Instantiator* __this, uObject* values)
-{
-    __this->PatchTo(values);
-}
-
-// private void PostUpdatedWindowItems() :525
+// private void PostUpdatedWindowItems() :937
 void Instantiator__PostUpdatedWindowItems_fn(Instantiator* __this)
 {
     __this->PostUpdatedWindowItems();
 }
 
-// private void RefreshItems() :337
-void Instantiator__RefreshItems_fn(Instantiator* __this)
+// private void PrepareDataContext(Fuse.Reactive.WindowItem wi) :726
+void Instantiator__PrepareDataContext_fn(Instantiator* __this, ::g::Fuse::Reactive::WindowItem* wi)
 {
-    __this->RefreshItems();
+    __this->PrepareDataContext(wi);
 }
 
-// private void RemoveAll() :432
-void Instantiator__RemoveAll_fn(Instantiator* __this)
+// private void PrepareWindowItem(int windowIndex, Fuse.Reactive.WindowItem wi) :564
+void Instantiator__PrepareWindowItem_fn(Instantiator* __this, int32_t* windowIndex, ::g::Fuse::Reactive::WindowItem* wi)
 {
-    __this->RemoveAll();
+    __this->PrepareWindowItem(*windowIndex, wi);
 }
 
-// private void RemoveAt(int dataIndex) :408
-void Instantiator__RemoveAt_fn(Instantiator* __this, int* dataIndex)
+// private void RecreateTemplates() :883
+void Instantiator__RecreateTemplates_fn(Instantiator* __this)
 {
-    __this->RemoveAt(*dataIndex);
+    __this->RecreateTemplates();
 }
 
-// private void RemoveFromParent(Fuse.Node n) :148
+// private void RemoveAvailableItems() :818
+void Instantiator__RemoveAvailableItems_fn(Instantiator* __this)
+{
+    __this->RemoveAvailableItems();
+}
+
+// private void RemoveAvailableItemsAction() :810
+void Instantiator__RemoveAvailableItemsAction_fn(Instantiator* __this)
+{
+    __this->RemoveAvailableItemsAction();
+}
+
+// private void RemoveFromParent(Fuse.Node n) :177
 void Instantiator__RemoveFromParent_fn(Instantiator* __this, ::g::Fuse::Node* n)
 {
     __this->RemoveFromParent(n);
 }
 
-// private void RemoveLastActive() :421
-void Instantiator__RemoveLastActive_fn(Instantiator* __this)
-{
-    __this->RemoveLastActive();
-}
-
-// private void RemovePendingAvailableItems() :346
-void Instantiator__RemovePendingAvailableItems_fn(Instantiator* __this)
-{
-    __this->RemovePendingAvailableItems();
-}
-
-// private void RemovePendingAvailableItemsAction() :338
-void Instantiator__RemovePendingAvailableItemsAction_fn(Instantiator* __this)
-{
-    __this->RemovePendingAvailableItemsAction();
-}
-
-// private void RemoveWindowItem(Fuse.Reactive.Instantiator.WindowItem wi) :378
-void Instantiator__RemoveWindowItem_fn(Instantiator* __this, Instantiator__WindowItem* wi)
-{
-    __this->RemoveWindowItem(wi);
-}
-
-// private void Repopulate() :445
-void Instantiator__Repopulate_fn(Instantiator* __this)
-{
-    __this->Repopulate();
-}
-
-// public Fuse.Reactive.InstanceReuse get_Reuse() :105
-void Instantiator__get_Reuse_fn(Instantiator* __this, int* __retval)
+// public Fuse.Reactive.InstanceReuse get_Reuse() :251
+void Instantiator__get_Reuse_fn(Instantiator* __this, int32_t* __retval)
 {
     *__retval = __this->Reuse();
 }
 
-// public void set_Reuse(Fuse.Reactive.InstanceReuse value) :106
-void Instantiator__set_Reuse_fn(Instantiator* __this, int* value)
+// public void set_Reuse(Fuse.Reactive.InstanceReuse value) :252
+void Instantiator__set_Reuse_fn(Instantiator* __this, int32_t* value)
 {
     __this->Reuse(*value);
 }
 
-// private void SetFailed(string message) :140
-void Instantiator__SetFailed_fn(Instantiator* __this, uString* message)
+// private void ScheduleRemoveAvailableItems() :793
+void Instantiator__ScheduleRemoveAvailableItems_fn(Instantiator* __this)
 {
-    __this->SetFailed(message);
+    __this->ScheduleRemoveAvailableItems();
 }
 
-// protected void SetItems(object value) :303
+// protected void SetItems(object value) :393
 void Instantiator__SetItems_fn(Instantiator* __this, uObject* value)
 {
     __this->SetItems(value);
 }
 
-// private void SetValid() :134
-void Instantiator__SetValid_fn(Instantiator* __this)
-{
-    __this->SetValid();
-}
-
-// private void StartListeningItems() :107
-void Instantiator__StartListeningItems_fn(Instantiator* __this)
-{
-    __this->StartListeningItems();
-}
-
-// public generated string get_TemplateKey() :224
+// public string get_TemplateKey() :365
 void Instantiator__get_TemplateKey_fn(Instantiator* __this, uString** __retval)
 {
     *__retval = __this->TemplateKey();
 }
 
-// public generated void set_TemplateKey(string value) :224
+// public void set_TemplateKey(string value) :366
 void Instantiator__set_TemplateKey_fn(Instantiator* __this, uString* value)
 {
     __this->TemplateKey(value);
 }
 
-// public Uno.Collections.IList<Uno.UX.Template> get_Templates() :65
+// public Uno.Collections.IList<Uno.UX.Template> get_Templates() :211
 void Instantiator__get_Templates_fn(Instantiator* __this, uObject** __retval)
 {
     *__retval = __this->Templates();
 }
 
-// private void TrimAndPad() :538
-void Instantiator__TrimAndPad_fn(Instantiator* __this)
-{
-    __this->TrimAndPad();
-}
-
-// private bool TryUpdateAt(int dataIndex, object newData) :195
-void Instantiator__TryUpdateAt_fn(Instantiator* __this, int* dataIndex, uObject* newData, bool* __retval)
-{
-    *__retval = __this->TryUpdateAt(*dataIndex, newData);
-}
-
-// private void UpdateData(Fuse.Reactive.Instantiator.WindowItem item, object oldData) :72
-void Instantiator__UpdateData_fn(Instantiator* __this, Instantiator__WindowItem* item, uObject* oldData)
-{
-    __this->UpdateData(item, oldData);
-}
-
-// internal generated void add_UpdatedWindowItems(Uno.Action value) :513
+// internal generated void add_UpdatedWindowItems(Uno.Action value) :925
 void Instantiator__add_UpdatedWindowItems_fn(Instantiator* __this, uDelegate* value)
 {
     __this->add_UpdatedWindowItems(value);
 }
 
-// internal generated void remove_UpdatedWindowItems(Uno.Action value) :513
+// internal generated void remove_UpdatedWindowItems(Uno.Action value) :925
 void Instantiator__remove_UpdatedWindowItems_fn(Instantiator* __this, uDelegate* value)
 {
     __this->remove_UpdatedWindowItems(value);
 }
 
-// protected internal Instantiator() [instance] :74
+// protected internal Instantiator() [instance] :127
 void Instantiator::ctor_3()
 {
     _defer = 1;
     _deferredPriority = 0.0f;
-    _dataMap = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::g::Uno::Collections::Dictionary_typeof()->MakeType(::TYPES[27/*Fuse.Node*/], Instantiator__WindowItem_typeof(), NULL)));
-    _availableItemsById = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::g::Uno::Collections::Dictionary_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL)));
-    _availableItems = ((::g::Fuse::Internal::ObjectList*)::g::Fuse::Internal::ObjectList::New1(::g::Fuse::Internal::ObjectList_typeof()->MakeType(Instantiator__WindowItem_typeof(), NULL), 0));
-    _windowItems = ((::g::Fuse::Internal::ObjectList*)::g::Fuse::Internal::ObjectList::New1(::g::Fuse::Internal::ObjectList_typeof()->MakeType(Instantiator__WindowItem_typeof(), NULL), 0));
+    _dataMap = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::g::Uno::Collections::Dictionary_typeof()->MakeType(::TYPES[30/*Fuse.Node*/], ::g::Fuse::Reactive::WindowItem_typeof(), NULL)));
+    _availableItemsById = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::g::Uno::Collections::Dictionary_typeof()->MakeType(uObject_typeof(), ::g::Fuse::Reactive::WindowItem_typeof(), NULL)));
+    _availableItems = ((::g::Fuse::Internal::ObjectList*)::g::Fuse::Internal::ObjectList::New1(::TYPES[57/*Fuse.Internal.ObjectList`1*/]->MakeType(::g::Fuse::Reactive::WindowItem_typeof(), NULL), 0));
     ctor_2();
+    _watcher = ((::g::Fuse::Reactive::ItemsWindowList*)::g::Fuse::Reactive::ItemsWindowList::New1(::g::Fuse::Reactive::ItemsWindowList_typeof()->MakeType(::g::Fuse::Reactive::WindowItem_typeof(), NULL), (uObject*)this));
 }
 
-// private bool AddMatchingTemplates(Fuse.Reactive.Instantiator.WindowItem item, Fuse.Reactive.Instantiator.TemplateMatch f) [instance] :224
-bool Instantiator::AddMatchingTemplates(Instantiator__WindowItem* item, Instantiator__TemplateMatch f)
+// private bool AddMatchingTemplates(Fuse.Reactive.WindowItem item, Fuse.Reactive.TemplateMatch f) [instance] :690
+bool Instantiator::AddMatchingTemplates(::g::Fuse::Reactive::WindowItem* item, ::g::Fuse::Reactive::TemplateMatch f)
 {
-    ::g::Uno::UX::Template* ret7;
+    ::g::Uno::UX::Template* ret8;
     bool reuse = false;
     uObject* oldData = NULL;
-    Instantiator__WindowItem* av = GetAvailableNodes(f, uPtr(item)->Id);
+    ::g::Fuse::Reactive::WindowItem* av = GetAvailableNodes(f, uPtr(item)->Id());
 
     if (av != NULL)
     {
@@ -4203,103 +5045,93 @@ bool Instantiator::AddMatchingTemplates(Instantiator__WindowItem* item, Instanti
     }
     else if (f.All)
     {
-        uPtr(item)->Nodes = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[36/*Uno.Collections.List<Fuse.Node>*/]));
+        uPtr(item)->Nodes = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[38/*Uno.Collections.List<Fuse.Node>*/]));
 
-        for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL))); ++i)
-            AddTemplate(item, (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(Templates()), ::g::Uno::Collections::IList_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), uCRef<int>(i), &ret7), ret7));
+        for (int32_t i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL))); ++i)
+            AddTemplate(item, (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(Templates()), ::g::Uno::Collections::IList_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), uCRef<int32_t>(i), &ret8), ret8));
     }
     else if (f.Template == NULL)
-        uPtr(item)->Nodes = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[36/*Uno.Collections.List<Fuse.Node>*/]));
+        uPtr(item)->Nodes = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[38/*Uno.Collections.List<Fuse.Node>*/]));
     else
     {
-        uPtr(item)->Nodes = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[36/*Uno.Collections.List<Fuse.Node>*/]));
+        uPtr(item)->Nodes = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[38/*Uno.Collections.List<Fuse.Node>*/]));
         AddTemplate(item, f.Template);
     }
 
-    UpdateData(item, oldData);
+    PrepareDataContext(item);
+    BroadcastDataChange1(item, oldData);
     item->Template = f;
     return reuse;
 }
 
-// private void AddTemplate(Fuse.Reactive.Instantiator.WindowItem item, Uno.UX.Template f) [instance] :258
-void Instantiator::AddTemplate(Instantiator__WindowItem* item, ::g::Uno::UX::Template* f)
+// private void AddTemplate(Fuse.Reactive.WindowItem item, Uno.UX.Template f) [instance] :736
+void Instantiator::AddTemplate(::g::Fuse::Reactive::WindowItem* item, ::g::Uno::UX::Template* f)
 {
-    ::g::Fuse::Node* elm = uAs< ::g::Fuse::Node*>(uPtr(f)->New1(), ::TYPES[27/*Fuse.Node*/]);
+    ::g::Fuse::Node* elm = uAs< ::g::Fuse::Node*>(uPtr(f)->New1(), ::TYPES[30/*Fuse.Node*/]);
 
     if (elm == NULL)
     {
-        ::g::Fuse::Diagnostics::InternalError(uString::Const("Template contains a non-Node"), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.4.2\\Instance.WindowItems.uno"), 263, uString::Const("AddTemplate"));
+        ::g::Fuse::Diagnostics::InternalError(uString::Const("Template contains a non-Node"), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.9.0\\Instantiator.uno"), 741, uString::Const("AddTemplate"));
         return;
     }
 
     ::g::Uno::Collections::List__Add_fn(uPtr(uPtr(item)->Nodes), elm);
 }
 
-// private void Append() [instance] :426
-void Instantiator::Append()
+// private void BroadcastDataChange(Fuse.Reactive.WindowItem wi, object oldData) [instance] :914
+void Instantiator::BroadcastDataChange1(::g::Fuse::Reactive::WindowItem* wi, uObject* oldData)
 {
-    InsertNew(Offset() + uPtr(_windowItems)->Count());
+    ::g::Fuse::Node* ret9;
+
+    if (uPtr(wi)->Nodes == NULL)
+        return;
+
+    for (int32_t i = 0; i < uPtr(uPtr(wi)->Nodes)->Count(); ++i)
+        uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(uPtr(wi)->Nodes), uCRef<int32_t>(i), &ret9), ret9))->BroadcastDataChange(oldData, uPtr(wi)->CurrentData());
 }
 
-// private int CalcOffsetLimitCountOf(int length) [instance] :127
-int Instantiator::CalcOffsetLimitCountOf(int length)
+// private void CleanupWindowItem(Fuse.Reactive.WindowItem wi) [instance] :843
+void Instantiator::CleanupWindowItem(::g::Fuse::Reactive::WindowItem* wi)
 {
-    int q = ::g::Uno::Math::Max8(0, length - Offset());
-    return HasLimit() ? ::g::Uno::Math::Min8(Limit(), q) : q;
+    ::g::Fuse::Node* ret10;
+
+    if (uPtr(wi)->Nodes != NULL)
+    {
+        for (int32_t n = 0; n < uPtr(uPtr(wi)->Nodes)->Count(); ++n)
+            RemoveFromParent((::g::Uno::Collections::List__get_Item_fn(uPtr(uPtr(wi)->Nodes), uCRef<int32_t>(n), &ret10), ret10));
+
+        uPtr(wi)->Nodes = NULL;
+    }
 }
 
-// private void CompleteActionGood() [instance] :10
-void Instantiator::CompleteActionGood()
-{
-    TrimAndPad();
-    SetValid();
-    CompleteNodeAction();
-}
-
-// private void CompletedRemove(Fuse.Node n) [instance] :155
+// private void CompletedRemove(Fuse.Node n) [instance] :184
 void Instantiator::CompletedRemove(::g::Fuse::Node* n)
 {
-    bool ret8;
+    bool ret11;
     uPtr(n)->OverrideContextParent = NULL;
-    ::g::Uno::Collections::Dictionary__Remove_fn(uPtr(_dataMap), n, &ret8);
+    ::g::Uno::Collections::Dictionary__Remove_fn(uPtr(_dataMap), n, &ret11);
 }
 
-// private void CompleteNodeAction() [instance] :321
-void Instantiator::CompleteNodeAction()
+// private void CompleteWindowItem(Fuse.Reactive.WindowItem wi, int windowIndex) [instance] :664
+void Instantiator::CompleteWindowItem(::g::Fuse::Reactive::WindowItem* wi, int32_t windowIndex)
 {
-    if (Reuse() == 1)
-    {
-        if (!_pendingAvailableItems)
-        {
-            ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[31/*Uno.Action*/], (void*)Instantiator__RemovePendingAvailableItemsAction_fn, this), -1, 2);
-            _pendingAvailableItems = true;
-        }
-    }
-    else if (!_pendingNew)
-        RemovePendingAvailableItems();
-}
-
-// private void CompleteWindowItem(Fuse.Reactive.Instantiator.WindowItem wi, int windowIndex) [instance] :166
-void Instantiator::CompleteWindowItem(Instantiator__WindowItem* wi, int windowIndex)
-{
-    ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Node*> > ret9;
-    ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Node*> > ret10;
-    uPtr(wi)->Id = GetDataId(uPtr(wi)->Data);
-    Instantiator__TemplateMatch match = GetDataTemplate(wi->Data);
+    ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Node*> > ret12;
+    ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Node*> > ret13;
+    ::g::Fuse::Reactive::TemplateMatch match = GetDataTemplate(uPtr(wi)->CurrentData());
     bool reuse = AddMatchingTemplates(wi, match);
 
     if ((wi->Template.All && (::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL))) != uPtr(wi->Nodes)->Count())) || ((wi->Template.Template != NULL) && (uPtr(wi->Nodes)->Count() != 1)))
-        ::g::Fuse::Diagnostics::InternalError(uString::Const("inconsistent instance state"), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.4.2\\Instance.WindowItems.uno"), 176, uString::Const("CompleteWindowItem"));
+        ::g::Fuse::Diagnostics::InternalError(uString::Const("inconsistent instance state"), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.9.0\\Instantiator.uno"), 672, uString::Const("CompleteWindowItem"));
 
     ::g::Fuse::Node* lastNode = GetLastNodeFromIndex(windowIndex - 1);
 
     if (reuse)
-        uPtr(Parent())->InsertOrMoveNodesAfter(lastNode, uBox(::TYPES[42/*Uno.Collections.List<Fuse.Node>.Enumerator*/], (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(uPtr(wi)->Nodes), &ret9), ret9)));
+        uPtr(Parent())->InsertOrMoveNodesAfter(lastNode, uBox(::TYPES[44/*Uno.Collections.List<Fuse.Node>.Enumerator*/], (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(uPtr(wi)->Nodes), &ret12), ret12)));
     else
-        uPtr(Parent())->InsertNodesAfter(lastNode, uBox(::TYPES[42/*Uno.Collections.List<Fuse.Node>.Enumerator*/], (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(uPtr(wi)->Nodes), &ret10), ret10)));
+        uPtr(Parent())->InsertNodesAfter(lastNode, uBox(::TYPES[44/*Uno.Collections.List<Fuse.Node>.Enumerator*/], (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(uPtr(wi)->Nodes), &ret13), ret13)));
 }
 
-// private bool CompleteWindowItems(bool one) [instance] :87
+// private bool CompleteWindowItems(bool one) [instance] :592
 bool Instantiator::CompleteWindowItems(bool one)
 {
     if (!IsRootingStarted())
@@ -4307,9 +5139,9 @@ bool Instantiator::CompleteWindowItems(bool one)
 
     bool first = true;
 
-    for (int i = 0; i < uPtr(_windowItems)->Count(); ++i)
+    for (int32_t i = 0; i < uPtr(_watcher)->WindowItemCount(); ++i)
     {
-        Instantiator__WindowItem* wi = (Instantiator__WindowItem*)uPtr(_windowItems)->Item(i);
+        ::g::Fuse::Reactive::WindowItem* wi = (::g::Fuse::Reactive::WindowItem*)uPtr(_watcher)->GetWindowItem(i);
 
         if (uPtr(wi)->Nodes == NULL)
         {
@@ -4321,130 +5153,113 @@ bool Instantiator::CompleteWindowItems(bool one)
         }
     }
 
-    RemovePendingAvailableItems();
+    RemoveAvailableItems();
     return false;
 }
 
-// private void CompleteWindowItemsAction() [instance] :81
+// private void CompleteWindowItemsAction() [instance] :586
 void Instantiator::CompleteWindowItemsAction()
 {
     CompleteWindowItems(false);
     _pendingNew = false;
 }
 
-// protected internal int get_Count() [instance] :323
-int Instantiator::Count()
+// internal int get_DataCount() [instance] :517
+int32_t Instantiator::DataCount()
 {
-    return _count;
+    return uPtr(_watcher)->GetDataCount();
 }
 
-// protected internal void set_Count(int value) [instance] :324
-void Instantiator::Count(int value)
+// internal int DataIndexOfChild(Fuse.Node child) [instance] :499
+int32_t Instantiator::DataIndexOfChild(::g::Fuse::Node* child)
 {
-    if (_count == value)
-        return;
+    ::g::Fuse::Node* ret14;
 
-    _count = value;
-    uArray* items = uArray::New(uObject_typeof()->Array(), _count);
-
-    for (int i = 0; i < _count; ++i)
-        uPtr(items)->Strong<uObject*>(i) = Instantiator__CountItem::New1();
-
-    SetItems(items);
-}
-
-// internal int get_DataCount() [instance] :54
-int Instantiator::DataCount()
-{
-    return GetDataCount();
-}
-
-// internal int DataIndexOfChild(Fuse.Node child) [instance] :14
-int Instantiator::DataIndexOfChild(::g::Fuse::Node* child)
-{
-    ::g::Fuse::Node* ret11;
-
-    for (int i = 0; i < uPtr(_windowItems)->Count(); i++)
+    for (int32_t i = 0; i < uPtr(_watcher)->WindowItemCount(); i++)
     {
-        Instantiator__WindowItem* wi = (Instantiator__WindowItem*)uPtr(_windowItems)->Item(i);
+        ::g::Fuse::Reactive::WindowItem* wi = (::g::Fuse::Reactive::WindowItem*)uPtr(_watcher)->GetWindowItem(i);
         ::g::Uno::Collections::List* list = uPtr(wi)->Nodes;
 
         if (list == NULL)
             continue;
 
-        for (int n = 0; n < uPtr(list)->Count(); n++)
-            if ((::g::Uno::Collections::List__get_Item_fn(uPtr(list), uCRef<int>(n), &ret11), ret11) == child)
+        for (int32_t n = 0; n < uPtr(list)->Count(); n++)
+            if ((::g::Uno::Collections::List__get_Item_fn(uPtr(list), uCRef<int32_t>(n), &ret14), ret14) == child)
                 return i + Offset();
     }
 
     return -1;
 }
 
-// private int DataToWindowIndex(int dataIndex) [instance] :403
-int Instantiator::DataToWindowIndex(int dataIndex)
+// public Fuse.Reactive.InstanceDefaults get_Defaults() [instance] :486
+int32_t Instantiator::Defaults()
 {
-    return dataIndex - Offset();
+    return _defaults;
 }
 
-// public Fuse.Reactive.InstanceDefer get_Defer() [instance] :85
-int Instantiator::Defer()
+// public void set_Defaults(Fuse.Reactive.InstanceDefaults value) [instance] :487
+void Instantiator::Defaults(int32_t value)
+{
+    if (_defaults != value)
+    {
+        _defaults = value;
+        RecreateTemplates();
+    }
+}
+
+// public Fuse.Reactive.InstanceDefer get_Defer() [instance] :231
+int32_t Instantiator::Defer()
 {
     return _defer;
 }
 
-// public void set_Defer(Fuse.Reactive.InstanceDefer value) [instance] :86
-void Instantiator::Defer(int value)
+// public void set_Defer(Fuse.Reactive.InstanceDefer value) [instance] :232
+void Instantiator::Defer(int32_t value)
 {
     _defer = value;
 }
 
-// public float get_DeferredPriority() [instance] :156
+// public float get_DeferredPriority() [instance] :296
 float Instantiator::DeferredPriority()
 {
     return _deferredPriority;
 }
 
-// public void set_DeferredPriority(float value) [instance] :157
+// public void set_DeferredPriority(float value) [instance] :297
 void Instantiator::DeferredPriority(float value)
 {
     _deferredPriority = value;
 }
 
-// private void DisposeItemsSubscription() [instance] :95
-void Instantiator::DisposeItemsSubscription()
+// private void DisposeWindowItem(Fuse.Reactive.WindowItem wi) [instance] :837
+void Instantiator::DisposeWindowItem(::g::Fuse::Reactive::WindowItem* wi)
 {
-    _isListeningItems = false;
-
-    if (_itemsSubscription != NULL)
-    {
-        _isListeningItems = false;
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_itemsSubscription), ::TYPES[0/*Uno.IDisposable*/]));
-        _itemsSubscription = NULL;
-    }
+    CleanupWindowItem(wi);
+    uPtr(wi)->Dispose();
 }
 
-// private Fuse.Reactive.Instantiator.WindowItem GetAvailableNodes(Fuse.Reactive.Instantiator.TemplateMatch f, object id) [instance] :283
-Instantiator__WindowItem* Instantiator::GetAvailableNodes(Instantiator__TemplateMatch f, uObject* id)
+// private Fuse.Reactive.WindowItem GetAvailableNodes(Fuse.Reactive.TemplateMatch f, object id) [instance] :755
+::g::Fuse::Reactive::WindowItem* Instantiator::GetAvailableNodes(::g::Fuse::Reactive::TemplateMatch f, uObject* id)
 {
-    bool ret13;
-    bool ret14;
+    bool ret17;
+    bool ret18;
 
     if ((id != NULL) && (_availableItemsById != NULL))
     {
-        Instantiator__WindowItem* item;
+        ::g::Fuse::Reactive::WindowItem* item;
 
-        if ((::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(_availableItemsById), id, (void**)(&item), &ret13), ret13) && f.Matches(uPtr(item)->Template))
+        if ((::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(_availableItemsById), id, (void**)(&item), &ret17), ret17) && f.Matches(uPtr(item)->Template))
         {
-            ::g::Uno::Collections::Dictionary__Remove_fn(uPtr(_availableItemsById), id, &ret14);
+            ::g::Uno::Collections::Dictionary__Remove_fn(uPtr(_availableItemsById), id, &ret18);
             return item;
         }
     }
 
     if ((Reuse() != 0) && (_availableItems != NULL))
 
-        for (int i = 0; i < uPtr(_availableItems)->Count(); ++i)
+        for (int32_t i = 0; i < uPtr(_availableItems)->Count(); ++i)
         {
-            Instantiator__WindowItem* av = (Instantiator__WindowItem*)uPtr(_availableItems)->Item(i);
+            ::g::Fuse::Reactive::WindowItem* av = (::g::Fuse::Reactive::WindowItem*)uPtr(_availableItems)->Item(i);
 
             if (f.Matches(uPtr(av)->Template))
             {
@@ -4456,74 +5271,23 @@ Instantiator__WindowItem* Instantiator::GetAvailableNodes(Instantiator__Template
     return NULL;
 }
 
-// private object GetData(int dataIndex) [instance] :32
-uObject* Instantiator::GetData(int dataIndex)
+// private Fuse.Reactive.TemplateMatch GetDataTemplate(object data) [instance] :618
+::g::Fuse::Reactive::TemplateMatch Instantiator::GetDataTemplate(uObject* data)
 {
-    uArray* e = uAs<uArray*>(_items, uObject_typeof()->Array());
+    ::g::Fuse::Reactive::TemplateMatch collection1;
+    uString* ind5;
+    ::g::Fuse::Reactive::TemplateMatch collection2;
+    ::g::Fuse::Reactive::TemplateMatch collection3;
+    ::g::Uno::UX::Template* ret19;
 
-    if (e != NULL)
-        return uPtr(e)->Strong<uObject*>(dataIndex);
-
-    uObject* a = uAs<uObject*>(_items, ::TYPES[15/*Fuse.IArray*/]);
-
-    if (a != NULL)
-        return ::g::Fuse::IArray::Item(uInterface(uPtr(a), ::TYPES[15/*Fuse.IArray*/]), dataIndex);
-
-    return NULL;
-}
-
-// private int GetDataCount() [instance] :43
-int Instantiator::GetDataCount()
-{
-    uArray* e = uAs<uArray*>(_items, uObject_typeof()->Array());
-
-    if (e != NULL)
-        return uPtr(e)->Length();
-
-    uObject* a = uAs<uObject*>(_items, ::TYPES[15/*Fuse.IArray*/]);
-
-    if (a != NULL)
-        return ::g::Fuse::IArray::Length(uInterface(uPtr(a), ::TYPES[15/*Fuse.IArray*/]));
-
-    return 0;
-}
-
-// private object GetDataId(object data) [instance] :113
-uObject* Instantiator::GetDataId(uObject* data)
-{
-    switch (Identity())
+    if (data == NULL)
     {
-        case 0:
-            return NULL;
-        case 1:
-            return GetDataKey(data, IdentityKey());
-        case 2:
-            return data;
+        collection1 = uDefault< ::g::Fuse::Reactive::TemplateMatch>();
+        collection1.All = false;
+        collection1.Template = NULL;
+        return collection1;
     }
 
-    return NULL;
-}
-
-// private object GetDataKey(object data, string key) [instance] :96
-uObject* Instantiator::GetDataKey(uObject* data, uString* key)
-{
-    uObject* so = uAs<uObject*>(data, ::TYPES[35/*Fuse.IObject*/]);
-
-    if ((so != NULL) && ::g::Uno::String::op_Inequality(key, NULL))
-    {
-        if (::g::Fuse::IObject::ContainsKey(uInterface(uPtr(so), ::TYPES[35/*Fuse.IObject*/]), key))
-            return ::g::Fuse::IObject::Item(uInterface(uPtr(so), ::TYPES[35/*Fuse.IObject*/]), key);
-    }
-
-    return NULL;
-}
-
-// private Fuse.Reactive.Instantiator.TemplateMatch GetDataTemplate(object data) [instance] :127
-Instantiator__TemplateMatch Instantiator::GetDataTemplate(uObject* data)
-{
-    Instantiator__TemplateMatch collection2;
-    Instantiator__TemplateMatch collection3;
-    ::g::Uno::UX::Template* ret15;
     ::g::Uno::UX::Template* useTemplate = NULL;
     ::g::Uno::UX::Template* defaultTemplate = NULL;
 
@@ -4537,11 +5301,12 @@ Instantiator__TemplateMatch Instantiator::GetDataTemplate(uObject* data)
 
     if (useTemplate == NULL)
     {
-        uString* key = uAs<uString*>(GetDataKey(data, MatchKey()), ::TYPES[4/*string*/]);
+        ind5 = Match();
+        uString* key = (ind5 != NULL) ? ind5 : uAs<uString*>(uPtr(_watcher)->GetDataKey(data, MatchKey()), ::TYPES[0/*string*/]);
 
-        for (int i = ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL))) - 1; i >= 0; --i)
+        for (int32_t i = ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL))) - 1; i >= 0; --i)
         {
-            ::g::Uno::UX::Template* f = (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(Templates()), ::g::Uno::Collections::IList_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), uCRef<int>(i), &ret15), ret15);
+            ::g::Uno::UX::Template* f = (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(Templates()), ::g::Uno::Collections::IList_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), uCRef<int32_t>(i), &ret19), ret19);
 
             if (uPtr(f)->IsDefault())
                 defaultTemplate = f;
@@ -4551,40 +5316,47 @@ Instantiator__TemplateMatch Instantiator::GetDataTemplate(uObject* data)
         }
     }
 
-    if (useTemplate == NULL)
+    if ((useTemplate == NULL) && (Defaults() != 2))
     {
-        if (::g::Uno::String::op_Inequality(MatchKey(), NULL) || (defaultTemplate != NULL))
+        if (Defaults() == 1)
+            useTemplate = defaultTemplate;
+        else if ((::g::Uno::String::op_Inequality(MatchKey(), NULL) || ::g::Uno::String::op_Inequality(Match(), NULL)) || (defaultTemplate != NULL))
             useTemplate = defaultTemplate;
         else
-            return (collection2 = uDefault<Instantiator__TemplateMatch>(), collection2.All = true, collection2.Template = NULL, collection2);
+        {
+            collection2 = uDefault< ::g::Fuse::Reactive::TemplateMatch>();
+            collection2.All = true;
+            collection2.Template = NULL;
+            return collection2;
+        }
     }
 
-    collection3 = uDefault<Instantiator__TemplateMatch>();
+    collection3 = uDefault< ::g::Fuse::Reactive::TemplateMatch>();
     collection3.All = false;
     collection3.Template = useTemplate;
     return collection3;
 }
 
-// protected object GetItems() [instance] :301
+// protected object GetItems() [instance] :391
 uObject* Instantiator::GetItems()
 {
-    return _items;
+    return uPtr(_watcher)->GetItems();
 }
 
-// private Fuse.Node GetLastNodeFromIndex(int windowIndex) [instance] :13
-::g::Fuse::Node* Instantiator::GetLastNodeFromIndex(int windowIndex)
+// private Fuse.Node GetLastNodeFromIndex(int windowIndex) [instance] :538
+::g::Fuse::Node* Instantiator::GetLastNodeFromIndex(int32_t windowIndex)
 {
-    ::g::Fuse::Node* ret16;
+    ::g::Fuse::Node* ret20;
 
-    if (windowIndex >= uPtr(_windowItems)->Count())
-        windowIndex = uPtr(_windowItems)->Count() - 1;
+    if (windowIndex >= uPtr(_watcher)->WindowItemCount())
+        windowIndex = uPtr(_watcher)->WindowItemCount() - 1;
 
     while (windowIndex >= 0)
     {
-        ::g::Uno::Collections::List* lastList = uPtr((Instantiator__WindowItem*)uPtr(_windowItems)->Item(windowIndex))->Nodes;
+        ::g::Uno::Collections::List* lastList = uPtr((::g::Fuse::Reactive::WindowItem*)uPtr(_watcher)->GetWindowItem(windowIndex))->Nodes;
 
         if ((lastList != NULL) && (uPtr(lastList)->Count() != 0))
-            return uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(lastList), uCRef<int>(uPtr(lastList)->Count() - 1), &ret16), ret16))->GetLastNodeInGroup();
+            return uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(lastList), uCRef<int32_t>(uPtr(lastList)->Count() - 1), &ret20), ret20))->GetLastNodeInGroup();
 
         windowIndex--;
     }
@@ -4592,245 +5364,88 @@ uObject* Instantiator::GetItems()
     return this;
 }
 
-// internal bool get_HasLimit() [instance] :297
+// internal bool get_HasLimit() [instance] :388
 bool Instantiator::HasLimit()
 {
-    return _hasLimit;
+    return uPtr(_watcher)->HasLimit();
 }
 
-// public Fuse.Reactive.InstanceIdentity get_Identity() [instance] :121
-int Instantiator::Identity()
+// internal int get_Limit() [instance] :384
+int32_t Instantiator::Limit()
 {
-    return _identity;
+    return uPtr(_watcher)->Limit();
 }
 
-// public void set_Identity(Fuse.Reactive.InstanceIdentity value) [instance] :122
-void Instantiator::Identity(int value)
+// internal void set_Limit(int value) [instance] :385
+void Instantiator::Limit(int32_t value)
 {
-    _identity = value;
+    uPtr(_watcher)->Limit(value);
 }
 
-// public string get_IdentityKey() [instance] :140
-uString* Instantiator::IdentityKey()
+// public string get_Match() [instance] :457
+uString* Instantiator::Match()
 {
-    return _identityKey;
+    return _match;
 }
 
-// public void set_IdentityKey(string value) [instance] :141
-void Instantiator::IdentityKey(uString* value)
+// public void set_Match(string value) [instance] :458
+void Instantiator::Match(uString* value)
 {
-    _identityKey = value;
-    Identity(1);
-}
-
-// private void InsertNew(int dataIndex) [instance] :37
-void Instantiator::InsertNew(int dataIndex)
-{
-    if ((dataIndex < Offset()) || (HasLimit() && ((dataIndex - Offset()) >= Limit())))
-        return;
-
-    int windowIndex = DataToWindowIndex(dataIndex);
-
-    if ((windowIndex > uPtr(_windowItems)->Count()) || (windowIndex < 0))
-        return;
-
-    uObject* data = GetData(dataIndex);
-    InsertNewWindowItem(windowIndex, data);
-}
-
-// private void InsertNewWindowItem(int windowIndex, object data) [instance] :54
-void Instantiator::InsertNewWindowItem(int windowIndex, uObject* data)
-{
-    Instantiator__WindowItem* collection1;
-    collection1 = Instantiator__WindowItem::New1();
-    uPtr(collection1)->Data = data;
-    Instantiator__WindowItem* wi = collection1;
-    uPtr(_windowItems)->Insert(windowIndex, wi);
-
-    if (Defer() == 0)
-        CompleteWindowItem(wi, windowIndex);
-    else if (!_pendingNew)
+    if (::g::Uno::String::op_Inequality(_match, value))
     {
-        if (Defer() == 2)
-            ::g::Fuse::DeferredManager::AddPending((uObject*)this, ::g::Uno::Float2__New2(DeferredPriority(), (float)NodeDepth()));
-        else
-            ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[31/*Uno.Action*/], (void*)Instantiator__CompleteWindowItemsAction_fn, this), -1, 2);
-
-        _pendingNew = true;
+        _match = value;
+        RecreateTemplates();
     }
-
-    OnUpdatedWindowItems();
 }
 
-// private bool get_IsListeningItems() [instance] :106
-bool Instantiator::IsListeningItems()
-{
-    return _isListeningItems;
-}
-
-// internal int get_Limit() [instance] :278
-int Instantiator::Limit()
-{
-    return _limit;
-}
-
-// internal void set_Limit(int value) [instance] :279
-void Instantiator::Limit(int value)
-{
-    if (_hasLimit && (_limit == value))
-        return;
-
-    if (value < 0)
-    {
-        ::g::Fuse::Diagnostics::UserError(uString::Const("Limit cannot be less than 0"), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.4.2\\Instance.API.uno"), 286, uString::Const("set_Limit"), NULL);
-        value = 0;
-    }
-
-    _hasLimit = true;
-    _limit = value;
-
-    if (IsRootingCompleted())
-        TrimAndPad();
-}
-
-// public string get_MatchKey() [instance] :379
+// public string get_MatchKey() [instance] :429
 uString* Instantiator::MatchKey()
 {
     return _matchKey;
 }
 
-// public void set_MatchKey(string value) [instance] :380
+// public void set_MatchKey(string value) [instance] :430
 void Instantiator::MatchKey(uString* value)
 {
     if (::g::Uno::String::op_Inequality(_matchKey, value))
     {
         _matchKey = value;
-
-        if (IsRootingCompleted())
-            RefreshItems();
+        RecreateTemplates();
     }
 }
 
-// internal int get_Offset() [instance] :230
-int Instantiator::Offset()
+// internal int get_Offset() [instance] :378
+int32_t Instantiator::Offset()
 {
-    return _offset;
+    return uPtr(_watcher)->Offset();
 }
 
-// internal void set_Offset(int value) [instance] :231
-void Instantiator::Offset(int value)
+// internal void set_Offset(int value) [instance] :379
+void Instantiator::Offset(int32_t value)
 {
-    if (_offset == value)
-        return;
-
-    if (value < 0)
-    {
-        ::g::Fuse::Diagnostics::UserError(uString::Const("Offset cannot be less than 0"), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.4.2\\Instance.API.uno"), 238, uString::Const("set_Offset"), NULL);
-        value = 0;
-    }
-
-    if (!IsRootingCompleted())
-    {
-        _offset = value;
-        return;
-    }
-
-    int dataCount = GetDataCount();
-
-    while (_offset < value)
-    {
-        if (_offset < dataCount)
-            RemoveAt(_offset);
-
-        _offset++;
-        int end = (_offset + Limit()) - 1;
-
-        if (HasLimit() && (end < dataCount))
-            InsertNew(end);
-    }
-
-    while (_offset > value)
-    {
-        int end1 = (_offset + Limit()) - 1;
-
-        if (HasLimit() && (end1 < dataCount))
-            RemoveAt((_offset + Limit()) - 1);
-
-        _offset--;
-
-        if (_offset < dataCount)
-            InsertNew(_offset);
-    }
+    uPtr(_watcher)->Offset(value);
 }
 
-// private void OnTemplatesChanged(Uno.UX.Template factory) [instance] :78
+// private void OnTemplatesChanged(Uno.UX.Template factory) [instance] :132
 void Instantiator::OnTemplatesChanged(::g::Uno::UX::Template* factory)
 {
     if (!IsRootingCompleted())
         return;
 
-    Repopulate();
+    RecreateTemplates();
 }
 
-// private void OnUpdatedWindowItems() [instance] :515
+// private void OnUpdatedWindowItems() [instance] :927
 void Instantiator::OnUpdatedWindowItems()
 {
     if (::g::Uno::Delegate::op_Equality(UpdatedWindowItems1, NULL) || _pendingUpdateWindowItems)
         return;
 
     _pendingUpdateWindowItems = true;
-    ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[31/*Uno.Action*/], (void*)Instantiator__PostUpdatedWindowItems_fn, this), -1, 2);
+    ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)Instantiator__PostUpdatedWindowItems_fn, this), -1, 2);
 }
 
-// private void PatchTo(Fuse.IArray values) [instance] :71
-void Instantiator::PatchTo(uObject* values)
-{
-    ::g::Uno::Collections::List* ret17;
-    ::g::Fuse::Reactive::Internal::PatchItem ret18;
-    ::g::Uno::Collections::List* newIds = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[45/*Uno.Collections.List`1*/]->MakeType(uObject_typeof(), NULL));
-    int limit = CalcOffsetLimitCountOf(::g::Fuse::IArray::Length(uInterface(uPtr(values), ::TYPES[15/*Fuse.IArray*/])));
-
-    for (int i = 0; i < limit; ++i)
-        ::g::Uno::Collections::List__Add_fn(uPtr(newIds), GetDataId(::g::Fuse::IArray::Item(uInterface(uPtr(values), ::TYPES[15/*Fuse.IArray*/]), i + Offset())));
-
-    ::g::Uno::Collections::List* curIds = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[45/*Uno.Collections.List`1*/]->MakeType(uObject_typeof(), NULL));
-
-    for (int i1 = 0; i1 < uPtr(_windowItems)->Count(); ++i1)
-        ::g::Uno::Collections::List__Add_fn(uPtr(curIds), uPtr((Instantiator__WindowItem*)uPtr(_windowItems)->Item(i1))->Id);
-
-    ::g::Uno::Collections::List* ops = (::g::Fuse::Reactive::Internal::PatchList__Patch_fn(::g::Fuse::Reactive::Internal::PatchList_typeof()->MakeMethod(0/*Patch<object>*/, uObject_typeof(), NULL), (uObject*)curIds, (uObject*)newIds, uCRef<int>(1), NULL, &ret17), ret17);
-
-    for (int i2 = 0; i2 < uPtr(ops)->Count(); ++i2)
-    {
-        ::g::Fuse::Reactive::Internal::PatchItem op = (::g::Uno::Collections::List__get_Item_fn(uPtr(ops), uCRef<int>(i2), &ret18), ret18);
-
-        switch (op.Op)
-        {
-            case 0:
-            {
-                RemoveAt(op.A + Offset());
-                break;
-            }
-            case 1:
-            {
-                InsertNewWindowItem(DataToWindowIndex(op.A + Offset()), ::g::Fuse::IArray::Item(uInterface(uPtr(values), ::TYPES[15/*Fuse.IArray*/]), op.Data));
-                break;
-            }
-            case 2:
-            {
-                if (!TryUpdateAt(op.A + Offset(), ::g::Fuse::IArray::Item(uInterface(uPtr(values), ::TYPES[15/*Fuse.IArray*/]), op.Data)))
-                {
-                    RemoveAt(op.A + Offset());
-                    InsertNewWindowItem(DataToWindowIndex(op.A + Offset()), ::g::Fuse::IArray::Item(uInterface(uPtr(values), ::TYPES[15/*Fuse.IArray*/]), op.Data));
-                }
-
-                break;
-            }
-        }
-    }
-}
-
-// private void PostUpdatedWindowItems() [instance] :525
+// private void PostUpdatedWindowItems() [instance] :937
 void Instantiator::PostUpdatedWindowItems()
 {
     if (::g::Uno::Delegate::op_Inequality(UpdatedWindowItems1, NULL))
@@ -4839,121 +5454,89 @@ void Instantiator::PostUpdatedWindowItems()
     _pendingUpdateWindowItems = false;
 }
 
-// private void RefreshItems() [instance] :337
-void Instantiator::RefreshItems()
+// private void PrepareDataContext(Fuse.Reactive.WindowItem wi) [instance] :726
+void Instantiator::PrepareDataContext(::g::Fuse::Reactive::WindowItem* wi)
 {
-    DisposeItemsSubscription();
-    Repopulate();
-    uObject* obs = uAs<uObject*>(_items, ::TYPES[17/*Fuse.Reactive.IObservableArray*/]);
-
-    if (obs != NULL)
-    {
-        StartListeningItems();
-        _itemsSubscription = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[17/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
-    }
-}
-
-// private void RemoveAll() [instance] :432
-void Instantiator::RemoveAll()
-{
-    if (uPtr(_windowItems)->Count() == 0)
-        return;
-
-    for (int i = 0; i < uPtr(_windowItems)->Count(); ++i)
-    {
-        Instantiator__WindowItem* wi = (Instantiator__WindowItem*)uPtr(_windowItems)->Item(i);
-        RemoveWindowItem(wi);
-    }
-
-    uPtr(_windowItems)->Clear();
-    OnUpdatedWindowItems();
-}
-
-// private void RemoveAt(int dataIndex) [instance] :408
-void Instantiator::RemoveAt(int dataIndex)
-{
-    int windowIndex = DataToWindowIndex(dataIndex);
-
-    if ((windowIndex < 0) || (windowIndex >= uPtr(_windowItems)->Count()))
-        return;
-
-    RemoveWindowItem((Instantiator__WindowItem*)uPtr(_windowItems)->Item(windowIndex));
-    uPtr(_windowItems)->RemoveAt(windowIndex);
-    SetValid();
-    OnUpdatedWindowItems();
-}
-
-// private void RemoveFromParent(Fuse.Node n) [instance] :148
-void Instantiator::RemoveFromParent(::g::Fuse::Node* n)
-{
-    if (::g::Uno::Delegate::op_Equality(_completedRemove, NULL))
-        _completedRemove = uDelegate::New(::g::Uno::Action1_typeof()->MakeType(::TYPES[27/*Fuse.Node*/], NULL), (void*)Instantiator__CompletedRemove_fn, this);
-
-    uPtr(Parent())->BeginRemoveChild(n, _completedRemove);
-}
-
-// private void RemoveLastActive() [instance] :421
-void Instantiator::RemoveLastActive()
-{
-    RemoveAt((Offset() + uPtr(_windowItems)->Count()) - 1);
-}
-
-// private void RemovePendingAvailableItems() [instance] :346
-void Instantiator::RemovePendingAvailableItems()
-{
-    ::g::Fuse::Node* ret19;
-    ::g::Uno::Collections::Dictionary__Enumerator<uStrong<uObject*>, uStrong<Instantiator__WindowItem*> > ret20;
     ::g::Fuse::Node* ret21;
+
+    for (int32_t i = 0; i < uPtr(uPtr(wi)->Nodes)->Count(); ++i)
+    {
+        ::g::Fuse::Node* n = (::g::Uno::Collections::List__get_Item_fn(uPtr(uPtr(wi)->Nodes), uCRef<int32_t>(i), &ret21), ret21);
+        uPtr(n)->OverrideContextParent = this;
+        ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(_dataMap), n, wi);
+    }
+}
+
+// private void PrepareWindowItem(int windowIndex, Fuse.Reactive.WindowItem wi) [instance] :564
+void Instantiator::PrepareWindowItem(int32_t windowIndex, ::g::Fuse::Reactive::WindowItem* wi)
+{
+    if (Defer() == 0)
+        CompleteWindowItem(wi, windowIndex);
+    else if (!_pendingNew)
+    {
+        if (Defer() == 2)
+            ::g::Fuse::DeferredManager::AddPending((uObject*)this, ::g::Uno::Float2__New2(DeferredPriority(), (float)NodeDepth()));
+        else
+            ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)Instantiator__CompleteWindowItemsAction_fn, this), -1, 2);
+
+        _pendingNew = true;
+    }
+}
+
+// private void RecreateTemplates() [instance] :883
+void Instantiator::RecreateTemplates()
+{
+    for (int32_t i = 0; i < uPtr(_watcher)->WindowItemCount(); i++)
+        CleanupWindowItem((::g::Fuse::Reactive::WindowItem*)uPtr(_watcher)->GetWindowItem(i));
+
+    for (int32_t i1 = 0; i1 < uPtr(_watcher)->WindowItemCount(); i1++)
+        PrepareWindowItem(i1, (::g::Fuse::Reactive::WindowItem*)uPtr(_watcher)->GetWindowItem(i1));
+
+    ScheduleRemoveAvailableItems();
+}
+
+// private void RemoveAvailableItems() [instance] :818
+void Instantiator::RemoveAvailableItems()
+{
+    ::g::Uno::Collections::Dictionary__Enumerator<uStrong<uObject*>, uStrong< ::g::Fuse::Reactive::WindowItem*> > ret22;
 
     if (_availableItems != NULL)
     {
-        for (int i = 0; i < uPtr(_availableItems)->Count(); ++i)
-        {
-            Instantiator__WindowItem* av = (Instantiator__WindowItem*)uPtr(_availableItems)->Item(i);
-
-            if (uPtr(av)->Nodes == NULL)
-                continue;
-
-            for (int n = 0; n < uPtr(uPtr(av)->Nodes)->Count(); ++n)
-                RemoveFromParent((::g::Uno::Collections::List__get_Item_fn(uPtr(uPtr(av)->Nodes), uCRef<int>(n), &ret19), ret19));
-
-            uPtr(av)->Unlink();
-        }
+        for (int32_t i = 0; i < uPtr(_availableItems)->Count(); ++i)
+            DisposeWindowItem((::g::Fuse::Reactive::WindowItem*)uPtr(_availableItems)->Item(i));
 
         uPtr(_availableItems)->Clear();
     }
 
     if (_availableItemsById != NULL)
     {
-        ::g::Uno::Collections::Dictionary__Enumerator<uStrong<uObject*>, uStrong<Instantiator__WindowItem*> > enum4 = (::g::Uno::Collections::Dictionary__GetEnumerator_fn(uPtr(_availableItemsById), &ret20), ret20);
+        ::g::Uno::Collections::Dictionary__Enumerator<uStrong<uObject*>, uStrong< ::g::Fuse::Reactive::WindowItem*> > enum4 = (::g::Uno::Collections::Dictionary__GetEnumerator_fn(uPtr(_availableItemsById), &ret22), ret22);
 
-        try
         {
+            try
             {
-                while (enum4.MoveNext(::g::Uno::Collections::Dictionary__Enumerator_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL)))
                 {
-                    ::g::Uno::Collections::KeyValuePair<uStrong<uObject*>, uStrong<Instantiator__WindowItem*> > kvp = enum4.Current(::g::Uno::Collections::Dictionary__Enumerator_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL));
-
-                    if (uPtr(kvp.Value(::g::Uno::Collections::KeyValuePair_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL)))->Nodes == NULL)
-                        continue;
-
-                    for (int n1 = 0; n1 < uPtr(uPtr(kvp.Value(::g::Uno::Collections::KeyValuePair_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL)))->Nodes)->Count(); ++n1)
-                        RemoveFromParent((::g::Uno::Collections::List__get_Item_fn(uPtr(uPtr(kvp.Value(::g::Uno::Collections::KeyValuePair_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL)))->Nodes), uCRef<int>(n1), &ret21), ret21));
-
-                    uPtr(kvp.Value(::g::Uno::Collections::KeyValuePair_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL)))->Unlink();
+                    while (enum4.MoveNext(::g::Uno::Collections::Dictionary__Enumerator_typeof()->MakeType(uObject_typeof(), ::g::Fuse::Reactive::WindowItem_typeof(), NULL)))
+                    {
+                        ::g::Uno::Collections::KeyValuePair<uStrong<uObject*>, uStrong< ::g::Fuse::Reactive::WindowItem*> > kvp = enum4.Current(::g::Uno::Collections::Dictionary__Enumerator_typeof()->MakeType(uObject_typeof(), ::g::Fuse::Reactive::WindowItem_typeof(), NULL));
+                        DisposeWindowItem(kvp.Value(::g::Uno::Collections::KeyValuePair_typeof()->MakeType(uObject_typeof(), ::g::Fuse::Reactive::WindowItem_typeof(), NULL)));
+                    }
                 }
             }
-            {
-                enum4.Dispose(::g::Uno::Collections::Dictionary__Enumerator_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL));
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
             {
-                enum4.Dispose(::g::Uno::Collections::Dictionary__Enumerator_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL));
+                {
+                    enum4.Dispose(::g::Uno::Collections::Dictionary__Enumerator_typeof()->MakeType(uObject_typeof(), ::g::Fuse::Reactive::WindowItem_typeof(), NULL));
+                }
+                                throw __t;
+                goto __after_finally_1;
             }
-                        throw __t;
+
+            {
+                enum4.Dispose(::g::Uno::Collections::Dictionary__Enumerator_typeof()->MakeType(uObject_typeof(), ::g::Fuse::Reactive::WindowItem_typeof(), NULL));
+            }
+            __after_finally_1:;
         }
 
         uPtr(_availableItemsById)->Clear();
@@ -4962,222 +5545,102 @@ void Instantiator::RemovePendingAvailableItems()
     _pendingNew = false;
 }
 
-// private void RemovePendingAvailableItemsAction() [instance] :338
-void Instantiator::RemovePendingAvailableItemsAction()
+// private void RemoveAvailableItemsAction() [instance] :810
+void Instantiator::RemoveAvailableItemsAction()
 {
     if (!_pendingNew)
-        RemovePendingAvailableItems();
+        RemoveAvailableItems();
 
     _pendingAvailableItems = false;
 }
 
-// private void RemoveWindowItem(Fuse.Reactive.Instantiator.WindowItem wi) [instance] :378
-void Instantiator::RemoveWindowItem(Instantiator__WindowItem* wi)
+// private void RemoveFromParent(Fuse.Node n) [instance] :177
+void Instantiator::RemoveFromParent(::g::Fuse::Node* n)
 {
-    bool ret22;
+    if (::g::Uno::Delegate::op_Equality(_completedRemove, NULL))
+        _completedRemove = uDelegate::New(::g::Uno::Action1_typeof()->MakeType(::TYPES[30/*Fuse.Node*/], NULL), (void*)Instantiator__CompletedRemove_fn, this);
 
-    if ((uPtr(wi)->Nodes == NULL) || (uPtr(uPtr(wi)->Nodes)->Count() == 0))
-        return;
-
-    if (uPtr(wi)->Id != NULL)
-    {
-        if (_availableItemsById == NULL)
-            _availableItemsById = ((::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::g::Uno::Collections::Dictionary_typeof()->MakeType(uObject_typeof(), Instantiator__WindowItem_typeof(), NULL)));
-
-        if ((::g::Uno::Collections::Dictionary__ContainsKey_fn(uPtr(_availableItemsById), uPtr(wi)->Id, &ret22), ret22))
-            uPtr(wi)->Id = NULL;
-        else
-            ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(_availableItemsById), uPtr(wi)->Id, wi);
-    }
-
-    if (uPtr(wi)->Id == NULL)
-    {
-        if (_availableItems == NULL)
-            _availableItems = ((::g::Fuse::Internal::ObjectList*)::g::Fuse::Internal::ObjectList::New1(::g::Fuse::Internal::ObjectList_typeof()->MakeType(Instantiator__WindowItem_typeof(), NULL), 0));
-
-        uPtr(_availableItems)->Add(wi);
-    }
+    uPtr(Parent())->BeginRemoveChild(n, _completedRemove);
 }
 
-// private void Repopulate() [instance] :445
-void Instantiator::Repopulate()
-{
-    RemoveAll();
-    uArray* e = uAs<uArray*>(_items, uObject_typeof()->Array());
-
-    if (e != NULL)
-
-        for (int i = 0; i < uPtr(e)->Length(); i++)
-            InsertNew(i);
-    else
-    {
-        uObject* a = uAs<uObject*>(_items, ::TYPES[15/*Fuse.IArray*/]);
-
-        if (a != NULL)
-
-            for (int i1 = 0; i1 < ::g::Fuse::IArray::Length(uInterface(uPtr(a), ::TYPES[15/*Fuse.IArray*/])); i1++)
-                InsertNew(i1);
-    }
-
-    CompleteActionGood();
-}
-
-// public Fuse.Reactive.InstanceReuse get_Reuse() [instance] :105
-int Instantiator::Reuse()
+// public Fuse.Reactive.InstanceReuse get_Reuse() [instance] :251
+int32_t Instantiator::Reuse()
 {
     return _reuse;
 }
 
-// public void set_Reuse(Fuse.Reactive.InstanceReuse value) [instance] :106
-void Instantiator::Reuse(int value)
+// public void set_Reuse(Fuse.Reactive.InstanceReuse value) [instance] :252
+void Instantiator::Reuse(int32_t value)
 {
     _reuse = value;
 }
 
-// private void SetFailed(string message) [instance] :140
-void Instantiator::SetFailed(uString* message)
+// private void ScheduleRemoveAvailableItems() [instance] :793
+void Instantiator::ScheduleRemoveAvailableItems()
 {
-    if (Parent() != NULL)
-        ::g::Fuse::Triggers::BusyTask::SetBusy(Parent(), &_busyTask, 16, message);
+    if (Reuse() == 1)
+    {
+        if (!_pendingAvailableItems)
+        {
+            ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)Instantiator__RemoveAvailableItemsAction_fn, this), -1, 2);
+            _pendingAvailableItems = true;
+        }
+    }
+    else if (!_pendingNew)
+        RemoveAvailableItems();
 }
 
-// protected void SetItems(object value) [instance] :303
+// protected void SetItems(object value) [instance] :393
 void Instantiator::SetItems(uObject* value)
 {
-    _items = value;
-
-    if (!IsRootingCompleted())
-        return;
-
-    RefreshItems();
+    uPtr(_watcher)->SetItems(value);
 }
 
-// private void SetValid() [instance] :134
-void Instantiator::SetValid()
-{
-    if (Parent() != NULL)
-        ::g::Fuse::Triggers::BusyTask::SetBusy(Parent(), &_busyTask, 0, ::STRINGS[13/*""*/]);
-}
-
-// private void StartListeningItems() [instance] :107
-void Instantiator::StartListeningItems()
-{
-    _isListeningItems = true;
-}
-
-// public generated string get_TemplateKey() [instance] :224
+// public string get_TemplateKey() [instance] :365
 uString* Instantiator::TemplateKey()
 {
-    return _TemplateKey;
+    return _templateKey;
 }
 
-// public generated void set_TemplateKey(string value) [instance] :224
+// public void set_TemplateKey(string value) [instance] :366
 void Instantiator::TemplateKey(uString* value)
 {
-    _TemplateKey = value;
+    if (::g::Uno::String::op_Inequality(_templateKey, value))
+    {
+        _templateKey = value;
+        RecreateTemplates();
+    }
 }
 
-// public Uno.Collections.IList<Uno.UX.Template> get_Templates() [instance] :65
+// public Uno.Collections.IList<Uno.UX.Template> get_Templates() [instance] :211
 uObject* Instantiator::Templates()
 {
     if (_templates != NULL)
         return _templates;
 
-    _rootTemplates = ((::g::Uno::Collections::RootableList*)::g::Uno::Collections::RootableList::New1(::TYPES[3/*Uno.Collections.RootableList<Uno.UX.Template>*/]));
+    _rootTemplates = ((::g::Uno::Collections::RootableList*)::g::Uno::Collections::RootableList::New1(::TYPES[5/*Uno.Collections.RootableList<Uno.UX.Template>*/]));
 
     if (IsRootingCompleted())
-        uPtr(_rootTemplates)->Subscribe(uDelegate::New(::TYPES[1/*Uno.Action<Uno.UX.Template>*/], (void*)Instantiator__OnTemplatesChanged_fn, this), uDelegate::New(::TYPES[1/*Uno.Action<Uno.UX.Template>*/], (void*)Instantiator__OnTemplatesChanged_fn, this));
+        uPtr(_rootTemplates)->Subscribe(uDelegate::New(::TYPES[3/*Uno.Action<Uno.UX.Template>*/], (void*)Instantiator__OnTemplatesChanged_fn, this), uDelegate::New(::TYPES[3/*Uno.Action<Uno.UX.Template>*/], (void*)Instantiator__OnTemplatesChanged_fn, this));
 
     _templates = (uObject*)_rootTemplates;
     return _templates;
 }
 
-// private void TrimAndPad() [instance] :538
-void Instantiator::TrimAndPad()
-{
-    if (HasLimit())
-
-        for (int i = uPtr(_windowItems)->Count() - _limit; i > 0; --i)
-            RemoveLastActive();
-
-    int dataCount = GetDataCount();
-    int add = HasLimit() ? ::g::Uno::Math::Min8(_limit - uPtr(_windowItems)->Count(), dataCount - (Offset() + uPtr(_windowItems)->Count())) : dataCount - (Offset() + uPtr(_windowItems)->Count());
-
-    for (int i1 = 0; i1 < add; ++i1)
-        Append();
-}
-
-// private bool TryUpdateAt(int dataIndex, object newData) [instance] :195
-bool Instantiator::TryUpdateAt(int dataIndex, uObject* newData)
-{
-    if (Identity() == 0)
-        return false;
-
-    int windowIndex = DataToWindowIndex(dataIndex);
-
-    if ((windowIndex < 0) || (windowIndex >= uPtr(_windowItems)->Count()))
-        return false;
-
-    Instantiator__WindowItem* wi = (Instantiator__WindowItem*)uPtr(_windowItems)->Item(windowIndex);
-    uObject* newId = GetDataId(newData);
-
-    if ((uPtr(wi)->Id == NULL) || !::g::Uno::Object::Equals1(uPtr(wi)->Id, newId))
-        return false;
-
-    Instantiator__TemplateMatch tpl = GetDataTemplate(newData);
-
-    if (!uPtr(wi)->Template.Matches(tpl))
-        return false;
-
-    uObject* oldData = uPtr(wi)->CurrentData();
-    wi->Data = newData;
-    UpdateData(wi, oldData);
-    return true;
-}
-
-// private void UpdateData(Fuse.Reactive.Instantiator.WindowItem item, object oldData) [instance] :72
-void Instantiator::UpdateData(Instantiator__WindowItem* item, uObject* oldData)
-{
-    ::g::Fuse::Node* ret23;
-
-    if (uPtr(item)->DataLink != NULL)
-    {
-        uPtr(uPtr(item)->DataLink)->Dispose();
-        item->DataLink = NULL;
-    }
-
-    uObject* obs = uAs<uObject*>(uPtr(item)->Data, ::TYPES[33/*Fuse.Reactive.IObservable*/]);
-
-    if (obs != NULL)
-        uPtr(item)->DataLink = Instantiator__ObservableLink::New1(obs, item);
-
-    uObject* nextData = item->CurrentData();
-
-    for (int i = 0; i < uPtr(item->Nodes)->Count(); ++i)
-    {
-        ::g::Fuse::Node* n = (::g::Uno::Collections::List__get_Item_fn(uPtr(uPtr(item)->Nodes), uCRef<int>(i), &ret23), ret23);
-        ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(_dataMap), n, item);
-        uPtr(n)->OverrideContextParent = this;
-
-        if (oldData != NULL)
-            uPtr(n)->BroadcastDataChange(oldData, nextData);
-    }
-}
-
-// internal generated void add_UpdatedWindowItems(Uno.Action value) [instance] :513
+// internal generated void add_UpdatedWindowItems(Uno.Action value) [instance] :925
 void Instantiator::add_UpdatedWindowItems(uDelegate* value)
 {
-    UpdatedWindowItems1 = uCast<uDelegate*>(::g::Uno::Delegate::Combine(UpdatedWindowItems1, value), ::TYPES[31/*Uno.Action*/]);
+    UpdatedWindowItems1 = uCast<uDelegate*>(::g::Uno::Delegate::Combine(UpdatedWindowItems1, value), ::TYPES[26/*Uno.Action*/]);
 }
 
-// internal generated void remove_UpdatedWindowItems(Uno.Action value) [instance] :513
+// internal generated void remove_UpdatedWindowItems(Uno.Action value) [instance] :925
 void Instantiator::remove_UpdatedWindowItems(uDelegate* value)
 {
-    UpdatedWindowItems1 = uCast<uDelegate*>(::g::Uno::Delegate::Remove(UpdatedWindowItems1, value), ::TYPES[31/*Uno.Action*/]);
+    UpdatedWindowItems1 = uCast<uDelegate*>(::g::Uno::Delegate::Remove(UpdatedWindowItems1, value), ::TYPES[26/*Uno.Action*/]);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\InstantiatorFunction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\InstantiatorFunction.uno
 // -------------------------------------------------------------------------------------------------------------
 
 // public abstract class InstantiatorFunction :12
@@ -5185,19 +5648,16 @@ void Instantiator::remove_UpdatedWindowItems(uDelegate* value)
 // static generated InstantiatorFunction() :12
 static void InstantiatorFunction__cctor__fn(uType* __type)
 {
-    ::TYPES[18/*Uno.UX.Selector*/]->Init();
-    InstantiatorFunction::DataIndexName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("index"));
-    InstantiatorFunction::OffsetIndexName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("offsetIndex"));
+    InstantiatorFunction::DataIndexName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("index"));
+    InstantiatorFunction::OffsetIndexName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("offsetIndex"));
 }
 
 static void InstantiatorFunction_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Uno::UX::Selector_typeof());
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0));
-    type->SetFields(1,
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(3,
         ::g::Uno::UX::Selector_typeof(), offsetof(InstantiatorFunction, _item), 0,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&InstantiatorFunction::DataIndexName_, uFieldFlagsStatic,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&InstantiatorFunction::OffsetIndexName_, uFieldFlagsStatic);
@@ -5210,9 +5670,8 @@ static void InstantiatorFunction_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::VarArgFunction_typeof();
-    options.FieldCount = 4;
-    options.InterfaceCount = 1;
-    options.DependencyCount = 2;
+    options.FieldCount = 6;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(InstantiatorFunction);
     options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
     type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.InstantiatorFunction", options);
@@ -5220,7 +5679,10 @@ static void InstantiatorFunction_build(uType* type)
     type->fp_cctor_ = InstantiatorFunction__cctor__fn;
     type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))InstantiatorFunction__Subscribe_fn;
     type->fp_ToString = (void(*)(uObject*, uString**))InstantiatorFunction__ToString_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))InstantiatorFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
@@ -5229,61 +5691,61 @@ void InstantiatorFunction__Subscribe_fn(InstantiatorFunction* __this, uObject* c
 {
     ::g::Fuse::Reactive::Expression* ret1;
 
-    if (::g::Uno::Collections::ICollection::Count(uInterface(uPtr(__this->Arguments()), ::TYPES[49/*Uno.Collections.ICollection<Fuse.Reactive.Expression>*/])) > 1)
+    if (::g::Uno::Collections::ICollection::Count(uInterface(uPtr(__this->Arguments()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Reactive::Expression_typeof(), NULL))) > 1)
     {
-        ::g::Fuse::Diagnostics::UserError(::g::Uno::String::op_Addition2(uString::Const("too many parameters for "), ::g::Uno::UX::Selector__op_Implicit1(__this->_item)), __this, ::STRINGS[43/*"C:\\Users\\...*/], 34, uString::Const("Subscribe"), NULL);
+        ::g::Fuse::Diagnostics::UserError(::g::Uno::String::op_Addition2(uString::Const("too many parameters for "), ::g::Uno::UX::Selector__op_Implicit2(__this->_item)), __this, ::STRINGS[52/*"C:\\Users\\...*/], 34, uString::Const("Subscribe"), NULL);
         return *__retval = NULL, void();
     }
 
-    ::g::Fuse::Reactive::Expression* node = (::g::Uno::Collections::ICollection::Count(uInterface(uPtr(__this->Arguments()), ::TYPES[49/*Uno.Collections.ICollection<Fuse.Reactive.Expression>*/])) > 0) ? (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(__this->Arguments()), ::TYPES[50/*Uno.Collections.IList<Fuse.Reactive.Expression>*/]), uCRef<int>(0), &ret1), ret1) : NULL;
-    return *__retval = (uObject*)InstantiatorFunction__InstantiatorSubscription::New1(__this, __this->_item, listener, context, (uObject*)node), void();
+    ::g::Fuse::Reactive::Expression* node = (::g::Uno::Collections::ICollection::Count(uInterface(uPtr(__this->Arguments()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Reactive::Expression_typeof(), NULL))) > 0) ? (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(__this->Arguments()), ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Reactive::Expression_typeof(), NULL)), uCRef<int32_t>(0), &ret1), ret1) : NULL;
+    InstantiatorFunction__InstantiatorSubscription* ins = InstantiatorFunction__InstantiatorSubscription::New1(__this, __this->_item, listener, context, (uObject*)node);
+    ins->Init(context);
+    return *__retval = (uObject*)ins, void();
 }
 
 // public override sealed string ToString() :25
 void InstantiatorFunction__ToString_fn(InstantiatorFunction* __this, uString** __retval)
 {
-    return *__retval = __this->FormatString(::g::Uno::UX::Selector__op_Implicit1(__this->_item)), void();
+    return *__retval = __this->FormatString(::g::Uno::UX::Selector__op_Implicit2(__this->_item)), void();
 }
 
 ::g::Uno::UX::Selector InstantiatorFunction::DataIndexName_;
 ::g::Uno::UX::Selector InstantiatorFunction::OffsetIndexName_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\InstantiatorFunction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\InstantiatorFunction.uno
 // -------------------------------------------------------------------------------------------------------------
 
-// private sealed class InstantiatorFunction.InstantiatorSubscription :42
+// private sealed class InstantiatorFunction.InstantiatorSubscription :44
 // {
 static void InstantiatorFunction__InstantiatorSubscription_build(uType* type)
 {
-    ::STRINGS[42] = uString::Const("invalid search node for InstantiatorFunction");
-    ::STRINGS[43] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.4.2\\InstantiatorFunction.uno");
-    ::STRINGS[44] = uString::Const("OnNewNode");
-    ::STRINGS[45] = uString::Const("Could not find an Instantiator");
-    ::STRINGS[46] = uString::Const("Unable to resolve Instantiator node");
-    ::TYPES[24] = ::g::Fuse::Reactive::IExpression_typeof();
-    ::TYPES[31] = ::g::Uno::Action_typeof();
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[27] = ::g::Fuse::Node_typeof();
-    ::TYPES[14] = ::g::Fuse::Reactive::IContext_typeof();
-    ::TYPES[32] = ::TYPES[27/*Fuse.Node*/]->MakeMethod(0/*FindBehavior<Fuse.Reactive.Instantiator>*/, ::g::Fuse::Reactive::Instantiator_typeof(), NULL);
-    ::TYPES[13] = ::g::Fuse::Reactive::IListener_typeof();
+    ::STRINGS[51] = uString::Const("invalid search node for InstantiatorFunction");
+    ::STRINGS[52] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.9.0\\InstantiatorFunction.uno");
+    ::STRINGS[53] = uString::Const("OnNewNode");
+    ::STRINGS[54] = uString::Const("Could not find an Instantiator");
+    ::STRINGS[55] = uString::Const("Unable to resolve Instantiator node");
+    ::TYPES[26] = ::g::Uno::Action_typeof();
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[27] = ::g::Fuse::Reactive::IExpression_typeof();
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
+    ::TYPES[30] = ::g::Fuse::Node_typeof();
+    ::TYPES[16] = ::g::Fuse::Reactive::IContext_typeof();
+    ::TYPES[34] = ::TYPES[30/*Fuse.Node*/]->MakeMethod(0/*FindBehavior<Fuse.Reactive.Instantiator>*/, ::g::Fuse::Reactive::Instantiator_typeof(), NULL);
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Fuse::Reactive::InstantiatorFunction_typeof(),
-        ::g::Uno::UX::Selector_typeof());
+        ::g::Fuse::Reactive::InstantiatorFunction_typeof());
     type->SetInterfaces(
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface0),
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface1));
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface0),
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface1));
     type->SetFields(2,
         ::g::Fuse::Reactive::InstantiatorFunction_typeof(), offsetof(InstantiatorFunction__InstantiatorSubscription, _expr), 0,
         ::g::Uno::UX::Selector_typeof(), offsetof(InstantiatorFunction__InstantiatorSubscription, _item), 0,
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(InstantiatorFunction__InstantiatorSubscription, _listener), 0,
-        ::TYPES[14/*Fuse.Reactive.IContext*/], offsetof(InstantiatorFunction__InstantiatorSubscription, _context), 0,
-        ::TYPES[24/*Fuse.Reactive.IExpression*/], offsetof(InstantiatorFunction__InstantiatorSubscription, _node), 0,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(InstantiatorFunction__InstantiatorSubscription, _listener), 0,
+        ::TYPES[16/*Fuse.Reactive.IContext*/], offsetof(InstantiatorFunction__InstantiatorSubscription, _context), 0,
+        ::TYPES[27/*Fuse.Reactive.IExpression*/], offsetof(InstantiatorFunction__InstantiatorSubscription, _node), 0,
         ::g::Fuse::Reactive::Instantiator_typeof(), offsetof(InstantiatorFunction__InstantiatorSubscription, _instantiator), 0,
-        ::TYPES[27/*Fuse.Node*/], offsetof(InstantiatorFunction__InstantiatorSubscription, _instance), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(InstantiatorFunction__InstantiatorSubscription, _nodeSub), 0);
+        ::TYPES[30/*Fuse.Node*/], offsetof(InstantiatorFunction__InstantiatorSubscription, _instance), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(InstantiatorFunction__InstantiatorSubscription, _nodeSub), 0);
 }
 
 ::g::Fuse::Reactive::InnerListener_type* InstantiatorFunction__InstantiatorSubscription_typeof()
@@ -5295,25 +5757,27 @@ static void InstantiatorFunction__InstantiatorSubscription_build(uType* type)
     options.BaseDefinition = ::g::Fuse::Reactive::InnerListener_typeof();
     options.FieldCount = 10;
     options.InterfaceCount = 2;
-    options.DependencyCount = 3;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(InstantiatorFunction__InstantiatorSubscription);
     options.TypeSize = sizeof(::g::Fuse::Reactive::InnerListener_type);
     type = (::g::Fuse::Reactive::InnerListener_type*)uClassType::New("Fuse.Reactive.InstantiatorFunction.InstantiatorSubscription", options);
     type->fp_build_ = InstantiatorFunction__InstantiatorSubscription_build;
     type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))InstantiatorFunction__InstantiatorSubscription__Dispose_fn;
+    type->fp_OnLostData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*))InstantiatorFunction__InstantiatorSubscription__OnLostData_fn;
     type->fp_OnNewData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*, uObject*))InstantiatorFunction__InstantiatorSubscription__OnNewData_fn;
     type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnLostData_fn;
     type->interface0.fp_Dispose = (void(*)(uObject*))InstantiatorFunction__InstantiatorSubscription__Dispose_fn;
     return type;
 }
 
-// public InstantiatorSubscription(Fuse.Reactive.InstantiatorFunction expr, Uno.UX.Selector item, Fuse.Reactive.IListener listener, Fuse.Reactive.IContext context, Fuse.Reactive.IExpression node) :57
+// public InstantiatorSubscription(Fuse.Reactive.InstantiatorFunction expr, Uno.UX.Selector item, Fuse.Reactive.IListener listener, Fuse.Reactive.IContext context, Fuse.Reactive.IExpression node) :59
 void InstantiatorFunction__InstantiatorSubscription__ctor_1_fn(InstantiatorFunction__InstantiatorSubscription* __this, ::g::Fuse::Reactive::InstantiatorFunction* expr, ::g::Uno::UX::Selector* item, uObject* listener, uObject* context, uObject* node)
 {
     __this->ctor_1(expr, *item, listener, context, node);
 }
 
-// public override sealed void Dispose() :122
+// public override sealed void Dispose() :135
 void InstantiatorFunction__InstantiatorSubscription__Dispose_fn(InstantiatorFunction__InstantiatorSubscription* __this)
 {
     ::g::Fuse::Reactive::InnerListener__Dispose_fn(__this);
@@ -5321,49 +5785,62 @@ void InstantiatorFunction__InstantiatorSubscription__Dispose_fn(InstantiatorFunc
     __this->_listener = NULL;
 
     if (__this->_instantiator != NULL)
-        uPtr(__this->_instantiator)->remove_UpdatedWindowItems(uDelegate::New(::TYPES[31/*Uno.Action*/], (void*)InstantiatorFunction__InstantiatorSubscription__OnUpdatedWindowItems_fn, __this));
+        uPtr(__this->_instantiator)->remove_UpdatedWindowItems(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)InstantiatorFunction__InstantiatorSubscription__OnUpdatedWindowItems_fn, __this));
 
     __this->_instantiator = NULL;
 
     if (__this->_nodeSub != NULL)
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_nodeSub), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_nodeSub), ::TYPES[1/*Uno.IDisposable*/]));
 
     __this->_nodeSub = NULL;
     __this->_node = NULL;
 }
 
-// public InstantiatorSubscription New(Fuse.Reactive.InstantiatorFunction expr, Uno.UX.Selector item, Fuse.Reactive.IListener listener, Fuse.Reactive.IContext context, Fuse.Reactive.IExpression node) :57
+// public void Init(Fuse.Reactive.IContext context) :70
+void InstantiatorFunction__InstantiatorSubscription__Init_fn(InstantiatorFunction__InstantiatorSubscription* __this, uObject* context)
+{
+    __this->Init(context);
+}
+
+// public InstantiatorSubscription New(Fuse.Reactive.InstantiatorFunction expr, Uno.UX.Selector item, Fuse.Reactive.IListener listener, Fuse.Reactive.IContext context, Fuse.Reactive.IExpression node) :59
 void InstantiatorFunction__InstantiatorSubscription__New1_fn(::g::Fuse::Reactive::InstantiatorFunction* expr, ::g::Uno::UX::Selector* item, uObject* listener, uObject* context, uObject* node, InstantiatorFunction__InstantiatorSubscription** __retval)
 {
     *__retval = InstantiatorFunction__InstantiatorSubscription::New1(expr, *item, listener, context, node);
 }
 
-// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object value) :74
+// protected override sealed void OnLostData(Fuse.Reactive.IExpression source) :84
+void InstantiatorFunction__InstantiatorSubscription__OnLostData_fn(InstantiatorFunction__InstantiatorSubscription* __this, uObject* source)
+{
+    if (source == __this->_node)
+        ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(__this->_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)__this->_expr);
+}
+
+// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object value) :78
 void InstantiatorFunction__InstantiatorSubscription__OnNewData_fn(InstantiatorFunction__InstantiatorSubscription* __this, uObject* source, uObject* value)
 {
     if (source == __this->_node)
         __this->OnNewNode(value);
 }
 
-// private void OnNewNode(object obj) :80
+// private void OnNewNode(object obj) :90
 void InstantiatorFunction__InstantiatorSubscription__OnNewNode_fn(InstantiatorFunction__InstantiatorSubscription* __this, uObject* obj)
 {
     __this->OnNewNode(obj);
 }
 
-// private void OnUpdatedWindowItems() :148
+// private void OnUpdatedWindowItems() :163
 void InstantiatorFunction__InstantiatorSubscription__OnUpdatedWindowItems_fn(InstantiatorFunction__InstantiatorSubscription* __this)
 {
     __this->OnUpdatedWindowItems();
 }
 
-// private void PushValue() :136
+// private void PushValue() :149
 void InstantiatorFunction__InstantiatorSubscription__PushValue_fn(InstantiatorFunction__InstantiatorSubscription* __this)
 {
     __this->PushValue();
 }
 
-// public InstantiatorSubscription(Fuse.Reactive.InstantiatorFunction expr, Uno.UX.Selector item, Fuse.Reactive.IListener listener, Fuse.Reactive.IContext context, Fuse.Reactive.IExpression node) [instance] :57
+// public InstantiatorSubscription(Fuse.Reactive.InstantiatorFunction expr, Uno.UX.Selector item, Fuse.Reactive.IListener listener, Fuse.Reactive.IContext context, Fuse.Reactive.IExpression node) [instance] :59
 void InstantiatorFunction__InstantiatorSubscription::ctor_1(::g::Fuse::Reactive::InstantiatorFunction* expr, ::g::Uno::UX::Selector item, uObject* listener, uObject* context, uObject* node)
 {
     ctor_();
@@ -5372,82 +5849,91 @@ void InstantiatorFunction__InstantiatorSubscription::ctor_1(::g::Fuse::Reactive:
     _item = item;
     _listener = listener;
     _context = context;
+}
 
+// public void Init(Fuse.Reactive.IContext context) [instance] :70
+void InstantiatorFunction__InstantiatorSubscription::Init(uObject* context)
+{
     if (_node == NULL)
         OnNewNode(NULL);
     else
-        _nodeSub = ::g::Fuse::Reactive::IExpression::Subscribe(uInterface(uPtr(_node), ::TYPES[24/*Fuse.Reactive.IExpression*/]), context, (uObject*)this);
+        _nodeSub = ::g::Fuse::Reactive::IExpression::Subscribe(uInterface(uPtr(_node), ::TYPES[27/*Fuse.Reactive.IExpression*/]), context, (uObject*)this);
 }
 
-// private void OnNewNode(object obj) [instance] :80
+// private void OnNewNode(object obj) [instance] :90
 void InstantiatorFunction__InstantiatorSubscription::OnNewNode(uObject* obj)
 {
     ::g::Fuse::Node* ind1;
 
     if (_instantiator != NULL)
     {
-        uPtr(_instantiator)->remove_UpdatedWindowItems(uDelegate::New(::TYPES[31/*Uno.Action*/], (void*)InstantiatorFunction__InstantiatorSubscription__OnUpdatedWindowItems_fn, this));
+        uPtr(_instantiator)->remove_UpdatedWindowItems(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)InstantiatorFunction__InstantiatorSubscription__OnUpdatedWindowItems_fn, this));
         _instantiator = NULL;
         _instance = NULL;
     }
 
-    ind1 = uAs< ::g::Fuse::Node*>(obj, ::TYPES[27/*Fuse.Node*/]);
-    ::g::Fuse::Node* searchNode = (ind1 != NULL) ? ind1 : (::g::Fuse::Node*)::g::Fuse::Reactive::IContext::Node(uInterface(uPtr(_context), ::TYPES[14/*Fuse.Reactive.IContext*/]));
+    ind1 = uAs< ::g::Fuse::Node*>(obj, ::TYPES[30/*Fuse.Node*/]);
+    ::g::Fuse::Node* searchNode = (ind1 != NULL) ? ind1 : (::g::Fuse::Node*)::g::Fuse::Reactive::IContext::Node(uInterface(uPtr(_context), ::TYPES[16/*Fuse.Reactive.IContext*/]));
 
     if (searchNode == NULL)
     {
-        ::g::Fuse::Diagnostics::UserError(::STRINGS[42/*"invalid sea...*/], this, ::STRINGS[43/*"C:\\Users\\...*/], 92, ::STRINGS[44/*"OnNewNode"*/], NULL);
+        ::g::Fuse::Diagnostics::UserError(::STRINGS[51/*"invalid sea...*/], this, ::STRINGS[52/*"C:\\Users\\...*/], 102, ::STRINGS[53/*"OnNewNode"*/], NULL);
+        ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_expr);
         return;
     }
 
-    _instantiator = ((::g::Fuse::Reactive::Instantiator*)uPtr(searchNode)->FindBehavior(::TYPES[32/*Fuse.Node.FindBehavior<Fuse.Reactive.Instantiator>*/]));
+    _instantiator = ((::g::Fuse::Reactive::Instantiator*)uPtr(searchNode)->FindBehavior(::TYPES[34/*Fuse.Node.FindBehavior<Fuse.Reactive.Instantiator>*/]));
 
     if (_instantiator == NULL)
     {
-        ::g::Fuse::Diagnostics::UserError(::STRINGS[45/*"Could not f...*/], this, ::STRINGS[43/*"C:\\Users\\...*/], 99, ::STRINGS[44/*"OnNewNode"*/], NULL);
+        ::g::Fuse::Diagnostics::UserError(::STRINGS[54/*"Could not f...*/], this, ::STRINGS[52/*"C:\\Users\\...*/], 110, ::STRINGS[53/*"OnNewNode"*/], NULL);
+        ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_expr);
         return;
     }
 
-    ::g::Fuse::Node* p = ::g::Fuse::Reactive::IContext::Node(uInterface(uPtr(_context), ::TYPES[14/*Fuse.Reactive.IContext*/]));
+    ::g::Fuse::Node* p = ::g::Fuse::Reactive::IContext::Node(uInterface(uPtr(_context), ::TYPES[16/*Fuse.Reactive.IContext*/]));
 
     while ((p != NULL) && (uPtr(p)->ContextParent() != _instantiator))
         p = uPtr(p)->ContextParent();
 
     if (p == NULL)
     {
-        ::g::Fuse::Diagnostics::InternalError(::STRINGS[46/*"Unable to r...*/], this, ::STRINGS[43/*"C:\\Users\\...*/], 110, ::STRINGS[44/*"OnNewNode"*/]);
+        ::g::Fuse::Diagnostics::InternalError(::STRINGS[55/*"Unable to r...*/], this, ::STRINGS[52/*"C:\\Users\\...*/], 122, ::STRINGS[53/*"OnNewNode"*/]);
+        ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_expr);
         return;
     }
 
     if (_instantiator != NULL)
     {
         _instance = p;
-        uPtr(_instantiator)->add_UpdatedWindowItems(uDelegate::New(::TYPES[31/*Uno.Action*/], (void*)InstantiatorFunction__InstantiatorSubscription__OnUpdatedWindowItems_fn, this));
+        uPtr(_instantiator)->add_UpdatedWindowItems(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)InstantiatorFunction__InstantiatorSubscription__OnUpdatedWindowItems_fn, this));
         PushValue();
     }
 }
 
-// private void OnUpdatedWindowItems() [instance] :148
+// private void OnUpdatedWindowItems() [instance] :163
 void InstantiatorFunction__InstantiatorSubscription::OnUpdatedWindowItems()
 {
     PushValue();
 }
 
-// private void PushValue() [instance] :136
+// private void PushValue() [instance] :149
 void InstantiatorFunction__InstantiatorSubscription::PushValue()
 {
-    int q = -1;
+    int32_t q = -1;
 
-    if (::g::Uno::UX::Selector__op_Equality(_item, ::g::Fuse::Reactive::InstantiatorFunction::DataIndexName_))
+    if (::g::Uno::UX::Selector__op_Equality(_item, ::g::Fuse::Reactive::InstantiatorFunction::DataIndexName()))
         q = uPtr(_instantiator)->DataIndexOfChild(_instance);
-    else if (::g::Uno::UX::Selector__op_Equality(_item, ::g::Fuse::Reactive::InstantiatorFunction::OffsetIndexName_))
+    else if (::g::Uno::UX::Selector__op_Equality(_item, ::g::Fuse::Reactive::InstantiatorFunction::OffsetIndexName()))
         q = uPtr(_instantiator)->DataIndexOfChild(_instance) - uPtr(_instantiator)->Offset();
 
     if (q != -1)
-        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), (uObject*)_expr, uBox<int>(::TYPES[6/*int*/], q));
+        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_expr, uBox<int32_t>(::TYPES[7/*int*/], q));
+    else
+        ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_expr);
 }
 
-// public InstantiatorSubscription New(Fuse.Reactive.InstantiatorFunction expr, Uno.UX.Selector item, Fuse.Reactive.IListener listener, Fuse.Reactive.IContext context, Fuse.Reactive.IExpression node) [static] :57
+// public InstantiatorSubscription New(Fuse.Reactive.InstantiatorFunction expr, Uno.UX.Selector item, Fuse.Reactive.IListener listener, Fuse.Reactive.IContext context, Fuse.Reactive.IExpression node) [static] :59
 InstantiatorFunction__InstantiatorSubscription* InstantiatorFunction__InstantiatorSubscription::New1(::g::Fuse::Reactive::InstantiatorFunction* expr, ::g::Uno::UX::Selector item, uObject* listener, uObject* context, uObject* node)
 {
     InstantiatorFunction__InstantiatorSubscription* obj2 = (InstantiatorFunction__InstantiatorSubscription*)uNew(InstantiatorFunction__InstantiatorSubscription_typeof());
@@ -5456,7 +5942,7 @@ InstantiatorFunction__InstantiatorSubscription* InstantiatorFunction__Instantiat
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IObservable.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IObservable.uno
 // -------------------------------------------------------------------------------------------
 
 // internal abstract interface IObservable :125
@@ -5471,7 +5957,7 @@ uInterfaceType* IObservable_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IObservable.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IObservable.uno
 // -------------------------------------------------------------------------------------------
 
 // internal abstract interface IObservableArray :54
@@ -5486,7 +5972,7 @@ uInterfaceType* IObservableArray_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IObservable.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IObservable.uno
 // -------------------------------------------------------------------------------------------
 
 // internal abstract interface IObservableObject :16
@@ -5501,7 +5987,7 @@ uInterfaceType* IObservableObject_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IObservable.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IObservable.uno
 // -------------------------------------------------------------------------------------------
 
 // internal abstract interface IObserver :142
@@ -5516,7 +6002,7 @@ uInterfaceType* IObserver_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IObservable.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IObservable.uno
 // -------------------------------------------------------------------------------------------
 
 // internal abstract interface IPropertyObserver :28
@@ -5531,7 +6017,7 @@ uInterfaceType* IPropertyObserver_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IObservable.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IObservable.uno
 // -------------------------------------------------------------------------------------------
 
 // internal abstract interface IPropertySubscription :22
@@ -5546,7 +6032,254 @@ uInterfaceType* IPropertySubscription_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IObservable.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\PlatformFunctions.uno
+// -------------------------------------------------------------------------------------------------------------
+
+// public sealed class IsAndroidFunction :77
+// {
+static void IsAndroidFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface1));
+    type->SetFields(3);
+}
+
+::g::Fuse::Reactive::PlatformFunction_type* IsAndroidFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::PlatformFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::PlatformFunction_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(IsAndroidFunction);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::PlatformFunction_type);
+    type = (::g::Fuse::Reactive::PlatformFunction_type*)uClassType::New("Fuse.Reactive.IsAndroidFunction", options);
+    type->fp_build_ = IsAndroidFunction_build;
+    type->fp_GetResult = (void(*)(::g::Fuse::Reactive::PlatformFunction*, bool*))IsAndroidFunction__GetResult_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::PlatformFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed bool GetResult() :81
+void IsAndroidFunction__GetResult_fn(IsAndroidFunction* __this, bool* __retval)
+{
+    return *__retval = true, void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\IsDefined.uno
+// -----------------------------------------------------------------------------------------------------
+
+// public sealed class IsDefined :17
+// {
+static void IsDefined_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface1));
+    type->SetFields(5);
+}
+
+::g::Fuse::Reactive::ComputeExpression_type* IsDefined_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::ComputeExpression_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::ComputeExpression_typeof();
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(IsDefined);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::ComputeExpression_type);
+    type = (::g::Fuse::Reactive::ComputeExpression_type*)uClassType::New("Fuse.Reactive.IsDefined", options);
+    type->fp_build_ = IsDefined_build;
+    type->fp_TryCompute = (void(*)(::g::Fuse::Reactive::ComputeExpression*, uArray*, uObject**, bool*))IsDefined__TryCompute_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed bool TryCompute(Fuse.Reactive.Expression.Argument[] args, object& result) :26
+void IsDefined__TryCompute_fn(IsDefined* __this, uArray* args, uObject** result, bool* __retval)
+{
+    *result = uBox(::TYPES[4/*bool*/], uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->HasValue());
+    return *__retval = true, void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\PlatformFunctions.uno
+// -------------------------------------------------------------------------------------------------------------
+
+// public sealed class IsDesktopFunction :68
+// {
+static void IsDesktopFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface1));
+    type->SetFields(3);
+}
+
+::g::Fuse::Reactive::PlatformFunction_type* IsDesktopFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::PlatformFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::PlatformFunction_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(IsDesktopFunction);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::PlatformFunction_type);
+    type = (::g::Fuse::Reactive::PlatformFunction_type*)uClassType::New("Fuse.Reactive.IsDesktopFunction", options);
+    type->fp_build_ = IsDesktopFunction_build;
+    type->fp_GetResult = (void(*)(::g::Fuse::Reactive::PlatformFunction*, bool*))IsDesktopFunction__GetResult_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::PlatformFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed bool GetResult() :72
+void IsDesktopFunction__GetResult_fn(IsDesktopFunction* __this, bool* __retval)
+{
+    return *__retval = false, void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\PlatformFunctions.uno
+// -------------------------------------------------------------------------------------------------------------
+
+// public sealed class IsIOSFunction :59
+// {
+static void IsIOSFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface1));
+    type->SetFields(3);
+}
+
+::g::Fuse::Reactive::PlatformFunction_type* IsIOSFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::PlatformFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::PlatformFunction_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(IsIOSFunction);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::PlatformFunction_type);
+    type = (::g::Fuse::Reactive::PlatformFunction_type*)uClassType::New("Fuse.Reactive.IsIOSFunction", options);
+    type->fp_build_ = IsIOSFunction_build;
+    type->fp_GetResult = (void(*)(::g::Fuse::Reactive::PlatformFunction*, bool*))IsIOSFunction__GetResult_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::PlatformFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed bool GetResult() :63
+void IsIOSFunction__GetResult_fn(IsIOSFunction* __this, bool* __retval)
+{
+    return *__retval = false, void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\PlatformFunctions.uno
+// -------------------------------------------------------------------------------------------------------------
+
+// public sealed class IsMobileFunction :86
+// {
+static void IsMobileFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface1));
+    type->SetFields(3);
+}
+
+::g::Fuse::Reactive::PlatformFunction_type* IsMobileFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::PlatformFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::PlatformFunction_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(IsMobileFunction);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::PlatformFunction_type);
+    type = (::g::Fuse::Reactive::PlatformFunction_type*)uClassType::New("Fuse.Reactive.IsMobileFunction", options);
+    type->fp_build_ = IsMobileFunction_build;
+    type->fp_GetResult = (void(*)(::g::Fuse::Reactive::PlatformFunction*, bool*))IsMobileFunction__GetResult_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::PlatformFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed bool GetResult() :90
+void IsMobileFunction__GetResult_fn(IsMobileFunction* __this, bool* __retval)
+{
+    return *__retval = true, void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\PlatformFunctions.uno
+// -------------------------------------------------------------------------------------------------------------
+
+// public sealed class IsOSXFunction :95
+// {
+static void IsOSXFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface1));
+    type->SetFields(3);
+}
+
+::g::Fuse::Reactive::PlatformFunction_type* IsOSXFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::PlatformFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::PlatformFunction_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(IsOSXFunction);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::PlatformFunction_type);
+    type = (::g::Fuse::Reactive::PlatformFunction_type*)uClassType::New("Fuse.Reactive.IsOSXFunction", options);
+    type->fp_build_ = IsOSXFunction_build;
+    type->fp_GetResult = (void(*)(::g::Fuse::Reactive::PlatformFunction*, bool*))IsOSXFunction__GetResult_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::PlatformFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed bool GetResult() :99
+void IsOSXFunction__GetResult_fn(IsOSXFunction* __this, bool* __retval)
+{
+    return *__retval = false, void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IObservable.uno
 // -------------------------------------------------------------------------------------------
 
 // internal abstract interface ISubscription :131
@@ -5561,10 +6294,578 @@ uInterfaceType* ISubscription_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\ValueObserver.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\PlatformFunctions.uno
+// -------------------------------------------------------------------------------------------------------------
+
+// public sealed class IsWindowsFunction :104
+// {
+static void IsWindowsFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::PlatformFunction_type, interface1));
+    type->SetFields(3);
+}
+
+::g::Fuse::Reactive::PlatformFunction_type* IsWindowsFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::PlatformFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::PlatformFunction_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(IsWindowsFunction);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::PlatformFunction_type);
+    type = (::g::Fuse::Reactive::PlatformFunction_type*)uClassType::New("Fuse.Reactive.IsWindowsFunction", options);
+    type->fp_build_ = IsWindowsFunction_build;
+    type->fp_GetResult = (void(*)(::g::Fuse::Reactive::PlatformFunction*, bool*))IsWindowsFunction__GetResult_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::PlatformFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed bool GetResult() :108
+void IsWindowsFunction__GetResult_fn(IsWindowsFunction* __this, bool* __retval)
+{
+    return *__retval = false, void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\ItemsWindowList.uno
+// --------------------------------------------------------------------------------------------------------
+
+// internal partial sealed class ItemsWindowList<T> :12
+// {
+static void ItemsWindowList_build(uType* type)
+{
+    type->SetBase(::g::Fuse::Reactive::WindowList_typeof()->MakeType(type->T(0), NULL));
+    type->SetPrecalc(
+        ::g::Fuse::Reactive::WindowListItem_typeof()->MakeMethod(0/*Create<T>*/, type->T(0), NULL),
+        ItemsWindowList__IListener_typeof()->MakeType(type->T(0), NULL));
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IObserver_typeof(), offsetof(ItemsWindowList_type, interface0),
+        ::g::Fuse::Reactive::WindowListItem__IDataWatcher_typeof(), offsetof(ItemsWindowList_type, interface1));
+    type->SetFields(5,
+        ItemsWindowList__IListener_typeof()->MakeType(type->T(0), NULL), offsetof(ItemsWindowList, _listener), uFieldFlagsWeak,
+        ::g::Fuse::Reactive::InstanceIdentity_typeof(), offsetof(ItemsWindowList, Identity), 0,
+        ::g::Uno::String_typeof(), offsetof(ItemsWindowList, _identityKey), 0,
+        uObject_typeof(), offsetof(ItemsWindowList, _items), 0,
+        ::g::Uno::IDisposable_typeof(), offsetof(ItemsWindowList, _itemsSubscription), 0,
+        ::g::Uno::Bool_typeof(), offsetof(ItemsWindowList, _isRooted), 0);
+}
+
+ItemsWindowList_type* ItemsWindowList_typeof()
+{
+    static uSStrong<ItemsWindowList_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::WindowList_typeof();
+    options.FieldCount = 11;
+    options.GenericCount = 1;
+    options.InterfaceCount = 2;
+    options.PrecalcCount = 2;
+    options.ObjectSize = sizeof(ItemsWindowList);
+    options.TypeSize = sizeof(ItemsWindowList_type);
+    type = (ItemsWindowList_type*)uClassType::New("Fuse.Reactive.ItemsWindowList`1", options);
+    type->fp_build_ = ItemsWindowList_build;
+    type->fp_CreateWindowItem = (void(*)(::g::Fuse::Reactive::WindowList*, int32_t*, uObject**))ItemsWindowList__CreateWindowItem_fn;
+    type->fp_GetDataCount = (void(*)(::g::Fuse::Reactive::WindowList*, int32_t*))ItemsWindowList__GetDataCount_fn;
+    type->fp_OnAddedWindowItem = (void(*)(::g::Fuse::Reactive::WindowList*, int32_t*, uObject*))ItemsWindowList__OnAddedWindowItem_fn;
+    type->fp_OnErrorMessageChanged = (void(*)(::g::Fuse::Reactive::WindowList*, uString*))ItemsWindowList__OnErrorMessageChanged_fn;
+    type->fp_OnRemovedWindowItem = (void(*)(::g::Fuse::Reactive::WindowList*, uObject*))ItemsWindowList__OnRemovedWindowItem_fn;
+    type->interface1.fp_OnCurrentDataChanged = (void(*)(uObject*, ::g::Fuse::Reactive::WindowListItem*, uObject*))ItemsWindowList__FuseReactiveWindowListItemIDataWatcherOnCurrentDataChanged_fn;
+    type->interface0.fp_OnSet = (void(*)(uObject*, uObject*))ItemsWindowList__FuseReactiveIObserverOnSet_fn;
+    type->interface0.fp_OnFailed = (void(*)(uObject*, uString*))ItemsWindowList__FuseReactiveIObserverOnFailed_fn;
+    type->interface0.fp_OnAdd = (void(*)(uObject*, uObject*))ItemsWindowList__FuseReactiveIObserverOnAdd_fn;
+    type->interface0.fp_OnRemoveAt = (void(*)(uObject*, int32_t*))ItemsWindowList__FuseReactiveIObserverOnRemoveAt_fn;
+    type->interface0.fp_OnInsertAt = (void(*)(uObject*, int32_t*, uObject*))ItemsWindowList__FuseReactiveIObserverOnInsertAt_fn;
+    type->interface0.fp_OnNewAt = (void(*)(uObject*, int32_t*, uObject*))ItemsWindowList__FuseReactiveIObserverOnNewAt_fn;
+    type->interface0.fp_OnNewAll = (void(*)(uObject*, uObject*))ItemsWindowList__FuseReactiveIObserverOnNewAll_fn;
+    type->interface0.fp_OnClear = (void(*)(uObject*))ItemsWindowList__FuseReactiveIObserverOnClear_fn;
+    return type;
+}
+
+// public ItemsWindowList(Fuse.Reactive.ItemsWindowList<T>.IListener listener) :29
+void ItemsWindowList__ctor_1_fn(ItemsWindowList* __this, uObject* listener)
+{
+    __this->ctor_1(listener);
+}
+
+// protected override sealed T CreateWindowItem(int dataIndex) :178
+void ItemsWindowList__CreateWindowItem_fn(ItemsWindowList* __this, int32_t* dataIndex, ::g::Fuse::Reactive::WindowListItem** __retval)
+{
+    uType* __types[] = {
+        __this->__type->Precalced(0/*Fuse.Reactive.WindowListItem.Create<T>*/),
+    };
+    int32_t dataIndex_ = *dataIndex;
+    uObject* data = __this->GetData(dataIndex_);
+    ::g::Fuse::Reactive::WindowListItem* wi = (::g::Fuse::Reactive::WindowListItem*)::g::Fuse::Reactive::WindowListItem::Create(__types[0], (uObject*)__this, __this->GetDataId(data), data);
+    return *__retval = wi, void();
+}
+
+// private void DisposeItemsSubscription() :76
+void ItemsWindowList__DisposeItemsSubscription_fn(ItemsWindowList* __this)
+{
+    __this->DisposeItemsSubscription();
+}
+
+// private void Fuse.Reactive.IObserver.OnAdd(object addedValue) :286
+void ItemsWindowList__FuseReactiveIObserverOnAdd_fn(ItemsWindowList* __this, uObject* addedValue)
+{
+    __this->TrimAndPad();
+}
+
+// private void Fuse.Reactive.IObserver.OnClear() :323
+void ItemsWindowList__FuseReactiveIObserverOnClear_fn(ItemsWindowList* __this)
+{
+    __this->RemoveAll();
+}
+
+// private void Fuse.Reactive.IObserver.OnFailed(string message) :280
+void ItemsWindowList__FuseReactiveIObserverOnFailed_fn(ItemsWindowList* __this, uString* message)
+{
+    __this->RemoveAll();
+    __this->SetError(message);
+}
+
+// private void Fuse.Reactive.IObserver.OnInsertAt(int index, object value) :297
+void ItemsWindowList__FuseReactiveIObserverOnInsertAt_fn(ItemsWindowList* __this, int32_t* index, uObject* value)
+{
+    int32_t index_ = *index;
+    __this->InsertedDataAt(index_);
+    __this->TrimAndPad();
+}
+
+// private void Fuse.Reactive.IObserver.OnNewAll(Fuse.IArray values) :314
+void ItemsWindowList__FuseReactiveIObserverOnNewAll_fn(ItemsWindowList* __this, uObject* values)
+{
+    if (__this->Identity != 0)
+        __this->PatchTo(values);
+    else
+        __this->RemoveAll();
+
+    __this->TrimAndPad();
+}
+
+// private void Fuse.Reactive.IObserver.OnNewAt(int index, object value) :303
+void ItemsWindowList__FuseReactiveIObserverOnNewAt_fn(ItemsWindowList* __this, int32_t* index, uObject* value)
+{
+    int32_t index_ = *index;
+
+    if (!__this->TryUpdateAt(index_, value))
+    {
+        __this->RemovedDataAt(index_);
+        __this->InsertedDataAt(index_);
+    }
+
+    __this->TrimAndPad();
+}
+
+// private void Fuse.Reactive.IObserver.OnRemoveAt(int index) :291
+void ItemsWindowList__FuseReactiveIObserverOnRemoveAt_fn(ItemsWindowList* __this, int32_t* index)
+{
+    int32_t index_ = *index;
+    __this->RemovedDataAt(index_);
+    __this->TrimAndPad();
+}
+
+// private void Fuse.Reactive.IObserver.OnSet(object newValue) :274
+void ItemsWindowList__FuseReactiveIObserverOnSet_fn(ItemsWindowList* __this, uObject* newValue)
+{
+    __this->RemoveAll();
+    __this->TrimAndPad();
+}
+
+// private void Fuse.Reactive.WindowListItem.IDataWatcher.OnCurrentDataChanged(Fuse.Reactive.WindowListItem item, object oldData) :164
+void ItemsWindowList__FuseReactiveWindowListItemIDataWatcherOnCurrentDataChanged_fn(ItemsWindowList* __this, ::g::Fuse::Reactive::WindowListItem* item, uObject* oldData)
+{
+    uType* __types[] = {
+        __this->__type->Precalced(1/*Fuse.Reactive.ItemsWindowList<T>.IListener*/),
+    };
+
+    if (!__this->_isRooted)
+        return;
+
+    ::g::Fuse::Reactive::WindowListItem* wi = uAs< ::g::Fuse::Reactive::WindowListItem*>(item, __this->__type->T(0));
+
+    if (wi == NULL)
+    {
+        ::g::Fuse::Diagnostics::InternalError(uString::Const("Invalid item in WindowList"), __this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.9.0\\ItemsWindowList.uno"), 171, uString::Const("Fuse.Reactive.WindowListItem.IDataWatcher.OnCurrentDataChanged"));
+        return;
+    }
+
+    ItemsWindowList__IListener::OnCurrentDataChanged(uInterface(uPtr(__this->_listener), __types[0]), wi, oldData);
+}
+
+// private object GetData(int dataIndex) :85
+void ItemsWindowList__GetData_fn(ItemsWindowList* __this, int32_t* dataIndex, uObject** __retval)
+{
+    *__retval = __this->GetData(*dataIndex);
+}
+
+// public override sealed int GetDataCount() :205
+void ItemsWindowList__GetDataCount_fn(ItemsWindowList* __this, int32_t* __retval)
+{
+    if (!__this->_isRooted)
+        return *__retval = 0, void();
+
+    uArray* e = uAs<uArray*>(__this->_items, ::TYPES[14/*object[]*/]);
+
+    if (e != NULL)
+        return *__retval = uPtr(e)->Length(), void();
+
+    uObject* a = uAs<uObject*>(__this->_items, ::TYPES[17/*Fuse.IArray*/]);
+
+    if (a != NULL)
+        return *__retval = ::g::Fuse::IArray::Length(uInterface(uPtr(a), ::TYPES[17/*Fuse.IArray*/])), void();
+
+    return *__retval = 0, void();
+}
+
+// private object GetDataId(object data) :147
+void ItemsWindowList__GetDataId_fn(ItemsWindowList* __this, uObject* data, uObject** __retval)
+{
+    *__retval = __this->GetDataId(data);
+}
+
+// internal object GetDataKey(object data, string key) :130
+void ItemsWindowList__GetDataKey_fn(ItemsWindowList* __this, uObject* data, uString* key, uObject** __retval)
+{
+    *__retval = __this->GetDataKey(data, key);
+}
+
+// public object GetItems() :48
+void ItemsWindowList__GetItems_fn(ItemsWindowList* __this, uObject** __retval)
+{
+    *__retval = __this->GetItems();
+}
+
+// public string get_IdentityKey() :39
+void ItemsWindowList__get_IdentityKey_fn(ItemsWindowList* __this, uString** __retval)
+{
+    *__retval = __this->IdentityKey();
+}
+
+// public void set_IdentityKey(string value) :40
+void ItemsWindowList__set_IdentityKey_fn(ItemsWindowList* __this, uString* value)
+{
+    __this->IdentityKey(value);
+}
+
+// private void ItemsChanged() :64
+void ItemsWindowList__ItemsChanged_fn(ItemsWindowList* __this)
+{
+    __this->ItemsChanged();
+}
+
+// public ItemsWindowList New(Fuse.Reactive.ItemsWindowList<T>.IListener listener) :29
+void ItemsWindowList__New1_fn(uType* __type, uObject* listener, ItemsWindowList** __retval)
+{
+    *__retval = ItemsWindowList::New1(__type, listener);
+}
+
+// protected override sealed void OnAddedWindowItem(int windowIndex, T wi) :200
+void ItemsWindowList__OnAddedWindowItem_fn(ItemsWindowList* __this, int32_t* windowIndex, ::g::Fuse::Reactive::WindowListItem* wi)
+{
+    uType* __types[] = {
+        __this->__type->Precalced(1/*Fuse.Reactive.ItemsWindowList<T>.IListener*/),
+    };
+    int32_t windowIndex_ = *windowIndex;
+
+    if (__this->_isRooted)
+        ItemsWindowList__IListener::AddedWindowItem(uInterface(uPtr(__this->_listener), __types[0]), windowIndex_, wi);
+}
+
+// protected override sealed void OnErrorMessageChanged(string _errorMessage) :185
+void ItemsWindowList__OnErrorMessageChanged_fn(ItemsWindowList* __this, uString* _errorMessage1)
+{
+    uType* __types[] = {
+        __this->__type->Precalced(1/*Fuse.Reactive.ItemsWindowList<T>.IListener*/),
+    };
+
+    if (!__this->_isRooted)
+        return;
+
+    if (::g::Uno::String::op_Inequality(_errorMessage1, NULL))
+        ItemsWindowList__IListener::SetFailed(uInterface(uPtr(__this->_listener), __types[0]), _errorMessage1);
+    else
+        ItemsWindowList__IListener::SetValid(uInterface(uPtr(__this->_listener), __types[0]));
+}
+
+// protected override sealed void OnRemovedWindowItem(T wi) :195
+void ItemsWindowList__OnRemovedWindowItem_fn(ItemsWindowList* __this, ::g::Fuse::Reactive::WindowListItem* wi)
+{
+    uType* __types[] = {
+        __this->__type->Precalced(1/*Fuse.Reactive.ItemsWindowList<T>.IListener*/),
+    };
+
+    if (__this->_isRooted)
+        ItemsWindowList__IListener::RemovedWindowItem(uInterface(uPtr(__this->_listener), __types[0]), wi);
+}
+
+// private void PatchTo(Fuse.IArray values) :238
+void ItemsWindowList__PatchTo_fn(ItemsWindowList* __this, uObject* values)
+{
+    __this->PatchTo(values);
+}
+
+// private void Repopulate() :110
+void ItemsWindowList__Repopulate_fn(ItemsWindowList* __this)
+{
+    __this->Repopulate();
+}
+
+// public void Rooted() :97
+void ItemsWindowList__Rooted_fn(ItemsWindowList* __this)
+{
+    __this->Rooted();
+}
+
+// public void SetItems(object value) :50
+void ItemsWindowList__SetItems_fn(ItemsWindowList* __this, uObject* value)
+{
+    __this->SetItems(value);
+}
+
+// private bool TryUpdateAt(int dataIndex, object newData) :220
+void ItemsWindowList__TryUpdateAt_fn(ItemsWindowList* __this, int32_t* dataIndex, uObject* newData, bool* __retval)
+{
+    *__retval = __this->TryUpdateAt(*dataIndex, newData);
+}
+
+// public void Unrooted() :103
+void ItemsWindowList__Unrooted_fn(ItemsWindowList* __this)
+{
+    __this->Unrooted();
+}
+
+// public ItemsWindowList(Fuse.Reactive.ItemsWindowList<T>.IListener listener) [instance] :29
+void ItemsWindowList::ctor_1(uObject* listener)
+{
+    ctor_();
+    _listener = listener;
+}
+
+// private void DisposeItemsSubscription() [instance] :76
+void ItemsWindowList::DisposeItemsSubscription()
+{
+    if (_itemsSubscription != NULL)
+    {
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_itemsSubscription), ::TYPES[1/*Uno.IDisposable*/]));
+        _itemsSubscription = NULL;
+    }
+}
+
+// private object GetData(int dataIndex) [instance] :85
+uObject* ItemsWindowList::GetData(int32_t dataIndex)
+{
+    uArray* e = uAs<uArray*>(_items, ::TYPES[14/*object[]*/]);
+
+    if (e != NULL)
+        return uPtr(e)->Strong<uObject*>(dataIndex);
+
+    uObject* a = uAs<uObject*>(_items, ::TYPES[17/*Fuse.IArray*/]);
+
+    if (a != NULL)
+        return ::g::Fuse::IArray::Item(uInterface(uPtr(a), ::TYPES[17/*Fuse.IArray*/]), dataIndex);
+
+    return NULL;
+}
+
+// private object GetDataId(object data) [instance] :147
+uObject* ItemsWindowList::GetDataId(uObject* data)
+{
+    switch (Identity)
+    {
+        case 0:
+            return NULL;
+        case 1:
+            return GetDataKey(data, IdentityKey());
+        case 2:
+            return data;
+    }
+
+    return NULL;
+}
+
+// internal object GetDataKey(object data, string key) [instance] :130
+uObject* ItemsWindowList::GetDataKey(uObject* data, uString* key)
+{
+    uObject* so = uAs<uObject*>(data, ::TYPES[37/*Fuse.IObject*/]);
+
+    if ((so != NULL) && ::g::Uno::String::op_Inequality(key, NULL))
+    {
+        if (::g::Fuse::IObject::ContainsKey(uInterface(uPtr(so), ::TYPES[37/*Fuse.IObject*/]), key))
+            return ::g::Fuse::IObject::Item(uInterface(uPtr(so), ::TYPES[37/*Fuse.IObject*/]), key);
+    }
+
+    return NULL;
+}
+
+// public object GetItems() [instance] :48
+uObject* ItemsWindowList::GetItems()
+{
+    return _items;
+}
+
+// public string get_IdentityKey() [instance] :39
+uString* ItemsWindowList::IdentityKey()
+{
+    return _identityKey;
+}
+
+// public void set_IdentityKey(string value) [instance] :40
+void ItemsWindowList::IdentityKey(uString* value)
+{
+    _identityKey = value;
+    Identity = 1;
+}
+
+// private void ItemsChanged() [instance] :64
+void ItemsWindowList::ItemsChanged()
+{
+    DisposeItemsSubscription();
+    Repopulate();
+    uObject* obs = uAs<uObject*>(_items, ::TYPES[19/*Fuse.Reactive.IObservableArray*/]);
+
+    if (obs != NULL)
+        _itemsSubscription = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[19/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
+}
+
+// private void PatchTo(Fuse.IArray values) [instance] :238
+void ItemsWindowList::PatchTo(uObject* values)
+{
+    ::g::Uno::Collections::List* ret2;
+    ::g::Fuse::Reactive::Internal::PatchItem ret3;
+    ::g::Uno::Collections::List* newIds = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[47/*Uno.Collections.List`1*/]->MakeType(uObject_typeof(), NULL));
+    int32_t limit = CalcOffsetLimitCountOf(::g::Fuse::IArray::Length(uInterface(uPtr(values), ::TYPES[17/*Fuse.IArray*/])));
+
+    for (int32_t i = 0; i < limit; ++i)
+        ::g::Uno::Collections::List__Add_fn(uPtr(newIds), GetDataId(::g::Fuse::IArray::Item(uInterface(uPtr(values), ::TYPES[17/*Fuse.IArray*/]), i + Offset())));
+
+    ::g::Uno::Collections::List* curIds = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[47/*Uno.Collections.List`1*/]->MakeType(uObject_typeof(), NULL));
+
+    for (int32_t i1 = 0; i1 < WindowItemCount(); ++i1)
+        ::g::Uno::Collections::List__Add_fn(uPtr(curIds), uPtr((::g::Fuse::Reactive::WindowListItem*)GetWindowItem(i1))->Id());
+
+    ::g::Uno::Collections::List* ops = (::g::Fuse::Reactive::Internal::PatchList__Patch_fn(::g::Fuse::Reactive::Internal::PatchList_typeof()->MakeMethod(0/*Patch<object>*/, uObject_typeof(), NULL), (uObject*)curIds, (uObject*)newIds, uCRef<int32_t>(1), NULL, &ret2), ret2);
+
+    for (int32_t i2 = 0; i2 < uPtr(ops)->Count(); ++i2)
+    {
+        ::g::Fuse::Reactive::Internal::PatchItem op = (::g::Uno::Collections::List__get_Item_fn(uPtr(ops), uCRef<int32_t>(i2), &ret3), ret3);
+
+        switch (op.Op)
+        {
+            case 0:
+            {
+                RemovedDataAt(op.A + Offset());
+                break;
+            }
+            case 1:
+            {
+                InsertWindowItem(DataToWindowIndex(op.A + Offset()), op.Data);
+                break;
+            }
+            case 2:
+            {
+                if (!TryUpdateAt(op.A + Offset(), ::g::Fuse::IArray::Item(uInterface(uPtr(values), ::TYPES[17/*Fuse.IArray*/]), op.Data)))
+                {
+                    RemovedDataAt(op.A + Offset());
+                    InsertWindowItem(DataToWindowIndex(op.A + Offset()), op.Data);
+                }
+
+                break;
+            }
+        }
+    }
+}
+
+// private void Repopulate() [instance] :110
+void ItemsWindowList::Repopulate()
+{
+    RemoveAll();
+    uArray* e = uAs<uArray*>(_items, ::TYPES[14/*object[]*/]);
+
+    if (e != NULL)
+
+        for (int32_t i = 0; i < uPtr(e)->Length(); i++)
+            InsertedDataAt(i);
+    else
+    {
+        uObject* a = uAs<uObject*>(_items, ::TYPES[17/*Fuse.IArray*/]);
+
+        if (a != NULL)
+
+            for (int32_t i1 = 0; i1 < ::g::Fuse::IArray::Length(uInterface(uPtr(a), ::TYPES[17/*Fuse.IArray*/])); i1++)
+                InsertedDataAt(i1);
+    }
+}
+
+// public void Rooted() [instance] :97
+void ItemsWindowList::Rooted()
+{
+    _isRooted = true;
+    ItemsChanged();
+}
+
+// public void SetItems(object value) [instance] :50
+void ItemsWindowList::SetItems(uObject* value)
+{
+    _items = value;
+
+    if (!_isRooted)
+        return;
+
+    ItemsChanged();
+}
+
+// private bool TryUpdateAt(int dataIndex, object newData) [instance] :220
+bool ItemsWindowList::TryUpdateAt(int32_t dataIndex, uObject* newData)
+{
+    if (Identity == 0)
+        return false;
+
+    int32_t windowIndex = DataToWindowIndex(dataIndex);
+
+    if ((windowIndex < 0) || (windowIndex >= WindowItemCount()))
+        return false;
+
+    ::g::Fuse::Reactive::WindowListItem* wi = (::g::Fuse::Reactive::WindowListItem*)GetWindowItem(windowIndex);
+    uObject* newId = GetDataId(newData);
+
+    if ((uPtr(wi)->Id() == NULL) || !::g::Uno::Object::Equals1(uPtr(wi)->Id(), newId))
+        return false;
+
+    uPtr(wi)->Data(newData);
+    return true;
+}
+
+// public void Unrooted() [instance] :103
+void ItemsWindowList::Unrooted()
+{
+    RemoveAll();
+    DisposeItemsSubscription();
+    _isRooted = false;
+}
+
+// public ItemsWindowList New(Fuse.Reactive.ItemsWindowList<T>.IListener listener) [static] :29
+ItemsWindowList* ItemsWindowList::New1(uType* __type, uObject* listener)
+{
+    ItemsWindowList* obj1 = (ItemsWindowList*)uNew(__type);
+    obj1->ctor_1(listener);
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\ValueObserver.uno
 // ---------------------------------------------------------------------------------------------
 
-// public abstract interface ValueForwarder.IValueListener :87
+// public abstract interface ValueForwarder.IValueListener :108
 // {
 uInterfaceType* ValueForwarder__IValueListener_typeof()
 {
@@ -5576,10 +6877,10 @@ uInterfaceType* ValueForwarder__IValueListener_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\IExpression.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\IExpression.uno
 // -------------------------------------------------------------------------------------------
 
-// public abstract interface IWriteable :30
+// public abstract interface IWriteable :37
 // {
 uInterfaceType* IWriteable_typeof()
 {
@@ -5591,7 +6892,7 @@ uInterfaceType* IWriteable_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Scripting.JavaScript\1.4.2\JavaScript.Dependencies.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Scripting.JavaScript\1.9.0\JavaScript.Dependencies.uno
 // -------------------------------------------------------------------------------------------------------------------
 
 // public partial sealed class JavaScript :10
@@ -5603,22 +6904,24 @@ static void JavaScript_build(uType* type)
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(JavaScript_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(JavaScript_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(JavaScript_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(JavaScript_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(JavaScript_type, interface5),
-        ::g::Fuse::Scripting::IModuleProvider_typeof(), offsetof(JavaScript_type, interface6),
-        ::g::Fuse::Reactive::ValueForwarder__IValueListener_typeof(), offsetof(JavaScript_type, interface7),
-        ::g::Fuse::Node__ISiblingDataProvider_typeof(), offsetof(JavaScript_type, interface8),
-        ::g::Fuse::Reactive::IContext_typeof(), offsetof(JavaScript_type, interface9));
-    type->SetFields(15,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(JavaScript_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(JavaScript_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(JavaScript_type, interface6),
+        ::g::Fuse::Scripting::IModuleProvider_typeof(), offsetof(JavaScript_type, interface7),
+        ::g::Fuse::Reactive::ValueForwarder__IValueListener_typeof(), offsetof(JavaScript_type, interface8),
+        ::g::Fuse::Node__ISiblingDataProvider_typeof(), offsetof(JavaScript_type, interface9),
+        ::g::Fuse::Reactive::IContext_typeof(), offsetof(JavaScript_type, interface10));
+    type->SetFields(17,
         ::g::Uno::Collections::List_typeof()->MakeType(JavaScript__Dependency_typeof(), NULL), offsetof(JavaScript, _dependencies), 0,
-        ::g::Fuse::Scripting::ModuleInstance_typeof(), offsetof(JavaScript, _moduleInstance), 0,
+        ::g::Fuse::Scripting::JavaScript::ModuleInstance_typeof(), offsetof(JavaScript, _moduleInstance), 0,
+        ::g::Uno::Bool_typeof(), offsetof(JavaScript, _preserveModuleInstance), 0,
         ::g::Uno::UX::NameTable_typeof(), offsetof(JavaScript, _nameTable), 0,
-        ::g::Fuse::Scripting::RootableScriptModule_typeof(), offsetof(JavaScript, _scriptModule), 0,
+        ::g::Fuse::Scripting::JavaScript::RootableScriptModule_typeof(), offsetof(JavaScript, _scriptModule), 0,
         uObject_typeof(), offsetof(JavaScript, _currentDc), 0,
         ::g::Uno::IDisposable_typeof(), offsetof(JavaScript, _sub), 0,
         uObject_typeof(), offsetof(JavaScript, _siblingData), 0,
         ::g::Uno::Int_typeof(), (uintptr_t)&JavaScript::_javaScriptCounter_, uFieldFlagsStatic,
-        ::g::Fuse::Scripting::ThreadWorker_typeof(), (uintptr_t)&JavaScript::_worker_, uFieldFlagsStatic);
+        ::g::Fuse::Scripting::JavaScript::ThreadWorker_typeof(), (uintptr_t)&JavaScript::Worker_, uFieldFlagsStatic);
 }
 
 JavaScript_type* JavaScript_typeof()
@@ -5628,147 +6931,153 @@ JavaScript_type* JavaScript_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Behavior_typeof();
-    options.FieldCount = 24;
-    options.InterfaceCount = 10;
+    options.FieldCount = 27;
+    options.InterfaceCount = 11;
     options.ObjectSize = sizeof(JavaScript);
     options.TypeSize = sizeof(JavaScript_type);
     type = (JavaScript_type*)uClassType::New("Fuse.Reactive.JavaScript", options);
     type->fp_build_ = JavaScript_build;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))JavaScript__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))JavaScript__OnUnrooted_fn;
-    type->interface9.fp_Subscribe = (void(*)(uObject*, uObject*, uString*, uObject*, uObject**))JavaScript__FuseReactiveIContextSubscribe_fn;
-    type->interface9.fp_SubscribeResource = (void(*)(uObject*, uObject*, uString*, uObject*, uObject**))JavaScript__FuseReactiveIContextSubscribeResource_fn;
-    type->interface6.fp_GetModule = (void(*)(uObject*, ::g::Fuse::Scripting::Module**))JavaScript__FuseScriptingIModuleProviderGetModule_fn;
-    type->interface7.fp_NewValue = (void(*)(uObject*, uObject*))JavaScript__FuseReactiveValueForwarderIValueListenerNewValue_fn;
-    type->interface9.fp_get_Node = (void(*)(uObject*, ::g::Fuse::Node**))JavaScript__FuseReactiveIContextget_Node_fn;
-    type->interface8.fp_get_Data = (void(*)(uObject*, uObject**))JavaScript__FuseNodeISiblingDataProviderget_Data_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface10.fp_Subscribe = (void(*)(uObject*, uObject*, uString*, uObject*, uObject**))JavaScript__FuseReactiveIContextSubscribe_fn;
+    type->interface10.fp_SubscribeResource = (void(*)(uObject*, uObject*, uString*, uObject*, uObject**))JavaScript__FuseReactiveIContextSubscribeResource_fn;
+    type->interface7.fp_GetModule = (void(*)(uObject*, ::g::Fuse::Scripting::Module**))JavaScript__FuseScriptingIModuleProviderGetModule_fn;
+    type->interface8.fp_NewValue = (void(*)(uObject*, uObject*))JavaScript__FuseReactiveValueForwarderIValueListenerNewValue_fn;
+    type->interface8.fp_LostValue = (void(*)(uObject*))JavaScript__FuseReactiveValueForwarderIValueListenerLostValue_fn;
+    type->interface9.fp_TryGetDataProvider = (void(*)(uObject*, int32_t*, uObject**, int32_t*))JavaScript__FuseNodeISiblingDataProviderTryGetDataProvider_fn;
+    type->interface10.fp_get_Node = (void(*)(uObject*, ::g::Fuse::Node**))JavaScript__FuseReactiveIContextget_Node_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
-// public JavaScript(Uno.UX.NameTable nameTable) :33
+// public JavaScript(Uno.UX.NameTable nameTable) :39
 void JavaScript__ctor_3_fn(JavaScript* __this, ::g::Uno::UX::NameTable* nameTable)
 {
     __this->ctor_3(nameTable);
 }
 
-// public string get_Code() :129
-void JavaScript__get_Code_fn(JavaScript* __this, uString** __retval)
-{
-    *__retval = __this->Code();
-}
-
-// public void set_Code(string value) :130
-void JavaScript__set_Code_fn(JavaScript* __this, uString* value)
-{
-    __this->Code(value);
-}
-
-// public Uno.Collections.IList<Fuse.Reactive.JavaScript.Dependency> get_Dependencies() :83
+// public Uno.Collections.IList<Fuse.Reactive.JavaScript.Dependency> get_Dependencies() :88
 void JavaScript__get_Dependencies_fn(JavaScript* __this, uObject** __retval)
 {
     *__retval = __this->Dependencies();
 }
 
-// internal void DispatchEvaluate() :124
+// internal void DispatchEvaluate() :129
 void JavaScript__DispatchEvaluate_fn(JavaScript* __this)
 {
     __this->DispatchEvaluate();
 }
 
-// private void DispatchEvaluateIfDependenciesReady() :108
+// private void DispatchEvaluateIfDependenciesReady() :113
 void JavaScript__DispatchEvaluateIfDependenciesReady_fn(JavaScript* __this)
 {
     __this->DispatchEvaluateIfDependenciesReady();
 }
 
-// private void DisposeDependencySubscriptions() :101
+// private void DisposeDependencySubscriptions() :106
 void JavaScript__DisposeDependencySubscriptions_fn(JavaScript* __this)
 {
     __this->DisposeDependencySubscriptions();
 }
 
-// private void DisposeModuleInstance() :131
+// protected void DisposeModuleInstance() :137
 void JavaScript__DisposeModuleInstance_fn(JavaScript* __this)
 {
     __this->DisposeModuleInstance();
 }
 
-// private void DisposeSubscription() :116
+// private void DisposeSubscription() :136
 void JavaScript__DisposeSubscription_fn(JavaScript* __this)
 {
     __this->DisposeSubscription();
 }
 
-// public Uno.UX.FileSource get_File() :150
+// internal static void EnsureVMStarted() :32
+void JavaScript__EnsureVMStarted_fn()
+{
+    JavaScript::EnsureVMStarted();
+}
+
+// public Uno.UX.FileSource get_File() :170
 void JavaScript__get_File_fn(JavaScript* __this, ::g::Uno::UX::FileSource** __retval)
 {
     *__retval = __this->File();
 }
 
-// public void set_File(Uno.UX.FileSource value) :151
+// public void set_File(Uno.UX.FileSource value) :171
 void JavaScript__set_File_fn(JavaScript* __this, ::g::Uno::UX::FileSource* value)
 {
     __this->File(value);
 }
 
-// public string get_FileName() :158
+// public string get_FileName() :178
 void JavaScript__get_FileName_fn(JavaScript* __this, uString** __retval)
 {
     *__retval = __this->FileName();
 }
 
-// public void set_FileName(string value) :159
+// public void set_FileName(string value) :179
 void JavaScript__set_FileName_fn(JavaScript* __this, uString* value)
 {
     __this->FileName(value);
 }
 
-// private object Fuse.Node.ISiblingDataProvider.get_Data() :113
-void JavaScript__FuseNodeISiblingDataProviderget_Data_fn(JavaScript* __this, uObject** __retval)
+// private Fuse.Node.ContextDataResult Fuse.Node.ISiblingDataProvider.TryGetDataProvider(Fuse.Node.DataType type, object& provider) :130
+void JavaScript__FuseNodeISiblingDataProviderTryGetDataProvider_fn(JavaScript* __this, int32_t* type, uObject** provider, int32_t* __retval)
 {
-    return *__retval = __this->_siblingData, void();
+    int32_t type_ = *type;
+    *provider = (type_ == 0) ? (uObject*)__this->_siblingData : NULL;
+    return *__retval = 0, void();
 }
 
-// private Fuse.Node Fuse.Reactive.IContext.get_Node() :145
+// private Fuse.Node Fuse.Reactive.IContext.get_Node() :154
 void JavaScript__FuseReactiveIContextget_Node_fn(JavaScript* __this, ::g::Fuse::Node** __retval)
 {
     return *__retval = __this, void();
 }
 
-// private Uno.IDisposable Fuse.Reactive.IContext.Subscribe(Fuse.Reactive.IExpression source, string key, Fuse.Reactive.IListener listener) :140
+// private Uno.IDisposable Fuse.Reactive.IContext.Subscribe(Fuse.Reactive.IExpression source, string key, Fuse.Reactive.IListener listener) :149
 void JavaScript__FuseReactiveIContextSubscribe_fn(JavaScript* __this, uObject* source, uString* key, uObject* listener, uObject** __retval)
 {
     return *__retval = (uObject*)::g::Fuse::Reactive::DataSubscription::New1(source, __this, key, listener), void();
 }
 
-// private Uno.IDisposable Fuse.Reactive.IContext.SubscribeResource(Fuse.Reactive.IExpression source, string key, Fuse.Reactive.IListener listener) :147
+// private Uno.IDisposable Fuse.Reactive.IContext.SubscribeResource(Fuse.Reactive.IExpression source, string key, Fuse.Reactive.IListener listener) :156
 void JavaScript__FuseReactiveIContextSubscribeResource_fn(JavaScript* __this, uObject* source, uString* key, uObject* listener, uObject** __retval)
 {
     return *__retval = (uObject*)::g::Fuse::Reactive::ResourceSubscription::New1(source, __this, key, listener, uObject_typeof()), void();
 }
 
-// private void Fuse.Reactive.ValueForwarder.IValueListener.NewValue(object data) :98
+// private void Fuse.Reactive.ValueForwarder.IValueListener.LostValue() :117
+void JavaScript__FuseReactiveValueForwarderIValueListenerLostValue_fn(JavaScript* __this)
+{
+    __this->SetSiblingData(NULL);
+}
+
+// private void Fuse.Reactive.ValueForwarder.IValueListener.NewValue(object data) :112
 void JavaScript__FuseReactiveValueForwarderIValueListenerNewValue_fn(JavaScript* __this, uObject* data)
 {
     __this->SetSiblingData(data);
 }
 
-// private Fuse.Scripting.Module Fuse.Scripting.IModuleProvider.GetModule() :68
+// private Fuse.Scripting.Module Fuse.Scripting.IModuleProvider.GetModule() :82
 void JavaScript__FuseScriptingIModuleProviderGetModule_fn(JavaScript* __this, ::g::Fuse::Scripting::Module** __retval)
 {
     if (__this->IsRootingCompleted())
@@ -5777,33 +7086,44 @@ void JavaScript__FuseScriptingIModuleProviderGetModule_fn(JavaScript* __this, ::
     return *__retval = __this->_scriptModule, void();
 }
 
-// public int get_LineNumber() :143
-void JavaScript__get_LineNumber_fn(JavaScript* __this, int* __retval)
+// public int get_LineNumber() :163
+void JavaScript__get_LineNumber_fn(JavaScript* __this, int32_t* __retval)
 {
     *__retval = __this->LineNumber();
 }
 
-// public void set_LineNumber(int value) :144
-void JavaScript__set_LineNumber_fn(JavaScript* __this, int* value)
+// public void set_LineNumber(int value) :164
+void JavaScript__set_LineNumber_fn(JavaScript* __this, int32_t* value)
 {
     __this->LineNumber(*value);
 }
 
-// public JavaScript New(Uno.UX.NameTable nameTable) :33
+// public JavaScript New(Uno.UX.NameTable nameTable) :39
 void JavaScript__New2_fn(::g::Uno::UX::NameTable* nameTable, JavaScript** __retval)
 {
     *__retval = JavaScript::New2(nameTable);
 }
 
-// protected override sealed void OnRooted() :42
+// protected void OnBeforeSubscribeToDependenciesAndDispatchEvaluate() :46
+void JavaScript__OnBeforeSubscribeToDependenciesAndDispatchEvaluate_fn(JavaScript* __this)
+{
+    __this->OnBeforeSubscribeToDependenciesAndDispatchEvaluate();
+}
+
+// protected override sealed void OnRooted() :48
 void JavaScript__OnRooted_fn(JavaScript* __this)
 {
     ::g::Fuse::Node__OnRooted_fn(__this);
     JavaScript::_javaScriptCounter_++;
-    __this->SubscribeToDependenciesAndDispatchEvaluate();
+    __this->OnBeforeSubscribeToDependenciesAndDispatchEvaluate();
+
+    if ((__this->_moduleInstance == NULL) || !uPtr(__this->_moduleInstance)->ReflectExports())
+        __this->SubscribeToDependenciesAndDispatchEvaluate();
+
+    __this->_preserveModuleInstance = false;
 }
 
-// protected override sealed void OnUnrooted() :49
+// protected override sealed void OnUnrooted() :63
 void JavaScript__OnUnrooted_fn(JavaScript* __this)
 {
     ::g::Fuse::Scripting::NativeModule* ret5;
@@ -5816,137 +7136,123 @@ void JavaScript__OnUnrooted_fn(JavaScript* __this)
         ::g::Fuse::Scripting::AppInitialized::Reset();
         uObject* enum1 = (uObject*)::g::Uno::Collections::IEnumerable::GetEnumerator(uInterface(uPtr((uObject*)::g::Uno::UX::Resource::GetGlobalsOfType(::g::Uno::UX::Resource_typeof()->MakeMethod(0/*GetGlobalsOfType<Fuse.Scripting.NativeModule>*/, ::g::Fuse::Scripting::NativeModule_typeof(), NULL))), ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Scripting::NativeModule_typeof(), NULL)));
 
-        try
         {
+            try
             {
-                while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum1), ::TYPES[38/*Uno.Collections.IEnumerator*/])))
                 {
-                    ::g::Fuse::Scripting::NativeModule* nm = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum1), ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Fuse::Scripting::NativeModule_typeof(), NULL)), &ret5), ret5);
-                    uPtr(nm)->InternalReset();
+                    while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum1), ::TYPES[40/*Uno.Collections.IEnumerator*/])))
+                    {
+                        ::g::Fuse::Scripting::NativeModule* nm = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum1), ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Fuse::Scripting::NativeModule_typeof(), NULL)), &ret5), ret5);
+                        uPtr(nm)->InternalReset();
+                    }
                 }
             }
-            {
-                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[0/*Uno.IDisposable*/]));
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
             {
-                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[0/*Uno.IDisposable*/]));
+                {
+                    ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[1/*Uno.IDisposable*/]));
+                }
+                                throw __t;
+                goto __after_finally_2;
             }
-                        throw __t;
+
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[1/*Uno.IDisposable*/]));
+            }
+            __after_finally_2:;
         }
     }
 
     ::g::Fuse::Node__OnUnrooted_fn(__this);
 }
 
-// internal Fuse.Scripting.RootableScriptModule get_ScriptModule() :30
-void JavaScript__get_ScriptModule_fn(JavaScript* __this, ::g::Fuse::Scripting::RootableScriptModule** __retval)
+// internal Fuse.Scripting.JavaScript.RootableScriptModule get_ScriptModule() :29
+void JavaScript__get_ScriptModule_fn(JavaScript* __this, ::g::Fuse::Scripting::JavaScript::RootableScriptModule** __retval)
 {
     *__retval = __this->ScriptModule();
 }
 
-// internal void SetDataContext(object newDc) :77
+// internal void SetDataContext(object newDc) :91
 void JavaScript__SetDataContext_fn(JavaScript* __this, uObject* newDc)
 {
     __this->SetDataContext(newDc);
 }
 
-// private void SetSiblingData(object data) :104
+// private void SetSiblingData(object data) :123
 void JavaScript__SetSiblingData_fn(JavaScript* __this, uObject* data)
 {
     __this->SetSiblingData(data);
 }
 
-// private void SubscribeToDependenciesAndDispatchEvaluate() :92
+// private void SubscribeToDependenciesAndDispatchEvaluate() :97
 void JavaScript__SubscribeToDependenciesAndDispatchEvaluate_fn(JavaScript* __this)
 {
     __this->SubscribeToDependenciesAndDispatchEvaluate();
 }
 
-// internal static Fuse.Scripting.ThreadWorker get_Worker() :26
-void JavaScript__get_Worker_fn(::g::Fuse::Scripting::ThreadWorker** __retval)
-{
-    *__retval = JavaScript::Worker();
-}
+int32_t JavaScript::_javaScriptCounter_;
+uSStrong< ::g::Fuse::Scripting::JavaScript::ThreadWorker*> JavaScript::Worker_;
 
-int JavaScript::_javaScriptCounter_;
-uSStrong< ::g::Fuse::Scripting::ThreadWorker*> JavaScript::_worker_;
-
-// public JavaScript(Uno.UX.NameTable nameTable) [instance] :33
+// public JavaScript(Uno.UX.NameTable nameTable) [instance] :39
 void JavaScript::ctor_3(::g::Uno::UX::NameTable* nameTable)
 {
     ctor_2();
-
-    if (JavaScript::_worker_ == NULL)
-        JavaScript::_worker_ = ::g::Fuse::Scripting::ThreadWorker::New1();
-
+    JavaScript::EnsureVMStarted();
     _nameTable = nameTable;
-    _scriptModule = ::g::Fuse::Scripting::RootableScriptModule::New2(JavaScript::_worker_, nameTable);
+    _scriptModule = ::g::Fuse::Scripting::JavaScript::RootableScriptModule::New2(JavaScript::Worker_, nameTable);
 }
 
-// public string get_Code() [instance] :129
-uString* JavaScript::Code()
-{
-    return uPtr(_scriptModule)->Code();
-}
-
-// public void set_Code(string value) [instance] :130
-void JavaScript::Code(uString* value)
-{
-    if (::g::Uno::String::op_Inequality(uPtr(_scriptModule)->Code(), value))
-        uPtr(_scriptModule)->Code(value);
-}
-
-// public Uno.Collections.IList<Fuse.Reactive.JavaScript.Dependency> get_Dependencies() [instance] :83
+// public Uno.Collections.IList<Fuse.Reactive.JavaScript.Dependency> get_Dependencies() [instance] :88
 uObject* JavaScript::Dependencies()
 {
     if (_dependencies == NULL)
-        _dependencies = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[45/*Uno.Collections.List`1*/]->MakeType(JavaScript__Dependency_typeof(), NULL)));
+        _dependencies = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[47/*Uno.Collections.List`1*/]->MakeType(JavaScript__Dependency_typeof(), NULL)));
 
     return (uObject*)_dependencies;
 }
 
-// internal void DispatchEvaluate() [instance] :124
+// internal void DispatchEvaluate() [instance] :129
 void JavaScript::DispatchEvaluate()
 {
     if (!IsRootingStarted())
         return;
 
     DisposeModuleInstance();
-    _moduleInstance = ::g::Fuse::Scripting::ModuleInstance::New2(JavaScript::Worker(), this);
+    _moduleInstance = ::g::Fuse::Scripting::JavaScript::ModuleInstance::New2((uObject*)JavaScript::Worker_, this);
 }
 
-// private void DispatchEvaluateIfDependenciesReady() [instance] :108
+// private void DispatchEvaluateIfDependenciesReady() [instance] :113
 void JavaScript::DispatchEvaluateIfDependenciesReady()
 {
     JavaScript__Dependency* ret3;
 
     if (_dependencies != NULL)
 
-        for (int i = 0; i < uPtr(_dependencies)->Count(); i++)
-            if (!uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_dependencies), uCRef<int>(i), &ret3), ret3))->HasValue)
+        for (int32_t i = 0; i < uPtr(_dependencies)->Count(); i++)
+            if (!uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_dependencies), uCRef<int32_t>(i), &ret3), ret3))->HasValue)
                 return;
 
     DispatchEvaluate();
 }
 
-// private void DisposeDependencySubscriptions() [instance] :101
+// private void DisposeDependencySubscriptions() [instance] :106
 void JavaScript::DisposeDependencySubscriptions()
 {
     JavaScript__Dependency* ret4;
 
     if (_dependencies != NULL)
 
-        for (int i = 0; i < uPtr(_dependencies)->Count(); i++)
-            uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_dependencies), uCRef<int>(i), &ret4), ret4))->Unsubscribe();
+        for (int32_t i = 0; i < uPtr(_dependencies)->Count(); i++)
+            uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_dependencies), uCRef<int32_t>(i), &ret4), ret4))->Unsubscribe();
 }
 
-// private void DisposeModuleInstance() [instance] :131
+// protected void DisposeModuleInstance() [instance] :137
 void JavaScript::DisposeModuleInstance()
 {
+    if (_preserveModuleInstance)
+        return;
+
     if (_moduleInstance != NULL)
     {
         uPtr(_moduleInstance)->Dispose();
@@ -5954,65 +7260,70 @@ void JavaScript::DisposeModuleInstance()
     }
 }
 
-// private void DisposeSubscription() [instance] :116
+// private void DisposeSubscription() [instance] :136
 void JavaScript::DisposeSubscription()
 {
     if (_sub != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_sub), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_sub), ::TYPES[1/*Uno.IDisposable*/]));
         _sub = NULL;
     }
 }
 
-// public Uno.UX.FileSource get_File() [instance] :150
+// public Uno.UX.FileSource get_File() [instance] :170
 ::g::Uno::UX::FileSource* JavaScript::File()
 {
     return uPtr(_scriptModule)->File();
 }
 
-// public void set_File(Uno.UX.FileSource value) [instance] :151
+// public void set_File(Uno.UX.FileSource value) [instance] :171
 void JavaScript::File(::g::Uno::UX::FileSource* value)
 {
     uPtr(_scriptModule)->File(value);
 }
 
-// public string get_FileName() [instance] :158
+// public string get_FileName() [instance] :178
 uString* JavaScript::FileName()
 {
     return uPtr(_scriptModule)->FileName();
 }
 
-// public void set_FileName(string value) [instance] :159
+// public void set_FileName(string value) [instance] :179
 void JavaScript::FileName(uString* value)
 {
     uPtr(_scriptModule)->FileName(value);
 }
 
-// public int get_LineNumber() [instance] :143
-int JavaScript::LineNumber()
+// public int get_LineNumber() [instance] :163
+int32_t JavaScript::LineNumber()
 {
     return uPtr(_scriptModule)->LineNumberOffset();
 }
 
-// public void set_LineNumber(int value) [instance] :144
-void JavaScript::LineNumber(int value)
+// public void set_LineNumber(int value) [instance] :164
+void JavaScript::LineNumber(int32_t value)
 {
     uPtr(_scriptModule)->LineNumberOffset(value);
 }
 
-// internal Fuse.Scripting.RootableScriptModule get_ScriptModule() [instance] :30
-::g::Fuse::Scripting::RootableScriptModule* JavaScript::ScriptModule()
+// protected void OnBeforeSubscribeToDependenciesAndDispatchEvaluate() [instance] :46
+void JavaScript::OnBeforeSubscribeToDependenciesAndDispatchEvaluate()
+{
+}
+
+// internal Fuse.Scripting.JavaScript.RootableScriptModule get_ScriptModule() [instance] :29
+::g::Fuse::Scripting::JavaScript::RootableScriptModule* JavaScript::ScriptModule()
 {
     return _scriptModule;
 }
 
-// internal void SetDataContext(object newDc) [instance] :77
+// internal void SetDataContext(object newDc) [instance] :91
 void JavaScript::SetDataContext(uObject* newDc)
 {
     DisposeSubscription();
     uObject* oldDc = _currentDc;
     _currentDc = newDc;
-    uObject* obs = uAs<uObject*>(newDc, ::TYPES[33/*Fuse.Reactive.IObservable*/]);
+    uObject* obs = uAs<uObject*>(newDc, ::TYPES[35/*Fuse.Reactive.IObservable*/]);
 
     if (obs != NULL)
     {
@@ -6026,7 +7337,7 @@ void JavaScript::SetDataContext(uObject* newDc)
         ::g::Fuse::Scripting::ValueMirror::Unsubscribe1(oldDc);
 }
 
-// private void SetSiblingData(object data) [instance] :104
+// private void SetSiblingData(object data) [instance] :123
 void JavaScript::SetSiblingData(uObject* data)
 {
     uObject* oldSiblingData = _siblingData;
@@ -6036,295 +7347,37 @@ void JavaScript::SetSiblingData(uObject* data)
         uPtr(Parent())->BroadcastDataChange(oldSiblingData, data);
 }
 
-// private void SubscribeToDependenciesAndDispatchEvaluate() [instance] :92
+// private void SubscribeToDependenciesAndDispatchEvaluate() [instance] :97
 void JavaScript::SubscribeToDependenciesAndDispatchEvaluate()
 {
     JavaScript__Dependency* ret6;
 
     if (_dependencies != NULL)
 
-        for (int i = 0; i < uPtr(_dependencies)->Count(); i++)
-            uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_dependencies), uCRef<int>(i), &ret6), ret6))->Subscribe(this);
+        for (int32_t i = 0; i < uPtr(_dependencies)->Count(); i++)
+            uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_dependencies), uCRef<int32_t>(i), &ret6), ret6))->Subscribe(this);
 
     if ((_dependencies == NULL) || (uPtr(_dependencies)->Count() == 0))
         DispatchEvaluateIfDependenciesReady();
 }
 
-// public JavaScript New(Uno.UX.NameTable nameTable) [static] :33
+// internal static void EnsureVMStarted() [static] :32
+void JavaScript::EnsureVMStarted()
+{
+    if (JavaScript::Worker_ == NULL)
+        JavaScript::Worker_ = ::g::Fuse::Scripting::JavaScript::ThreadWorker::New1();
+}
+
+// public JavaScript New(Uno.UX.NameTable nameTable) [static] :39
 JavaScript* JavaScript::New2(::g::Uno::UX::NameTable* nameTable)
 {
     JavaScript* obj2 = (JavaScript*)uNew(JavaScript_typeof());
     obj2->ctor_3(nameTable);
     return obj2;
 }
-
-// internal static Fuse.Scripting.ThreadWorker get_Worker() [static] :26
-::g::Fuse::Scripting::ThreadWorker* JavaScript::Worker()
-{
-    return JavaScript::_worker_;
-}
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\MathFunctions.uno
-// ---------------------------------------------------------------------------------------------------------
-
-// public sealed class Lerp :415
-// {
-static void Lerp_build(uType* type)
-{
-    ::STRINGS[47] = uString::Const("lerp(");
-    ::STRINGS[3] = uString::Const(",");
-    ::STRINGS[4] = uString::Const(")");
-    ::TYPES[5] = ::g::Fuse::Marshal_typeof()->MakeMethod(1/*TryToType<float>*/, ::g::Uno::Float_typeof(), NULL);
-    type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::TernaryOperator_type, interface0));
-    type->SetFields(3);
-}
-
-::g::Fuse::Reactive::TernaryOperator_type* Lerp_typeof()
-{
-    static uSStrong< ::g::Fuse::Reactive::TernaryOperator_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::TernaryOperator_typeof();
-    options.FieldCount = 3;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(Lerp);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::TernaryOperator_type);
-    type = (::g::Fuse::Reactive::TernaryOperator_type*)uClassType::New("Fuse.Reactive.Lerp", options);
-    type->fp_build_ = Lerp_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::TernaryOperator*, uObject*, uObject*, uObject*, uObject**))Lerp__Compute_fn;
-    type->fp_ToString = (void(*)(uObject*, uString**))Lerp__ToString_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::TernaryOperator__Subscribe_fn;
-    return type;
-}
-
-// protected override sealed object Compute(object a, object b, object t) :423
-void Lerp__Compute_fn(Lerp* __this, uObject* a, uObject* b, uObject* t, uObject** __retval)
-{
-    bool ret2;
-    ::g::Uno::Float4 av = ::g::Uno::Float4__New1(0.0f), bv = ::g::Uno::Float4__New1(0.0f);
-    int asize = 0, bsize = 0;
-    float tv = 0.0f;
-
-    if ((!::g::Fuse::Marshal::TryToZeroFloat4(a, &av, &asize) || !::g::Fuse::Marshal::TryToZeroFloat4(b, &bv, &bsize)) || !(::g::Fuse::Marshal__TryToType_fn(::TYPES[5/*Fuse.Marshal.TryToType<float>*/], t, &tv, &ret2), ret2))
-        return *__retval = NULL, void();
-
-    int size = ::g::Uno::Math::Max8(asize, bsize);
-
-    switch (size)
-    {
-        case 1:
-            return *__retval = uBox(::TYPES[7/*float*/], ::g::Uno::Math::Lerp1(av.X, bv.X, tv)), void();
-        case 2:
-            return *__retval = uBox(::g::Uno::Float2_typeof(), ::g::Uno::Math::Lerp2(::g::Uno::Float2__New2(av.X, av.Y), ::g::Uno::Float2__New2(bv.X, bv.Y), tv)), void();
-        case 3:
-            return *__retval = uBox(::g::Uno::Float3_typeof(), ::g::Uno::Math::Lerp4(::g::Uno::Float3__New2(av.X, av.Y, av.Z), ::g::Uno::Float3__New2(bv.X, bv.Y, bv.Z), tv)), void();
-        case 4:
-            return *__retval = uBox(::g::Uno::Float4_typeof(), ::g::Uno::Math::Lerp6(av, bv, tv)), void();
-    }
-
-    return *__retval = NULL, void();
-}
-
-// public override sealed string ToString() :448
-void Lerp__ToString_fn(Lerp* __this, uString** __retval)
-{
-    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::STRINGS[47/*"lerp("*/], __this->First()), ::STRINGS[3/*","*/]), __this->Second()), ::STRINGS[3/*","*/]), __this->Third()), ::STRINGS[4/*")"*/]), void();
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
-
-// public sealed class LessOrEqual :141
-// {
-static void LessOrEqual_build(uType* type)
-{
-    ::STRINGS[48] = uString::Const("<=");
-    type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
-}
-
-::g::Fuse::Reactive::InfixOperator_type* LessOrEqual_typeof()
-{
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(LessOrEqual);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.LessOrEqual", options);
-    type->fp_build_ = LessOrEqual_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))LessOrEqual__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))LessOrEqual__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
-    return type;
-}
-
-// protected override sealed object Compute(object left, object right) :145
-void LessOrEqual__Compute_fn(LessOrEqual* __this, uObject* left, uObject* right, uObject** __retval)
-{
-    if ((left == NULL) || (right == NULL))
-        return *__retval = NULL, void();
-
-    return *__retval = uBox(::TYPES[2/*bool*/], uUnbox<bool>(::TYPES[2/*bool*/], ::g::Fuse::Marshal::LessThan(left, right)) || uUnbox<bool>(::TYPES[2/*bool*/], ::g::Fuse::Marshal::EqualTo(left, right))), void();
-}
-
-// public override sealed string get_Symbol() :151
-void LessOrEqual__get_Symbol_fn(LessOrEqual* __this, uString** __retval)
-{
-    return *__retval = ::STRINGS[48/*"<="*/], void();
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
-
-// public sealed class LessThan :104
-// {
-static void LessThan_build(uType* type)
-{
-    ::STRINGS[49] = uString::Const("<");
-    type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
-}
-
-::g::Fuse::Reactive::InfixOperator_type* LessThan_typeof()
-{
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(LessThan);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.LessThan", options);
-    type->fp_build_ = LessThan_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))LessThan__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))LessThan__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
-    return type;
-}
-
-// protected override sealed object Compute(object left, object right) :108
-void LessThan__Compute_fn(LessThan* __this, uObject* left, uObject* right, uObject** __retval)
-{
-    return *__retval = ::g::Fuse::Marshal::LessThan(left, right), void();
-}
-
-// public override sealed string get_Symbol() :113
-void LessThan__get_Symbol_fn(LessThan* __this, uString** __retval)
-{
-    return *__retval = ::STRINGS[49/*"<"*/], void();
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
-
-// public sealed class LogicalAnd :179
-// {
-static void LogicalAnd_build(uType* type)
-{
-    ::STRINGS[50] = uString::Const("&&");
-    type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
-}
-
-::g::Fuse::Reactive::InfixOperator_type* LogicalAnd_typeof()
-{
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(LogicalAnd);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.LogicalAnd", options);
-    type->fp_build_ = LogicalAnd_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))LogicalAnd__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))LogicalAnd__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
-    return type;
-}
-
-// protected override sealed object Compute(object left, object right) :183
-void LogicalAnd__Compute_fn(LogicalAnd* __this, uObject* left, uObject* right, uObject** __retval)
-{
-    if ((left == NULL) || (right == NULL))
-        return *__retval = NULL, void();
-
-    return *__retval = uBox(::TYPES[2/*bool*/], ::g::Fuse::Marshal::ToBool(left) && ::g::Fuse::Marshal::ToBool(right)), void();
-}
-
-// public override sealed string get_Symbol() :189
-void LogicalAnd__get_Symbol_fn(LogicalAnd* __this, uString** __retval)
-{
-    return *__retval = ::STRINGS[50/*"&&"*/], void();
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
-
-// public sealed class LogicalOr :192
-// {
-static void LogicalOr_build(uType* type)
-{
-    ::STRINGS[51] = uString::Const("||");
-    type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
-}
-
-::g::Fuse::Reactive::InfixOperator_type* LogicalOr_typeof()
-{
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(LogicalOr);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.LogicalOr", options);
-    type->fp_build_ = LogicalOr_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))LogicalOr__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))LogicalOr__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
-    return type;
-}
-
-// protected override sealed object Compute(object left, object right) :196
-void LogicalOr__Compute_fn(LogicalOr* __this, uObject* left, uObject* right, uObject** __retval)
-{
-    if ((left == NULL) || (right == NULL))
-        return *__retval = NULL, void();
-
-    return *__retval = uBox(::TYPES[2/*bool*/], ::g::Fuse::Marshal::ToBool(left) || ::g::Fuse::Marshal::ToBool(right)), void();
-}
-
-// public override sealed string get_Symbol() :202
-void LogicalOr__get_Symbol_fn(LogicalOr* __this, uString** __retval)
-{
-    return *__retval = ::STRINGS[51/*"||"*/], void();
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\LookUp.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\LookUp.uno
 // --------------------------------------------------------------------------------------------------
 
 // public sealed class LookUp :17
@@ -6332,8 +7385,9 @@ void LogicalOr__get_Symbol_fn(LogicalOr* __this, uString** __retval)
 static void LookUp_build(uType* type)
 {
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0));
-    type->SetFields(0,
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2,
         ::g::Fuse::Reactive::Expression_typeof(), offsetof(LookUp, _Collection), 0,
         ::g::Fuse::Reactive::Expression_typeof(), offsetof(LookUp, _Index), 0);
 }
@@ -6345,14 +7399,17 @@ static void LookUp_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
+    options.FieldCount = 4;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(LookUp);
     options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
     type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.LookUp", options);
     type->fp_build_ = LookUp_build;
     type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))LookUp__Subscribe_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))LookUp__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
@@ -6411,47 +7468,47 @@ void LookUp::Index(::g::Fuse::Reactive::Expression* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\LookUp.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\LookUp.uno
 // --------------------------------------------------------------------------------------------------
 
 // private sealed class LookUp.LookUpSubscription :34
 // {
 static void LookUp__LookUpSubscription_build(uType* type)
 {
-    ::STRINGS[52] = uString::Const("Index must be a number: ");
-    ::STRINGS[53] = uString::Const("Index was outside the bounds of the array");
-    ::STRINGS[54] = uString::Const("Object does not contain the given key '");
-    ::STRINGS[21] = uString::Const("'");
-    ::STRINGS[55] = uString::Const("Look-up operator not supported on collection type: ");
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[17] = ::g::Fuse::Reactive::IObservableArray_typeof();
-    ::TYPES[33] = ::g::Fuse::Reactive::IObservable_typeof();
-    ::TYPES[13] = ::g::Fuse::Reactive::IListener_typeof();
-    ::TYPES[15] = ::g::Fuse::IArray_typeof();
-    ::TYPES[34] = ::g::Fuse::MarshalException_typeof();
-    ::TYPES[35] = ::g::Fuse::IObject_typeof();
-    ::TYPES[23] = ::g::Fuse::Reactive::IObservableObject_typeof();
+    ::STRINGS[56] = uString::Const("Index must be a number: ");
+    ::STRINGS[57] = uString::Const("Index was outside the bounds of the array");
+    ::STRINGS[58] = uString::Const("Object does not contain the given key '");
+    ::STRINGS[24] = uString::Const("'");
+    ::STRINGS[59] = uString::Const("Look-up operator not supported on collection type: ");
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
+    ::TYPES[19] = ::g::Fuse::Reactive::IObservableArray_typeof();
+    ::TYPES[35] = ::g::Fuse::Reactive::IObservable_typeof();
+    ::TYPES[17] = ::g::Fuse::IArray_typeof();
+    ::TYPES[36] = ::g::Fuse::MarshalException_typeof();
+    ::TYPES[37] = ::g::Fuse::IObject_typeof();
+    ::TYPES[24] = ::g::Fuse::Reactive::IObservableObject_typeof();
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
+        ::g::Fuse::Marshal_typeof());
     type->SetInterfaces(
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription_type, interface0),
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription_type, interface0),
         ::g::Fuse::Reactive::IObserver_typeof(), offsetof(LookUp__LookUpSubscription_type, interface1),
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(LookUp__LookUpSubscription_type, interface2),
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(LookUp__LookUpSubscription_type, interface2),
         ::g::Fuse::Reactive::ValueForwarder__IValueListener_typeof(), offsetof(LookUp__LookUpSubscription_type, interface3),
         ::g::Fuse::Reactive::IPropertyObserver_typeof(), offsetof(LookUp__LookUpSubscription_type, interface4));
     type->SetFields(0,
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(LookUp__LookUpSubscription, _listener), 0,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(LookUp__LookUpSubscription, _listener), 0,
         ::g::Fuse::Reactive::LookUp_typeof(), offsetof(LookUp__LookUpSubscription, _lu), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _colSub), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _indexSub), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _colSub), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _indexSub), 0,
         ::g::Uno::Bool_typeof(), offsetof(LookUp__LookUpSubscription, _hasCollection), 0,
         uObject_typeof(), offsetof(LookUp__LookUpSubscription, _collection), 0,
         ::g::Uno::Bool_typeof(), offsetof(LookUp__LookUpSubscription, _hasIndex), 0,
         uObject_typeof(), offsetof(LookUp__LookUpSubscription, _index), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _indexForwarder), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _diag), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _colObsObjSub), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _colObservableSub), 0);
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _indexForwarder), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _diag), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _colObsObjSub), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(LookUp__LookUpSubscription, _colObservableSub), 0);
 }
 
 LookUp__LookUpSubscription_type* LookUp__LookUpSubscription_typeof()
@@ -6467,17 +7524,20 @@ LookUp__LookUpSubscription_type* LookUp__LookUpSubscription_typeof()
     options.TypeSize = sizeof(LookUp__LookUpSubscription_type);
     type = (LookUp__LookUpSubscription_type*)uClassType::New("Fuse.Reactive.LookUp.LookUpSubscription", options);
     type->fp_build_ = LookUp__LookUpSubscription_build;
+    type->interface2.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))LookUp__LookUpSubscription__FuseReactiveIListenerOnNewData_fn;
+    type->interface2.fp_OnLostData = (void(*)(uObject*, uObject*))LookUp__LookUpSubscription__FuseReactiveIListenerOnLostData_fn;
     type->interface3.fp_NewValue = (void(*)(uObject*, uObject*))LookUp__LookUpSubscription__FuseReactiveValueForwarderIValueListenerNewValue_fn;
+    type->interface3.fp_LostValue = (void(*)(uObject*))LookUp__LookUpSubscription__FuseReactiveValueForwarderIValueListenerLostValue_fn;
+    type->interface4.fp_OnPropertyChanged = (void(*)(uObject*, uObject*, uString*, uObject*))LookUp__LookUpSubscription__FuseReactiveIPropertyObserverOnPropertyChanged_fn;
     type->interface1.fp_OnClear = (void(*)(uObject*))LookUp__LookUpSubscription__FuseReactiveIObserverOnClear_fn;
     type->interface1.fp_OnSet = (void(*)(uObject*, uObject*))LookUp__LookUpSubscription__FuseReactiveIObserverOnSet_fn;
     type->interface1.fp_OnAdd = (void(*)(uObject*, uObject*))LookUp__LookUpSubscription__FuseReactiveIObserverOnAdd_fn;
-    type->interface1.fp_OnNewAt = (void(*)(uObject*, int*, uObject*))LookUp__LookUpSubscription__FuseReactiveIObserverOnNewAt_fn;
+    type->interface1.fp_OnNewAt = (void(*)(uObject*, int32_t*, uObject*))LookUp__LookUpSubscription__FuseReactiveIObserverOnNewAt_fn;
     type->interface1.fp_OnFailed = (void(*)(uObject*, uString*))LookUp__LookUpSubscription__FuseReactiveIObserverOnFailed_fn;
     type->interface1.fp_OnNewAll = (void(*)(uObject*, uObject*))LookUp__LookUpSubscription__FuseReactiveIObserverOnNewAll_fn;
-    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int*))LookUp__LookUpSubscription__FuseReactiveIObserverOnRemoveAt_fn;
-    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int*, uObject*))LookUp__LookUpSubscription__FuseReactiveIObserverOnInsertAt_fn;
+    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int32_t*))LookUp__LookUpSubscription__FuseReactiveIObserverOnRemoveAt_fn;
+    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int32_t*, uObject*))LookUp__LookUpSubscription__FuseReactiveIObserverOnInsertAt_fn;
     type->interface0.fp_Dispose = (void(*)(uObject*))LookUp__LookUpSubscription__Dispose_fn;
-    type->interface2.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))LookUp__LookUpSubscription__OnNewData_fn;
     return type;
 }
 
@@ -6487,85 +7547,124 @@ void LookUp__LookUpSubscription__ctor__fn(LookUp__LookUpSubscription* __this, ::
     __this->ctor_(lu, context, listener);
 }
 
-// public void ClearDiagnostic() :89
+// public void ClearDiagnostic() :94
 void LookUp__LookUpSubscription__ClearDiagnostic_fn(LookUp__LookUpSubscription* __this)
 {
     __this->ClearDiagnostic();
 }
 
-// public void Dispose() :220
+// public void Dispose() :234
 void LookUp__LookUpSubscription__Dispose_fn(LookUp__LookUpSubscription* __this)
 {
     __this->Dispose();
 }
 
-// private void DisposeCollectionObservableObjectSub() :114
+// private void DisposeCollectionObservableObjectSub() :128
 void LookUp__LookUpSubscription__DisposeCollectionObservableObjectSub_fn(LookUp__LookUpSubscription* __this)
 {
     __this->DisposeCollectionObservableObjectSub();
 }
 
-// private void DisposeCollectionObservableSub() :141
+// private void DisposeCollectionObservableSub() :155
 void LookUp__LookUpSubscription__DisposeCollectionObservableSub_fn(LookUp__LookUpSubscription* __this)
 {
     __this->DisposeCollectionObservableSub();
 }
 
-// private void DisposeIndexSub() :105
+// private void DisposeIndexSub() :119
 void LookUp__LookUpSubscription__DisposeIndexSub_fn(LookUp__LookUpSubscription* __this)
 {
     __this->DisposeIndexSub();
 }
 
-// private void Fuse.Reactive.IObserver.OnAdd(object addedValue) :243
+// private void Fuse.Reactive.IListener.OnLostData(Fuse.Reactive.IExpression source) :62
+void LookUp__LookUpSubscription__FuseReactiveIListenerOnLostData_fn(LookUp__LookUpSubscription* __this, uObject* source)
+{
+    ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(__this->_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)__this->_lu);
+}
+
+// private void Fuse.Reactive.IListener.OnNewData(Fuse.Reactive.IExpression source, object value) :55
+void LookUp__LookUpSubscription__FuseReactiveIListenerOnNewData_fn(LookUp__LookUpSubscription* __this, uObject* source, uObject* value)
+{
+    if (__this->_lu == NULL)
+        return;
+
+    if (source == uPtr(__this->_lu)->Index())
+        __this->NewIndex(value);
+
+    if (source == uPtr(__this->_lu)->Collection())
+        __this->NewCollection(value);
+}
+
+// private void Fuse.Reactive.IObserver.OnAdd(object addedValue) :257
 void LookUp__LookUpSubscription__FuseReactiveIObserverOnAdd_fn(LookUp__LookUpSubscription* __this, uObject* addedValue)
 {
     __this->ResultChanged();
 }
 
-// private void Fuse.Reactive.IObserver.OnClear() :241
+// private void Fuse.Reactive.IObserver.OnClear() :255
 void LookUp__LookUpSubscription__FuseReactiveIObserverOnClear_fn(LookUp__LookUpSubscription* __this)
 {
     __this->ResultChanged();
 }
 
-// private void Fuse.Reactive.IObserver.OnFailed(string message) :245
+// private void Fuse.Reactive.IObserver.OnFailed(string message) :259
 void LookUp__LookUpSubscription__FuseReactiveIObserverOnFailed_fn(LookUp__LookUpSubscription* __this, uString* message)
 {
     __this->ResultChanged();
 }
 
-// private void Fuse.Reactive.IObserver.OnInsertAt(int index, object value) :248
-void LookUp__LookUpSubscription__FuseReactiveIObserverOnInsertAt_fn(LookUp__LookUpSubscription* __this, int* index, uObject* value)
+// private void Fuse.Reactive.IObserver.OnInsertAt(int index, object value) :262
+void LookUp__LookUpSubscription__FuseReactiveIObserverOnInsertAt_fn(LookUp__LookUpSubscription* __this, int32_t* index, uObject* value)
 {
     __this->ResultChanged();
 }
 
-// private void Fuse.Reactive.IObserver.OnNewAll(Fuse.IArray values) :246
+// private void Fuse.Reactive.IObserver.OnNewAll(Fuse.IArray values) :260
 void LookUp__LookUpSubscription__FuseReactiveIObserverOnNewAll_fn(LookUp__LookUpSubscription* __this, uObject* values)
 {
     __this->ResultChanged();
 }
 
-// private void Fuse.Reactive.IObserver.OnNewAt(int index, object value) :244
-void LookUp__LookUpSubscription__FuseReactiveIObserverOnNewAt_fn(LookUp__LookUpSubscription* __this, int* index, uObject* value)
+// private void Fuse.Reactive.IObserver.OnNewAt(int index, object value) :258
+void LookUp__LookUpSubscription__FuseReactiveIObserverOnNewAt_fn(LookUp__LookUpSubscription* __this, int32_t* index, uObject* value)
 {
     __this->ResultChanged();
 }
 
-// private void Fuse.Reactive.IObserver.OnRemoveAt(int index) :247
-void LookUp__LookUpSubscription__FuseReactiveIObserverOnRemoveAt_fn(LookUp__LookUpSubscription* __this, int* index)
+// private void Fuse.Reactive.IObserver.OnRemoveAt(int index) :261
+void LookUp__LookUpSubscription__FuseReactiveIObserverOnRemoveAt_fn(LookUp__LookUpSubscription* __this, int32_t* index)
 {
     __this->ResultChanged();
 }
 
-// private void Fuse.Reactive.IObserver.OnSet(object newValue) :242
+// private void Fuse.Reactive.IObserver.OnSet(object newValue) :256
 void LookUp__LookUpSubscription__FuseReactiveIObserverOnSet_fn(LookUp__LookUpSubscription* __this, uObject* newValue)
 {
     __this->ResultChanged();
 }
 
-// private void Fuse.Reactive.ValueForwarder.IValueListener.NewValue(object value) :98
+// private void Fuse.Reactive.IPropertyObserver.OnPropertyChanged(Uno.IDisposable sub, string propertyName, object newValue) :222
+void LookUp__LookUpSubscription__FuseReactiveIPropertyObserverOnPropertyChanged_fn(LookUp__LookUpSubscription* __this, uObject* sub, uString* propertyName, uObject* newValue)
+{
+    if (sub != __this->_colObsObjSub)
+        return;
+
+    if (::g::Uno::String::op_Inequality(propertyName, ::g::Uno::Object::ToString(uPtr(__this->_index))))
+        return;
+
+    __this->PushNewData(newValue);
+}
+
+// private void Fuse.Reactive.ValueForwarder.IValueListener.LostValue() :110
+void LookUp__LookUpSubscription__FuseReactiveValueForwarderIValueListenerLostValue_fn(LookUp__LookUpSubscription* __this)
+{
+    __this->_index = NULL;
+    __this->_hasIndex = true;
+    __this->ResultChanged();
+}
+
+// private void Fuse.Reactive.ValueForwarder.IValueListener.NewValue(object value) :103
 void LookUp__LookUpSubscription__FuseReactiveValueForwarderIValueListenerNewValue_fn(LookUp__LookUpSubscription* __this, uObject* value)
 {
     __this->_index = value;
@@ -6579,37 +7678,31 @@ void LookUp__LookUpSubscription__New1_fn(::g::Fuse::Reactive::LookUp* lu, uObjec
     *__retval = LookUp__LookUpSubscription::New1(lu, context, listener);
 }
 
-// private void NewCollection(object col) :125
+// private void NewCollection(object col) :139
 void LookUp__LookUpSubscription__NewCollection_fn(LookUp__LookUpSubscription* __this, uObject* col)
 {
     __this->NewCollection(col);
 }
 
-// private void NewIndex(object ind) :63
+// private void NewIndex(object ind) :68
 void LookUp__LookUpSubscription__NewIndex_fn(LookUp__LookUpSubscription* __this, uObject* ind)
 {
     __this->NewIndex(ind);
 }
 
-// public void OnNewData(Fuse.Reactive.IExpression source, object value) :55
-void LookUp__LookUpSubscription__OnNewData_fn(LookUp__LookUpSubscription* __this, uObject* source, uObject* value)
-{
-    __this->OnNewData(source, value);
-}
-
-// private void PushNewData(object value) :215
+// private void PushNewData(object value) :229
 void LookUp__LookUpSubscription__PushNewData_fn(LookUp__LookUpSubscription* __this, uObject* value)
 {
     __this->PushNewData(value);
 }
 
-// private void ResultChanged() :152
+// private void ResultChanged() :166
 void LookUp__LookUpSubscription__ResultChanged_fn(LookUp__LookUpSubscription* __this)
 {
     __this->ResultChanged();
 }
 
-// public void SetDiagnostic(string message, Fuse.Reactive.IExpression source) :83
+// public void SetDiagnostic(string message, Fuse.Reactive.IExpression source) :88
 void LookUp__LookUpSubscription__SetDiagnostic_fn(LookUp__LookUpSubscription* __this, uString* message, uObject* source)
 {
     __this->SetDiagnostic(message, source);
@@ -6624,17 +7717,17 @@ void LookUp__LookUpSubscription::ctor_(::g::Fuse::Reactive::LookUp* lu, uObject*
     _indexSub = uPtr(uPtr(_lu)->Index())->Subscribe(context, (uObject*)this);
 }
 
-// public void ClearDiagnostic() [instance] :89
+// public void ClearDiagnostic() [instance] :94
 void LookUp__LookUpSubscription::ClearDiagnostic()
 {
     if (_diag != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_diag), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_diag), ::TYPES[1/*Uno.IDisposable*/]));
         _diag = NULL;
     }
 }
 
-// public void Dispose() [instance] :220
+// public void Dispose() [instance] :234
 void LookUp__LookUpSubscription::Dispose()
 {
     ClearDiagnostic();
@@ -6643,10 +7736,10 @@ void LookUp__LookUpSubscription::Dispose()
     DisposeIndexSub();
 
     if (_colSub != NULL)
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_colSub), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_colSub), ::TYPES[1/*Uno.IDisposable*/]));
 
     if (_indexSub != NULL)
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_indexSub), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_indexSub), ::TYPES[1/*Uno.IDisposable*/]));
 
     _colSub = NULL;
     _indexSub = NULL;
@@ -6656,56 +7749,56 @@ void LookUp__LookUpSubscription::Dispose()
     _lu = NULL;
 }
 
-// private void DisposeCollectionObservableObjectSub() [instance] :114
+// private void DisposeCollectionObservableObjectSub() [instance] :128
 void LookUp__LookUpSubscription::DisposeCollectionObservableObjectSub()
 {
     if (_colObsObjSub != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_colObsObjSub), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_colObsObjSub), ::TYPES[1/*Uno.IDisposable*/]));
         _colObsObjSub = NULL;
     }
 }
 
-// private void DisposeCollectionObservableSub() [instance] :141
+// private void DisposeCollectionObservableSub() [instance] :155
 void LookUp__LookUpSubscription::DisposeCollectionObservableSub()
 {
     if (_colObservableSub != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_colObservableSub), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_colObservableSub), ::TYPES[1/*Uno.IDisposable*/]));
         _colObservableSub = NULL;
     }
 }
 
-// private void DisposeIndexSub() [instance] :105
+// private void DisposeIndexSub() [instance] :119
 void LookUp__LookUpSubscription::DisposeIndexSub()
 {
     if (_indexForwarder != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_indexForwarder), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_indexForwarder), ::TYPES[1/*Uno.IDisposable*/]));
         _indexForwarder = NULL;
     }
 }
 
-// private void NewCollection(object col) [instance] :125
+// private void NewCollection(object col) [instance] :139
 void LookUp__LookUpSubscription::NewCollection(uObject* col)
 {
     _collection = col;
     _hasCollection = true;
     DisposeCollectionObservableObjectSub();
     DisposeCollectionObservableSub();
-    uObject* obs = uAs<uObject*>(col, ::TYPES[17/*Fuse.Reactive.IObservableArray*/]);
+    uObject* obs = uAs<uObject*>(col, ::TYPES[19/*Fuse.Reactive.IObservableArray*/]);
 
     if (obs != NULL)
-        _colObservableSub = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[17/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
+        _colObservableSub = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[19/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
 
     ResultChanged();
 }
 
-// private void NewIndex(object ind) [instance] :63
+// private void NewIndex(object ind) [instance] :68
 void LookUp__LookUpSubscription::NewIndex(uObject* ind)
 {
     DisposeIndexSub();
-    uObject* obs = uAs<uObject*>(ind, ::TYPES[33/*Fuse.Reactive.IObservable*/]);
+    uObject* obs = uAs<uObject*>(ind, ::TYPES[35/*Fuse.Reactive.IObservable*/]);
 
     if (obs != NULL)
         _indexForwarder = (uObject*)::g::Fuse::Reactive::ValueForwarder::New1(obs, (uObject*)this);
@@ -6717,26 +7810,13 @@ void LookUp__LookUpSubscription::NewIndex(uObject* ind)
     }
 }
 
-// public void OnNewData(Fuse.Reactive.IExpression source, object value) [instance] :55
-void LookUp__LookUpSubscription::OnNewData(uObject* source, uObject* value)
-{
-    if (_lu == NULL)
-        return;
-
-    if (source == uPtr(_lu)->Index())
-        NewIndex(value);
-
-    if (source == uPtr(_lu)->Collection())
-        NewCollection(value);
-}
-
-// private void PushNewData(object value) [instance] :215
+// private void PushNewData(object value) [instance] :229
 void LookUp__LookUpSubscription::PushNewData(uObject* value)
 {
-    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), (uObject*)_lu, value);
+    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_lu, value);
 }
 
-// private void ResultChanged() [instance] :152
+// private void ResultChanged() [instance] :166
 void LookUp__LookUpSubscription::ResultChanged()
 {
     if (_listener == NULL)
@@ -6753,11 +7833,11 @@ void LookUp__LookUpSubscription::ResultChanged()
     if ((_index == NULL) || (_collection == NULL))
         PushNewData(NULL);
 
-    uObject* arr = uAs<uObject*>(_collection, ::TYPES[15/*Fuse.IArray*/]);
+    uObject* arr = uAs<uObject*>(_collection, ::TYPES[17/*Fuse.IArray*/]);
 
     if (arr != NULL)
     {
-        int index = 0;
+        int32_t index = 0;
 
         try
         {
@@ -6768,46 +7848,46 @@ void LookUp__LookUpSubscription::ResultChanged()
 
         catch (const uThrowable& __t)
         {
-            if (uIs(__t.Exception, ::TYPES[34/*Fuse.MarshalException*/]))
+            if (uIs(__t.Exception, ::TYPES[36/*Fuse.MarshalException*/]))
             {
                 ::g::Fuse::MarshalException* me = (::g::Fuse::MarshalException*)__t.Exception;
-                SetDiagnostic(::g::Uno::String::op_Addition2(::STRINGS[52/*"Index must ...*/], uPtr(me)->Message()), (uObject*)uPtr(_lu)->Index());
+                SetDiagnostic(::g::Uno::String::op_Addition2(::STRINGS[56/*"Index must ...*/], uPtr(me)->Message()), (uObject*)uPtr(_lu)->Index());
                 return;
             }
             else             throw __t;
         }
 
-        if ((index >= 0) && (index < ::g::Fuse::IArray::Length(uInterface(uPtr(arr), ::TYPES[15/*Fuse.IArray*/]))))
-            PushNewData(::g::Fuse::IArray::Item(uInterface(uPtr(arr), ::TYPES[15/*Fuse.IArray*/]), index));
+        if ((index >= 0) && (index < ::g::Fuse::IArray::Length(uInterface(uPtr(arr), ::TYPES[17/*Fuse.IArray*/]))))
+            PushNewData(::g::Fuse::IArray::Item(uInterface(uPtr(arr), ::TYPES[17/*Fuse.IArray*/]), index));
         else
-            SetDiagnostic(::STRINGS[53/*"Index was o...*/], (uObject*)uPtr(_lu)->Index());
+            SetDiagnostic(::STRINGS[57/*"Index was o...*/], (uObject*)uPtr(_lu)->Index());
 
         return;
     }
 
-    uObject* obj = uAs<uObject*>(_collection, ::TYPES[35/*Fuse.IObject*/]);
+    uObject* obj = uAs<uObject*>(_collection, ::TYPES[37/*Fuse.IObject*/]);
 
     if (obj != NULL)
     {
-        uObject* obsObj = uAs<uObject*>(obj, ::TYPES[23/*Fuse.Reactive.IObservableObject*/]);
+        uObject* obsObj = uAs<uObject*>(obj, ::TYPES[24/*Fuse.Reactive.IObservableObject*/]);
 
         if (obsObj != NULL)
-            _colObsObjSub = ::g::Fuse::Reactive::IObservableObject::Subscribe(uInterface(uPtr(obsObj), ::TYPES[23/*Fuse.Reactive.IObservableObject*/]), (uObject*)this);
+            _colObsObjSub = ::g::Fuse::Reactive::IObservableObject::Subscribe(uInterface(uPtr(obsObj), ::TYPES[24/*Fuse.Reactive.IObservableObject*/]), (uObject*)this);
 
         uString* key = ::g::Uno::Object::ToString(uPtr(_index));
 
-        if (::g::Fuse::IObject::ContainsKey(uInterface(uPtr(obj), ::TYPES[35/*Fuse.IObject*/]), key))
-            PushNewData(::g::Fuse::IObject::Item(uInterface(uPtr(obj), ::TYPES[35/*Fuse.IObject*/]), key));
+        if (::g::Fuse::IObject::ContainsKey(uInterface(uPtr(obj), ::TYPES[37/*Fuse.IObject*/]), key))
+            PushNewData(::g::Fuse::IObject::Item(uInterface(uPtr(obj), ::TYPES[37/*Fuse.IObject*/]), key));
         else
-            SetDiagnostic(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[54/*"Object does...*/], key), ::STRINGS[21/*"'"*/]), (uObject*)uPtr(_lu)->Index());
+            SetDiagnostic(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[58/*"Object does...*/], key), ::STRINGS[24/*"'"*/]), (uObject*)uPtr(_lu)->Index());
 
         return;
     }
 
-    SetDiagnostic(::g::Uno::String::op_Addition1(::STRINGS[55/*"Look-up ope...*/], _collection), (uObject*)uPtr(_lu)->Collection());
+    SetDiagnostic(::g::Uno::String::op_Addition1(::STRINGS[59/*"Look-up ope...*/], _collection), (uObject*)uPtr(_lu)->Collection());
 }
 
-// public void SetDiagnostic(string message, Fuse.Reactive.IExpression source) [instance] :83
+// public void SetDiagnostic(string message, Fuse.Reactive.IExpression source) [instance] :88
 void LookUp__LookUpSubscription::SetDiagnostic(uString* message, uObject* source)
 {
     ClearDiagnostic();
@@ -6823,46 +7903,47 @@ LookUp__LookUpSubscription* LookUp__LookUpSubscription::New1(::g::Fuse::Reactive
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\MatchCase.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\MatchCase.uno
 // --------------------------------------------------------------------------------------------------
 
 // public sealed class Match :29
 // {
 static void Match_build(uType* type)
 {
-    ::STRINGS[56] = uString::Const("Not handled: OnAdd");
-    ::STRINGS[57] = uString::Const("Not handled: InsertAt");
-    ::STRINGS[58] = uString::Const("<Match> can not be used on lists (received OnNewAll)");
-    ::STRINGS[59] = uString::Const("Not handled: OnNewAt");
-    ::STRINGS[60] = uString::Const("<Match> can not be used on lists (received OnRemoveAt)");
-    ::TYPES[36] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL);
-    ::TYPES[37] = ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL);
-    ::TYPES[38] = ::g::Uno::Collections::IEnumerator_typeof();
-    ::TYPES[39] = ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL);
-    ::TYPES[27] = ::g::Fuse::Node_typeof();
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[40] = ::g::Fuse::Reactive::IObserver_typeof();
-    ::TYPES[15] = ::g::Fuse::IArray_typeof();
-    ::TYPES[41] = ::g::Uno::Action1_typeof()->MakeType(::g::Fuse::Reactive::Case_typeof(), NULL);
-    ::TYPES[42] = ::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::TYPES[27/*Fuse.Node*/], NULL);
-    ::TYPES[43] = ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Fuse::Reactive::Case_typeof(), NULL);
-    ::TYPES[44] = ::g::Uno::Collections::RootableList_typeof()->MakeType(::g::Fuse::Reactive::Case_typeof(), NULL);
-    ::TYPES[33] = ::g::Fuse::Reactive::IObservable_typeof();
-    ::TYPES[17] = ::g::Fuse::Reactive::IObservableArray_typeof();
+    ::STRINGS[60] = uString::Const("Not handled: OnAdd");
+    ::STRINGS[61] = uString::Const("Not handled: InsertAt");
+    ::STRINGS[62] = uString::Const("<Match> can not be used on lists (received OnNewAll)");
+    ::STRINGS[63] = uString::Const("Not handled: OnNewAt");
+    ::STRINGS[64] = uString::Const("<Match> can not be used on lists (received OnRemoveAt)");
+    ::TYPES[38] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL);
+    ::TYPES[39] = ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL);
+    ::TYPES[40] = ::g::Uno::Collections::IEnumerator_typeof();
+    ::TYPES[41] = ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL);
+    ::TYPES[30] = ::g::Fuse::Node_typeof();
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[42] = ::g::Fuse::Reactive::IObserver_typeof();
+    ::TYPES[17] = ::g::Fuse::IArray_typeof();
+    ::TYPES[43] = ::g::Uno::Action1_typeof()->MakeType(::g::Fuse::Reactive::Case_typeof(), NULL);
+    ::TYPES[44] = ::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::TYPES[30/*Fuse.Node*/], NULL);
+    ::TYPES[45] = ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Fuse::Reactive::Case_typeof(), NULL);
+    ::TYPES[46] = ::g::Uno::Collections::RootableList_typeof()->MakeType(::g::Fuse::Reactive::Case_typeof(), NULL);
+    ::TYPES[35] = ::g::Fuse::Reactive::IObservable_typeof();
+    ::TYPES[19] = ::g::Fuse::Reactive::IObservableArray_typeof();
     type->SetInterfaces(
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Match_type, interface0),
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(Match_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(Match_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(Match_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Match_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Match_type, interface5),
-        ::TYPES[40/*Fuse.Reactive.IObserver*/], offsetof(Match_type, interface6));
-    type->SetFields(15,
-        ::TYPES[44/*Uno.Collections.RootableList<Fuse.Reactive.Case>*/], offsetof(Match, _cases), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(Match, _subscription), 0,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(Match_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Match_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Match_type, interface6),
+        ::TYPES[42/*Fuse.Reactive.IObserver*/], offsetof(Match_type, interface7));
+    type->SetFields(17,
+        ::TYPES[46/*Uno.Collections.RootableList<Fuse.Reactive.Case>*/], offsetof(Match, _cases), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(Match, _subscription), 0,
         uObject_typeof(), offsetof(Match, _realValue), 0,
         uObject_typeof(), offsetof(Match, _value), 0,
-        ::TYPES[36/*Uno.Collections.List<Fuse.Node>*/], offsetof(Match, _elements), 0,
+        ::TYPES[38/*Uno.Collections.List<Fuse.Node>*/], offsetof(Match, _elements), 0,
         ::g::Fuse::Reactive::Case_typeof(), offsetof(Match, _oldCase), 0);
 }
 
@@ -6873,8 +7954,8 @@ Match_type* Match_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Behavior_typeof();
-    options.FieldCount = 21;
-    options.InterfaceCount = 7;
+    options.FieldCount = 23;
+    options.InterfaceCount = 8;
     options.ObjectSize = sizeof(Match);
     options.TypeSize = sizeof(Match_type);
     type = (Match_type*)uClassType::New("Fuse.Reactive.Match", options);
@@ -6883,29 +7964,32 @@ Match_type* Match_typeof()
     type->fp_GetLastNodeInGroup = (void(*)(::g::Fuse::Node*, ::g::Fuse::Node**))Match__GetLastNodeInGroup_fn;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))Match__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))Match__OnUnrooted_fn;
-    type->interface6.fp_OnSet = (void(*)(uObject*, uObject*))Match__FuseReactiveIObserverOnSet_fn;
-    type->interface6.fp_OnClear = (void(*)(uObject*))Match__FuseReactiveIObserverOnClear_fn;
-    type->interface6.fp_OnAdd = (void(*)(uObject*, uObject*))Match__FuseReactiveIObserverOnAdd_fn;
-    type->interface6.fp_OnNewAt = (void(*)(uObject*, int*, uObject*))Match__FuseReactiveIObserverOnNewAt_fn;
-    type->interface6.fp_OnInsertAt = (void(*)(uObject*, int*, uObject*))Match__FuseReactiveIObserverOnInsertAt_fn;
-    type->interface6.fp_OnFailed = (void(*)(uObject*, uString*))Match__FuseReactiveIObserverOnFailed_fn;
-    type->interface6.fp_OnNewAll = (void(*)(uObject*, uObject*))Match__FuseReactiveIObserverOnNewAll_fn;
-    type->interface6.fp_OnRemoveAt = (void(*)(uObject*, int*))Match__FuseReactiveIObserverOnRemoveAt_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface7.fp_OnSet = (void(*)(uObject*, uObject*))Match__FuseReactiveIObserverOnSet_fn;
+    type->interface7.fp_OnClear = (void(*)(uObject*))Match__FuseReactiveIObserverOnClear_fn;
+    type->interface7.fp_OnAdd = (void(*)(uObject*, uObject*))Match__FuseReactiveIObserverOnAdd_fn;
+    type->interface7.fp_OnNewAt = (void(*)(uObject*, int32_t*, uObject*))Match__FuseReactiveIObserverOnNewAt_fn;
+    type->interface7.fp_OnInsertAt = (void(*)(uObject*, int32_t*, uObject*))Match__FuseReactiveIObserverOnInsertAt_fn;
+    type->interface7.fp_OnFailed = (void(*)(uObject*, uString*))Match__FuseReactiveIObserverOnFailed_fn;
+    type->interface7.fp_OnNewAll = (void(*)(uObject*, uObject*))Match__FuseReactiveIObserverOnNewAll_fn;
+    type->interface7.fp_OnRemoveAt = (void(*)(uObject*, int32_t*))Match__FuseReactiveIObserverOnRemoveAt_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -6930,7 +8014,7 @@ void Match__get_Cases_fn(Match* __this, uObject** __retval)
 // private void Fuse.Reactive.IObserver.OnAdd(object addedValue) :73
 void Match__FuseReactiveIObserverOnAdd_fn(Match* __this, uObject* addedValue)
 {
-    U_THROW(::g::Uno::Exception::New2(::STRINGS[56/*"Not handled...*/]));
+    U_THROW(::g::Uno::Exception::New2(::STRINGS[60/*"Not handled...*/]));
 }
 
 // private void Fuse.Reactive.IObserver.OnClear() :68
@@ -6941,38 +8025,38 @@ void Match__FuseReactiveIObserverOnClear_fn(Match* __this)
 // private void Fuse.Reactive.IObserver.OnFailed(string message) :88
 void Match__FuseReactiveIObserverOnFailed_fn(Match* __this, uString* message)
 {
-    ::g::Fuse::Reactive::IObserver::OnClear(uInterface(uPtr(uAs<uObject*>(__this, ::TYPES[40/*Fuse.Reactive.IObserver*/])), ::TYPES[40/*Fuse.Reactive.IObserver*/]));
+    ::g::Fuse::Reactive::IObserver::OnClear(uInterface(uPtr(uAs<uObject*>(__this, ::TYPES[42/*Fuse.Reactive.IObserver*/])), ::TYPES[42/*Fuse.Reactive.IObserver*/]));
 }
 
 // private void Fuse.Reactive.IObserver.OnInsertAt(int index, object value) :83
-void Match__FuseReactiveIObserverOnInsertAt_fn(Match* __this, int* index, uObject* value)
+void Match__FuseReactiveIObserverOnInsertAt_fn(Match* __this, int32_t* index, uObject* value)
 {
-    U_THROW(::g::Uno::Exception::New2(::STRINGS[57/*"Not handled...*/]));
+    U_THROW(::g::Uno::Exception::New2(::STRINGS[61/*"Not handled...*/]));
 }
 
 // private void Fuse.Reactive.IObserver.OnNewAll(Fuse.IArray values) :94
 void Match__FuseReactiveIObserverOnNewAll_fn(Match* __this, uObject* values)
 {
-    if (::g::Fuse::IArray::Length(uInterface(uPtr(values), ::TYPES[15/*Fuse.IArray*/])) == 0)
+    if (::g::Fuse::IArray::Length(uInterface(uPtr(values), ::TYPES[17/*Fuse.IArray*/])) == 0)
     {
         __this->_realValue = NULL;
         __this->Invalidate();
         return;
     }
 
-    U_THROW(::g::Uno::Exception::New2(::STRINGS[58/*"<Match> can...*/]));
+    U_THROW(::g::Uno::Exception::New2(::STRINGS[62/*"<Match> can...*/]));
 }
 
 // private void Fuse.Reactive.IObserver.OnNewAt(int index, object value) :78
-void Match__FuseReactiveIObserverOnNewAt_fn(Match* __this, int* index, uObject* value)
+void Match__FuseReactiveIObserverOnNewAt_fn(Match* __this, int32_t* index, uObject* value)
 {
-    U_THROW(::g::Uno::Exception::New2(::STRINGS[59/*"Not handled...*/]));
+    U_THROW(::g::Uno::Exception::New2(::STRINGS[63/*"Not handled...*/]));
 }
 
 // private void Fuse.Reactive.IObserver.OnRemoveAt(int index) :106
-void Match__FuseReactiveIObserverOnRemoveAt_fn(Match* __this, int* index)
+void Match__FuseReactiveIObserverOnRemoveAt_fn(Match* __this, int32_t* index)
 {
-    U_THROW(::g::Uno::Exception::New2(::STRINGS[60/*"<Match> can...*/]));
+    U_THROW(::g::Uno::Exception::New2(::STRINGS[64/*"<Match> can...*/]));
 }
 
 // private void Fuse.Reactive.IObserver.OnSet(object newValue) :62
@@ -6990,7 +8074,7 @@ void Match__GetLastNodeInGroup_fn(Match* __this, ::g::Fuse::Node** __retval)
     if (uPtr(__this->_elements)->Count() == 0)
         return *__retval = __this, void();
 
-    return *__retval = (::g::Uno::Collections::List__get_Item_fn(uPtr(__this->_elements), uCRef<int>(uPtr(__this->_elements)->Count() - 1), &ret8), ret8), void();
+    return *__retval = (::g::Uno::Collections::List__get_Item_fn(uPtr(__this->_elements), uCRef<int32_t>(uPtr(__this->_elements)->Count() - 1), &ret8), ret8), void();
 }
 
 // internal void Invalidate() :200
@@ -7021,7 +8105,7 @@ void Match__OnCaseRemoved_fn(Match* __this, ::g::Fuse::Reactive::Case* c)
 void Match__OnRooted_fn(Match* __this)
 {
     ::g::Fuse::Node__OnRooted_fn(__this);
-    uPtr(__this->_cases)->RootSubscribe(uDelegate::New(::TYPES[41/*Uno.Action<Fuse.Reactive.Case>*/], (void*)Match__OnCaseAdded_fn, __this), uDelegate::New(::TYPES[41/*Uno.Action<Fuse.Reactive.Case>*/], (void*)Match__OnCaseRemoved_fn, __this));
+    uPtr(__this->_cases)->RootSubscribe(uDelegate::New(::TYPES[43/*Uno.Action<Fuse.Reactive.Case>*/], (void*)Match__OnCaseAdded_fn, __this), uDelegate::New(::TYPES[43/*Uno.Action<Fuse.Reactive.Case>*/], (void*)Match__OnCaseRemoved_fn, __this));
     __this->Update();
 }
 
@@ -7066,7 +8150,7 @@ void Match__set_Value_fn(Match* __this, uObject* value)
 // public generated Match() [instance] :29
 void Match::ctor_3()
 {
-    _elements = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[36/*Uno.Collections.List<Fuse.Node>*/]));
+    _elements = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[38/*Uno.Collections.List<Fuse.Node>*/]));
     ctor_2();
 }
 
@@ -7079,37 +8163,42 @@ void Match::AddElements(::g::Fuse::Reactive::Case* c)
 
     if (c != NULL)
     {
-        uObject* enum3 = (uObject*)::g::Uno::Collections::IEnumerable::GetEnumerator(uInterface(uPtr(uPtr(c)->Factories()), ::TYPES[37/*Uno.Collections.IEnumerable<Uno.UX.Template>*/]));
+        uObject* enum3 = (uObject*)::g::Uno::Collections::IEnumerable::GetEnumerator(uInterface(uPtr(uPtr(c)->Factories()), ::TYPES[39/*Uno.Collections.IEnumerable<Uno.UX.Template>*/]));
 
-        try
         {
+            try
             {
-                while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum3), ::TYPES[38/*Uno.Collections.IEnumerator*/])))
                 {
-                    ::g::Uno::UX::Template* f = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum3), ::TYPES[39/*Uno.Collections.IEnumerator<Uno.UX.Template>*/]), &ret6), ret6);
-                    ::g::Fuse::Node* elm = uAs< ::g::Fuse::Node*>(uPtr(f)->New1(), ::TYPES[27/*Fuse.Node*/]);
-
-                    if (elm != NULL)
+                    while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum3), ::TYPES[40/*Uno.Collections.IEnumerator*/])))
                     {
-                        uPtr(elm)->OverrideContextParent = (ind4 = uPtr(elm)->OverrideContextParent, ((ind4 != NULL) ? ind4 : this));
-                        ::g::Uno::Collections::List__Add_fn(uPtr(_elements), elm);
+                        ::g::Uno::UX::Template* f = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum3), ::TYPES[41/*Uno.Collections.IEnumerator<Uno.UX.Template>*/]), &ret6), ret6);
+                        ::g::Fuse::Node* elm = uAs< ::g::Fuse::Node*>(uPtr(f)->New1(), ::TYPES[30/*Fuse.Node*/]);
+
+                        if (elm != NULL)
+                        {
+                            uPtr(elm)->OverrideContextParent = (ind4 = uPtr(elm)->OverrideContextParent, ((ind4 != NULL) ? ind4 : this));
+                            ::g::Uno::Collections::List__Add_fn(uPtr(_elements), elm);
+                        }
                     }
                 }
             }
+
+            catch (const uThrowable& __t)
             {
-                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum3), ::TYPES[0/*Uno.IDisposable*/]));
+                {
+                    ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum3), ::TYPES[1/*Uno.IDisposable*/]));
+                }
+                                throw __t;
+                goto __after_finally_3;
             }
+
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum3), ::TYPES[1/*Uno.IDisposable*/]));
+            }
+            __after_finally_3:;
         }
 
-        catch (const uThrowable& __t)
-        {
-            {
-                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum3), ::TYPES[0/*Uno.IDisposable*/]));
-            }
-                        throw __t;
-        }
-
-        uPtr(Parent())->InsertNodesAfter(this, uBox(::TYPES[42/*Uno.Collections.List<Fuse.Node>.Enumerator*/], (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_elements), &ret7), ret7)));
+        uPtr(Parent())->InsertNodesAfter(this, uBox(::TYPES[44/*Uno.Collections.List<Fuse.Node>.Enumerator*/], (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_elements), &ret7), ret7)));
     }
 
     _oldCase = c;
@@ -7120,10 +8209,10 @@ uObject* Match::Cases()
 {
     if (_cases == NULL)
     {
-        _cases = ((::g::Uno::Collections::RootableList*)::g::Uno::Collections::RootableList::New1(::TYPES[44/*Uno.Collections.RootableList<Fuse.Reactive.Case>*/]));
+        _cases = ((::g::Uno::Collections::RootableList*)::g::Uno::Collections::RootableList::New1(::TYPES[46/*Uno.Collections.RootableList<Fuse.Reactive.Case>*/]));
 
         if (IsRootingCompleted())
-            uPtr(_cases)->Subscribe(uDelegate::New(::TYPES[41/*Uno.Action<Fuse.Reactive.Case>*/], (void*)Match__OnCaseAdded_fn, this), uDelegate::New(::TYPES[41/*Uno.Action<Fuse.Reactive.Case>*/], (void*)Match__OnCaseRemoved_fn, this));
+            uPtr(_cases)->Subscribe(uDelegate::New(::TYPES[43/*Uno.Action<Fuse.Reactive.Case>*/], (void*)Match__OnCaseAdded_fn, this), uDelegate::New(::TYPES[43/*Uno.Action<Fuse.Reactive.Case>*/], (void*)Match__OnCaseRemoved_fn, this));
     }
 
     return (uObject*)_cases;
@@ -7159,30 +8248,35 @@ void Match::RemoveElements()
     _oldCase = NULL;
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Node*> > enum2 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_elements), &ret9), ret9);
 
-    try
     {
+        try
         {
-            while (enum2.MoveNext(::TYPES[42/*Uno.Collections.List<Fuse.Node>.Enumerator*/]))
             {
-                ::g::Fuse::Node* e = enum2.Current(::TYPES[42/*Uno.Collections.List<Fuse.Node>.Enumerator*/]);
+                while (enum2.MoveNext(::TYPES[44/*Uno.Collections.List<Fuse.Node>.Enumerator*/]))
+                {
+                    ::g::Fuse::Node* e = enum2.Current(::TYPES[44/*Uno.Collections.List<Fuse.Node>.Enumerator*/]);
 
-                if (uPtr(e)->OverrideContextParent == this)
-                    uPtr(e)->OverrideContextParent = NULL;
+                    if (uPtr(e)->OverrideContextParent == this)
+                        uPtr(e)->OverrideContextParent = NULL;
 
-                uPtr(Parent())->BeginRemoveChild(e, NULL);
+                    uPtr(Parent())->BeginRemoveChild(e, NULL);
+                }
             }
         }
-        {
-            enum2.Dispose(::TYPES[42/*Uno.Collections.List<Fuse.Node>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
         {
-            enum2.Dispose(::TYPES[42/*Uno.Collections.List<Fuse.Node>.Enumerator*/]);
+            {
+                enum2.Dispose(::TYPES[44/*Uno.Collections.List<Fuse.Node>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_4;
         }
-                throw __t;
+
+        {
+            enum2.Dispose(::TYPES[44/*Uno.Collections.List<Fuse.Node>.Enumerator*/]);
+        }
+        __after_finally_4:;
     }
 
     uPtr(_elements)->Clear();
@@ -7195,35 +8289,40 @@ void Match::RemoveElements()
     ::g::Fuse::Reactive::Case* def = NULL;
     uObject* enum1 = (uObject*)uPtr(_cases)->GetEnumerator();
 
-    try
     {
+        try
         {
-            while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum1), ::TYPES[38/*Uno.Collections.IEnumerator*/])))
             {
-                ::g::Fuse::Reactive::Case* c = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum1), ::TYPES[43/*Uno.Collections.IEnumerator<Fuse.Reactive.Case>*/]), &ret10), ret10);
-
-                if ((uPtr(c)->Value() != NULL) && ::g::Uno::Object::Equals(uPtr(uPtr(c)->Value()), _realValue))
+                while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum1), ::TYPES[40/*Uno.Collections.IEnumerator*/])))
                 {
-                    ::g::Fuse::Reactive::Case* __uno_retval = c;
-                    ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[0/*Uno.IDisposable*/]));
-                    return __uno_retval;
-                }
+                    ::g::Fuse::Reactive::Case* c = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum1), ::TYPES[45/*Uno.Collections.IEnumerator<Fuse.Reactive.Case>*/]), &ret10), ret10);
 
-                if (uPtr(c)->IsDefault())
-                    def = c;
+                    if ((uPtr(c)->Value() != NULL) && ::g::Uno::Object::Equals(uPtr(uPtr(c)->Value()), _realValue))
+                    {
+                        ::g::Fuse::Reactive::Case* __uno_retval = c;
+                        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[1/*Uno.IDisposable*/]));
+                        return __uno_retval;
+                    }
+
+                    if (uPtr(c)->IsDefault())
+                        def = c;
+                }
             }
         }
-        {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[0/*Uno.IDisposable*/]));
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
         {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[0/*Uno.IDisposable*/]));
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[1/*Uno.IDisposable*/]));
+            }
+                        throw __t;
+            goto __after_finally_5;
         }
-                throw __t;
+
+        {
+            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[1/*Uno.IDisposable*/]));
+        }
+        __after_finally_5:;
     }
 
     return def;
@@ -7258,18 +8357,18 @@ void Match::Value(uObject* value)
 
         if (_subscription != NULL)
         {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_subscription), ::TYPES[0/*Uno.IDisposable*/]));
+            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_subscription), ::TYPES[1/*Uno.IDisposable*/]));
             _subscription = NULL;
         }
 
-        if (uIs((uObject*)_value, ::TYPES[33/*Fuse.Reactive.IObservable*/]))
+        if (uIs((uObject*)_value, ::TYPES[35/*Fuse.Reactive.IObservable*/]))
         {
             uObject* obs = (uObject*)_value;
 
-            if (::g::Fuse::IArray::Length(uInterface(uPtr(obs), ::TYPES[15/*Fuse.IArray*/])) > 0)
-                _realValue = ::g::Fuse::IArray::Item(uInterface(uPtr(obs), ::TYPES[15/*Fuse.IArray*/]), 0);
+            if (::g::Fuse::IArray::Length(uInterface(uPtr(obs), ::TYPES[17/*Fuse.IArray*/])) > 0)
+                _realValue = ::g::Fuse::IArray::Item(uInterface(uPtr(obs), ::TYPES[17/*Fuse.IArray*/]), 0);
 
-            _subscription = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[17/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
+            _subscription = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[19/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
         }
         else
             _realValue = _value;
@@ -7287,7 +8386,7 @@ Match* Match::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Member.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Member.uno
 // --------------------------------------------------------------------------------------------------
 
 // public sealed class Member :8
@@ -7295,8 +8394,10 @@ Match* Match::New2()
 static void Member_build(uType* type)
 {
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0));
-    type->SetFields(1,
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2,
+        ::g::Fuse::Reactive::Expression_typeof(), offsetof(Member, _BaseObject), 0,
         ::g::Uno::String_typeof(), offsetof(Member, _Name), 0);
 }
 
@@ -7306,272 +8407,155 @@ static void Member_build(uType* type)
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::UnaryOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
+    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
+    options.FieldCount = 4;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(Member);
     options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
     type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.Member", options);
     type->fp_build_ = Member_build;
     type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))Member__Subscribe_fn;
     type->fp_ToString = (void(*)(uObject*, uString**))Member__ToString_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))Member__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// public Member(Fuse.Reactive.Expression obj, string name) :12
-void Member__ctor_2_fn(Member* __this, ::g::Fuse::Reactive::Expression* obj, uString* name)
+// public Member(Fuse.Reactive.Expression obj, string name) :14
+void Member__ctor_1_fn(Member* __this, ::g::Fuse::Reactive::Expression* obj, uString* name)
 {
-    __this->ctor_2(obj, name);
+    __this->ctor_1(obj, name);
 }
 
-// public generated string get_Name() :10
+// private generated Fuse.Reactive.Expression get_BaseObject() :10
+void Member__get_BaseObject_fn(Member* __this, ::g::Fuse::Reactive::Expression** __retval)
+{
+    *__retval = __this->BaseObject();
+}
+
+// private generated void set_BaseObject(Fuse.Reactive.Expression value) :10
+void Member__set_BaseObject_fn(Member* __this, ::g::Fuse::Reactive::Expression* value)
+{
+    __this->BaseObject(value);
+}
+
+// public generated string get_Name() :11
 void Member__get_Name_fn(Member* __this, uString** __retval)
 {
     *__retval = __this->Name();
 }
 
-// private generated void set_Name(string value) :10
+// private generated void set_Name(string value) :11
 void Member__set_Name_fn(Member* __this, uString* value)
 {
     __this->Name(value);
 }
 
-// public Member New(Fuse.Reactive.Expression obj, string name) :12
+// public Member New(Fuse.Reactive.Expression obj, string name) :14
 void Member__New1_fn(::g::Fuse::Reactive::Expression* obj, uString* name, Member** __retval)
 {
     *__retval = Member::New1(obj, name);
 }
 
-// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :22
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :25
 void Member__Subscribe_fn(Member* __this, uObject* context, uObject* listener, uObject** __retval)
 {
-    return *__retval = (uObject*)Member__MemberSubscription::New2(__this, context, listener), void();
+    return *__retval = (uObject*)Member__Subscription::New1(__this, context, listener), void();
 }
 
-// public override sealed string ToString() :17
+// public override sealed string ToString() :20
 void Member__ToString_fn(Member* __this, uString** __retval)
 {
-    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::Object::ToString(uPtr(__this->Operand())), ::STRINGS[27/*"."*/]), __this->Name()), void();
+    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::Object::ToString(uPtr(__this->BaseObject())), ::STRINGS[30/*"."*/]), __this->Name()), void();
 }
 
-// public Member(Fuse.Reactive.Expression obj, string name) [instance] :12
-void Member::ctor_2(::g::Fuse::Reactive::Expression* obj, uString* name)
+// public Member(Fuse.Reactive.Expression obj, string name) [instance] :14
+void Member::ctor_1(::g::Fuse::Reactive::Expression* obj, uString* name)
 {
-    ctor_1(obj);
+    ctor_();
+    BaseObject(obj);
     Name(name);
 }
 
-// public generated string get_Name() [instance] :10
+// private generated Fuse.Reactive.Expression get_BaseObject() [instance] :10
+::g::Fuse::Reactive::Expression* Member::BaseObject()
+{
+    return _BaseObject;
+}
+
+// private generated void set_BaseObject(Fuse.Reactive.Expression value) [instance] :10
+void Member::BaseObject(::g::Fuse::Reactive::Expression* value)
+{
+    _BaseObject = value;
+}
+
+// public generated string get_Name() [instance] :11
 uString* Member::Name()
 {
     return _Name;
 }
 
-// private generated void set_Name(string value) [instance] :10
+// private generated void set_Name(string value) [instance] :11
 void Member::Name(uString* value)
 {
     _Name = value;
 }
 
-// public Member New(Fuse.Reactive.Expression obj, string name) [static] :12
+// public Member New(Fuse.Reactive.Expression obj, string name) [static] :14
 Member* Member::New1(::g::Fuse::Reactive::Expression* obj, uString* name)
 {
     Member* obj1 = (Member*)uNew(Member_typeof());
-    obj1->ctor_2(obj, name);
+    obj1->ctor_1(obj, name);
     return obj1;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Member.uno
-// --------------------------------------------------------------------------------------------------
-
-// private sealed class Member.MemberSubscription :27
-// {
-static void Member__MemberSubscription_build(uType* type)
-{
-    ::STRINGS[21] = uString::Const("'");
-    ::STRINGS[61] = uString::Const("' does not contain property '");
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[22] = ::g::Fuse::Reactive::IPropertySubscription_typeof();
-    ::TYPES[35] = ::g::Fuse::IObject_typeof();
-    ::TYPES[23] = ::g::Fuse::Reactive::IObservableObject_typeof();
-    type->SetInterfaces(
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(Member__MemberSubscription_type, interface0),
-        ::g::Fuse::Reactive::IListener_typeof(), offsetof(Member__MemberSubscription_type, interface1),
-        ::g::Fuse::Reactive::IPropertyObserver_typeof(), offsetof(Member__MemberSubscription_type, interface2),
-        ::g::Fuse::Reactive::IWriteable_typeof(), offsetof(Member__MemberSubscription_type, interface3));
-    type->SetFields(5,
-        ::g::Fuse::Reactive::Member_typeof(), offsetof(Member__MemberSubscription, _member), 0,
-        ::TYPES[22/*Fuse.Reactive.IPropertySubscription*/], offsetof(Member__MemberSubscription, _obsObjSub), 0);
-}
-
-Member__MemberSubscription_type* Member__MemberSubscription_typeof()
-{
-    static uSStrong<Member__MemberSubscription_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::UnaryOperator__Subscription_typeof();
-    options.FieldCount = 7;
-    options.InterfaceCount = 4;
-    options.ObjectSize = sizeof(Member__MemberSubscription);
-    options.TypeSize = sizeof(Member__MemberSubscription_type);
-    type = (Member__MemberSubscription_type*)uClassType::New("Fuse.Reactive.Member.MemberSubscription", options);
-    type->fp_build_ = Member__MemberSubscription_build;
-    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))Member__MemberSubscription__Dispose_fn;
-    type->fp_OnNewOperand = (void(*)(::g::Fuse::Reactive::UnaryOperator__Subscription*, uObject*))Member__MemberSubscription__OnNewOperand_fn;
-    type->interface3.fp_TrySetExclusive = (void(*)(uObject*, uObject*, bool*))Member__MemberSubscription__FuseReactiveIWriteableTrySetExclusive_fn;
-    type->interface0.fp_Dispose = (void(*)(uObject*))Member__MemberSubscription__Dispose_fn;
-    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
-    return type;
-}
-
-// public MemberSubscription(Fuse.Reactive.Member member, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :30
-void Member__MemberSubscription__ctor_2_fn(Member__MemberSubscription* __this, ::g::Fuse::Reactive::Member* member, uObject* context, uObject* listener)
-{
-    __this->ctor_2(member, context, listener);
-}
-
-// public override sealed void Dispose() :81
-void Member__MemberSubscription__Dispose_fn(Member__MemberSubscription* __this)
-{
-    __this->DisposeObservableObjectSubscription();
-    ::g::Fuse::Reactive::UnaryOperator__Subscription__Dispose_fn(__this);
-}
-
-// private void DisposeObservableObjectSubscription() :37
-void Member__MemberSubscription__DisposeObservableObjectSubscription_fn(Member__MemberSubscription* __this)
-{
-    __this->DisposeObservableObjectSubscription();
-}
-
-// private bool Fuse.Reactive.IWriteable.TrySetExclusive(object newObj) :74
-void Member__MemberSubscription__FuseReactiveIWriteableTrySetExclusive_fn(Member__MemberSubscription* __this, uObject* newObj, bool* __retval)
-{
-    if (__this->_obsObjSub != NULL)
-        return *__retval = ::g::Fuse::Reactive::IPropertySubscription::TrySetExclusive(uInterface(uPtr(__this->_obsObjSub), ::TYPES[22/*Fuse.Reactive.IPropertySubscription*/]), uPtr(__this->_member)->Name(), newObj), void();
-
-    return *__retval = false, void();
-}
-
-// public MemberSubscription New(Fuse.Reactive.Member member, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :30
-void Member__MemberSubscription__New2_fn(::g::Fuse::Reactive::Member* member, uObject* context, uObject* listener, Member__MemberSubscription** __retval)
-{
-    *__retval = Member__MemberSubscription::New2(member, context, listener);
-}
-
-// protected override sealed void OnNewOperand(object obj) :46
-void Member__MemberSubscription__OnNewOperand_fn(Member__MemberSubscription* __this, uObject* obj)
-{
-    __this->DisposeObservableObjectSubscription();
-    __this->ClearDiagnostic();
-    uObject* io = uAs<uObject*>(obj, ::TYPES[35/*Fuse.IObject*/]);
-
-    if ((io != NULL) && ::g::Fuse::IObject::ContainsKey(uInterface(uPtr(io), ::TYPES[35/*Fuse.IObject*/]), uPtr(__this->_member)->Name()))
-    {
-        uObject* obsObj = uAs<uObject*>(io, ::TYPES[23/*Fuse.Reactive.IObservableObject*/]);
-
-        if (obsObj != NULL)
-            __this->_obsObjSub = ::g::Fuse::Reactive::IObservableObject::Subscribe(uInterface(uPtr(obsObj), ::TYPES[23/*Fuse.Reactive.IObservableObject*/]), (uObject*)__this);
-
-        __this->PushNewData(::g::Fuse::IObject::Item(uInterface(uPtr(io), ::TYPES[35/*Fuse.IObject*/]), uPtr(__this->_member)->Name()));
-    }
-    else
-        __this->SetDiagnostic(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[21/*"'"*/], ::g::Uno::Object::ToString(uPtr(uPtr(__this->_member)->Operand()))), ::STRINGS[61/*"' does not ...*/]), uPtr(__this->_member)->Name()), ::STRINGS[21/*"'"*/]), (uObject*)__this->_member);
-}
-
-// public MemberSubscription(Fuse.Reactive.Member member, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [instance] :30
-void Member__MemberSubscription::ctor_2(::g::Fuse::Reactive::Member* member, uObject* context, uObject* listener)
-{
-    ctor_1(member, listener);
-    _member = member;
-    Init(context);
-}
-
-// private void DisposeObservableObjectSubscription() [instance] :37
-void Member__MemberSubscription::DisposeObservableObjectSubscription()
-{
-    if (_obsObjSub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_obsObjSub), ::TYPES[0/*Uno.IDisposable*/]));
-        _obsObjSub = NULL;
-    }
-}
-
-// public MemberSubscription New(Fuse.Reactive.Member member, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :30
-Member__MemberSubscription* Member__MemberSubscription::New2(::g::Fuse::Reactive::Member* member, uObject* context, uObject* listener)
-{
-    Member__MemberSubscription* obj1 = (Member__MemberSubscription*)uNew(Member__MemberSubscription_typeof());
-    obj1->ctor_2(member, context, listener);
-    return obj1;
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Instantiator.uno
 // -----------------------------------------------------------------------------------------------------
 
-// public sealed class Multiply :43
+// internal sealed class Instantiator.NoContextItem :399
 // {
-static void Multiply_build(uType* type)
+static void Instantiator__NoContextItem_build(uType* type)
 {
-    ::STRINGS[62] = uString::Const("*");
-    type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
 }
 
-::g::Fuse::Reactive::InfixOperator_type* Multiply_typeof()
+uType* Instantiator__NoContextItem_typeof()
 {
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
+    static uSStrong<uType*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(Multiply);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.Multiply", options);
-    type->fp_build_ = Multiply_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))Multiply__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))Multiply__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
+    options.ObjectSize = sizeof(Instantiator__NoContextItem);
+    options.TypeSize = sizeof(uType);
+    type = uClassType::New("Fuse.Reactive.Instantiator.NoContextItem", options);
+    type->fp_build_ = Instantiator__NoContextItem_build;
     return type;
-}
-
-// protected override sealed object Compute(object left, object right) :47
-void Multiply__Compute_fn(Multiply* __this, uObject* left, uObject* right, uObject** __retval)
-{
-    return *__retval = ::g::Fuse::Marshal::Multiply(left, right), void();
-}
-
-// public override sealed string get_Symbol() :52
-void Multiply__get_Symbol_fn(Multiply* __this, uString** __retval)
-{
-    return *__retval = ::STRINGS[62/*"*"*/], void();
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\NodeExpressionBinding.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\NodeExpressionBinding.uno
 // --------------------------------------------------------------------------------------------------------------
 
 // internal sealed class NodeExpressionBinding :9
 // {
 static void NodeExpressionBinding_build(uType* type)
 {
-    ::STRINGS[63] = uString::Const("Invalid params");
-    ::STRINGS[38] = uString::Const("The binding type does not support resource subscriptions");
-    ::TYPES[31] = ::g::Uno::Action_typeof();
-    ::TYPES[24] = ::g::Fuse::Reactive::IExpression_typeof();
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
+    ::STRINGS[65] = uString::Const("Invalid params");
+    ::STRINGS[46] = uString::Const("The binding type does not support resource subscriptions");
+    ::TYPES[26] = ::g::Uno::Action_typeof();
+    ::TYPES[27] = ::g::Fuse::Reactive::IExpression_typeof();
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    type->SetDependencies(
+        ::g::Fuse::UpdateManager_typeof());
     type->SetInterfaces(
         ::g::Fuse::Reactive::IContext_typeof(), offsetof(NodeExpressionBinding_type, interface0),
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(NodeExpressionBinding_type, interface1));
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(NodeExpressionBinding_type, interface1));
     type->SetFields(0,
-        ::TYPES[24/*Fuse.Reactive.IExpression*/], offsetof(NodeExpressionBinding, _expr), 0,
+        ::TYPES[27/*Fuse.Reactive.IExpression*/], offsetof(NodeExpressionBinding, _expr), 0,
         ::g::Fuse::Reactive::IListener_typeof(), offsetof(NodeExpressionBinding, _listener), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(NodeExpressionBinding, _sub), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(NodeExpressionBinding, _sub), 0,
         ::g::Fuse::Node_typeof(), offsetof(NodeExpressionBinding, _node), 0);
 }
 
@@ -7583,6 +8567,7 @@ NodeExpressionBinding_type* NodeExpressionBinding_typeof()
     uTypeOptions options;
     options.FieldCount = 4;
     options.InterfaceCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(NodeExpressionBinding);
     options.TypeSize = sizeof(NodeExpressionBinding_type);
     type = (NodeExpressionBinding_type*)uClassType::New("Fuse.Reactive.NodeExpressionBinding", options);
@@ -7640,12 +8625,12 @@ void NodeExpressionBinding__SubscribeResource_fn(NodeExpressionBinding* __this, 
 void NodeExpressionBinding::ctor_(uObject* expr, ::g::Fuse::Node* node, uObject* listener)
 {
     if (((expr == NULL) || (node == NULL)) || (listener == NULL))
-        U_THROW(::g::Uno::Exception::New2(::STRINGS[63/*"Invalid par...*/]));
+        U_THROW(::g::Uno::Exception::New2(::STRINGS[65/*"Invalid par...*/]));
 
     _expr = expr;
     _listener = listener;
     _node = node;
-    ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[31/*Uno.Action*/], (void*)NodeExpressionBinding__CompleteInit_fn, this), -1, 2);
+    ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)NodeExpressionBinding__CompleteInit_fn, this), -1, 2);
 }
 
 // private void CompleteInit() [instance] :28
@@ -7654,14 +8639,14 @@ void NodeExpressionBinding::CompleteInit()
     if (_expr == NULL)
         return;
 
-    _sub = ::g::Fuse::Reactive::IExpression::Subscribe(uInterface(uPtr(_expr), ::TYPES[24/*Fuse.Reactive.IExpression*/]), (uObject*)this, _listener);
+    _sub = ::g::Fuse::Reactive::IExpression::Subscribe(uInterface(uPtr(_expr), ::TYPES[27/*Fuse.Reactive.IExpression*/]), (uObject*)this, _listener);
 }
 
 // public void Dispose() [instance] :48
 void NodeExpressionBinding::Dispose()
 {
     if (_sub != NULL)
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_sub), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_sub), ::TYPES[1/*Uno.IDisposable*/]));
 
     _expr = NULL;
     _listener = NULL;
@@ -7671,7 +8656,7 @@ void NodeExpressionBinding::Dispose()
 // public Uno.IDisposable SubscribeResource(Fuse.Reactive.IExpression source, string key, Fuse.Reactive.IListener listener) [instance] :43
 uObject* NodeExpressionBinding::SubscribeResource(uObject* source, uString* key, uObject* listener)
 {
-    U_THROW(::g::Uno::Exception::New2(::STRINGS[38/*"The binding...*/]));
+    U_THROW(::g::Uno::Exception::New2(::STRINGS[46/*"The binding...*/]));
 }
 
 // public NodeExpressionBinding New(Fuse.Reactive.IExpression expr, Fuse.Node node, Fuse.Reactive.IListener listener) [static] :16
@@ -7683,219 +8668,106 @@ NodeExpressionBinding* NodeExpressionBinding::New1(uObject* expr, ::g::Fuse::Nod
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\IsDefined.uno
 // -----------------------------------------------------------------------------------------------------
 
-// public sealed class NotEqual :166
+// public sealed class NonNull :63
 // {
-static void NotEqual_build(uType* type)
+static void NonNull_build(uType* type)
 {
-    ::STRINGS[64] = uString::Const("!=");
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface1));
+    type->SetFields(5);
 }
 
-::g::Fuse::Reactive::InfixOperator_type* NotEqual_typeof()
+::g::Fuse::Reactive::ComputeExpression_type* NonNull_typeof()
 {
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
+    static uSStrong< ::g::Fuse::Reactive::ComputeExpression_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(NotEqual);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.NotEqual", options);
-    type->fp_build_ = NotEqual_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))NotEqual__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))NotEqual__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
+    options.BaseDefinition = ::g::Fuse::Reactive::ComputeExpression_typeof();
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(NonNull);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::ComputeExpression_type);
+    type = (::g::Fuse::Reactive::ComputeExpression_type*)uClassType::New("Fuse.Reactive.NonNull", options);
+    type->fp_build_ = NonNull_build;
+    type->fp_TryCompute = (void(*)(::g::Fuse::Reactive::ComputeExpression*, uArray*, uObject**, bool*))NonNull__TryCompute_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// protected override sealed object Compute(object left, object right) :170
-void NotEqual__Compute_fn(NotEqual* __this, uObject* left, uObject* right, uObject** __retval)
+// protected override sealed bool TryCompute(Fuse.Reactive.Expression.Argument[] args, object& result) :72
+void NonNull__TryCompute_fn(NonNull* __this, uArray* args, uObject** result, bool* __retval)
 {
-    if ((left == NULL) || (right == NULL))
-        return *__retval = NULL, void();
-
-    return *__retval = uBox(::TYPES[2/*bool*/], !uUnbox<bool>(::TYPES[2/*bool*/], ::g::Fuse::Marshal::EqualTo(left, right))), void();
-}
-
-// public override sealed string get_Symbol() :176
-void NotEqual__get_Symbol_fn(NotEqual* __this, uString** __retval)
-{
-    return *__retval = ::STRINGS[64/*"!="*/], void();
+    *result = uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->Value();
+    return *__retval = uPtr(args->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->Value() != NULL, void();
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\NullCoalesce.uno
+// --------------------------------------------------------------------------------------------------------
 
-// public sealed class NullCoalesce :67
+// public sealed class NullCoalesce :6
 // {
 static void NullCoalesce_build(uType* type)
 {
-    ::STRINGS[65] = uString::Const("??");
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface1));
+    type->SetFields(5);
 }
 
-::g::Fuse::Reactive::InfixOperator_type* NullCoalesce_typeof()
+::g::Fuse::Reactive::ComputeExpression_type* NullCoalesce_typeof()
 {
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
+    static uSStrong< ::g::Fuse::Reactive::ComputeExpression_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(NullCoalesce);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.NullCoalesce", options);
-    type->fp_build_ = NullCoalesce_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))NullCoalesce__Compute_fn;
-    type->fp_get_IsLeftOptional = (void(*)(::g::Fuse::Reactive::BinaryOperator*, bool*))NullCoalesce__get_IsLeftOptional_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))NullCoalesce__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
-    return type;
-}
-
-// protected override sealed object Compute(object left, object right) :74
-void NullCoalesce__Compute_fn(NullCoalesce* __this, uObject* left, uObject* right, uObject** __retval)
-{
-    if (left != NULL)
-        return *__retval = left, void();
-    else
-        return *__retval = right, void();
-}
-
-// protected override sealed bool get_IsLeftOptional() :72
-void NullCoalesce__get_IsLeftOptional_fn(NullCoalesce* __this, bool* __retval)
-{
-    return *__retval = true, void();
-}
-
-// public override sealed string get_Symbol() :80
-void NullCoalesce__get_Symbol_fn(NullCoalesce* __this, uString** __retval)
-{
-    return *__retval = ::STRINGS[65/*"??"*/], void();
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Instance.Data.uno
-// ------------------------------------------------------------------------------------------------------
-
-// private sealed class Instantiator.ObservableLink :134
-// {
-static void Instantiator__ObservableLink_build(uType* type)
-{
-    type->SetInterfaces(
-        ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Reactive::ValueObserver_type, interface0),
-        ::g::Fuse::Reactive::IObserver_typeof(), offsetof(::g::Fuse::Reactive::ValueObserver_type, interface1));
-    type->SetFields(2,
-        ::g::Fuse::Reactive::Instantiator__WindowItem_typeof(), offsetof(Instantiator__ObservableLink, _target), 0,
-        uObject_typeof(), offsetof(Instantiator__ObservableLink, _currentData), 0);
-}
-
-::g::Fuse::Reactive::ValueObserver_type* Instantiator__ObservableLink_typeof()
-{
-    static uSStrong< ::g::Fuse::Reactive::ValueObserver_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::ValueObserver_typeof();
-    options.FieldCount = 4;
+    options.BaseDefinition = ::g::Fuse::Reactive::ComputeExpression_typeof();
+    options.FieldCount = 5;
     options.InterfaceCount = 2;
-    options.ObjectSize = sizeof(Instantiator__ObservableLink);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::ValueObserver_type);
-    type = (::g::Fuse::Reactive::ValueObserver_type*)uClassType::New("Fuse.Reactive.Instantiator.ObservableLink", options);
-    type->fp_build_ = Instantiator__ObservableLink_build;
-    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::ValueObserver*))Instantiator__ObservableLink__Dispose_fn;
-    type->fp_PushData = (void(*)(::g::Fuse::Reactive::ValueObserver*, uObject*))Instantiator__ObservableLink__PushData_fn;
-    type->interface1.fp_OnClear = (void(*)(uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnClear_fn;
-    type->interface1.fp_OnSet = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnSet_fn;
-    type->interface1.fp_OnAdd = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnAdd_fn;
-    type->interface1.fp_OnNewAt = (void(*)(uObject*, int*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAt_fn;
-    type->interface1.fp_OnFailed = (void(*)(uObject*, uString*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnFailed_fn;
-    type->interface1.fp_OnNewAll = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAll_fn;
-    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnRemoveAt_fn;
-    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnInsertAt_fn;
-    type->interface0.fp_Dispose = (void(*)(uObject*))Instantiator__ObservableLink__Dispose_fn;
+    options.ObjectSize = sizeof(NullCoalesce);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::ComputeExpression_type);
+    type = (::g::Fuse::Reactive::ComputeExpression_type*)uClassType::New("Fuse.Reactive.NullCoalesce", options);
+    type->fp_build_ = NullCoalesce_build;
+    type->fp_TryCompute = (void(*)(::g::Fuse::Reactive::ComputeExpression*, uArray*, uObject**, bool*))NullCoalesce__TryCompute_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// public ObservableLink(Fuse.Reactive.IObservable obs, Fuse.Reactive.Instantiator.WindowItem target) :138
-void Instantiator__ObservableLink__ctor_1_fn(Instantiator__ObservableLink* __this, uObject* obs, ::g::Fuse::Reactive::Instantiator__WindowItem* target)
+// protected override sealed bool TryCompute(Fuse.Reactive.Expression.Argument[] args, object& result) :13
+void NullCoalesce__TryCompute_fn(NullCoalesce* __this, uArray* args, uObject** result, bool* __retval)
 {
-    __this->ctor_1(obs, target);
-}
+    if (uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->HasValue() && (uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->Value() != NULL))
+    {
+        *result = uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->Value();
+        return *__retval = true, void();
+    }
 
-// public object get_Data() :152
-void Instantiator__ObservableLink__get_Data_fn(Instantiator__ObservableLink* __this, uObject** __retval)
-{
-    *__retval = __this->Data();
-}
+    if (uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(1))->HasValue())
+    {
+        *result = uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(1))->Value();
+        return *__retval = true, void();
+    }
 
-// public override sealed void Dispose() :144
-void Instantiator__ObservableLink__Dispose_fn(Instantiator__ObservableLink* __this)
-{
-    ::g::Fuse::Reactive::ValueObserver__Dispose_fn(__this);
-    __this->_target = NULL;
-    __this->_currentData = NULL;
-}
-
-// public ObservableLink New(Fuse.Reactive.IObservable obs, Fuse.Reactive.Instantiator.WindowItem target) :138
-void Instantiator__ObservableLink__New1_fn(uObject* obs, ::g::Fuse::Reactive::Instantiator__WindowItem* target, Instantiator__ObservableLink** __retval)
-{
-    *__retval = Instantiator__ObservableLink::New1(obs, target);
-}
-
-// protected override sealed void PushData(object newData) :154
-void Instantiator__ObservableLink__PushData_fn(Instantiator__ObservableLink* __this, uObject* newData)
-{
-    ::g::Fuse::Node* ret2;
-
-    if (__this->_target == NULL)
-        return;
-
-    uObject* oldData = __this->_currentData;
-    __this->_currentData = newData;
-
-    for (int i = 0; i < uPtr(uPtr(__this->_target)->Nodes)->Count(); ++i)
-        uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(uPtr(__this->_target)->Nodes), uCRef<int>(i), &ret2), ret2))->BroadcastDataChange(oldData, newData);
-}
-
-// public ObservableLink(Fuse.Reactive.IObservable obs, Fuse.Reactive.Instantiator.WindowItem target) [instance] :138
-void Instantiator__ObservableLink::ctor_1(uObject* obs, ::g::Fuse::Reactive::Instantiator__WindowItem* target)
-{
-    ctor_();
-    _target = target;
-    Subscribe(obs);
-}
-
-// public object get_Data() [instance] :152
-uObject* Instantiator__ObservableLink::Data()
-{
-    return _currentData;
-}
-
-// public ObservableLink New(Fuse.Reactive.IObservable obs, Fuse.Reactive.Instantiator.WindowItem target) [static] :138
-Instantiator__ObservableLink* Instantiator__ObservableLink::New1(uObject* obs, ::g::Fuse::Reactive::Instantiator__WindowItem* target)
-{
-    Instantiator__ObservableLink* obj1 = (Instantiator__ObservableLink*)uNew(Instantiator__ObservableLink_typeof());
-    obj1->ctor_1(obs, target);
-    return obj1;
+    *result = NULL;
+    return *__retval = false, void();
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Subscription.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Subscription.uno
 // --------------------------------------------------------------------------------------------------------
 
-// private sealed class InnerListener.ObservableSubscription :71
+// private sealed class InnerListener.ObservableSubscription :82
 // {
 static void InnerListener__ObservableSubscription_build(uType* type)
 {
@@ -7921,26 +8793,27 @@ static void InnerListener__ObservableSubscription_build(uType* type)
     type = (::g::Fuse::Reactive::ValueObserver_type*)uClassType::New("Fuse.Reactive.InnerListener.ObservableSubscription", options);
     type->fp_build_ = InnerListener__ObservableSubscription_build;
     type->fp_Dispose = (void(*)(::g::Fuse::Reactive::ValueObserver*))InnerListener__ObservableSubscription__Dispose_fn;
+    type->fp_LostData = (void(*)(::g::Fuse::Reactive::ValueObserver*))InnerListener__ObservableSubscription__LostData_fn;
     type->fp_PushData = (void(*)(::g::Fuse::Reactive::ValueObserver*, uObject*))InnerListener__ObservableSubscription__PushData_fn;
     type->interface1.fp_OnClear = (void(*)(uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnClear_fn;
     type->interface1.fp_OnSet = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnSet_fn;
     type->interface1.fp_OnAdd = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnAdd_fn;
-    type->interface1.fp_OnNewAt = (void(*)(uObject*, int*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAt_fn;
+    type->interface1.fp_OnNewAt = (void(*)(uObject*, int32_t*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAt_fn;
     type->interface1.fp_OnFailed = (void(*)(uObject*, uString*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnFailed_fn;
     type->interface1.fp_OnNewAll = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAll_fn;
-    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnRemoveAt_fn;
-    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnInsertAt_fn;
+    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnRemoveAt_fn;
+    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int32_t*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnInsertAt_fn;
     type->interface0.fp_Dispose = (void(*)(uObject*))InnerListener__ObservableSubscription__Dispose_fn;
     return type;
 }
 
-// public ObservableSubscription(Fuse.Reactive.IExpression source, Fuse.Reactive.IObservable obs, Fuse.Reactive.InnerListener listener) :76
+// public ObservableSubscription(Fuse.Reactive.IExpression source, Fuse.Reactive.IObservable obs, Fuse.Reactive.InnerListener listener) :87
 void InnerListener__ObservableSubscription__ctor_1_fn(InnerListener__ObservableSubscription* __this, uObject* source, uObject* obs, ::g::Fuse::Reactive::InnerListener* listener)
 {
     __this->ctor_1(source, obs, listener);
 }
 
-// public override sealed void Dispose() :83
+// public override sealed void Dispose() :94
 void InnerListener__ObservableSubscription__Dispose_fn(InnerListener__ObservableSubscription* __this)
 {
     ::g::Fuse::Reactive::ValueObserver__Dispose_fn(__this);
@@ -7948,19 +8821,25 @@ void InnerListener__ObservableSubscription__Dispose_fn(InnerListener__Observable
     __this->_listener = NULL;
 }
 
-// public ObservableSubscription New(Fuse.Reactive.IExpression source, Fuse.Reactive.IObservable obs, Fuse.Reactive.InnerListener listener) :76
+// protected override sealed void LostData() :106
+void InnerListener__ObservableSubscription__LostData_fn(InnerListener__ObservableSubscription* __this)
+{
+    uPtr(__this->_listener)->OnLostData(__this->_source);
+}
+
+// public ObservableSubscription New(Fuse.Reactive.IExpression source, Fuse.Reactive.IObservable obs, Fuse.Reactive.InnerListener listener) :87
 void InnerListener__ObservableSubscription__New1_fn(uObject* source, uObject* obs, ::g::Fuse::Reactive::InnerListener* listener, InnerListener__ObservableSubscription** __retval)
 {
     *__retval = InnerListener__ObservableSubscription::New1(source, obs, listener);
 }
 
-// protected override sealed void PushData(object newValue) :90
+// protected override sealed void PushData(object newValue) :101
 void InnerListener__ObservableSubscription__PushData_fn(InnerListener__ObservableSubscription* __this, uObject* newValue)
 {
     uPtr(__this->_listener)->OnNewData(__this->_source, newValue);
 }
 
-// public ObservableSubscription(Fuse.Reactive.IExpression source, Fuse.Reactive.IObservable obs, Fuse.Reactive.InnerListener listener) [instance] :76
+// public ObservableSubscription(Fuse.Reactive.IExpression source, Fuse.Reactive.IObservable obs, Fuse.Reactive.InnerListener listener) [instance] :87
 void InnerListener__ObservableSubscription::ctor_1(uObject* source, uObject* obs, ::g::Fuse::Reactive::InnerListener* listener)
 {
     ctor_();
@@ -7969,7 +8848,7 @@ void InnerListener__ObservableSubscription::ctor_1(uObject* source, uObject* obs
     Subscribe(obs);
 }
 
-// public ObservableSubscription New(Fuse.Reactive.IExpression source, Fuse.Reactive.IObservable obs, Fuse.Reactive.InnerListener listener) [static] :76
+// public ObservableSubscription New(Fuse.Reactive.IExpression source, Fuse.Reactive.IObservable obs, Fuse.Reactive.InnerListener listener) [static] :87
 InnerListener__ObservableSubscription* InnerListener__ObservableSubscription::New1(uObject* source, uObject* obs, ::g::Fuse::Reactive::InnerListener* listener)
 {
     InnerListener__ObservableSubscription* obj1 = (InnerListener__ObservableSubscription*)uNew(InnerListener__ObservableSubscription_typeof());
@@ -7978,7 +8857,7 @@ InnerListener__ObservableSubscription* InnerListener__ObservableSubscription::Ne
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\ObserverMap.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\ObserverMap.uno
 // -------------------------------------------------------------------------------------------
 
 // internal abstract class ObserverMap<T> :23
@@ -7986,29 +8865,27 @@ InnerListener__ObservableSubscription* InnerListener__ObservableSubscription::Ne
 static void ObserverMap_build(uType* type)
 {
     ::STRINGS[66] = uString::Const("An observable with write-back is expected");
-    ::STRINGS[67] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive\\1.4.2\\ObserverMap.uno");
+    ::STRINGS[67] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive\\1.9.0\\ObserverMap.uno");
     ::STRINGS[68] = uString::Const("Attach");
-    ::TYPES[45] = ::g::Uno::Collections::List_typeof();
-    ::TYPES[17] = ::g::Fuse::Reactive::IObservableArray_typeof();
-    ::TYPES[21] = ::g::Fuse::Reactive::ISubscription_typeof();
-    ::TYPES[40] = ::g::Fuse::Reactive::IObserver_typeof();
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[15] = ::g::Fuse::IArray_typeof();
-    ::TYPES[46] = ::g::Fuse::Reactive::UnmappedView_typeof();
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
+    ::TYPES[47] = ::g::Uno::Collections::List_typeof();
+    ::TYPES[19] = ::g::Fuse::Reactive::IObservableArray_typeof();
+    ::TYPES[23] = ::g::Fuse::Reactive::ISubscription_typeof();
+    ::TYPES[42] = ::g::Fuse::Reactive::IObserver_typeof();
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[17] = ::g::Fuse::IArray_typeof();
+    ::TYPES[48] = ::g::Fuse::Reactive::UnmappedView_typeof();
     type->SetPrecalc(
         ::g::Uno::Collections::List_typeof()->MakeType(type->T(0), NULL),
         ::g::Fuse::Reactive::UnmappedView_typeof()->MakeType(type->T(0), NULL));
     type->SetInterfaces(
-        ::TYPES[40/*Fuse.Reactive.IObserver*/], offsetof(ObserverMap_type, interface0));
+        ::TYPES[42/*Fuse.Reactive.IObserver*/], offsetof(ObserverMap_type, interface0));
     type->SetFields(0,
-        ::TYPES[45/*Uno.Collections.List`1*/]->MakeType(type->T(0), NULL), offsetof(ObserverMap, _list), 0,
-        ::TYPES[17/*Fuse.Reactive.IObservableArray*/], offsetof(ObserverMap, _observable), 0,
-        ::TYPES[15/*Fuse.IArray*/], offsetof(ObserverMap, _source), 0,
-        ::TYPES[40/*Fuse.Reactive.IObserver*/], offsetof(ObserverMap, _slave), 0,
-        ::TYPES[21/*Fuse.Reactive.ISubscription*/], offsetof(ObserverMap, _subscription), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(ObserverMap, _disposable), 0);
+        ::TYPES[47/*Uno.Collections.List`1*/]->MakeType(type->T(0), NULL), offsetof(ObserverMap, _list), 0,
+        ::TYPES[19/*Fuse.Reactive.IObservableArray*/], offsetof(ObserverMap, _observable), 0,
+        ::TYPES[17/*Fuse.IArray*/], offsetof(ObserverMap, _source), 0,
+        ::TYPES[42/*Fuse.Reactive.IObserver*/], offsetof(ObserverMap, _slave), 0,
+        ::TYPES[23/*Fuse.Reactive.ISubscription*/], offsetof(ObserverMap, _subscription), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(ObserverMap, _disposable), 0);
 }
 
 ObserverMap_type* ObserverMap_typeof()
@@ -8020,7 +8897,6 @@ ObserverMap_type* ObserverMap_typeof()
     options.FieldCount = 6;
     options.GenericCount = 1;
     options.InterfaceCount = 1;
-    options.DependencyCount = 1;
     options.PrecalcCount = 2;
     options.ObjectSize = sizeof(ObserverMap);
     options.TypeSize = sizeof(ObserverMap_type);
@@ -8029,11 +8905,11 @@ ObserverMap_type* ObserverMap_typeof()
     type->fp_OnUpdated = ObserverMap__OnUpdated_fn;
     type->interface0.fp_OnClear = (void(*)(uObject*))ObserverMap__FuseReactiveIObserverOnClear_fn;
     type->interface0.fp_OnNewAll = (void(*)(uObject*, uObject*))ObserverMap__FuseReactiveIObserverOnNewAll_fn;
-    type->interface0.fp_OnNewAt = (void(*)(uObject*, int*, uObject*))ObserverMap__FuseReactiveIObserverOnNewAt_fn;
+    type->interface0.fp_OnNewAt = (void(*)(uObject*, int32_t*, uObject*))ObserverMap__FuseReactiveIObserverOnNewAt_fn;
     type->interface0.fp_OnSet = (void(*)(uObject*, uObject*))ObserverMap__FuseReactiveIObserverOnSet_fn;
     type->interface0.fp_OnAdd = (void(*)(uObject*, uObject*))ObserverMap__FuseReactiveIObserverOnAdd_fn;
-    type->interface0.fp_OnRemoveAt = (void(*)(uObject*, int*))ObserverMap__FuseReactiveIObserverOnRemoveAt_fn;
-    type->interface0.fp_OnInsertAt = (void(*)(uObject*, int*, uObject*))ObserverMap__FuseReactiveIObserverOnInsertAt_fn;
+    type->interface0.fp_OnRemoveAt = (void(*)(uObject*, int32_t*))ObserverMap__FuseReactiveIObserverOnRemoveAt_fn;
+    type->interface0.fp_OnInsertAt = (void(*)(uObject*, int32_t*, uObject*))ObserverMap__FuseReactiveIObserverOnInsertAt_fn;
     type->interface0.fp_OnFailed = (void(*)(uObject*, uString*))ObserverMap__FuseReactiveIObserverOnFailed_fn;
     return type;
 }
@@ -8044,37 +8920,37 @@ void ObserverMap__ctor__fn(ObserverMap* __this)
     __this->ctor_();
 }
 
-// public void Add(T value) :91
+// public void Add(T value) :95
 void ObserverMap__Add_fn(ObserverMap* __this, uObject* value)
 {
     __this->Add(value);
 }
 
-// public void Attach(Fuse.IArray src, [Fuse.Reactive.IObserver slave]) :54
+// public void Attach(Fuse.IArray src, [Fuse.Reactive.IObserver slave]) :58
 void ObserverMap__Attach_fn(ObserverMap* __this, uObject* src, uObject* slave)
 {
     __this->Attach(src, slave);
 }
 
-// public void Clear() :109
+// public void Clear() :113
 void ObserverMap__Clear_fn(ObserverMap* __this)
 {
     __this->Clear();
 }
 
 // public int get_Count() :33
-void ObserverMap__get_Count_fn(ObserverMap* __this, int* __retval)
+void ObserverMap__get_Count_fn(ObserverMap* __this, int32_t* __retval)
 {
     *__retval = __this->Count();
 }
 
-// public void Detach() :78
+// public void Detach() :82
 void ObserverMap__Detach_fn(ObserverMap* __this)
 {
     __this->Detach();
 }
 
-// private void Fuse.Reactive.IObserver.OnAdd(object addedValue) :171
+// private void Fuse.Reactive.IObserver.OnAdd(object addedValue) :175
 void ObserverMap__FuseReactiveIObserverOnAdd_fn(ObserverMap* __this, uObject* addedValue)
 {
     if (__this->_subscription == NULL)
@@ -8084,10 +8960,10 @@ void ObserverMap__FuseReactiveIObserverOnAdd_fn(ObserverMap* __this, uObject* ad
     __this->OnUpdated();
 
     if (__this->_slave != NULL)
-        ::g::Fuse::Reactive::IObserver::OnAdd(uInterface(uPtr(__this->_slave), ::TYPES[40/*Fuse.Reactive.IObserver*/]), addedValue);
+        ::g::Fuse::Reactive::IObserver::OnAdd(uInterface(uPtr(__this->_slave), ::TYPES[42/*Fuse.Reactive.IObserver*/]), addedValue);
 }
 
-// private void Fuse.Reactive.IObserver.OnClear() :124
+// private void Fuse.Reactive.IObserver.OnClear() :128
 void ObserverMap__FuseReactiveIObserverOnClear_fn(ObserverMap* __this)
 {
     if (__this->_subscription == NULL)
@@ -8097,10 +8973,10 @@ void ObserverMap__FuseReactiveIObserverOnClear_fn(ObserverMap* __this)
     __this->OnUpdated();
 
     if (__this->_slave != NULL)
-        ::g::Fuse::Reactive::IObserver::OnClear(uInterface(uPtr(__this->_slave), ::TYPES[40/*Fuse.Reactive.IObserver*/]));
+        ::g::Fuse::Reactive::IObserver::OnClear(uInterface(uPtr(__this->_slave), ::TYPES[42/*Fuse.Reactive.IObserver*/]));
 }
 
-// private void Fuse.Reactive.IObserver.OnFailed(string message) :204
+// private void Fuse.Reactive.IObserver.OnFailed(string message) :208
 void ObserverMap__FuseReactiveIObserverOnFailed_fn(ObserverMap* __this, uString* message)
 {
     if (__this->_subscription == NULL)
@@ -8110,25 +8986,25 @@ void ObserverMap__FuseReactiveIObserverOnFailed_fn(ObserverMap* __this, uString*
     __this->OnUpdated();
 
     if (__this->_slave != NULL)
-        ::g::Fuse::Reactive::IObserver::OnFailed(uInterface(uPtr(__this->_slave), ::TYPES[40/*Fuse.Reactive.IObserver*/]), message);
+        ::g::Fuse::Reactive::IObserver::OnFailed(uInterface(uPtr(__this->_slave), ::TYPES[42/*Fuse.Reactive.IObserver*/]), message);
 }
 
-// private void Fuse.Reactive.IObserver.OnInsertAt(int index, object value) :193
-void ObserverMap__FuseReactiveIObserverOnInsertAt_fn(ObserverMap* __this, int* index, uObject* value)
+// private void Fuse.Reactive.IObserver.OnInsertAt(int index, object value) :197
+void ObserverMap__FuseReactiveIObserverOnInsertAt_fn(ObserverMap* __this, int32_t* index, uObject* value)
 {
-    int index_ = *index;
+    int32_t index_ = *index;
 
     if (__this->_subscription == NULL)
         return;
 
-    ::g::Uno::Collections::List__Insert_fn(uPtr(__this->_list), uCRef<int>(index_), __this->Map(value));
+    ::g::Uno::Collections::List__Insert_fn(uPtr(__this->_list), uCRef<int32_t>(index_), __this->Map(value));
     __this->OnUpdated();
 
     if (__this->_slave != NULL)
-        ::g::Fuse::Reactive::IObserver::OnInsertAt(uInterface(uPtr(__this->_slave), ::TYPES[40/*Fuse.Reactive.IObserver*/]), index_, value);
+        ::g::Fuse::Reactive::IObserver::OnInsertAt(uInterface(uPtr(__this->_slave), ::TYPES[42/*Fuse.Reactive.IObserver*/]), index_, value);
 }
 
-// private void Fuse.Reactive.IObserver.OnNewAll(Fuse.IArray values) :135
+// private void Fuse.Reactive.IObserver.OnNewAll(Fuse.IArray values) :139
 void ObserverMap__FuseReactiveIObserverOnNewAll_fn(ObserverMap* __this, uObject* values)
 {
     if (__this->_subscription == NULL)
@@ -8136,34 +9012,34 @@ void ObserverMap__FuseReactiveIObserverOnNewAll_fn(ObserverMap* __this, uObject*
 
     uPtr(__this->_list)->Clear();
 
-    for (int i = 0; i < ::g::Fuse::IArray::Length(uInterface(uPtr(values), ::TYPES[15/*Fuse.IArray*/])); ++i)
-        ::g::Uno::Collections::List__Add_fn(uPtr(__this->_list), __this->Map(::g::Fuse::IArray::Item(uInterface(uPtr(values), ::TYPES[15/*Fuse.IArray*/]), i)));
+    for (int32_t i = 0; i < ::g::Fuse::IArray::Length(uInterface(uPtr(values), ::TYPES[17/*Fuse.IArray*/])); ++i)
+        ::g::Uno::Collections::List__Add_fn(uPtr(__this->_list), __this->Map(::g::Fuse::IArray::Item(uInterface(uPtr(values), ::TYPES[17/*Fuse.IArray*/]), i)));
 
     __this->OnUpdated();
 
     if (__this->_slave != NULL)
-        ::g::Fuse::Reactive::IObserver::OnNewAll(uInterface(uPtr(__this->_slave), ::TYPES[40/*Fuse.Reactive.IObserver*/]), values);
+        ::g::Fuse::Reactive::IObserver::OnNewAll(uInterface(uPtr(__this->_slave), ::TYPES[42/*Fuse.Reactive.IObserver*/]), values);
 }
 
-// private void Fuse.Reactive.IObserver.OnNewAt(int index, object newValue) :148
-void ObserverMap__FuseReactiveIObserverOnNewAt_fn(ObserverMap* __this, int* index, uObject* newValue)
+// private void Fuse.Reactive.IObserver.OnNewAt(int index, object newValue) :152
+void ObserverMap__FuseReactiveIObserverOnNewAt_fn(ObserverMap* __this, int32_t* index, uObject* newValue)
 {
-    int index_ = *index;
+    int32_t index_ = *index;
 
     if (__this->_subscription == NULL)
         return;
 
-    ::g::Uno::Collections::List__set_Item_fn(uPtr(__this->_list), uCRef<int>(index_), __this->Map(newValue));
+    ::g::Uno::Collections::List__set_Item_fn(uPtr(__this->_list), uCRef<int32_t>(index_), __this->Map(newValue));
     __this->OnUpdated();
 
     if (__this->_slave != NULL)
-        ::g::Fuse::Reactive::IObserver::OnNewAt(uInterface(uPtr(__this->_slave), ::TYPES[40/*Fuse.Reactive.IObserver*/]), index_, newValue);
+        ::g::Fuse::Reactive::IObserver::OnNewAt(uInterface(uPtr(__this->_slave), ::TYPES[42/*Fuse.Reactive.IObserver*/]), index_, newValue);
 }
 
-// private void Fuse.Reactive.IObserver.OnRemoveAt(int index) :182
-void ObserverMap__FuseReactiveIObserverOnRemoveAt_fn(ObserverMap* __this, int* index)
+// private void Fuse.Reactive.IObserver.OnRemoveAt(int index) :186
+void ObserverMap__FuseReactiveIObserverOnRemoveAt_fn(ObserverMap* __this, int32_t* index)
 {
-    int index_ = *index;
+    int32_t index_ = *index;
 
     if (__this->_subscription == NULL)
         return;
@@ -8172,10 +9048,10 @@ void ObserverMap__FuseReactiveIObserverOnRemoveAt_fn(ObserverMap* __this, int* i
     __this->OnUpdated();
 
     if (__this->_slave != NULL)
-        ::g::Fuse::Reactive::IObserver::OnRemoveAt(uInterface(uPtr(__this->_slave), ::TYPES[40/*Fuse.Reactive.IObserver*/]), index_);
+        ::g::Fuse::Reactive::IObserver::OnRemoveAt(uInterface(uPtr(__this->_slave), ::TYPES[42/*Fuse.Reactive.IObserver*/]), index_);
 }
 
-// private void Fuse.Reactive.IObserver.OnSet(object newValue) :159
+// private void Fuse.Reactive.IObserver.OnSet(object newValue) :163
 void ObserverMap__FuseReactiveIObserverOnSet_fn(ObserverMap* __this, uObject* newValue)
 {
     if (__this->_subscription == NULL)
@@ -8186,17 +9062,17 @@ void ObserverMap__FuseReactiveIObserverOnSet_fn(ObserverMap* __this, uObject* ne
     __this->OnUpdated();
 
     if (__this->_slave != NULL)
-        ::g::Fuse::Reactive::IObserver::OnSet(uInterface(uPtr(__this->_slave), ::TYPES[40/*Fuse.Reactive.IObserver*/]), newValue);
+        ::g::Fuse::Reactive::IObserver::OnSet(uInterface(uPtr(__this->_slave), ::TYPES[42/*Fuse.Reactive.IObserver*/]), newValue);
 }
 
 // public T get_Item(int index) :36
-void ObserverMap__get_Item_fn(ObserverMap* __this, int* index, uObject** __retval)
+void ObserverMap__get_Item_fn(ObserverMap* __this, int32_t* index, uObject** __retval)
 {
     *__retval = __this->Item(*index);
 }
 
 // public void set_Item(int index, T value) :37
-void ObserverMap__set_Item_fn(ObserverMap* __this, int* index, uObject* value)
+void ObserverMap__set_Item_fn(ObserverMap* __this, int32_t* index, uObject* value)
 {
     __this->Item(*index, value);
 }
@@ -8206,13 +9082,13 @@ void ObserverMap__OnUpdated_fn(ObserverMap* __this)
 {
 }
 
-// public void RemoveAt(int index) :97
-void ObserverMap__RemoveAt_fn(ObserverMap* __this, int* index)
+// public void RemoveAt(int index) :101
+void ObserverMap__RemoveAt_fn(ObserverMap* __this, int32_t* index)
 {
     __this->RemoveAt(*index);
 }
 
-// private void UpdateBacking() :115
+// private void UpdateBacking() :119
 void ObserverMap__UpdateBacking_fn(ObserverMap* __this)
 {
     __this->UpdateBacking();
@@ -8233,34 +9109,34 @@ void ObserverMap::ctor_()
     _list = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(__types[0]));
 }
 
-// public void Add(T value) [instance] :91
+// public void Add(T value) [instance] :95
 void ObserverMap::Add(uObject* value)
 {
     ::g::Uno::Collections::List__Add_fn(uPtr(_list), value);
     UpdateBacking();
 }
 
-// public void Attach(Fuse.IArray src, [Fuse.Reactive.IObserver slave]) [instance] :54
+// public void Attach(Fuse.IArray src, [Fuse.Reactive.IObserver slave]) [instance] :58
 void ObserverMap::Attach(uObject* src, uObject* slave)
 {
     Detach();
     _source = src;
-    _observable = uAs<uObject*>(src, ::TYPES[17/*Fuse.Reactive.IObservableArray*/]);
+    _observable = uAs<uObject*>(src, ::TYPES[19/*Fuse.Reactive.IObservableArray*/]);
 
     if (_observable != NULL)
     {
-        _disposable = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(_observable), ::TYPES[17/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
-        _subscription = uAs<uObject*>(_disposable, ::TYPES[21/*Fuse.Reactive.ISubscription*/]);
+        _disposable = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(_observable), ::TYPES[19/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
+        _subscription = uAs<uObject*>(_disposable, ::TYPES[23/*Fuse.Reactive.ISubscription*/]);
 
         if (_subscription == NULL)
-            ::g::Fuse::Diagnostics::InternalError(::STRINGS[66/*"An observab...*/], this, ::STRINGS[67/*"C:\\Users\\...*/], 68, ::STRINGS[68/*"Attach"*/]);
+            ::g::Fuse::Diagnostics::InternalError(::STRINGS[66/*"An observab...*/], this, ::STRINGS[67/*"C:\\Users\\...*/], 72, ::STRINGS[68/*"Attach"*/]);
     }
 
-    ::g::Fuse::Reactive::IObserver::OnNewAll(uInterface((uObject*)this, ::TYPES[40/*Fuse.Reactive.IObserver*/]), src);
+    ::g::Fuse::Reactive::IObserver::OnNewAll(uInterface((uObject*)this, ::TYPES[42/*Fuse.Reactive.IObserver*/]), src);
     _slave = slave;
 }
 
-// public void Clear() [instance] :109
+// public void Clear() [instance] :113
 void ObserverMap::Clear()
 {
     uPtr(_list)->Clear();
@@ -8268,17 +9144,17 @@ void ObserverMap::Clear()
 }
 
 // public int get_Count() [instance] :33
-int ObserverMap::Count()
+int32_t ObserverMap::Count()
 {
     return uPtr(_list)->Count();
 }
 
-// public void Detach() [instance] :78
+// public void Detach() [instance] :82
 void ObserverMap::Detach()
 {
     if (_disposable != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_disposable), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_disposable), ::TYPES[1/*Uno.IDisposable*/]));
         _disposable = NULL;
     }
 
@@ -8289,26 +9165,27 @@ void ObserverMap::Detach()
 }
 
 // public T get_Item(int index) [instance] :36
-uObject* ObserverMap::Item(int index)
+uObject* ObserverMap::Item(int32_t index)
 {
     uObject* ret1;
-    return (::g::Uno::Collections::List__get_Item_fn(uPtr(_list), uCRef<int>(index), &ret1), ret1);
+    return (::g::Uno::Collections::List__get_Item_fn(uPtr(_list), uCRef<int32_t>(index), &ret1), ret1);
 }
 
 // public void set_Item(int index, T value) [instance] :37
-void ObserverMap::Item(int index, uObject* value)
+void ObserverMap::Item(int32_t index, uObject* value)
 {
-    ::g::Uno::Collections::List__set_Item_fn(uPtr(_list), uCRef<int>(index), value);
+    ::g::Uno::Collections::List__set_Item_fn(uPtr(_list), uCRef<int32_t>(index), value);
+    UpdateBacking();
 }
 
-// public void RemoveAt(int index) [instance] :97
-void ObserverMap::RemoveAt(int index)
+// public void RemoveAt(int index) [instance] :101
+void ObserverMap::RemoveAt(int32_t index)
 {
     uPtr(_list)->RemoveAt(index);
     UpdateBacking();
 }
 
-// private void UpdateBacking() [instance] :115
+// private void UpdateBacking() [instance] :119
 void ObserverMap::UpdateBacking()
 {
     uType* __types[] = {
@@ -8319,7 +9196,7 @@ void ObserverMap::UpdateBacking()
         return;
 
     uObject* uv = (uObject*)((::g::Fuse::Reactive::UnmappedView*)::g::Fuse::Reactive::UnmappedView::New1(__types[0], this));
-    ::g::Fuse::Reactive::ISubscription::ReplaceAllExclusive(uInterface(uPtr(_subscription), ::TYPES[21/*Fuse.Reactive.ISubscription*/]), uv);
+    ::g::Fuse::Reactive::ISubscription::ReplaceAllExclusive(uInterface(uPtr(_subscription), ::TYPES[23/*Fuse.Reactive.ISubscription*/]), uv);
 }
 
 // internal object UVUnmap(T mv) [instance] :31
@@ -8329,7 +9206,100 @@ uObject* ObserverMap::UVUnmap(uObject* mv)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Property.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Parameter.uno
+// -----------------------------------------------------------------------------------------------------
+
+// public sealed class Parameter :16
+// {
+static void Parameter_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2,
+        ::g::Fuse::Reactive::Expression_typeof(), offsetof(Parameter, Visual), 0);
+}
+
+::g::Fuse::Reactive::Expression_type* Parameter_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::Expression_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(Parameter);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
+    type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.Parameter", options);
+    type->fp_build_ = Parameter_build;
+    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))Parameter__Subscribe_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))Parameter__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :26
+void Parameter__Subscribe_fn(Parameter* __this, uObject* context, uObject* listener, uObject** __retval)
+{
+    return *__retval = (uObject*)Parameter__Subscription::New1(__this, context, listener), void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\PlatformFunctions.uno
+// -------------------------------------------------------------------------------------------------------------
+
+// public abstract class PlatformFunction :11
+// {
+static void PlatformFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(PlatformFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(PlatformFunction_type, interface1));
+    type->SetFields(2,
+        ::g::Uno::String_typeof(), offsetof(PlatformFunction, _name), 0);
+}
+
+PlatformFunction_type* PlatformFunction_typeof()
+{
+    static uSStrong<PlatformFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(PlatformFunction);
+    options.TypeSize = sizeof(PlatformFunction_type);
+    type = (PlatformFunction_type*)uClassType::New("Fuse.Reactive.PlatformFunction", options);
+    type->fp_build_ = PlatformFunction_build;
+    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))PlatformFunction__Subscribe_fn;
+    type->fp_ToString = (void(*)(uObject*, uString**))PlatformFunction__ToString_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))PlatformFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :24
+void PlatformFunction__Subscribe_fn(PlatformFunction* __this, uObject* context, uObject* listener, uObject** __retval)
+{
+    PlatformFunction__Subscription* sub = PlatformFunction__Subscription::New1(__this, listener);
+    sub->Init();
+    return *__retval = (uObject*)sub, void();
+}
+
+// public override sealed string ToString() :19
+void PlatformFunction__ToString_fn(PlatformFunction* __this, uString** __retval)
+{
+    return *__retval = ::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(uString::Const("is"), __this->_name), uString::Const("()")), void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Property.uno
 // ----------------------------------------------------------------------------------------------------
 
 // public sealed class Property :8
@@ -8337,8 +9307,9 @@ uObject* ObserverMap::UVUnmap(uObject* mv)
 static void Property_build(uType* type)
 {
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0));
-    type->SetFields(0,
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2,
         ::g::Uno::UX::PropertyAccessor_typeof(), offsetof(Property, _Accessor), 0,
         ::g::Fuse::Reactive::ConstantExpression_typeof(), offsetof(Property, _Object), 0);
 }
@@ -8350,14 +9321,17 @@ static void Property_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.FieldCount = 2;
-    options.InterfaceCount = 1;
+    options.FieldCount = 4;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(Property);
     options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
     type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.Property", options);
     type->fp_build_ = Property_build;
     type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))Property__Subscribe_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))Property__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
@@ -8445,202 +9419,253 @@ Property* Property::New1(::g::Fuse::Reactive::ConstantExpression* obj, ::g::Uno:
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\QuaternaryOperator.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Device.uno
+// --------------------------------------------------------------------------------------------------
+
+// private sealed class CapsObject.PropertySubscription :54
+// {
+static void CapsObject__PropertySubscription_build(uType* type)
+{
+    ::TYPES[20] = ::g::Uno::UX::Selector_typeof();
+    ::TYPES[49] = ::g::Fuse::Reactive::IPropertyObserver_typeof();
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IPropertySubscription_typeof(), offsetof(CapsObject__PropertySubscription_type, interface0),
+        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(CapsObject__PropertySubscription_type, interface1),
+        ::g::Uno::IDisposable_typeof(), offsetof(CapsObject__PropertySubscription_type, interface2));
+    type->SetFields(0,
+        ::g::Fuse::Reactive::CapsObject_typeof(), offsetof(CapsObject__PropertySubscription, _caps), 0,
+        ::TYPES[49/*Fuse.Reactive.IPropertyObserver*/], offsetof(CapsObject__PropertySubscription, _observer), 0);
+}
+
+CapsObject__PropertySubscription_type* CapsObject__PropertySubscription_typeof()
+{
+    static uSStrong<CapsObject__PropertySubscription_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.FieldCount = 2;
+    options.InterfaceCount = 3;
+    options.ObjectSize = sizeof(CapsObject__PropertySubscription);
+    options.TypeSize = sizeof(CapsObject__PropertySubscription_type);
+    type = (CapsObject__PropertySubscription_type*)uClassType::New("Fuse.Reactive.CapsObject.PropertySubscription", options);
+    type->fp_build_ = CapsObject__PropertySubscription_build;
+    type->interface0.fp_TrySetExclusive = (void(*)(uObject*, uString*, uObject*, bool*))CapsObject__PropertySubscription__TrySetExclusive_fn;
+    type->interface1.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))CapsObject__PropertySubscription__OnPropertyChanged_fn;
+    type->interface2.fp_Dispose = (void(*)(uObject*))CapsObject__PropertySubscription__Dispose_fn;
+    return type;
+}
+
+// public PropertySubscription(Fuse.Reactive.CapsObject dc, Fuse.Reactive.IPropertyObserver observer) :59
+void CapsObject__PropertySubscription__ctor__fn(CapsObject__PropertySubscription* __this, ::g::Fuse::Reactive::CapsObject* dc, uObject* observer)
+{
+    __this->ctor_(dc, observer);
+}
+
+// public void Dispose() :65
+void CapsObject__PropertySubscription__Dispose_fn(CapsObject__PropertySubscription* __this)
+{
+    __this->Dispose();
+}
+
+// public PropertySubscription New(Fuse.Reactive.CapsObject dc, Fuse.Reactive.IPropertyObserver observer) :59
+void CapsObject__PropertySubscription__New1_fn(::g::Fuse::Reactive::CapsObject* dc, uObject* observer, CapsObject__PropertySubscription** __retval)
+{
+    *__retval = CapsObject__PropertySubscription::New1(dc, observer);
+}
+
+// public void OnPropertyChanged(Uno.UX.PropertyObject ignore, Uno.UX.Selector name) :75
+void CapsObject__PropertySubscription__OnPropertyChanged_fn(CapsObject__PropertySubscription* __this, ::g::Uno::UX::PropertyObject* ignore, ::g::Uno::UX::Selector* name)
+{
+    __this->OnPropertyChanged(ignore, *name);
+}
+
+// public bool TrySetExclusive(string propertyName, object newValue) :85
+void CapsObject__PropertySubscription__TrySetExclusive_fn(CapsObject__PropertySubscription* __this, uString* propertyName, uObject* newValue, bool* __retval)
+{
+    *__retval = __this->TrySetExclusive(propertyName, newValue);
+}
+
+// public PropertySubscription(Fuse.Reactive.CapsObject dc, Fuse.Reactive.IPropertyObserver observer) [instance] :59
+void CapsObject__PropertySubscription::ctor_(::g::Fuse::Reactive::CapsObject* dc, uObject* observer)
+{
+    _caps = dc;
+    _observer = observer;
+}
+
+// public void Dispose() [instance] :65
+void CapsObject__PropertySubscription::Dispose()
+{
+    if (_caps != NULL)
+    {
+        uPtr(_caps)->RemovePropertyListener((uObject*)this);
+        _caps = NULL;
+        _observer = NULL;
+    }
+}
+
+// public void OnPropertyChanged(Uno.UX.PropertyObject ignore, Uno.UX.Selector name) [instance] :75
+void CapsObject__PropertySubscription::OnPropertyChanged(::g::Uno::UX::PropertyObject* ignore, ::g::Uno::UX::Selector name)
+{
+    if (_observer != NULL)
+    {
+        uString* str = name.ToString(::TYPES[20/*Uno.UX.Selector*/]);
+        uObject* value = uPtr(_caps)->GetValue(str);
+        ::g::Fuse::Reactive::IPropertyObserver::OnPropertyChanged(uInterface(uPtr(_observer), ::TYPES[49/*Fuse.Reactive.IPropertyObserver*/]), (uObject*)this, str, value);
+    }
+}
+
+// public bool TrySetExclusive(string propertyName, object newValue) [instance] :85
+bool CapsObject__PropertySubscription::TrySetExclusive(uString* propertyName, uObject* newValue)
+{
+    return false;
+}
+
+// public PropertySubscription New(Fuse.Reactive.CapsObject dc, Fuse.Reactive.IPropertyObserver observer) [static] :59
+CapsObject__PropertySubscription* CapsObject__PropertySubscription::New1(::g::Fuse::Reactive::CapsObject* dc, uObject* observer)
+{
+    CapsObject__PropertySubscription* obj1 = (CapsObject__PropertySubscription*)uNew(CapsObject__PropertySubscription_typeof());
+    obj1->ctor_(dc, observer);
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\QuaternaryOperator.uno
 // --------------------------------------------------------------------------------------------------------------
 
 // public abstract class QuaternaryOperator :8
 // {
 static void QuaternaryOperator_build(uType* type)
 {
+    ::STRINGS[1] = uString::Const(" No `TryCompute`, or a deprecated form, overriden. Migrate your code to override the one with `bool` return. ");
+    ::STRINGS[69] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Expressions\\1.9.0\\QuaternaryOperator.uno");
+    ::STRINGS[3] = uString::Const("TryCompute");
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(QuaternaryOperator_type, interface0));
-    type->SetFields(0,
-        ::g::Fuse::Reactive::Expression_typeof(), offsetof(QuaternaryOperator, _First), 0,
-        ::g::Fuse::Reactive::Expression_typeof(), offsetof(QuaternaryOperator, _Fourth), 0,
-        ::g::Fuse::Reactive::Expression_typeof(), offsetof(QuaternaryOperator, _Second), 0,
-        ::g::Fuse::Reactive::Expression_typeof(), offsetof(QuaternaryOperator, _Third), 0);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface1));
+    type->SetFields(5);
 }
 
-QuaternaryOperator_type* QuaternaryOperator_typeof()
+::g::Fuse::Reactive::ComputeExpression_type* QuaternaryOperator_typeof()
 {
-    static uSStrong<QuaternaryOperator_type*> type;
+    static uSStrong< ::g::Fuse::Reactive::ComputeExpression_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.FieldCount = 4;
-    options.InterfaceCount = 1;
+    options.BaseDefinition = ::g::Fuse::Reactive::ComputeExpression_typeof();
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(QuaternaryOperator);
-    options.TypeSize = sizeof(QuaternaryOperator_type);
-    type = (QuaternaryOperator_type*)uClassType::New("Fuse.Reactive.QuaternaryOperator", options);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::ComputeExpression_type);
+    type = (::g::Fuse::Reactive::ComputeExpression_type*)uClassType::New("Fuse.Reactive.QuaternaryOperator", options);
     type->fp_build_ = QuaternaryOperator_build;
-    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))QuaternaryOperator__Subscribe_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))QuaternaryOperator__Subscribe_fn;
+    type->fp_GetFlags = (void(*)(::g::Fuse::Reactive::ComputeExpression*, int32_t*))QuaternaryOperator__GetFlags_fn;
+    type->fp_TryCompute = (void(*)(::g::Fuse::Reactive::ComputeExpression*, uArray*, uObject**, bool*))QuaternaryOperator__TryCompute_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// public generated Fuse.Reactive.Expression get_First() :10
-void QuaternaryOperator__get_First_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval)
+// protected object Compute(object first, object second, object third, object fourth) :44
+void QuaternaryOperator__Compute_fn(QuaternaryOperator* __this, uObject* first, uObject* second, uObject* third, uObject* fourth, uObject** __retval)
 {
-    *__retval = __this->First();
+    *__retval = __this->Compute(first, second, third, fourth);
 }
 
-// private generated void set_First(Fuse.Reactive.Expression value) :10
-void QuaternaryOperator__set_First_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression* value)
+// internal override sealed Fuse.Reactive.ComputeExpression.Flags GetFlags() :21
+void QuaternaryOperator__GetFlags_fn(QuaternaryOperator* __this, int32_t* __retval)
 {
-    __this->First(value);
+    return *__retval = (((0 | (__this->IsFirstOptional() ? 1 : 0)) | (__this->IsSecondOptional() ? 2 : 0)) | (__this->IsThirdOptional() ? 4 : 0)) | (__this->IsFourthOptional() ? 8 : 0), void();
 }
 
-// public generated Fuse.Reactive.Expression get_Fourth() :13
-void QuaternaryOperator__get_Fourth_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval)
-{
-    *__retval = __this->Fourth();
-}
-
-// private generated void set_Fourth(Fuse.Reactive.Expression value) :13
-void QuaternaryOperator__set_Fourth_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression* value)
-{
-    __this->Fourth(value);
-}
-
-// protected bool get_IsFirstOptional() :28
+// protected bool get_IsFirstOptional() :31
 void QuaternaryOperator__get_IsFirstOptional_fn(QuaternaryOperator* __this, bool* __retval)
 {
     *__retval = __this->IsFirstOptional();
 }
 
-// protected bool get_IsFourthOptional() :31
+// protected bool get_IsFourthOptional() :34
 void QuaternaryOperator__get_IsFourthOptional_fn(QuaternaryOperator* __this, bool* __retval)
 {
     *__retval = __this->IsFourthOptional();
 }
 
-// protected bool get_IsSecondOptional() :29
+// protected bool get_IsSecondOptional() :32
 void QuaternaryOperator__get_IsSecondOptional_fn(QuaternaryOperator* __this, bool* __retval)
 {
     *__retval = __this->IsSecondOptional();
 }
 
-// protected bool get_IsThirdOptional() :30
+// protected bool get_IsThirdOptional() :33
 void QuaternaryOperator__get_IsThirdOptional_fn(QuaternaryOperator* __this, bool* __retval)
 {
     *__retval = __this->IsThirdOptional();
 }
 
-// public generated Fuse.Reactive.Expression get_Second() :11
-void QuaternaryOperator__get_Second_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval)
+// protected override sealed bool TryCompute(Fuse.Reactive.Expression.Argument[] args, object& result) :46
+void QuaternaryOperator__TryCompute_fn(QuaternaryOperator* __this, uArray* args, uObject** result, bool* __retval)
 {
-    *__retval = __this->Second();
+    return *__retval = __this->TryCompute1(uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->Value(), uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(1))->Value(), uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(2))->Value(), uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(3))->Value(), result), void();
 }
 
-// private generated void set_Second(Fuse.Reactive.Expression value) :11
-void QuaternaryOperator__set_Second_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression* value)
+// protected bool TryCompute(object first, object second, object third, object fourth, object& result) :36
+void QuaternaryOperator__TryCompute1_fn(QuaternaryOperator* __this, uObject* first, uObject* second, uObject* third, uObject* fourth, uObject** result, bool* __retval)
 {
-    __this->Second(value);
+    *__retval = __this->TryCompute1(first, second, third, fourth, result);
 }
 
-// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :23
-void QuaternaryOperator__Subscribe_fn(QuaternaryOperator* __this, uObject* context, uObject* listener, uObject** __retval)
+// protected object Compute(object first, object second, object third, object fourth) [instance] :44
+uObject* QuaternaryOperator::Compute(uObject* first, uObject* second, uObject* third, uObject* fourth)
 {
-    return *__retval = (uObject*)QuaternaryOperator__Subscription::Create(__this, context, listener), void();
+    return NULL;
 }
 
-// public generated Fuse.Reactive.Expression get_Third() :12
-void QuaternaryOperator__get_Third_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval)
-{
-    *__retval = __this->Third();
-}
-
-// private generated void set_Third(Fuse.Reactive.Expression value) :12
-void QuaternaryOperator__set_Third_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression* value)
-{
-    __this->Third(value);
-}
-
-// public generated Fuse.Reactive.Expression get_First() [instance] :10
-::g::Fuse::Reactive::Expression* QuaternaryOperator::First()
-{
-    return _First;
-}
-
-// private generated void set_First(Fuse.Reactive.Expression value) [instance] :10
-void QuaternaryOperator::First(::g::Fuse::Reactive::Expression* value)
-{
-    _First = value;
-}
-
-// public generated Fuse.Reactive.Expression get_Fourth() [instance] :13
-::g::Fuse::Reactive::Expression* QuaternaryOperator::Fourth()
-{
-    return _Fourth;
-}
-
-// private generated void set_Fourth(Fuse.Reactive.Expression value) [instance] :13
-void QuaternaryOperator::Fourth(::g::Fuse::Reactive::Expression* value)
-{
-    _Fourth = value;
-}
-
-// protected bool get_IsFirstOptional() [instance] :28
+// protected bool get_IsFirstOptional() [instance] :31
 bool QuaternaryOperator::IsFirstOptional()
 {
     return false;
 }
 
-// protected bool get_IsFourthOptional() [instance] :31
+// protected bool get_IsFourthOptional() [instance] :34
 bool QuaternaryOperator::IsFourthOptional()
 {
     return false;
 }
 
-// protected bool get_IsSecondOptional() [instance] :29
+// protected bool get_IsSecondOptional() [instance] :32
 bool QuaternaryOperator::IsSecondOptional()
 {
     return false;
 }
 
-// protected bool get_IsThirdOptional() [instance] :30
+// protected bool get_IsThirdOptional() [instance] :33
 bool QuaternaryOperator::IsThirdOptional()
 {
     return false;
 }
 
-// public generated Fuse.Reactive.Expression get_Second() [instance] :11
-::g::Fuse::Reactive::Expression* QuaternaryOperator::Second()
+// protected bool TryCompute(object first, object second, object third, object fourth, object& result) [instance] :36
+bool QuaternaryOperator::TryCompute1(uObject* first, uObject* second, uObject* third, uObject* fourth, uObject** result)
 {
-    return _Second;
-}
-
-// private generated void set_Second(Fuse.Reactive.Expression value) [instance] :11
-void QuaternaryOperator::Second(::g::Fuse::Reactive::Expression* value)
-{
-    _Second = value;
-}
-
-// public generated Fuse.Reactive.Expression get_Third() [instance] :12
-::g::Fuse::Reactive::Expression* QuaternaryOperator::Third()
-{
-    return _Third;
-}
-
-// private generated void set_Third(Fuse.Reactive.Expression value) [instance] :12
-void QuaternaryOperator::Third(::g::Fuse::Reactive::Expression* value)
-{
-    _Third = value;
+    ::g::Fuse::Diagnostics::Deprecated(::STRINGS[1/*" No `TryCom...*/], this, ::STRINGS[69/*"C:\\Users\\...*/], 38, ::STRINGS[3/*"TryCompute"*/]);
+    *result = Compute(first, second, third, fourth);
+    return true;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Resource.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Resource.uno
 // ----------------------------------------------------------------------------------------------------
 
 // public sealed class Resource :8
 // {
 static void Resource_build(uType* type)
 {
-    ::TYPES[14] = ::g::Fuse::Reactive::IContext_typeof();
+    ::TYPES[16] = ::g::Fuse::Reactive::IContext_typeof();
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0));
-    type->SetFields(0,
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2,
         ::g::Uno::String_typeof(), offsetof(Resource, _Key), 0);
 }
 
@@ -8651,14 +9676,17 @@ static void Resource_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.FieldCount = 1;
-    options.InterfaceCount = 1;
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(Resource);
     options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
     type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.Resource", options);
     type->fp_build_ = Resource_build;
     type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))Resource__Subscribe_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))Resource__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
@@ -8689,7 +9717,7 @@ void Resource__New1_fn(uString* key, Resource** __retval)
 // public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :16
 void Resource__Subscribe_fn(Resource* __this, uObject* context, uObject* listener, uObject** __retval)
 {
-    return *__retval = ::g::Fuse::Reactive::IContext::SubscribeResource(uInterface(uPtr(context), ::TYPES[14/*Fuse.Reactive.IContext*/]), (uObject*)__this, __this->Key(), listener), void();
+    return *__retval = ::g::Fuse::Reactive::IContext::SubscribeResource(uInterface(uPtr(context), ::TYPES[16/*Fuse.Reactive.IContext*/]), (uObject*)__this, __this->Key(), listener), void();
 }
 
 // public Resource(string key) [instance] :12
@@ -8720,31 +9748,31 @@ Resource* Resource::New1(uString* key)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Subscription\ResourceSubscription.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Subscription\ResourceSubscription.uno
 // --------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class ResourceSubscription :7
 // {
 static void ResourceSubscription_build(uType* type)
 {
-    ::STRINGS[69] = uString::Const("{Resource ");
-    ::STRINGS[34] = uString::Const("} not found in data context");
-    ::TYPES[31] = ::g::Uno::Action_typeof();
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[47] = ::g::Uno::Predicate_typeof()->MakeType(uObject_typeof(), NULL);
-    ::TYPES[13] = ::g::Fuse::Reactive::IListener_typeof();
+    ::STRINGS[70] = uString::Const("{Resource ");
+    ::STRINGS[37] = uString::Const("} not found in data context");
+    ::TYPES[26] = ::g::Uno::Action_typeof();
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[50] = ::g::Uno::Predicate_typeof()->MakeType(uObject_typeof(), NULL);
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
+        ::g::Fuse::Marshal_typeof(),
         ::g::Fuse::Resources::ResourceRegistry_typeof());
     type->SetInterfaces(
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(ResourceSubscription_type, interface0));
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(ResourceSubscription_type, interface0));
     type->SetFields(0,
         ::g::Fuse::Node_typeof(), offsetof(ResourceSubscription, _origin), 0,
         ::g::Uno::String_typeof(), offsetof(ResourceSubscription, _key), 0,
         ::g::Uno::Type_typeof(), offsetof(ResourceSubscription, _type), 0,
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(ResourceSubscription, _listener), 0,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(ResourceSubscription, _listener), 0,
         ::g::Fuse::Reactive::IExpression_typeof(), offsetof(ResourceSubscription, _source), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(ResourceSubscription, _diag), 0);
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(ResourceSubscription, _diag), 0);
 }
 
 ResourceSubscription_type* ResourceSubscription_typeof()
@@ -8808,7 +9836,7 @@ void ResourceSubscription::ctor_(uObject* source, ::g::Fuse::Node* origin, uStri
     _key = key;
     _type = type;
     _listener = listener;
-    ::g::Fuse::Resources::ResourceRegistry::AddResourceChangedHandler(_key, uDelegate::New(::TYPES[31/*Uno.Action*/], (void*)ResourceSubscription__OnChanged_fn, this));
+    ::g::Fuse::Resources::ResourceRegistry::AddResourceChangedHandler(_key, uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)ResourceSubscription__OnChanged_fn, this));
     OnChanged();
 }
 
@@ -8823,7 +9851,7 @@ void ResourceSubscription::ClearDiagnostic()
 {
     if (_diag != NULL)
     {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_diag), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_diag), ::TYPES[1/*Uno.IDisposable*/]));
         _diag = NULL;
     }
 }
@@ -8832,7 +9860,7 @@ void ResourceSubscription::ClearDiagnostic()
 void ResourceSubscription::Dispose()
 {
     ClearDiagnostic();
-    ::g::Fuse::Resources::ResourceRegistry::RemoveResourceChangedHandler(_key, uDelegate::New(::TYPES[31/*Uno.Action*/], (void*)ResourceSubscription__OnChanged_fn, this));
+    ::g::Fuse::Resources::ResourceRegistry::RemoveResourceChangedHandler(_key, uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)ResourceSubscription__OnChanged_fn, this));
     _listener = NULL;
     _origin = NULL;
 }
@@ -8843,10 +9871,10 @@ void ResourceSubscription::OnChanged()
     ClearDiagnostic();
     uObject* resource;
 
-    if (uPtr(_origin)->TryGetResource(_key, uDelegate::New(::TYPES[47/*Uno.Predicate<object>*/], (void*)ResourceSubscription__Accept_fn, this), &resource))
-        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), _source, resource);
+    if (uPtr(_origin)->TryGetResource(_key, uDelegate::New(::TYPES[50/*Uno.Predicate<object>*/], (void*)ResourceSubscription__Accept_fn, this), &resource))
+        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), _source, resource);
     else
-        _diag = ::g::Fuse::Diagnostics::ReportTemporalUserWarning(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[69/*"{Resource "*/], _key), ::STRINGS[34/*"} not found...*/]), _origin);
+        _diag = ::g::Fuse::Diagnostics::ReportTemporalUserWarning(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[70/*"{Resource "*/], _key), ::STRINGS[37/*"} not found...*/]), _origin);
 }
 
 // public ResourceSubscription New(Fuse.Reactive.IExpression source, Fuse.Node origin, string key, Fuse.Reactive.IListener listener, Uno.Type type) [static] :16
@@ -8858,17 +9886,17 @@ ResourceSubscription* ResourceSubscription::New1(uObject* source, ::g::Fuse::Nod
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\VarArgFunction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\VarArgFunction.uno
 // ----------------------------------------------------------------------------------------------------------
 
-// private sealed class SimpleVarArgFunction.SimpleSubscription :175
+// private sealed class SimpleVarArgFunction.SimpleSubscription :145
 // {
 static void SimpleVarArgFunction__SimpleSubscription_build(uType* type)
 {
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Reactive::VarArgFunction__Subscription_type, interface0),
         ::g::Fuse::Reactive::IListener_typeof(), offsetof(::g::Fuse::Reactive::VarArgFunction__Subscription_type, interface1));
-    type->SetFields(5,
+    type->SetFields(7,
         ::g::Fuse::Reactive::IListener_typeof(), offsetof(SimpleVarArgFunction__SimpleSubscription, _listener), 0,
         ::g::Fuse::Reactive::SimpleVarArgFunction_typeof(), offsetof(SimpleVarArgFunction__SimpleSubscription, _func1), 0);
 }
@@ -8880,7 +9908,7 @@ static void SimpleVarArgFunction__SimpleSubscription_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::VarArgFunction__Subscription_typeof();
-    options.FieldCount = 7;
+    options.FieldCount = 9;
     options.InterfaceCount = 2;
     options.ObjectSize = sizeof(SimpleVarArgFunction__SimpleSubscription);
     options.TypeSize = sizeof(::g::Fuse::Reactive::VarArgFunction__Subscription_type);
@@ -8890,17 +9918,18 @@ static void SimpleVarArgFunction__SimpleSubscription_build(uType* type)
     type->fp_OnNewArguments = (void(*)(::g::Fuse::Reactive::VarArgFunction__Subscription*, uArray*))SimpleVarArgFunction__SimpleSubscription__OnNewArguments_fn;
     type->fp_OnNewPartialArguments = (void(*)(::g::Fuse::Reactive::VarArgFunction__Subscription*, uArray*))SimpleVarArgFunction__SimpleSubscription__OnNewPartialArguments_fn;
     type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnLostData_fn;
     type->interface0.fp_Dispose = (void(*)(uObject*))SimpleVarArgFunction__SimpleSubscription__Dispose_fn;
     return type;
 }
 
-// public SimpleSubscription(Fuse.Reactive.SimpleVarArgFunction func, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :180
-void SimpleVarArgFunction__SimpleSubscription__ctor_2_fn(SimpleVarArgFunction__SimpleSubscription* __this, ::g::Fuse::Reactive::SimpleVarArgFunction* func, uObject* context, uObject* listener)
+// public SimpleSubscription(Fuse.Reactive.SimpleVarArgFunction func, Fuse.Reactive.IListener listener) :150
+void SimpleVarArgFunction__SimpleSubscription__ctor_4_fn(SimpleVarArgFunction__SimpleSubscription* __this, ::g::Fuse::Reactive::SimpleVarArgFunction* func, uObject* listener)
 {
-    __this->ctor_2(func, context, listener);
+    __this->ctor_4(func, listener);
 }
 
-// public override sealed void Dispose() :198
+// public override sealed void Dispose() :167
 void SimpleVarArgFunction__SimpleSubscription__Dispose_fn(SimpleVarArgFunction__SimpleSubscription* __this)
 {
     __this->_listener = NULL;
@@ -8908,52 +9937,52 @@ void SimpleVarArgFunction__SimpleSubscription__Dispose_fn(SimpleVarArgFunction__
     ::g::Fuse::Reactive::VarArgFunction__Subscription__Dispose_fn(__this);
 }
 
-// public SimpleSubscription New(Fuse.Reactive.SimpleVarArgFunction func, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :180
-void SimpleVarArgFunction__SimpleSubscription__New1_fn(::g::Fuse::Reactive::SimpleVarArgFunction* func, uObject* context, uObject* listener, SimpleVarArgFunction__SimpleSubscription** __retval)
+// public SimpleSubscription New(Fuse.Reactive.SimpleVarArgFunction func, Fuse.Reactive.IListener listener) :150
+void SimpleVarArgFunction__SimpleSubscription__New1_fn(::g::Fuse::Reactive::SimpleVarArgFunction* func, uObject* listener, SimpleVarArgFunction__SimpleSubscription** __retval)
 {
-    *__retval = SimpleVarArgFunction__SimpleSubscription::New1(func, context, listener);
+    *__retval = SimpleVarArgFunction__SimpleSubscription::New1(func, listener);
 }
 
-// protected override sealed void OnNewArguments(Fuse.Reactive.VarArgFunction.Argument[] args) :193
+// protected override sealed void OnNewArguments(Fuse.Reactive.Expression.Argument[] args) :162
 void SimpleVarArgFunction__SimpleSubscription__OnNewArguments_fn(SimpleVarArgFunction__SimpleSubscription* __this, uArray* args)
 {
     uPtr(__this->_func1)->OnNewArguments(args, __this->_listener);
 }
 
-// protected override sealed void OnNewPartialArguments(Fuse.Reactive.VarArgFunction.Argument[] args) :188
+// protected override sealed void OnNewPartialArguments(Fuse.Reactive.Expression.Argument[] args) :157
 void SimpleVarArgFunction__SimpleSubscription__OnNewPartialArguments_fn(SimpleVarArgFunction__SimpleSubscription* __this, uArray* args)
 {
     uPtr(__this->_func1)->OnNewPartialArguments(args, __this->_listener);
 }
 
-// public SimpleSubscription(Fuse.Reactive.SimpleVarArgFunction func, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [instance] :180
-void SimpleVarArgFunction__SimpleSubscription::ctor_2(::g::Fuse::Reactive::SimpleVarArgFunction* func, uObject* context, uObject* listener)
+// public SimpleSubscription(Fuse.Reactive.SimpleVarArgFunction func, Fuse.Reactive.IListener listener) [instance] :150
+void SimpleVarArgFunction__SimpleSubscription::ctor_4(::g::Fuse::Reactive::SimpleVarArgFunction* func, uObject* listener)
 {
-    ctor_1(func, context);
+    ctor_2(func);
     _func1 = func;
     _listener = listener;
-    Init();
 }
 
-// public SimpleSubscription New(Fuse.Reactive.SimpleVarArgFunction func, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :180
-SimpleVarArgFunction__SimpleSubscription* SimpleVarArgFunction__SimpleSubscription::New1(::g::Fuse::Reactive::SimpleVarArgFunction* func, uObject* context, uObject* listener)
+// public SimpleSubscription New(Fuse.Reactive.SimpleVarArgFunction func, Fuse.Reactive.IListener listener) [static] :150
+SimpleVarArgFunction__SimpleSubscription* SimpleVarArgFunction__SimpleSubscription::New1(::g::Fuse::Reactive::SimpleVarArgFunction* func, uObject* listener)
 {
     SimpleVarArgFunction__SimpleSubscription* obj1 = (SimpleVarArgFunction__SimpleSubscription*)uNew(SimpleVarArgFunction__SimpleSubscription_typeof());
-    obj1->ctor_2(func, context, listener);
+    obj1->ctor_4(func, listener);
     return obj1;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\VarArgFunction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\VarArgFunction.uno
 // ----------------------------------------------------------------------------------------------------------
 
-// public abstract class SimpleVarArgFunction :138
+// public abstract class SimpleVarArgFunction :106
 // {
 static void SimpleVarArgFunction_build(uType* type)
 {
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0));
-    type->SetFields(1);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(3);
 }
 
 ::g::Fuse::Reactive::Expression_type* SimpleVarArgFunction_typeof()
@@ -8963,47 +9992,52 @@ static void SimpleVarArgFunction_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::VarArgFunction_typeof();
-    options.FieldCount = 1;
-    options.InterfaceCount = 1;
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(SimpleVarArgFunction);
     options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
     type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.SimpleVarArgFunction", options);
     type->fp_build_ = SimpleVarArgFunction_build;
     type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))SimpleVarArgFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))SimpleVarArgFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// protected void OnNewArguments(Fuse.Reactive.VarArgFunction.Argument[] args, Fuse.Reactive.IListener listener) :170
+// protected void OnNewArguments(Fuse.Reactive.Expression.Argument[] args, Fuse.Reactive.IListener listener) :140
 void SimpleVarArgFunction__OnNewArguments_fn(SimpleVarArgFunction* __this, uArray* args, uObject* listener)
 {
     __this->OnNewArguments(args, listener);
 }
 
-// protected void OnNewPartialArguments(Fuse.Reactive.VarArgFunction.Argument[] args, Fuse.Reactive.IListener listener) :155
+// protected void OnNewPartialArguments(Fuse.Reactive.Expression.Argument[] args, Fuse.Reactive.IListener listener) :125
 void SimpleVarArgFunction__OnNewPartialArguments_fn(SimpleVarArgFunction* __this, uArray* args, uObject* listener)
 {
     __this->OnNewPartialArguments(args, listener);
 }
 
-// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :140
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :108
 void SimpleVarArgFunction__Subscribe_fn(SimpleVarArgFunction* __this, uObject* context, uObject* listener, uObject** __retval)
 {
-    return *__retval = (uObject*)SimpleVarArgFunction__SimpleSubscription::New1(__this, context, listener), void();
+    SimpleVarArgFunction__SimpleSubscription* ss = SimpleVarArgFunction__SimpleSubscription::New1(__this, listener);
+    ss->Init(context);
+    return *__retval = (uObject*)ss, void();
 }
 
-// protected void OnNewArguments(Fuse.Reactive.VarArgFunction.Argument[] args, Fuse.Reactive.IListener listener) [instance] :170
+// protected void OnNewArguments(Fuse.Reactive.Expression.Argument[] args, Fuse.Reactive.IListener listener) [instance] :140
 void SimpleVarArgFunction::OnNewArguments(uArray* args, uObject* listener)
 {
 }
 
-// protected void OnNewPartialArguments(Fuse.Reactive.VarArgFunction.Argument[] args, Fuse.Reactive.IListener listener) [instance] :155
+// protected void OnNewPartialArguments(Fuse.Reactive.Expression.Argument[] args, Fuse.Reactive.IListener listener) [instance] :125
 void SimpleVarArgFunction::OnNewPartialArguments(uArray* args, uObject* listener)
 {
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Snapshot.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Snapshot.uno
 // ----------------------------------------------------------------------------------------------------
 
 // public sealed class Snapshot :8
@@ -9011,8 +10045,9 @@ void SimpleVarArgFunction::OnNewPartialArguments(uArray* args, uObject* listener
 static void Snapshot_build(uType* type)
 {
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0));
-    type->SetFields(0,
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2,
         ::g::Fuse::Reactive::Expression_typeof(), offsetof(Snapshot, _Source), 0);
 }
 
@@ -9023,14 +10058,17 @@ static void Snapshot_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.FieldCount = 1;
-    options.InterfaceCount = 1;
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(Snapshot);
     options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
     type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.Snapshot", options);
     type->fp_build_ = Snapshot_build;
     type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))Snapshot__Subscribe_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
     type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))Snapshot__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
@@ -9065,429 +10103,16 @@ void Snapshot::Source(::g::Fuse::Reactive::Expression* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\TernaryOperator.uno
-// -----------------------------------------------------------------------------------------------------------
-
-// private sealed class TernaryOperator.Subscription :32
-// {
-static void TernaryOperator__Subscription_build(uType* type)
-{
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[34] = ::g::Fuse::MarshalException_typeof();
-    ::TYPES[13] = ::g::Fuse::Reactive::IListener_typeof();
-    type->SetInterfaces(
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface0),
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface1));
-    type->SetFields(2,
-        ::g::Fuse::Reactive::TernaryOperator_typeof(), offsetof(TernaryOperator__Subscription, _to), 0,
-        uObject_typeof(), offsetof(TernaryOperator__Subscription, _first), 0,
-        uObject_typeof(), offsetof(TernaryOperator__Subscription, _second), 0,
-        uObject_typeof(), offsetof(TernaryOperator__Subscription, _third), 0,
-        ::g::Uno::Bool_typeof(), offsetof(TernaryOperator__Subscription, _hasFirst), 0,
-        ::g::Uno::Bool_typeof(), offsetof(TernaryOperator__Subscription, _hasSecond), 0,
-        ::g::Uno::Bool_typeof(), offsetof(TernaryOperator__Subscription, _hasThird), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(TernaryOperator__Subscription, _firstSub), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(TernaryOperator__Subscription, _secondSub), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(TernaryOperator__Subscription, _thirdSub), 0,
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(TernaryOperator__Subscription, _listener), 0);
-}
-
-::g::Fuse::Reactive::InnerListener_type* TernaryOperator__Subscription_typeof()
-{
-    static uSStrong< ::g::Fuse::Reactive::InnerListener_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InnerListener_typeof();
-    options.FieldCount = 13;
-    options.InterfaceCount = 2;
-    options.ObjectSize = sizeof(TernaryOperator__Subscription);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InnerListener_type);
-    type = (::g::Fuse::Reactive::InnerListener_type*)uClassType::New("Fuse.Reactive.TernaryOperator.Subscription", options);
-    type->fp_build_ = TernaryOperator__Subscription_build;
-    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))TernaryOperator__Subscription__Dispose_fn;
-    type->fp_OnNewData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*, uObject*))TernaryOperator__Subscription__OnNewData_fn;
-    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
-    type->interface0.fp_Dispose = (void(*)(uObject*))TernaryOperator__Subscription__Dispose_fn;
-    return type;
-}
-
-// protected Subscription(Fuse.Reactive.TernaryOperator to, Fuse.Reactive.IListener listener) :44
-void TernaryOperator__Subscription__ctor_1_fn(TernaryOperator__Subscription* __this, ::g::Fuse::Reactive::TernaryOperator* to, uObject* listener)
-{
-    __this->ctor_1(to, listener);
-}
-
-// public static Fuse.Reactive.TernaryOperator.Subscription Create(Fuse.Reactive.TernaryOperator to, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :50
-void TernaryOperator__Subscription__Create_fn(::g::Fuse::Reactive::TernaryOperator* to, uObject* context, uObject* listener, TernaryOperator__Subscription** __retval)
-{
-    *__retval = TernaryOperator__Subscription::Create(to, context, listener);
-}
-
-// public override sealed void Dispose() :90
-void TernaryOperator__Subscription__Dispose_fn(TernaryOperator__Subscription* __this)
-{
-    ::g::Fuse::Reactive::InnerListener__Dispose_fn(__this);
-
-    if (__this->_firstSub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_firstSub), ::TYPES[0/*Uno.IDisposable*/]));
-        __this->_firstSub = NULL;
-    }
-
-    if (__this->_secondSub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_secondSub), ::TYPES[0/*Uno.IDisposable*/]));
-        __this->_secondSub = NULL;
-    }
-
-    if (__this->_thirdSub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_thirdSub), ::TYPES[0/*Uno.IDisposable*/]));
-        __this->_thirdSub = NULL;
-    }
-
-    __this->_listener = NULL;
-}
-
-// protected void Init(Fuse.Reactive.IContext context) :59
-void TernaryOperator__Subscription__Init_fn(TernaryOperator__Subscription* __this, uObject* context)
-{
-    __this->Init(context);
-}
-
-// protected Subscription New(Fuse.Reactive.TernaryOperator to, Fuse.Reactive.IListener listener) :44
-void TernaryOperator__Subscription__New1_fn(::g::Fuse::Reactive::TernaryOperator* to, uObject* listener, TernaryOperator__Subscription** __retval)
-{
-    *__retval = TernaryOperator__Subscription::New1(to, listener);
-}
-
-// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object value) :66
-void TernaryOperator__Subscription__OnNewData_fn(TernaryOperator__Subscription* __this, uObject* source, uObject* value)
-{
-    if (source == uPtr(__this->_to)->First())
-    {
-        __this->_hasFirst = true;
-        __this->_first = value;
-    }
-
-    if (source == uPtr(__this->_to)->Second())
-    {
-        __this->_hasSecond = true;
-        __this->_second = value;
-    }
-
-    if (source == uPtr(__this->_to)->Third())
-    {
-        __this->_hasThird = true;
-        __this->_third = value;
-    }
-
-    if (((__this->_hasFirst || uPtr(__this->_to)->IsFirstOptional()) && (__this->_hasSecond || uPtr(__this->_to)->IsSecondOptional())) && (__this->_hasThird || uPtr(__this->_to)->IsThirdOptional()))
-        __this->OnNewOperands(__this->_first, __this->_second, __this->_third);
-}
-
-// protected void OnNewOperands(object first, object second, object third) :76
-void TernaryOperator__Subscription__OnNewOperands_fn(TernaryOperator__Subscription* __this, uObject* first, uObject* second, uObject* third)
-{
-    __this->OnNewOperands(first, second, third);
-}
-
-// protected Subscription(Fuse.Reactive.TernaryOperator to, Fuse.Reactive.IListener listener) [instance] :44
-void TernaryOperator__Subscription::ctor_1(::g::Fuse::Reactive::TernaryOperator* to, uObject* listener)
-{
-    ctor_();
-    _to = to;
-    _listener = listener;
-}
-
-// protected void Init(Fuse.Reactive.IContext context) [instance] :59
-void TernaryOperator__Subscription::Init(uObject* context)
-{
-    _firstSub = uPtr(uPtr(_to)->First())->Subscribe(context, (uObject*)this);
-    _secondSub = uPtr(uPtr(_to)->Second())->Subscribe(context, (uObject*)this);
-    _thirdSub = uPtr(uPtr(_to)->Third())->Subscribe(context, (uObject*)this);
-}
-
-// protected void OnNewOperands(object first, object second, object third) [instance] :76
-void TernaryOperator__Subscription::OnNewOperands(uObject* first, uObject* second, uObject* third)
-{
-    ClearDiagnostic();
-
-    try
-    {
-        {
-            ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), (uObject*)_to, uPtr(_to)->Compute(first, second, third));
-        }
-    }
-
-    catch (const uThrowable& __t)
-    {
-        if (uIs(__t.Exception, ::TYPES[34/*Fuse.MarshalException*/]))
-        {
-            ::g::Fuse::MarshalException* me = (::g::Fuse::MarshalException*)__t.Exception;
-            SetDiagnostic(uPtr(me)->Message(), (uObject*)_to);
-        }
-        else         throw __t;
-    }
-}
-
-// public static Fuse.Reactive.TernaryOperator.Subscription Create(Fuse.Reactive.TernaryOperator to, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :50
-TernaryOperator__Subscription* TernaryOperator__Subscription::Create(::g::Fuse::Reactive::TernaryOperator* to, uObject* context, uObject* listener)
-{
-    TernaryOperator__Subscription* sub = TernaryOperator__Subscription::New1(to, listener);
-    sub->Init(context);
-    return sub;
-}
-
-// protected Subscription New(Fuse.Reactive.TernaryOperator to, Fuse.Reactive.IListener listener) [static] :44
-TernaryOperator__Subscription* TernaryOperator__Subscription::New1(::g::Fuse::Reactive::TernaryOperator* to, uObject* listener)
-{
-    TernaryOperator__Subscription* obj1 = (TernaryOperator__Subscription*)uNew(TernaryOperator__Subscription_typeof());
-    obj1->ctor_1(to, listener);
-    return obj1;
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Snapshot.uno
-// ----------------------------------------------------------------------------------------------------
-
-// private sealed class Snapshot.Subscription :23
-// {
-static void Snapshot__Subscription_build(uType* type)
-{
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[13] = ::g::Fuse::Reactive::IListener_typeof();
-    type->SetInterfaces(
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(Snapshot__Subscription_type, interface0),
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(Snapshot__Subscription_type, interface1));
-    type->SetFields(0,
-        ::g::Fuse::Reactive::Snapshot_typeof(), offsetof(Snapshot__Subscription, _snap), 0,
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(Snapshot__Subscription, _listener), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(Snapshot__Subscription, _sub), 0);
-}
-
-Snapshot__Subscription_type* Snapshot__Subscription_typeof()
-{
-    static uSStrong<Snapshot__Subscription_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.FieldCount = 3;
-    options.InterfaceCount = 2;
-    options.ObjectSize = sizeof(Snapshot__Subscription);
-    options.TypeSize = sizeof(Snapshot__Subscription_type);
-    type = (Snapshot__Subscription_type*)uClassType::New("Fuse.Reactive.Snapshot.Subscription", options);
-    type->fp_build_ = Snapshot__Subscription_build;
-    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))Snapshot__Subscription__FuseReactiveIListenerOnNewData_fn;
-    type->interface0.fp_Dispose = (void(*)(uObject*))Snapshot__Subscription__Dispose_fn;
-    return type;
-}
-
-// public Subscription(Fuse.Reactive.Snapshot snap, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :29
-void Snapshot__Subscription__ctor__fn(Snapshot__Subscription* __this, ::g::Fuse::Reactive::Snapshot* snap, uObject* context, uObject* listener)
-{
-    __this->ctor_(snap, context, listener);
-}
-
-// public void Dispose() :36
-void Snapshot__Subscription__Dispose_fn(Snapshot__Subscription* __this)
-{
-    __this->Dispose();
-}
-
-// private void Fuse.Reactive.IListener.OnNewData(Fuse.Reactive.IExpression source, object value) :46
-void Snapshot__Subscription__FuseReactiveIListenerOnNewData_fn(Snapshot__Subscription* __this, uObject* source, uObject* value)
-{
-    if (__this->_listener != NULL)
-        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(__this->_listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), (uObject*)__this->_snap, value);
-
-    __this->Dispose();
-}
-
-// public Subscription New(Fuse.Reactive.Snapshot snap, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :29
-void Snapshot__Subscription__New1_fn(::g::Fuse::Reactive::Snapshot* snap, uObject* context, uObject* listener, Snapshot__Subscription** __retval)
-{
-    *__retval = Snapshot__Subscription::New1(snap, context, listener);
-}
-
-// public Subscription(Fuse.Reactive.Snapshot snap, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [instance] :29
-void Snapshot__Subscription::ctor_(::g::Fuse::Reactive::Snapshot* snap, uObject* context, uObject* listener)
-{
-    _snap = snap;
-    _listener = listener;
-    _sub = uPtr(uPtr(_snap)->Source())->Subscribe(context, (uObject*)this);
-}
-
-// public void Dispose() [instance] :36
-void Snapshot__Subscription::Dispose()
-{
-    _listener = NULL;
-
-    if (_sub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_sub), ::TYPES[0/*Uno.IDisposable*/]));
-        _sub = NULL;
-    }
-}
-
-// public Subscription New(Fuse.Reactive.Snapshot snap, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :29
-Snapshot__Subscription* Snapshot__Subscription::New1(::g::Fuse::Reactive::Snapshot* snap, uObject* context, uObject* listener)
-{
-    Snapshot__Subscription* obj1 = (Snapshot__Subscription*)uNew(Snapshot__Subscription_typeof());
-    obj1->ctor_(snap, context, listener);
-    return obj1;
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\VarArgFunction.uno
-// ----------------------------------------------------------------------------------------------------------
-
-// protected abstract class VarArgFunction.Subscription :58
-// {
-static void VarArgFunction__Subscription_build(uType* type)
-{
-    ::TYPES[48] = ::g::Fuse::Reactive::VarArgFunction__Argument_typeof()->Array();
-    ::TYPES[49] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Reactive::Expression_typeof(), NULL);
-    ::TYPES[50] = ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Reactive::Expression_typeof(), NULL);
-    type->SetInterfaces(
-        ::g::Uno::IDisposable_typeof(), offsetof(VarArgFunction__Subscription_type, interface0),
-        ::g::Fuse::Reactive::IListener_typeof(), offsetof(VarArgFunction__Subscription_type, interface1));
-    type->SetFields(2,
-        ::g::Fuse::Reactive::VarArgFunction_typeof(), offsetof(VarArgFunction__Subscription, _func), 0,
-        ::TYPES[48/*Fuse.Reactive.VarArgFunction.Argument[]*/], offsetof(VarArgFunction__Subscription, _arguments), 0,
-        ::g::Fuse::Reactive::IContext_typeof(), offsetof(VarArgFunction__Subscription, _context), 0);
-}
-
-VarArgFunction__Subscription_type* VarArgFunction__Subscription_typeof()
-{
-    static uSStrong<VarArgFunction__Subscription_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InnerListener_typeof();
-    options.FieldCount = 5;
-    options.InterfaceCount = 2;
-    options.ObjectSize = sizeof(VarArgFunction__Subscription);
-    options.TypeSize = sizeof(VarArgFunction__Subscription_type);
-    type = (VarArgFunction__Subscription_type*)uClassType::New("Fuse.Reactive.VarArgFunction.Subscription", options);
-    type->fp_build_ = VarArgFunction__Subscription_build;
-    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))VarArgFunction__Subscription__Dispose_fn;
-    type->fp_OnNewArguments = VarArgFunction__Subscription__OnNewArguments_fn;
-    type->fp_OnNewData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*, uObject*))VarArgFunction__Subscription__OnNewData_fn;
-    type->fp_OnNewPartialArguments = VarArgFunction__Subscription__OnNewPartialArguments_fn;
-    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
-    type->interface0.fp_Dispose = (void(*)(uObject*))VarArgFunction__Subscription__Dispose_fn;
-    return type;
-}
-
-// protected Subscription(Fuse.Reactive.VarArgFunction func, Fuse.Reactive.IContext context) :65
-void VarArgFunction__Subscription__ctor_1_fn(VarArgFunction__Subscription* __this, ::g::Fuse::Reactive::VarArgFunction* func, uObject* context)
-{
-    __this->ctor_1(func, context);
-}
-
-// public override void Dispose() :118
-void VarArgFunction__Subscription__Dispose_fn(VarArgFunction__Subscription* __this)
-{
-    ::g::Fuse::Reactive::InnerListener__Dispose_fn(__this);
-
-    for (int i = 0; i < uPtr(__this->_arguments)->Length(); i++)
-        uPtr(uPtr(__this->_arguments)->Strong< ::g::Fuse::Reactive::VarArgFunction__Argument*>(i))->Dispose();
-
-    __this->_func = NULL;
-    __this->_arguments = NULL;
-}
-
-// protected void Init() :75
-void VarArgFunction__Subscription__Init_fn(VarArgFunction__Subscription* __this)
-{
-    __this->Init();
-}
-
-// protected virtual void OnNewArguments(Fuse.Reactive.VarArgFunction.Argument[] args) :130
-void VarArgFunction__Subscription__OnNewArguments_fn(VarArgFunction__Subscription* __this, uArray* args)
-{
-}
-
-// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object value) :87
-void VarArgFunction__Subscription__OnNewData_fn(VarArgFunction__Subscription* __this, uObject* source, uObject* value)
-{
-    ::g::Fuse::Reactive::Expression* ret2;
-
-    for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(uPtr(__this->_func)->Arguments()), ::TYPES[49/*Uno.Collections.ICollection<Fuse.Reactive.Expression>*/])); i++)
-        if ((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(uPtr(__this->_func)->Arguments()), ::TYPES[50/*Uno.Collections.IList<Fuse.Reactive.Expression>*/]), uCRef<int>(i), &ret2), ret2) == source)
-        {
-            uPtr(uPtr(__this->_arguments)->Strong< ::g::Fuse::Reactive::VarArgFunction__Argument*>(i))->Value(value);
-            uPtr(uPtr(__this->_arguments)->Strong< ::g::Fuse::Reactive::VarArgFunction__Argument*>(i))->HasValue(true);
-        }
-
-    __this->PushData();
-}
-
-// protected virtual void OnNewPartialArguments(Fuse.Reactive.VarArgFunction.Argument[] args) :129
-void VarArgFunction__Subscription__OnNewPartialArguments_fn(VarArgFunction__Subscription* __this, uArray* args)
-{
-}
-
-// private void PushData() :101
-void VarArgFunction__Subscription__PushData_fn(VarArgFunction__Subscription* __this)
-{
-    __this->PushData();
-}
-
-// protected Subscription(Fuse.Reactive.VarArgFunction func, Fuse.Reactive.IContext context) [instance] :65
-void VarArgFunction__Subscription::ctor_1(::g::Fuse::Reactive::VarArgFunction* func, uObject* context)
-{
-    ctor_();
-    _func = func;
-    _arguments = uArray::New(::TYPES[48/*Fuse.Reactive.VarArgFunction.Argument[]*/], ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(uPtr(func)->Arguments()), ::TYPES[49/*Uno.Collections.ICollection<Fuse.Reactive.Expression>*/])));
-    _context = context;
-
-    for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(func->Arguments()), ::TYPES[49/*Uno.Collections.ICollection<Fuse.Reactive.Expression>*/])); i++)
-        uPtr(_arguments)->Strong< ::g::Fuse::Reactive::VarArgFunction__Argument*>(i) = ::g::Fuse::Reactive::VarArgFunction__Argument::New1();
-}
-
-// protected void Init() [instance] :75
-void VarArgFunction__Subscription::Init()
-{
-    ::g::Fuse::Reactive::Expression* ret1;
-
-    for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(uPtr(_func)->Arguments()), ::TYPES[49/*Uno.Collections.ICollection<Fuse.Reactive.Expression>*/])); i++)
-        uPtr(uPtr(_arguments)->Strong< ::g::Fuse::Reactive::VarArgFunction__Argument*>(i))->Subscription = uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(uPtr(_func)->Arguments()), ::TYPES[50/*Uno.Collections.IList<Fuse.Reactive.Expression>*/]), uCRef<int>(i), &ret1), ret1))->Subscribe(_context, (uObject*)this);
-
-    PushData();
-}
-
-// private void PushData() [instance] :101
-void VarArgFunction__Subscription::PushData()
-{
-    bool all = true;
-
-    for (int i = 0; i < uPtr(_arguments)->Length(); i++)
-        if (!uPtr(uPtr(_arguments)->Strong< ::g::Fuse::Reactive::VarArgFunction__Argument*>(i))->HasValue())
-        {
-            all = false;
-            break;
-        }
-
-    OnNewPartialArguments(_arguments);
-
-    if (all)
-        OnNewArguments(_arguments);
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Property.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Property.uno
 // ----------------------------------------------------------------------------------------------------
 
 // private sealed class Property.Subscription :25
 // {
 static void Property__Subscription_build(uType* type)
 {
-    ::TYPES[13] = ::g::Fuse::Reactive::IListener_typeof();
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
     type->SetDependencies(
-        ::g::Uno::UX::Selector_typeof());
+        ::g::Fuse::Marshal_typeof());
     type->SetInterfaces(
         ::g::Uno::UX::IPropertyListener_typeof(), offsetof(Property__Subscription_type, interface0),
         ::g::Fuse::Reactive::IWriteable_typeof(), offsetof(Property__Subscription_type, interface1),
@@ -9496,7 +10121,7 @@ static void Property__Subscription_build(uType* type)
         ::g::Fuse::Reactive::Property_typeof(), offsetof(Property__Subscription, _prop), 0,
         ::g::Uno::UX::PropertyObject_typeof(), offsetof(Property__Subscription, _object), 0,
         ::g::Uno::UX::PropertyAccessor_typeof(), offsetof(Property__Subscription, _accessor), 0,
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(Property__Subscription, _listener), 0);
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(Property__Subscription, _listener), 0);
 }
 
 Property__Subscription_type* Property__Subscription_typeof()
@@ -9580,7 +10205,7 @@ void Property__Subscription::Dispose()
 // private void PushValue() [instance] :68
 void Property__Subscription::PushValue()
 {
-    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), (uObject*)_prop, uPtr(_accessor)->GetAsObject(_object));
+    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_prop, uPtr(_accessor)->GetAsObject(_object));
 }
 
 // public bool TrySetExclusive(object value) [instance] :44
@@ -9606,600 +10231,1009 @@ Property__Subscription* Property__Subscription::New1(::g::Fuse::Reactive::Proper
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\BinaryOperator.uno
-// ----------------------------------------------------------------------------------------------------------
-
-// private sealed class BinaryOperator.Subscription :40
-// {
-static void BinaryOperator__Subscription_build(uType* type)
-{
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[34] = ::g::Fuse::MarshalException_typeof();
-    type->SetInterfaces(
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface0),
-        ::g::Fuse::Reactive::IListener_typeof(), offsetof(::g::Fuse::Reactive::InnerListener_type, interface1));
-    type->SetFields(2,
-        ::g::Fuse::Reactive::BinaryOperator_typeof(), offsetof(BinaryOperator__Subscription, _bo), 0,
-        uObject_typeof(), offsetof(BinaryOperator__Subscription, _left), 0,
-        uObject_typeof(), offsetof(BinaryOperator__Subscription, _right), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(BinaryOperator__Subscription, _leftSub), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(BinaryOperator__Subscription, _rightSub), 0,
-        ::g::Fuse::Reactive::IListener_typeof(), offsetof(BinaryOperator__Subscription, _listener), 0,
-        ::g::Uno::Bool_typeof(), offsetof(BinaryOperator__Subscription, _hasLeft), 0,
-        ::g::Uno::Bool_typeof(), offsetof(BinaryOperator__Subscription, _hasRight), 0);
-}
-
-::g::Fuse::Reactive::InnerListener_type* BinaryOperator__Subscription_typeof()
-{
-    static uSStrong< ::g::Fuse::Reactive::InnerListener_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InnerListener_typeof();
-    options.FieldCount = 10;
-    options.InterfaceCount = 2;
-    options.ObjectSize = sizeof(BinaryOperator__Subscription);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InnerListener_type);
-    type = (::g::Fuse::Reactive::InnerListener_type*)uClassType::New("Fuse.Reactive.BinaryOperator.Subscription", options);
-    type->fp_build_ = BinaryOperator__Subscription_build;
-    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))BinaryOperator__Subscription__Dispose_fn;
-    type->fp_OnNewData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*, uObject*))BinaryOperator__Subscription__OnNewData_fn;
-    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
-    type->interface0.fp_Dispose = (void(*)(uObject*))BinaryOperator__Subscription__Dispose_fn;
-    return type;
-}
-
-// protected Subscription(Fuse.Reactive.BinaryOperator bo, Fuse.Reactive.IListener listener) :52
-void BinaryOperator__Subscription__ctor_1_fn(BinaryOperator__Subscription* __this, ::g::Fuse::Reactive::BinaryOperator* bo, uObject* listener)
-{
-    __this->ctor_1(bo, listener);
-}
-
-// public static Fuse.Reactive.BinaryOperator.Subscription Create(Fuse.Reactive.BinaryOperator bo, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :58
-void BinaryOperator__Subscription__Create_fn(::g::Fuse::Reactive::BinaryOperator* bo, uObject* context, uObject* listener, BinaryOperator__Subscription** __retval)
-{
-    *__retval = BinaryOperator__Subscription::Create(bo, context, listener);
-}
-
-// public override sealed void Dispose() :96
-void BinaryOperator__Subscription__Dispose_fn(BinaryOperator__Subscription* __this)
-{
-    ::g::Fuse::Reactive::InnerListener__Dispose_fn(__this);
-
-    if (__this->_leftSub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_leftSub), ::TYPES[0/*Uno.IDisposable*/]));
-        __this->_leftSub = NULL;
-    }
-
-    if (__this->_rightSub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_rightSub), ::TYPES[0/*Uno.IDisposable*/]));
-        __this->_rightSub = NULL;
-    }
-
-    __this->_listener = NULL;
-}
-
-// protected void Init(Fuse.Reactive.IContext context) :67
-void BinaryOperator__Subscription__Init_fn(BinaryOperator__Subscription* __this, uObject* context)
-{
-    __this->Init(context);
-}
-
-// protected Subscription New(Fuse.Reactive.BinaryOperator bo, Fuse.Reactive.IListener listener) :52
-void BinaryOperator__Subscription__New1_fn(::g::Fuse::Reactive::BinaryOperator* bo, uObject* listener, BinaryOperator__Subscription** __retval)
-{
-    *__retval = BinaryOperator__Subscription::New1(bo, listener);
-}
-
-// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object value) :73
-void BinaryOperator__Subscription__OnNewData_fn(BinaryOperator__Subscription* __this, uObject* source, uObject* value)
-{
-    if (source == uPtr(__this->_bo)->Left())
-    {
-        __this->_hasLeft = true;
-        __this->_left = value;
-    }
-
-    if (source == uPtr(__this->_bo)->Right())
-    {
-        __this->_hasRight = true;
-        __this->_right = value;
-    }
-
-    if ((__this->_hasLeft || uPtr(__this->_bo)->IsLeftOptional()) && (__this->_hasRight || uPtr(__this->_bo)->IsRightOptional()))
-        __this->OnNewOperands(__this->_left, __this->_right);
-}
-
-// protected void OnNewOperands(object left, object right) :82
-void BinaryOperator__Subscription__OnNewOperands_fn(BinaryOperator__Subscription* __this, uObject* left, uObject* right)
-{
-    __this->OnNewOperands(left, right);
-}
-
-// protected Subscription(Fuse.Reactive.BinaryOperator bo, Fuse.Reactive.IListener listener) [instance] :52
-void BinaryOperator__Subscription::ctor_1(::g::Fuse::Reactive::BinaryOperator* bo, uObject* listener)
-{
-    ctor_();
-    _bo = bo;
-    _listener = listener;
-}
-
-// protected void Init(Fuse.Reactive.IContext context) [instance] :67
-void BinaryOperator__Subscription::Init(uObject* context)
-{
-    _leftSub = uPtr(uPtr(_bo)->Left())->Subscribe(context, (uObject*)this);
-    _rightSub = uPtr(uPtr(_bo)->Right())->Subscribe(context, (uObject*)this);
-}
-
-// protected void OnNewOperands(object left, object right) [instance] :82
-void BinaryOperator__Subscription::OnNewOperands(uObject* left, uObject* right)
-{
-    ClearDiagnostic();
-
-    try
-    {
-        {
-            uPtr(_bo)->OnNewOperands(_listener, left, right);
-        }
-    }
-
-    catch (const uThrowable& __t)
-    {
-        if (uIs(__t.Exception, ::TYPES[34/*Fuse.MarshalException*/]))
-        {
-            ::g::Fuse::MarshalException* me = (::g::Fuse::MarshalException*)__t.Exception;
-            SetDiagnostic(uPtr(me)->Message(), (uObject*)_bo);
-        }
-        else         throw __t;
-    }
-}
-
-// public static Fuse.Reactive.BinaryOperator.Subscription Create(Fuse.Reactive.BinaryOperator bo, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :58
-BinaryOperator__Subscription* BinaryOperator__Subscription::Create(::g::Fuse::Reactive::BinaryOperator* bo, uObject* context, uObject* listener)
-{
-    BinaryOperator__Subscription* res = BinaryOperator__Subscription::New1(bo, listener);
-    res->Init(context);
-    return res;
-}
-
-// protected Subscription New(Fuse.Reactive.BinaryOperator bo, Fuse.Reactive.IListener listener) [static] :52
-BinaryOperator__Subscription* BinaryOperator__Subscription::New1(::g::Fuse::Reactive::BinaryOperator* bo, uObject* listener)
-{
-    BinaryOperator__Subscription* obj1 = (BinaryOperator__Subscription*)uNew(BinaryOperator__Subscription_typeof());
-    obj1->ctor_1(bo, listener);
-    return obj1;
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\QuaternaryOperator.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\ExpressionListener.uno
 // --------------------------------------------------------------------------------------------------------------
 
-// private sealed class QuaternaryOperator.Subscription :35
+// private sealed class ComputeExpression.Subscription :329
 // {
-static void QuaternaryOperator__Subscription_build(uType* type)
+static void ComputeExpression__Subscription_build(uType* type)
 {
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[34] = ::g::Fuse::MarshalException_typeof();
-    ::TYPES[13] = ::g::Fuse::Reactive::IListener_typeof();
+    ::STRINGS[71] = uString::Const("Failed to compute value for (");
+    ::STRINGS[72] = uString::Const(",");
+    ::STRINGS[73] = uString::Const("undefined");
+    ::STRINGS[74] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Expressions\\1.9.0\\ExpressionListener.uno");
+    ::STRINGS[75] = uString::Const("OnArguments");
+    ::TYPES[51] = ::g::Fuse::Reactive::UnaryOperator_typeof();
     type->SetInterfaces(
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface0),
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface1));
-    type->SetFields(2,
-        ::g::Fuse::Reactive::QuaternaryOperator_typeof(), offsetof(QuaternaryOperator__Subscription, _qo), 0,
-        uObject_typeof(), offsetof(QuaternaryOperator__Subscription, _first), 0,
-        uObject_typeof(), offsetof(QuaternaryOperator__Subscription, _second), 0,
-        uObject_typeof(), offsetof(QuaternaryOperator__Subscription, _third), 0,
-        uObject_typeof(), offsetof(QuaternaryOperator__Subscription, _fourth), 0,
-        ::g::Uno::Bool_typeof(), offsetof(QuaternaryOperator__Subscription, _hasFirst), 0,
-        ::g::Uno::Bool_typeof(), offsetof(QuaternaryOperator__Subscription, _hasSecond), 0,
-        ::g::Uno::Bool_typeof(), offsetof(QuaternaryOperator__Subscription, _hasThird), 0,
-        ::g::Uno::Bool_typeof(), offsetof(QuaternaryOperator__Subscription, _hasFourth), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(QuaternaryOperator__Subscription, _firstSub), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(QuaternaryOperator__Subscription, _secondSub), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(QuaternaryOperator__Subscription, _thirdSub), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(QuaternaryOperator__Subscription, _fourthSub), 0,
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(QuaternaryOperator__Subscription, _listener), 0);
+        ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Reactive::ExpressionListener_type, interface0),
+        ::g::Fuse::Reactive::IListener_typeof(), offsetof(::g::Fuse::Reactive::ExpressionListener_type, interface1));
+    type->SetFields(9,
+        ::g::Fuse::Reactive::ComputeExpression_typeof(), offsetof(ComputeExpression__Subscription, _expr), 0);
 }
 
-::g::Fuse::Reactive::InnerListener_type* QuaternaryOperator__Subscription_typeof()
+::g::Fuse::Reactive::ExpressionListener_type* ComputeExpression__Subscription_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::ExpressionListener_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::ExpressionListener_typeof();
+    options.FieldCount = 10;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(ComputeExpression__Subscription);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::ExpressionListener_type);
+    type = (::g::Fuse::Reactive::ExpressionListener_type*)uClassType::New("Fuse.Reactive.ComputeExpression.Subscription", options);
+    type->fp_build_ = ComputeExpression__Subscription_build;
+    type->fp_OnArguments = (void(*)(::g::Fuse::Reactive::ExpressionSubscriber*, uArray*))ComputeExpression__Subscription__OnArguments_fn;
+    type->fp_OnClearData = (void(*)(::g::Fuse::Reactive::ExpressionSubscriber*))ComputeExpression__Subscription__OnClearData_fn;
+    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnLostData_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))::g::Fuse::Reactive::ExpressionListener__Dispose_fn;
+    return type;
+}
+
+// public Subscription(Fuse.Reactive.ComputeExpression expr, Fuse.Reactive.IListener listener) :333
+void ComputeExpression__Subscription__ctor_3_fn(ComputeExpression__Subscription* __this, ::g::Fuse::Reactive::ComputeExpression* expr, uObject* listener)
+{
+    __this->ctor_3(expr, listener);
+}
+
+// public Subscription New(Fuse.Reactive.ComputeExpression expr, Fuse.Reactive.IListener listener) :333
+void ComputeExpression__Subscription__New1_fn(::g::Fuse::Reactive::ComputeExpression* expr, uObject* listener, ComputeExpression__Subscription** __retval)
+{
+    *__retval = ComputeExpression__Subscription::New1(expr, listener);
+}
+
+// protected override sealed void OnArguments(Fuse.Reactive.Expression.Argument[] args) :339
+void ComputeExpression__Subscription__OnArguments_fn(ComputeExpression__Subscription* __this, uArray* args)
+{
+    if ((uPtr(__this->_expr)->_flags & 2048) == 2048)
+    {
+        uPtr(uCast< ::g::Fuse::Reactive::UnaryOperator*>(__this->_expr, ::TYPES[51/*Fuse.Reactive.UnaryOperator*/]))->InternalOnNewOperand(__this->Listener(), uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->Value());
+        return;
+    }
+
+    uObject* result;
+
+    if (uPtr(__this->_expr)->TryCompute(args, &result))
+        __this->SetData(result);
+    else
+    {
+        if (!((uPtr(__this->_expr)->_flags & 32) == 32))
+        {
+            uString* msg = ::STRINGS[71/*"Failed to c...*/];
+
+            for (int32_t i = 0; i < uPtr(args)->Length(); ++i)
+            {
+                if (i > 0)
+                    msg = ::g::Uno::String::op_Addition2(msg, ::STRINGS[72/*","*/]);
+
+                if (uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->HasValue())
+                    msg = ::g::Uno::String::op_Addition1(msg, uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->Value());
+                else
+                    msg = ::g::Uno::String::op_Addition2(msg, ::STRINGS[73/*"undefined"*/]);
+            }
+
+            ::g::Fuse::Diagnostics::UserWarning(msg, __this->_expr, ::STRINGS[74/*"C:\\Users\\...*/], 366, ::STRINGS[75/*"OnArguments"*/]);
+        }
+
+        __this->OnClearData();
+    }
+}
+
+// internal override sealed void OnClearData() :372
+void ComputeExpression__Subscription__OnClearData_fn(ComputeExpression__Subscription* __this)
+{
+    if ((uPtr(__this->_expr)->_flags & 2048) == 2048)
+        uPtr(uCast< ::g::Fuse::Reactive::UnaryOperator*>(__this->_expr, ::TYPES[51/*Fuse.Reactive.UnaryOperator*/]))->InternalOnLostOperand(__this->Listener());
+    else
+        ::g::Fuse::Reactive::ExpressionListener__OnClearData_fn(__this);
+}
+
+// public Subscription(Fuse.Reactive.ComputeExpression expr, Fuse.Reactive.IListener listener) [instance] :333
+void ComputeExpression__Subscription::ctor_3(::g::Fuse::Reactive::ComputeExpression* expr, uObject* listener)
+{
+    ctor_2(expr, listener, uPtr(expr)->_args, uPtr(expr)->EffectiveFlags());
+    _expr = expr;
+}
+
+// public Subscription New(Fuse.Reactive.ComputeExpression expr, Fuse.Reactive.IListener listener) [static] :333
+ComputeExpression__Subscription* ComputeExpression__Subscription::New1(::g::Fuse::Reactive::ComputeExpression* expr, uObject* listener)
+{
+    ComputeExpression__Subscription* obj1 = (ComputeExpression__Subscription*)uNew(ComputeExpression__Subscription_typeof());
+    obj1->ctor_3(expr, listener);
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Parameter.uno
+// -----------------------------------------------------------------------------------------------------
+
+// private sealed class Parameter.Subscription :31
+// {
+static void Parameter__Subscription_build(uType* type)
+{
+    ::STRINGS[76] = uString::Const("Failed to fetch parameter: ");
+    ::STRINGS[77] = uString::Const("Failed to parse parameter: ");
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
+    ::TYPES[21] = ::g::Uno::Exception_typeof();
+    ::TYPES[52] = ::g::Fuse::Visual_typeof();
+    ::TYPES[53] = ::g::Uno::EventHandler_typeof();
+    type->SetInterfaces(
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface0),
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface1));
+    type->SetFields(2,
+        ::g::Fuse::Reactive::Parameter_typeof(), offsetof(Parameter__Subscription, _parameter), 0,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(Parameter__Subscription, _listener), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(Parameter__Subscription, _sub), 0,
+        ::TYPES[52/*Fuse.Visual*/], offsetof(Parameter__Subscription, _visual), 0);
+}
+
+::g::Fuse::Reactive::InnerListener_type* Parameter__Subscription_typeof()
 {
     static uSStrong< ::g::Fuse::Reactive::InnerListener_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::InnerListener_typeof();
-    options.FieldCount = 16;
+    options.FieldCount = 6;
     options.InterfaceCount = 2;
-    options.ObjectSize = sizeof(QuaternaryOperator__Subscription);
+    options.ObjectSize = sizeof(Parameter__Subscription);
     options.TypeSize = sizeof(::g::Fuse::Reactive::InnerListener_type);
-    type = (::g::Fuse::Reactive::InnerListener_type*)uClassType::New("Fuse.Reactive.QuaternaryOperator.Subscription", options);
-    type->fp_build_ = QuaternaryOperator__Subscription_build;
-    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))QuaternaryOperator__Subscription__Dispose_fn;
-    type->fp_OnNewData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*, uObject*))QuaternaryOperator__Subscription__OnNewData_fn;
+    type = (::g::Fuse::Reactive::InnerListener_type*)uClassType::New("Fuse.Reactive.Parameter.Subscription", options);
+    type->fp_build_ = Parameter__Subscription_build;
+    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))Parameter__Subscription__Dispose_fn;
+    type->fp_OnLostData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*))Parameter__Subscription__OnLostData_fn;
+    type->fp_OnNewData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*, uObject*))Parameter__Subscription__OnNewData_fn;
     type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
-    type->interface0.fp_Dispose = (void(*)(uObject*))QuaternaryOperator__Subscription__Dispose_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnLostData_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))Parameter__Subscription__Dispose_fn;
     return type;
 }
 
-// protected Subscription(Fuse.Reactive.QuaternaryOperator qo, Fuse.Reactive.IListener listener) :48
-void QuaternaryOperator__Subscription__ctor_1_fn(QuaternaryOperator__Subscription* __this, ::g::Fuse::Reactive::QuaternaryOperator* qo, uObject* listener)
+// public Subscription(Fuse.Reactive.Parameter parameter, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :37
+void Parameter__Subscription__ctor_1_fn(Parameter__Subscription* __this, ::g::Fuse::Reactive::Parameter* parameter, uObject* context, uObject* listener)
 {
-    __this->ctor_1(qo, listener);
+    __this->ctor_1(parameter, context, listener);
 }
 
-// public static Fuse.Reactive.QuaternaryOperator.Subscription Create(Fuse.Reactive.QuaternaryOperator qo, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :54
-void QuaternaryOperator__Subscription__Create_fn(::g::Fuse::Reactive::QuaternaryOperator* qo, uObject* context, uObject* listener, QuaternaryOperator__Subscription** __retval)
+// public override sealed void Dispose() :44
+void Parameter__Subscription__Dispose_fn(Parameter__Subscription* __this)
 {
-    *__retval = QuaternaryOperator__Subscription::Create(qo, context, listener);
-}
-
-// public override sealed void Dispose() :96
-void QuaternaryOperator__Subscription__Dispose_fn(QuaternaryOperator__Subscription* __this)
-{
-    ::g::Fuse::Reactive::InnerListener__Dispose_fn(__this);
-
-    if (__this->_firstSub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_firstSub), ::TYPES[0/*Uno.IDisposable*/]));
-        __this->_firstSub = NULL;
-    }
-
-    if (__this->_secondSub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_secondSub), ::TYPES[0/*Uno.IDisposable*/]));
-        __this->_secondSub = NULL;
-    }
-
-    if (__this->_thirdSub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_thirdSub), ::TYPES[0/*Uno.IDisposable*/]));
-        __this->_thirdSub = NULL;
-    }
-
-    if (__this->_fourthSub != NULL)
-    {
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_fourthSub), ::TYPES[0/*Uno.IDisposable*/]));
-        __this->_fourthSub = NULL;
-    }
-
+    __this->UnsubscribeVisual();
     __this->_listener = NULL;
-}
 
-// protected void Init(Fuse.Reactive.IContext context) :63
-void QuaternaryOperator__Subscription__Init_fn(QuaternaryOperator__Subscription* __this, uObject* context)
-{
-    __this->Init(context);
-}
-
-// protected Subscription New(Fuse.Reactive.QuaternaryOperator qo, Fuse.Reactive.IListener listener) :48
-void QuaternaryOperator__Subscription__New1_fn(::g::Fuse::Reactive::QuaternaryOperator* qo, uObject* listener, QuaternaryOperator__Subscription** __retval)
-{
-    *__retval = QuaternaryOperator__Subscription::New1(qo, listener);
-}
-
-// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object value) :71
-void QuaternaryOperator__Subscription__OnNewData_fn(QuaternaryOperator__Subscription* __this, uObject* source, uObject* value)
-{
-    if (source == uPtr(__this->_qo)->First())
+    if (__this->_sub != NULL)
     {
-        __this->_hasFirst = true;
-        __this->_first = value;
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_sub), ::TYPES[1/*Uno.IDisposable*/]));
+        __this->_sub = NULL;
     }
 
-    if (source == uPtr(__this->_qo)->Second())
-    {
-        __this->_hasSecond = true;
-        __this->_second = value;
-    }
-
-    if (source == uPtr(__this->_qo)->Third())
-    {
-        __this->_hasThird = true;
-        __this->_third = value;
-    }
-
-    if (source == uPtr(__this->_qo)->Fourth())
-    {
-        __this->_hasFourth = true;
-        __this->_fourth = value;
-    }
-
-    if ((((__this->_hasFirst || uPtr(__this->_qo)->IsFirstOptional()) && (__this->_hasSecond || uPtr(__this->_qo)->IsSecondOptional())) && (__this->_hasThird || uPtr(__this->_qo)->IsThirdOptional())) && (__this->_hasFourth || uPtr(__this->_qo)->IsFourthOptional()))
-        __this->OnNewOperands(__this->_first, __this->_second, __this->_third, __this->_fourth);
+    ::g::Fuse::Reactive::InnerListener__Dispose_fn(__this);
 }
 
-// protected void OnNewOperands(object first, object second, object third, object fourth) :82
-void QuaternaryOperator__Subscription__OnNewOperands_fn(QuaternaryOperator__Subscription* __this, uObject* first, uObject* second, uObject* third, uObject* fourth)
+// public Subscription New(Fuse.Reactive.Parameter parameter, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :37
+void Parameter__Subscription__New1_fn(::g::Fuse::Reactive::Parameter* parameter, uObject* context, uObject* listener, Parameter__Subscription** __retval)
 {
-    __this->OnNewOperands(first, second, third, fourth);
+    *__retval = Parameter__Subscription::New1(parameter, context, listener);
 }
 
-// protected Subscription(Fuse.Reactive.QuaternaryOperator qo, Fuse.Reactive.IListener listener) [instance] :48
-void QuaternaryOperator__Subscription::ctor_1(::g::Fuse::Reactive::QuaternaryOperator* qo, uObject* listener)
+// protected override sealed void OnLostData(Fuse.Reactive.IExpression source) :87
+void Parameter__Subscription__OnLostData_fn(Parameter__Subscription* __this, uObject* source)
 {
-    ctor_();
-    _qo = qo;
-    _listener = listener;
+    __this->ClearDiagnostic();
+    __this->UnsubscribeVisual();
+    ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(__this->_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)__this->_parameter);
 }
 
-// protected void Init(Fuse.Reactive.IContext context) [instance] :63
-void QuaternaryOperator__Subscription::Init(uObject* context)
+// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object obj) :67
+void Parameter__Subscription__OnNewData_fn(Parameter__Subscription* __this, uObject* source, uObject* obj)
 {
-    _firstSub = uPtr(uPtr(_qo)->First())->Subscribe(context, (uObject*)this);
-    _secondSub = uPtr(uPtr(_qo)->Second())->Subscribe(context, (uObject*)this);
-    _thirdSub = uPtr(uPtr(_qo)->Third())->Subscribe(context, (uObject*)this);
-    _fourthSub = uPtr(uPtr(_qo)->Fourth())->Subscribe(context, (uObject*)this);
-}
-
-// protected void OnNewOperands(object first, object second, object third, object fourth) [instance] :82
-void QuaternaryOperator__Subscription::OnNewOperands(uObject* first, uObject* second, uObject* third, uObject* fourth)
-{
-    ClearDiagnostic();
+    __this->ClearDiagnostic();
+    __this->UnsubscribeVisual();
 
     try
     {
         {
-            ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), (uObject*)_qo, uPtr(_qo)->Compute(first, second, third, fourth));
+            __this->_visual = uCast< ::g::Fuse::Visual*>(obj, ::TYPES[52/*Fuse.Visual*/]);
+            uPtr(__this->_visual)->add_ParameterChanged(uDelegate::New(::TYPES[53/*Uno.EventHandler*/], (void*)Parameter__Subscription__OnParameterChanged_fn, __this));
         }
     }
 
     catch (const uThrowable& __t)
     {
-        if (uIs(__t.Exception, ::TYPES[34/*Fuse.MarshalException*/]))
+        ::g::Uno::Exception* e = __t.Exception;
+        __this->SetDiagnostic(::g::Uno::String::op_Addition2(::STRINGS[76/*"Failed to f...*/], uPtr(e)->Message()), __this->_parameter);
+        return;
+    }
+
+    __this->OnParameterChanged(NULL, NULL);
+}
+
+// private void OnParameterChanged(object sender, Uno.EventArgs args) :94
+void Parameter__Subscription__OnParameterChanged_fn(Parameter__Subscription* __this, uObject* sender, ::g::Uno::EventArgs* args)
+{
+    __this->OnParameterChanged(sender, args);
+}
+
+// private void UnsubscribeVisual() :56
+void Parameter__Subscription__UnsubscribeVisual_fn(Parameter__Subscription* __this)
+{
+    __this->UnsubscribeVisual();
+}
+
+// public Subscription(Fuse.Reactive.Parameter parameter, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [instance] :37
+void Parameter__Subscription::ctor_1(::g::Fuse::Reactive::Parameter* parameter, uObject* context, uObject* listener)
+{
+    ctor_();
+    _parameter = parameter;
+    _listener = listener;
+    _sub = uPtr(uPtr(_parameter)->Visual)->Subscribe(context, (uObject*)this);
+}
+
+// private void OnParameterChanged(object sender, Uno.EventArgs args) [instance] :94
+void Parameter__Subscription::OnParameterChanged(uObject* sender, ::g::Uno::EventArgs* args)
+{
+    if (_visual == NULL)
+        return;
+
+    if (::g::Uno::String::op_Equality(uPtr(_visual)->Parameter(), NULL))
+        return;
+
+    ClearDiagnostic();
+    uObject* data = NULL;
+
+    try
+    {
         {
-            ::g::Fuse::MarshalException* me = (::g::Fuse::MarshalException*)__t.Exception;
-            SetDiagnostic(uPtr(me)->Message(), (uObject*)_qo);
+            data = ::g::Fuse::Json::Parse(uPtr(_visual)->Parameter());
         }
-        else         throw __t;
+    }
+
+    catch (const uThrowable& __t)
+    {
+        ::g::Uno::Exception* e = __t.Exception;
+        SetDiagnostic(::g::Uno::String::op_Addition2(::STRINGS[77/*"Failed to p...*/], uPtr(e)->Message()), _parameter);
+        return;
+    }
+
+    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_parameter, data);
+}
+
+// private void UnsubscribeVisual() [instance] :56
+void Parameter__Subscription::UnsubscribeVisual()
+{
+    if (_visual != NULL)
+    {
+        uPtr(_visual)->remove_ParameterChanged(uDelegate::New(::TYPES[53/*Uno.EventHandler*/], (void*)Parameter__Subscription__OnParameterChanged_fn, this));
+        _visual = NULL;
     }
 }
 
-// public static Fuse.Reactive.QuaternaryOperator.Subscription Create(Fuse.Reactive.QuaternaryOperator qo, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :54
-QuaternaryOperator__Subscription* QuaternaryOperator__Subscription::Create(::g::Fuse::Reactive::QuaternaryOperator* qo, uObject* context, uObject* listener)
+// public Subscription New(Fuse.Reactive.Parameter parameter, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :37
+Parameter__Subscription* Parameter__Subscription::New1(::g::Fuse::Reactive::Parameter* parameter, uObject* context, uObject* listener)
 {
-    QuaternaryOperator__Subscription* res = QuaternaryOperator__Subscription::New1(qo, listener);
-    res->Init(context);
-    return res;
-}
-
-// protected Subscription New(Fuse.Reactive.QuaternaryOperator qo, Fuse.Reactive.IListener listener) [static] :48
-QuaternaryOperator__Subscription* QuaternaryOperator__Subscription::New1(::g::Fuse::Reactive::QuaternaryOperator* qo, uObject* listener)
-{
-    QuaternaryOperator__Subscription* obj1 = (QuaternaryOperator__Subscription*)uNew(QuaternaryOperator__Subscription_typeof());
-    obj1->ctor_1(qo, listener);
+    Parameter__Subscription* obj1 = (Parameter__Subscription*)uNew(Parameter__Subscription_typeof());
+    obj1->ctor_1(parameter, context, listener);
     return obj1;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\UnaryOperator.uno
-// ---------------------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\VarArgFunction.uno
+// ----------------------------------------------------------------------------------------------------------
 
-// protected class UnaryOperator.Subscription :31
+// protected abstract class VarArgFunction.Subscription :32
 // {
-static void UnaryOperator__Subscription_build(uType* type)
+static void VarArgFunction__Subscription_build(uType* type)
 {
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
-    ::TYPES[34] = ::g::Fuse::MarshalException_typeof();
-    ::TYPES[13] = ::g::Fuse::Reactive::IListener_typeof();
+    ::STRINGS[78] = uString::Const("VarArgFunction.Subscription.ClearData() should be implemented");
+    ::STRINGS[79] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Expressions\\1.9.0\\VarArgFunction.uno");
+    ::STRINGS[80] = uString::Const("ClearData");
+    ::TYPES[54] = ::g::Uno::Collections::EnumerableExtensions_typeof()->MakeMethod(5/*ToArray<Fuse.Reactive.Expression>*/, ::g::Fuse::Reactive::Expression_typeof(), NULL);
     type->SetInterfaces(
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(UnaryOperator__Subscription_type, interface0),
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(UnaryOperator__Subscription_type, interface1));
-    type->SetFields(2,
-        ::g::Fuse::Reactive::UnaryOperator_typeof(), offsetof(UnaryOperator__Subscription, _uo), 0,
-        ::TYPES[13/*Fuse.Reactive.IListener*/], offsetof(UnaryOperator__Subscription, _listener), 0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(UnaryOperator__Subscription, _operandSub), 0);
+        ::g::Uno::IDisposable_typeof(), offsetof(VarArgFunction__Subscription_type, interface0),
+        ::g::Fuse::Reactive::IListener_typeof(), offsetof(VarArgFunction__Subscription_type, interface1));
+    type->SetFields(5,
+        ::g::Fuse::Reactive::VarArgFunction_typeof(), offsetof(VarArgFunction__Subscription, _func), 0,
+        ::g::Fuse::Reactive::IContext_typeof(), offsetof(VarArgFunction__Subscription, _context), 0);
 }
 
-UnaryOperator__Subscription_type* UnaryOperator__Subscription_typeof()
+VarArgFunction__Subscription_type* VarArgFunction__Subscription_typeof()
 {
-    static uSStrong<UnaryOperator__Subscription_type*> type;
+    static uSStrong<VarArgFunction__Subscription_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::ExpressionSubscriber_typeof();
+    options.FieldCount = 7;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(VarArgFunction__Subscription);
+    options.TypeSize = sizeof(VarArgFunction__Subscription_type);
+    type = (VarArgFunction__Subscription_type*)uClassType::New("Fuse.Reactive.VarArgFunction.Subscription", options);
+    type->fp_build_ = VarArgFunction__Subscription_build;
+    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))VarArgFunction__Subscription__Dispose_fn;
+    type->fp_OnArguments = (void(*)(::g::Fuse::Reactive::ExpressionSubscriber*, uArray*))VarArgFunction__Subscription__OnArguments_fn;
+    type->fp_OnClearData = (void(*)(::g::Fuse::Reactive::ExpressionSubscriber*))VarArgFunction__Subscription__OnClearData_fn;
+    type->fp_OnNewArguments = VarArgFunction__Subscription__OnNewArguments_fn;
+    type->fp_OnNewPartialArguments = VarArgFunction__Subscription__OnNewPartialArguments_fn;
+    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnLostData_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))VarArgFunction__Subscription__Dispose_fn;
+    return type;
+}
+
+// protected Subscription(Fuse.Reactive.VarArgFunction func) :47
+void VarArgFunction__Subscription__ctor_2_fn(VarArgFunction__Subscription* __this, ::g::Fuse::Reactive::VarArgFunction* func)
+{
+    __this->ctor_2(func);
+}
+
+// protected void ClearData() :67
+void VarArgFunction__Subscription__ClearData_fn(VarArgFunction__Subscription* __this)
+{
+    __this->ClearData();
+}
+
+// public override void Dispose() :90
+void VarArgFunction__Subscription__Dispose_fn(VarArgFunction__Subscription* __this)
+{
+    ::g::Fuse::Reactive::ExpressionSubscriber__Dispose_fn(__this);
+    __this->_func = NULL;
+    __this->_context = NULL;
+}
+
+// protected override sealed void OnArguments(Fuse.Reactive.Expression.Argument[] args) :73
+void VarArgFunction__Subscription__OnArguments_fn(VarArgFunction__Subscription* __this, uArray* args)
+{
+    bool all = true;
+
+    for (int32_t i = 0; i < uPtr(args)->Length(); i++)
+        if (!uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(i))->HasValue())
+        {
+            all = false;
+            break;
+        }
+
+    __this->OnNewPartialArguments(args);
+
+    if (all)
+        __this->OnNewArguments(args);
+}
+
+// internal override sealed void OnClearData() :62
+void VarArgFunction__Subscription__OnClearData_fn(VarArgFunction__Subscription* __this)
+{
+    __this->ClearData();
+}
+
+// protected virtual void OnNewArguments(Fuse.Reactive.Expression.Argument[] args) :98
+void VarArgFunction__Subscription__OnNewArguments_fn(VarArgFunction__Subscription* __this, uArray* args)
+{
+}
+
+// protected virtual void OnNewPartialArguments(Fuse.Reactive.Expression.Argument[] args) :97
+void VarArgFunction__Subscription__OnNewPartialArguments_fn(VarArgFunction__Subscription* __this, uArray* args)
+{
+}
+
+// protected Subscription(Fuse.Reactive.VarArgFunction func) [instance] :47
+void VarArgFunction__Subscription::ctor_2(::g::Fuse::Reactive::VarArgFunction* func)
+{
+    ctor_1((uArray*)::g::Uno::Collections::EnumerableExtensions::ToArray(::TYPES[54/*Uno.Collections.EnumerableExtensions.ToArray<Fuse.Reactive.Expression>*/], uPtr(func)->Arguments()), 1024, NULL);
+    _func = func;
+}
+
+// protected void ClearData() [instance] :67
+void VarArgFunction__Subscription::ClearData()
+{
+    ::g::Fuse::Diagnostics::UserError(::STRINGS[78/*"VarArgFunct...*/], this, ::STRINGS[79/*"C:\\Users\\...*/], 70, ::STRINGS[80/*"ClearData"*/], NULL);
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Snapshot.uno
+// ----------------------------------------------------------------------------------------------------
+
+// private sealed class Snapshot.Subscription :23
+// {
+static void Snapshot__Subscription_build(uType* type)
+{
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
+    type->SetInterfaces(
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(Snapshot__Subscription_type, interface0),
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(Snapshot__Subscription_type, interface1));
+    type->SetFields(0,
+        ::g::Fuse::Reactive::Snapshot_typeof(), offsetof(Snapshot__Subscription, _snap), 0,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(Snapshot__Subscription, _listener), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(Snapshot__Subscription, _sub), 0);
+}
+
+Snapshot__Subscription_type* Snapshot__Subscription_typeof()
+{
+    static uSStrong<Snapshot__Subscription_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(Snapshot__Subscription);
+    options.TypeSize = sizeof(Snapshot__Subscription_type);
+    type = (Snapshot__Subscription_type*)uClassType::New("Fuse.Reactive.Snapshot.Subscription", options);
+    type->fp_build_ = Snapshot__Subscription_build;
+    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))Snapshot__Subscription__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))Snapshot__Subscription__FuseReactiveIListenerOnLostData_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))Snapshot__Subscription__Dispose_fn;
+    return type;
+}
+
+// public Subscription(Fuse.Reactive.Snapshot snap, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :29
+void Snapshot__Subscription__ctor__fn(Snapshot__Subscription* __this, ::g::Fuse::Reactive::Snapshot* snap, uObject* context, uObject* listener)
+{
+    __this->ctor_(snap, context, listener);
+}
+
+// public void Dispose() :36
+void Snapshot__Subscription__Dispose_fn(Snapshot__Subscription* __this)
+{
+    __this->Dispose();
+}
+
+// private void Fuse.Reactive.IListener.OnLostData(Fuse.Reactive.IExpression source) :54
+void Snapshot__Subscription__FuseReactiveIListenerOnLostData_fn(Snapshot__Subscription* __this, uObject* source)
+{
+}
+
+// private void Fuse.Reactive.IListener.OnNewData(Fuse.Reactive.IExpression source, object value) :46
+void Snapshot__Subscription__FuseReactiveIListenerOnNewData_fn(Snapshot__Subscription* __this, uObject* source, uObject* value)
+{
+    if (__this->_listener != NULL)
+        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(__this->_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)__this->_snap, value);
+
+    __this->Dispose();
+}
+
+// public Subscription New(Fuse.Reactive.Snapshot snap, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :29
+void Snapshot__Subscription__New1_fn(::g::Fuse::Reactive::Snapshot* snap, uObject* context, uObject* listener, Snapshot__Subscription** __retval)
+{
+    *__retval = Snapshot__Subscription::New1(snap, context, listener);
+}
+
+// public Subscription(Fuse.Reactive.Snapshot snap, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [instance] :29
+void Snapshot__Subscription::ctor_(::g::Fuse::Reactive::Snapshot* snap, uObject* context, uObject* listener)
+{
+    _snap = snap;
+    _listener = listener;
+    _sub = uPtr(uPtr(_snap)->Source())->Subscribe(context, (uObject*)this);
+}
+
+// public void Dispose() [instance] :36
+void Snapshot__Subscription::Dispose()
+{
+    _listener = NULL;
+
+    if (_sub != NULL)
+    {
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_sub), ::TYPES[1/*Uno.IDisposable*/]));
+        _sub = NULL;
+    }
+}
+
+// public Subscription New(Fuse.Reactive.Snapshot snap, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :29
+Snapshot__Subscription* Snapshot__Subscription::New1(::g::Fuse::Reactive::Snapshot* snap, uObject* context, uObject* listener)
+{
+    Snapshot__Subscription* obj1 = (Snapshot__Subscription*)uNew(Snapshot__Subscription_typeof());
+    obj1->ctor_(snap, context, listener);
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\Member.uno
+// --------------------------------------------------------------------------------------------------
+
+// private sealed class Member.Subscription :30
+// {
+static void Member__Subscription_build(uType* type)
+{
+    ::STRINGS[24] = uString::Const("'");
+    ::STRINGS[81] = uString::Const("' does not contain property '");
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
+    ::TYPES[25] = ::g::Fuse::Reactive::IPropertySubscription_typeof();
+    ::TYPES[37] = ::g::Fuse::IObject_typeof();
+    ::TYPES[24] = ::g::Fuse::Reactive::IObservableObject_typeof();
+    type->SetInterfaces(
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(Member__Subscription_type, interface0),
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(Member__Subscription_type, interface1),
+        ::g::Fuse::Reactive::IPropertyObserver_typeof(), offsetof(Member__Subscription_type, interface2),
+        ::g::Fuse::Reactive::IWriteable_typeof(), offsetof(Member__Subscription_type, interface3));
+    type->SetFields(2,
+        ::g::Fuse::Reactive::Member_typeof(), offsetof(Member__Subscription, _member), 0,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(Member__Subscription, _listener), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(Member__Subscription, _objectSub), 0,
+        ::TYPES[25/*Fuse.Reactive.IPropertySubscription*/], offsetof(Member__Subscription, _obsObjSub), 0);
+}
+
+Member__Subscription_type* Member__Subscription_typeof()
+{
+    static uSStrong<Member__Subscription_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::InnerListener_typeof();
-    options.FieldCount = 5;
-    options.InterfaceCount = 2;
-    options.ObjectSize = sizeof(UnaryOperator__Subscription);
-    options.TypeSize = sizeof(UnaryOperator__Subscription_type);
-    type = (UnaryOperator__Subscription_type*)uClassType::New("Fuse.Reactive.UnaryOperator.Subscription", options);
-    type->fp_build_ = UnaryOperator__Subscription_build;
-    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))UnaryOperator__Subscription__Dispose_fn;
-    type->fp_OnNewData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*, uObject*))UnaryOperator__Subscription__OnNewData_fn;
-    type->fp_OnNewOperand = UnaryOperator__Subscription__OnNewOperand_fn;
+    options.FieldCount = 6;
+    options.InterfaceCount = 4;
+    options.ObjectSize = sizeof(Member__Subscription);
+    options.TypeSize = sizeof(Member__Subscription_type);
+    type = (Member__Subscription_type*)uClassType::New("Fuse.Reactive.Member.Subscription", options);
+    type->fp_build_ = Member__Subscription_build;
+    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))Member__Subscription__Dispose_fn;
+    type->fp_OnLostData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*))Member__Subscription__OnLostData_fn;
+    type->fp_OnNewData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*, uObject*))Member__Subscription__OnNewData_fn;
+    type->interface2.fp_OnPropertyChanged = (void(*)(uObject*, uObject*, uString*, uObject*))Member__Subscription__FuseReactiveIPropertyObserverOnPropertyChanged_fn;
+    type->interface3.fp_TrySetExclusive = (void(*)(uObject*, uObject*, bool*))Member__Subscription__FuseReactiveIWriteableTrySetExclusive_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))Member__Subscription__Dispose_fn;
     type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
-    type->interface0.fp_Dispose = (void(*)(uObject*))UnaryOperator__Subscription__Dispose_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnLostData_fn;
     return type;
 }
 
-// protected Subscription(Fuse.Reactive.UnaryOperator uo, Fuse.Reactive.IListener listener) :37
-void UnaryOperator__Subscription__ctor_1_fn(UnaryOperator__Subscription* __this, ::g::Fuse::Reactive::UnaryOperator* uo, uObject* listener)
+// public Subscription(Fuse.Reactive.Member member, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :36
+void Member__Subscription__ctor_1_fn(Member__Subscription* __this, ::g::Fuse::Reactive::Member* member, uObject* context, uObject* listener)
 {
-    __this->ctor_1(uo, listener);
+    __this->ctor_1(member, context, listener);
 }
 
-// public static Fuse.Reactive.UnaryOperator.Subscription Create(Fuse.Reactive.UnaryOperator uo, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :43
-void UnaryOperator__Subscription__Create_fn(::g::Fuse::Reactive::UnaryOperator* uo, uObject* context, uObject* listener, UnaryOperator__Subscription** __retval)
+// public override sealed void Dispose() :95
+void Member__Subscription__Dispose_fn(Member__Subscription* __this)
 {
-    *__retval = UnaryOperator__Subscription::Create(uo, context, listener);
-}
+    if (__this->_objectSub != NULL)
+    {
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_objectSub), ::TYPES[1/*Uno.IDisposable*/]));
+        __this->_objectSub = NULL;
+    }
 
-// public override void Dispose() :57
-void UnaryOperator__Subscription__Dispose_fn(UnaryOperator__Subscription* __this)
-{
+    __this->DisposeObservableObjectSubscription();
     ::g::Fuse::Reactive::InnerListener__Dispose_fn(__this);
-
-    if (__this->_operandSub != NULL)
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_operandSub), ::TYPES[0/*Uno.IDisposable*/]));
-
-    __this->_operandSub = NULL;
 }
 
-// protected void Init(Fuse.Reactive.IContext context) :52
-void UnaryOperator__Subscription__Init_fn(UnaryOperator__Subscription* __this, uObject* context)
+// private void DisposeObservableObjectSubscription() :45
+void Member__Subscription__DisposeObservableObjectSubscription_fn(Member__Subscription* __this)
 {
-    __this->Init(context);
+    __this->DisposeObservableObjectSubscription();
 }
 
-// protected Subscription New(Fuse.Reactive.UnaryOperator uo, Fuse.Reactive.IListener listener) :37
-void UnaryOperator__Subscription__New1_fn(::g::Fuse::Reactive::UnaryOperator* uo, uObject* listener, UnaryOperator__Subscription** __retval)
+// private void Fuse.Reactive.IPropertyObserver.OnPropertyChanged(Uno.IDisposable sub, string propName, object newValue) :81
+void Member__Subscription__FuseReactiveIPropertyObserverOnPropertyChanged_fn(Member__Subscription* __this, uObject* sub, uString* propName, uObject* newValue)
 {
-    *__retval = UnaryOperator__Subscription::New1(uo, listener);
+    if (__this->_obsObjSub != sub)
+        return;
+
+    if (::g::Uno::String::op_Inequality(propName, uPtr(__this->_member)->Name()))
+        return;
+
+    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(__this->_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)__this->_member, newValue);
 }
 
-// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object value) :64
-void UnaryOperator__Subscription__OnNewData_fn(UnaryOperator__Subscription* __this, uObject* source, uObject* value)
+// private bool Fuse.Reactive.IWriteable.TrySetExclusive(object newObj) :88
+void Member__Subscription__FuseReactiveIWriteableTrySetExclusive_fn(Member__Subscription* __this, uObject* newObj, bool* __retval)
 {
-    __this->OnNewOperand(value);
+    if (__this->_obsObjSub != NULL)
+        return *__retval = ::g::Fuse::Reactive::IPropertySubscription::TrySetExclusive(uInterface(uPtr(__this->_obsObjSub), ::TYPES[25/*Fuse.Reactive.IPropertySubscription*/]), uPtr(__this->_member)->Name(), newObj), void();
+
+    return *__retval = false, void();
 }
 
-// protected virtual void OnNewOperand(object value) :69
-void UnaryOperator__Subscription__OnNewOperand_fn(UnaryOperator__Subscription* __this, uObject* value)
+// public Subscription New(Fuse.Reactive.Member member, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :36
+void Member__Subscription__New1_fn(::g::Fuse::Reactive::Member* member, uObject* context, uObject* listener, Member__Subscription** __retval)
 {
+    *__retval = Member__Subscription::New1(member, context, listener);
+}
+
+// protected override sealed void OnLostData(Fuse.Reactive.IExpression source) :76
+void Member__Subscription__OnLostData_fn(Member__Subscription* __this, uObject* source)
+{
+    __this->DisposeObservableObjectSubscription();
+}
+
+// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object obj) :54
+void Member__Subscription__OnNewData_fn(Member__Subscription* __this, uObject* source, uObject* obj)
+{
+    __this->DisposeObservableObjectSubscription();
     __this->ClearDiagnostic();
+    uObject* io = uAs<uObject*>(obj, ::TYPES[37/*Fuse.IObject*/]);
 
-    try
+    if ((io != NULL) && ::g::Fuse::IObject::ContainsKey(uInterface(uPtr(io), ::TYPES[37/*Fuse.IObject*/]), uPtr(__this->_member)->Name()))
     {
-        {
-            uPtr(__this->_uo)->OnNewOperand(__this->_listener, value);
-        }
+        uObject* obsObj = uAs<uObject*>(io, ::TYPES[24/*Fuse.Reactive.IObservableObject*/]);
+
+        if (obsObj != NULL)
+            __this->_obsObjSub = ::g::Fuse::Reactive::IObservableObject::Subscribe(uInterface(uPtr(obsObj), ::TYPES[24/*Fuse.Reactive.IObservableObject*/]), (uObject*)__this);
+
+        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(__this->_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)__this->_member, ::g::Fuse::IObject::Item(uInterface(uPtr(io), ::TYPES[37/*Fuse.IObject*/]), uPtr(__this->_member)->Name()));
     }
-
-    catch (const uThrowable& __t)
+    else
     {
-        if (uIs(__t.Exception, ::TYPES[34/*Fuse.MarshalException*/]))
-        {
-            ::g::Fuse::MarshalException* me = (::g::Fuse::MarshalException*)__t.Exception;
-            __this->SetDiagnostic(uPtr(me)->Message(), (uObject*)__this->_uo);
-        }
-        else         throw __t;
+        __this->SetDiagnostic(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[24/*"'"*/], ::g::Uno::Object::ToString(uPtr(uPtr(__this->_member)->BaseObject()))), ::STRINGS[81/*"' does not ...*/]), uPtr(__this->_member)->Name()), ::STRINGS[24/*"'"*/]), __this->_member);
+        ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(__this->_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)__this->_member);
     }
 }
 
-// protected void PushNewData(object value) :83
-void UnaryOperator__Subscription__PushNewData_fn(UnaryOperator__Subscription* __this, uObject* value)
-{
-    __this->PushNewData(value);
-}
-
-// protected Subscription(Fuse.Reactive.UnaryOperator uo, Fuse.Reactive.IListener listener) [instance] :37
-void UnaryOperator__Subscription::ctor_1(::g::Fuse::Reactive::UnaryOperator* uo, uObject* listener)
+// public Subscription(Fuse.Reactive.Member member, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [instance] :36
+void Member__Subscription::ctor_1(::g::Fuse::Reactive::Member* member, uObject* context, uObject* listener)
 {
     ctor_();
-    _uo = uo;
     _listener = listener;
+    _member = member;
+    _objectSub = uPtr(uPtr(_member)->BaseObject())->Subscribe(context, (uObject*)this);
 }
 
-// protected void Init(Fuse.Reactive.IContext context) [instance] :52
-void UnaryOperator__Subscription::Init(uObject* context)
+// private void DisposeObservableObjectSubscription() [instance] :45
+void Member__Subscription::DisposeObservableObjectSubscription()
 {
-    _operandSub = uPtr(uPtr(_uo)->Operand())->Subscribe(context, (uObject*)this);
+    if (_obsObjSub != NULL)
+    {
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_obsObjSub), ::TYPES[1/*Uno.IDisposable*/]));
+        _obsObjSub = NULL;
+    }
 }
 
-// protected void PushNewData(object value) [instance] :83
-void UnaryOperator__Subscription::PushNewData(uObject* value)
+// public Subscription New(Fuse.Reactive.Member member, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :36
+Member__Subscription* Member__Subscription::New1(::g::Fuse::Reactive::Member* member, uObject* context, uObject* listener)
 {
-    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), (uObject*)_uo, value);
-}
-
-// public static Fuse.Reactive.UnaryOperator.Subscription Create(Fuse.Reactive.UnaryOperator uo, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :43
-UnaryOperator__Subscription* UnaryOperator__Subscription::Create(::g::Fuse::Reactive::UnaryOperator* uo, uObject* context, uObject* listener)
-{
-    UnaryOperator__Subscription* sub = UnaryOperator__Subscription::New1(uo, listener);
-    sub->Init(context);
-    return sub;
-}
-
-// protected Subscription New(Fuse.Reactive.UnaryOperator uo, Fuse.Reactive.IListener listener) [static] :37
-UnaryOperator__Subscription* UnaryOperator__Subscription::New1(::g::Fuse::Reactive::UnaryOperator* uo, uObject* listener)
-{
-    UnaryOperator__Subscription* obj1 = (UnaryOperator__Subscription*)uNew(UnaryOperator__Subscription_typeof());
-    obj1->ctor_1(uo, listener);
+    Member__Subscription* obj1 = (Member__Subscription*)uNew(Member__Subscription_typeof());
+    obj1->ctor_1(member, context, listener);
     return obj1;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\Operators.uno
-// -----------------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Panels\1.9.0\Window.uno
+// ---------------------------------------------------------------------------------------------
 
-// public sealed class Subtract :31
+// private sealed class WindowFunction.Subscription :43
 // {
-static void Subtract_build(uType* type)
+static void WindowFunction__Subscription_build(uType* type)
 {
-    ::STRINGS[70] = uString::Const("-");
+    ::STRINGS[82] = uString::Const("No RootViewport found in this context");
+    ::STRINGS[83] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.Panels\\1.9.0\\Window.uno");
+    ::STRINGS[84] = uString::Const(".ctor");
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
+    type->SetDependencies(
+        ::g::Fuse::Reactive::WindowCaps_typeof());
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::InfixOperator_type, interface0));
-    type->SetFields(2);
+        ::g::Uno::IDisposable_typeof(), offsetof(WindowFunction__Subscription_type, interface0));
+    type->SetFields(0,
+        ::g::Fuse::Reactive::WindowFunction_typeof(), offsetof(WindowFunction__Subscription, _func), 0,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(WindowFunction__Subscription, _listener), 0,
+        ::g::Fuse::RootViewport_typeof(), offsetof(WindowFunction__Subscription, _rootViewport), 0,
+        ::g::Fuse::Reactive::WindowCaps_typeof(), offsetof(WindowFunction__Subscription, _windowCaps), 0);
 }
 
-::g::Fuse::Reactive::InfixOperator_type* Subtract_typeof()
+WindowFunction__Subscription_type* WindowFunction__Subscription_typeof()
 {
-    static uSStrong< ::g::Fuse::Reactive::InfixOperator_type*> type;
+    static uSStrong<WindowFunction__Subscription_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::InfixOperator_typeof();
-    options.FieldCount = 2;
+    options.FieldCount = 4;
     options.InterfaceCount = 1;
-    options.ObjectSize = sizeof(Subtract);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::InfixOperator_type);
-    type = (::g::Fuse::Reactive::InfixOperator_type*)uClassType::New("Fuse.Reactive.Subtract", options);
-    type->fp_build_ = Subtract_build;
-    type->fp_Compute = (void(*)(::g::Fuse::Reactive::BinaryOperator*, uObject*, uObject*, uObject**))Subtract__Compute_fn;
-    type->fp_get_Symbol = (void(*)(::g::Fuse::Reactive::InfixOperator*, uString**))Subtract__get_Symbol_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::BinaryOperator__Subscribe_fn;
+    options.DependencyCount = 1;
+    options.ObjectSize = sizeof(WindowFunction__Subscription);
+    options.TypeSize = sizeof(WindowFunction__Subscription_type);
+    type = (WindowFunction__Subscription_type*)uClassType::New("Fuse.Reactive.WindowFunction.Subscription", options);
+    type->fp_build_ = WindowFunction__Subscription_build;
+    type->interface0.fp_Dispose = (void(*)(uObject*))WindowFunction__Subscription__Dispose_fn;
     return type;
 }
 
-// protected override sealed object Compute(object left, object right) :35
-void Subtract__Compute_fn(Subtract* __this, uObject* left, uObject* right, uObject** __retval)
+// public Subscription(Fuse.Reactive.WindowFunction func, Fuse.RootViewport rv, Fuse.Reactive.IListener listener) :50
+void WindowFunction__Subscription__ctor__fn(WindowFunction__Subscription* __this, ::g::Fuse::Reactive::WindowFunction* func, ::g::Fuse::RootViewport* rv, uObject* listener)
 {
-    return *__retval = ::g::Fuse::Marshal::Subtract(left, right), void();
+    __this->ctor_(func, rv, listener);
 }
 
-// public override sealed string get_Symbol() :40
-void Subtract__get_Symbol_fn(Subtract* __this, uString** __retval)
+// public void Dispose() :69
+void WindowFunction__Subscription__Dispose_fn(WindowFunction__Subscription* __this)
 {
-    return *__retval = ::STRINGS[70/*"-"*/], void();
+    __this->Dispose();
+}
+
+// public void Init() :60
+void WindowFunction__Subscription__Init_fn(WindowFunction__Subscription* __this)
+{
+    __this->Init();
+}
+
+// public Subscription New(Fuse.Reactive.WindowFunction func, Fuse.RootViewport rv, Fuse.Reactive.IListener listener) :50
+void WindowFunction__Subscription__New1_fn(::g::Fuse::Reactive::WindowFunction* func, ::g::Fuse::RootViewport* rv, uObject* listener, WindowFunction__Subscription** __retval)
+{
+    *__retval = WindowFunction__Subscription::New1(func, rv, listener);
+}
+
+// public Subscription(Fuse.Reactive.WindowFunction func, Fuse.RootViewport rv, Fuse.Reactive.IListener listener) [instance] :50
+void WindowFunction__Subscription::ctor_(::g::Fuse::Reactive::WindowFunction* func, ::g::Fuse::RootViewport* rv, uObject* listener)
+{
+    _func = func;
+    _listener = listener;
+    _rootViewport = rv;
+
+    if (rv == NULL)
+        ::g::Fuse::Diagnostics::UserError(::STRINGS[82/*"No RootView...*/], this, ::STRINGS[83/*"C:\\Users\\...*/], 57, ::STRINGS[84/*".ctor"*/], NULL);
+}
+
+// public void Dispose() [instance] :69
+void WindowFunction__Subscription::Dispose()
+{
+    if (_windowCaps != NULL)
+    {
+        uPtr(_windowCaps)->Detach();
+        _windowCaps = NULL;
+    }
+
+    _rootViewport = NULL;
+    _func = NULL;
+    _listener = NULL;
+}
+
+// public void Init() [instance] :60
+void WindowFunction__Subscription::Init()
+{
+    if (_rootViewport == NULL)
+        return;
+
+    _windowCaps = ::g::Fuse::Reactive::WindowCaps::Attach(_rootViewport);
+    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_func, _windowCaps);
+}
+
+// public Subscription New(Fuse.Reactive.WindowFunction func, Fuse.RootViewport rv, Fuse.Reactive.IListener listener) [static] :50
+WindowFunction__Subscription* WindowFunction__Subscription::New1(::g::Fuse::Reactive::WindowFunction* func, ::g::Fuse::RootViewport* rv, uObject* listener)
+{
+    WindowFunction__Subscription* obj1 = (WindowFunction__Subscription*)uNew(WindowFunction__Subscription_typeof());
+    obj1->ctor_(func, rv, listener);
+    return obj1;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Instance.WindowItems.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\PlatformFunctions.uno
 // -------------------------------------------------------------------------------------------------------------
 
-// private struct Instantiator.TemplateMatch :112
+// private sealed class PlatformFunction.Subscription :33
 // {
-static void Instantiator__TemplateMatch_build(uType* type)
+static void PlatformFunction__Subscription_build(uType* type)
 {
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
+    type->SetInterfaces(
+        ::g::Uno::IDisposable_typeof(), offsetof(PlatformFunction__Subscription_type, interface0));
     type->SetFields(0,
-        ::g::Uno::Bool_typeof(), offsetof(Instantiator__TemplateMatch, All), 0,
-        ::g::Uno::UX::Template_typeof(), offsetof(Instantiator__TemplateMatch, Template), 0);
+        ::g::Fuse::Reactive::PlatformFunction_typeof(), offsetof(PlatformFunction__Subscription, _func), 0,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(PlatformFunction__Subscription, _listener), 0);
 }
 
-uStructType* Instantiator__TemplateMatch_typeof()
+PlatformFunction__Subscription_type* PlatformFunction__Subscription_typeof()
+{
+    static uSStrong<PlatformFunction__Subscription_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.FieldCount = 2;
+    options.InterfaceCount = 1;
+    options.ObjectSize = sizeof(PlatformFunction__Subscription);
+    options.TypeSize = sizeof(PlatformFunction__Subscription_type);
+    type = (PlatformFunction__Subscription_type*)uClassType::New("Fuse.Reactive.PlatformFunction.Subscription", options);
+    type->fp_build_ = PlatformFunction__Subscription_build;
+    type->interface0.fp_Dispose = (void(*)(uObject*))PlatformFunction__Subscription__Dispose_fn;
+    return type;
+}
+
+// public Subscription(Fuse.Reactive.PlatformFunction func, Fuse.Reactive.IListener listener) :38
+void PlatformFunction__Subscription__ctor__fn(PlatformFunction__Subscription* __this, ::g::Fuse::Reactive::PlatformFunction* func, uObject* listener)
+{
+    __this->ctor_(func, listener);
+}
+
+// public void Dispose() :49
+void PlatformFunction__Subscription__Dispose_fn(PlatformFunction__Subscription* __this)
+{
+    __this->Dispose();
+}
+
+// public void Init() :44
+void PlatformFunction__Subscription__Init_fn(PlatformFunction__Subscription* __this)
+{
+    __this->Init();
+}
+
+// public Subscription New(Fuse.Reactive.PlatformFunction func, Fuse.Reactive.IListener listener) :38
+void PlatformFunction__Subscription__New1_fn(::g::Fuse::Reactive::PlatformFunction* func, uObject* listener, PlatformFunction__Subscription** __retval)
+{
+    *__retval = PlatformFunction__Subscription::New1(func, listener);
+}
+
+// public Subscription(Fuse.Reactive.PlatformFunction func, Fuse.Reactive.IListener listener) [instance] :38
+void PlatformFunction__Subscription::ctor_(::g::Fuse::Reactive::PlatformFunction* func, uObject* listener)
+{
+    _func = func;
+    _listener = listener;
+}
+
+// public void Dispose() [instance] :49
+void PlatformFunction__Subscription::Dispose()
+{
+    _func = NULL;
+    _listener = NULL;
+}
+
+// public void Init() [instance] :44
+void PlatformFunction__Subscription::Init()
+{
+    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_func, uBox(::TYPES[4/*bool*/], uPtr(_func)->GetResult()));
+}
+
+// public Subscription New(Fuse.Reactive.PlatformFunction func, Fuse.Reactive.IListener listener) [static] :38
+PlatformFunction__Subscription* PlatformFunction__Subscription::New1(::g::Fuse::Reactive::PlatformFunction* func, uObject* listener)
+{
+    PlatformFunction__Subscription* obj1 = (PlatformFunction__Subscription*)uNew(PlatformFunction__Subscription_typeof());
+    obj1->ctor_(func, listener);
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\DataFunction.uno
+// -----------------------------------------------------------------------------------------------------
+
+// private sealed class DataFunction.Subscription :40
+// {
+static void DataFunction__Subscription_build(uType* type)
+{
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
+    type->SetInterfaces(
+        ::g::Uno::IDisposable_typeof(), offsetof(DataFunction__Subscription_type, interface0),
+        ::g::Fuse::Node__IDataListener_typeof(), offsetof(DataFunction__Subscription_type, interface1));
+    type->SetFields(0,
+        ::g::Fuse::Reactive::DataFunction_typeof(), offsetof(DataFunction__Subscription, _expr), 0,
+        ::TYPES[15/*Fuse.Reactive.IListener*/], offsetof(DataFunction__Subscription, _listener), 0,
+        ::g::Fuse::Node_typeof(), offsetof(DataFunction__Subscription, _node), 0,
+        ::g::Fuse::Node__NodeDataSubscription_typeof(), offsetof(DataFunction__Subscription, _dataSub), 0);
+}
+
+DataFunction__Subscription_type* DataFunction__Subscription_typeof()
+{
+    static uSStrong<DataFunction__Subscription_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.FieldCount = 4;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(DataFunction__Subscription);
+    options.TypeSize = sizeof(DataFunction__Subscription_type);
+    type = (DataFunction__Subscription_type*)uClassType::New("Fuse.Reactive.DataFunction.Subscription", options);
+    type->fp_build_ = DataFunction__Subscription_build;
+    type->interface1.fp_OnDataChanged = (void(*)(uObject*))DataFunction__Subscription__FuseNodeIDataListenerOnDataChanged_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))DataFunction__Subscription__Dispose_fn;
+    return type;
+}
+
+// public Subscription(Fuse.Reactive.DataFunction expr, Fuse.Reactive.IListener listener, Fuse.Node node) :48
+void DataFunction__Subscription__ctor__fn(DataFunction__Subscription* __this, ::g::Fuse::Reactive::DataFunction* expr, uObject* listener, ::g::Fuse::Node* node)
+{
+    __this->ctor_(expr, listener, node);
+}
+
+// public void Dispose() :77
+void DataFunction__Subscription__Dispose_fn(DataFunction__Subscription* __this)
+{
+    __this->Dispose();
+}
+
+// private void Fuse.Node.IDataListener.OnDataChanged() :61
+void DataFunction__Subscription__FuseNodeIDataListenerOnDataChanged_fn(DataFunction__Subscription* __this)
+{
+    __this->UpdateData();
+}
+
+// public void Init() :55
+void DataFunction__Subscription__Init_fn(DataFunction__Subscription* __this)
+{
+    __this->Init();
+}
+
+// public Subscription New(Fuse.Reactive.DataFunction expr, Fuse.Reactive.IListener listener, Fuse.Node node) :48
+void DataFunction__Subscription__New1_fn(::g::Fuse::Reactive::DataFunction* expr, uObject* listener, ::g::Fuse::Node* node, DataFunction__Subscription** __retval)
+{
+    *__retval = DataFunction__Subscription::New1(expr, listener, node);
+}
+
+// private void UpdateData() :66
+void DataFunction__Subscription__UpdateData_fn(DataFunction__Subscription* __this)
+{
+    __this->UpdateData();
+}
+
+// public Subscription(Fuse.Reactive.DataFunction expr, Fuse.Reactive.IListener listener, Fuse.Node node) [instance] :48
+void DataFunction__Subscription::ctor_(::g::Fuse::Reactive::DataFunction* expr, uObject* listener, ::g::Fuse::Node* node)
+{
+    _expr = expr;
+    _listener = listener;
+    _node = node;
+}
+
+// public void Dispose() [instance] :77
+void DataFunction__Subscription::Dispose()
+{
+    if (_dataSub != NULL)
+    {
+        uPtr(_dataSub)->Dispose();
+        _dataSub = NULL;
+    }
+
+    _expr = NULL;
+    _listener = NULL;
+    _node = NULL;
+}
+
+// public void Init() [instance] :55
+void DataFunction__Subscription::Init()
+{
+    _dataSub = uPtr(_node)->SubscribePrimeDataContext((uObject*)this);
+    UpdateData();
+}
+
+// private void UpdateData() [instance] :66
+void DataFunction__Subscription::UpdateData()
+{
+    if (_dataSub == NULL)
+        return;
+
+    if (!uPtr(_dataSub)->HasData())
+        ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_expr);
+    else
+        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)_expr, uPtr(_dataSub)->Data());
+}
+
+// public Subscription New(Fuse.Reactive.DataFunction expr, Fuse.Reactive.IListener listener, Fuse.Node node) [static] :48
+DataFunction__Subscription* DataFunction__Subscription::New1(::g::Fuse::Reactive::DataFunction* expr, uObject* listener, ::g::Fuse::Node* node)
+{
+    DataFunction__Subscription* obj1 = (DataFunction__Subscription*)uNew(DataFunction__Subscription_typeof());
+    obj1->ctor_(expr, listener, node);
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Instantiator.uno
+// -----------------------------------------------------------------------------------------------------
+
+// internal struct TemplateMatch :82
+// {
+static void TemplateMatch_build(uType* type)
+{
+    type->SetFields(0,
+        ::g::Uno::Bool_typeof(), offsetof(TemplateMatch, All), 0,
+        ::g::Uno::UX::Template_typeof(), offsetof(TemplateMatch, Template), 0);
+}
+
+uStructType* TemplateMatch_typeof()
 {
     static uSStrong<uStructType*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
     options.FieldCount = 2;
-    options.Alignment = alignof(Instantiator__TemplateMatch);
-    options.ValueSize = sizeof(Instantiator__TemplateMatch);
+    options.Alignment = alignof(TemplateMatch);
+    options.ValueSize = sizeof(TemplateMatch);
     options.TypeSize = sizeof(uStructType);
-    type = uStructType::New("Fuse.Reactive.Instantiator.TemplateMatch", options);
-    type->fp_build_ = Instantiator__TemplateMatch_build;
+    type = uStructType::New("Fuse.Reactive.TemplateMatch", options);
+    type->fp_build_ = TemplateMatch_build;
     return type;
 }
 
-// public bool Matches(Fuse.Reactive.Instantiator.TemplateMatch b) :119
-void Instantiator__TemplateMatch__Matches_fn(Instantiator__TemplateMatch* __this, Instantiator__TemplateMatch* b, bool* __retval)
+// public bool Matches(Fuse.Reactive.TemplateMatch b) :89
+void TemplateMatch__Matches_fn(TemplateMatch* __this, TemplateMatch* b, bool* __retval)
 {
     *__retval = __this->Matches(*b);
 }
 
-// public bool Matches(Fuse.Reactive.Instantiator.TemplateMatch b) [instance] :119
-bool Instantiator__TemplateMatch::Matches(Instantiator__TemplateMatch b)
+// public bool Matches(Fuse.Reactive.TemplateMatch b) [instance] :89
+bool TemplateMatch::Matches(TemplateMatch b)
 {
     if (All != b.All)
         return false;
@@ -10208,249 +11242,268 @@ bool Instantiator__TemplateMatch::Matches(Instantiator__TemplateMatch b)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\TernaryOperator.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\TernaryOperator.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // public abstract class TernaryOperator :8
 // {
 static void TernaryOperator_build(uType* type)
 {
+    ::STRINGS[1] = uString::Const(" No `TryCompute`, or a deprecated form, overriden. Migrate your code to override the one with `bool` return. ");
+    ::STRINGS[85] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Expressions\\1.9.0\\TernaryOperator.uno");
+    ::STRINGS[3] = uString::Const("TryCompute");
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(TernaryOperator_type, interface0));
-    type->SetFields(0,
-        ::g::Fuse::Reactive::Expression_typeof(), offsetof(TernaryOperator, _First), 0,
-        ::g::Fuse::Reactive::Expression_typeof(), offsetof(TernaryOperator, _Second), 0,
-        ::g::Fuse::Reactive::Expression_typeof(), offsetof(TernaryOperator, _Third), 0);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface1));
+    type->SetFields(5);
 }
 
-TernaryOperator_type* TernaryOperator_typeof()
+::g::Fuse::Reactive::ComputeExpression_type* TernaryOperator_typeof()
 {
-    static uSStrong<TernaryOperator_type*> type;
+    static uSStrong< ::g::Fuse::Reactive::ComputeExpression_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.FieldCount = 3;
-    options.InterfaceCount = 1;
+    options.BaseDefinition = ::g::Fuse::Reactive::ComputeExpression_typeof();
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(TernaryOperator);
-    options.TypeSize = sizeof(TernaryOperator_type);
-    type = (TernaryOperator_type*)uClassType::New("Fuse.Reactive.TernaryOperator", options);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::ComputeExpression_type);
+    type = (::g::Fuse::Reactive::ComputeExpression_type*)uClassType::New("Fuse.Reactive.TernaryOperator", options);
     type->fp_build_ = TernaryOperator_build;
-    type->fp_get_IsThirdOptional = TernaryOperator__get_IsThirdOptional_fn;
-    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))TernaryOperator__Subscribe_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))TernaryOperator__Subscribe_fn;
+    type->fp_GetFlags = (void(*)(::g::Fuse::Reactive::ComputeExpression*, int32_t*))TernaryOperator__GetFlags_fn;
+    type->fp_TryCompute = (void(*)(::g::Fuse::Reactive::ComputeExpression*, uArray*, uObject**, bool*))TernaryOperator__TryCompute_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// public generated Fuse.Reactive.Expression get_First() :10
-void TernaryOperator__get_First_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval)
+// protected object Compute(object first, object second, object third) :42
+void TernaryOperator__Compute_fn(TernaryOperator* __this, uObject* first, uObject* second, uObject* third, uObject** __retval)
 {
-    *__retval = __this->First();
+    *__retval = __this->Compute(first, second, third);
 }
 
-// private generated void set_First(Fuse.Reactive.Expression value) :10
-void TernaryOperator__set_First_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression* value)
+// internal override sealed Fuse.Reactive.ComputeExpression.Flags GetFlags() :20
+void TernaryOperator__GetFlags_fn(TernaryOperator* __this, int32_t* __retval)
 {
-    __this->First(value);
+    return *__retval = ((0 | (__this->IsFirstOptional() ? 1 : 0)) | (__this->IsSecondOptional() ? 2 : 0)) | (__this->IsThirdOptional() ? 4 : 0), void();
 }
 
-// protected bool get_IsFirstOptional() :26
+// protected bool get_IsFirstOptional() :30
 void TernaryOperator__get_IsFirstOptional_fn(TernaryOperator* __this, bool* __retval)
 {
     *__retval = __this->IsFirstOptional();
 }
 
-// protected bool get_IsSecondOptional() :27
+// protected bool get_IsSecondOptional() :31
 void TernaryOperator__get_IsSecondOptional_fn(TernaryOperator* __this, bool* __retval)
 {
     *__retval = __this->IsSecondOptional();
 }
 
-// protected virtual bool get_IsThirdOptional() :28
+// protected bool get_IsThirdOptional() :32
 void TernaryOperator__get_IsThirdOptional_fn(TernaryOperator* __this, bool* __retval)
 {
-    return *__retval = false, void();
+    *__retval = __this->IsThirdOptional();
 }
 
-// public generated Fuse.Reactive.Expression get_Second() :11
-void TernaryOperator__get_Second_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval)
+// protected override sealed bool TryCompute(Fuse.Reactive.Expression.Argument[] args, object& result) :44
+void TernaryOperator__TryCompute_fn(TernaryOperator* __this, uArray* args, uObject** result, bool* __retval)
 {
-    *__retval = __this->Second();
+    return *__retval = __this->TryCompute1(uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->Value(), uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(1))->Value(), uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(2))->Value(), result), void();
 }
 
-// private generated void set_Second(Fuse.Reactive.Expression value) :11
-void TernaryOperator__set_Second_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression* value)
+// protected bool TryCompute(object first, object second, object third, object& result) :34
+void TernaryOperator__TryCompute1_fn(TernaryOperator* __this, uObject* first, uObject* second, uObject* third, uObject** result, bool* __retval)
 {
-    __this->Second(value);
+    *__retval = __this->TryCompute1(first, second, third, result);
 }
 
-// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :21
-void TernaryOperator__Subscribe_fn(TernaryOperator* __this, uObject* context, uObject* listener, uObject** __retval)
+// protected object Compute(object first, object second, object third) [instance] :42
+uObject* TernaryOperator::Compute(uObject* first, uObject* second, uObject* third)
 {
-    return *__retval = (uObject*)TernaryOperator__Subscription::Create(__this, context, listener), void();
+    return NULL;
 }
 
-// public generated Fuse.Reactive.Expression get_Third() :12
-void TernaryOperator__get_Third_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval)
-{
-    *__retval = __this->Third();
-}
-
-// private generated void set_Third(Fuse.Reactive.Expression value) :12
-void TernaryOperator__set_Third_fn(TernaryOperator* __this, ::g::Fuse::Reactive::Expression* value)
-{
-    __this->Third(value);
-}
-
-// public generated Fuse.Reactive.Expression get_First() [instance] :10
-::g::Fuse::Reactive::Expression* TernaryOperator::First()
-{
-    return _First;
-}
-
-// private generated void set_First(Fuse.Reactive.Expression value) [instance] :10
-void TernaryOperator::First(::g::Fuse::Reactive::Expression* value)
-{
-    _First = value;
-}
-
-// protected bool get_IsFirstOptional() [instance] :26
+// protected bool get_IsFirstOptional() [instance] :30
 bool TernaryOperator::IsFirstOptional()
 {
     return false;
 }
 
-// protected bool get_IsSecondOptional() [instance] :27
+// protected bool get_IsSecondOptional() [instance] :31
 bool TernaryOperator::IsSecondOptional()
 {
     return false;
 }
 
-// public generated Fuse.Reactive.Expression get_Second() [instance] :11
-::g::Fuse::Reactive::Expression* TernaryOperator::Second()
+// protected bool get_IsThirdOptional() [instance] :32
+bool TernaryOperator::IsThirdOptional()
 {
-    return _Second;
+    return false;
 }
 
-// private generated void set_Second(Fuse.Reactive.Expression value) [instance] :11
-void TernaryOperator::Second(::g::Fuse::Reactive::Expression* value)
+// protected bool TryCompute(object first, object second, object third, object& result) [instance] :34
+bool TernaryOperator::TryCompute1(uObject* first, uObject* second, uObject* third, uObject** result)
 {
-    _Second = value;
-}
-
-// public generated Fuse.Reactive.Expression get_Third() [instance] :12
-::g::Fuse::Reactive::Expression* TernaryOperator::Third()
-{
-    return _Third;
-}
-
-// private generated void set_Third(Fuse.Reactive.Expression value) [instance] :12
-void TernaryOperator::Third(::g::Fuse::Reactive::Expression* value)
-{
-    _Third = value;
+    ::g::Fuse::Diagnostics::Deprecated(::STRINGS[1/*" No `TryCom...*/], this, ::STRINGS[85/*"C:\\Users\\...*/], 36, ::STRINGS[3/*"TryCompute"*/]);
+    *result = Compute(first, second, third);
+    return true;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\UnaryOperator.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\UnaryOperator.uno
 // ---------------------------------------------------------------------------------------------------------
 
 // public abstract class UnaryOperator :8
 // {
 static void UnaryOperator_build(uType* type)
 {
+    ::STRINGS[86] = uString::Const("Failed to compute value: ");
+    ::STRINGS[87] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Expressions\\1.9.0\\UnaryOperator.uno");
+    ::STRINGS[88] = uString::Const("OnNewOperand");
+    ::STRINGS[1] = uString::Const(" No `TryCompute`, or a deprecated form, overriden. Migrate your code to override the one with `bool` return. ");
+    ::STRINGS[3] = uString::Const("TryCompute");
+    ::TYPES[15] = ::g::Fuse::Reactive::IListener_typeof();
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0));
-    type->SetFields(0,
-        ::g::Fuse::Reactive::Expression_typeof(), offsetof(UnaryOperator, _Operand), 0);
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::ComputeExpression_type, interface1));
+    type->SetFields(5);
 }
 
-::g::Fuse::Reactive::Expression_type* UnaryOperator_typeof()
+::g::Fuse::Reactive::ComputeExpression_type* UnaryOperator_typeof()
 {
-    static uSStrong< ::g::Fuse::Reactive::Expression_type*> type;
+    static uSStrong< ::g::Fuse::Reactive::ComputeExpression_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.FieldCount = 1;
-    options.InterfaceCount = 1;
+    options.BaseDefinition = ::g::Fuse::Reactive::ComputeExpression_typeof();
+    options.FieldCount = 5;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(UnaryOperator);
-    options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
-    type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.UnaryOperator", options);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::ComputeExpression_type);
+    type = (::g::Fuse::Reactive::ComputeExpression_type*)uClassType::New("Fuse.Reactive.UnaryOperator", options);
     type->fp_build_ = UnaryOperator_build;
-    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))UnaryOperator__Subscribe_fn;
-    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))UnaryOperator__Subscribe_fn;
+    type->fp_GetFlags = (void(*)(::g::Fuse::Reactive::ComputeExpression*, int32_t*))UnaryOperator__GetFlags_fn;
+    type->fp_TryCompute = (void(*)(::g::Fuse::Reactive::ComputeExpression*, uArray*, uObject**, bool*))UnaryOperator__TryCompute_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Reactive::ComputeExpression__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// protected UnaryOperator(Fuse.Reactive.Expression operand) :11
-void UnaryOperator__ctor_1_fn(UnaryOperator* __this, ::g::Fuse::Reactive::Expression* operand)
-{
-    __this->ctor_1(operand);
-}
-
-// protected object Compute(object operand) :21
+// protected object Compute(object operand) :38
 void UnaryOperator__Compute_fn(UnaryOperator* __this, uObject* operand, uObject** __retval)
 {
     *__retval = __this->Compute(operand);
 }
 
-// protected void OnNewOperand(Fuse.Reactive.IListener listener, object operand) :26
+// internal override sealed Fuse.Reactive.ComputeExpression.Flags GetFlags() :19
+void UnaryOperator__GetFlags_fn(UnaryOperator* __this, int32_t* __retval)
+{
+    return *__retval = __this->IsOperandOptional() ? 1 : 0, void();
+}
+
+// internal void InternalOnLostOperand(Fuse.Reactive.IListener listener) :67
+void UnaryOperator__InternalOnLostOperand_fn(UnaryOperator* __this, uObject* listener)
+{
+    __this->InternalOnLostOperand(listener);
+}
+
+// internal void InternalOnNewOperand(Fuse.Reactive.IListener listener, object operand) :59
+void UnaryOperator__InternalOnNewOperand_fn(UnaryOperator* __this, uObject* listener, uObject* operand)
+{
+    __this->InternalOnNewOperand(listener, operand);
+}
+
+// protected bool get_IsOperandOptional() :24
+void UnaryOperator__get_IsOperandOptional_fn(UnaryOperator* __this, bool* __retval)
+{
+    *__retval = __this->IsOperandOptional();
+}
+
+// protected void OnLostOperand(Fuse.Reactive.IListener listener) :63
+void UnaryOperator__OnLostOperand_fn(UnaryOperator* __this, uObject* listener)
+{
+    __this->OnLostOperand(listener);
+}
+
+// protected void OnNewOperand(Fuse.Reactive.IListener listener, object operand) :46
 void UnaryOperator__OnNewOperand_fn(UnaryOperator* __this, uObject* listener, uObject* operand)
 {
     __this->OnNewOperand(listener, operand);
 }
 
-// public generated Fuse.Reactive.Expression get_Operand() :10
-void UnaryOperator__get_Operand_fn(UnaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval)
+// protected override sealed bool TryCompute(Fuse.Reactive.Expression.Argument[] args, object& result) :40
+void UnaryOperator__TryCompute_fn(UnaryOperator* __this, uArray* args, uObject** result, bool* __retval)
 {
-    *__retval = __this->Operand();
+    return *__retval = __this->TryCompute1(uPtr(uPtr(args)->Strong< ::g::Fuse::Reactive::Expression__Argument*>(0))->Value(), result), void();
 }
 
-// private generated void set_Operand(Fuse.Reactive.Expression value) :10
-void UnaryOperator__set_Operand_fn(UnaryOperator* __this, ::g::Fuse::Reactive::Expression* value)
+// protected bool TryCompute(object operand, object& result) :30
+void UnaryOperator__TryCompute1_fn(UnaryOperator* __this, uObject* operand, uObject** result, bool* __retval)
 {
-    __this->Operand(value);
+    *__retval = __this->TryCompute1(operand, result);
 }
 
-// public override Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :16
-void UnaryOperator__Subscribe_fn(UnaryOperator* __this, uObject* context, uObject* listener, uObject** __retval)
-{
-    return *__retval = (uObject*)UnaryOperator__Subscription::Create(__this, context, listener), void();
-}
-
-// protected UnaryOperator(Fuse.Reactive.Expression operand) [instance] :11
-void UnaryOperator::ctor_1(::g::Fuse::Reactive::Expression* operand)
-{
-    ctor_();
-    Operand(operand);
-}
-
-// protected object Compute(object operand) [instance] :21
+// protected object Compute(object operand) [instance] :38
 uObject* UnaryOperator::Compute(uObject* operand)
 {
-    U_THROW(::g::Uno::Exception::New2(::g::Uno::String::op_Addition2(::g::Uno::Type::FullName(uPtr(::g::Uno::Object::GetType(this))), uString::Const(" does not implement the required methods"))));
+    return NULL;
 }
 
-// protected void OnNewOperand(Fuse.Reactive.IListener listener, object operand) [instance] :26
+// internal void InternalOnLostOperand(Fuse.Reactive.IListener listener) [instance] :67
+void UnaryOperator::InternalOnLostOperand(uObject* listener)
+{
+    OnLostOperand(listener);
+}
+
+// internal void InternalOnNewOperand(Fuse.Reactive.IListener listener, object operand) [instance] :59
+void UnaryOperator::InternalOnNewOperand(uObject* listener, uObject* operand)
+{
+    OnNewOperand(listener, operand);
+}
+
+// protected bool get_IsOperandOptional() [instance] :24
+bool UnaryOperator::IsOperandOptional()
+{
+    return false;
+}
+
+// protected void OnLostOperand(Fuse.Reactive.IListener listener) [instance] :63
+void UnaryOperator::OnLostOperand(uObject* listener)
+{
+    ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)this);
+}
+
+// protected void OnNewOperand(Fuse.Reactive.IListener listener, object operand) [instance] :46
 void UnaryOperator::OnNewOperand(uObject* listener, uObject* operand)
 {
-    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(listener), ::TYPES[13/*Fuse.Reactive.IListener*/]), (uObject*)this, Compute(operand));
+    uObject* result;
+
+    if (TryCompute1(operand, &result))
+        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)this, result);
+    else
+    {
+        ::g::Fuse::Diagnostics::UserWarning(::g::Uno::String::op_Addition1(::STRINGS[86/*"Failed to c...*/], operand), this, ::STRINGS[87/*"C:\\Users\\...*/], 55, ::STRINGS[88/*"OnNewOperand"*/]);
+        ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(listener), ::TYPES[15/*Fuse.Reactive.IListener*/]), (uObject*)this);
+    }
 }
 
-// public generated Fuse.Reactive.Expression get_Operand() [instance] :10
-::g::Fuse::Reactive::Expression* UnaryOperator::Operand()
+// protected bool TryCompute(object operand, object& result) [instance] :30
+bool UnaryOperator::TryCompute1(uObject* operand, uObject** result)
 {
-    return _Operand;
-}
-
-// private generated void set_Operand(Fuse.Reactive.Expression value) [instance] :10
-void UnaryOperator::Operand(::g::Fuse::Reactive::Expression* value)
-{
-    _Operand = value;
+    ::g::Fuse::Diagnostics::Deprecated(::STRINGS[1/*" No `TryCom...*/], this, ::STRINGS[87/*"C:\\Users\\...*/], 32, ::STRINGS[3/*"TryCompute"*/]);
+    *result = Compute(operand);
+    return true;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\ObserverMap.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\ObserverMap.uno
 // -------------------------------------------------------------------------------------------
 
 // internal sealed class UnmappedView<T> :8
@@ -10476,8 +11529,8 @@ UnmappedView_type* UnmappedView_typeof()
     options.TypeSize = sizeof(UnmappedView_type);
     type = (UnmappedView_type*)uClassType::New("Fuse.Reactive.UnmappedView`1", options);
     type->fp_build_ = UnmappedView_build;
-    type->interface0.fp_get_Length = (void(*)(uObject*, int*))UnmappedView__get_Length_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uObject**))UnmappedView__get_Item_fn;
+    type->interface0.fp_get_Length = (void(*)(uObject*, int32_t*))UnmappedView__get_Length_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uObject**))UnmappedView__get_Item_fn;
     return type;
 }
 
@@ -10488,13 +11541,13 @@ void UnmappedView__ctor__fn(UnmappedView* __this, ::g::Fuse::Reactive::ObserverM
 }
 
 // public object get_Item(int index) :17
-void UnmappedView__get_Item_fn(UnmappedView* __this, int* index, uObject** __retval)
+void UnmappedView__get_Item_fn(UnmappedView* __this, int32_t* index, uObject** __retval)
 {
     *__retval = __this->Item(*index);
 }
 
 // public int get_Length() :16
-void UnmappedView__get_Length_fn(UnmappedView* __this, int* __retval)
+void UnmappedView__get_Length_fn(UnmappedView* __this, int32_t* __retval)
 {
     *__retval = __this->Length();
 }
@@ -10512,14 +11565,14 @@ void UnmappedView::ctor_(::g::Fuse::Reactive::ObserverMap* source)
 }
 
 // public object get_Item(int index) [instance] :17
-uObject* UnmappedView::Item(int index)
+uObject* UnmappedView::Item(int32_t index)
 {
     uObject* ret2;
-    return uPtr(_source)->UVUnmap((::g::Uno::Collections::List__get_Item_fn(uPtr((::g::Uno::Collections::List*)uPtr(_source)->_list), uCRef<int>(index), &ret2), ret2));
+    return uPtr(_source)->UVUnmap((::g::Uno::Collections::List__get_Item_fn(uPtr((::g::Uno::Collections::List*)uPtr(_source)->_list), uCRef<int32_t>(index), &ret2), ret2));
 }
 
 // public int get_Length() [instance] :16
-int UnmappedView::Length()
+int32_t UnmappedView::Length()
 {
     return uPtr((::g::Uno::Collections::List*)uPtr(_source)->_list)->Count();
 }
@@ -10533,10 +11586,10 @@ UnmappedView* UnmappedView::New1(uType* __type, ::g::Fuse::Reactive::ObserverMap
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\ValueObserver.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\ValueObserver.uno
 // ---------------------------------------------------------------------------------------------
 
-// internal sealed class ValueForwarder :85
+// internal sealed class ValueForwarder :106
 // {
 static void ValueForwarder_build(uType* type)
 {
@@ -10560,38 +11613,45 @@ static void ValueForwarder_build(uType* type)
     options.TypeSize = sizeof(::g::Fuse::Reactive::ValueObserver_type);
     type = (::g::Fuse::Reactive::ValueObserver_type*)uClassType::New("Fuse.Reactive.ValueForwarder", options);
     type->fp_build_ = ValueForwarder_build;
+    type->fp_LostData = (void(*)(::g::Fuse::Reactive::ValueObserver*))ValueForwarder__LostData_fn;
     type->fp_PushData = (void(*)(::g::Fuse::Reactive::ValueObserver*, uObject*))ValueForwarder__PushData_fn;
     type->interface1.fp_OnClear = (void(*)(uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnClear_fn;
     type->interface1.fp_OnSet = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnSet_fn;
     type->interface1.fp_OnAdd = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnAdd_fn;
-    type->interface1.fp_OnNewAt = (void(*)(uObject*, int*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAt_fn;
+    type->interface1.fp_OnNewAt = (void(*)(uObject*, int32_t*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAt_fn;
     type->interface1.fp_OnFailed = (void(*)(uObject*, uString*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnFailed_fn;
     type->interface1.fp_OnNewAll = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAll_fn;
-    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnRemoveAt_fn;
-    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnInsertAt_fn;
+    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnRemoveAt_fn;
+    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int32_t*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnInsertAt_fn;
     type->interface0.fp_Dispose = (void(*)(uObject*))::g::Fuse::Reactive::ValueObserver__Dispose_fn;
     return type;
 }
 
-// public ValueForwarder(Fuse.Reactive.IObservable obs, Fuse.Reactive.ValueForwarder.IValueListener listener) :90
+// public ValueForwarder(Fuse.Reactive.IObservable obs, Fuse.Reactive.ValueForwarder.IValueListener listener) :115
 void ValueForwarder__ctor_1_fn(ValueForwarder* __this, uObject* obs, uObject* listener)
 {
     __this->ctor_1(obs, listener);
 }
 
-// public ValueForwarder New(Fuse.Reactive.IObservable obs, Fuse.Reactive.ValueForwarder.IValueListener listener) :90
+// protected override sealed void LostData() :125
+void ValueForwarder__LostData_fn(ValueForwarder* __this)
+{
+    ValueForwarder__IValueListener::LostValue(uInterface(uPtr(__this->_listener), ValueForwarder__IValueListener_typeof()));
+}
+
+// public ValueForwarder New(Fuse.Reactive.IObservable obs, Fuse.Reactive.ValueForwarder.IValueListener listener) :115
 void ValueForwarder__New1_fn(uObject* obs, uObject* listener, ValueForwarder** __retval)
 {
     *__retval = ValueForwarder::New1(obs, listener);
 }
 
-// protected override sealed void PushData(object newValue) :96
+// protected override sealed void PushData(object newValue) :121
 void ValueForwarder__PushData_fn(ValueForwarder* __this, uObject* newValue)
 {
     ValueForwarder__IValueListener::NewValue(uInterface(uPtr(__this->_listener), ValueForwarder__IValueListener_typeof()), newValue);
 }
 
-// public ValueForwarder(Fuse.Reactive.IObservable obs, Fuse.Reactive.ValueForwarder.IValueListener listener) [instance] :90
+// public ValueForwarder(Fuse.Reactive.IObservable obs, Fuse.Reactive.ValueForwarder.IValueListener listener) [instance] :115
 void ValueForwarder::ctor_1(uObject* obs, uObject* listener)
 {
     ctor_();
@@ -10599,7 +11659,7 @@ void ValueForwarder::ctor_1(uObject* obs, uObject* listener)
     Subscribe(obs);
 }
 
-// public ValueForwarder New(Fuse.Reactive.IObservable obs, Fuse.Reactive.ValueForwarder.IValueListener listener) [static] :90
+// public ValueForwarder New(Fuse.Reactive.IObservable obs, Fuse.Reactive.ValueForwarder.IValueListener listener) [static] :115
 ValueForwarder* ValueForwarder::New1(uObject* obs, uObject* listener)
 {
     ValueForwarder* obj1 = (ValueForwarder*)uNew(ValueForwarder_typeof());
@@ -10608,21 +11668,21 @@ ValueForwarder* ValueForwarder::New1(uObject* obs, uObject* listener)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.4.2\ValueObserver.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive\1.9.0\ValueObserver.uno
 // ---------------------------------------------------------------------------------------------
 
 // internal abstract class ValueObserver :11
 // {
 static void ValueObserver_build(uType* type)
 {
-    ::TYPES[15] = ::g::Fuse::IArray_typeof();
-    ::TYPES[17] = ::g::Fuse::Reactive::IObservableArray_typeof();
-    ::TYPES[0] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[17] = ::g::Fuse::IArray_typeof();
+    ::TYPES[19] = ::g::Fuse::Reactive::IObservableArray_typeof();
+    ::TYPES[1] = ::g::Uno::IDisposable_typeof();
     type->SetInterfaces(
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(ValueObserver_type, interface0),
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(ValueObserver_type, interface0),
         ::g::Fuse::Reactive::IObserver_typeof(), offsetof(ValueObserver_type, interface1));
     type->SetFields(0,
-        ::TYPES[0/*Uno.IDisposable*/], offsetof(ValueObserver, _obsSub), 0,
+        ::TYPES[1/*Uno.IDisposable*/], offsetof(ValueObserver, _obsSub), 0,
         ::g::Fuse::Reactive::IObservable_typeof(), offsetof(ValueObserver, _obs), 0);
 }
 
@@ -10642,11 +11702,11 @@ ValueObserver_type* ValueObserver_typeof()
     type->interface1.fp_OnClear = (void(*)(uObject*))ValueObserver__FuseReactiveIObserverOnClear_fn;
     type->interface1.fp_OnSet = (void(*)(uObject*, uObject*))ValueObserver__FuseReactiveIObserverOnSet_fn;
     type->interface1.fp_OnAdd = (void(*)(uObject*, uObject*))ValueObserver__FuseReactiveIObserverOnAdd_fn;
-    type->interface1.fp_OnNewAt = (void(*)(uObject*, int*, uObject*))ValueObserver__FuseReactiveIObserverOnNewAt_fn;
+    type->interface1.fp_OnNewAt = (void(*)(uObject*, int32_t*, uObject*))ValueObserver__FuseReactiveIObserverOnNewAt_fn;
     type->interface1.fp_OnFailed = (void(*)(uObject*, uString*))ValueObserver__FuseReactiveIObserverOnFailed_fn;
     type->interface1.fp_OnNewAll = (void(*)(uObject*, uObject*))ValueObserver__FuseReactiveIObserverOnNewAll_fn;
-    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int*))ValueObserver__FuseReactiveIObserverOnRemoveAt_fn;
-    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int*, uObject*))ValueObserver__FuseReactiveIObserverOnInsertAt_fn;
+    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int32_t*))ValueObserver__FuseReactiveIObserverOnRemoveAt_fn;
+    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int32_t*, uObject*))ValueObserver__FuseReactiveIObserverOnInsertAt_fn;
     type->interface0.fp_Dispose = (void(*)(uObject*))ValueObserver__Dispose_fn;
     return type;
 }
@@ -10657,71 +11717,88 @@ void ValueObserver__ctor__fn(ValueObserver* __this)
     __this->ctor_();
 }
 
-// public virtual void Dispose() :35
+// public virtual void Dispose() :51
 void ValueObserver__Dispose_fn(ValueObserver* __this)
 {
     __this->Unsubscribe();
 }
 
-// private void Fuse.Reactive.IObserver.OnAdd(object addedValue) :52
+// private void Fuse.Reactive.IObserver.OnAdd(object addedValue) :69
 void ValueObserver__FuseReactiveIObserverOnAdd_fn(ValueObserver* __this, uObject* addedValue)
 {
-    __this->PushData(::g::Fuse::IArray::Item(uInterface(uPtr(__this->_obs), ::TYPES[15/*Fuse.IArray*/]), 0));
+    __this->PushData(::g::Fuse::IArray::Item(uInterface(uPtr(__this->_obs), ::TYPES[17/*Fuse.IArray*/]), 0));
 }
 
-// private void Fuse.Reactive.IObserver.OnClear() :42
+// private void Fuse.Reactive.IObserver.OnClear() :59
 void ValueObserver__FuseReactiveIObserverOnClear_fn(ValueObserver* __this)
 {
-    __this->PushData(NULL);
+    __this->LostData();
 }
 
-// private void Fuse.Reactive.IObserver.OnFailed(string message) :62
+// private void Fuse.Reactive.IObserver.OnFailed(string message) :79
 void ValueObserver__FuseReactiveIObserverOnFailed_fn(ValueObserver* __this, uString* message)
 {
+    __this->LostData();
 }
 
-// private void Fuse.Reactive.IObserver.OnInsertAt(int index, object value) :79
-void ValueObserver__FuseReactiveIObserverOnInsertAt_fn(ValueObserver* __this, int* index, uObject* value)
+// private void Fuse.Reactive.IObserver.OnInsertAt(int index, object value) :100
+void ValueObserver__FuseReactiveIObserverOnInsertAt_fn(ValueObserver* __this, int32_t* index, uObject* value)
 {
-    __this->PushData(::g::Fuse::IArray::Item(uInterface(uPtr(__this->_obs), ::TYPES[15/*Fuse.IArray*/]), 0));
+    __this->PushData(::g::Fuse::IArray::Item(uInterface(uPtr(__this->_obs), ::TYPES[17/*Fuse.IArray*/]), 0));
 }
 
-// private void Fuse.Reactive.IObserver.OnNewAll(Fuse.IArray values) :67
+// private void Fuse.Reactive.IObserver.OnNewAll(Fuse.IArray values) :84
 void ValueObserver__FuseReactiveIObserverOnNewAll_fn(ValueObserver* __this, uObject* values)
 {
-    if (::g::Fuse::IArray::Length(uInterface(uPtr(values), ::TYPES[15/*Fuse.IArray*/])) > 0)
-        __this->PushData(::g::Fuse::IArray::Item(uInterface(uPtr(__this->_obs), ::TYPES[15/*Fuse.IArray*/]), 0));
+    if (::g::Fuse::IArray::Length(uInterface(uPtr(values), ::TYPES[17/*Fuse.IArray*/])) > 0)
+        __this->PushData(::g::Fuse::IArray::Item(uInterface(uPtr(__this->_obs), ::TYPES[17/*Fuse.IArray*/]), 0));
+    else
+        __this->LostData();
 }
 
-// private void Fuse.Reactive.IObserver.OnNewAt(int index, object value) :57
-void ValueObserver__FuseReactiveIObserverOnNewAt_fn(ValueObserver* __this, int* index, uObject* value)
+// private void Fuse.Reactive.IObserver.OnNewAt(int index, object value) :74
+void ValueObserver__FuseReactiveIObserverOnNewAt_fn(ValueObserver* __this, int32_t* index, uObject* value)
 {
-    __this->PushData(::g::Fuse::IArray::Item(uInterface(uPtr(__this->_obs), ::TYPES[15/*Fuse.IArray*/]), 0));
+    __this->PushData(::g::Fuse::IArray::Item(uInterface(uPtr(__this->_obs), ::TYPES[17/*Fuse.IArray*/]), 0));
 }
 
-// private void Fuse.Reactive.IObserver.OnRemoveAt(int index) :73
-void ValueObserver__FuseReactiveIObserverOnRemoveAt_fn(ValueObserver* __this, int* index)
+// private void Fuse.Reactive.IObserver.OnRemoveAt(int index) :92
+void ValueObserver__FuseReactiveIObserverOnRemoveAt_fn(ValueObserver* __this, int32_t* index)
 {
-    if (::g::Fuse::IArray::Length(uInterface(uPtr(__this->_obs), ::TYPES[15/*Fuse.IArray*/])) > 0)
-        __this->PushData(::g::Fuse::IArray::Item(uInterface(uPtr(__this->_obs), ::TYPES[15/*Fuse.IArray*/]), 0));
+    if (::g::Fuse::IArray::Length(uInterface(uPtr(__this->_obs), ::TYPES[17/*Fuse.IArray*/])) > 0)
+        __this->PushData(::g::Fuse::IArray::Item(uInterface(uPtr(__this->_obs), ::TYPES[17/*Fuse.IArray*/]), 0));
+    else
+        __this->LostData();
 }
 
-// private void Fuse.Reactive.IObserver.OnSet(object newValue) :47
+// private void Fuse.Reactive.IObserver.OnSet(object newValue) :64
 void ValueObserver__FuseReactiveIObserverOnSet_fn(ValueObserver* __this, uObject* newValue)
 {
     __this->PushData(newValue);
 }
 
-// protected void Subscribe(Fuse.Reactive.IObservable obs) :21
+// protected void Subscribe(Fuse.Reactive.IObservable obs) :31
 void ValueObserver__Subscribe_fn(ValueObserver* __this, uObject* obs)
 {
     __this->Subscribe(obs);
 }
 
-// protected void Unsubscribe() :28
+// protected void SubscribeNoPush(Fuse.Reactive.IObservable obs) :38
+void ValueObserver__SubscribeNoPush_fn(ValueObserver* __this, uObject* obs)
+{
+    __this->SubscribeNoPush(obs);
+}
+
+// protected void Unsubscribe() :44
 void ValueObserver__Unsubscribe_fn(ValueObserver* __this)
 {
     __this->Unsubscribe();
+}
+
+// protected object get_Value() :20
+void ValueObserver__get_Value_fn(ValueObserver* __this, uObject** __retval)
+{
+    *__retval = __this->Value();
 }
 
 // protected generated ValueObserver() [instance] :11
@@ -10729,29 +11806,48 @@ void ValueObserver::ctor_()
 {
 }
 
-// protected void Subscribe(Fuse.Reactive.IObservable obs) [instance] :21
+// protected void Subscribe(Fuse.Reactive.IObservable obs) [instance] :31
 void ValueObserver::Subscribe(uObject* obs)
 {
     _obs = obs;
 
-    if (::g::Fuse::IArray::Length(uInterface(uPtr(obs), ::TYPES[15/*Fuse.IArray*/])) > 0)
-        PushData(::g::Fuse::IArray::Item(uInterface(uPtr(obs), ::TYPES[15/*Fuse.IArray*/]), 0));
+    if (::g::Fuse::IArray::Length(uInterface(uPtr(obs), ::TYPES[17/*Fuse.IArray*/])) > 0)
+        PushData(::g::Fuse::IArray::Item(uInterface(uPtr(obs), ::TYPES[17/*Fuse.IArray*/]), 0));
 
-    _obsSub = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[17/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
+    _obsSub = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[19/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
 }
 
-// protected void Unsubscribe() [instance] :28
+// protected void SubscribeNoPush(Fuse.Reactive.IObservable obs) [instance] :38
+void ValueObserver::SubscribeNoPush(uObject* obs)
+{
+    _obs = obs;
+    _obsSub = ::g::Fuse::Reactive::IObservableArray::Subscribe(uInterface(uPtr(obs), ::TYPES[19/*Fuse.Reactive.IObservableArray*/]), (uObject*)this);
+}
+
+// protected void Unsubscribe() [instance] :44
 void ValueObserver::Unsubscribe()
 {
     if (_obsSub != NULL)
-        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_obsSub), ::TYPES[0/*Uno.IDisposable*/]));
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(_obsSub), ::TYPES[1/*Uno.IDisposable*/]));
 
     _obsSub = NULL;
     _obs = NULL;
 }
+
+// protected object get_Value() [instance] :20
+uObject* ValueObserver::Value()
+{
+    if (_obs == NULL)
+        return NULL;
+
+    if (::g::Fuse::IArray::Length(uInterface(uPtr(_obs), ::TYPES[17/*Fuse.IArray*/])) == 0)
+        return NULL;
+
+    return ::g::Fuse::IArray::Item(uInterface(uPtr(_obs), ::TYPES[17/*Fuse.IArray*/]), 0);
+}
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.4.2\VarArgFunction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Expressions\1.9.0\VarArgFunction.uno
 // ----------------------------------------------------------------------------------------------------------
 
 // public abstract class VarArgFunction :11
@@ -10759,8 +11855,9 @@ void ValueObserver::Unsubscribe()
 static void VarArgFunction_build(uType* type)
 {
     type->SetInterfaces(
-        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0));
-    type->SetFields(0,
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2,
         ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Reactive::Expression_typeof(), NULL), offsetof(VarArgFunction, _args), 0);
 }
 
@@ -10771,134 +11868,997 @@ static void VarArgFunction_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
-    options.FieldCount = 1;
-    options.InterfaceCount = 1;
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(VarArgFunction);
     options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
     type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.VarArgFunction", options);
     type->fp_build_ = VarArgFunction_build;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
     return type;
 }
 
-// public Uno.Collections.IList<Fuse.Reactive.Expression> get_Arguments() :42
+// public Uno.Collections.IList<Fuse.Reactive.Expression> get_Arguments() :14
 void VarArgFunction__get_Arguments_fn(VarArgFunction* __this, uObject** __retval)
 {
     *__retval = __this->Arguments();
 }
 
-// protected string FormatString(string funcName) :45
+// protected string FormatString(string funcName) :19
 void VarArgFunction__FormatString_fn(VarArgFunction* __this, uString* funcName, uString** __retval)
 {
     *__retval = __this->FormatString(funcName);
 }
 
-// public Uno.Collections.IList<Fuse.Reactive.Expression> get_Arguments() [instance] :42
+// public Uno.Collections.IList<Fuse.Reactive.Expression> get_Arguments() [instance] :14
 uObject* VarArgFunction::Arguments()
 {
     return (uObject*)_args;
 }
 
-// protected string FormatString(string funcName) [instance] :45
+// protected string FormatString(string funcName) [instance] :19
 uString* VarArgFunction::FormatString(uString* funcName)
 {
     ::g::Fuse::Reactive::Expression* ret1;
-    uString* q = ::g::Uno::String::op_Addition2(funcName, ::STRINGS[5/*"("*/]);
+    uString* q = ::g::Uno::String::op_Addition2(funcName, ::STRINGS[49/*"("*/]);
 
-    for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Arguments()), ::TYPES[49/*Uno.Collections.ICollection<Fuse.Reactive.Expression>*/])); ++i)
+    for (int32_t i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Arguments()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Reactive::Expression_typeof(), NULL))); ++i)
     {
         if (i > 0)
-            q = ::g::Uno::String::op_Addition2(q, ::STRINGS[3/*","*/]);
+            q = ::g::Uno::String::op_Addition2(q, ::STRINGS[72/*","*/]);
 
-        q = ::g::Uno::String::op_Addition2(q, ::g::Uno::Object::ToString(uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(Arguments()), ::TYPES[50/*Uno.Collections.IList<Fuse.Reactive.Expression>*/]), uCRef<int>(i), &ret1), ret1))));
+        q = ::g::Uno::String::op_Addition2(q, ::g::Uno::Object::ToString(uPtr((::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(Arguments()), ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Reactive::Expression_typeof(), NULL)), uCRef<int32_t>(i), &ret1), ret1))));
     }
 
-    q = ::g::Uno::String::op_Addition2(q, ::STRINGS[4/*")"*/]);
+    q = ::g::Uno::String::op_Addition2(q, ::STRINGS[50/*")"*/]);
     return q;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Instance.WindowItems.uno
-// -------------------------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Panels\1.9.0\Window.uno
+// ---------------------------------------------------------------------------------------------
 
-// private sealed class Instantiator.WindowItem :467
+// internal sealed class WindowCaps :83
 // {
-static void Instantiator__WindowItem_build(uType* type)
+// static generated WindowCaps() :83
+static void WindowCaps__cctor__fn(uType* __type)
 {
-    type->SetFields(0,
-        ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(Instantiator__WindowItem, Nodes), 0,
-        ::g::Fuse::Reactive::Instantiator__TemplateMatch_typeof(), offsetof(Instantiator__WindowItem, Template), 0,
-        uObject_typeof(), offsetof(Instantiator__WindowItem, Data), 0,
-        ::g::Fuse::Reactive::Instantiator__ObservableLink_typeof(), offsetof(Instantiator__WindowItem, DataLink), 0,
-        uObject_typeof(), offsetof(Instantiator__WindowItem, Id), 0);
+    WindowCaps::NameWidth_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[89/*"width"*/]);
+    WindowCaps::NameHeight_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[90/*"height"*/]);
+    WindowCaps::NameSize_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[91/*"size"*/]);
+    WindowCaps::NamePixelsPerPoint_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[92/*"pixelsPerPo...*/]);
+    WindowCaps::NamePixelsPerOSPoint_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[93/*"pixelsPerOS...*/]);
+    WindowCaps::NameSafeMargins_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[94/*"safeMargins"*/]);
+    WindowCaps::NameDeviceMargins_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[95/*"deviceMargins"*/]);
+    WindowCaps::NameStaticMargins_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[96/*"staticMargins"*/]);
 }
 
-uType* Instantiator__WindowItem_typeof()
+static void WindowCaps_build(uType* type)
 {
-    static uSStrong<uType*> type;
+    ::STRINGS[89] = uString::Const("width");
+    ::STRINGS[90] = uString::Const("height");
+    ::STRINGS[91] = uString::Const("size");
+    ::STRINGS[92] = uString::Const("pixelsPerPoint");
+    ::STRINGS[93] = uString::Const("pixelsPerOSPoint");
+    ::STRINGS[94] = uString::Const("safeMargins");
+    ::STRINGS[95] = uString::Const("deviceMargins");
+    ::STRINGS[96] = uString::Const("staticMargins");
+    ::STRINGS[97] = uString::Const("No RootViewport found");
+    ::TYPES[55] = ::g::Uno::Action1_typeof()->MakeType(::g::Uno::Float2_typeof(), NULL);
+    ::TYPES[26] = ::g::Uno::Action_typeof();
+    ::TYPES[56] = ::g::Fuse::Node_typeof()->MakeMethod(2/*GetNearestAncestorOfType<Fuse.RootViewport>*/, ::g::Fuse::RootViewport_typeof(), NULL);
+    type->SetDependencies(
+        ::g::Fuse::Platform::SystemUI_typeof(),
+        ::g::Fuse::UpdateManager_typeof());
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IObservableObject_typeof(), offsetof(::g::Fuse::Reactive::CapsObject_type, interface0),
+        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(::g::Fuse::Reactive::CapsObject_type, interface1),
+        ::g::Fuse::IObject_typeof(), offsetof(::g::Fuse::Reactive::CapsObject_type, interface2));
+    type->SetFields(2,
+        ::g::Fuse::RootViewport_typeof(), offsetof(WindowCaps, _rootViewport), 0,
+        ::g::Uno::Int_typeof(), offsetof(WindowCaps, _attachCount), 0,
+        type, (uintptr_t)&WindowCaps::_singleton_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&WindowCaps::NameWidth_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&WindowCaps::NameHeight_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&WindowCaps::NameSize_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&WindowCaps::NamePixelsPerPoint_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&WindowCaps::NamePixelsPerOSPoint_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&WindowCaps::NameSafeMargins_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&WindowCaps::NameDeviceMargins_, uFieldFlagsStatic,
+        ::g::Uno::UX::Selector_typeof(), (uintptr_t)&WindowCaps::NameStaticMargins_, uFieldFlagsStatic);
+}
+
+::g::Fuse::Reactive::CapsObject_type* WindowCaps_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::CapsObject_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::CapsObject_typeof();
+    options.FieldCount = 13;
+    options.InterfaceCount = 3;
+    options.DependencyCount = 2;
+    options.ObjectSize = sizeof(WindowCaps);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::CapsObject_type);
+    type = (::g::Fuse::Reactive::CapsObject_type*)uClassType::New("Fuse.Reactive.WindowCaps", options);
+    type->fp_build_ = WindowCaps_build;
+    type->fp_cctor_ = WindowCaps__cctor__fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject**))::g::Fuse::Reactive::CapsObject__FuseReactiveIObservableObjectSubscribe_fn;
+    type->interface1.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))::g::Fuse::Reactive::CapsObject__UnoUXIPropertyListenerOnPropertyChanged_fn;
+    type->interface2.fp_ContainsKey = (void(*)(uObject*, uString*, bool*))::g::Fuse::Reactive::CapsObject__ContainsKey_fn;
+    type->interface2.fp_get_Item = (void(*)(uObject*, uString*, uObject**))::g::Fuse::Reactive::CapsObject__get_Item_fn;
+    type->interface2.fp_get_Keys = (void(*)(uObject*, uArray**))::g::Fuse::Reactive::CapsObject__get_Keys_fn;
+    return type;
+}
+
+// private WindowCaps(Fuse.RootViewport rv) :132
+void WindowCaps__ctor_2_fn(WindowCaps* __this, ::g::Fuse::RootViewport* rv)
+{
+    __this->ctor_2(rv);
+}
+
+// public static Fuse.Reactive.WindowCaps Attach(Fuse.RootViewport target) :90
+void WindowCaps__Attach_fn(::g::Fuse::RootViewport* target, WindowCaps** __retval)
+{
+    *__retval = WindowCaps::Attach(target);
+}
+
+// public static Fuse.Reactive.WindowCaps AttachFrom(Fuse.Node node) :103
+void WindowCaps__AttachFrom_fn(::g::Fuse::Node* node, WindowCaps** __retval)
+{
+    *__retval = WindowCaps::AttachFrom(node);
+}
+
+// public void Detach() :112
+void WindowCaps__Detach_fn(WindowCaps* __this)
+{
+    __this->Detach();
+}
+
+// private WindowCaps New(Fuse.RootViewport rv) :132
+void WindowCaps__New3_fn(::g::Fuse::RootViewport* rv, WindowCaps** __retval)
+{
+    *__retval = WindowCaps::New3(rv);
+}
+
+// private void OnMarginsChanged() :159
+void WindowCaps__OnMarginsChanged_fn(WindowCaps* __this)
+{
+    __this->OnMarginsChanged();
+}
+
+// private void OnResized() :151
+void WindowCaps__OnResized_fn(WindowCaps* __this)
+{
+    __this->OnResized();
+}
+
+// private void OnResizedRV(float2 ignore) :150
+void WindowCaps__OnResizedRV_fn(WindowCaps* __this, ::g::Uno::Float2* ignore)
+{
+    __this->OnResizedRV(*ignore);
+}
+
+// private void Unroot() :145
+void WindowCaps__Unroot_fn(WindowCaps* __this)
+{
+    __this->Unroot();
+}
+
+// private void UpdateMargins() :164
+void WindowCaps__UpdateMargins_fn(WindowCaps* __this)
+{
+    __this->UpdateMargins();
+}
+
+uSStrong<WindowCaps*> WindowCaps::_singleton_;
+::g::Uno::UX::Selector WindowCaps::NameWidth_;
+::g::Uno::UX::Selector WindowCaps::NameHeight_;
+::g::Uno::UX::Selector WindowCaps::NameSize_;
+::g::Uno::UX::Selector WindowCaps::NamePixelsPerPoint_;
+::g::Uno::UX::Selector WindowCaps::NamePixelsPerOSPoint_;
+::g::Uno::UX::Selector WindowCaps::NameSafeMargins_;
+::g::Uno::UX::Selector WindowCaps::NameDeviceMargins_;
+::g::Uno::UX::Selector WindowCaps::NameStaticMargins_;
+
+// private WindowCaps(Fuse.RootViewport rv) [instance] :132
+void WindowCaps::ctor_2(::g::Fuse::RootViewport* rv)
+{
+    ctor_1();
+    _rootViewport = rv;
+    uPtr(_rootViewport)->add_Resized(uDelegate::New(::TYPES[55/*Uno.Action<float2>*/], (void*)WindowCaps__OnResizedRV_fn, this));
+    OnResized();
+    ::g::Fuse::Platform::SystemUI::add_MarginsChanged(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)WindowCaps__OnMarginsChanged_fn, this));
+    UpdateMargins();
+    ChangeProperty(WindowCaps::NamePixelsPerPoint_, uBox(::TYPES[8/*float*/], uPtr(_rootViewport)->PixelsPerPoint()));
+    ChangeProperty(WindowCaps::NamePixelsPerOSPoint_, uBox(::TYPES[8/*float*/], uPtr(_rootViewport)->PixelsPerOSPoint()));
+}
+
+// public void Detach() [instance] :112
+void WindowCaps::Detach()
+{
+    if ((--_attachCount) == 0)
+    {
+        Unroot();
+        WindowCaps::_singleton_ = NULL;
+    }
+}
+
+// private void OnMarginsChanged() [instance] :159
+void WindowCaps::OnMarginsChanged()
+{
+    ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)WindowCaps__UpdateMargins_fn, this), -1, 2);
+}
+
+// private void OnResized() [instance] :151
+void WindowCaps::OnResized()
+{
+    ChangeProperty(WindowCaps::NameWidth_, uBox(::TYPES[8/*float*/], uPtr(_rootViewport)->Size().X));
+    ChangeProperty(WindowCaps::NameHeight_, uBox(::TYPES[8/*float*/], uPtr(_rootViewport)->Size().Y));
+    ChangeProperty(WindowCaps::NameSize_, uBox(::g::Uno::Float2_typeof(), uPtr(_rootViewport)->Size()));
+    ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)WindowCaps__UpdateMargins_fn, this), -1, 2);
+}
+
+// private void OnResizedRV(float2 ignore) [instance] :150
+void WindowCaps::OnResizedRV(::g::Uno::Float2 ignore)
+{
+    OnResized();
+}
+
+// private void Unroot() [instance] :145
+void WindowCaps::Unroot()
+{
+    ::g::Fuse::Platform::SystemUI::remove_MarginsChanged(uDelegate::New(::TYPES[26/*Uno.Action*/], (void*)WindowCaps__OnMarginsChanged_fn, this));
+}
+
+// private void UpdateMargins() [instance] :164
+void WindowCaps::UpdateMargins()
+{
+    float osToFuse = uPtr(_rootViewport)->PixelsPerOSPoint() / uPtr(_rootViewport)->PixelsPerPoint();
+    ChangeProperty(WindowCaps::NameDeviceMargins_, uBox(::g::Uno::Float4_typeof(), ::g::Uno::Float4__op_Multiply1(::g::Fuse::Platform::SystemUI::DeviceMargins(), osToFuse)));
+    ChangeProperty(WindowCaps::NameSafeMargins_, uBox(::g::Uno::Float4_typeof(), ::g::Uno::Float4__op_Multiply1(::g::Fuse::Platform::SystemUI::SafeMargins(), osToFuse)));
+    ChangeProperty(WindowCaps::NameStaticMargins_, uBox(::g::Uno::Float4_typeof(), ::g::Uno::Float4__op_Multiply1(::g::Fuse::Platform::SystemUI::StaticMargins(), osToFuse)));
+}
+
+// public static Fuse.Reactive.WindowCaps Attach(Fuse.RootViewport target) [static] :90
+WindowCaps* WindowCaps::Attach(::g::Fuse::RootViewport* target)
+{
+    WindowCaps_typeof()->Init();
+    WindowCaps* rv = WindowCaps::_singleton_;
+
+    if (rv == NULL)
+    {
+        rv = WindowCaps::New3(target);
+        WindowCaps::_singleton_ = rv;
+    }
+
+    uPtr(rv)->_attachCount++;
+    return rv;
+}
+
+// public static Fuse.Reactive.WindowCaps AttachFrom(Fuse.Node node) [static] :103
+WindowCaps* WindowCaps::AttachFrom(::g::Fuse::Node* node)
+{
+    WindowCaps_typeof()->Init();
+    ::g::Fuse::RootViewport* rv = (::g::Fuse::RootViewport*)uPtr(node)->GetNearestAncestorOfType(::TYPES[56/*Fuse.Node.GetNearestAncestorOfType<Fuse.RootViewport>*/]);
+
+    if (rv == NULL)
+        U_THROW(::g::Uno::Exception::New2(::STRINGS[97/*"No RootView...*/]));
+
+    return WindowCaps::Attach(rv);
+}
+
+// private WindowCaps New(Fuse.RootViewport rv) [static] :132
+WindowCaps* WindowCaps::New3(::g::Fuse::RootViewport* rv)
+{
+    WindowCaps* obj1 = (WindowCaps*)uNew(WindowCaps_typeof());
+    obj1->ctor_2(rv);
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Panels\1.9.0\Window.uno
+// ---------------------------------------------------------------------------------------------
+
+// public sealed class WindowFunction :25
+// {
+static void WindowFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Reactive::Expression_type, interface1));
+    type->SetFields(2);
+}
+
+::g::Fuse::Reactive::Expression_type* WindowFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::Expression_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
+    options.FieldCount = 2;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(WindowFunction);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::Expression_type);
+    type = (::g::Fuse::Reactive::Expression_type*)uClassType::New("Fuse.Reactive.WindowFunction", options);
+    type->fp_build_ = WindowFunction_build;
+    type->fp_ctor_ = (void*)WindowFunction__New1_fn;
+    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))WindowFunction__Subscribe_fn;
+    type->fp_ToString = (void(*)(uObject*, uString**))WindowFunction__ToString_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))WindowFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// public WindowFunction() :28
+void WindowFunction__ctor_1_fn(WindowFunction* __this)
+{
+    __this->ctor_1();
+}
+
+// public WindowFunction New() :28
+void WindowFunction__New1_fn(WindowFunction** __retval)
+{
+    *__retval = WindowFunction::New1();
+}
+
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :35
+void WindowFunction__Subscribe_fn(WindowFunction* __this, uObject* context, uObject* listener, uObject** __retval)
+{
+    ::g::Fuse::RootViewport* rv = (::g::Fuse::RootViewport*)uPtr(::g::Fuse::Reactive::IContext::Node(uInterface(uPtr(context), ::TYPES[16/*Fuse.Reactive.IContext*/])))->GetNearestAncestorOfType(::TYPES[56/*Fuse.Node.GetNearestAncestorOfType<Fuse.RootViewport>*/]);
+    WindowFunction__Subscription* sub = WindowFunction__Subscription::New1(__this, rv, listener);
+    sub->Init();
+    return *__retval = (uObject*)sub, void();
+}
+
+// public override sealed string ToString() :30
+void WindowFunction__ToString_fn(WindowFunction* __this, uString** __retval)
+{
+    return *__retval = uString::Const("window()"), void();
+}
+
+// public WindowFunction() [instance] :28
+void WindowFunction::ctor_1()
+{
+    ctor_();
+}
+
+// public WindowFunction New() [static] :28
+WindowFunction* WindowFunction::New1()
+{
+    WindowFunction* obj1 = (WindowFunction*)uNew(WindowFunction_typeof());
+    obj1->ctor_1();
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Instantiator.uno
+// -----------------------------------------------------------------------------------------------------
+
+// internal sealed class WindowItem :73
+// {
+static void WindowItem_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Reactive::ValueObserver_type, interface0),
+        ::g::Fuse::Reactive::IObserver_typeof(), offsetof(::g::Fuse::Reactive::ValueObserver_type, interface1));
+    type->SetFields(6,
+        ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(WindowItem, Nodes), 0,
+        ::g::Fuse::Reactive::TemplateMatch_typeof(), offsetof(WindowItem, Template), 0);
+}
+
+::g::Fuse::Reactive::ValueObserver_type* WindowItem_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::ValueObserver_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::WindowListItem_typeof();
+    options.FieldCount = 8;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(WindowItem);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::ValueObserver_type);
+    type = (::g::Fuse::Reactive::ValueObserver_type*)uClassType::New("Fuse.Reactive.WindowItem", options);
+    type->fp_build_ = WindowItem_build;
+    type->fp_ctor_ = (void*)WindowItem__New1_fn;
+    type->interface1.fp_OnClear = (void(*)(uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnClear_fn;
+    type->interface1.fp_OnSet = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnSet_fn;
+    type->interface1.fp_OnAdd = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnAdd_fn;
+    type->interface1.fp_OnNewAt = (void(*)(uObject*, int32_t*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAt_fn;
+    type->interface1.fp_OnFailed = (void(*)(uObject*, uString*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnFailed_fn;
+    type->interface1.fp_OnNewAll = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAll_fn;
+    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnRemoveAt_fn;
+    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int32_t*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnInsertAt_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))::g::Fuse::Reactive::WindowListItem__Dispose_fn;
+    return type;
+}
+
+// public generated WindowItem() :73
+void WindowItem__ctor_2_fn(WindowItem* __this)
+{
+    __this->ctor_2();
+}
+
+// public generated WindowItem New() :73
+void WindowItem__New1_fn(WindowItem** __retval)
+{
+    *__retval = WindowItem::New1();
+}
+
+// public generated WindowItem() [instance] :73
+void WindowItem::ctor_2()
+{
+    ctor_1();
+}
+
+// public generated WindowItem New() [static] :73
+WindowItem* WindowItem::New1()
+{
+    WindowItem* obj1 = (WindowItem*)uNew(WindowItem_typeof());
+    obj1->ctor_2();
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\WindowList.uno
+// ---------------------------------------------------------------------------------------------------
+
+// internal abstract class WindowList<T> :95
+// {
+static void WindowList_build(uType* type)
+{
+    ::STRINGS[98] = uString::Const("Item insertion order invalid");
+    ::STRINGS[99] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Reactive.Bindings\\1.9.0\\WindowList.uno");
+    ::STRINGS[100] = uString::Const("InsertedDataAt");
+    ::STRINGS[19] = uString::Const("error");
+    ::STRINGS[101] = uString::Const("Limit cannot be less than 0");
+    ::STRINGS[102] = uString::Const("set_Limit");
+    ::STRINGS[103] = uString::Const("Offset cannot be less than 0");
+    ::STRINGS[104] = uString::Const("set_Offset");
+    ::TYPES[57] = ::g::Fuse::Internal::ObjectList_typeof();
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
+    type->SetPrecalc(
+        ::g::Fuse::Internal::ObjectList_typeof()->MakeType(type->T(0), NULL));
+    type->SetFields(0,
+        ::g::Uno::Int_typeof(), offsetof(WindowList, _offset), 0,
+        ::g::Uno::Int_typeof(), offsetof(WindowList, _limit), 0,
+        ::g::Uno::Bool_typeof(), offsetof(WindowList, _hasLimit), 0,
+        ::TYPES[57/*Fuse.Internal.ObjectList`1*/]->MakeType(type->T(0), NULL), offsetof(WindowList, _windowItems), 0,
+        ::g::Uno::String_typeof(), offsetof(WindowList, _errorMessage), 0);
+}
+
+WindowList_type* WindowList_typeof()
+{
+    static uSStrong<WindowList_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
     options.FieldCount = 5;
-    options.ObjectSize = sizeof(Instantiator__WindowItem);
-    options.TypeSize = sizeof(uType);
-    type = uClassType::New("Fuse.Reactive.Instantiator.WindowItem", options);
-    type->fp_build_ = Instantiator__WindowItem_build;
-    type->fp_ctor_ = (void*)Instantiator__WindowItem__New1_fn;
+    options.GenericCount = 1;
+    options.DependencyCount = 1;
+    options.PrecalcCount = 1;
+    options.ObjectSize = sizeof(WindowList);
+    options.TypeSize = sizeof(WindowList_type);
+    type = (WindowList_type*)uClassType::New("Fuse.Reactive.WindowList`1", options);
+    type->fp_build_ = WindowList_build;
     return type;
 }
 
-// public WindowItem() :481
-void Instantiator__WindowItem__ctor__fn(Instantiator__WindowItem* __this)
+// protected generated WindowList() :95
+void WindowList__ctor__fn(WindowList* __this)
 {
     __this->ctor_();
 }
 
-// public object get_CurrentData() :487
-void Instantiator__WindowItem__get_CurrentData_fn(Instantiator__WindowItem* __this, uObject** __retval)
+// protected int CalcOffsetLimitCountOf(int length) :162
+void WindowList__CalcOffsetLimitCountOf_fn(WindowList* __this, int32_t* length, int32_t* __retval)
+{
+    *__retval = __this->CalcOffsetLimitCountOf(*length);
+}
+
+// private void ClearError() :197
+void WindowList__ClearError_fn(WindowList* __this)
+{
+    __this->ClearError();
+}
+
+// protected int DataToWindowIndex(int dataIndex) :224
+void WindowList__DataToWindowIndex_fn(WindowList* __this, int32_t* dataIndex, int32_t* __retval)
+{
+    *__retval = __this->DataToWindowIndex(*dataIndex);
+}
+
+// protected string get_ErrorMessage() :188
+void WindowList__get_ErrorMessage_fn(WindowList* __this, uString** __retval)
+{
+    *__retval = __this->ErrorMessage();
+}
+
+// private void set_ErrorMessage(string value) :189
+void WindowList__set_ErrorMessage_fn(WindowList* __this, uString* value)
+{
+    __this->ErrorMessage(value);
+}
+
+// public T GetWindowItem(int i) :172
+void WindowList__GetWindowItem_fn(WindowList* __this, int32_t* i, uObject** __retval)
+{
+    *__retval = __this->GetWindowItem(*i);
+}
+
+// public int GetWindowItemIndex(T item) :174
+void WindowList__GetWindowItemIndex_fn(WindowList* __this, uObject* item, int32_t* __retval)
+{
+    *__retval = __this->GetWindowItemIndex(item);
+}
+
+// internal bool get_HasLimit() :160
+void WindowList__get_HasLimit_fn(WindowList* __this, bool* __retval)
+{
+    *__retval = __this->HasLimit();
+}
+
+// protected void InsertedDataAt(int dataIndex) :234
+void WindowList__InsertedDataAt_fn(WindowList* __this, int32_t* dataIndex)
+{
+    __this->InsertedDataAt(*dataIndex);
+}
+
+// protected void InsertWindowItem(int windowIndex, int dataIndex) :252
+void WindowList__InsertWindowItem_fn(WindowList* __this, int32_t* windowIndex, int32_t* dataIndex)
+{
+    __this->InsertWindowItem(*windowIndex, *dataIndex);
+}
+
+// internal int get_Limit() :142
+void WindowList__get_Limit_fn(WindowList* __this, int32_t* __retval)
+{
+    *__retval = __this->Limit();
+}
+
+// internal void set_Limit(int value) :143
+void WindowList__set_Limit_fn(WindowList* __this, int32_t* value)
+{
+    __this->Limit(*value);
+}
+
+// internal int get_Offset() :100
+void WindowList__get_Offset_fn(WindowList* __this, int32_t* __retval)
+{
+    *__retval = __this->Offset();
+}
+
+// internal void set_Offset(int value) :101
+void WindowList__set_Offset_fn(WindowList* __this, int32_t* value)
+{
+    __this->Offset(*value);
+}
+
+// protected void RemoveAll() :212
+void WindowList__RemoveAll_fn(WindowList* __this)
+{
+    __this->RemoveAll();
+}
+
+// protected void RemovedDataAt(int dataIndex) :200
+void WindowList__RemovedDataAt_fn(WindowList* __this, int32_t* dataIndex)
+{
+    __this->RemovedDataAt(*dataIndex);
+}
+
+// protected void SetError(string msg) :198
+void WindowList__SetError_fn(WindowList* __this, uString* msg)
+{
+    __this->SetError(msg);
+}
+
+// protected void TrimAndPad() :262
+void WindowList__TrimAndPad_fn(WindowList* __this)
+{
+    __this->TrimAndPad();
+}
+
+// public int get_WindowItemCount() :171
+void WindowList__get_WindowItemCount_fn(WindowList* __this, int32_t* __retval)
+{
+    *__retval = __this->WindowItemCount();
+}
+
+// protected generated WindowList() [instance] :95
+void WindowList::ctor_()
+{
+    uType* __types[] = {
+        __type->GetBase(WindowList_typeof())->Precalced(0/*Fuse.Internal.ObjectList<T>*/),
+    };
+    _windowItems = ((::g::Fuse::Internal::ObjectList*)::g::Fuse::Internal::ObjectList::New1(__types[0], 0));
+}
+
+// protected int CalcOffsetLimitCountOf(int length) [instance] :162
+int32_t WindowList::CalcOffsetLimitCountOf(int32_t length)
+{
+    int32_t q = ::g::Uno::Math::Max8(0, length - Offset());
+    return HasLimit() ? ::g::Uno::Math::Min8(Limit(), q) : q;
+}
+
+// private void ClearError() [instance] :197
+void WindowList::ClearError()
+{
+    ErrorMessage(NULL);
+}
+
+// protected int DataToWindowIndex(int dataIndex) [instance] :224
+int32_t WindowList::DataToWindowIndex(int32_t dataIndex)
+{
+    return dataIndex - Offset();
+}
+
+// protected string get_ErrorMessage() [instance] :188
+uString* WindowList::ErrorMessage()
+{
+    return _errorMessage;
+}
+
+// private void set_ErrorMessage(string value) [instance] :189
+void WindowList::ErrorMessage(uString* value)
+{
+    if (::g::Uno::String::op_Equality(_errorMessage, value))
+        return;
+
+    _errorMessage = value;
+    OnErrorMessageChanged(_errorMessage);
+}
+
+// public T GetWindowItem(int i) [instance] :172
+uObject* WindowList::GetWindowItem(int32_t i)
+{
+    return (uObject*)uPtr(_windowItems)->Item(i);
+}
+
+// public int GetWindowItemIndex(T item) [instance] :174
+int32_t WindowList::GetWindowItemIndex(uObject* item)
+{
+    for (int32_t i = 0; i < uPtr(_windowItems)->Count(); ++i)
+        if (item == ((uObject*)uPtr(_windowItems)->Item(i)))
+            return i;
+
+    return -1;
+}
+
+// internal bool get_HasLimit() [instance] :160
+bool WindowList::HasLimit()
+{
+    return _hasLimit;
+}
+
+// protected void InsertedDataAt(int dataIndex) [instance] :234
+void WindowList::InsertedDataAt(int32_t dataIndex)
+{
+    if ((dataIndex < Offset()) || (HasLimit() && ((dataIndex - Offset()) >= Limit())))
+        return;
+
+    int32_t windowIndex = DataToWindowIndex(dataIndex);
+
+    if ((windowIndex > uPtr(_windowItems)->Count()) || (windowIndex < 0))
+    {
+        ::g::Fuse::Diagnostics::InternalError(::STRINGS[98/*"Item insert...*/], this, ::STRINGS[99/*"C:\\Users\\...*/], 245, ::STRINGS[100/*"InsertedDat...*/]);
+        return;
+    }
+
+    InsertWindowItem(windowIndex, dataIndex);
+}
+
+// protected void InsertWindowItem(int windowIndex, int dataIndex) [instance] :252
+void WindowList::InsertWindowItem(int32_t windowIndex, int32_t dataIndex)
+{
+    uObject* wi = CreateWindowItem(dataIndex);
+    uPtr(_windowItems)->Insert(windowIndex, wi);
+    OnAddedWindowItem(windowIndex, wi);
+}
+
+// internal int get_Limit() [instance] :142
+int32_t WindowList::Limit()
+{
+    return _limit;
+}
+
+// internal void set_Limit(int value) [instance] :143
+void WindowList::Limit(int32_t value)
+{
+    if (_hasLimit && (_limit == value))
+        return;
+
+    if (value < 0)
+    {
+        ::g::Fuse::Diagnostics::UserError(::STRINGS[101/*"Limit canno...*/], this, ::STRINGS[99/*"C:\\Users\\...*/], 150, ::STRINGS[102/*"set_Limit"*/], NULL);
+        value = 0;
+    }
+
+    _hasLimit = true;
+    _limit = value;
+    TrimAndPad();
+}
+
+// internal int get_Offset() [instance] :100
+int32_t WindowList::Offset()
+{
+    return _offset;
+}
+
+// internal void set_Offset(int value) [instance] :101
+void WindowList::Offset(int32_t value)
+{
+    if (_offset == value)
+        return;
+
+    if (value < 0)
+    {
+        ::g::Fuse::Diagnostics::UserError(::STRINGS[103/*"Offset cann...*/], this, ::STRINGS[99/*"C:\\Users\\...*/], 108, ::STRINGS[104/*"set_Offset"*/], NULL);
+        value = 0;
+    }
+
+    int32_t dataCount = GetDataCount();
+
+    while (_offset < value)
+    {
+        if (_offset < dataCount)
+            RemovedDataAt(_offset);
+
+        _offset++;
+        int32_t end = (_offset + Limit()) - 1;
+
+        if (HasLimit() && (end < dataCount))
+            InsertedDataAt(end);
+    }
+
+    while (_offset > value)
+    {
+        int32_t end1 = (_offset + Limit()) - 1;
+
+        if (HasLimit() && (end1 < dataCount))
+            RemovedDataAt((_offset + Limit()) - 1);
+
+        _offset--;
+
+        if (_offset < dataCount)
+            InsertedDataAt(_offset);
+    }
+}
+
+// protected void RemoveAll() [instance] :212
+void WindowList::RemoveAll()
+{
+    for (int32_t i = 0; i < WindowItemCount(); ++i)
+    {
+        uObject* wi = GetWindowItem(i);
+        OnRemovedWindowItem(wi);
+    }
+
+    uPtr(_windowItems)->Clear();
+    ClearError();
+}
+
+// protected void RemovedDataAt(int dataIndex) [instance] :200
+void WindowList::RemovedDataAt(int32_t dataIndex)
+{
+    int32_t windowIndex = DataToWindowIndex(dataIndex);
+
+    if ((windowIndex >= 0) && (windowIndex < WindowItemCount()))
+    {
+        OnRemovedWindowItem(GetWindowItem(windowIndex));
+        uPtr(_windowItems)->RemoveAt(windowIndex);
+    }
+
+    ClearError();
+}
+
+// protected void SetError(string msg) [instance] :198
+void WindowList::SetError(uString* msg)
+{
+    ErrorMessage((msg != NULL) ? msg : ::STRINGS[19/*"error"*/]);
+}
+
+// protected void TrimAndPad() [instance] :262
+void WindowList::TrimAndPad()
+{
+    if (HasLimit())
+
+        for (int32_t i = WindowItemCount() - Limit(); i > 0; --i)
+            RemovedDataAt((Offset() + WindowItemCount()) - 1);
+
+    int32_t dataCount = GetDataCount();
+    int32_t add = HasLimit() ? ::g::Uno::Math::Min8(Limit() - WindowItemCount(), dataCount - (Offset() + WindowItemCount())) : dataCount - (Offset() + WindowItemCount());
+
+    for (int32_t i1 = 0; i1 < add; ++i1)
+        InsertedDataAt(Offset() + WindowItemCount());
+
+    ClearError();
+}
+
+// public int get_WindowItemCount() [instance] :171
+int32_t WindowList::WindowItemCount()
+{
+    return uPtr(_windowItems)->Count();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\WindowList.uno
+// ---------------------------------------------------------------------------------------------------
+
+// internal abstract class WindowListItem :10
+// {
+static void WindowListItem_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Uno::IDisposable_typeof(), offsetof(::g::Fuse::Reactive::ValueObserver_type, interface0),
+        ::g::Fuse::Reactive::IObserver_typeof(), offsetof(::g::Fuse::Reactive::ValueObserver_type, interface1));
+    type->SetFields(2,
+        WindowListItem__IDataWatcher_typeof(), offsetof(WindowListItem, _owner), 0,
+        uObject_typeof(), offsetof(WindowListItem, _curData), 0,
+        uObject_typeof(), offsetof(WindowListItem, _data), 0,
+        uObject_typeof(), offsetof(WindowListItem, _Id), 0);
+}
+
+::g::Fuse::Reactive::ValueObserver_type* WindowListItem_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::ValueObserver_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::ValueObserver_typeof();
+    options.FieldCount = 6;
+    options.InterfaceCount = 2;
+    options.MethodTypeCount = 1;
+    options.ObjectSize = sizeof(WindowListItem);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::ValueObserver_type);
+    type = (::g::Fuse::Reactive::ValueObserver_type*)uClassType::New("Fuse.Reactive.WindowListItem", options);
+    type->MethodTypes[0] = type->NewMethodType(1, 0,0);
+    type->fp_build_ = WindowListItem_build;
+    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::ValueObserver*))WindowListItem__Dispose_fn;
+    type->fp_LostData = (void(*)(::g::Fuse::Reactive::ValueObserver*))WindowListItem__LostData_fn;
+    type->fp_PushData = (void(*)(::g::Fuse::Reactive::ValueObserver*, uObject*))WindowListItem__PushData_fn;
+    type->interface1.fp_OnClear = (void(*)(uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnClear_fn;
+    type->interface1.fp_OnSet = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnSet_fn;
+    type->interface1.fp_OnAdd = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnAdd_fn;
+    type->interface1.fp_OnNewAt = (void(*)(uObject*, int32_t*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAt_fn;
+    type->interface1.fp_OnFailed = (void(*)(uObject*, uString*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnFailed_fn;
+    type->interface1.fp_OnNewAll = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnNewAll_fn;
+    type->interface1.fp_OnRemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnRemoveAt_fn;
+    type->interface1.fp_OnInsertAt = (void(*)(uObject*, int32_t*, uObject*))::g::Fuse::Reactive::ValueObserver__FuseReactiveIObserverOnInsertAt_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))WindowListItem__Dispose_fn;
+    return type;
+}
+
+// protected WindowListItem() :59
+void WindowListItem__ctor_1_fn(WindowListItem* __this)
+{
+    __this->ctor_1();
+}
+
+// public static T Create<T>(Fuse.Reactive.WindowListItem.IDataWatcher owner, object id, object data) :61
+void WindowListItem__Create_fn(uType* __type, uObject* owner, uObject* id, uObject* data, WindowListItem** __retval)
+{
+    *__retval = WindowListItem::Create(__type, owner, id, data);
+}
+
+// public object get_CurrentData() :72
+void WindowListItem__get_CurrentData_fn(WindowListItem* __this, uObject** __retval)
 {
     *__retval = __this->CurrentData();
 }
 
-// public WindowItem New() :481
-void Instantiator__WindowItem__New1_fn(Instantiator__WindowItem** __retval)
+// public object get_Data() :24
+void WindowListItem__get_Data_fn(WindowListItem* __this, uObject** __retval)
 {
-    *__retval = Instantiator__WindowItem::New1();
+    *__retval = __this->Data();
 }
 
-// public void Unlink() :494
-void Instantiator__WindowItem__Unlink_fn(Instantiator__WindowItem* __this)
+// public void set_Data(object value) :25
+void WindowListItem__set_Data_fn(WindowListItem* __this, uObject* value)
 {
-    __this->Unlink();
+    __this->Data(value);
 }
 
-// public WindowItem() [instance] :481
-void Instantiator__WindowItem::ctor_()
+// public override sealed void Dispose() :78
+void WindowListItem__Dispose_fn(WindowListItem* __this)
 {
+    __this->_curData = NULL;
+    __this->_data = NULL;
+    __this->_owner = NULL;
+    __this->Id(NULL);
+    ::g::Fuse::Reactive::ValueObserver__Dispose_fn(__this);
 }
 
-// public object get_CurrentData() [instance] :487
-uObject* Instantiator__WindowItem::CurrentData()
+// public generated object get_Id() :57
+void WindowListItem__get_Id_fn(WindowListItem* __this, uObject** __retval)
 {
-    return (DataLink != NULL) ? (uObject*)uPtr(DataLink)->Data() : (uObject*)Data;
+    *__retval = __this->Id();
 }
 
-// public void Unlink() [instance] :494
-void Instantiator__WindowItem::Unlink()
+// private generated void set_Id(object value) :57
+void WindowListItem__set_Id_fn(WindowListItem* __this, uObject* value)
 {
-    if (DataLink != NULL)
+    __this->Id(value);
+}
+
+// protected override sealed void LostData() :51
+void WindowListItem__LostData_fn(WindowListItem* __this)
+{
+    __this->PushData(NULL);
+}
+
+// protected override sealed void PushData(object newValue) :44
+void WindowListItem__PushData_fn(WindowListItem* __this, uObject* newValue)
+{
+    uObject* oldData = __this->CurrentData();
+    __this->_curData = newValue;
+
+    if (__this->_owner != NULL)
+        WindowListItem__IDataWatcher::OnCurrentDataChanged(uInterface(uPtr(__this->_owner), WindowListItem__IDataWatcher_typeof()), __this, oldData);
+}
+
+// protected WindowListItem() [instance] :59
+void WindowListItem::ctor_1()
+{
+    ctor_();
+}
+
+// public object get_CurrentData() [instance] :72
+uObject* WindowListItem::CurrentData()
+{
+    return _curData;
+}
+
+// public object get_Data() [instance] :24
+uObject* WindowListItem::Data()
+{
+    return _data;
+}
+
+// public void set_Data(object value) [instance] :25
+void WindowListItem::Data(uObject* value)
+{
+    uObject* oldData = CurrentData();
+    Unsubscribe();
+    _data = value;
+    _curData = _data;
+    uObject* obs = uAs<uObject*>(_data, ::TYPES[35/*Fuse.Reactive.IObservable*/]);
+
+    if (obs != NULL)
     {
-        Data = uPtr(DataLink)->Data();
-        uPtr(DataLink)->Dispose();
-        DataLink = NULL;
+        SubscribeNoPush(obs);
+        _curData = Value();
     }
+
+    if (_owner != NULL)
+        WindowListItem__IDataWatcher::OnCurrentDataChanged(uInterface(uPtr(_owner), WindowListItem__IDataWatcher_typeof()), this, oldData);
 }
 
-// public WindowItem New() [static] :481
-Instantiator__WindowItem* Instantiator__WindowItem::New1()
+// public generated object get_Id() [instance] :57
+uObject* WindowListItem::Id()
 {
-    Instantiator__WindowItem* obj1 = (Instantiator__WindowItem*)uNew(Instantiator__WindowItem_typeof());
-    obj1->ctor_();
-    return obj1;
+    return _Id;
+}
+
+// private generated void set_Id(object value) [instance] :57
+void WindowListItem::Id(uObject* value)
+{
+    _Id = value;
+}
+
+// public static T Create<T>(Fuse.Reactive.WindowListItem.IDataWatcher owner, object id, object data) [static] :61
+WindowListItem* WindowListItem::Create(uType* __type, uObject* owner, uObject* id, uObject* data)
+{
+    WindowListItem* lwi = (WindowListItem*)__type->U(0)->New();
+    lwi->Data(data);
+    lwi->Id(id);
+    lwi->_owner = owner;
+    return lwi;
 }
 // }
 

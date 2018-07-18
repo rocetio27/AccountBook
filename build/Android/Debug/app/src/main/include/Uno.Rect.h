@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Rect.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Rect.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -33,9 +33,7 @@ void Rect__get_Minimum_fn(Rect* __this, ::g::Uno::Float2* __retval);
 void Rect__set_Minimum_fn(Rect* __this, ::g::Uno::Float2* value);
 void Rect__New1_fn(float* left, float* top, float* right, float* bottom, Rect* __retval);
 void Rect__New2_fn(::g::Uno::Float2* pos, ::g::Uno::Float2* size, Rect* __retval);
-void Rect__op_Implicit_fn(::g::Uno::Recti* r, Rect* __retval);
-void Rect__get_Position_fn(Rect* __this, ::g::Uno::Float2* __retval);
-void Rect__set_Position_fn(Rect* __this, ::g::Uno::Float2* value);
+void Rect__op_Implicit1_fn(::g::Uno::Recti* r, Rect* __retval);
 void Rect__get_RightBottom_fn(Rect* __this, ::g::Uno::Float2* __retval);
 void Rect__get_RightTop_fn(Rect* __this, ::g::Uno::Float2* __retval);
 void Rect__Scale_fn(Rect* r, float* scale, Rect* __retval);
@@ -67,8 +65,6 @@ struct Rect
     void Maximum(::g::Uno::Float2 value);
     ::g::Uno::Float2 Minimum();
     void Minimum(::g::Uno::Float2 value);
-    ::g::Uno::Float2 Position();
-    void Position(::g::Uno::Float2 value);
     ::g::Uno::Float2 RightBottom();
     ::g::Uno::Float2 RightTop();
     ::g::Uno::Float2 Size();
@@ -86,7 +82,7 @@ Rect Rect__Inflate1(Rect r, ::g::Uno::Float2 size);
 Rect Rect__Intersect(Rect a, Rect b);
 Rect Rect__New1(float left, float top, float right, float bottom);
 Rect Rect__New2(::g::Uno::Float2 pos, ::g::Uno::Float2 size);
-Rect Rect__op_Implicit(::g::Uno::Recti r);
+Rect Rect__op_Implicit1(::g::Uno::Recti r);
 Rect Rect__Scale(Rect r, float scale);
 Rect Rect__Scale1(Rect r, ::g::Uno::Float2 scale);
 Rect Rect__Transform(Rect r, ::g::Uno::Float4x4 matrix);

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Triggers/1.4.2/WhileString.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Triggers/1.9.0/WhileString.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -7,6 +7,7 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Fuse.Triggers.IPulseTrigger.h>
 #include <Fuse.Triggers.WhileValue-1.h>
@@ -28,20 +29,20 @@ void WhileString__set_CaseSensitive_fn(WhileString* __this, bool* value);
 void WhileString__get_Compare_fn(WhileString* __this, uString** __retval);
 void WhileString__set_Compare_fn(WhileString* __this, uString* value);
 void WhileString__get_IsOn_fn(WhileString* __this, bool* __retval);
-void WhileString__get_MaxLength_fn(WhileString* __this, int* __retval);
-void WhileString__set_MaxLength_fn(WhileString* __this, int* value);
-void WhileString__get_MinLength_fn(WhileString* __this, int* __retval);
-void WhileString__set_MinLength_fn(WhileString* __this, int* value);
-void WhileString__get_Test_fn(WhileString* __this, int* __retval);
-void WhileString__set_Test_fn(WhileString* __this, int* value);
+void WhileString__get_MaxLength_fn(WhileString* __this, int32_t* __retval);
+void WhileString__set_MaxLength_fn(WhileString* __this, int32_t* value);
+void WhileString__get_MinLength_fn(WhileString* __this, int32_t* __retval);
+void WhileString__set_MinLength_fn(WhileString* __this, int32_t* value);
+void WhileString__get_Test_fn(WhileString* __this, int32_t* __retval);
+void WhileString__set_Test_fn(WhileString* __this, int32_t* value);
 
 struct WhileString : ::g::Fuse::Triggers::WhileValue
 {
-    int _test;
+    int32_t _test;
     uStrong<uString*> _compare;
     bool _caseSensitive;
-    int _minLength;
-    int _maxLength;
+    int32_t _minLength;
+    int32_t _maxLength;
     bool _hasMinLength;
     bool _hasMaxLength;
 
@@ -49,12 +50,12 @@ struct WhileString : ::g::Fuse::Triggers::WhileValue
     void CaseSensitive(bool value);
     uString* Compare();
     void Compare(uString* value);
-    int MaxLength();
-    void MaxLength(int value);
-    int MinLength();
-    void MinLength(int value);
-    int Test();
-    void Test(int value);
+    int32_t MaxLength();
+    void MaxLength(int32_t value);
+    int32_t MinLength();
+    void MinLength(int32_t value);
+    int32_t Test();
+    void Test(int32_t value);
 };
 // }
 

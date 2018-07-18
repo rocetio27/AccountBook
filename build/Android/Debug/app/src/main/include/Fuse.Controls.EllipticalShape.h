@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/Shapes/EllipticalShape.Surface.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/Shapes/EllipticalShape.Surface.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -10,6 +10,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -37,25 +38,18 @@ namespace Controls{
 void EllipticalShape__ctor_7_fn(EllipticalShape* __this);
 void EllipticalShape__CreateEllipticalPath_fn(EllipticalShape* __this, ::g::Fuse::Drawing::Surface* surface, ::g::Uno::Float2* center, ::g::Uno::Float2* radius, bool* drawArc, ::g::Fuse::Drawing::SurfacePath** __retval);
 void EllipticalShape__get_EffectiveEndAngle_fn(EllipticalShape* __this, float* __retval);
-void EllipticalShape__get_EffectiveEndAngleDegrees_fn(EllipticalShape* __this, float* __retval);
-void EllipticalShape__get_EndAngle_fn(EllipticalShape* __this, float* __retval);
-void EllipticalShape__set_EndAngle_fn(EllipticalShape* __this, float* value);
-void EllipticalShape__get_EndAngleDegrees_fn(EllipticalShape* __this, float* __retval);
-void EllipticalShape__set_EndAngleDegrees_fn(EllipticalShape* __this, float* value);
 void EllipticalShape__get_StartAngle_fn(EllipticalShape* __this, float* __retval);
 void EllipticalShape__set_StartAngle_fn(EllipticalShape* __this, float* value);
-void EllipticalShape__get_StartAngleDegrees_fn(EllipticalShape* __this, float* __retval);
-void EllipticalShape__set_StartAngleDegrees_fn(EllipticalShape* __this, float* value);
 void EllipticalShape__get_UseAngle_fn(EllipticalShape* __this, bool* __retval);
 
 struct EllipticalShape : ::g::Fuse::Controls::Shape
 {
     static ::g::Uno::UX::Selector EndAngleName_;
-    static ::g::Uno::UX::Selector& EndAngleName() { return EndAngleName_; }
+    static ::g::Uno::UX::Selector& EndAngleName() { return EllipticalShape_typeof()->Init(), EndAngleName_; }
     static ::g::Uno::UX::Selector StartAngleName_;
-    static ::g::Uno::UX::Selector& StartAngleName() { return StartAngleName_; }
+    static ::g::Uno::UX::Selector& StartAngleName() { return EllipticalShape_typeof()->Init(), StartAngleName_; }
     static ::g::Uno::UX::Selector LengthAngleName_;
-    static ::g::Uno::UX::Selector& LengthAngleName() { return LengthAngleName_; }
+    static ::g::Uno::UX::Selector& LengthAngleName() { return EllipticalShape_typeof()->Init(), LengthAngleName_; }
     float _startAngle;
     float _endAngle;
     bool _hasAngle;
@@ -65,15 +59,8 @@ struct EllipticalShape : ::g::Fuse::Controls::Shape
     void ctor_7();
     ::g::Fuse::Drawing::SurfacePath* CreateEllipticalPath(::g::Fuse::Drawing::Surface* surface, ::g::Uno::Float2 center, ::g::Uno::Float2 radius, bool drawArc);
     float EffectiveEndAngle();
-    float EffectiveEndAngleDegrees();
-    float EndAngle();
-    void EndAngle(float value);
-    float EndAngleDegrees();
-    void EndAngleDegrees(float value);
     float StartAngle();
     void StartAngle(float value);
-    float StartAngleDegrees();
-    void StartAngleDegrees(float value);
     bool UseAngle();
 };
 // }

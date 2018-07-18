@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Collections/Queue.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Collections/Queue.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -21,9 +21,9 @@ struct Queue_type : uType
 Queue_type* Queue_typeof();
 void Queue__ctor__fn(Queue* __this);
 void Queue__Clear_fn(Queue* __this);
-void Queue__get_Count_fn(Queue* __this, int* __retval);
+void Queue__get_Count_fn(Queue* __this, int32_t* __retval);
 void Queue__Dequeue_fn(Queue* __this, uTRef __retval);
-void Queue__ElementAt_fn(Queue* __this, int* index, uTRef __retval);
+void Queue__ElementAt_fn(Queue* __this, int32_t* index, uTRef __retval);
 void Queue__Enqueue_fn(Queue* __this, void* item);
 void Queue__EnsureCapacity_fn(Queue* __this);
 void Queue__GetEnumerator_fn(Queue* __this, uTRef __retval);
@@ -33,18 +33,18 @@ void Queue__New1_fn(uType* __type, Queue** __retval);
 struct Queue : uObject
 {
     uStrong<uArray*> _data;
-    int _head;
-    int _tail;
-    int _size;
-    int _version;
+    int32_t _head;
+    int32_t _tail;
+    int32_t _size;
+    int32_t _version;
 
     void ctor_();
     void Clear();
-    int Count();
+    int32_t Count();
     template<class T>
     T Dequeue() { T __retval; return Queue__Dequeue_fn(this, &__retval), __retval; }
     template<class T>
-    T ElementAt(int index) { T __retval; return Queue__ElementAt_fn(this, &index, &__retval), __retval; }
+    T ElementAt(int32_t index) { T __retval; return Queue__ElementAt_fn(this, &index, &__retval), __retval; }
     template<class T>
     void Enqueue(T item) { Queue__Enqueue_fn(this, uConstrain(__type->T(0), item)); }
     void EnsureCapacity();

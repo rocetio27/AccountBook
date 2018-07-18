@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.4.2/Cycle.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.9.0/Cycle.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -13,7 +13,7 @@ namespace g{
 namespace Fuse{
 namespace Animations{
 
-// public sealed class Cycle<T> :51
+// public sealed class Cycle<T> :60
 // {
 ::g::Fuse::Animations::Animator_type* Cycle_typeof();
 void Cycle__get_Base_fn(Cycle* __this, uTRef __retval);
@@ -35,11 +35,13 @@ void Cycle__get_Offset_fn(Cycle* __this, uTRef __retval);
 void Cycle__set_Offset_fn(Cycle* __this, void* value);
 void Cycle__get_ProgressOffset_fn(Cycle* __this, float* __retval);
 void Cycle__set_ProgressOffset_fn(Cycle* __this, float* value);
+void Cycle__get_Restore_fn(Cycle* __this, int32_t* __retval);
+void Cycle__set_Restore_fn(Cycle* __this, int32_t* value);
 void Cycle__get_RestProgress_fn(Cycle* __this, double* __retval);
 void Cycle__get_Target_fn(Cycle* __this, ::g::Uno::UX::Property1** __retval);
 void Cycle__set_Target_fn(Cycle* __this, ::g::Uno::UX::Property1* value);
-void Cycle__get_Waveform_fn(Cycle* __this, int* __retval);
-void Cycle__set_Waveform_fn(Cycle* __this, int* value);
+void Cycle__get_Waveform_fn(Cycle* __this, int32_t* __retval);
+void Cycle__set_Waveform_fn(Cycle* __this, int32_t* value);
 void Cycle__WaveformFunc_fn(Cycle* __this, double* i, double* offset, double* __retval);
 
 struct Cycle : ::g::Fuse::Animations::OpenAnimator
@@ -47,14 +49,15 @@ struct Cycle : ::g::Fuse::Animations::OpenAnimator
     double _frequency;
     bool _hasBackFrequency;
     double _backFrequency;
-    int _waveform;
+    int32_t _waveform;
+    int32_t _restore;
     float _progressOffset;
     bool _hasProgressOffset;
     uStrong< ::g::Fuse::Animations::Easing*> _easing;
-    uTField _Base() { return __type->Field(this, 13); }
+    uTField _Base() { return __type->Field(this, 14); }
     float _High;
     float _Low;
-    uTField _Offset() { return __type->Field(this, 16); }
+    uTField _Offset() { return __type->Field(this, 17); }
     uStrong< ::g::Uno::UX::Property1*> _Target;
 
     template<class T>
@@ -79,11 +82,13 @@ struct Cycle : ::g::Fuse::Animations::OpenAnimator
     void Offset(T value) { Cycle__set_Offset_fn(this, uConstrain(__type->T(0), value)); }
     float ProgressOffset();
     void ProgressOffset(float value);
+    int32_t Restore();
+    void Restore(int32_t value);
     double RestProgress();
     ::g::Uno::UX::Property1* Target();
     void Target(::g::Uno::UX::Property1* value);
-    int Waveform();
-    void Waveform(int value);
+    int32_t Waveform();
+    void Waveform(int32_t value);
     double WaveformFunc(double i, double offset);
 };
 // }

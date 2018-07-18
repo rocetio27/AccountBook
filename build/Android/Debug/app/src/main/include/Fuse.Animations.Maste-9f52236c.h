@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.4.2/Mixer.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.9.0/Mixer.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -26,7 +26,7 @@ struct MasterTransform : ::g::Fuse::Animations::MasterBase
     uStrong< ::g::Fuse::Visual*> Visual;
     uStrong< ::g::Fuse::Animations::FastMatrixTransform*> FMT;
     static uSStrong< ::g::Fuse::Transform*> identity_;
-    static uSStrong< ::g::Fuse::Transform*>& identity() { return identity_; }
+    static uSStrong< ::g::Fuse::Transform*>& identity() { return MasterTransform_typeof()->Init(), identity_; }
 
     void ctor_1(::g::Fuse::Visual* node, ::g::Fuse::Animations::MixerBase* mixerBase);
 };

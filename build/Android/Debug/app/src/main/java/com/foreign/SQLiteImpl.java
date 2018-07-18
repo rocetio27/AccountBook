@@ -23,30 +23,30 @@ public class SQLiteImpl
         android.util.Log.d("AccountBook", (message==null ? "null" : message.toString()));
     }
 
-    public static void CloseImpl401(final Object db)
+    public static void CloseImpl395(final Object db)
     {
         ((android.database.sqlite.SQLiteDatabase)db).close();
     }
     
-    public static void ExecImpl402(final Object db,final String statement,final com.uno.StringArray param)
+    public static void ExecImpl396(final Object db,final String statement,final com.uno.StringArray param)
     {
         ((android.database.sqlite.SQLiteDatabase)db).execSQL(statement, param.copyArray());
     }
     
-    public static Object OpenImpl403(final String filename)
+    public static Object OpenImpl397(final String filename)
     {
         return android.database.sqlite.SQLiteDatabase.openOrCreateDatabase(filename, null);
     }
     
-    public static void QueryImpl404(final UnoObject fl,final Object db,final String statement,final com.uno.StringArray param)
+    public static void QueryImpl398(final UnoObject fl,final Object db,final String statement,final com.uno.StringArray param)
     {
         android.database.Cursor curs = ((android.database.sqlite.SQLiteDatabase)db).rawQuery(statement, param.copyArray());
         curs.moveToFirst();
         while (!curs.isAfterLast()) {
-        	Object row = ExternedBlockHost.callUno_Bolav_ForeignHelpers_ForeignList_NewDictRow405((UnoObject)fl);
+        	Object row = ExternedBlockHost.callUno_Bolav_ForeignHelpers_ForeignList_NewDictRow399((UnoObject)fl);
         
         	for (int i=0; i<curs.getColumnCount(); i++) {
-        		ExternedBlockHost.callUno_Bolav_ForeignHelpers_ForeignDict_SetKeyVal406((UnoObject)row,(String)curs.getColumnName(i),(String)curs.getString(i));
+        		ExternedBlockHost.callUno_Bolav_ForeignHelpers_ForeignDict_SetKeyVal400((UnoObject)row,(String)curs.getColumnName(i),(String)curs.getString(i));
         	}
             curs.moveToNext();
         }

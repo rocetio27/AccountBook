@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/Shapes/Shape.Resources.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/Shapes/Shape.Resources.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -10,6 +10,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -49,8 +50,8 @@ namespace Controls{
 // {
 struct Shape_type : ::g::Fuse::Controls::Control_type
 {
-    ::g::Fuse::Drawing::ISurfaceDrawable interface17;
-    ::g::Fuse::Drawing::IDrawObjectWatcherFeedback interface18;
+    ::g::Fuse::Drawing::ISurfaceDrawable interface18;
+    ::g::Fuse::Drawing::IDrawObjectWatcherFeedback interface19;
     void(*fp_CalcShapeExtents)(::g::Fuse::Controls::Shape*, ::g::Uno::Rect*);
     void(*fp_CreateSurfacePath)(::g::Fuse::Controls::Shape*, ::g::Fuse::Drawing::Surface*, ::g::Fuse::Drawing::SurfacePath**);
     void(*fp_DrawFill)(::g::Fuse::Controls::Shape*, ::g::Fuse::DrawContext*, ::g::Fuse::Drawing::Brush*);
@@ -119,17 +120,17 @@ void Shape__get_Watcher_fn(Shape* __this, ::g::Fuse::Drawing::DrawObjectWatcher*
 struct Shape : ::g::Fuse::Controls::LayoutControl
 {
     static uSStrong< ::g::Fuse::PropertyHandle*> _loadingResourcesHandle_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _loadingResourcesHandle() { return _loadingResourcesHandle_; }
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _loadingResourcesHandle() { return Shape_typeof()->Init(), _loadingResourcesHandle_; }
     uStrong< ::g::Fuse::Triggers::BusyTask*> _loadingResourceTask;
     bool _surfacePathDirty;
     uStrong< ::g::Fuse::Drawing::SurfacePath*> _surfacePath;
     static ::g::Uno::UX::Selector ColorPropertyName_;
-    static ::g::Uno::UX::Selector& ColorPropertyName() { return ColorPropertyName_; }
+    static ::g::Uno::UX::Selector& ColorPropertyName() { return Shape_typeof()->Init(), ColorPropertyName_; }
     uStrong< ::g::Uno::Collections::RootableList*> _fills;
     static ::g::Uno::UX::Selector _widthName_;
-    static ::g::Uno::UX::Selector& _widthName() { return _widthName_; }
+    static ::g::Uno::UX::Selector& _widthName() { return Shape_typeof()->Init(), _widthName_; }
     static ::g::Uno::UX::Selector _offsetName_;
-    static ::g::Uno::UX::Selector& _offsetName() { return _offsetName_; }
+    static ::g::Uno::UX::Selector& _offsetName() { return Shape_typeof()->Init(), _offsetName_; }
     uStrong< ::g::Uno::Collections::RootableList*> _strokes;
     float _smoothness;
     uStrong< ::g::Fuse::Drawing::Surface*> _surface1;

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/ccButton.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/ccButton.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -9,6 +9,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -31,11 +32,11 @@ namespace g{
 // {
 ::g::Fuse::Controls::Panel_type* ccButton_typeof();
 void ccButton__ctor_9_fn(ccButton* __this);
-void ccButton__get_fontsize_fn(ccButton* __this, int* __retval);
-void ccButton__set_fontsize_fn(ccButton* __this, int* value);
+void ccButton__get_fontsize_fn(ccButton* __this, int32_t* __retval);
+void ccButton__set_fontsize_fn(ccButton* __this, int32_t* value);
 void ccButton__InitializeUX1_fn(ccButton* __this);
 void ccButton__New6_fn(ccButton** __retval);
-void ccButton__Setfontsize_fn(ccButton* __this, int* value, uObject* origin);
+void ccButton__Setfontsize_fn(ccButton* __this, int32_t* value, uObject* origin);
 void ccButton__Settext_fn(ccButton* __this, uString* value, uObject* origin);
 void ccButton__Settextcolor_fn(ccButton* __this, ::g::Uno::Float4* value, uObject* origin);
 void ccButton__get_text_fn(ccButton* __this, uString** __retval);
@@ -47,7 +48,7 @@ struct ccButton : ::g::Fuse::Controls::Button
 {
     uStrong<uString*> _field_text;
     ::g::Uno::Float4 _field_textcolor;
-    int _field_fontsize;
+    int32_t _field_fontsize;
     uStrong< ::g::Uno::UX::Property1*> temp_FontSize_inst;
     uStrong< ::g::Uno::UX::Property1*> temp_Color_inst;
     uStrong< ::g::Uno::UX::Property1*> temp_Value_inst;
@@ -62,10 +63,10 @@ struct ccButton : ::g::Fuse::Controls::Button
     static ::g::Uno::UX::Selector& __selector3() { return ccButton_typeof()->Init(), __selector3_; }
 
     void ctor_9();
-    int fontsize();
-    void fontsize(int value);
+    int32_t fontsize();
+    void fontsize(int32_t value);
     void InitializeUX1();
-    void Setfontsize(int value, uObject* origin);
+    void Setfontsize(int32_t value, uObject* origin);
     void Settext(uString* value, uObject* origin);
     void Settextcolor(::g::Uno::Float4 value, uObject* origin);
     uString* text();

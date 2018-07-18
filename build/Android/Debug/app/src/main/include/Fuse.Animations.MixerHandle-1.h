@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.4.2/Mixer.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.9.0/Mixer.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -19,13 +19,13 @@ struct MixerHandle_type : uType
 };
 
 MixerHandle_type* MixerHandle_typeof();
-void MixerHandle__ctor__fn(MixerHandle* __this, ::g::Fuse::Animations::MasterBase* master, int* mode, int* priority);
+void MixerHandle__ctor__fn(MixerHandle* __this, ::g::Fuse::Animations::MasterBase* master, int32_t* mode, int32_t* priority);
 void MixerHandle__get_HasValue_fn(MixerHandle* __this, bool* __retval);
-void MixerHandle__get_MixOp_fn(MixerHandle* __this, int* __retval);
-void MixerHandle__set_MixOp_fn(MixerHandle* __this, int* value);
-void MixerHandle__New1_fn(uType* __type, ::g::Fuse::Animations::MasterBase* master, int* mode, int* priority, MixerHandle** __retval);
-void MixerHandle__get_Priority_fn(MixerHandle* __this, int* __retval);
-void MixerHandle__set_Priority_fn(MixerHandle* __this, int* value);
+void MixerHandle__get_MixOp_fn(MixerHandle* __this, int32_t* __retval);
+void MixerHandle__set_MixOp_fn(MixerHandle* __this, int32_t* value);
+void MixerHandle__New1_fn(uType* __type, ::g::Fuse::Animations::MasterBase* master, int32_t* mode, int32_t* priority, MixerHandle** __retval);
+void MixerHandle__get_Priority_fn(MixerHandle* __this, int32_t* __retval);
+void MixerHandle__set_Priority_fn(MixerHandle* __this, int32_t* value);
 void MixerHandle__Set_fn(MixerHandle* __this, void* value, float* strength);
 void MixerHandle__Unregister_fn(MixerHandle* __this);
 
@@ -35,19 +35,19 @@ struct MixerHandle : uObject
     float Strength;
     bool _hasValue;
     uStrong< ::g::Fuse::Animations::MasterBase*> Master;
-    int _MixOp;
-    int _Priority;
+    int32_t _MixOp;
+    int32_t _Priority;
 
-    void ctor_(::g::Fuse::Animations::MasterBase* master, int mode, int priority);
+    void ctor_(::g::Fuse::Animations::MasterBase* master, int32_t mode, int32_t priority);
     bool HasValue();
-    int MixOp();
-    void MixOp(int value);
-    int Priority();
-    void Priority(int value);
+    int32_t MixOp();
+    void MixOp(int32_t value);
+    int32_t Priority();
+    void Priority(int32_t value);
     template<class T>
     void Set(T value, float strength) { MixerHandle__Set_fn(this, uConstrain(__type->T(0), value), &strength); }
     void Unregister();
-    static MixerHandle* New1(uType* __type, ::g::Fuse::Animations::MasterBase* master, int mode, int priority);
+    static MixerHandle* New1(uType* __type, ::g::Fuse::Animations::MasterBase* master, int32_t mode, int32_t priority);
 };
 // }
 

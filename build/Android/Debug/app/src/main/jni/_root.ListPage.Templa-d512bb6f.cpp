@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/ListPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/ListPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_bundle.h>
@@ -31,6 +31,7 @@
 #include <Fuse.Reactive.DataBinding.h>
 #include <Fuse.Reactive.Each.h>
 #include <Fuse.Reactive.EventBinding.h>
+#include <Fuse.Reactive.Expression.h>
 #include <Fuse.Reactive.IExpression.h>
 #include <Fuse.Reactive.Instantiator.h>
 #include <Fuse.Triggers.Actions.Set-1.h>
@@ -49,28 +50,29 @@
 #include <Uno.UX.BundleFileSource.h>
 #include <Uno.UX.FileSource.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Selector.h>
 #include <Uno.UX.Size.h>
 #include <Uno.UX.Unit.h>
 
 namespace g{
 
-// public partial sealed class ListPage.Template2.Template3 :61
+// public partial sealed class ListPage.Template2.Template3 :66
 // {
-// static Template3() :293
+// static Template3() :336
 static void ListPage__Template2__Template3__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    ListPage__Template2__Template3::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("IsEnabled"));
-    ListPage__Template2__Template3::__selector1_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Items"));
-    ListPage__Template2__Template3::__selector2_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Color"));
-    ListPage__Template2__Template3::__selector3_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Visibility"));
-    ListPage__Template2__Template3::__selector4_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("grid"));
+    ListPage__Template2__Template3::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("IsEnabled"));
+    ListPage__Template2__Template3::__selector1_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Items"));
+    ListPage__Template2__Template3::__selector2_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Color"));
+    ListPage__Template2__Template3::__selector3_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Visibility"));
+    ListPage__Template2__Template3::__selector4_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("grid"));
 }
 
 static void ListPage__Template2__Template3_build(uType* type)
 {
+    type->SetDependencies(
+        ::g::AccountBook_bundle_typeof());
     type->SetFields(2,
         ::g::ListPage__Template2_typeof(), offsetof(ListPage__Template2__Template3, __parent1), uFieldFlagsWeak,
         ::g::Fuse::Controls::Rectangle_typeof(), offsetof(ListPage__Template2__Template3, __parentInstance1), uFieldFlagsWeak,
@@ -95,6 +97,7 @@ static void ListPage__Template2__Template3_build(uType* type)
     uTypeOptions options;
     options.BaseDefinition = ::g::Uno::UX::Template_typeof();
     options.FieldCount = 15;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(ListPage__Template2__Template3);
     options.TypeSize = sizeof(::g::Uno::UX::Template_type);
     type = (::g::Uno::UX::Template_type*)uClassType::New("ListPage.Template2.Template3", options);
@@ -104,13 +107,13 @@ static void ListPage__Template2__Template3_build(uType* type)
     return type;
 }
 
-// public Template3(ListPage.Template2 parent, Fuse.Controls.Rectangle parentInstance) :65
+// public Template3(ListPage.Template2 parent, Fuse.Controls.Rectangle parentInstance) :70
 void ListPage__Template2__Template3__ctor_1_fn(ListPage__Template2__Template3* __this, ::g::ListPage__Template2* parent, ::g::Fuse::Controls::Rectangle* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :296
+// public override sealed object New() :339
 void ListPage__Template2__Template3__New1_fn(ListPage__Template2__Template3* __this, uObject** __retval)
 {
     ::g::Fuse::Controls::Grid* __self1 = ::g::Fuse::Controls::Grid::New4();
@@ -138,20 +141,42 @@ void ListPage__Template2__Template3__New1_fn(ListPage__Template2__Template3* __t
     __self1->ColumnCount(3);
     __self1->Height(::g::Uno::UX::Size__New1(24.0f, 1));
     __self1->Name(ListPage__Template2__Template3::__selector4_);
+    __self1->SourceLineNumber(86);
+    __self1->SourceFileName(uString::Const("ListPage.ux"));
+    temp6->SourceLineNumber(87);
+    temp6->SourceFileName(uString::Const("ListPage.ux"));
     temp6->add_Handler(uDelegate::New(::g::Fuse::Gestures::TappedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb23)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp6->Actions()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::TriggerAction_typeof(), NULL)), temp7);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp6->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), __this->temp_eb23);
+    temp7->SourceLineNumber(88);
+    temp7->SourceFileName(uString::Const("ListPage.ux"));
     temp7->File(::g::Uno::UX::BundleFileSource::New1(::g::AccountBook_bundle::Clickd3560fbe()));
+    temp1->SourceLineNumber(87);
+    temp1->SourceFileName(uString::Const("ListPage.ux"));
+    temp8->SourceLineNumber(90);
+    temp8->SourceFileName(uString::Const("ListPage.ux"));
     temp8->add_Handler(uDelegate::New(::g::Fuse::Gestures::LongPressedHandler_typeof(), (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb24)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp8->Animators()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Animations::Animator_typeof(), NULL)), temp10);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp8->Actions()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::TriggerAction_typeof(), NULL)), temp9);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp8->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), __this->temp_eb24);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp9, uCRef(true));
+    temp9->SourceLineNumber(91);
+    temp9->SourceFileName(uString::Const("ListPage.ux"));
     temp10->Degrees(2.0f);
     temp10->Duration(0.4);
     temp10->DurationBack(0.2);
+    temp2->SourceLineNumber(90);
+    temp2->SourceFileName(uString::Const("ListPage.ux"));
+    temp->SourceLineNumber(97);
+    temp->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Templates()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Uno::UX::Template_typeof(), NULL)), temp11);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Bindings()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL)), temp12);
+    temp3->SourceLineNumber(97);
+    temp3->SourceFileName(uString::Const("ListPage.ux"));
+    temp4->SourceLineNumber(86);
+    temp4->SourceFileName(uString::Const("ListPage.ux"));
+    temp5->SourceLineNumber(86);
+    temp5->SourceFileName(uString::Const("ListPage.ux"));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp6);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp8);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL)), temp);
@@ -160,7 +185,7 @@ void ListPage__Template2__Template3__New1_fn(ListPage__Template2__Template3* __t
     return *__retval = __self1, void();
 }
 
-// public Template3 New(ListPage.Template2 parent, Fuse.Controls.Rectangle parentInstance) :65
+// public Template3 New(ListPage.Template2 parent, Fuse.Controls.Rectangle parentInstance) :70
 void ListPage__Template2__Template3__New2_fn(::g::ListPage__Template2* parent, ::g::Fuse::Controls::Rectangle* parentInstance, ListPage__Template2__Template3** __retval)
 {
     *__retval = ListPage__Template2__Template3::New2(parent, parentInstance);
@@ -172,7 +197,7 @@ void ListPage__Template2__Template3__New2_fn(::g::ListPage__Template2* parent, :
 ::g::Uno::UX::Selector ListPage__Template2__Template3::__selector3_;
 ::g::Uno::UX::Selector ListPage__Template2__Template3::__selector4_;
 
-// public Template3(ListPage.Template2 parent, Fuse.Controls.Rectangle parentInstance) [instance] :65
+// public Template3(ListPage.Template2 parent, Fuse.Controls.Rectangle parentInstance) [instance] :70
 void ListPage__Template2__Template3::ctor_1(::g::ListPage__Template2* parent, ::g::Fuse::Controls::Rectangle* parentInstance)
 {
     ctor_(NULL, false);
@@ -180,7 +205,7 @@ void ListPage__Template2__Template3::ctor_1(::g::ListPage__Template2* parent, ::
     __parentInstance1 = parentInstance;
 }
 
-// public Template3 New(ListPage.Template2 parent, Fuse.Controls.Rectangle parentInstance) [static] :65
+// public Template3 New(ListPage.Template2 parent, Fuse.Controls.Rectangle parentInstance) [static] :70
 ListPage__Template2__Template3* ListPage__Template2__Template3::New2(::g::ListPage__Template2* parent, ::g::Fuse::Controls::Rectangle* parentInstance)
 {
     ListPage__Template2__Template3* obj1 = (ListPage__Template2__Template3*)uNew(ListPage__Template2__Template3_typeof());

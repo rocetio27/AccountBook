@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Exceptions/Exception.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Exceptions/Exception.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -23,6 +23,7 @@ void Exception__get_InnerException_fn(Exception* __this, Exception** __retval);
 void Exception__get_Message_fn(Exception* __this, uString** __retval);
 void Exception__New1_fn(Exception** __retval);
 void Exception__New2_fn(uString* message, Exception** __retval);
+void Exception__New3_fn(uString* message, Exception* inner, Exception** __retval);
 void Exception__ToString_fn(Exception* __this, uString** __retval);
 
 struct Exception : uObject
@@ -39,6 +40,7 @@ struct Exception : uObject
     uString* Message() { uString* __retval; return (((Exception_type*)__type)->fp_get_Message)(this, &__retval), __retval; }
     static Exception* New1();
     static Exception* New2(uString* message);
+    static Exception* New3(uString* message, Exception* inner);
     static uString* Message(Exception* __this) { uString* __retval; return Exception__get_Message_fn(__this, &__retval), __retval; }
 };
 // }

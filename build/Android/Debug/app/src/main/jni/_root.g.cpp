@@ -1,17 +1,16 @@
 // This file was generated based on '(multiple files)'.
 // WARNING: Changes might be lost if you edit this file directly.
 
-#include <_root.FuseAndroidText-9d82b652.h>
+#include <_root.FuseCommon_bundle.h>
 #include <_root.FuseControls_bundle.h>
-#include <_root.FuseControlsNat-fa0facbc.h>
+#include <_root.FuseControlsNav-4d426250.h>
 #include <_root.FuseControlsNav-a8c01cdb.h>
 #include <_root.FuseControlsNav-bfeb1093.h>
-#include <_root.FuseControlsPan-1146454c.h>
+#include <_root.FuseControlsPan-43d43d7e.h>
 #include <_root.FuseControlsPri-3832896e.h>
 #include <_root.FuseControlsPri-38e137c8.h>
 #include <_root.FuseControlsPri-3bbae333.h>
 #include <_root.FuseControlsPri-5e35c2db.h>
-#include <_root.FuseControlsPri-6b573bdb.h>
 #include <_root.FuseControlsPri-7b4ecfe6.h>
 #include <_root.FuseControlsPri-8507d6ea.h>
 #include <_root.FuseControlsPri-accbb5bd.h>
@@ -25,11 +24,10 @@
 #include <_root.FuseControlsVideo_bundle.h>
 #include <_root.FuseDrawing_bundle.h>
 #include <_root.FuseDrawingPrim-c6713933.h>
-#include <_root.FuseDrawingSurf-41037ecc.h>
 #include <_root.FuseEffects_bundle.h>
 #include <_root.FuseElements_bundle.h>
-#include <_root.FuseNodes_bundle.h>
 #include <_root.FuseScriptingJa-49e3cee5.h>
+#include <_root.UnoCore_bundle.h>
 #include <Fuse.Controls.ButtonBase.h>
 #include <Fuse.Controls.Panel.h>
 #include <Fuse.Controls.ScrollViewBase.h>
@@ -53,27 +51,46 @@
 #include <Uno.UX.IPropertyListener.h>
 #include <Uno.UX.PropertyObject.h>
 #include <Uno.UX.Selector.h>
-static uString* STRINGS[158];
+static uString* STRINGS[146];
 static uType* TYPES[15];
 
 namespace g{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Android.TextRenderer\1.4.2\.uno\package
-// ----------------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Common\1.9.0\.uno\package
+// --------------------------------------------------------------------------------------
 
-// public static generated class FuseAndroidTextRenderer_bundle :0
+// public static generated class FuseCommon_bundle :0
 // {
-// static FuseAndroidTextRenderer_bundle() :0
-static void FuseAndroidTextRenderer_bundle__cctor__fn(uType* __type)
+// static FuseCommon_bundle() :0
+static void FuseCommon_bundle__cctor__fn(uType* __type)
 {
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseAndroidTextRenderer_bundle::Blitter83cfc6f0_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[0/*"uniform vec...*/], ::STRINGS[1/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 5, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[6/*"f"*/]));
+    FuseCommon_bundle::Blitter23d242c5_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[0/*"uniform mat...*/], ::STRINGS[1/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 3, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/]));
+    FuseCommon_bundle::Blitter8f469d0c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[5/*"uniform mat...*/], ::STRINGS[6/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 5, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[8/*"f"*/]));
 }
 
-static void FuseAndroidTextRenderer_bundle_build(uType* type)
+static void FuseCommon_bundle_build(uType* type)
 {
-    ::STRINGS[0] = uString::Const("uniform vec2 c, b;\r\n"
-        "uniform mat4 d;\r\n"
+    ::STRINGS[0] = uString::Const("uniform mat4 b;\r\n"
+        "\r\n"
+        "attribute vec2 a;\r\n"
+        "\r\n"
+        "void main()\r\n"
+        "{\r\n"
+        "    gl_Position = b * vec4(a, 0., 1.);\r\n"
+        "}\r\n"
+        "");
+    ::STRINGS[1] = uString::Const("uniform vec4 c;\r\n"
+        "\r\n"
+        "void main()\r\n"
+        "{\r\n"
+        "    gl_FragColor = c;\r\n"
+        "}\r\n"
+        "");
+    ::STRINGS[2] = uString::Const("a");
+    ::STRINGS[3] = uString::Const("b");
+    ::STRINGS[4] = uString::Const("c");
+    ::STRINGS[5] = uString::Const("uniform mat4 b;\r\n"
+        "uniform mat3 c;\r\n"
         "\r\n"
         "attribute vec2 a;\r\n"
         "\r\n"
@@ -81,47 +98,48 @@ static void FuseAndroidTextRenderer_bundle_build(uType* type)
         "\r\n"
         "void main()\r\n"
         "{\r\n"
-        "    e = a;\r\n"
-        "    gl_Position = d * vec4(c + (a * b), 0., 1.);\r\n"
+        "    e = (c * vec3(a, 1.0)).xy;\r\n"
+        "    gl_Position = b * vec4(a, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[1] = uString::Const("uniform sampler2D f;\r\n"
+    ::STRINGS[6] = uString::Const("uniform vec4 d;\r\n"
+        "\r\n"
+        "uniform sampler2D f;\r\n"
         "\r\n"
         "varying vec2 e;\r\n"
         "\r\n"
         "void main()\r\n"
         "{\r\n"
-        "    gl_FragColor = texture2D(f, e);\r\n"
+        "    gl_FragColor = texture2D(f, e) * d;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[2] = uString::Const("a");
-    ::STRINGS[3] = uString::Const("b");
-    ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[5] = uString::Const("d");
-    ::STRINGS[6] = uString::Const("f");
+    ::STRINGS[7] = uString::Const("d");
+    ::STRINGS[8] = uString::Const("f");
     ::TYPES[0] = ::g::Uno::String_typeof()->Array();
     type->SetFields(0,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseAndroidTextRenderer_bundle::Blitter83cfc6f0_, uFieldFlagsStatic);
+        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseCommon_bundle::Blitter23d242c5_, uFieldFlagsStatic,
+        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseCommon_bundle::Blitter8f469d0c_, uFieldFlagsStatic);
 }
 
-uClassType* FuseAndroidTextRenderer_bundle_typeof()
+uClassType* FuseCommon_bundle_typeof()
 {
     static uSStrong<uClassType*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 1;
+    options.FieldCount = 2;
     options.TypeSize = sizeof(uClassType);
-    type = uClassType::New("FuseAndroidTextRenderer_bundle", options);
-    type->fp_build_ = FuseAndroidTextRenderer_bundle_build;
-    type->fp_cctor_ = FuseAndroidTextRenderer_bundle__cctor__fn;
+    type = uClassType::New("FuseCommon_bundle", options);
+    type->fp_build_ = FuseCommon_bundle_build;
+    type->fp_cctor_ = FuseCommon_bundle__cctor__fn;
     return type;
 }
 
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseAndroidTextRenderer_bundle::Blitter83cfc6f0_;
+uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseCommon_bundle::Blitter23d242c5_;
+uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseCommon_bundle::Blitter8f469d0c_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls\1.4.2\.uno\package
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls\1.9.0\.uno\package
 // ----------------------------------------------------------------------------------------
 
 // public static generated class FuseControls_bundle :0
@@ -129,16 +147,14 @@ uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>
 // static FuseControls_bundle() :0
 static void FuseControls_bundle__cctor__fn(uType* __type)
 {
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseControls_bundle::SolidRectangle2f148815_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[7/*"uniform mat...*/], ::STRINGS[8/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 18, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[21/*"t"*/]));
-    FuseControls_bundle::SolidRectangle7463714b_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[22/*"uniform mat...*/], ::STRINGS[23/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 11, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[15/*"l"*/]));
-    FuseControls_bundle::SolidRectangled1bbfcb0_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[24/*"uniform mat...*/], ::STRINGS[25/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 4, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/]));
-    FuseControls_bundle::Viewportd3ce851b_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[26/*"uniform mat...*/], ::STRINGS[27/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 4, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/]));
+    FuseControls_bundle::SolidRectangle2f148815_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[9/*"uniform mat...*/], ::STRINGS[10/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 18, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[23/*"t"*/]));
+    FuseControls_bundle::SolidRectangle7463714b_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[24/*"uniform mat...*/], ::STRINGS[25/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 11, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[17/*"l"*/]));
+    FuseControls_bundle::SolidRectangled1bbfcb0_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[26/*"uniform mat...*/], ::STRINGS[1/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 4, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/]));
 }
 
 static void FuseControls_bundle_build(uType* type)
 {
-    ::STRINGS[7] = uString::Const("uniform mat4 q, d;\r\n"
+    ::STRINGS[9] = uString::Const("uniform mat4 q, d;\r\n"
         "uniform vec2 e, f, g, h, i, k, j;\r\n"
         "\r\n"
         "attribute vec2 a;\r\n"
@@ -153,7 +169,7 @@ static void FuseControls_bundle_build(uType* type)
         "    gl_Position = d * (q * vec4(vec3(a, float(0)), 1.));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[8] = uString::Const("uniform vec2 m, l;\r\n"
+    ::STRINGS[10] = uString::Const("uniform vec2 m, l;\r\n"
         "uniform vec4 n;\r\n"
         "uniform float o, p;\r\n"
         "\r\n"
@@ -170,22 +186,22 @@ static void FuseControls_bundle_build(uType* type)
     ::STRINGS[3] = uString::Const("b");
     ::STRINGS[4] = uString::Const("c");
     ::STRINGS[2] = uString::Const("a");
-    ::STRINGS[5] = uString::Const("d");
-    ::STRINGS[9] = uString::Const("e");
-    ::STRINGS[6] = uString::Const("f");
-    ::STRINGS[10] = uString::Const("g");
-    ::STRINGS[11] = uString::Const("h");
-    ::STRINGS[12] = uString::Const("i");
-    ::STRINGS[13] = uString::Const("j");
-    ::STRINGS[14] = uString::Const("k");
-    ::STRINGS[15] = uString::Const("l");
-    ::STRINGS[16] = uString::Const("m");
-    ::STRINGS[17] = uString::Const("n");
-    ::STRINGS[18] = uString::Const("o");
-    ::STRINGS[19] = uString::Const("p");
-    ::STRINGS[20] = uString::Const("q");
-    ::STRINGS[21] = uString::Const("t");
-    ::STRINGS[22] = uString::Const("uniform mat4 g, b;\r\n"
+    ::STRINGS[7] = uString::Const("d");
+    ::STRINGS[11] = uString::Const("e");
+    ::STRINGS[8] = uString::Const("f");
+    ::STRINGS[12] = uString::Const("g");
+    ::STRINGS[13] = uString::Const("h");
+    ::STRINGS[14] = uString::Const("i");
+    ::STRINGS[15] = uString::Const("j");
+    ::STRINGS[16] = uString::Const("k");
+    ::STRINGS[17] = uString::Const("l");
+    ::STRINGS[18] = uString::Const("m");
+    ::STRINGS[19] = uString::Const("n");
+    ::STRINGS[20] = uString::Const("o");
+    ::STRINGS[21] = uString::Const("p");
+    ::STRINGS[22] = uString::Const("q");
+    ::STRINGS[23] = uString::Const("t");
+    ::STRINGS[24] = uString::Const("uniform mat4 g, b;\r\n"
         "uniform vec2 c, d, i;\r\n"
         "uniform vec4 h;\r\n"
         "uniform float j;\r\n"
@@ -206,7 +222,7 @@ static void FuseControls_bundle_build(uType* type)
         "    gl_Position = b * (g * vec4(vec3(a, float(0)), 1.));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[23] = uString::Const("uniform float e, f;\r\n"
+    ::STRINGS[25] = uString::Const("uniform float e, f;\r\n"
         "\r\n"
         "uniform sampler2D l;\r\n"
         "\r\n"
@@ -217,7 +233,7 @@ static void FuseControls_bundle_build(uType* type)
         "    gl_FragColor = (texture2D(l, vec2(k, 0.5)) * e) * f;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[24] = uString::Const("uniform mat4 d, b;\r\n"
+    ::STRINGS[26] = uString::Const("uniform mat4 d, b;\r\n"
         "\r\n"
         "attribute vec2 a;\r\n"
         "\r\n"
@@ -226,40 +242,18 @@ static void FuseControls_bundle_build(uType* type)
         "    gl_Position = b * (d * vec4(vec3(a, float(0)), 1.));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[25] = uString::Const("uniform vec4 c;\r\n"
+    ::STRINGS[1] = uString::Const("uniform vec4 c;\r\n"
         "\r\n"
         "void main()\r\n"
         "{\r\n"
         "    gl_FragColor = c;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[26] = uString::Const("uniform mat4 c, b;\r\n"
-        "\r\n"
-        "attribute vec2 a;\r\n"
-        "\r\n"
-        "varying vec2 d;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    d = true ? vec2(a.x, float(1) - a.y) : a;\r\n"
-        "    gl_Position = b * (c * vec4(vec3(a, float(0)), 1.));\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[27] = uString::Const("uniform sampler2D e;\r\n"
-        "\r\n"
-        "varying vec2 d;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_FragColor = texture2D(e, d);\r\n"
-        "}\r\n"
-        "");
     ::TYPES[0] = ::g::Uno::String_typeof()->Array();
     type->SetFields(0,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseControls_bundle::SolidRectangle2f148815_, uFieldFlagsStatic,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseControls_bundle::SolidRectangle7463714b_, uFieldFlagsStatic,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseControls_bundle::SolidRectangled1bbfcb0_, uFieldFlagsStatic,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseControls_bundle::Viewportd3ce851b_, uFieldFlagsStatic);
+        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseControls_bundle::SolidRectangled1bbfcb0_, uFieldFlagsStatic);
 }
 
 uClassType* FuseControls_bundle_typeof()
@@ -268,7 +262,7 @@ uClassType* FuseControls_bundle_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 4;
+    options.FieldCount = 3;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("FuseControls_bundle", options);
     type->fp_build_ = FuseControls_bundle_build;
@@ -279,78 +273,12 @@ uClassType* FuseControls_bundle_typeof()
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseControls_bundle::SolidRectangle2f148815_;
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseControls_bundle::SolidRectangle7463714b_;
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseControls_bundle::SolidRectangled1bbfcb0_;
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseControls_bundle::Viewportd3ce851b_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Native\1.4.2\.uno\package
-// -----------------------------------------------------------------------------------------------
-
-// public static generated class FuseControlsNative_bundle :0
-// {
-// static FuseControlsNative_bundle() :0
-static void FuseControlsNative_bundle__cctor__fn(uType* __type)
-{
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseControlsNative_bundle::Blitter65ac1d08_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[28/*"uniform vec...*/], ::STRINGS[29/*"uniform sam...*/], 1, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 6, ::STRINGS[3/*"b"*/], ::STRINGS[2/*"a"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[11/*"h"*/]));
-}
-
-static void FuseControlsNative_bundle_build(uType* type)
-{
-    ::STRINGS[28] = uString::Const("uniform vec2 d, c;\r\n"
-        "uniform mat4 e;\r\n"
-        "\r\n"
-        "attribute vec2 a;\r\n"
-        "\r\n"
-        "varying vec2 f, g;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    f = vec2(a.x, 1.0 - a.y);\r\n"
-        "    g = a;\r\n"
-        "    gl_Position = e * vec4(d + (a * c), 0., 1.);\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[29] = uString::Const("uniform sampler2D h;\r\n"
-        "\r\n"
-        "varying vec2 f, g;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_FragColor = b ? texture2D(h, f) : texture2D(h, g);\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[3] = uString::Const("b");
-    ::STRINGS[2] = uString::Const("a");
-    ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[5] = uString::Const("d");
-    ::STRINGS[9] = uString::Const("e");
-    ::STRINGS[11] = uString::Const("h");
-    ::TYPES[0] = ::g::Uno::String_typeof()->Array();
-    type->SetFields(0,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseControlsNative_bundle::Blitter65ac1d08_, uFieldFlagsStatic);
-}
-
-uClassType* FuseControlsNative_bundle_typeof()
-{
-    static uSStrong<uClassType*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.FieldCount = 1;
-    options.TypeSize = sizeof(uClassType);
-    type = uClassType::New("FuseControlsNative_bundle", options);
-    type->fp_build_ = FuseControlsNative_bundle_build;
-    type->fp_cctor_ = FuseControlsNative_bundle__cctor__fn;
-    return type;
-}
-
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseControlsNative_bundle::Blitter65ac1d08_;
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Navigation\1.4.2\.uno\ux13\Fuse.Controls.Navigation.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Navigation\1.9.0\.uno\ux15\Fuse.Controls.Navigation.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
-// internal sealed class FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property :10
+// internal sealed class FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property :19
 // {
 static void FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property_build(uType* type)
 {
@@ -378,27 +306,54 @@ static void FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property_build(uTy
     return type;
 }
 
-// public override sealed bool Get(Uno.UX.PropertyObject obj) :15
+// public FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property(Fuse.Controls.Panel obj, Uno.UX.Selector name) :22
+void FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property__ctor_3_fn(FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property* __this, ::g::Fuse::Controls::Panel* obj, ::g::Uno::UX::Selector* name)
+{
+    __this->ctor_3(obj, *name);
+}
+
+// public override sealed bool Get(Uno.UX.PropertyObject obj) :24
 void FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property__Get1_fn(FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property* __this, ::g::Uno::UX::PropertyObject* obj, bool* __retval)
 {
     return *__retval = uPtr(uCast< ::g::Fuse::Controls::Panel*>(obj, ::TYPES[1/*Fuse.Controls.Panel*/]))->IsFrozen(), void();
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :14
+// public FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property New(Fuse.Controls.Panel obj, Uno.UX.Selector name) :22
+void FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property__New1_fn(::g::Fuse::Controls::Panel* obj, ::g::Uno::UX::Selector* name, FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property** __retval)
+{
+    *__retval = FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property::New1(obj, *name);
+}
+
+// public override sealed Uno.UX.PropertyObject get_Object() :23
 void FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property__get_Object_fn(FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, bool v, Uno.UX.IPropertyListener origin) :16
+// public override sealed void Set(Uno.UX.PropertyObject obj, bool v, Uno.UX.IPropertyListener origin) :25
 void FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property__Set1_fn(FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property* __this, ::g::Uno::UX::PropertyObject* obj, bool* v, uObject* origin)
 {
     bool v_ = *v;
     uPtr(uCast< ::g::Fuse::Controls::Panel*>(obj, ::TYPES[1/*Fuse.Controls.Panel*/]))->IsFrozen(v_);
 }
+
+// public FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property(Fuse.Controls.Panel obj, Uno.UX.Selector name) [instance] :22
+void FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property::ctor_3(::g::Fuse::Controls::Panel* obj, ::g::Uno::UX::Selector name)
+{
+    ctor_2(name);
+    _obj = obj;
+}
+
+// public FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property New(Fuse.Controls.Panel obj, Uno.UX.Selector name) [static] :22
+FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property* FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property::New1(::g::Fuse::Controls::Panel* obj, ::g::Uno::UX::Selector name)
+{
+    FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property* obj1 = (FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property*)uNew(FuseControlsNavigation_FuseControlsPanel_IsFrozen_Property_typeof());
+    obj1->ctor_3(obj, name);
+    return obj1;
+}
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Navigation\1.4.2\.uno\ux13\Fuse.Controls.Navigation.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Navigation\1.9.0\.uno\ux15\Fuse.Controls.Navigation.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsNavigation_FuseControlsShape_Color_Property :1
@@ -483,72 +438,170 @@ FuseControlsNavigation_FuseControlsShape_Color_Property* FuseControlsNavigation_
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Panels\1.4.2\.uno\package
-// -----------------------------------------------------------------------------------------------
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Navigation\1.9.0\.uno\ux15\Fuse.Controls.Navigation.unoproj.g.uno
+// ---------------------------------------------------------------------------------------------------------------------------------------
 
-// public static generated class FuseControlsPanels_bundle :0
+// internal sealed class FuseControlsNavigation_FuseElementsElement_HitTestMode_Property :10
 // {
-// static FuseControlsPanels_bundle() :0
-static void FuseControlsPanels_bundle__cctor__fn(uType* __type)
+static void FuseControlsNavigation_FuseElementsElement_HitTestMode_Property_build(uType* type)
 {
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseControlsPanels_bundle::FreezeDrawable1e2faccf_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[30/*"uniform mat...*/], ::STRINGS[31/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 5, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[6/*"f"*/]));
+    ::TYPES[3] = ::g::Fuse::Elements::Element_typeof();
+    type->SetBase(::g::Uno::UX::Property1_typeof()->MakeType(::g::Fuse::Elements::HitTestMode_typeof(), NULL));
+    type->SetFields(1,
+        ::TYPES[3/*Fuse.Elements.Element*/], offsetof(FuseControlsNavigation_FuseElementsElement_HitTestMode_Property, _obj), uFieldFlagsWeak);
 }
 
-static void FuseControlsPanels_bundle_build(uType* type)
+::g::Uno::UX::Property1_type* FuseControlsNavigation_FuseElementsElement_HitTestMode_Property_typeof()
 {
-    ::STRINGS[30] = uString::Const("uniform mat4 d, b;\r\n"
-        "\r\n"
-        "attribute vec2 a;\r\n"
-        "\r\n"
-        "varying vec2 e;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    e = true ? vec2(a.x, float(1) - a.y) : a;\r\n"
-        "    gl_Position = b * (d * vec4(vec3(a, float(0)), 1.));\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[31] = uString::Const("uniform float c;\r\n"
-        "\r\n"
-        "uniform sampler2D f;\r\n"
-        "\r\n"
-        "varying vec2 e;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    vec4 g = texture2D(f, e);\r\n"
-        "    gl_FragColor = vec4(g.xyz, g.w * c);\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[2] = uString::Const("a");
-    ::STRINGS[3] = uString::Const("b");
-    ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[5] = uString::Const("d");
-    ::STRINGS[6] = uString::Const("f");
-    ::TYPES[0] = ::g::Uno::String_typeof()->Array();
-    type->SetFields(0,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseControlsPanels_bundle::FreezeDrawable1e2faccf_, uFieldFlagsStatic);
-}
-
-uClassType* FuseControlsPanels_bundle_typeof()
-{
-    static uSStrong<uClassType*> type;
+    static uSStrong< ::g::Uno::UX::Property1_type*> type;
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 1;
-    options.TypeSize = sizeof(uClassType);
-    type = uClassType::New("FuseControlsPanels_bundle", options);
-    type->fp_build_ = FuseControlsPanels_bundle_build;
-    type->fp_cctor_ = FuseControlsPanels_bundle__cctor__fn;
+    options.BaseDefinition = ::g::Uno::UX::Property1_typeof();
+    options.FieldCount = 2;
+    options.ObjectSize = sizeof(FuseControlsNavigation_FuseElementsElement_HitTestMode_Property);
+    options.TypeSize = sizeof(::g::Uno::UX::Property1_type);
+    type = (::g::Uno::UX::Property1_type*)uClassType::New("FuseControlsNavigation_FuseElementsElement_HitTestMode_Property", options);
+    type->fp_build_ = FuseControlsNavigation_FuseElementsElement_HitTestMode_Property_build;
+    type->fp_Get1 = (void(*)(::g::Uno::UX::Property1*, ::g::Uno::UX::PropertyObject*, uTRef))FuseControlsNavigation_FuseElementsElement_HitTestMode_Property__Get1_fn;
+    type->fp_get_Object = (void(*)(::g::Uno::UX::Property*, ::g::Uno::UX::PropertyObject**))FuseControlsNavigation_FuseElementsElement_HitTestMode_Property__get_Object_fn;
+    type->fp_Set1 = (void(*)(::g::Uno::UX::Property1*, ::g::Uno::UX::PropertyObject*, void*, uObject*))FuseControlsNavigation_FuseElementsElement_HitTestMode_Property__Set1_fn;
+    type->fp_get_SupportsOriginSetter = (void(*)(::g::Uno::UX::PropertyAccessor*, bool*))FuseControlsNavigation_FuseElementsElement_HitTestMode_Property__get_SupportsOriginSetter_fn;
     return type;
 }
 
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseControlsPanels_bundle::FreezeDrawable1e2faccf_;
+// public FuseControlsNavigation_FuseElementsElement_HitTestMode_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) :13
+void FuseControlsNavigation_FuseElementsElement_HitTestMode_Property__ctor_3_fn(FuseControlsNavigation_FuseElementsElement_HitTestMode_Property* __this, ::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector* name)
+{
+    __this->ctor_3(obj, *name);
+}
+
+// public override sealed Fuse.Elements.HitTestMode Get(Uno.UX.PropertyObject obj) :15
+void FuseControlsNavigation_FuseElementsElement_HitTestMode_Property__Get1_fn(FuseControlsNavigation_FuseElementsElement_HitTestMode_Property* __this, ::g::Uno::UX::PropertyObject* obj, int32_t* __retval)
+{
+    return *__retval = uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[3/*Fuse.Elements.Element*/]))->HitTestMode(), void();
+}
+
+// public FuseControlsNavigation_FuseElementsElement_HitTestMode_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) :13
+void FuseControlsNavigation_FuseElementsElement_HitTestMode_Property__New1_fn(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector* name, FuseControlsNavigation_FuseElementsElement_HitTestMode_Property** __retval)
+{
+    *__retval = FuseControlsNavigation_FuseElementsElement_HitTestMode_Property::New1(obj, *name);
+}
+
+// public override sealed Uno.UX.PropertyObject get_Object() :14
+void FuseControlsNavigation_FuseElementsElement_HitTestMode_Property__get_Object_fn(FuseControlsNavigation_FuseElementsElement_HitTestMode_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
+{
+    return *__retval = __this->_obj, void();
+}
+
+// public override sealed void Set(Uno.UX.PropertyObject obj, Fuse.Elements.HitTestMode v, Uno.UX.IPropertyListener origin) :16
+void FuseControlsNavigation_FuseElementsElement_HitTestMode_Property__Set1_fn(FuseControlsNavigation_FuseElementsElement_HitTestMode_Property* __this, ::g::Uno::UX::PropertyObject* obj, int32_t* v, uObject* origin)
+{
+    int32_t v_ = *v;
+    uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[3/*Fuse.Elements.Element*/]))->SetHitTestMode(v_, origin);
+}
+
+// public override sealed bool get_SupportsOriginSetter() :17
+void FuseControlsNavigation_FuseElementsElement_HitTestMode_Property__get_SupportsOriginSetter_fn(FuseControlsNavigation_FuseElementsElement_HitTestMode_Property* __this, bool* __retval)
+{
+    return *__retval = true, void();
+}
+
+// public FuseControlsNavigation_FuseElementsElement_HitTestMode_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) [instance] :13
+void FuseControlsNavigation_FuseElementsElement_HitTestMode_Property::ctor_3(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector name)
+{
+    ctor_2(name);
+    _obj = obj;
+}
+
+// public FuseControlsNavigation_FuseElementsElement_HitTestMode_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) [static] :13
+FuseControlsNavigation_FuseElementsElement_HitTestMode_Property* FuseControlsNavigation_FuseElementsElement_HitTestMode_Property::New1(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector name)
+{
+    FuseControlsNavigation_FuseElementsElement_HitTestMode_Property* obj1 = (FuseControlsNavigation_FuseElementsElement_HitTestMode_Property*)uNew(FuseControlsNavigation_FuseElementsElement_HitTestMode_Property_typeof());
+    obj1->ctor_3(obj, name);
+    return obj1;
+}
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Panels\1.9.0\.uno\ux15\Fuse.Controls.Panels.unoproj.g.uno
+// -------------------------------------------------------------------------------------------------------------------------------
+
+// internal sealed class FuseControlsPanels_FuseElementsElement_Padding_Property :1
+// {
+static void FuseControlsPanels_FuseElementsElement_Padding_Property_build(uType* type)
+{
+    ::TYPES[3] = ::g::Fuse::Elements::Element_typeof();
+    type->SetBase(::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::Float4_typeof(), NULL));
+    type->SetFields(1,
+        ::TYPES[3/*Fuse.Elements.Element*/], offsetof(FuseControlsPanels_FuseElementsElement_Padding_Property, _obj), uFieldFlagsWeak);
+}
+
+::g::Uno::UX::Property1_type* FuseControlsPanels_FuseElementsElement_Padding_Property_typeof()
+{
+    static uSStrong< ::g::Uno::UX::Property1_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Uno::UX::Property1_typeof();
+    options.FieldCount = 2;
+    options.ObjectSize = sizeof(FuseControlsPanels_FuseElementsElement_Padding_Property);
+    options.TypeSize = sizeof(::g::Uno::UX::Property1_type);
+    type = (::g::Uno::UX::Property1_type*)uClassType::New("FuseControlsPanels_FuseElementsElement_Padding_Property", options);
+    type->fp_build_ = FuseControlsPanels_FuseElementsElement_Padding_Property_build;
+    type->fp_Get1 = (void(*)(::g::Uno::UX::Property1*, ::g::Uno::UX::PropertyObject*, uTRef))FuseControlsPanels_FuseElementsElement_Padding_Property__Get1_fn;
+    type->fp_get_Object = (void(*)(::g::Uno::UX::Property*, ::g::Uno::UX::PropertyObject**))FuseControlsPanels_FuseElementsElement_Padding_Property__get_Object_fn;
+    type->fp_Set1 = (void(*)(::g::Uno::UX::Property1*, ::g::Uno::UX::PropertyObject*, void*, uObject*))FuseControlsPanels_FuseElementsElement_Padding_Property__Set1_fn;
+    return type;
+}
+
+// public FuseControlsPanels_FuseElementsElement_Padding_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) :4
+void FuseControlsPanels_FuseElementsElement_Padding_Property__ctor_3_fn(FuseControlsPanels_FuseElementsElement_Padding_Property* __this, ::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector* name)
+{
+    __this->ctor_3(obj, *name);
+}
+
+// public override sealed float4 Get(Uno.UX.PropertyObject obj) :6
+void FuseControlsPanels_FuseElementsElement_Padding_Property__Get1_fn(FuseControlsPanels_FuseElementsElement_Padding_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* __retval)
+{
+    return *__retval = uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[3/*Fuse.Elements.Element*/]))->Padding(), void();
+}
+
+// public FuseControlsPanels_FuseElementsElement_Padding_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) :4
+void FuseControlsPanels_FuseElementsElement_Padding_Property__New1_fn(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector* name, FuseControlsPanels_FuseElementsElement_Padding_Property** __retval)
+{
+    *__retval = FuseControlsPanels_FuseElementsElement_Padding_Property::New1(obj, *name);
+}
+
+// public override sealed Uno.UX.PropertyObject get_Object() :5
+void FuseControlsPanels_FuseElementsElement_Padding_Property__get_Object_fn(FuseControlsPanels_FuseElementsElement_Padding_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
+{
+    return *__retval = __this->_obj, void();
+}
+
+// public override sealed void Set(Uno.UX.PropertyObject obj, float4 v, Uno.UX.IPropertyListener origin) :7
+void FuseControlsPanels_FuseElementsElement_Padding_Property__Set1_fn(FuseControlsPanels_FuseElementsElement_Padding_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* v, uObject* origin)
+{
+    ::g::Uno::Float4 v_ = *v;
+    uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[3/*Fuse.Elements.Element*/]))->Padding(v_);
+}
+
+// public FuseControlsPanels_FuseElementsElement_Padding_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) [instance] :4
+void FuseControlsPanels_FuseElementsElement_Padding_Property::ctor_3(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector name)
+{
+    ctor_2(name);
+    _obj = obj;
+}
+
+// public FuseControlsPanels_FuseElementsElement_Padding_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) [static] :4
+FuseControlsPanels_FuseElementsElement_Padding_Property* FuseControlsPanels_FuseElementsElement_Padding_Property::New1(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector name)
+{
+    FuseControlsPanels_FuseElementsElement_Padding_Property* obj1 = (FuseControlsPanels_FuseElementsElement_Padding_Property*)uNew(FuseControlsPanels_FuseElementsElement_Padding_Property_typeof());
+    obj1->ctor_3(obj, name);
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text :1
@@ -556,17 +609,16 @@ uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>
 // static generated FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text() :1
 static void FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text::Singleton_ = FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text::New1();
-    FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text::_name_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[32/*"Text"*/]);
+    FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text::_name_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[27/*"Text"*/]);
 }
 
 static void FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text_build(uType* type)
 {
-    ::STRINGS[32] = uString::Const("Text");
-    ::TYPES[3] = ::g::Fuse::Controls::ButtonBase_typeof();
-    ::TYPES[4] = ::g::Uno::String_typeof();
-    ::TYPES[5] = ::g::Uno::Type_typeof();
+    ::STRINGS[27] = uString::Const("Text");
+    ::TYPES[4] = ::g::Fuse::Controls::ButtonBase_typeof();
+    ::TYPES[5] = ::g::Uno::String_typeof();
+    ::TYPES[6] = ::g::Uno::Type_typeof();
     type->SetFields(0,
         ::g::Uno::UX::PropertyAccessor_typeof(), (uintptr_t)&FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text::Singleton_, uFieldFlagsStatic,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text::_name_, uFieldFlagsStatic);
@@ -603,7 +655,7 @@ void FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text__ctor_1_fn(Fu
 // public override sealed object GetAsObject(Uno.UX.PropertyObject obj) :7
 void FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text__GetAsObject_fn(FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text* __this, ::g::Uno::UX::PropertyObject* obj, uObject** __retval)
 {
-    return *__retval = uPtr(uCast< ::g::Fuse::Controls::ButtonBase*>(obj, ::TYPES[3/*Fuse.Controls.ButtonBase*/]))->Text(), void();
+    return *__retval = uPtr(uCast< ::g::Fuse::Controls::ButtonBase*>(obj, ::TYPES[4/*Fuse.Controls.ButtonBase*/]))->Text(), void();
 }
 
 // public override sealed Uno.UX.Selector get_Name() :4
@@ -621,13 +673,13 @@ void FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text__New1_fn(Fuse
 // public override sealed Uno.Type get_PropertyType() :6
 void FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text__get_PropertyType_fn(FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text* __this, uType** __retval)
 {
-    return *__retval = ::TYPES[4/*string*/], void();
+    return *__retval = ::TYPES[5/*string*/], void();
 }
 
 // public override sealed void SetAsObject(Uno.UX.PropertyObject obj, object v, Uno.UX.IPropertyListener origin) :8
 void FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text__SetAsObject_fn(FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text* __this, ::g::Uno::UX::PropertyObject* obj, uObject* v, uObject* origin)
 {
-    uPtr(uCast< ::g::Fuse::Controls::ButtonBase*>(obj, ::TYPES[3/*Fuse.Controls.ButtonBase*/]))->SetText(uCast<uString*>(v, ::TYPES[4/*string*/]), origin);
+    uPtr(uCast< ::g::Fuse::Controls::ButtonBase*>(obj, ::TYPES[4/*Fuse.Controls.ButtonBase*/]))->SetText(uCast<uString*>(v, ::TYPES[5/*string*/]), origin);
 }
 
 // public override sealed bool get_SupportsOriginSetter() :9
@@ -654,7 +706,7 @@ FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text* FuseControlsPrimi
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value :11
@@ -662,16 +714,15 @@ FuseControlsPrimitives_accessor_Fuse_Controls_ButtonBase_Text* FuseControlsPrimi
 // static generated FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value() :11
 static void FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value::Singleton_ = FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value::New1();
-    FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value::_name_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[33/*"Value"*/]);
+    FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value::_name_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[28/*"Value"*/]);
 }
 
 static void FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value_build(uType* type)
 {
-    ::STRINGS[33] = uString::Const("Value");
-    ::TYPES[6] = ::g::Fuse::Controls::ToggleControl_typeof();
-    ::TYPES[5] = ::g::Uno::Type_typeof();
+    ::STRINGS[28] = uString::Const("Value");
+    ::TYPES[7] = ::g::Fuse::Controls::ToggleControl_typeof();
+    ::TYPES[6] = ::g::Uno::Type_typeof();
     type->SetFields(0,
         ::g::Uno::UX::PropertyAccessor_typeof(), (uintptr_t)&FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value::Singleton_, uFieldFlagsStatic,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value::_name_, uFieldFlagsStatic);
@@ -708,7 +759,7 @@ void FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value__ctor_1_f
 // public override sealed object GetAsObject(Uno.UX.PropertyObject obj) :17
 void FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value__GetAsObject_fn(FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value* __this, ::g::Uno::UX::PropertyObject* obj, uObject** __retval)
 {
-    return *__retval = uBox(::g::Uno::Bool_typeof(), uPtr(uCast< ::g::Fuse::Controls::ToggleControl*>(obj, ::TYPES[6/*Fuse.Controls.ToggleControl*/]))->Value()), void();
+    return *__retval = uBox(::g::Uno::Bool_typeof(), uPtr(uCast< ::g::Fuse::Controls::ToggleControl*>(obj, ::TYPES[7/*Fuse.Controls.ToggleControl*/]))->Value()), void();
 }
 
 // public override sealed Uno.UX.Selector get_Name() :14
@@ -732,7 +783,7 @@ void FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value__get_Prop
 // public override sealed void SetAsObject(Uno.UX.PropertyObject obj, object v, Uno.UX.IPropertyListener origin) :18
 void FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value__SetAsObject_fn(FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value* __this, ::g::Uno::UX::PropertyObject* obj, uObject* v, uObject* origin)
 {
-    uPtr(uCast< ::g::Fuse::Controls::ToggleControl*>(obj, ::TYPES[6/*Fuse.Controls.ToggleControl*/]))->SetValue(uUnbox<bool>(::g::Uno::Bool_typeof(), v), origin);
+    uPtr(uCast< ::g::Fuse::Controls::ToggleControl*>(obj, ::TYPES[7/*Fuse.Controls.ToggleControl*/]))->SetValue(uUnbox<bool>(::g::Uno::Bool_typeof(), v), origin);
 }
 
 // public override sealed bool get_SupportsOriginSetter() :19
@@ -759,80 +810,7 @@ FuseControlsPrimitives_accessor_Fuse_Controls_ToggleControl_Value* FuseControlsP
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\package
-// ---------------------------------------------------------------------------------------------------
-
-// public static generated class FuseControlsPrimitives_bundle :0
-// {
-// static FuseControlsPrimitives_bundle() :0
-static void FuseControlsPrimitives_bundle__cctor__fn(uType* __type)
-{
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseControlsPrimitives_bundle::ImageElementDraw1918851e_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[34/*"uniform mat...*/], ::STRINGS[35/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 8, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[12/*"i"*/]));
-}
-
-static void FuseControlsPrimitives_bundle_build(uType* type)
-{
-    ::STRINGS[34] = uString::Const("uniform mat4 g, b, e;\r\n"
-        "uniform vec2 c, d;\r\n"
-        "\r\n"
-        "attribute vec2 a;\r\n"
-        "\r\n"
-        "varying vec2 h;\r\n"
-        "\r\n"
-        "vec2 j(vec2 k, mat4 l){\r\n"
-        "    vec4 m = l * vec4(k, 0., 1.);\r\n"
-        "    return m.xy / m.w;\r\n"
-        "}\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    h = j((a * c) + d, e);\r\n"
-        "    gl_Position = b * (g * vec4(vec3(a, float(0)), 1.));\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[35] = uString::Const("uniform vec4 f;\r\n"
-        "\r\n"
-        "uniform sampler2D i;\r\n"
-        "\r\n"
-        "varying vec2 h;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_FragColor = texture2D(i, h) * f;\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[2] = uString::Const("a");
-    ::STRINGS[3] = uString::Const("b");
-    ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[5] = uString::Const("d");
-    ::STRINGS[9] = uString::Const("e");
-    ::STRINGS[6] = uString::Const("f");
-    ::STRINGS[10] = uString::Const("g");
-    ::STRINGS[12] = uString::Const("i");
-    ::TYPES[0] = ::g::Uno::String_typeof()->Array();
-    type->SetFields(0,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseControlsPrimitives_bundle::ImageElementDraw1918851e_, uFieldFlagsStatic);
-}
-
-uClassType* FuseControlsPrimitives_bundle_typeof()
-{
-    static uSStrong<uClassType*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.FieldCount = 1;
-    options.TypeSize = sizeof(uClassType);
-    type = uClassType::New("FuseControlsPrimitives_bundle", options);
-    type->fp_build_ = FuseControlsPrimitives_bundle_build;
-    type->fp_cctor_ = FuseControlsPrimitives_bundle__cctor__fn;
-    return type;
-}
-
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseControlsPrimitives_bundle::ImageElementDraw1918851e_;
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_FuseControlsShape_Fill_Property :47
@@ -909,17 +887,17 @@ FuseControlsPrimitives_FuseControlsShape_Fill_Property* FuseControlsPrimitives_F
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property :30
 // {
 static void FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property_build(uType* type)
 {
-    ::TYPES[7] = ::g::Fuse::Controls::TextControl_typeof();
+    ::TYPES[8] = ::g::Fuse::Controls::TextControl_typeof();
     type->SetBase(::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::Float4_typeof(), NULL));
     type->SetFields(1,
-        ::TYPES[7/*Fuse.Controls.TextControl*/], offsetof(FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property, _obj), uFieldFlagsWeak);
+        ::TYPES[8/*Fuse.Controls.TextControl*/], offsetof(FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property, _obj), uFieldFlagsWeak);
 }
 
 ::g::Uno::UX::Property1_type* FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property_typeof()
@@ -949,7 +927,7 @@ void FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property__ctor_3_f
 // public override sealed float4 Get(Uno.UX.PropertyObject obj) :35
 void FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property__Get1_fn(FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* __retval)
 {
-    return *__retval = uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[7/*Fuse.Controls.TextControl*/]))->TextColor(), void();
+    return *__retval = uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[8/*Fuse.Controls.TextControl*/]))->TextColor(), void();
 }
 
 // public FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :33
@@ -968,7 +946,7 @@ void FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property__get_Obje
 void FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property__Set1_fn(FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* v, uObject* origin)
 {
     ::g::Uno::Float4 v_ = *v;
-    uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[7/*Fuse.Controls.TextControl*/]))->TextColor(v_);
+    uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[8/*Fuse.Controls.TextControl*/]))->TextColor(v_);
 }
 
 // public FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [instance] :33
@@ -987,17 +965,17 @@ FuseControlsPrimitives_FuseControlsTextControl_TextColor_Property* FuseControlsP
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_FuseControlsTextControl_Value_Property :21
 // {
 static void FuseControlsPrimitives_FuseControlsTextControl_Value_Property_build(uType* type)
 {
-    ::TYPES[7] = ::g::Fuse::Controls::TextControl_typeof();
+    ::TYPES[8] = ::g::Fuse::Controls::TextControl_typeof();
     type->SetBase(::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::String_typeof(), NULL));
     type->SetFields(1,
-        ::TYPES[7/*Fuse.Controls.TextControl*/], offsetof(FuseControlsPrimitives_FuseControlsTextControl_Value_Property, _obj), uFieldFlagsWeak);
+        ::TYPES[8/*Fuse.Controls.TextControl*/], offsetof(FuseControlsPrimitives_FuseControlsTextControl_Value_Property, _obj), uFieldFlagsWeak);
 }
 
 ::g::Uno::UX::Property1_type* FuseControlsPrimitives_FuseControlsTextControl_Value_Property_typeof()
@@ -1028,7 +1006,7 @@ void FuseControlsPrimitives_FuseControlsTextControl_Value_Property__ctor_3_fn(Fu
 // public override sealed string Get(Uno.UX.PropertyObject obj) :26
 void FuseControlsPrimitives_FuseControlsTextControl_Value_Property__Get1_fn(FuseControlsPrimitives_FuseControlsTextControl_Value_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString** __retval)
 {
-    return *__retval = uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[7/*Fuse.Controls.TextControl*/]))->Value(), void();
+    return *__retval = uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[8/*Fuse.Controls.TextControl*/]))->Value(), void();
 }
 
 // public FuseControlsPrimitives_FuseControlsTextControl_Value_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :24
@@ -1046,7 +1024,7 @@ void FuseControlsPrimitives_FuseControlsTextControl_Value_Property__get_Object_f
 // public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :27
 void FuseControlsPrimitives_FuseControlsTextControl_Value_Property__Set1_fn(FuseControlsPrimitives_FuseControlsTextControl_Value_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString* v, uObject* origin)
 {
-    uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[7/*Fuse.Controls.TextControl*/]))->SetValue(v, origin);
+    uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[8/*Fuse.Controls.TextControl*/]))->SetValue(v, origin);
 }
 
 // public override sealed bool get_SupportsOriginSetter() :28
@@ -1071,17 +1049,17 @@ FuseControlsPrimitives_FuseControlsTextControl_Value_Property* FuseControlsPrimi
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property :97
 // {
 static void FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property_build(uType* type)
 {
-    ::TYPES[8] = ::g::Fuse::Drawing::SolidColor_typeof();
+    ::TYPES[9] = ::g::Fuse::Drawing::SolidColor_typeof();
     type->SetBase(::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::Float4_typeof(), NULL));
     type->SetFields(1,
-        ::TYPES[8/*Fuse.Drawing.SolidColor*/], offsetof(FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property, _obj), uFieldFlagsWeak);
+        ::TYPES[9/*Fuse.Drawing.SolidColor*/], offsetof(FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property, _obj), uFieldFlagsWeak);
 }
 
 ::g::Uno::UX::Property1_type* FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property_typeof()
@@ -1106,7 +1084,7 @@ static void FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property_build(uT
 // public override sealed float4 Get(Uno.UX.PropertyObject obj) :102
 void FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property__Get1_fn(FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* __retval)
 {
-    return *__retval = uPtr(uCast< ::g::Fuse::Drawing::SolidColor*>(obj, ::TYPES[8/*Fuse.Drawing.SolidColor*/]))->Color(), void();
+    return *__retval = uPtr(uCast< ::g::Fuse::Drawing::SolidColor*>(obj, ::TYPES[9/*Fuse.Drawing.SolidColor*/]))->Color(), void();
 }
 
 // public override sealed Uno.UX.PropertyObject get_Object() :101
@@ -1119,7 +1097,7 @@ void FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property__get_Object_fn(
 void FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property__Set1_fn(FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* v, uObject* origin)
 {
     ::g::Uno::Float4 v_ = *v;
-    uPtr(uCast< ::g::Fuse::Drawing::SolidColor*>(obj, ::TYPES[8/*Fuse.Drawing.SolidColor*/]))->SetColor1(v_, origin);
+    uPtr(uCast< ::g::Fuse::Drawing::SolidColor*>(obj, ::TYPES[9/*Fuse.Drawing.SolidColor*/]))->SetColor1(v_, origin);
 }
 
 // public override sealed bool get_SupportsOriginSetter() :104
@@ -1129,17 +1107,17 @@ void FuseControlsPrimitives_FuseDrawingSolidColor_Color_Property__get_SupportsOr
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_FuseDrawingStroke_Brush_Property :55
 // {
 static void FuseControlsPrimitives_FuseDrawingStroke_Brush_Property_build(uType* type)
 {
-    ::TYPES[9] = ::g::Fuse::Drawing::Stroke_typeof();
+    ::TYPES[10] = ::g::Fuse::Drawing::Stroke_typeof();
     type->SetBase(::g::Uno::UX::Property1_typeof()->MakeType(::g::Fuse::Drawing::Brush_typeof(), NULL));
     type->SetFields(1,
-        ::TYPES[9/*Fuse.Drawing.Stroke*/], offsetof(FuseControlsPrimitives_FuseDrawingStroke_Brush_Property, _obj), uFieldFlagsWeak);
+        ::TYPES[10/*Fuse.Drawing.Stroke*/], offsetof(FuseControlsPrimitives_FuseDrawingStroke_Brush_Property, _obj), uFieldFlagsWeak);
 }
 
 ::g::Uno::UX::Property1_type* FuseControlsPrimitives_FuseDrawingStroke_Brush_Property_typeof()
@@ -1163,7 +1141,7 @@ static void FuseControlsPrimitives_FuseDrawingStroke_Brush_Property_build(uType*
 // public override sealed Fuse.Drawing.Brush Get(Uno.UX.PropertyObject obj) :60
 void FuseControlsPrimitives_FuseDrawingStroke_Brush_Property__Get1_fn(FuseControlsPrimitives_FuseDrawingStroke_Brush_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Fuse::Drawing::Brush** __retval)
 {
-    return *__retval = uPtr(uCast< ::g::Fuse::Drawing::Stroke*>(obj, ::TYPES[9/*Fuse.Drawing.Stroke*/]))->Brush(), void();
+    return *__retval = uPtr(uCast< ::g::Fuse::Drawing::Stroke*>(obj, ::TYPES[10/*Fuse.Drawing.Stroke*/]))->Brush(), void();
 }
 
 // public override sealed Uno.UX.PropertyObject get_Object() :59
@@ -1175,21 +1153,21 @@ void FuseControlsPrimitives_FuseDrawingStroke_Brush_Property__get_Object_fn(Fuse
 // public override sealed void Set(Uno.UX.PropertyObject obj, Fuse.Drawing.Brush v, Uno.UX.IPropertyListener origin) :61
 void FuseControlsPrimitives_FuseDrawingStroke_Brush_Property__Set1_fn(FuseControlsPrimitives_FuseDrawingStroke_Brush_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Fuse::Drawing::Brush* v, uObject* origin)
 {
-    uPtr(uCast< ::g::Fuse::Drawing::Stroke*>(obj, ::TYPES[9/*Fuse.Drawing.Stroke*/]))->Brush(v);
+    uPtr(uCast< ::g::Fuse::Drawing::Stroke*>(obj, ::TYPES[10/*Fuse.Drawing.Stroke*/]))->Brush(v);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_FuseDrawingStroke_Color_Property :79
 // {
 static void FuseControlsPrimitives_FuseDrawingStroke_Color_Property_build(uType* type)
 {
-    ::TYPES[9] = ::g::Fuse::Drawing::Stroke_typeof();
+    ::TYPES[10] = ::g::Fuse::Drawing::Stroke_typeof();
     type->SetBase(::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::Float4_typeof(), NULL));
     type->SetFields(1,
-        ::TYPES[9/*Fuse.Drawing.Stroke*/], offsetof(FuseControlsPrimitives_FuseDrawingStroke_Color_Property, _obj), uFieldFlagsWeak);
+        ::TYPES[10/*Fuse.Drawing.Stroke*/], offsetof(FuseControlsPrimitives_FuseDrawingStroke_Color_Property, _obj), uFieldFlagsWeak);
 }
 
 ::g::Uno::UX::Property1_type* FuseControlsPrimitives_FuseDrawingStroke_Color_Property_typeof()
@@ -1220,7 +1198,7 @@ void FuseControlsPrimitives_FuseDrawingStroke_Color_Property__ctor_3_fn(FuseCont
 // public override sealed float4 Get(Uno.UX.PropertyObject obj) :84
 void FuseControlsPrimitives_FuseDrawingStroke_Color_Property__Get1_fn(FuseControlsPrimitives_FuseDrawingStroke_Color_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* __retval)
 {
-    return *__retval = uPtr(uCast< ::g::Fuse::Drawing::Stroke*>(obj, ::TYPES[9/*Fuse.Drawing.Stroke*/]))->Color(), void();
+    return *__retval = uPtr(uCast< ::g::Fuse::Drawing::Stroke*>(obj, ::TYPES[10/*Fuse.Drawing.Stroke*/]))->Color(), void();
 }
 
 // public FuseControlsPrimitives_FuseDrawingStroke_Color_Property New(Fuse.Drawing.Stroke obj, Uno.UX.Selector name) :82
@@ -1239,7 +1217,7 @@ void FuseControlsPrimitives_FuseDrawingStroke_Color_Property__get_Object_fn(Fuse
 void FuseControlsPrimitives_FuseDrawingStroke_Color_Property__Set1_fn(FuseControlsPrimitives_FuseDrawingStroke_Color_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* v, uObject* origin)
 {
     ::g::Uno::Float4 v_ = *v;
-    uPtr(uCast< ::g::Fuse::Drawing::Stroke*>(obj, ::TYPES[9/*Fuse.Drawing.Stroke*/]))->SetColor(v_, origin);
+    uPtr(uCast< ::g::Fuse::Drawing::Stroke*>(obj, ::TYPES[10/*Fuse.Drawing.Stroke*/]))->SetColor(v_, origin);
 }
 
 // public override sealed bool get_SupportsOriginSetter() :86
@@ -1264,17 +1242,17 @@ FuseControlsPrimitives_FuseDrawingStroke_Color_Property* FuseControlsPrimitives_
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property :63
 // {
 static void FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property_build(uType* type)
 {
-    ::TYPES[10] = ::g::Fuse::Effects::DropShadow_typeof();
+    ::TYPES[11] = ::g::Fuse::Effects::DropShadow_typeof();
     type->SetBase(::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::Float_typeof(), NULL));
     type->SetFields(1,
-        ::TYPES[10/*Fuse.Effects.DropShadow*/], offsetof(FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property, _obj), uFieldFlagsWeak);
+        ::TYPES[11/*Fuse.Effects.DropShadow*/], offsetof(FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property, _obj), uFieldFlagsWeak);
 }
 
 ::g::Uno::UX::Property1_type* FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property_typeof()
@@ -1298,7 +1276,7 @@ static void FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property_build
 // public override sealed float Get(Uno.UX.PropertyObject obj) :68
 void FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property__Get1_fn(FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property* __this, ::g::Uno::UX::PropertyObject* obj, float* __retval)
 {
-    return *__retval = uPtr(uCast< ::g::Fuse::Effects::DropShadow*>(obj, ::TYPES[10/*Fuse.Effects.DropShadow*/]))->Distance(), void();
+    return *__retval = uPtr(uCast< ::g::Fuse::Effects::DropShadow*>(obj, ::TYPES[11/*Fuse.Effects.DropShadow*/]))->Distance(), void();
 }
 
 // public override sealed Uno.UX.PropertyObject get_Object() :67
@@ -1311,21 +1289,21 @@ void FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property__get_Object_
 void FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property__Set1_fn(FuseControlsPrimitives_FuseEffectsDropShadow_Distance_Property* __this, ::g::Uno::UX::PropertyObject* obj, float* v, uObject* origin)
 {
     float v_ = *v;
-    uPtr(uCast< ::g::Fuse::Effects::DropShadow*>(obj, ::TYPES[10/*Fuse.Effects.DropShadow*/]))->Distance(v_);
+    uPtr(uCast< ::g::Fuse::Effects::DropShadow*>(obj, ::TYPES[11/*Fuse.Effects.DropShadow*/]))->Distance(v_);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property :71
 // {
 static void FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property_build(uType* type)
 {
-    ::TYPES[10] = ::g::Fuse::Effects::DropShadow_typeof();
+    ::TYPES[11] = ::g::Fuse::Effects::DropShadow_typeof();
     type->SetBase(::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::Float_typeof(), NULL));
     type->SetFields(1,
-        ::TYPES[10/*Fuse.Effects.DropShadow*/], offsetof(FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property, _obj), uFieldFlagsWeak);
+        ::TYPES[11/*Fuse.Effects.DropShadow*/], offsetof(FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property, _obj), uFieldFlagsWeak);
 }
 
 ::g::Uno::UX::Property1_type* FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property_typeof()
@@ -1349,7 +1327,7 @@ static void FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property_build(uTy
 // public override sealed float Get(Uno.UX.PropertyObject obj) :76
 void FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property__Get1_fn(FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property* __this, ::g::Uno::UX::PropertyObject* obj, float* __retval)
 {
-    return *__retval = uPtr(uCast< ::g::Fuse::Effects::DropShadow*>(obj, ::TYPES[10/*Fuse.Effects.DropShadow*/]))->Size(), void();
+    return *__retval = uPtr(uCast< ::g::Fuse::Effects::DropShadow*>(obj, ::TYPES[11/*Fuse.Effects.DropShadow*/]))->Size(), void();
 }
 
 // public override sealed Uno.UX.PropertyObject get_Object() :75
@@ -1362,21 +1340,21 @@ void FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property__get_Object_fn(F
 void FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property__Set1_fn(FuseControlsPrimitives_FuseEffectsDropShadow_Size_Property* __this, ::g::Uno::UX::PropertyObject* obj, float* v, uObject* origin)
 {
     float v_ = *v;
-    uPtr(uCast< ::g::Fuse::Effects::DropShadow*>(obj, ::TYPES[10/*Fuse.Effects.DropShadow*/]))->Size(v_);
+    uPtr(uCast< ::g::Fuse::Effects::DropShadow*>(obj, ::TYPES[11/*Fuse.Effects.DropShadow*/]))->Size(v_);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_FuseElementsElement_Opacity_Property :38
 // {
 static void FuseControlsPrimitives_FuseElementsElement_Opacity_Property_build(uType* type)
 {
-    ::TYPES[11] = ::g::Fuse::Elements::Element_typeof();
+    ::TYPES[3] = ::g::Fuse::Elements::Element_typeof();
     type->SetBase(::g::Uno::UX::Property1_typeof()->MakeType(::g::Uno::Float_typeof(), NULL));
     type->SetFields(1,
-        ::TYPES[11/*Fuse.Elements.Element*/], offsetof(FuseControlsPrimitives_FuseElementsElement_Opacity_Property, _obj), uFieldFlagsWeak);
+        ::TYPES[3/*Fuse.Elements.Element*/], offsetof(FuseControlsPrimitives_FuseElementsElement_Opacity_Property, _obj), uFieldFlagsWeak);
 }
 
 ::g::Uno::UX::Property1_type* FuseControlsPrimitives_FuseElementsElement_Opacity_Property_typeof()
@@ -1407,7 +1385,7 @@ void FuseControlsPrimitives_FuseElementsElement_Opacity_Property__ctor_3_fn(Fuse
 // public override sealed float Get(Uno.UX.PropertyObject obj) :43
 void FuseControlsPrimitives_FuseElementsElement_Opacity_Property__Get1_fn(FuseControlsPrimitives_FuseElementsElement_Opacity_Property* __this, ::g::Uno::UX::PropertyObject* obj, float* __retval)
 {
-    return *__retval = uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[11/*Fuse.Elements.Element*/]))->Opacity(), void();
+    return *__retval = uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[3/*Fuse.Elements.Element*/]))->Opacity(), void();
 }
 
 // public FuseControlsPrimitives_FuseElementsElement_Opacity_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) :41
@@ -1426,7 +1404,7 @@ void FuseControlsPrimitives_FuseElementsElement_Opacity_Property__get_Object_fn(
 void FuseControlsPrimitives_FuseElementsElement_Opacity_Property__Set1_fn(FuseControlsPrimitives_FuseElementsElement_Opacity_Property* __this, ::g::Uno::UX::PropertyObject* obj, float* v, uObject* origin)
 {
     float v_ = *v;
-    uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[11/*Fuse.Elements.Element*/]))->SetOpacity(v_, origin);
+    uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[3/*Fuse.Elements.Element*/]))->SetOpacity(v_, origin);
 }
 
 // public override sealed bool get_SupportsOriginSetter() :45
@@ -1451,7 +1429,7 @@ FuseControlsPrimitives_FuseElementsElement_Opacity_Property* FuseControlsPrimiti
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.4.2\.uno\ux13\Fuse.Controls.Primitives.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Primitives\1.9.0\.uno\ux15\Fuse.Controls.Primitives.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsPrimitives_FuseGesturesSwipeGesture_IsActive_Property :88
@@ -1509,7 +1487,7 @@ void FuseControlsPrimitives_FuseGesturesSwipeGesture_IsActive_Property__get_Supp
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.4.2\.uno\ux13\Fuse.Controls.ScrollView.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.9.0\.uno\ux15\Fuse.Controls.ScrollView.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView :1
@@ -1517,16 +1495,15 @@ void FuseControlsPrimitives_FuseGesturesSwipeGesture_IsActive_Property__get_Supp
 // static generated FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView() :1
 static void FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView::Singleton_ = FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView::New1();
-    FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView::_name_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[36/*"KeepFocusIn...*/]);
+    FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView::_name_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[29/*"KeepFocusIn...*/]);
 }
 
 static void FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView_build(uType* type)
 {
-    ::STRINGS[36] = uString::Const("KeepFocusInView");
+    ::STRINGS[29] = uString::Const("KeepFocusInView");
     ::TYPES[13] = ::g::Fuse::Controls::ScrollViewBase_typeof();
-    ::TYPES[5] = ::g::Uno::Type_typeof();
+    ::TYPES[6] = ::g::Uno::Type_typeof();
     type->SetFields(0,
         ::g::Uno::UX::PropertyAccessor_typeof(), (uintptr_t)&FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView::Singleton_, uFieldFlagsStatic,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView::_name_, uFieldFlagsStatic);
@@ -1607,7 +1584,7 @@ FuseControlsScrollView_accessor_Fuse_Controls_ScrollViewBase_KeepFocusInView* Fu
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.4.2\.uno\ux13\Fuse.Controls.ScrollView.unoproj.g.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.9.0\.uno\ux15\Fuse.Controls.ScrollView.unoproj.g.uno
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed class FuseControlsScrollView_FuseTriggersWhileBool_Value_Property :10
@@ -1685,7 +1662,7 @@ FuseControlsScrollView_FuseTriggersWhileBool_Value_Property* FuseControlsScrollV
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Video\1.4.2\.uno\package
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Video\1.9.0\.uno\package
 // ----------------------------------------------------------------------------------------------
 
 // public static generated class FuseControlsVideo_bundle :0
@@ -1693,14 +1670,13 @@ FuseControlsScrollView_FuseTriggersWhileBool_Value_Property* FuseControlsScrollV
 // static FuseControlsVideo_bundle() :0
 static void FuseControlsVideo_bundle__cctor__fn(uType* __type)
 {
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseControlsVideo_bundle::Scale9Rectangleda875692_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[37/*"uniform flo...*/], ::STRINGS[38/*"uniform sam...*/], 0, 2, uArray::Init<uString*>(::TYPES[0/*string[]*/], 16, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[20/*"q"*/]));
-    FuseControlsVideo_bundle::VideoDrawElement5c829975_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[39/*"uniform mat...*/], ::STRINGS[40/*"uniform sam...*/], 1, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[3/*"b"*/], ::STRINGS[2/*"a"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[11/*"h"*/]));
+    FuseControlsVideo_bundle::Scale9Rectangleda875692_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[30/*"uniform flo...*/], ::STRINGS[31/*"uniform sam...*/], 0, 2, uArray::Init<uString*>(::TYPES[0/*string[]*/], 16, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[22/*"q"*/]));
+    FuseControlsVideo_bundle::VideoDrawElement5c829975_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[32/*"uniform mat...*/], ::STRINGS[33/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[13/*"h"*/]));
 }
 
 static void FuseControlsVideo_bundle_build(uType* type)
 {
-    ::STRINGS[37] = uString::Const("uniform float c, d, e, f, g, h, k, l, m, n;\r\n"
+    ::STRINGS[30] = uString::Const("uniform float c, d, e, f, g, h, k, l, m, n;\r\n"
         "uniform mat4 i, j;\r\n"
         "uniform vec2 o;\r\n"
         "\r\n"
@@ -1714,7 +1690,7 @@ static void FuseControlsVideo_bundle_build(uType* type)
         "    gl_Position = j * (i * vec4(vec2(((a.x * c) + (a.y * d)) + (a.z * e), ((b.x * f) + (b.y * g)) + (b.z * h)), float(0), float(1)));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[38] = uString::Const("uniform samplerExternalOES q;\r\n"
+    ::STRINGS[31] = uString::Const("uniform samplerExternalOES q;\r\n"
         "\r\n"
         "varying vec2 p;\r\n"
         "\r\n"
@@ -1726,46 +1702,34 @@ static void FuseControlsVideo_bundle_build(uType* type)
     ::STRINGS[2] = uString::Const("a");
     ::STRINGS[3] = uString::Const("b");
     ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[5] = uString::Const("d");
-    ::STRINGS[9] = uString::Const("e");
-    ::STRINGS[6] = uString::Const("f");
-    ::STRINGS[10] = uString::Const("g");
-    ::STRINGS[11] = uString::Const("h");
-    ::STRINGS[12] = uString::Const("i");
-    ::STRINGS[13] = uString::Const("j");
-    ::STRINGS[14] = uString::Const("k");
-    ::STRINGS[15] = uString::Const("l");
-    ::STRINGS[16] = uString::Const("m");
-    ::STRINGS[17] = uString::Const("n");
-    ::STRINGS[18] = uString::Const("o");
-    ::STRINGS[20] = uString::Const("q");
-    ::STRINGS[39] = uString::Const("uniform mat4 f, c;\r\n"
-        "uniform vec2 d, e;\r\n"
+    ::STRINGS[7] = uString::Const("d");
+    ::STRINGS[11] = uString::Const("e");
+    ::STRINGS[8] = uString::Const("f");
+    ::STRINGS[12] = uString::Const("g");
+    ::STRINGS[13] = uString::Const("h");
+    ::STRINGS[14] = uString::Const("i");
+    ::STRINGS[15] = uString::Const("j");
+    ::STRINGS[16] = uString::Const("k");
+    ::STRINGS[17] = uString::Const("l");
+    ::STRINGS[18] = uString::Const("m");
+    ::STRINGS[19] = uString::Const("n");
+    ::STRINGS[20] = uString::Const("o");
+    ::STRINGS[22] = uString::Const("q");
+    ::STRINGS[32] = uString::Const("uniform mat4 f, b;\r\n"
+        "uniform vec2 c, d;\r\n"
+        "uniform mat3 e;\r\n"
         "\r\n"
         "attribute vec2 a;\r\n"
         "\r\n"
         "varying vec2 g;\r\n"
         "\r\n"
-        "vec2 i(vec2 j){\r\n"
-        "    vec2 k = j.xy;\r\n"
-        "\r\n"
-        "    if (b == 1)\r\n"
-        "        return vec2(k.y, 1.0 - k.x);\r\n"
-        "    else if (b == 2)\r\n"
-        "        return vec2(1.0 - k.x, 1.0 - k.y);\r\n"
-        "    else if (b == 3)\r\n"
-        "        return vec2(1.0 - k.y, k.x);\r\n"
-        "    else\r\n"
-        "        return k;\r\n"
-        "}\r\n"
-        "\r\n"
         "void main()\r\n"
         "{\r\n"
-        "    g = i((a * d) + e);\r\n"
-        "    gl_Position = c * (f * vec4(vec3(a, float(0)), 1.));\r\n"
+        "    g = (e * vec3(((a * c) + d).xy, 1.0)).xy;\r\n"
+        "    gl_Position = b * (f * vec4(vec3(a, float(0)), 1.));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[40] = uString::Const("uniform samplerExternalOES h;\r\n"
+    ::STRINGS[33] = uString::Const("uniform samplerExternalOES h;\r\n"
         "\r\n"
         "varying vec2 g;\r\n"
         "\r\n"
@@ -1798,7 +1762,7 @@ uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseControlsVideo_bundle::VideoDrawElement5c829975_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.4.2\.uno\package
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing\1.9.0\.uno\package
 // ---------------------------------------------------------------------------------------
 
 // public static generated class FuseDrawing_bundle :0
@@ -1806,13 +1770,12 @@ uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>
 // static FuseDrawing_bundle() :0
 static void FuseDrawing_bundle__cctor__fn(uType* __type)
 {
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseDrawing_bundle::LinearGradientDrawable479fd075_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[41/*"attribute v...*/], ::STRINGS[42/*"uniform flo...*/], 3, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/]));
+    FuseDrawing_bundle::LinearGradientDrawable479fd075_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[34/*"attribute v...*/], ::STRINGS[35/*"uniform flo...*/], 3, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/]));
 }
 
 static void FuseDrawing_bundle_build(uType* type)
 {
-    ::STRINGS[41] = uString::Const("attribute vec2 a;\r\n"
+    ::STRINGS[34] = uString::Const("attribute vec2 a;\r\n"
         "\r\n"
         "varying vec2 h;\r\n"
         "\r\n"
@@ -1822,7 +1785,7 @@ static void FuseDrawing_bundle_build(uType* type)
         "    gl_Position = vec4((a.x * float(2)) - float(1), (-a.y * float(2)) + float(1), float(0), float(1));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[42] = uString::Const("uniform float e[b], f;\r\n"
+    ::STRINGS[35] = uString::Const("uniform float e[b], f;\r\n"
         "uniform vec4 g[c];\r\n"
         "\r\n"
         "varying vec2 h;\r\n"
@@ -1853,11 +1816,11 @@ static void FuseDrawing_bundle_build(uType* type)
         "");
     ::STRINGS[3] = uString::Const("b");
     ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[5] = uString::Const("d");
+    ::STRINGS[7] = uString::Const("d");
     ::STRINGS[2] = uString::Const("a");
-    ::STRINGS[9] = uString::Const("e");
-    ::STRINGS[6] = uString::Const("f");
-    ::STRINGS[10] = uString::Const("g");
+    ::STRINGS[11] = uString::Const("e");
+    ::STRINGS[8] = uString::Const("f");
+    ::STRINGS[12] = uString::Const("g");
     ::TYPES[0] = ::g::Uno::String_typeof()->Array();
     type->SetFields(0,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseDrawing_bundle::LinearGradientDrawable479fd075_, uFieldFlagsStatic);
@@ -1880,7 +1843,7 @@ uClassType* FuseDrawing_bundle_typeof()
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseDrawing_bundle::LinearGradientDrawable479fd075_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\.uno\package
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\.uno\package
 // --------------------------------------------------------------------------------------------------
 
 // public static generated class FuseDrawingPrimitives_bundle :0
@@ -1888,52 +1851,51 @@ uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>
 // static FuseDrawingPrimitives_bundle() :0
 static void FuseDrawingPrimitives_bundle__cctor__fn(uType* __type)
 {
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseDrawingPrimitives_bundle::Circle0f9e7404_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[43/*"uniform flo...*/], ::STRINGS[44/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 11, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/]));
-    FuseDrawingPrimitives_bundle::Circle0f9e7409_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[45/*"uniform flo...*/], ::STRINGS[46/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 14, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/]));
-    FuseDrawingPrimitives_bundle::Circle0f9e740a_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[45/*"uniform flo...*/], ::STRINGS[47/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 14, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/]));
-    FuseDrawingPrimitives_bundle::Circle17d89cad_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[48/*"uniform flo...*/], ::STRINGS[49/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 22, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[21/*"t"*/], ::STRINGS[52/*"u"*/], ::STRINGS[53/*"y"*/]));
-    FuseDrawingPrimitives_bundle::Circle1cada5ec_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[54/*"uniform flo...*/], ::STRINGS[55/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 12, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/]));
-    FuseDrawingPrimitives_bundle::Circle34b7481b_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[56/*"uniform flo...*/], ::STRINGS[57/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 9, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/]));
-    FuseDrawingPrimitives_bundle::Circle42b21980_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[58/*"uniform flo...*/], ::STRINGS[59/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 20, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[60/*"w"*/]));
-    FuseDrawingPrimitives_bundle::Circle47ebe12c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[61/*"uniform flo...*/], ::STRINGS[62/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 13, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/]));
-    FuseDrawingPrimitives_bundle::Circle61fc8f03_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[63/*"uniform flo...*/], ::STRINGS[64/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 15, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[20/*"q"*/]));
-    FuseDrawingPrimitives_bundle::Circle7a063151_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[54/*"uniform flo...*/], ::STRINGS[65/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 12, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/]));
-    FuseDrawingPrimitives_bundle::Circlea74b7839_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[66/*"uniform flo...*/], ::STRINGS[67/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 18, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[52/*"u"*/]));
-    FuseDrawingPrimitives_bundle::Circleba801148_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[68/*"uniform flo...*/], ::STRINGS[69/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 25, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[21/*"t"*/], ::STRINGS[52/*"u"*/], ::STRINGS[70/*"v"*/], ::STRINGS[60/*"w"*/], ::STRINGS[71/*"x"*/], ::STRINGS[72/*"C"*/]));
-    FuseDrawingPrimitives_bundle::Circlebf551a68_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[66/*"uniform flo...*/], ::STRINGS[73/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 18, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[52/*"u"*/]));
-    FuseDrawingPrimitives_bundle::Circled289b377_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[68/*"uniform flo...*/], ::STRINGS[74/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 25, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[21/*"t"*/], ::STRINGS[52/*"u"*/], ::STRINGS[70/*"v"*/], ::STRINGS[60/*"w"*/], ::STRINGS[71/*"x"*/], ::STRINGS[72/*"C"*/]));
-    FuseDrawingPrimitives_bundle::Circlee5598e1b_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[75/*"uniform flo...*/], ::STRINGS[76/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 17, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[51/*"s"*/]));
-    FuseDrawingPrimitives_bundle::Circleea9355c7_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[61/*"uniform flo...*/], ::STRINGS[77/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 13, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/]));
-    FuseDrawingPrimitives_bundle::Circlef7ec1d38_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[58/*"uniform flo...*/], ::STRINGS[78/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 20, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[60/*"w"*/]));
-    FuseDrawingPrimitives_bundle::Circlef7ec1df8_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[79/*"uniform flo...*/], ::STRINGS[80/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 27, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[21/*"t"*/], ::STRINGS[52/*"u"*/], ::STRINGS[70/*"v"*/], ::STRINGS[60/*"w"*/], ::STRINGS[71/*"x"*/], ::STRINGS[53/*"y"*/], ::STRINGS[81/*"z"*/], ::STRINGS[82/*"E"*/]));
-    FuseDrawingPrimitives_bundle::Circlef7ec1dfa_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[83/*"uniform flo...*/], ::STRINGS[84/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 24, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[21/*"t"*/], ::STRINGS[52/*"u"*/], ::STRINGS[70/*"v"*/], ::STRINGS[60/*"w"*/], ::STRINGS[85/*"A"*/]));
-    FuseDrawingPrimitives_bundle::Circlef7ec1dfb_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[79/*"uniform flo...*/], ::STRINGS[86/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 27, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[21/*"t"*/], ::STRINGS[52/*"u"*/], ::STRINGS[70/*"v"*/], ::STRINGS[60/*"w"*/], ::STRINGS[71/*"x"*/], ::STRINGS[53/*"y"*/], ::STRINGS[81/*"z"*/], ::STRINGS[82/*"E"*/]));
-    FuseDrawingPrimitives_bundle::Circlef7ec1ed4_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[87/*"uniform flo...*/], ::STRINGS[88/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 12, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/]));
-    FuseDrawingPrimitives_bundle::Circlef7ec1ed6_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[89/*"uniform flo...*/], ::STRINGS[90/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 15, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/]));
-    FuseDrawingPrimitives_bundle::Circlef7ec1ed7_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[89/*"uniform flo...*/], ::STRINGS[91/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 15, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/]));
-    FuseDrawingPrimitives_bundle::Circleffcefa9e_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[92/*"uniform flo...*/], ::STRINGS[93/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 10, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/]));
-    FuseDrawingPrimitives_bundle::Rectangle5aede5cb_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[94/*"uniform flo...*/], ::STRINGS[95/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 18, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[70/*"v"*/]));
-    FuseDrawingPrimitives_bundle::Rectangle5aede5cc_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[94/*"uniform flo...*/], ::STRINGS[96/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 18, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[70/*"v"*/]));
-    FuseDrawingPrimitives_bundle::Rectangle6bc1d5d3_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[97/*"uniform flo...*/], ::STRINGS[98/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 12, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/]));
-    FuseDrawingPrimitives_bundle::Rectangle6bc1d5d4_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[97/*"uniform flo...*/], ::STRINGS[99/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 12, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/]));
-    FuseDrawingPrimitives_bundle::Rectangle7c95c5e3_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[100/*"uniform flo...*/], ::STRINGS[101/*"uniform vec...*/], 3, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 25, ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[21/*"t"*/], ::STRINGS[52/*"u"*/], ::STRINGS[70/*"v"*/], ::STRINGS[60/*"w"*/], ::STRINGS[71/*"x"*/], ::STRINGS[102/*"D"*/]));
-    FuseDrawingPrimitives_bundle::Rectangle7c95c5e4_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[100/*"uniform flo...*/], ::STRINGS[103/*"uniform vec...*/], 3, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 25, ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[21/*"t"*/], ::STRINGS[52/*"u"*/], ::STRINGS[70/*"v"*/], ::STRINGS[60/*"w"*/], ::STRINGS[71/*"x"*/], ::STRINGS[102/*"D"*/]));
-    FuseDrawingPrimitives_bundle::Rectangle7fa93ce4_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[104/*"uniform flo...*/], ::STRINGS[105/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 14, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/]));
-    FuseDrawingPrimitives_bundle::Rectangle8d69b5eb_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[106/*"uniform flo...*/], ::STRINGS[107/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 13, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/]));
-    FuseDrawingPrimitives_bundle::Rectangle8d69b5ec_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[106/*"uniform flo...*/], ::STRINGS[108/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 13, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/]));
-    FuseDrawingPrimitives_bundle::Rectanglea858f3bc_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[104/*"uniform flo...*/], ::STRINGS[109/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 14, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/]));
-    FuseDrawingPrimitives_bundle::Rectanglea858f4fc_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[110/*"uniform flo...*/], ::STRINGS[111/*"uniform vec...*/], 3, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 27, ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[21/*"t"*/], ::STRINGS[52/*"u"*/], ::STRINGS[70/*"v"*/], ::STRINGS[60/*"w"*/], ::STRINGS[71/*"x"*/], ::STRINGS[53/*"y"*/], ::STRINGS[81/*"z"*/], ::STRINGS[112/*"F"*/]));
-    FuseDrawingPrimitives_bundle::Rectanglea858f503_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[110/*"uniform flo...*/], ::STRINGS[113/*"uniform vec...*/], 3, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 27, ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[21/*"t"*/], ::STRINGS[52/*"u"*/], ::STRINGS[70/*"v"*/], ::STRINGS[60/*"w"*/], ::STRINGS[71/*"x"*/], ::STRINGS[53/*"y"*/], ::STRINGS[81/*"z"*/], ::STRINGS[112/*"F"*/]));
-    FuseDrawingPrimitives_bundle::Rectanglea858f53c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[114/*"uniform flo...*/], ::STRINGS[115/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 15, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/]));
-    FuseDrawingPrimitives_bundle::Rectanglea858f53f_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[114/*"uniform flo...*/], ::STRINGS[116/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 15, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/]));
-    FuseDrawingPrimitives_bundle::Rectanglea858f57b_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[117/*"uniform flo...*/], ::STRINGS[118/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 20, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[71/*"x"*/]));
-    FuseDrawingPrimitives_bundle::Rectanglea858f57c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[117/*"uniform flo...*/], ::STRINGS[119/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 20, ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[20/*"q"*/], ::STRINGS[50/*"r"*/], ::STRINGS[51/*"s"*/], ::STRINGS[71/*"x"*/]));
+    FuseDrawingPrimitives_bundle::Circle0f9e7404_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[36/*"uniform flo...*/], ::STRINGS[37/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 11, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/]));
+    FuseDrawingPrimitives_bundle::Circle0f9e7409_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[38/*"uniform flo...*/], ::STRINGS[39/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 14, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/]));
+    FuseDrawingPrimitives_bundle::Circle0f9e740a_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[38/*"uniform flo...*/], ::STRINGS[40/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 14, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/]));
+    FuseDrawingPrimitives_bundle::Circle17d89cad_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[41/*"uniform flo...*/], ::STRINGS[42/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 22, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[23/*"t"*/], ::STRINGS[45/*"u"*/], ::STRINGS[46/*"y"*/]));
+    FuseDrawingPrimitives_bundle::Circle1cada5ec_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[47/*"uniform flo...*/], ::STRINGS[48/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 12, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/]));
+    FuseDrawingPrimitives_bundle::Circle34b7481b_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[49/*"uniform flo...*/], ::STRINGS[50/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 9, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/]));
+    FuseDrawingPrimitives_bundle::Circle42b21980_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[51/*"uniform flo...*/], ::STRINGS[52/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 20, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[53/*"w"*/]));
+    FuseDrawingPrimitives_bundle::Circle47ebe12c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[54/*"uniform flo...*/], ::STRINGS[55/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 13, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/]));
+    FuseDrawingPrimitives_bundle::Circle61fc8f03_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[56/*"uniform flo...*/], ::STRINGS[57/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 15, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[22/*"q"*/]));
+    FuseDrawingPrimitives_bundle::Circle7a063151_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[47/*"uniform flo...*/], ::STRINGS[58/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 12, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/]));
+    FuseDrawingPrimitives_bundle::Circlea74b7839_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[59/*"uniform flo...*/], ::STRINGS[60/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 18, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[45/*"u"*/]));
+    FuseDrawingPrimitives_bundle::Circleba801148_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[61/*"uniform flo...*/], ::STRINGS[62/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 25, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[23/*"t"*/], ::STRINGS[45/*"u"*/], ::STRINGS[63/*"v"*/], ::STRINGS[53/*"w"*/], ::STRINGS[64/*"x"*/], ::STRINGS[65/*"C"*/]));
+    FuseDrawingPrimitives_bundle::Circlebf551a68_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[59/*"uniform flo...*/], ::STRINGS[66/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 18, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[45/*"u"*/]));
+    FuseDrawingPrimitives_bundle::Circled289b377_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[61/*"uniform flo...*/], ::STRINGS[67/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 25, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[23/*"t"*/], ::STRINGS[45/*"u"*/], ::STRINGS[63/*"v"*/], ::STRINGS[53/*"w"*/], ::STRINGS[64/*"x"*/], ::STRINGS[65/*"C"*/]));
+    FuseDrawingPrimitives_bundle::Circlee5598e1b_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[68/*"uniform flo...*/], ::STRINGS[69/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 17, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[44/*"s"*/]));
+    FuseDrawingPrimitives_bundle::Circleea9355c7_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[54/*"uniform flo...*/], ::STRINGS[70/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 13, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/]));
+    FuseDrawingPrimitives_bundle::Circlef7ec1d38_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[51/*"uniform flo...*/], ::STRINGS[71/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 20, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[53/*"w"*/]));
+    FuseDrawingPrimitives_bundle::Circlef7ec1df8_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[72/*"uniform flo...*/], ::STRINGS[73/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 27, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[23/*"t"*/], ::STRINGS[45/*"u"*/], ::STRINGS[63/*"v"*/], ::STRINGS[53/*"w"*/], ::STRINGS[64/*"x"*/], ::STRINGS[46/*"y"*/], ::STRINGS[74/*"z"*/], ::STRINGS[75/*"E"*/]));
+    FuseDrawingPrimitives_bundle::Circlef7ec1dfa_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[76/*"uniform flo...*/], ::STRINGS[77/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 24, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[23/*"t"*/], ::STRINGS[45/*"u"*/], ::STRINGS[63/*"v"*/], ::STRINGS[53/*"w"*/], ::STRINGS[78/*"A"*/]));
+    FuseDrawingPrimitives_bundle::Circlef7ec1dfb_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[72/*"uniform flo...*/], ::STRINGS[79/*"uniform vec...*/], 2, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 27, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[2/*"a"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[23/*"t"*/], ::STRINGS[45/*"u"*/], ::STRINGS[63/*"v"*/], ::STRINGS[53/*"w"*/], ::STRINGS[64/*"x"*/], ::STRINGS[46/*"y"*/], ::STRINGS[74/*"z"*/], ::STRINGS[75/*"E"*/]));
+    FuseDrawingPrimitives_bundle::Circlef7ec1ed4_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[80/*"uniform flo...*/], ::STRINGS[81/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 12, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/]));
+    FuseDrawingPrimitives_bundle::Circlef7ec1ed6_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[82/*"uniform flo...*/], ::STRINGS[83/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 15, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/]));
+    FuseDrawingPrimitives_bundle::Circlef7ec1ed7_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[82/*"uniform flo...*/], ::STRINGS[84/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 15, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/]));
+    FuseDrawingPrimitives_bundle::Circleffcefa9e_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[85/*"uniform flo...*/], ::STRINGS[86/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 10, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/]));
+    FuseDrawingPrimitives_bundle::Rectangle5aede5cb_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[87/*"uniform flo...*/], ::STRINGS[88/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 18, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[63/*"v"*/]));
+    FuseDrawingPrimitives_bundle::Rectangle5aede5cc_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[87/*"uniform flo...*/], ::STRINGS[89/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 18, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[63/*"v"*/]));
+    FuseDrawingPrimitives_bundle::Rectangle6bc1d5d3_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[90/*"uniform flo...*/], ::STRINGS[91/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 12, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/]));
+    FuseDrawingPrimitives_bundle::Rectangle6bc1d5d4_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[90/*"uniform flo...*/], ::STRINGS[92/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 12, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/]));
+    FuseDrawingPrimitives_bundle::Rectangle7c95c5e3_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[93/*"uniform flo...*/], ::STRINGS[94/*"uniform vec...*/], 3, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 25, ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[23/*"t"*/], ::STRINGS[45/*"u"*/], ::STRINGS[63/*"v"*/], ::STRINGS[53/*"w"*/], ::STRINGS[64/*"x"*/], ::STRINGS[95/*"D"*/]));
+    FuseDrawingPrimitives_bundle::Rectangle7c95c5e4_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[93/*"uniform flo...*/], ::STRINGS[96/*"uniform vec...*/], 3, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 25, ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[23/*"t"*/], ::STRINGS[45/*"u"*/], ::STRINGS[63/*"v"*/], ::STRINGS[53/*"w"*/], ::STRINGS[64/*"x"*/], ::STRINGS[95/*"D"*/]));
+    FuseDrawingPrimitives_bundle::Rectangle7fa93ce4_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[97/*"uniform flo...*/], ::STRINGS[98/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 14, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/]));
+    FuseDrawingPrimitives_bundle::Rectangle8d69b5eb_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[99/*"uniform flo...*/], ::STRINGS[100/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 13, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/]));
+    FuseDrawingPrimitives_bundle::Rectangle8d69b5ec_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[99/*"uniform flo...*/], ::STRINGS[101/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 13, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/]));
+    FuseDrawingPrimitives_bundle::Rectanglea858f3bc_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[97/*"uniform flo...*/], ::STRINGS[102/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 14, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/]));
+    FuseDrawingPrimitives_bundle::Rectanglea858f4fc_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[103/*"uniform flo...*/], ::STRINGS[104/*"uniform vec...*/], 3, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 27, ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[23/*"t"*/], ::STRINGS[45/*"u"*/], ::STRINGS[63/*"v"*/], ::STRINGS[53/*"w"*/], ::STRINGS[64/*"x"*/], ::STRINGS[46/*"y"*/], ::STRINGS[74/*"z"*/], ::STRINGS[105/*"F"*/]));
+    FuseDrawingPrimitives_bundle::Rectanglea858f503_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[103/*"uniform flo...*/], ::STRINGS[106/*"uniform vec...*/], 3, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 27, ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[23/*"t"*/], ::STRINGS[45/*"u"*/], ::STRINGS[63/*"v"*/], ::STRINGS[53/*"w"*/], ::STRINGS[64/*"x"*/], ::STRINGS[46/*"y"*/], ::STRINGS[74/*"z"*/], ::STRINGS[105/*"F"*/]));
+    FuseDrawingPrimitives_bundle::Rectanglea858f53c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[107/*"uniform flo...*/], ::STRINGS[108/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 15, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/]));
+    FuseDrawingPrimitives_bundle::Rectanglea858f53f_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[107/*"uniform flo...*/], ::STRINGS[109/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 15, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/]));
+    FuseDrawingPrimitives_bundle::Rectanglea858f57b_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[110/*"uniform flo...*/], ::STRINGS[111/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 20, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[64/*"x"*/]));
+    FuseDrawingPrimitives_bundle::Rectanglea858f57c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[110/*"uniform flo...*/], ::STRINGS[112/*"uniform flo...*/], 1, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 20, ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[22/*"q"*/], ::STRINGS[43/*"r"*/], ::STRINGS[44/*"s"*/], ::STRINGS[64/*"x"*/]));
 }
 
 static void FuseDrawingPrimitives_bundle_build(uType* type)
 {
-    ::STRINGS[43] = uString::Const("uniform float b, e;\r\n"
+    ::STRINGS[36] = uString::Const("uniform float b, e;\r\n"
         "uniform vec2 c;\r\n"
         "uniform mat4 d;\r\n"
         "\r\n"
@@ -1948,7 +1910,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(m + c, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[44] = uString::Const("uniform float f, g, h, i, j;\r\n"
+    ::STRINGS[37] = uString::Const("uniform float f, g, h, i, j;\r\n"
         "uniform vec4 k;\r\n"
         "\r\n"
         "varying vec2 l;\r\n"
@@ -1961,15 +1923,15 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
     ::STRINGS[2] = uString::Const("a");
     ::STRINGS[3] = uString::Const("b");
     ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[5] = uString::Const("d");
-    ::STRINGS[9] = uString::Const("e");
-    ::STRINGS[6] = uString::Const("f");
-    ::STRINGS[10] = uString::Const("g");
-    ::STRINGS[11] = uString::Const("h");
-    ::STRINGS[12] = uString::Const("i");
-    ::STRINGS[13] = uString::Const("j");
-    ::STRINGS[14] = uString::Const("k");
-    ::STRINGS[45] = uString::Const("uniform float b, e;\r\n"
+    ::STRINGS[7] = uString::Const("d");
+    ::STRINGS[11] = uString::Const("e");
+    ::STRINGS[8] = uString::Const("f");
+    ::STRINGS[12] = uString::Const("g");
+    ::STRINGS[13] = uString::Const("h");
+    ::STRINGS[14] = uString::Const("i");
+    ::STRINGS[15] = uString::Const("j");
+    ::STRINGS[16] = uString::Const("k");
+    ::STRINGS[38] = uString::Const("uniform float b, e;\r\n"
         "uniform vec2 c;\r\n"
         "uniform mat4 d;\r\n"
         "\r\n"
@@ -1985,7 +1947,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(q + c, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[46] = uString::Const("uniform float f, g, h, i, j;\r\n"
+    ::STRINGS[39] = uString::Const("uniform float f, g, h, i, j;\r\n"
         "uniform vec2 l, m, n;\r\n"
         "uniform vec4 k;\r\n"
         "\r\n"
@@ -1996,10 +1958,10 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = k * (clamp(0.5 - (((abs(((length(o) - 1.0) * f) - g) - h) * i) * j), float(0), float(1)) * clamp(0.5 - ((max(dot(p, l), max(dot(p, m), dot(p, n))) * i) * j), float(0), float(1)));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[15] = uString::Const("l");
-    ::STRINGS[16] = uString::Const("m");
-    ::STRINGS[17] = uString::Const("n");
-    ::STRINGS[47] = uString::Const("uniform float f, g, h, i, j;\r\n"
+    ::STRINGS[17] = uString::Const("l");
+    ::STRINGS[18] = uString::Const("m");
+    ::STRINGS[19] = uString::Const("n");
+    ::STRINGS[40] = uString::Const("uniform float f, g, h, i, j;\r\n"
         "uniform vec2 l, m, n;\r\n"
         "uniform vec4 k;\r\n"
         "\r\n"
@@ -2010,7 +1972,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = k * (clamp(0.5 - (((abs(((length(o) - 1.0) * f) - g) - h) * i) * j), float(0), float(1)) * clamp(0.5 - ((min(dot(p, l), min(dot(p, m), dot(p, n))) * i) * j), float(0), float(1)));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[48] = uString::Const("uniform float d, q;\r\n"
+    ::STRINGS[41] = uString::Const("uniform float d, q;\r\n"
         "uniform vec2 e, g, h, i, j, k, m, l;\r\n"
         "uniform mat4 f;\r\n"
         "\r\n"
@@ -2029,7 +1991,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = f * vec4(A, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[49] = uString::Const("uniform vec2 o, n;\r\n"
+    ::STRINGS[42] = uString::Const("uniform vec2 o, n;\r\n"
         "uniform vec4 p;\r\n"
         "uniform float r, s, t, u;\r\n"
         "\r\n"
@@ -2043,15 +2005,15 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (vec4(z.xyz * z.w, z.w) * (clamp(0.5 - ((((length(x) - 1.0) * r) * s) * t), float(0), float(1)) * float(1))) * u;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[18] = uString::Const("o");
-    ::STRINGS[19] = uString::Const("p");
-    ::STRINGS[20] = uString::Const("q");
-    ::STRINGS[50] = uString::Const("r");
-    ::STRINGS[51] = uString::Const("s");
-    ::STRINGS[21] = uString::Const("t");
-    ::STRINGS[52] = uString::Const("u");
-    ::STRINGS[53] = uString::Const("y");
-    ::STRINGS[54] = uString::Const("uniform float b, e;\r\n"
+    ::STRINGS[20] = uString::Const("o");
+    ::STRINGS[21] = uString::Const("p");
+    ::STRINGS[22] = uString::Const("q");
+    ::STRINGS[43] = uString::Const("r");
+    ::STRINGS[44] = uString::Const("s");
+    ::STRINGS[23] = uString::Const("t");
+    ::STRINGS[45] = uString::Const("u");
+    ::STRINGS[46] = uString::Const("y");
+    ::STRINGS[47] = uString::Const("uniform float b, e;\r\n"
         "uniform vec2 c;\r\n"
         "uniform mat4 d;\r\n"
         "\r\n"
@@ -2067,7 +2029,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(o + c, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[55] = uString::Const("uniform float f, g, h;\r\n"
+    ::STRINGS[48] = uString::Const("uniform float f, g, h;\r\n"
         "uniform vec2 j, k, l;\r\n"
         "uniform vec4 i;\r\n"
         "\r\n"
@@ -2078,7 +2040,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = i * (clamp(0.5 - ((((length(m) - 1.0) * f) * g) * h), float(0), float(1)) * clamp(0.5 - ((max(dot(n, j), max(dot(n, k), dot(n, l))) * g) * h), float(0), float(1)));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[56] = uString::Const("uniform float b, e;\r\n"
+    ::STRINGS[49] = uString::Const("uniform float b, e;\r\n"
         "uniform vec2 c;\r\n"
         "uniform mat4 d;\r\n"
         "\r\n"
@@ -2093,7 +2055,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(k + c, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[57] = uString::Const("uniform float f, g, h;\r\n"
+    ::STRINGS[50] = uString::Const("uniform float f, g, h;\r\n"
         "uniform vec4 i;\r\n"
         "\r\n"
         "varying vec2 j;\r\n"
@@ -2103,7 +2065,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = i * (clamp(0.5 - ((((length(j) - 1.0) * f) * g) * h), float(0), float(1)) * float(1));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[58] = uString::Const("uniform float b, p, g;\r\n"
+    ::STRINGS[51] = uString::Const("uniform float b, p, g;\r\n"
         "uniform vec2 c, e, f, o;\r\n"
         "uniform mat4 d;\r\n"
         "uniform vec4 n;\r\n"
@@ -2129,7 +2091,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(z, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[59] = uString::Const("uniform float h, i, j, k, l, m;\r\n"
+    ::STRINGS[52] = uString::Const("uniform float h, i, j, k, l, m;\r\n"
         "uniform vec2 q, r, s;\r\n"
         "\r\n"
         "uniform sampler2D w;\r\n"
@@ -2142,8 +2104,8 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (texture2D(w, vec2(t, 0.5)) * (clamp(0.5 - (((abs(((length(u) - 1.0) * h) - i) - j) * k) * l), float(0), float(1)) * clamp(0.5 - ((max(dot(v, q), max(dot(v, r), dot(v, s))) * k) * l), float(0), float(1)))) * m;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[60] = uString::Const("w");
-    ::STRINGS[61] = uString::Const("uniform float b, e;\r\n"
+    ::STRINGS[53] = uString::Const("w");
+    ::STRINGS[54] = uString::Const("uniform float b, e;\r\n"
         "uniform vec2 c;\r\n"
         "uniform mat4 d;\r\n"
         "\r\n"
@@ -2159,7 +2121,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(p + c, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[62] = uString::Const("uniform float f, g, h, j;\r\n"
+    ::STRINGS[55] = uString::Const("uniform float f, g, h, j;\r\n"
         "uniform vec2 k, l, m;\r\n"
         "uniform vec4 i;\r\n"
         "\r\n"
@@ -2170,7 +2132,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (i * (clamp(0.5 - ((((length(n) - 1.0) * f) * g) * h), float(0), float(1)) * clamp(0.5 - ((max(dot(o, k), max(dot(o, l), dot(o, m))) * g) * h), float(0), float(1)))) * j;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[63] = uString::Const("uniform float b, n, g;\r\n"
+    ::STRINGS[56] = uString::Const("uniform float b, n, g;\r\n"
         "uniform vec2 c, e, f, m;\r\n"
         "uniform mat4 d;\r\n"
         "uniform vec4 l;\r\n"
@@ -2195,7 +2157,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(t, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[64] = uString::Const("uniform float h, i, j, k;\r\n"
+    ::STRINGS[57] = uString::Const("uniform float h, i, j, k;\r\n"
         "\r\n"
         "uniform sampler2D q;\r\n"
         "\r\n"
@@ -2207,7 +2169,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (texture2D(q, vec2(o, 0.5)) * (clamp(0.5 - ((((length(p) - 1.0) * h) * i) * j), float(0), float(1)) * float(1))) * k;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[65] = uString::Const("uniform float f, g, h;\r\n"
+    ::STRINGS[58] = uString::Const("uniform float f, g, h;\r\n"
         "uniform vec2 j, k, l;\r\n"
         "uniform vec4 i;\r\n"
         "\r\n"
@@ -2218,7 +2180,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = i * (clamp(0.5 - ((((length(m) - 1.0) * f) * g) * h), float(0), float(1)) * clamp(0.5 - ((min(dot(n, j), min(dot(n, k), dot(n, l))) * g) * h), float(0), float(1)));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[66] = uString::Const("uniform float b, n, g;\r\n"
+    ::STRINGS[59] = uString::Const("uniform float b, n, g;\r\n"
         "uniform vec2 c, e, f, m;\r\n"
         "uniform mat4 d;\r\n"
         "uniform vec4 l;\r\n"
@@ -2244,7 +2206,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(x, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[67] = uString::Const("uniform float h, i, j, k;\r\n"
+    ::STRINGS[60] = uString::Const("uniform float h, i, j, k;\r\n"
         "uniform vec2 o, p, q;\r\n"
         "\r\n"
         "uniform sampler2D u;\r\n"
@@ -2257,7 +2219,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (texture2D(u, vec2(r, 0.5)) * (clamp(0.5 - ((((length(s) - 1.0) * h) * i) * j), float(0), float(1)) * clamp(0.5 - ((min(dot(t, o), min(dot(t, p), dot(t, q))) * i) * j), float(0), float(1)))) * k;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[68] = uString::Const("uniform float d, q;\r\n"
+    ::STRINGS[61] = uString::Const("uniform float d, q;\r\n"
         "uniform vec2 e, g, h, i, j, k, m, l;\r\n"
         "uniform mat4 f;\r\n"
         "\r\n"
@@ -2277,7 +2239,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = f * vec4(E, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[69] = uString::Const("uniform vec2 o, n, v, w, x;\r\n"
+    ::STRINGS[62] = uString::Const("uniform vec2 o, n, v, w, x;\r\n"
         "uniform vec4 p;\r\n"
         "uniform float r, s, t, u;\r\n"
         "\r\n"
@@ -2291,10 +2253,10 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (vec4(D.xyz * D.w, D.w) * (clamp(0.5 - ((((length(A) - 1.0) * r) * s) * t), float(0), float(1)) * clamp(0.5 - ((max(dot(B, v), max(dot(B, w), dot(B, x))) * s) * t), float(0), float(1)))) * u;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[70] = uString::Const("v");
-    ::STRINGS[71] = uString::Const("x");
-    ::STRINGS[72] = uString::Const("C");
-    ::STRINGS[73] = uString::Const("uniform float h, i, j, k;\r\n"
+    ::STRINGS[63] = uString::Const("v");
+    ::STRINGS[64] = uString::Const("x");
+    ::STRINGS[65] = uString::Const("C");
+    ::STRINGS[66] = uString::Const("uniform float h, i, j, k;\r\n"
         "uniform vec2 o, p, q;\r\n"
         "\r\n"
         "uniform sampler2D u;\r\n"
@@ -2307,7 +2269,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (texture2D(u, vec2(r, 0.5)) * (clamp(0.5 - ((((length(s) - 1.0) * h) * i) * j), float(0), float(1)) * clamp(0.5 - ((max(dot(t, o), max(dot(t, p), dot(t, q))) * i) * j), float(0), float(1)))) * k;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[74] = uString::Const("uniform vec2 o, n, v, w, x;\r\n"
+    ::STRINGS[67] = uString::Const("uniform vec2 o, n, v, w, x;\r\n"
         "uniform vec4 p;\r\n"
         "uniform float r, s, t, u;\r\n"
         "\r\n"
@@ -2321,7 +2283,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (vec4(D.xyz * D.w, D.w) * (clamp(0.5 - ((((length(A) - 1.0) * r) * s) * t), float(0), float(1)) * clamp(0.5 - ((min(dot(B, v), min(dot(B, w), dot(B, x))) * s) * t), float(0), float(1)))) * u;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[75] = uString::Const("uniform float b, p, g;\r\n"
+    ::STRINGS[68] = uString::Const("uniform float b, p, g;\r\n"
         "uniform vec2 c, e, f, o;\r\n"
         "uniform mat4 d;\r\n"
         "uniform vec4 n;\r\n"
@@ -2346,7 +2308,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(v, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[76] = uString::Const("uniform float h, i, j, k, l, m;\r\n"
+    ::STRINGS[69] = uString::Const("uniform float h, i, j, k, l, m;\r\n"
         "\r\n"
         "uniform sampler2D s;\r\n"
         "\r\n"
@@ -2358,7 +2320,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (texture2D(s, vec2(q, 0.5)) * (clamp(0.5 - (((abs(((length(r) - 1.0) * h) - i) - j) * k) * l), float(0), float(1)) * float(1))) * m;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[77] = uString::Const("uniform float f, g, h, j;\r\n"
+    ::STRINGS[70] = uString::Const("uniform float f, g, h, j;\r\n"
         "uniform vec2 k, l, m;\r\n"
         "uniform vec4 i;\r\n"
         "\r\n"
@@ -2369,7 +2331,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (i * (clamp(0.5 - ((((length(n) - 1.0) * f) * g) * h), float(0), float(1)) * clamp(0.5 - ((min(dot(o, k), min(dot(o, l), dot(o, m))) * g) * h), float(0), float(1)))) * j;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[78] = uString::Const("uniform float h, i, j, k, l, m;\r\n"
+    ::STRINGS[71] = uString::Const("uniform float h, i, j, k, l, m;\r\n"
         "uniform vec2 q, r, s;\r\n"
         "\r\n"
         "uniform sampler2D w;\r\n"
@@ -2382,7 +2344,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (texture2D(w, vec2(t, 0.5)) * (clamp(0.5 - (((abs(((length(u) - 1.0) * h) - i) - j) * k) * l), float(0), float(1)) * clamp(0.5 - ((min(dot(v, q), min(dot(v, r), dot(v, s))) * k) * l), float(0), float(1)))) * m;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[79] = uString::Const("uniform float d, q;\r\n"
+    ::STRINGS[72] = uString::Const("uniform float d, q;\r\n"
         "uniform vec2 e, g, h, i, j, k, m, l;\r\n"
         "uniform mat4 f;\r\n"
         "\r\n"
@@ -2402,7 +2364,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = f * vec4(G, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[80] = uString::Const("uniform vec2 o, n, x, y, z;\r\n"
+    ::STRINGS[73] = uString::Const("uniform vec2 o, n, x, y, z;\r\n"
         "uniform vec4 p;\r\n"
         "uniform float r, s, t, u, v, w;\r\n"
         "\r\n"
@@ -2416,9 +2378,9 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (vec4(F.xyz * F.w, F.w) * (clamp(0.5 - (((abs(((length(C) - 1.0) * r) - s) - t) * u) * v), float(0), float(1)) * clamp(0.5 - ((min(dot(D, x), min(dot(D, y), dot(D, z))) * u) * v), float(0), float(1)))) * w;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[81] = uString::Const("z");
-    ::STRINGS[82] = uString::Const("E");
-    ::STRINGS[83] = uString::Const("uniform float d, q;\r\n"
+    ::STRINGS[74] = uString::Const("z");
+    ::STRINGS[75] = uString::Const("E");
+    ::STRINGS[76] = uString::Const("uniform float d, q;\r\n"
         "uniform vec2 e, g, h, i, j, k, m, l;\r\n"
         "uniform mat4 f;\r\n"
         "\r\n"
@@ -2437,7 +2399,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = f * vec4(C, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[84] = uString::Const("uniform vec2 o, n;\r\n"
+    ::STRINGS[77] = uString::Const("uniform vec2 o, n;\r\n"
         "uniform vec4 p;\r\n"
         "uniform float r, s, t, u, v, w;\r\n"
         "\r\n"
@@ -2451,8 +2413,8 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (vec4(B.xyz * B.w, B.w) * (clamp(0.5 - (((abs(((length(z) - 1.0) * r) - s) - t) * u) * v), float(0), float(1)) * float(1))) * w;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[85] = uString::Const("A");
-    ::STRINGS[86] = uString::Const("uniform vec2 o, n, x, y, z;\r\n"
+    ::STRINGS[78] = uString::Const("A");
+    ::STRINGS[79] = uString::Const("uniform vec2 o, n, x, y, z;\r\n"
         "uniform vec4 p;\r\n"
         "uniform float r, s, t, u, v, w;\r\n"
         "\r\n"
@@ -2466,7 +2428,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (vec4(F.xyz * F.w, F.w) * (clamp(0.5 - (((abs(((length(C) - 1.0) * r) - s) - t) * u) * v), float(0), float(1)) * clamp(0.5 - ((max(dot(D, x), max(dot(D, y), dot(D, z))) * u) * v), float(0), float(1)))) * w;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[87] = uString::Const("uniform float b, e;\r\n"
+    ::STRINGS[80] = uString::Const("uniform float b, e;\r\n"
         "uniform vec2 c;\r\n"
         "uniform mat4 d;\r\n"
         "\r\n"
@@ -2481,7 +2443,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(n + c, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[88] = uString::Const("uniform float f, g, h, i, j, l;\r\n"
+    ::STRINGS[81] = uString::Const("uniform float f, g, h, i, j, l;\r\n"
         "uniform vec4 k;\r\n"
         "\r\n"
         "varying vec2 m;\r\n"
@@ -2491,7 +2453,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (k * (clamp(0.5 - (((abs(((length(m) - 1.0) * f) - g) - h) * i) * j), float(0), float(1)) * float(1))) * l;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[89] = uString::Const("uniform float b, e;\r\n"
+    ::STRINGS[82] = uString::Const("uniform float b, e;\r\n"
         "uniform vec2 c;\r\n"
         "uniform mat4 d;\r\n"
         "\r\n"
@@ -2507,7 +2469,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(r + c, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[90] = uString::Const("uniform float f, g, h, i, j, l;\r\n"
+    ::STRINGS[83] = uString::Const("uniform float f, g, h, i, j, l;\r\n"
         "uniform vec2 m, n, o;\r\n"
         "uniform vec4 k;\r\n"
         "\r\n"
@@ -2518,7 +2480,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (k * (clamp(0.5 - (((abs(((length(p) - 1.0) * f) - g) - h) * i) * j), float(0), float(1)) * clamp(0.5 - ((min(dot(q, m), min(dot(q, n), dot(q, o))) * i) * j), float(0), float(1)))) * l;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[91] = uString::Const("uniform float f, g, h, i, j, l;\r\n"
+    ::STRINGS[84] = uString::Const("uniform float f, g, h, i, j, l;\r\n"
         "uniform vec2 m, n, o;\r\n"
         "uniform vec4 k;\r\n"
         "\r\n"
@@ -2529,7 +2491,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (k * (clamp(0.5 - (((abs(((length(p) - 1.0) * f) - g) - h) * i) * j), float(0), float(1)) * clamp(0.5 - ((max(dot(q, m), max(dot(q, n), dot(q, o))) * i) * j), float(0), float(1)))) * l;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[92] = uString::Const("uniform float b, e;\r\n"
+    ::STRINGS[85] = uString::Const("uniform float b, e;\r\n"
         "uniform vec2 c;\r\n"
         "uniform mat4 d;\r\n"
         "\r\n"
@@ -2544,7 +2506,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = d * vec4(l + c, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[93] = uString::Const("uniform float f, g, h, j;\r\n"
+    ::STRINGS[86] = uString::Const("uniform float f, g, h, j;\r\n"
         "uniform vec4 i;\r\n"
         "\r\n"
         "varying vec2 k;\r\n"
@@ -2554,7 +2516,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (i * (clamp(0.5 - ((((length(k) - 1.0) * f) * g) * h), float(0), float(1)) * float(1))) * j;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[94] = uString::Const("uniform float e[d], q, j;\r\n"
+    ::STRINGS[87] = uString::Const("uniform float e[d], q, j;\r\n"
         "uniform vec2 f, h, i, p;\r\n"
         "uniform mat4 g;\r\n"
         "uniform vec4 o;\r\n"
@@ -2581,7 +2543,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = g * vec4(x, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[95] = uString::Const("uniform float k, l, m, n;\r\n"
+    ::STRINGS[88] = uString::Const("uniform float k, l, m, n;\r\n"
         "\r\n"
         "uniform sampler2D v;\r\n"
         "\r\n"
@@ -2593,7 +2555,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (texture2D(v, vec2(s, 0.5)) * clamp(0.5 - ((((distance(t, u) * k) - r) * l) * m), float(0), float(1))) * n;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[96] = uString::Const("uniform float k, l, m, n;\r\n"
+    ::STRINGS[89] = uString::Const("uniform float k, l, m, n;\r\n"
         "\r\n"
         "uniform sampler2D v;\r\n"
         "\r\n"
@@ -2606,7 +2568,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (texture2D(v, vec2(s, 0.5)) * (((x * x) * x) * ((x * ((x * float(6)) - float(15))) + float(10)))) * n;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[97] = uString::Const("uniform float e[d], h;\r\n"
+    ::STRINGS[90] = uString::Const("uniform float e[d], h;\r\n"
         "uniform vec2 f;\r\n"
         "uniform mat4 g;\r\n"
         "\r\n"
@@ -2625,7 +2587,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = g * vec4(p, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[98] = uString::Const("uniform float i, j, k;\r\n"
+    ::STRINGS[91] = uString::Const("uniform float i, j, k;\r\n"
         "uniform vec4 l;\r\n"
         "\r\n"
         "varying float m;\r\n"
@@ -2636,7 +2598,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = l * clamp(0.5 - ((((distance(n, o) * i) - m) * j) * k), float(0), float(1));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[99] = uString::Const("uniform float i, j, k;\r\n"
+    ::STRINGS[92] = uString::Const("uniform float i, j, k;\r\n"
         "uniform vec4 l;\r\n"
         "\r\n"
         "varying float m;\r\n"
@@ -2648,7 +2610,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = l * (((p * p) * p) * ((p * ((p * float(6)) - float(15))) + float(10)));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[100] = uString::Const("uniform float g[d], t;\r\n"
+    ::STRINGS[93] = uString::Const("uniform float g[d], t;\r\n"
         "uniform vec2 h, j, k, l, m, n, p, o;\r\n"
         "uniform mat4 i;\r\n"
         "\r\n"
@@ -2670,7 +2632,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = i * vec4(E, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[101] = uString::Const("uniform vec2 r, q;\r\n"
+    ::STRINGS[94] = uString::Const("uniform vec2 r, q;\r\n"
         "uniform vec4 s;\r\n"
         "uniform float u, v, w, x;\r\n"
         "\r\n"
@@ -2685,8 +2647,8 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (vec4(E.xyz * E.w, E.w) * clamp(0.5 - ((((distance(B, C) * u) - y) * v) * w), float(0), float(1))) * x;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[102] = uString::Const("D");
-    ::STRINGS[103] = uString::Const("uniform vec2 r, q;\r\n"
+    ::STRINGS[95] = uString::Const("D");
+    ::STRINGS[96] = uString::Const("uniform vec2 r, q;\r\n"
         "uniform vec4 s;\r\n"
         "uniform float u, v, w, x;\r\n"
         "\r\n"
@@ -2702,7 +2664,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (vec4(E.xyz * E.w, E.w) * (((F * F) * F) * ((F * ((F * float(6)) - float(15))) + float(10)))) * x;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[104] = uString::Const("uniform float e[d], h;\r\n"
+    ::STRINGS[97] = uString::Const("uniform float e[d], h;\r\n"
         "uniform vec2 f;\r\n"
         "uniform mat4 g;\r\n"
         "\r\n"
@@ -2721,7 +2683,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = g * vec4(r, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[105] = uString::Const("uniform float i, j, k, l, m;\r\n"
+    ::STRINGS[98] = uString::Const("uniform float i, j, k, l, m;\r\n"
         "uniform vec4 n;\r\n"
         "\r\n"
         "varying float o;\r\n"
@@ -2732,7 +2694,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = n * clamp(0.5 - (((abs(((distance(p, q) * i) - o) - j) - k) * l) * m), float(0), float(1));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[106] = uString::Const("uniform float e[d], h;\r\n"
+    ::STRINGS[99] = uString::Const("uniform float e[d], h;\r\n"
         "uniform vec2 f;\r\n"
         "uniform mat4 g;\r\n"
         "\r\n"
@@ -2751,7 +2713,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = g * vec4(q, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[107] = uString::Const("uniform float i, j, k, m;\r\n"
+    ::STRINGS[100] = uString::Const("uniform float i, j, k, m;\r\n"
         "uniform vec4 l;\r\n"
         "\r\n"
         "varying float n;\r\n"
@@ -2762,7 +2724,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (l * clamp(0.5 - ((((distance(o, p) * i) - n) * j) * k), float(0), float(1))) * m;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[108] = uString::Const("uniform float i, j, k, m;\r\n"
+    ::STRINGS[101] = uString::Const("uniform float i, j, k, m;\r\n"
         "uniform vec4 l;\r\n"
         "\r\n"
         "varying float n;\r\n"
@@ -2774,7 +2736,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (l * (((q * q) * q) * ((q * ((q * float(6)) - float(15))) + float(10)))) * m;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[109] = uString::Const("uniform float i, j, k, l, m;\r\n"
+    ::STRINGS[102] = uString::Const("uniform float i, j, k, l, m;\r\n"
         "uniform vec4 n;\r\n"
         "\r\n"
         "varying float o;\r\n"
@@ -2786,7 +2748,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = n * (((r * r) * r) * ((r * ((r * float(6)) - float(15))) + float(10)));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[110] = uString::Const("uniform float g[d], t;\r\n"
+    ::STRINGS[103] = uString::Const("uniform float g[d], t;\r\n"
         "uniform vec2 h, j, k, l, m, n, p, o;\r\n"
         "uniform mat4 i;\r\n"
         "\r\n"
@@ -2808,7 +2770,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = i * vec4(G, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[111] = uString::Const("uniform vec2 r, q;\r\n"
+    ::STRINGS[104] = uString::Const("uniform vec2 r, q;\r\n"
         "uniform vec4 s;\r\n"
         "uniform float u, v, w, x, y, z;\r\n"
         "\r\n"
@@ -2824,8 +2786,8 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (vec4(G.xyz * G.w, G.w) * (((H * H) * H) * ((H * ((H * float(6)) - float(15))) + float(10)))) * z;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[112] = uString::Const("F");
-    ::STRINGS[113] = uString::Const("uniform vec2 r, q;\r\n"
+    ::STRINGS[105] = uString::Const("F");
+    ::STRINGS[106] = uString::Const("uniform vec2 r, q;\r\n"
         "uniform vec4 s;\r\n"
         "uniform float u, v, w, x, y, z;\r\n"
         "\r\n"
@@ -2840,7 +2802,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (vec4(G.xyz * G.w, G.w) * clamp(0.5 - (((abs(((distance(D, E) * u) - A) - v) - w) * x) * y), float(0), float(1))) * z;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[114] = uString::Const("uniform float e[d], h;\r\n"
+    ::STRINGS[107] = uString::Const("uniform float e[d], h;\r\n"
         "uniform vec2 f;\r\n"
         "uniform mat4 g;\r\n"
         "\r\n"
@@ -2859,7 +2821,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = g * vec4(s, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[115] = uString::Const("uniform float i, j, k, l, m, o;\r\n"
+    ::STRINGS[108] = uString::Const("uniform float i, j, k, l, m, o;\r\n"
         "uniform vec4 n;\r\n"
         "\r\n"
         "varying float p;\r\n"
@@ -2871,7 +2833,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (n * (((s * s) * s) * ((s * ((s * float(6)) - float(15))) + float(10)))) * o;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[116] = uString::Const("uniform float i, j, k, l, m, o;\r\n"
+    ::STRINGS[109] = uString::Const("uniform float i, j, k, l, m, o;\r\n"
         "uniform vec4 n;\r\n"
         "\r\n"
         "varying float p;\r\n"
@@ -2882,7 +2844,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (n * clamp(0.5 - (((abs(((distance(q, r) * i) - p) - j) - k) * l) * m), float(0), float(1))) * o;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[117] = uString::Const("uniform float e[d], s, j;\r\n"
+    ::STRINGS[110] = uString::Const("uniform float e[d], s, j;\r\n"
         "uniform vec2 f, h, i, r;\r\n"
         "uniform mat4 g;\r\n"
         "uniform vec4 q;\r\n"
@@ -2909,7 +2871,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_Position = g * vec4(z, 0., 1.);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[118] = uString::Const("uniform float k, l, m, n, o, p;\r\n"
+    ::STRINGS[111] = uString::Const("uniform float k, l, m, n, o, p;\r\n"
         "\r\n"
         "uniform sampler2D x;\r\n"
         "\r\n"
@@ -2921,7 +2883,7 @@ static void FuseDrawingPrimitives_bundle_build(uType* type)
         "    gl_FragColor = (texture2D(x, vec2(u, 0.5)) * clamp(0.5 - (((abs(((distance(v, w) * k) - t) - l) - m) * n) * o), float(0), float(1))) * p;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[119] = uString::Const("uniform float k, l, m, n, o, p;\r\n"
+    ::STRINGS[112] = uString::Const("uniform float k, l, m, n, o, p;\r\n"
         "\r\n"
         "uniform sampler2D x;\r\n"
         "\r\n"
@@ -3034,90 +2996,7 @@ uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseDrawingPrimitives_bundle::Rectanglea858f57c_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Surface\1.4.2\.uno\package
-// -----------------------------------------------------------------------------------------------
-
-// public static generated class FuseDrawingSurface_bundle :0
-// {
-// static FuseDrawingSurface_bundle() :0
-static void FuseDrawingSurface_bundle__cctor__fn(uType* __type)
-{
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseDrawingSurface_bundle::AndroidGraphicsDrawHelperfe97d8e2_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[120/*"attribute v...*/], ::STRINGS[121/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 2, ::STRINGS[2/*"a"*/], ::STRINGS[4/*"c"*/]));
-    FuseDrawingSurface_bundle::Surface541b21c2_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[26/*"uniform mat...*/], ::STRINGS[27/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 4, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/]));
-}
-
-static void FuseDrawingSurface_bundle_build(uType* type)
-{
-    ::STRINGS[120] = uString::Const("attribute vec2 a;\r\n"
-        "\r\n"
-        "varying vec2 b;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    b = vec2(a.x, float(1) - a.y);\r\n"
-        "    gl_Position = vec4((a * float(2)) - float(1), float(0), float(1));\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[121] = uString::Const("uniform sampler2D c;\r\n"
-        "\r\n"
-        "varying vec2 b;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_FragColor = texture2D(c, b);\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[2] = uString::Const("a");
-    ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[26] = uString::Const("uniform mat4 c, b;\r\n"
-        "\r\n"
-        "attribute vec2 a;\r\n"
-        "\r\n"
-        "varying vec2 d;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    d = true ? vec2(a.x, float(1) - a.y) : a;\r\n"
-        "    gl_Position = b * (c * vec4(vec3(a, float(0)), 1.));\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[27] = uString::Const("uniform sampler2D e;\r\n"
-        "\r\n"
-        "varying vec2 d;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_FragColor = texture2D(e, d);\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[3] = uString::Const("b");
-    ::STRINGS[9] = uString::Const("e");
-    ::TYPES[0] = ::g::Uno::String_typeof()->Array();
-    type->SetFields(0,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseDrawingSurface_bundle::AndroidGraphicsDrawHelperfe97d8e2_, uFieldFlagsStatic,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseDrawingSurface_bundle::Surface541b21c2_, uFieldFlagsStatic);
-}
-
-uClassType* FuseDrawingSurface_bundle_typeof()
-{
-    static uSStrong<uClassType*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.FieldCount = 2;
-    options.TypeSize = sizeof(uClassType);
-    type = uClassType::New("FuseDrawingSurface_bundle", options);
-    type->fp_build_ = FuseDrawingSurface_bundle_build;
-    type->fp_cctor_ = FuseDrawingSurface_bundle__cctor__fn;
-    return type;
-}
-
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseDrawingSurface_bundle::AndroidGraphicsDrawHelperfe97d8e2_;
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseDrawingSurface_bundle::Surface541b21c2_;
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Effects\1.4.2\.uno\package
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Effects\1.9.0\.uno\package
 // ---------------------------------------------------------------------------------------
 
 // public static generated class FuseEffects_bundle :0
@@ -3125,24 +3004,22 @@ uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>
 // static FuseEffects_bundle() :0
 static void FuseEffects_bundle__cctor__fn(uType* __type)
 {
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseEffects_bundle::Blitter6e650d31_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[122/*"uniform mat...*/], ::STRINGS[123/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[11/*"h"*/]));
-    FuseEffects_bundle::Blur115443aa_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[26/*"uniform mat...*/], ::STRINGS[27/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 4, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/]));
-    FuseEffects_bundle::Desaturate88bb7f94_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[30/*"uniform mat...*/], ::STRINGS[124/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 5, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[6/*"f"*/]));
-    FuseEffects_bundle::Duotone26eb7e3c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[122/*"uniform mat...*/], ::STRINGS[125/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[11/*"h"*/]));
-    FuseEffects_bundle::EffectHelpers52052d40_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[126/*"attribute v...*/], ::STRINGS[127/*"uniform flo...*/], 3, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[11/*"h"*/]));
-    FuseEffects_bundle::EffectHelpers9b892494_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[128/*"attribute v...*/], ::STRINGS[121/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 2, ::STRINGS[2/*"a"*/], ::STRINGS[4/*"c"*/]));
-    FuseEffects_bundle::EffectHelpersd8c2e3e5_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[129/*"uniform vec...*/], ::STRINGS[130/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 11, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[21/*"t"*/]));
-    FuseEffects_bundle::EffectHelperse7e608d1_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[131/*"uniform vec...*/], ::STRINGS[132/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 8, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[16/*"m"*/]));
-    FuseEffects_bundle::Halftone3c4c510c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[133/*"uniform mat...*/], ::STRINGS[134/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 14, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[20/*"q"*/]));
-    FuseEffects_bundle::Mask0da73af7_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[135/*"uniform mat...*/], ::STRINGS[136/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/]));
-    FuseEffects_bundle::Mask6affc65c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[135/*"uniform mat...*/], ::STRINGS[137/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/]));
-    FuseEffects_bundle::Maskb04eaf92_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[135/*"uniform mat...*/], ::STRINGS[138/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/]));
+    FuseEffects_bundle::Blitter6e650d31_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[113/*"uniform mat...*/], ::STRINGS[114/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[13/*"h"*/]));
+    FuseEffects_bundle::Desaturate88bb7f94_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[115/*"uniform mat...*/], ::STRINGS[116/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 5, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[8/*"f"*/]));
+    FuseEffects_bundle::Duotone26eb7e3c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[113/*"uniform mat...*/], ::STRINGS[117/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[13/*"h"*/]));
+    FuseEffects_bundle::EffectHelpers52052d40_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[118/*"attribute v...*/], ::STRINGS[119/*"uniform flo...*/], 3, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[2/*"a"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[13/*"h"*/]));
+    FuseEffects_bundle::EffectHelpers9b892494_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[120/*"attribute v...*/], ::STRINGS[121/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 2, ::STRINGS[2/*"a"*/], ::STRINGS[4/*"c"*/]));
+    FuseEffects_bundle::EffectHelpersd8c2e3e5_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[122/*"uniform vec...*/], ::STRINGS[123/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 11, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[23/*"t"*/]));
+    FuseEffects_bundle::EffectHelperse7e608d1_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[124/*"uniform vec...*/], ::STRINGS[125/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 8, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[18/*"m"*/]));
+    FuseEffects_bundle::Halftone3c4c510c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[126/*"uniform mat...*/], ::STRINGS[127/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 14, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[22/*"q"*/]));
+    FuseEffects_bundle::Mask0da73af7_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[128/*"uniform mat...*/], ::STRINGS[129/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/]));
+    FuseEffects_bundle::Mask6affc65c_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[128/*"uniform mat...*/], ::STRINGS[130/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/]));
+    FuseEffects_bundle::Maskb04eaf92_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[128/*"uniform mat...*/], ::STRINGS[131/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 7, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/]));
 }
 
 static void FuseEffects_bundle_build(uType* type)
 {
-    ::STRINGS[122] = uString::Const("uniform mat4 f, b;\r\n"
+    ::STRINGS[113] = uString::Const("uniform mat4 f, b;\r\n"
         "\r\n"
         "attribute vec2 a;\r\n"
         "\r\n"
@@ -3154,7 +3031,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_Position = b * (f * vec4(vec3(a, float(0)), 1.));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[123] = uString::Const("uniform vec3 e;\r\n"
+    ::STRINGS[114] = uString::Const("uniform vec3 e;\r\n"
         "uniform float c, d;\r\n"
         "\r\n"
         "uniform sampler2D h;\r\n"
@@ -3169,32 +3046,11 @@ static void FuseEffects_bundle_build(uType* type)
     ::STRINGS[2] = uString::Const("a");
     ::STRINGS[3] = uString::Const("b");
     ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[5] = uString::Const("d");
-    ::STRINGS[9] = uString::Const("e");
-    ::STRINGS[6] = uString::Const("f");
-    ::STRINGS[11] = uString::Const("h");
-    ::STRINGS[26] = uString::Const("uniform mat4 c, b;\r\n"
-        "\r\n"
-        "attribute vec2 a;\r\n"
-        "\r\n"
-        "varying vec2 d;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    d = true ? vec2(a.x, float(1) - a.y) : a;\r\n"
-        "    gl_Position = b * (c * vec4(vec3(a, float(0)), 1.));\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[27] = uString::Const("uniform sampler2D e;\r\n"
-        "\r\n"
-        "varying vec2 d;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_FragColor = texture2D(e, d);\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[30] = uString::Const("uniform mat4 d, b;\r\n"
+    ::STRINGS[7] = uString::Const("d");
+    ::STRINGS[11] = uString::Const("e");
+    ::STRINGS[8] = uString::Const("f");
+    ::STRINGS[13] = uString::Const("h");
+    ::STRINGS[115] = uString::Const("uniform mat4 d, b;\r\n"
         "\r\n"
         "attribute vec2 a;\r\n"
         "\r\n"
@@ -3206,7 +3062,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_Position = b * (d * vec4(vec3(a, float(0)), 1.));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[124] = uString::Const("uniform float c;\r\n"
+    ::STRINGS[116] = uString::Const("uniform float c;\r\n"
         "\r\n"
         "uniform sampler2D f;\r\n"
         "\r\n"
@@ -3219,7 +3075,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_FragColor = vec4(mix(h.xyz, vec3(sqrt(dot(h.xyz * h.xyz, vec3(0.299, 0.587, 0.114)))), c), h.w);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[125] = uString::Const("uniform vec3 c, d;\r\n"
+    ::STRINGS[117] = uString::Const("uniform vec3 c, d;\r\n"
         "uniform float e;\r\n"
         "\r\n"
         "uniform sampler2D h;\r\n"
@@ -3233,7 +3089,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_FragColor = vec4(mix(j.xyz, mix(c, d, sqrt(dot(j.xyz * j.xyz, vec3(0.299, 0.587, 0.114)))).xyz, e), j.w);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[126] = uString::Const("attribute vec2 a;\r\n"
+    ::STRINGS[118] = uString::Const("attribute vec2 a;\r\n"
         "\r\n"
         "varying vec2 g;\r\n"
         "\r\n"
@@ -3244,7 +3100,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_Position = vec4(j, float(1));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[127] = uString::Const("uniform float e[b];\r\n"
+    ::STRINGS[119] = uString::Const("uniform float e[b];\r\n"
         "uniform vec2 f[d];\r\n"
         "\r\n"
         "uniform sampler2D h;\r\n"
@@ -3268,7 +3124,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_FragColor = i(g);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[128] = uString::Const("attribute vec2 a;\r\n"
+    ::STRINGS[120] = uString::Const("attribute vec2 a;\r\n"
         "\r\n"
         "varying vec2 b;\r\n"
         "\r\n"
@@ -3288,7 +3144,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_FragColor = texture2D(c, b);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[129] = uString::Const("uniform vec2 c, e, f, h, i, j;\r\n"
+    ::STRINGS[122] = uString::Const("uniform vec2 c, e, f, h, i, j;\r\n"
         "\r\n"
         "attribute vec2 a;\r\n"
         "\r\n"
@@ -3310,7 +3166,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_Position = vec4(u, float(1));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[130] = uString::Const("uniform float b, d, g;\r\n"
+    ::STRINGS[123] = uString::Const("uniform float b, d, g;\r\n"
         "\r\n"
         "uniform sampler2D t;\r\n"
         "\r\n"
@@ -3321,11 +3177,11 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_FragColor = ((((((((texture2D(t, k) * b) + (texture2D(t, l) * d)) + (texture2D(t, m) * d)) + (texture2D(t, n) * d)) + (texture2D(t, o) * d)) + (texture2D(t, p) * g)) + (texture2D(t, q) * g)) + (texture2D(t, r) * g)) + (texture2D(t, s) * g);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[10] = uString::Const("g");
-    ::STRINGS[12] = uString::Const("i");
-    ::STRINGS[13] = uString::Const("j");
-    ::STRINGS[21] = uString::Const("t");
-    ::STRINGS[131] = uString::Const("uniform vec2 c, e, f, g;\r\n"
+    ::STRINGS[12] = uString::Const("g");
+    ::STRINGS[14] = uString::Const("i");
+    ::STRINGS[15] = uString::Const("j");
+    ::STRINGS[23] = uString::Const("t");
+    ::STRINGS[124] = uString::Const("uniform vec2 c, e, f, g;\r\n"
         "\r\n"
         "attribute vec2 a;\r\n"
         "\r\n"
@@ -3343,7 +3199,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_Position = vec4(n, float(1));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[132] = uString::Const("uniform float b, d;\r\n"
+    ::STRINGS[125] = uString::Const("uniform float b, d;\r\n"
         "\r\n"
         "uniform sampler2D m;\r\n"
         "\r\n"
@@ -3354,8 +3210,8 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_FragColor = ((((texture2D(m, h) * b) + (texture2D(m, i) * d)) + (texture2D(m, j) * d)) + (texture2D(m, k) * d)) + (texture2D(m, l) * d);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[16] = uString::Const("m");
-    ::STRINGS[133] = uString::Const("uniform mat4 m, b;\r\n"
+    ::STRINGS[18] = uString::Const("m");
+    ::STRINGS[126] = uString::Const("uniform mat4 m, b;\r\n"
         "uniform vec2 g, h;\r\n"
         "uniform mat2 i;\r\n"
         "\r\n"
@@ -3373,7 +3229,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_Position = b * (m * vec4(vec3(a, float(0)), 1.));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[134] = uString::Const("uniform float c, d, e, f, k, l;\r\n"
+    ::STRINGS[127] = uString::Const("uniform float c, d, e, f, k, l;\r\n"
         "uniform mat2 j;\r\n"
         "\r\n"
         "uniform sampler2D q;\r\n"
@@ -3386,10 +3242,10 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_FragColor = mix(mix(vec4(float(1), float(1), float(1), r.w), r, c), mix(vec4(float(0), float(0), float(0), r.w), r, d), clamp(0.5 - ((((((float(1) - sqrt((float(1) - dot(r.xyz * r.xyz, vec3(0.299, 0.587, 0.114))) / 3.14159274)) * e) * f) - length(p - (j * ((floor(o / e) + 0.5) * e)))) * k) * l), float(0), float(1)));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[14] = uString::Const("k");
-    ::STRINGS[15] = uString::Const("l");
-    ::STRINGS[20] = uString::Const("q");
-    ::STRINGS[135] = uString::Const("uniform mat4 e, b;\r\n"
+    ::STRINGS[16] = uString::Const("k");
+    ::STRINGS[17] = uString::Const("l");
+    ::STRINGS[22] = uString::Const("q");
+    ::STRINGS[128] = uString::Const("uniform mat4 e, b;\r\n"
         "uniform vec2 c, d;\r\n"
         "\r\n"
         "attribute vec2 a;\r\n"
@@ -3404,7 +3260,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_Position = b * (e * vec4(vec3(a, float(0)), 1.));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[136] = uString::Const("uniform sampler2D h, i;\r\n"
+    ::STRINGS[129] = uString::Const("uniform sampler2D h, i;\r\n"
         "\r\n"
         "varying vec2 f, g;\r\n"
         "\r\n"
@@ -3413,7 +3269,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_FragColor = texture2D(h, f) * texture2D(i, g).x;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[137] = uString::Const("uniform sampler2D h, i;\r\n"
+    ::STRINGS[130] = uString::Const("uniform sampler2D h, i;\r\n"
         "\r\n"
         "varying vec2 f, g;\r\n"
         "\r\n"
@@ -3423,7 +3279,7 @@ static void FuseEffects_bundle_build(uType* type)
         "    gl_FragColor = texture2D(h, f) * vec4(j.xyz * j.w, j.w);\r\n"
         "}\r\n"
         "");
-    ::STRINGS[138] = uString::Const("uniform sampler2D h, i;\r\n"
+    ::STRINGS[131] = uString::Const("uniform sampler2D h, i;\r\n"
         "\r\n"
         "varying vec2 f, g;\r\n"
         "\r\n"
@@ -3435,7 +3291,6 @@ static void FuseEffects_bundle_build(uType* type)
     ::TYPES[0] = ::g::Uno::String_typeof()->Array();
     type->SetFields(0,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseEffects_bundle::Blitter6e650d31_, uFieldFlagsStatic,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseEffects_bundle::Blur115443aa_, uFieldFlagsStatic,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseEffects_bundle::Desaturate88bb7f94_, uFieldFlagsStatic,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseEffects_bundle::Duotone26eb7e3c_, uFieldFlagsStatic,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseEffects_bundle::EffectHelpers52052d40_, uFieldFlagsStatic,
@@ -3454,7 +3309,7 @@ uClassType* FuseEffects_bundle_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 12;
+    options.FieldCount = 11;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("FuseEffects_bundle", options);
     type->fp_build_ = FuseEffects_bundle_build;
@@ -3463,7 +3318,6 @@ uClassType* FuseEffects_bundle_typeof()
 }
 
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseEffects_bundle::Blitter6e650d31_;
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseEffects_bundle::Blur115443aa_;
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseEffects_bundle::Desaturate88bb7f94_;
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseEffects_bundle::Duotone26eb7e3c_;
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseEffects_bundle::EffectHelpers52052d40_;
@@ -3476,7 +3330,7 @@ uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseEffects_bundle::Maskb04eaf92_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\.uno\package
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\.uno\package
 // ----------------------------------------------------------------------------------------
 
 // public static generated class FuseElements_bundle :0
@@ -3484,48 +3338,14 @@ uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>
 // static FuseElements_bundle() :0
 static void FuseElements_bundle__cctor__fn(uType* __type)
 {
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseElements_bundle::CacheHelper230c69b7_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[139/*"uniform vec...*/], ::STRINGS[140/*"uniform flo...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 6, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[10/*"g"*/]));
-    FuseElements_bundle::ElementBatchd43eeb4e_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[141/*"uniform mat...*/], ::STRINGS[142/*"uniform sam...*/], 0, 2, uArray::Init<uString*>(::TYPES[0/*string[]*/], 4, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[6/*"f"*/]));
-    FuseElements_bundle::ElementDraw1f583284_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[24/*"uniform mat...*/], ::STRINGS[25/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 4, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/]));
-    FuseElements_bundle::RepeatBaker447c61dc_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[143/*"uniform vec...*/], ::STRINGS[144/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 4, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[9/*"e"*/]));
-    FuseElements_bundle::Scale9Rectangle720ad3ad_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[145/*"uniform flo...*/], ::STRINGS[146/*"uniform vec...*/], 0, 2, uArray::Init<uString*>(::TYPES[0/*string[]*/], 17, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/], ::STRINGS[6/*"f"*/], ::STRINGS[10/*"g"*/], ::STRINGS[11/*"h"*/], ::STRINGS[12/*"i"*/], ::STRINGS[13/*"j"*/], ::STRINGS[14/*"k"*/], ::STRINGS[15/*"l"*/], ::STRINGS[16/*"m"*/], ::STRINGS[17/*"n"*/], ::STRINGS[18/*"o"*/], ::STRINGS[19/*"p"*/], ::STRINGS[50/*"r"*/]));
+    FuseElements_bundle::ElementBatchd43eeb4e_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[132/*"uniform mat...*/], ::STRINGS[133/*"uniform sam...*/], 0, 2, uArray::Init<uString*>(::TYPES[0/*string[]*/], 4, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[8/*"f"*/]));
+    FuseElements_bundle::RepeatBaker447c61dc_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[134/*"uniform vec...*/], ::STRINGS[135/*"uniform sam...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 4, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[11/*"e"*/]));
+    FuseElements_bundle::Scale9Rectangle720ad3ad_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[136/*"uniform flo...*/], ::STRINGS[137/*"uniform vec...*/], 0, 2, uArray::Init<uString*>(::TYPES[0/*string[]*/], 17, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[11/*"e"*/], ::STRINGS[8/*"f"*/], ::STRINGS[12/*"g"*/], ::STRINGS[13/*"h"*/], ::STRINGS[14/*"i"*/], ::STRINGS[15/*"j"*/], ::STRINGS[16/*"k"*/], ::STRINGS[17/*"l"*/], ::STRINGS[18/*"m"*/], ::STRINGS[19/*"n"*/], ::STRINGS[20/*"o"*/], ::STRINGS[21/*"p"*/], ::STRINGS[43/*"r"*/]));
 }
 
 static void FuseElements_bundle_build(uType* type)
 {
-    ::STRINGS[139] = uString::Const("uniform vec2 b;\r\n"
-        "uniform mat4 c, d;\r\n"
-        "\r\n"
-        "attribute vec2 a;\r\n"
-        "\r\n"
-        "varying vec2 f;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    f = vec2(a.x, 1.0 - a.y);\r\n"
-        "    gl_Position = d * (c * vec4(a * b, float(0), float(1)));\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[140] = uString::Const("uniform float e;\r\n"
-        "\r\n"
-        "uniform sampler2D g;\r\n"
-        "\r\n"
-        "varying vec2 f;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    vec4 h = texture2D(g, f);\r\n"
-        "    gl_FragColor = vec4(h.xyz * e, h.w * e);\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[2] = uString::Const("a");
-    ::STRINGS[3] = uString::Const("b");
-    ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[5] = uString::Const("d");
-    ::STRINGS[9] = uString::Const("e");
-    ::STRINGS[10] = uString::Const("g");
-    ::STRINGS[141] = uString::Const("uniform mat4 c;\r\n"
+    ::STRINGS[132] = uString::Const("uniform mat4 c;\r\n"
         "\r\n"
         "attribute vec3 a;\r\n"
         "attribute vec2 b;\r\n"
@@ -3540,7 +3360,7 @@ static void FuseElements_bundle_build(uType* type)
         "    gl_Position = (a.z > float(0)) ? (c * vec4(a.xy, float(0), float(1))) : vec4(float(0), float(0), float(0), float(-1));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[142] = uString::Const("uniform sampler2D f;\r\n"
+    ::STRINGS[133] = uString::Const("uniform sampler2D f;\r\n"
         "\r\n"
         "varying float d;\r\n"
         "varying vec2 e;\r\n"
@@ -3550,24 +3370,11 @@ static void FuseElements_bundle_build(uType* type)
         "    gl_FragColor = texture2D(f, e) * d;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[6] = uString::Const("f");
-    ::STRINGS[24] = uString::Const("uniform mat4 d, b;\r\n"
-        "\r\n"
-        "attribute vec2 a;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_Position = b * (d * vec4(vec3(a, float(0)), 1.));\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[25] = uString::Const("uniform vec4 c;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_FragColor = c;\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[143] = uString::Const("uniform vec2 b, c;\r\n"
+    ::STRINGS[2] = uString::Const("a");
+    ::STRINGS[3] = uString::Const("b");
+    ::STRINGS[4] = uString::Const("c");
+    ::STRINGS[8] = uString::Const("f");
+    ::STRINGS[134] = uString::Const("uniform vec2 b, c;\r\n"
         "\r\n"
         "attribute vec2 a;\r\n"
         "\r\n"
@@ -3579,7 +3386,7 @@ static void FuseElements_bundle_build(uType* type)
         "    gl_Position = vec4((a * float(2)) - float(1), float(0), float(1));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[144] = uString::Const("uniform sampler2D e;\r\n"
+    ::STRINGS[135] = uString::Const("uniform sampler2D e;\r\n"
         "\r\n"
         "varying vec2 d;\r\n"
         "\r\n"
@@ -3588,7 +3395,8 @@ static void FuseElements_bundle_build(uType* type)
         "    gl_FragColor = texture2D(e, fract(d));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[145] = uString::Const("uniform float c, d, e, f, g, h, k, l, m, n;\r\n"
+    ::STRINGS[11] = uString::Const("e");
+    ::STRINGS[136] = uString::Const("uniform float c, d, e, f, g, h, k, l, m, n;\r\n"
         "uniform mat4 i, j;\r\n"
         "uniform vec2 o;\r\n"
         "\r\n"
@@ -3602,7 +3410,7 @@ static void FuseElements_bundle_build(uType* type)
         "    gl_Position = j * (i * vec4(vec2(((a.x * c) + (a.y * d)) + (a.z * e), ((b.x * f) + (b.y * g)) + (b.z * h)), float(0), float(1)));\r\n"
         "}\r\n"
         "");
-    ::STRINGS[146] = uString::Const("uniform vec4 p;\r\n"
+    ::STRINGS[137] = uString::Const("uniform vec4 p;\r\n"
         "\r\n"
         "uniform sampler2D r;\r\n"
         "\r\n"
@@ -3613,21 +3421,21 @@ static void FuseElements_bundle_build(uType* type)
         "    gl_FragColor = texture2D(r, q) * p;\r\n"
         "}\r\n"
         "");
-    ::STRINGS[11] = uString::Const("h");
-    ::STRINGS[12] = uString::Const("i");
-    ::STRINGS[13] = uString::Const("j");
-    ::STRINGS[14] = uString::Const("k");
-    ::STRINGS[15] = uString::Const("l");
-    ::STRINGS[16] = uString::Const("m");
-    ::STRINGS[17] = uString::Const("n");
-    ::STRINGS[18] = uString::Const("o");
-    ::STRINGS[19] = uString::Const("p");
-    ::STRINGS[50] = uString::Const("r");
+    ::STRINGS[7] = uString::Const("d");
+    ::STRINGS[12] = uString::Const("g");
+    ::STRINGS[13] = uString::Const("h");
+    ::STRINGS[14] = uString::Const("i");
+    ::STRINGS[15] = uString::Const("j");
+    ::STRINGS[16] = uString::Const("k");
+    ::STRINGS[17] = uString::Const("l");
+    ::STRINGS[18] = uString::Const("m");
+    ::STRINGS[19] = uString::Const("n");
+    ::STRINGS[20] = uString::Const("o");
+    ::STRINGS[21] = uString::Const("p");
+    ::STRINGS[43] = uString::Const("r");
     ::TYPES[0] = ::g::Uno::String_typeof()->Array();
     type->SetFields(0,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseElements_bundle::CacheHelper230c69b7_, uFieldFlagsStatic,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseElements_bundle::ElementBatchd43eeb4e_, uFieldFlagsStatic,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseElements_bundle::ElementDraw1f583284_, uFieldFlagsStatic,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseElements_bundle::RepeatBaker447c61dc_, uFieldFlagsStatic,
         ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseElements_bundle::Scale9Rectangle720ad3ad_, uFieldFlagsStatic);
 }
@@ -3638,7 +3446,7 @@ uClassType* FuseElements_bundle_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 5;
+    options.FieldCount = 3;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("FuseElements_bundle", options);
     type->fp_build_ = FuseElements_bundle_build;
@@ -3646,110 +3454,12 @@ uClassType* FuseElements_bundle_typeof()
     return type;
 }
 
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseElements_bundle::CacheHelper230c69b7_;
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseElements_bundle::ElementBatchd43eeb4e_;
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseElements_bundle::ElementDraw1f583284_;
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseElements_bundle::RepeatBaker447c61dc_;
 uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseElements_bundle::Scale9Rectangle720ad3ad_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Nodes\1.4.2\.uno\package
-// -------------------------------------------------------------------------------------
-
-// public static generated class FuseNodes_bundle :0
-// {
-// static FuseNodes_bundle() :0
-static void FuseNodes_bundle__cctor__fn(uType* __type)
-{
-    ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof()->Init();
-    FuseNodes_bundle::DrawHelpers4c5c39ae_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[147/*"uniform vec...*/], ::STRINGS[148/*"uniform vec...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 5, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[5/*"d"*/], ::STRINGS[9/*"e"*/]));
-    FuseNodes_bundle::DrawRectVisualizer5cbb2c45_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[149/*"attribute v...*/], ::STRINGS[150/*"void main()...*/], 0, 1, uArray::Init<uString*>(::TYPES[0/*string[]*/], 1, ::STRINGS[2/*"a"*/]));
-    FuseNodes_bundle::DrawRectVisualizer5cbb2c46_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[151/*"uniform mat...*/], ::STRINGS[152/*"varying vec...*/], 0, 2, uArray::Init<uString*>(::TYPES[0/*string[]*/], 3, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/]));
-}
-
-static void FuseNodes_bundle_build(uType* type)
-{
-    ::STRINGS[147] = uString::Const("uniform vec2 c, b;\r\n"
-        "uniform mat4 d;\r\n"
-        "\r\n"
-        "attribute vec2 a;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_Position = d * vec4(c + (a * b), float(0), float(1));\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[148] = uString::Const("uniform vec4 e;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_FragColor = e;\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[2] = uString::Const("a");
-    ::STRINGS[3] = uString::Const("b");
-    ::STRINGS[4] = uString::Const("c");
-    ::STRINGS[5] = uString::Const("d");
-    ::STRINGS[9] = uString::Const("e");
-    ::STRINGS[149] = uString::Const("attribute vec2 a;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_Position = vec4((a * float(2)) - float(1), float(0), float(1));\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[150] = uString::Const("void main()\r\n"
-        "{\r\n"
-        "    gl_FragColor = vec4(float(0), float(0), float(0), 0.5);\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[151] = uString::Const("uniform mat4 c;\r\n"
-        "\r\n"
-        "attribute vec4 a;\r\n"
-        "attribute vec2 b;\r\n"
-        "\r\n"
-        "varying vec4 d;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    d = vec4(b, float(0), 0.2);\r\n"
-        "    gl_Position = c * a;\r\n"
-        "}\r\n"
-        "");
-    ::STRINGS[152] = uString::Const("varying vec4 d;\r\n"
-        "\r\n"
-        "void main()\r\n"
-        "{\r\n"
-        "    gl_FragColor = d;\r\n"
-        "}\r\n"
-        "");
-    ::TYPES[0] = ::g::Uno::String_typeof()->Array();
-    type->SetFields(0,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseNodes_bundle::DrawHelpers4c5c39ae_, uFieldFlagsStatic,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseNodes_bundle::DrawRectVisualizer5cbb2c45_, uFieldFlagsStatic,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&FuseNodes_bundle::DrawRectVisualizer5cbb2c46_, uFieldFlagsStatic);
-}
-
-uClassType* FuseNodes_bundle_typeof()
-{
-    static uSStrong<uClassType*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.FieldCount = 3;
-    options.TypeSize = sizeof(uClassType);
-    type = uClassType::New("FuseNodes_bundle", options);
-    type->fp_build_ = FuseNodes_bundle_build;
-    type->fp_cctor_ = FuseNodes_bundle__cctor__fn;
-    return type;
-}
-
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseNodes_bundle::DrawHelpers4c5c39ae_;
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseNodes_bundle::DrawRectVisualizer5cbb2c45_;
-uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> FuseNodes_bundle::DrawRectVisualizer5cbb2c46_;
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Scripting.JavaScript\1.4.2\.uno\package
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Scripting.JavaScript\1.9.0\.uno\package
 // ----------------------------------------------------------------------------------------------------
 
 // public static generated class FuseScriptingJavaScript_bundle :0
@@ -3757,24 +3467,28 @@ uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>
 // static FuseScriptingJavaScript_bundle() :0
 static void FuseScriptingJavaScript_bundle__cctor__fn(uType* __type)
 {
-    FuseScriptingJavaScript_bundle::Diagnosticsfe0dcfb5_ = uPtr(::g::Uno::IO::Bundle::Get(::STRINGS[153/*"Fuse.Script...*/]))->GetFile(::STRINGS[154/*"diagnostics...*/]);
-    FuseScriptingJavaScript_bundle::es6promisemin4f830782_ = uPtr(::g::Uno::IO::Bundle::Get(::STRINGS[153/*"Fuse.Script...*/]))->GetFile(::STRINGS[155/*"es6-promise...*/]);
-    FuseScriptingJavaScript_bundle::Observable9d3ff308_ = uPtr(::g::Uno::IO::Bundle::Get(::STRINGS[153/*"Fuse.Script...*/]))->GetFile(::STRINGS[156/*"observable-...*/]);
-    FuseScriptingJavaScript_bundle::setTimeoutede5b3ba_ = uPtr(::g::Uno::IO::Bundle::Get(::STRINGS[153/*"Fuse.Script...*/]))->GetFile(::STRINGS[157/*"settimeout-...*/]);
+    ::g::Uno::IO::Bundle_typeof()->Init();
+    FuseScriptingJavaScript_bundle::Diagnostics71583b2a_ = uPtr(::g::Uno::IO::Bundle::Get(::STRINGS[138/*"Fuse.Script...*/]))->GetFile(::STRINGS[139/*"diagnostics...*/]);
+    FuseScriptingJavaScript_bundle::es6promisemin28ab682b_ = uPtr(::g::Uno::IO::Bundle::Get(::STRINGS[138/*"Fuse.Script...*/]))->GetFile(::STRINGS[140/*"es6-promise...*/]);
+    FuseScriptingJavaScript_bundle::Observable68267923_ = uPtr(::g::Uno::IO::Bundle::Get(::STRINGS[138/*"Fuse.Script...*/]))->GetFile(::STRINGS[141/*"observable-...*/]);
+    FuseScriptingJavaScript_bundle::setTimeoutb7f00453_ = uPtr(::g::Uno::IO::Bundle::Get(::STRINGS[138/*"Fuse.Script...*/]))->GetFile(::STRINGS[142/*"settimeout-...*/]);
+    FuseScriptingJavaScript_bundle::TreeObservablea6e3ab25_ = uPtr(::g::Uno::IO::Bundle::Get(::STRINGS[138/*"Fuse.Script...*/]))->GetFile(::STRINGS[143/*"treeobserva...*/]);
 }
 
 static void FuseScriptingJavaScript_bundle_build(uType* type)
 {
-    ::STRINGS[153] = uString::Const("Fuse.Scripting.JavaScript");
-    ::STRINGS[154] = uString::Const("diagnostics-1fee1f53.js");
-    ::STRINGS[155] = uString::Const("es6-promise.min-2da2c24c.js");
-    ::STRINGS[156] = uString::Const("observable-2bc0fed2.js");
-    ::STRINGS[157] = uString::Const("settimeout-93150384.js");
+    ::STRINGS[138] = uString::Const("Fuse.Scripting.JavaScript");
+    ::STRINGS[139] = uString::Const("diagnostics-46013124.js");
+    ::STRINGS[140] = uString::Const("es6-promise.min-a3069df9.js");
+    ::STRINGS[141] = uString::Const("observable-de799b21.js");
+    ::STRINGS[142] = uString::Const("settimeout-2838aff1.js");
+    ::STRINGS[143] = uString::Const("treeobservable-cf8dbe0b.js");
     type->SetFields(0,
-        ::g::Uno::IO::BundleFile_typeof(), (uintptr_t)&FuseScriptingJavaScript_bundle::Diagnosticsfe0dcfb5_, uFieldFlagsStatic,
-        ::g::Uno::IO::BundleFile_typeof(), (uintptr_t)&FuseScriptingJavaScript_bundle::es6promisemin4f830782_, uFieldFlagsStatic,
-        ::g::Uno::IO::BundleFile_typeof(), (uintptr_t)&FuseScriptingJavaScript_bundle::Observable9d3ff308_, uFieldFlagsStatic,
-        ::g::Uno::IO::BundleFile_typeof(), (uintptr_t)&FuseScriptingJavaScript_bundle::setTimeoutede5b3ba_, uFieldFlagsStatic);
+        ::g::Uno::IO::BundleFile_typeof(), (uintptr_t)&FuseScriptingJavaScript_bundle::Diagnostics71583b2a_, uFieldFlagsStatic,
+        ::g::Uno::IO::BundleFile_typeof(), (uintptr_t)&FuseScriptingJavaScript_bundle::es6promisemin28ab682b_, uFieldFlagsStatic,
+        ::g::Uno::IO::BundleFile_typeof(), (uintptr_t)&FuseScriptingJavaScript_bundle::Observable68267923_, uFieldFlagsStatic,
+        ::g::Uno::IO::BundleFile_typeof(), (uintptr_t)&FuseScriptingJavaScript_bundle::setTimeoutb7f00453_, uFieldFlagsStatic,
+        ::g::Uno::IO::BundleFile_typeof(), (uintptr_t)&FuseScriptingJavaScript_bundle::TreeObservablea6e3ab25_, uFieldFlagsStatic);
 }
 
 uClassType* FuseScriptingJavaScript_bundle_typeof()
@@ -3783,7 +3497,7 @@ uClassType* FuseScriptingJavaScript_bundle_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 4;
+    options.FieldCount = 5;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("FuseScriptingJavaScript_bundle", options);
     type->fp_build_ = FuseScriptingJavaScript_bundle_build;
@@ -3791,10 +3505,76 @@ uClassType* FuseScriptingJavaScript_bundle_typeof()
     return type;
 }
 
-uSStrong< ::g::Uno::IO::BundleFile*> FuseScriptingJavaScript_bundle::Diagnosticsfe0dcfb5_;
-uSStrong< ::g::Uno::IO::BundleFile*> FuseScriptingJavaScript_bundle::es6promisemin4f830782_;
-uSStrong< ::g::Uno::IO::BundleFile*> FuseScriptingJavaScript_bundle::Observable9d3ff308_;
-uSStrong< ::g::Uno::IO::BundleFile*> FuseScriptingJavaScript_bundle::setTimeoutede5b3ba_;
+uSStrong< ::g::Uno::IO::BundleFile*> FuseScriptingJavaScript_bundle::Diagnostics71583b2a_;
+uSStrong< ::g::Uno::IO::BundleFile*> FuseScriptingJavaScript_bundle::es6promisemin28ab682b_;
+uSStrong< ::g::Uno::IO::BundleFile*> FuseScriptingJavaScript_bundle::Observable68267923_;
+uSStrong< ::g::Uno::IO::BundleFile*> FuseScriptingJavaScript_bundle::setTimeoutb7f00453_;
+uSStrong< ::g::Uno::IO::BundleFile*> FuseScriptingJavaScript_bundle::TreeObservablea6e3ab25_;
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\.uno\package
+// ----------------------------------------------------------------------------------
+
+// public static generated class UnoCore_bundle :0
+// {
+// static UnoCore_bundle() :0
+static void UnoCore_bundle__cctor__fn(uType* __type)
+{
+    UnoCore_bundle::SpriteFontShader901b6a86_ = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram::Create(::STRINGS[144/*"uniform mat...*/], ::STRINGS[145/*"uniform sam...*/], 0, 3, uArray::Init<uString*>(::TYPES[0/*string[]*/], 5, ::STRINGS[2/*"a"*/], ::STRINGS[3/*"b"*/], ::STRINGS[4/*"c"*/], ::STRINGS[7/*"d"*/], ::STRINGS[12/*"g"*/]));
+}
+
+static void UnoCore_bundle_build(uType* type)
+{
+    ::STRINGS[144] = uString::Const("uniform mat4 d;\r\n"
+        "\r\n"
+        "attribute vec2 a, c;\r\n"
+        "attribute vec4 b;\r\n"
+        "\r\n"
+        "varying vec2 e;\r\n"
+        "varying vec4 f;\r\n"
+        "\r\n"
+        "void main()\r\n"
+        "{\r\n"
+        "    e = c;\r\n"
+        "    f = b;\r\n"
+        "    gl_Position = d * vec4(a, float(0), float(1));\r\n"
+        "}\r\n"
+        "");
+    ::STRINGS[145] = uString::Const("uniform sampler2D g;\r\n"
+        "\r\n"
+        "varying vec2 e;\r\n"
+        "varying vec4 f;\r\n"
+        "\r\n"
+        "void main()\r\n"
+        "{\r\n"
+        "    gl_FragColor = f * vec4(float(1), float(1), float(1), texture2D(g, e).x);\r\n"
+        "}\r\n"
+        "");
+    ::STRINGS[2] = uString::Const("a");
+    ::STRINGS[3] = uString::Const("b");
+    ::STRINGS[4] = uString::Const("c");
+    ::STRINGS[7] = uString::Const("d");
+    ::STRINGS[12] = uString::Const("g");
+    ::TYPES[0] = ::g::Uno::String_typeof()->Array();
+    type->SetFields(0,
+        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram_typeof(), (uintptr_t)&UnoCore_bundle::SpriteFontShader901b6a86_, uFieldFlagsStatic);
+}
+
+uClassType* UnoCore_bundle_typeof()
+{
+    static uSStrong<uClassType*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.FieldCount = 1;
+    options.TypeSize = sizeof(uClassType);
+    type = uClassType::New("UnoCore_bundle", options);
+    type->fp_build_ = UnoCore_bundle_build;
+    type->fp_cctor_ = UnoCore_bundle__cctor__fn;
+    return type;
+}
+
+uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> UnoCore_bundle::SpriteFontShader901b6a86_;
 // }
 
 } // ::g

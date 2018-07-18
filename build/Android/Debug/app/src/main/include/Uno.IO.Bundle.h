@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/IO/Bundle.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/IO/Bundle.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -12,7 +12,7 @@ namespace g{
 namespace Uno{
 namespace IO{
 
-// public sealed class Bundle :232
+// public sealed class Bundle :202
 // {
 uType* Bundle_typeof();
 void Bundle__ctor__fn(Bundle* __this, uString* packageName);

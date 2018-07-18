@@ -1,14 +1,15 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/BudgetPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/BudgetPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Fuse.Animations.IResize.h>
 #include <Fuse.Binding.h>
-#include <Fuse.Controls.Panel.h>
+#include <Fuse.Controls.Page.h>
 #include <Fuse.Drawing.ISurfaceDrawable.h>
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -22,7 +23,7 @@
 #include <Uno.Float4.h>
 #include <Uno.UX.IPropertyListener.h>
 namespace g{namespace Fuse{namespace Controls{struct Image;}}}
-namespace g{namespace Fuse{namespace Navigation{struct Router;}}}
+namespace g{namespace Fuse{namespace Controls{struct Panel;}}}
 namespace g{namespace Fuse{namespace Reactive{struct EventBinding;}}}
 namespace g{namespace Fuse{struct AlternateRoot;}}
 namespace g{namespace Uno{namespace UX{struct NameTable;}}}
@@ -35,13 +36,12 @@ namespace g{
 // public partial sealed class BudgetPage :2
 // {
 ::g::Fuse::Controls::Panel_type* BudgetPage_typeof();
-void BudgetPage__ctor_7_fn(BudgetPage* __this, ::g::Fuse::Navigation::Router* router1);
+void BudgetPage__ctor_8_fn(BudgetPage* __this);
 void BudgetPage__InitializeUX_fn(BudgetPage* __this);
-void BudgetPage__New4_fn(::g::Fuse::Navigation::Router* router1, BudgetPage** __retval);
+void BudgetPage__New5_fn(BudgetPage** __retval);
 
-struct BudgetPage : ::g::Fuse::Controls::Panel
+struct BudgetPage : ::g::Fuse::Controls::Page
 {
-    uStrong< ::g::Fuse::Navigation::Router*> router;
     uStrong< ::g::Uno::UX::Property1*> temp_Value_inst;
     uStrong< ::g::Uno::UX::Property1*> ModalConfirm_IsEnabled_inst;
     uStrong< ::g::Uno::UX::Property1*> temp1_Text_inst;
@@ -98,9 +98,9 @@ struct BudgetPage : ::g::Fuse::Controls::Panel
     static ::g::Uno::UX::Selector __selector9_;
     static ::g::Uno::UX::Selector& __selector9() { return BudgetPage_typeof()->Init(), __selector9_; }
 
-    void ctor_7(::g::Fuse::Navigation::Router* router1);
+    void ctor_8();
     void InitializeUX();
-    static BudgetPage* New4(::g::Fuse::Navigation::Router* router1);
+    static BudgetPage* New5();
 };
 // }
 

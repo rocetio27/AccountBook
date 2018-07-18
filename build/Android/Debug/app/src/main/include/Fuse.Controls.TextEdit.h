@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/TextControls/TextEdit.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/TextControls/TextEdit.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -8,6 +8,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -48,24 +49,24 @@ struct TextEdit_type : ::g::Fuse::Controls::TextControl_type
 
 TextEdit_type* TextEdit_typeof();
 void TextEdit__ctor_7_fn(TextEdit* __this, bool* multiline);
-void TextEdit__get_ActionStyle_fn(TextEdit* __this, int* __retval);
-void TextEdit__set_ActionStyle_fn(TextEdit* __this, int* value);
+void TextEdit__get_ActionStyle_fn(TextEdit* __this, int32_t* __retval);
+void TextEdit__set_ActionStyle_fn(TextEdit* __this, int32_t* value);
 void TextEdit__add_ActionTriggered_fn(TextEdit* __this, uDelegate* value);
 void TextEdit__remove_ActionTriggered_fn(TextEdit* __this, uDelegate* value);
-void TextEdit__get_AutoCapitalizationHint_fn(TextEdit* __this, int* __retval);
-void TextEdit__set_AutoCapitalizationHint_fn(TextEdit* __this, int* value);
-void TextEdit__get_AutoCorrectHint_fn(TextEdit* __this, int* __retval);
-void TextEdit__set_AutoCorrectHint_fn(TextEdit* __this, int* value);
+void TextEdit__get_AutoCapitalizationHint_fn(TextEdit* __this, int32_t* __retval);
+void TextEdit__set_AutoCapitalizationHint_fn(TextEdit* __this, int32_t* value);
+void TextEdit__get_AutoCorrectHint_fn(TextEdit* __this, int32_t* __retval);
+void TextEdit__set_AutoCorrectHint_fn(TextEdit* __this, int32_t* value);
 void TextEdit__CalcRenderBounds_fn(TextEdit* __this, ::g::Fuse::VisualBounds** __retval);
 void TextEdit__get_CaretColor_fn(TextEdit* __this, ::g::Uno::Float4* __retval);
 void TextEdit__set_CaretColor_fn(TextEdit* __this, ::g::Uno::Float4* value);
-void TextEdit__get_InputHint_fn(TextEdit* __this, int* __retval);
-void TextEdit__set_InputHint_fn(TextEdit* __this, int* value);
+void TextEdit__get_InputHint_fn(TextEdit* __this, int32_t* __retval);
+void TextEdit__set_InputHint_fn(TextEdit* __this, int32_t* value);
 void TextEdit__get_IsPassword_fn(TextEdit* __this, bool* __retval);
 void TextEdit__set_IsPassword_fn(TextEdit* __this, bool* value);
 void TextEdit__get_IsReadOnly_fn(TextEdit* __this, bool* __retval);
 void TextEdit__set_IsReadOnly_fn(TextEdit* __this, bool* value);
-void TextEdit__OnAction_fn(TextEdit* __this, int* type, bool* __retval);
+void TextEdit__OnAction_fn(TextEdit* __this, int32_t* type, bool* __retval);
 void TextEdit__OnActionStyleChanged_fn(TextEdit* __this);
 void TextEdit__OnAutoCapitalizationHintChanged_fn(TextEdit* __this);
 void TextEdit__OnAutoCorrectHintChanged_fn(TextEdit* __this);
@@ -82,52 +83,52 @@ void TextEdit__get_PlaceholderText_fn(TextEdit* __this, uString** __retval);
 void TextEdit__set_PlaceholderText_fn(TextEdit* __this, uString* value);
 void TextEdit__get_SelectionColor_fn(TextEdit* __this, ::g::Uno::Float4* __retval);
 void TextEdit__set_SelectionColor_fn(TextEdit* __this, ::g::Uno::Float4* value);
-void TextEdit__get_TextTruncation_fn(TextEdit* __this, int* __retval);
-void TextEdit__set_TextTruncation_fn(TextEdit* __this, int* value);
+void TextEdit__get_TextTruncation_fn(TextEdit* __this, int32_t* __retval);
+void TextEdit__set_TextTruncation_fn(TextEdit* __this, int32_t* value);
 
 struct TextEdit : ::g::Fuse::Controls::TextControl
 {
     bool _isMultiline;
     static ::g::Uno::UX::Selector IsPasswordPropertyName_;
-    static ::g::Uno::UX::Selector& IsPasswordPropertyName() { return IsPasswordPropertyName_; }
+    static ::g::Uno::UX::Selector& IsPasswordPropertyName() { return TextEdit_typeof()->Init(), IsPasswordPropertyName_; }
     static ::g::Uno::UX::Selector IsReadOnlyPropertyName_;
-    static ::g::Uno::UX::Selector& IsReadOnlyPropertyName() { return IsReadOnlyPropertyName_; }
+    static ::g::Uno::UX::Selector& IsReadOnlyPropertyName() { return TextEdit_typeof()->Init(), IsReadOnlyPropertyName_; }
     static ::g::Uno::UX::Selector InputHintPropertyName_;
-    static ::g::Uno::UX::Selector& InputHintPropertyName() { return InputHintPropertyName_; }
+    static ::g::Uno::UX::Selector& InputHintPropertyName() { return TextEdit_typeof()->Init(), InputHintPropertyName_; }
     static ::g::Uno::UX::Selector CaretColorPropertyName_;
-    static ::g::Uno::UX::Selector& CaretColorPropertyName() { return CaretColorPropertyName_; }
+    static ::g::Uno::UX::Selector& CaretColorPropertyName() { return TextEdit_typeof()->Init(), CaretColorPropertyName_; }
     static ::g::Uno::UX::Selector SelectionColorPropertyName_;
-    static ::g::Uno::UX::Selector& SelectionColorPropertyName() { return SelectionColorPropertyName_; }
+    static ::g::Uno::UX::Selector& SelectionColorPropertyName() { return TextEdit_typeof()->Init(), SelectionColorPropertyName_; }
     static ::g::Uno::UX::Selector ActionStylePropertyName_;
-    static ::g::Uno::UX::Selector& ActionStylePropertyName() { return ActionStylePropertyName_; }
+    static ::g::Uno::UX::Selector& ActionStylePropertyName() { return TextEdit_typeof()->Init(), ActionStylePropertyName_; }
     static ::g::Uno::UX::Selector AutoCorrectHintPropertyName_;
-    static ::g::Uno::UX::Selector& AutoCorrectHintPropertyName() { return AutoCorrectHintPropertyName_; }
+    static ::g::Uno::UX::Selector& AutoCorrectHintPropertyName() { return TextEdit_typeof()->Init(), AutoCorrectHintPropertyName_; }
     static ::g::Uno::UX::Selector AutoCapitalizationHintPropertyName_;
-    static ::g::Uno::UX::Selector& AutoCapitalizationHintPropertyName() { return AutoCapitalizationHintPropertyName_; }
+    static ::g::Uno::UX::Selector& AutoCapitalizationHintPropertyName() { return TextEdit_typeof()->Init(), AutoCapitalizationHintPropertyName_; }
     static ::g::Uno::UX::Selector PlaceholderTextPropertyName_;
-    static ::g::Uno::UX::Selector& PlaceholderTextPropertyName() { return PlaceholderTextPropertyName_; }
+    static ::g::Uno::UX::Selector& PlaceholderTextPropertyName() { return TextEdit_typeof()->Init(), PlaceholderTextPropertyName_; }
     static ::g::Uno::UX::Selector PlaceholderColorPropertyName_;
-    static ::g::Uno::UX::Selector& PlaceholderColorPropertyName() { return PlaceholderColorPropertyName_; }
+    static ::g::Uno::UX::Selector& PlaceholderColorPropertyName() { return TextEdit_typeof()->Init(), PlaceholderColorPropertyName_; }
     uStrong<uDelegate*> ActionTriggered1;
 
     void ctor_7(bool multiline);
-    int ActionStyle();
-    void ActionStyle(int value);
+    int32_t ActionStyle();
+    void ActionStyle(int32_t value);
     void add_ActionTriggered(uDelegate* value);
     void remove_ActionTriggered(uDelegate* value);
-    int AutoCapitalizationHint();
-    void AutoCapitalizationHint(int value);
-    int AutoCorrectHint();
-    void AutoCorrectHint(int value);
+    int32_t AutoCapitalizationHint();
+    void AutoCapitalizationHint(int32_t value);
+    int32_t AutoCorrectHint();
+    void AutoCorrectHint(int32_t value);
     ::g::Uno::Float4 CaretColor();
     void CaretColor(::g::Uno::Float4 value);
-    int InputHint();
-    void InputHint(int value);
+    int32_t InputHint();
+    void InputHint(int32_t value);
     bool IsPassword();
     void IsPassword(bool value);
     bool IsReadOnly();
     void IsReadOnly(bool value);
-    bool OnAction(int type);
+    bool OnAction(int32_t type);
     void OnActionStyleChanged() { (((TextEdit_type*)__type)->fp_OnActionStyleChanged)(this); }
     void OnAutoCapitalizationHintChanged() { (((TextEdit_type*)__type)->fp_OnAutoCapitalizationHintChanged)(this); }
     void OnAutoCorrectHintChanged() { (((TextEdit_type*)__type)->fp_OnAutoCorrectHintChanged)(this); }

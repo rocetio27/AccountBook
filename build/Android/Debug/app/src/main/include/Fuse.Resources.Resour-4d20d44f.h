@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/ResourceSetter.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/ResourceSetter.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -6,6 +6,7 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
@@ -30,7 +31,7 @@ void ResourceSetter__set_Value_fn(ResourceSetter* __this, void* value);
 struct ResourceSetter : ::g::Fuse::Behavior
 {
     uStrong<uString*> _key;
-    uTField _value() { return __type->Field(this, 16); }
+    uTField _value() { return __type->Field(this, 18); }
 
     void ctor_3();
     uString* Key();

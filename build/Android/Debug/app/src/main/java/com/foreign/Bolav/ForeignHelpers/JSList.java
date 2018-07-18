@@ -23,13 +23,13 @@ public class JSList
         android.util.Log.d("AccountBook", (message==null ? "null" : message.toString()));
     }
 
-    public static void FromJava399(final UnoObject _this, final Object ary)
+    public static void FromJava393(final UnoObject _this, final Object ary)
     {
         java.util.List l = (java.util.List)ary;
         for (Object obj : l) {
         	if (obj instanceof java.util.HashMap) {
-        		UnoObject ddict = ExternedBlockHost.callUno_Bolav_ForeignHelpers_JSList_NewDictRow400((UnoObject)_this);
-        		com.foreign.Bolav.ForeignHelpers.JSDict.FromJava395(ddict, obj);
+        		UnoObject ddict = ExternedBlockHost.callUno_Bolav_ForeignHelpers_JSList_NewDictRow394((UnoObject)_this);
+        		com.foreign.Bolav.ForeignHelpers.JSDict.FromJava389(ddict, obj);
         	}
         	else {
         		debug_log("Unhandled class JSList.FromJava: " + obj);

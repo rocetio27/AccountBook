@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-5a6734b7.h>
@@ -10,7 +10,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_FuseControlsTextControl_Font_Property :383
+// internal sealed class AccountBook_FuseControlsTextControl_Font_Property :405
 // {
 static void AccountBook_FuseControlsTextControl_Font_Property_build(uType* type)
 {
@@ -38,44 +38,44 @@ static void AccountBook_FuseControlsTextControl_Font_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_FuseControlsTextControl_Font_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :386
+// public AccountBook_FuseControlsTextControl_Font_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :408
 void AccountBook_FuseControlsTextControl_Font_Property__ctor_3_fn(AccountBook_FuseControlsTextControl_Font_Property* __this, ::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed Fuse.Font Get(Uno.UX.PropertyObject obj) :388
+// public override sealed Fuse.Font Get(Uno.UX.PropertyObject obj) :410
 void AccountBook_FuseControlsTextControl_Font_Property__Get1_fn(AccountBook_FuseControlsTextControl_Font_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Fuse::Font** __retval)
 {
     return *__retval = uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[0/*Fuse.Controls.TextControl*/]))->Font(), void();
 }
 
-// public AccountBook_FuseControlsTextControl_Font_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :386
+// public AccountBook_FuseControlsTextControl_Font_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :408
 void AccountBook_FuseControlsTextControl_Font_Property__New1_fn(::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector* name, AccountBook_FuseControlsTextControl_Font_Property** __retval)
 {
     *__retval = AccountBook_FuseControlsTextControl_Font_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :387
+// public override sealed Uno.UX.PropertyObject get_Object() :409
 void AccountBook_FuseControlsTextControl_Font_Property__get_Object_fn(AccountBook_FuseControlsTextControl_Font_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, Fuse.Font v, Uno.UX.IPropertyListener origin) :389
+// public override sealed void Set(Uno.UX.PropertyObject obj, Fuse.Font v, Uno.UX.IPropertyListener origin) :411
 void AccountBook_FuseControlsTextControl_Font_Property__Set1_fn(AccountBook_FuseControlsTextControl_Font_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Fuse::Font* v, uObject* origin)
 {
     uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[0/*Fuse.Controls.TextControl*/]))->Font(v);
 }
 
-// public AccountBook_FuseControlsTextControl_Font_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [instance] :386
+// public AccountBook_FuseControlsTextControl_Font_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [instance] :408
 void AccountBook_FuseControlsTextControl_Font_Property::ctor_3(::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_FuseControlsTextControl_Font_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [static] :386
+// public AccountBook_FuseControlsTextControl_Font_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [static] :408
 AccountBook_FuseControlsTextControl_Font_Property* AccountBook_FuseControlsTextControl_Font_Property::New1(::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_FuseControlsTextControl_Font_Property* obj1 = (AccountBook_FuseControlsTextControl_Font_Property*)uNew(AccountBook_FuseControlsTextControl_Font_Property_typeof());

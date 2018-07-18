@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Platform/Window.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Platform/Window.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -19,8 +19,8 @@ void Window__remove_GotFocus_fn(Window* __this, uDelegate* value);
 void Window__add_LostFocus_fn(Window* __this, uDelegate* value);
 void Window__remove_LostFocus_fn(Window* __this, uDelegate* value);
 void Window__New2_fn(Window** __retval);
-void Window__OnGotFocus_fn(Window* __this, int* newState);
-void Window__OnLostFocus_fn(Window* __this, int* newState);
+void Window__OnGotFocus_fn(Window* __this, int32_t* newState);
+void Window__OnLostFocus_fn(Window* __this, int32_t* newState);
 void Window__OnTick_fn(Window* __this, uObject* sender, ::g::Uno::Platform::TimerEventArgs* args);
 void Window__add_Updating_fn(Window* __this, uDelegate* value);
 void Window__remove_Updating_fn(Window* __this, uDelegate* value);
@@ -36,8 +36,8 @@ struct Window : ::g::Uno::Platform::OSFrame
     void remove_GotFocus(uDelegate* value);
     void add_LostFocus(uDelegate* value);
     void remove_LostFocus(uDelegate* value);
-    void OnGotFocus(int newState);
-    void OnLostFocus(int newState);
+    void OnGotFocus(int32_t newState);
+    void OnLostFocus(int32_t newState);
     void OnTick(uObject* sender, ::g::Uno::Platform::TimerEventArgs* args);
     void add_Updating(uDelegate* value);
     void remove_Updating(uDelegate* value);

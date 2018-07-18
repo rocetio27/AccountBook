@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Gestures/1.4.2/Internal/EdgeSwiper.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Gestures/1.9.0/Internal/EdgeSwiper.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -24,8 +24,8 @@ void EdgeSwiper__ctor__fn(EdgeSwiper* __this);
 void EdgeSwiper__CalcProgress_fn(EdgeSwiper* __this);
 void EdgeSwiper__CheckNeedUpdated_fn(EdgeSwiper* __this, bool* off);
 void EdgeSwiper__Disable_fn(EdgeSwiper* __this);
-void EdgeSwiper__get_Edge_fn(EdgeSwiper* __this, int* __retval);
-void EdgeSwiper__set_Edge_fn(EdgeSwiper* __this, int* value);
+void EdgeSwiper__get_Edge_fn(EdgeSwiper* __this, int32_t* __retval);
+void EdgeSwiper__set_Edge_fn(EdgeSwiper* __this, int32_t* value);
 void EdgeSwiper__get_EdgeThreshold_fn(EdgeSwiper* __this, float* __retval);
 void EdgeSwiper__set_EdgeThreshold_fn(EdgeSwiper* __this, float* value);
 void EdgeSwiper__Enable_fn(EdgeSwiper* __this);
@@ -51,13 +51,13 @@ void EdgeSwiper__Unrooted_fn(EdgeSwiper* __this);
 struct EdgeSwiper : uObject
 {
     static uSStrong< ::g::Fuse::Gestures::SwipeGestureHelper*> _leftRightSwipe_;
-    static uSStrong< ::g::Fuse::Gestures::SwipeGestureHelper*>& _leftRightSwipe() { return _leftRightSwipe_; }
+    static uSStrong< ::g::Fuse::Gestures::SwipeGestureHelper*>& _leftRightSwipe() { return EdgeSwiper_typeof()->Init(), _leftRightSwipe_; }
     static uSStrong< ::g::Fuse::Gestures::SwipeGestureHelper*> _upDownSwipe_;
-    static uSStrong< ::g::Fuse::Gestures::SwipeGestureHelper*>& _upDownSwipe() { return _upDownSwipe_; }
+    static uSStrong< ::g::Fuse::Gestures::SwipeGestureHelper*>& _upDownSwipe() { return EdgeSwiper_typeof()->Init(), _upDownSwipe_; }
     uStrong<uObject*> _pointBody1D;
     float _edgeThreshold;
     double _progress;
-    int _edge;
+    int32_t _edge;
     uStrong< ::g::Fuse::Elements::Element*> _target;
     ::g::Uno::Float2 _previousCoord;
     ::g::Uno::Float2 _currentCoord;
@@ -65,7 +65,7 @@ struct EdgeSwiper : uObject
     double _startProgress;
     double _prevTime;
     float _velocityThreshold;
-    int _down;
+    int32_t _down;
     bool _isHardCapture;
     uStrong< ::g::Fuse::Motion::Simulation::PointerVelocity*> _velocity;
     uStrong< ::g::Fuse::Elements::Element*> _element;
@@ -76,8 +76,8 @@ struct EdgeSwiper : uObject
     void CalcProgress();
     void CheckNeedUpdated(bool off);
     void Disable();
-    int Edge();
-    void Edge(int value);
+    int32_t Edge();
+    void Edge(int32_t value);
     float EdgeThreshold();
     void EdgeThreshold(float value);
     void Enable();

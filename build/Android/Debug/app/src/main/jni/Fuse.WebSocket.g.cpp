@@ -19,7 +19,7 @@
 #include <Fuse.WebSocket.WebSocketClient.h>
 #include <Neovisionaries.WebSocketClient.h>
 #include <Uno.Action.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.ArgumentNullException.h>
 #include <Uno.Bool.h>
 #include <Uno.Byte.h>
@@ -27,7 +27,7 @@
 #include <Uno.EventArgs.h>
 #include <Uno.EventHandler.h>
 #include <Uno.Exception.h>
-#include <Uno.Func-3.h>
+#include <Uno.Func2-3.h>
 #include <Uno.Int.h>
 #include <Uno.Object.h>
 #include <Uno.String.h>
@@ -39,7 +39,7 @@ namespace g{
 namespace Fuse{
 namespace WebSocket{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.4.2\WebSocketModule.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.9.0\WebSocketModule.uno
 // -------------------------------------------------------------------------------------------------
 
 // private sealed class NativeFunctionModule.FunctionClosure :30
@@ -78,10 +78,10 @@ void NativeFunctionModule__FunctionClosure__get_Callback_fn(NativeFunctionModule
     *__retval = __this->Callback();
 }
 
-// private object function(object[] args) :41
-void NativeFunctionModule__FunctionClosure__function_fn(NativeFunctionModule__FunctionClosure* __this, uArray* args, uObject** __retval)
+// private object function(Fuse.Scripting.Context context, object[] args) :41
+void NativeFunctionModule__FunctionClosure__function_fn(NativeFunctionModule__FunctionClosure* __this, ::g::Fuse::Scripting::Context* context, uArray* args, uObject** __retval)
 {
-    *__retval = __this->function(args);
+    *__retval = __this->function(context, args);
 }
 
 // public FunctionClosure New(Fuse.Scripting.Context context, Uno.Func<Fuse.Scripting.Context, object[], object> callback) :35
@@ -103,8 +103,8 @@ uDelegate* NativeFunctionModule__FunctionClosure::Callback()
     return uDelegate::New(::TYPES[0/*Fuse.Scripting.Callback*/], (void*)NativeFunctionModule__FunctionClosure__function_fn, this);
 }
 
-// private object function(object[] args) [instance] :41
-uObject* NativeFunctionModule__FunctionClosure::function(uArray* args)
+// private object function(Fuse.Scripting.Context context, object[] args) [instance] :41
+uObject* NativeFunctionModule__FunctionClosure::function(::g::Fuse::Scripting::Context* context, uArray* args)
 {
     return uPtr(_callback)->Invoke(2, (::g::Fuse::Scripting::Context*)_context, args);
 }
@@ -118,7 +118,7 @@ NativeFunctionModule__FunctionClosure* NativeFunctionModule__FunctionClosure::Ne
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.4.2\WebSocketClient.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.9.0\WebSocketClient.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal abstract interface IWebSocketClient :81
@@ -133,7 +133,7 @@ uInterfaceType* IWebSocketClient_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.4.2\WebSocketModule.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.9.0\WebSocketModule.uno
 // -------------------------------------------------------------------------------------------------
 
 // public abstract class NativeFunctionModule :10
@@ -178,7 +178,7 @@ void NativeFunctionModule__ctor_2_fn(NativeFunctionModule* __this, uString* name
 // public override sealed void Evaluate(Fuse.Scripting.Context c, Fuse.Scripting.ModuleResult result) :23
 void NativeFunctionModule__Evaluate_fn(NativeFunctionModule* __this, ::g::Fuse::Scripting::Context* c, ::g::Fuse::Scripting::ModuleResult* result)
 {
-    uPtr(uPtr(result)->Object)->Item(uString::Const("exports"), NativeFunctionModule__FunctionClosure::New1(c, uDelegate::New(::g::Uno::Func2_typeof()->MakeType(::g::Fuse::Scripting::Context_typeof(), ::TYPES[6/*object[]*/], uObject_typeof(), NULL), __this, offsetof(NativeFunctionModule_type, fp_Create)))->Callback());
+    uPtr(uPtr(result)->GetObject(c))->Item(uString::Const("exports"), NativeFunctionModule__FunctionClosure::New1(c, uDelegate::New(::g::Uno::Func2_typeof()->MakeType(::g::Fuse::Scripting::Context_typeof(), ::TYPES[6/*object[]*/], uObject_typeof(), NULL), __this, offsetof(NativeFunctionModule_type, fp_Create)))->Callback());
 }
 
 uSStrong<NativeFunctionModule*> NativeFunctionModule::_instance_;
@@ -198,7 +198,7 @@ void NativeFunctionModule::ctor_2(uString* name)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.4.2\WebSocketClient.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.9.0\WebSocketClient.uno
 // -------------------------------------------------------------------------------------------------
 
 // public sealed class WebSocketClient :6
@@ -373,7 +373,7 @@ WebSocketClient* WebSocketClient::New1(uString* uri, uArray* protocols)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.4.2\WebSocketModule.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.9.0\WebSocketModule.uno
 // -------------------------------------------------------------------------------------------------
 
 // public sealed class WebSocketClientModule :54
@@ -453,7 +453,7 @@ WebSocketClientModule* WebSocketClientModule::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.4.2\WebSocketModule.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.WebSockets\1.9.0\WebSocketModule.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal sealed class WebSocketClientWrapper :71
@@ -586,7 +586,7 @@ void WebSocketClientWrapper::ctor_3(uArray* args)
             ::g::Fuse::Scripting::Array* arr = uAs< ::g::Fuse::Scripting::Array*>(p, ::TYPES[9/*Fuse.Scripting.Array*/]);
             protocols = uArray::New(::TYPES[8/*string[]*/], uPtr(arr)->Length());
 
-            for (int i = 0; i < arr->Length(); i++)
+            for (int32_t i = 0; i < arr->Length(); i++)
                 uPtr(protocols)->Strong<uString*>(i) = uAs<uString*>(uPtr(arr)->Item(i), ::TYPES[7/*string*/]);
         }
     }

@@ -1,10 +1,11 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/Transform.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/Transform.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Fuse.Transform.h>
 #include <Uno.Collections.ICollection-1.h>
@@ -21,6 +22,8 @@ namespace Fuse{
 // {
 ::g::Fuse::Transform_type* Rotation_typeof();
 void Rotation__ctor_3_fn(Rotation* __this);
+void Rotation__get_AngleZ_fn(Rotation* __this, float* __retval);
+void Rotation__set_AngleZ_fn(Rotation* __this, float* value);
 void Rotation__AppendTo_fn(Rotation* __this, ::g::Fuse::FastMatrix* m, float* weight);
 void Rotation__get_Degrees_fn(Rotation* __this, float* __retval);
 void Rotation__set_Degrees_fn(Rotation* __this, float* value);
@@ -38,6 +41,8 @@ struct Rotation : ::g::Fuse::Transform
     ::g::Uno::Float3 _euler;
 
     void ctor_3();
+    float AngleZ();
+    void AngleZ(float value);
     float Degrees();
     void Degrees(float value);
     float DegreesZ();

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.4.2/PageData.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.9.0/PageData.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -32,12 +32,12 @@ void PageData__set_Visual_fn(PageData* __this, ::g::Fuse::Visual* value);
 
 struct PageData : uObject
 {
-    int Index;
+    int32_t Index;
     float Progress;
     float PreviousProgress;
     uStrong<uObject*> ControlPageData;
     static uSStrong< ::g::Fuse::PropertyHandle*> _propPageData_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _propPageData() { return _propPageData_; }
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _propPageData() { return PageData_typeof()->Init(), _propPageData_; }
     uStrong<uObject*> _Context;
     uStrong< ::g::Fuse::Navigation::RouterPage*> _RouterPage;
     uWeak< ::g::Fuse::Visual*> _Visual;

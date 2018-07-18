@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.WebView/1.4.2/Android/WebView.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.WebView/1.9.0/Android/WebView.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -57,7 +57,7 @@ void WebView__OnBeginloading_fn(WebView* __this);
 void WebView__OnCustomURI_fn(WebView* __this, uString* url);
 void WebView__OnHistoryChanged_fn(WebView* __this);
 void WebView__OnPageLoaded_fn(WebView* __this);
-void WebView__OnProgressChanged_fn(WebView* __this, int* newProgress);
+void WebView__OnProgressChanged_fn(WebView* __this, int32_t* newProgress);
 void WebView__OnUrlChanged_fn(WebView* __this);
 void WebView__add_PageLoaded_fn(WebView* __this, uDelegate* value);
 void WebView__remove_PageLoaded_fn(WebView* __this, uDelegate* value);
@@ -123,7 +123,7 @@ struct WebView : ::g::Fuse::Controls::Native::Android::LeafView
     void OnCustomURI(uString* url);
     void OnHistoryChanged();
     void OnPageLoaded();
-    void OnProgressChanged(int newProgress);
+    void OnProgressChanged(int32_t newProgress);
     void OnUrlChanged();
     void add_PageLoaded(uDelegate* value);
     void remove_PageLoaded(uDelegate* value);

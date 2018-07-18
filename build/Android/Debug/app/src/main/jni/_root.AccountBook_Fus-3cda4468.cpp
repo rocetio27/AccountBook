@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-3cda4468.h>
@@ -11,7 +11,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_FuseControlsButtonBase_Text_Property :196
+// internal sealed class AccountBook_FuseControlsButtonBase_Text_Property :216
 // {
 static void AccountBook_FuseControlsButtonBase_Text_Property_build(uType* type)
 {
@@ -40,50 +40,50 @@ static void AccountBook_FuseControlsButtonBase_Text_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_FuseControlsButtonBase_Text_Property(Fuse.Controls.ButtonBase obj, Uno.UX.Selector name) :199
+// public AccountBook_FuseControlsButtonBase_Text_Property(Fuse.Controls.ButtonBase obj, Uno.UX.Selector name) :219
 void AccountBook_FuseControlsButtonBase_Text_Property__ctor_3_fn(AccountBook_FuseControlsButtonBase_Text_Property* __this, ::g::Fuse::Controls::ButtonBase* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed string Get(Uno.UX.PropertyObject obj) :201
+// public override sealed string Get(Uno.UX.PropertyObject obj) :221
 void AccountBook_FuseControlsButtonBase_Text_Property__Get1_fn(AccountBook_FuseControlsButtonBase_Text_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString** __retval)
 {
     return *__retval = uPtr(uCast< ::g::Fuse::Controls::ButtonBase*>(obj, ::TYPES[0/*Fuse.Controls.ButtonBase*/]))->Text(), void();
 }
 
-// public AccountBook_FuseControlsButtonBase_Text_Property New(Fuse.Controls.ButtonBase obj, Uno.UX.Selector name) :199
+// public AccountBook_FuseControlsButtonBase_Text_Property New(Fuse.Controls.ButtonBase obj, Uno.UX.Selector name) :219
 void AccountBook_FuseControlsButtonBase_Text_Property__New1_fn(::g::Fuse::Controls::ButtonBase* obj, ::g::Uno::UX::Selector* name, AccountBook_FuseControlsButtonBase_Text_Property** __retval)
 {
     *__retval = AccountBook_FuseControlsButtonBase_Text_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :200
+// public override sealed Uno.UX.PropertyObject get_Object() :220
 void AccountBook_FuseControlsButtonBase_Text_Property__get_Object_fn(AccountBook_FuseControlsButtonBase_Text_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :202
+// public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :222
 void AccountBook_FuseControlsButtonBase_Text_Property__Set1_fn(AccountBook_FuseControlsButtonBase_Text_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString* v, uObject* origin)
 {
     uPtr(uCast< ::g::Fuse::Controls::ButtonBase*>(obj, ::TYPES[0/*Fuse.Controls.ButtonBase*/]))->SetText(v, origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :203
+// public override sealed bool get_SupportsOriginSetter() :223
 void AccountBook_FuseControlsButtonBase_Text_Property__get_SupportsOriginSetter_fn(AccountBook_FuseControlsButtonBase_Text_Property* __this, bool* __retval)
 {
     return *__retval = true, void();
 }
 
-// public AccountBook_FuseControlsButtonBase_Text_Property(Fuse.Controls.ButtonBase obj, Uno.UX.Selector name) [instance] :199
+// public AccountBook_FuseControlsButtonBase_Text_Property(Fuse.Controls.ButtonBase obj, Uno.UX.Selector name) [instance] :219
 void AccountBook_FuseControlsButtonBase_Text_Property::ctor_3(::g::Fuse::Controls::ButtonBase* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_FuseControlsButtonBase_Text_Property New(Fuse.Controls.ButtonBase obj, Uno.UX.Selector name) [static] :199
+// public AccountBook_FuseControlsButtonBase_Text_Property New(Fuse.Controls.ButtonBase obj, Uno.UX.Selector name) [static] :219
 AccountBook_FuseControlsButtonBase_Text_Property* AccountBook_FuseControlsButtonBase_Text_Property::New1(::g::Fuse::Controls::ButtonBase* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_FuseControlsButtonBase_Text_Property* obj1 = (AccountBook_FuseControlsButtonBase_Text_Property*)uNew(AccountBook_FuseControlsButtonBase_Text_Property_typeof());

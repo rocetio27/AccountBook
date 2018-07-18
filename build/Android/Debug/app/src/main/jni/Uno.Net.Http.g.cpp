@@ -6,9 +6,9 @@
 #include <Android.Base.Wrappers-90b493fe.h>
 #include <Android.com.fuse.Expe-9d584358.h>
 #include <Uno.Action.h>
-#include <Uno.Action-1.h>
-#include <Uno.Action-2.h>
-#include <Uno.Action-4.h>
+#include <Uno.Action1-1.h>
+#include <Uno.Action2-2.h>
+#include <Uno.Action4-4.h>
 #include <Uno.ArgumentNullException.h>
 #include <Uno.Bool.h>
 #include <Uno.Byte.h>
@@ -26,7 +26,7 @@
 #include <Uno.Net.Http.HttpDefa-b19f5e55.h>
 #include <Uno.Net.Http.HttpMess-1d2e0b2f.h>
 #include <Uno.Net.Http.HttpMess-2de79056.h>
-#include <Uno.Net.Http.HttpMess-3c1f1370.h>
+#include <Uno.Net.Http.HttpMess-56ba8d01.h>
 #include <Uno.Net.Http.HttpMess-8a5feb56.h>
 #include <Uno.Net.Http.HttpMessageCache.h>
 #include <Uno.Net.Http.HttpMess-b09aa232.h>
@@ -38,6 +38,7 @@
 #include <Uno.Net.Http.Implemen-c964dca9.h>
 #include <Uno.Net.Http.InvalidR-d0abcd6.h>
 #include <Uno.Net.Http.InvalidS-7f541f1c.h>
+#include <Uno.Object.h>
 #include <Uno.ObjectDisposedException.h>
 #include <Uno.Platform.Applicat-bf686309.h>
 #include <Uno.Platform.ApplicationState.h>
@@ -52,7 +53,7 @@ namespace Uno{
 namespace Net{
 namespace Http{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpMessageHandlerRequest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpMessageHandlerRequest.uno
 // --------------------------------------------------------------------------------------------------------
 
 // private sealed class HttpMessageHandlerRequest.DispatchClosure :138
@@ -80,13 +81,13 @@ uType* HttpMessageHandlerRequest__DispatchClosure_typeof()
 }
 
 // public DispatchClosure(Uno.Net.Http.HttpRequestState state, Uno.Action<Uno.Net.Http.HttpMessageHandlerRequest> action, Uno.Net.Http.HttpMessageHandlerRequest arg) :144
-void HttpMessageHandlerRequest__DispatchClosure__ctor__fn(HttpMessageHandlerRequest__DispatchClosure* __this, int* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg)
+void HttpMessageHandlerRequest__DispatchClosure__ctor__fn(HttpMessageHandlerRequest__DispatchClosure* __this, int32_t* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg)
 {
     __this->ctor_(*state, action, arg);
 }
 
 // public DispatchClosure New(Uno.Net.Http.HttpRequestState state, Uno.Action<Uno.Net.Http.HttpMessageHandlerRequest> action, Uno.Net.Http.HttpMessageHandlerRequest arg) :144
-void HttpMessageHandlerRequest__DispatchClosure__New1_fn(int* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg, HttpMessageHandlerRequest__DispatchClosure** __retval)
+void HttpMessageHandlerRequest__DispatchClosure__New1_fn(int32_t* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg, HttpMessageHandlerRequest__DispatchClosure** __retval)
 {
     *__retval = HttpMessageHandlerRequest__DispatchClosure::New1(*state, action, arg);
 }
@@ -98,7 +99,7 @@ void HttpMessageHandlerRequest__DispatchClosure__Run_fn(HttpMessageHandlerReques
 }
 
 // public DispatchClosure(Uno.Net.Http.HttpRequestState state, Uno.Action<Uno.Net.Http.HttpMessageHandlerRequest> action, Uno.Net.Http.HttpMessageHandlerRequest arg) [instance] :144
-void HttpMessageHandlerRequest__DispatchClosure::ctor_(int state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg)
+void HttpMessageHandlerRequest__DispatchClosure::ctor_(int32_t state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg)
 {
     _action = action;
     _arg = arg;
@@ -117,7 +118,7 @@ void HttpMessageHandlerRequest__DispatchClosure::Run()
 }
 
 // public DispatchClosure New(Uno.Net.Http.HttpRequestState state, Uno.Action<Uno.Net.Http.HttpMessageHandlerRequest> action, Uno.Net.Http.HttpMessageHandlerRequest arg) [static] :144
-HttpMessageHandlerRequest__DispatchClosure* HttpMessageHandlerRequest__DispatchClosure::New1(int state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg)
+HttpMessageHandlerRequest__DispatchClosure* HttpMessageHandlerRequest__DispatchClosure::New1(int32_t state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg)
 {
     HttpMessageHandlerRequest__DispatchClosure* obj1 = (HttpMessageHandlerRequest__DispatchClosure*)uNew(HttpMessageHandlerRequest__DispatchClosure_typeof());
     obj1->ctor_(state, action, arg);
@@ -125,7 +126,7 @@ HttpMessageHandlerRequest__DispatchClosure* HttpMessageHandlerRequest__DispatchC
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpMessageHandlerRequest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpMessageHandlerRequest.uno
 // --------------------------------------------------------------------------------------------------------
 
 // private sealed class HttpMessageHandlerRequest.DispatchClosure<TArg1> :161
@@ -155,9 +156,9 @@ uType* HttpMessageHandlerRequest__DispatchClosure1_typeof()
 }
 
 // public DispatchClosure(Uno.Net.Http.HttpRequestState state, Uno.Action<Uno.Net.Http.HttpMessageHandlerRequest, TArg1> action, Uno.Net.Http.HttpMessageHandlerRequest arg0, TArg1 arg1) :168
-void HttpMessageHandlerRequest__DispatchClosure1__ctor__fn(HttpMessageHandlerRequest__DispatchClosure1* __this, int* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg0, void* arg1)
+void HttpMessageHandlerRequest__DispatchClosure1__ctor__fn(HttpMessageHandlerRequest__DispatchClosure1* __this, int32_t* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg0, void* arg1)
 {
-    int state_ = *state;
+    int32_t state_ = *state;
     __this->_action = action;
     __this->_arg0 = arg0;
     __this->_arg1() = arg1;
@@ -165,11 +166,11 @@ void HttpMessageHandlerRequest__DispatchClosure1__ctor__fn(HttpMessageHandlerReq
 }
 
 // public DispatchClosure New(Uno.Net.Http.HttpRequestState state, Uno.Action<Uno.Net.Http.HttpMessageHandlerRequest, TArg1> action, Uno.Net.Http.HttpMessageHandlerRequest arg0, TArg1 arg1) :168
-void HttpMessageHandlerRequest__DispatchClosure1__New1_fn(uType* __type, int* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg0, void* arg1, HttpMessageHandlerRequest__DispatchClosure1** __retval)
+void HttpMessageHandlerRequest__DispatchClosure1__New1_fn(uType* __type, int32_t* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* arg0, void* arg1, HttpMessageHandlerRequest__DispatchClosure1** __retval)
 {
-    int state_ = *state;
+    int32_t state_ = *state;
     HttpMessageHandlerRequest__DispatchClosure1* obj1 = (HttpMessageHandlerRequest__DispatchClosure1*)uNew(__type);
-    HttpMessageHandlerRequest__DispatchClosure1__ctor__fn(obj1, uCRef<int>(state_), action, arg0, arg1);
+    HttpMessageHandlerRequest__DispatchClosure1__ctor__fn(obj1, uCRef<int32_t>(state_), action, arg0, arg1);
     return *__retval = obj1, void();
 }
 
@@ -191,7 +192,7 @@ void HttpMessageHandlerRequest__DispatchClosure1::Run()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpDefaultDispatcher.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpDefaultDispatcher.uno
 // ----------------------------------------------------------------------------------------------------
 
 // internal sealed class HttpDefaultDispatcher :6
@@ -256,7 +257,7 @@ HttpDefaultDispatcher* HttpDefaultDispatcher::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpMessageCache.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpMessageCache.uno
 // -----------------------------------------------------------------------------------------------
 
 // public static class HttpMessageCache :3
@@ -271,13 +272,11 @@ static void HttpMessageCache__cctor__fn(uType* __type)
 static void HttpMessageCache_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("Uno.Net.Http.HttpMessageCache: Changes to IsCacheEnabled are ignored after initialization.");
-    ::STRINGS[1] = uString::Const("C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Net.Http/1.4.3/HttpMessageCache.uno");
+    ::STRINGS[1] = uString::Const("C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Uno.Net.Http/1.9.0/HttpMessageCache.uno");
     ::TYPES[0] = ::g::Uno::Platform::ApplicationStateTransitionHandler_typeof();
     type->SetDependencies(
         ::g::Uno::Platform::CoreApp_typeof(),
-        ::g::Uno::Diagnostics::Debug_typeof(),
-        ::g::Android::com::fuse::ExperimentalHttp::HttpRequest_typeof(),
-        ::g::Android::Base::JNI_typeof());
+        ::g::Uno::Diagnostics::Debug_typeof());
     type->SetFields(0,
         ::g::Uno::Bool_typeof(), (uintptr_t)&HttpMessageCache::_isInitialized_, uFieldFlagsStatic,
         ::g::Uno::Bool_typeof(), (uintptr_t)&HttpMessageCache::_isCacheDisabled_, uFieldFlagsStatic,
@@ -291,7 +290,7 @@ uClassType* HttpMessageCache_typeof()
 
     uTypeOptions options;
     options.FieldCount = 3;
-    options.DependencyCount = 4;
+    options.DependencyCount = 2;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Uno.Net.Http.HttpMessageCache", options);
     type->fp_build_ = HttpMessageCache_build;
@@ -318,7 +317,7 @@ void HttpMessageCache__set_IsCacheEnabled_fn(bool* value)
 }
 
 // private static void OnApplicationStarted(Uno.Platform.ApplicationState state) :40
-void HttpMessageCache__OnApplicationStarted_fn(int* state)
+void HttpMessageCache__OnApplicationStarted_fn(int32_t* state)
 {
     HttpMessageCache::OnApplicationStarted(*state);
 }
@@ -346,7 +345,7 @@ void HttpMessageCache::Init()
 }
 
 // private static void OnApplicationStarted(Uno.Platform.ApplicationState state) [static] :40
-void HttpMessageCache::OnApplicationStarted(int state)
+void HttpMessageCache::OnApplicationStarted(int32_t state)
 {
     HttpMessageCache_typeof()->Init();
     HttpMessageCache::Init();
@@ -365,19 +364,22 @@ void HttpMessageCache::IsCacheEnabled(bool value)
     HttpMessageCache_typeof()->Init();
 
     if (HttpMessageCache::_isInitialized_)
-        ::g::Uno::Diagnostics::Debug::Log5(::STRINGS[0/*"Uno.Net.Htt...*/], 0, ::STRINGS[1/*"C:/Users/Sp...*/], 15);
+        ::g::Uno::Diagnostics::Debug::Log3(::STRINGS[0/*"Uno.Net.Htt...*/], 0, ::STRINGS[1/*"C:/Users/Sp...*/], 15);
     else
         HttpMessageCache::_isCacheDisabled_ = !value;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpMessageHandler.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpMessageHandler.uno
 // -------------------------------------------------------------------------------------------------
 
 // public sealed class HttpMessageHandler :8
 // {
 static void HttpMessageHandler_build(uType* type)
 {
+    type->SetDependencies(
+        ::g::Uno::Net::Http::HttpMessageCache_typeof(),
+        HttpMessageHandler__StaticData_typeof());
     type->SetInterfaces(
         ::g::Uno::IDisposable_typeof(), offsetof(HttpMessageHandler_type, interface0));
     type->SetFields(0,
@@ -393,6 +395,7 @@ HttpMessageHandler_type* HttpMessageHandler_typeof()
     uTypeOptions options;
     options.FieldCount = 2;
     options.InterfaceCount = 1;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(HttpMessageHandler);
     options.TypeSize = sizeof(HttpMessageHandler_type);
     type = (HttpMessageHandler_type*)uClassType::New("Uno.Net.Http.HttpMessageHandler", options);
@@ -402,37 +405,37 @@ HttpMessageHandler_type* HttpMessageHandler_typeof()
     return type;
 }
 
-// public HttpMessageHandler() :40
+// public HttpMessageHandler() :51
 void HttpMessageHandler__ctor__fn(HttpMessageHandler* __this)
 {
     __this->ctor_();
 }
 
-// internal void CompleteRequest(Uno.Net.Http.HttpMessageHandlerRequest request) :91
+// internal void CompleteRequest(Uno.Net.Http.HttpMessageHandlerRequest request) :102
 void HttpMessageHandler__CompleteRequest_fn(HttpMessageHandler* __this, ::g::Uno::Net::Http::HttpMessageHandlerRequest* request)
 {
     __this->CompleteRequest(request);
 }
 
-// public Uno.Net.Http.HttpMessageHandlerRequest CreateRequest(string method, string url, Uno.Threading.IDispatcher dispatcher) :72
+// public Uno.Net.Http.HttpMessageHandlerRequest CreateRequest(string method, string url, Uno.Threading.IDispatcher dispatcher) :83
 void HttpMessageHandler__CreateRequest1_fn(HttpMessageHandler* __this, uString* method, uString* url, uObject* dispatcher, ::g::Uno::Net::Http::HttpMessageHandlerRequest** __retval)
 {
     *__retval = __this->CreateRequest1(method, url, dispatcher);
 }
 
-// public void Dispose() :51
+// public void Dispose() :62
 void HttpMessageHandler__Dispose_fn(HttpMessageHandler* __this)
 {
     __this->Dispose();
 }
 
-// public HttpMessageHandler New() :40
+// public HttpMessageHandler New() :51
 void HttpMessageHandler__New1_fn(HttpMessageHandler** __retval)
 {
     *__retval = HttpMessageHandler::New1();
 }
 
-// public HttpMessageHandler() [instance] :40
+// public HttpMessageHandler() [instance] :51
 void HttpMessageHandler::ctor_()
 {
     ::g::Uno::Net::Http::HttpMessageCache::Init();
@@ -440,31 +443,31 @@ void HttpMessageHandler::ctor_()
     _defaultDispatcher = (uObject*)::g::Uno::Net::Http::HttpDefaultDispatcher::New1();
 }
 
-// internal void CompleteRequest(Uno.Net.Http.HttpMessageHandlerRequest request) [instance] :91
+// internal void CompleteRequest(Uno.Net.Http.HttpMessageHandlerRequest request) [instance] :102
 void HttpMessageHandler::CompleteRequest(::g::Uno::Net::Http::HttpMessageHandlerRequest* request)
 {
     ::g::Uno::Net::Http::HttpMessageHandlerRequest* ret5;
 
-    for (int i = 0; i < uPtr(_pendingRequests)->Count(); ++i)
-        if ((::g::Uno::Collections::List__get_Item_fn(uPtr(_pendingRequests), uCRef<int>(i), &ret5), ret5) == request)
+    for (int32_t i = 0; i < uPtr(_pendingRequests)->Count(); ++i)
+        if ((::g::Uno::Collections::List__get_Item_fn(uPtr(_pendingRequests), uCRef<int32_t>(i), &ret5), ret5) == request)
         {
-            ::g::Uno::Collections::List__set_Item_fn(uPtr(_pendingRequests), uCRef<int>(i), NULL);
+            ::g::Uno::Collections::List__set_Item_fn(uPtr(_pendingRequests), uCRef<int32_t>(i), NULL);
             HttpMessageHandler__StaticData::DecrementPendingRequests();
             break;
         }
 }
 
-// public Uno.Net.Http.HttpMessageHandlerRequest CreateRequest(string method, string url, Uno.Threading.IDispatcher dispatcher) [instance] :72
+// public Uno.Net.Http.HttpMessageHandlerRequest CreateRequest(string method, string url, Uno.Threading.IDispatcher dispatcher) [instance] :83
 ::g::Uno::Net::Http::HttpMessageHandlerRequest* HttpMessageHandler::CreateRequest1(uString* method, uString* url, uObject* dispatcher)
 {
     ::g::Uno::Net::Http::HttpMessageHandlerRequest* ret6;
     HttpMessageHandler__StaticData::IncrementPendingRequests();
     ::g::Uno::Net::Http::HttpMessageHandlerRequest* request = ::g::Uno::Net::Http::HttpMessageHandlerRequest::New1(this, method, url, dispatcher);
 
-    for (int i = 0; i < uPtr(_pendingRequests)->Count(); ++i)
-        if ((::g::Uno::Collections::List__get_Item_fn(uPtr(_pendingRequests), uCRef<int>(i), &ret6), ret6) == NULL)
+    for (int32_t i = 0; i < uPtr(_pendingRequests)->Count(); ++i)
+        if ((::g::Uno::Collections::List__get_Item_fn(uPtr(_pendingRequests), uCRef<int32_t>(i), &ret6), ret6) == NULL)
         {
-            ::g::Uno::Collections::List__set_Item_fn(uPtr(_pendingRequests), uCRef<int>(i), request);
+            ::g::Uno::Collections::List__set_Item_fn(uPtr(_pendingRequests), uCRef<int32_t>(i), request);
             return request;
         }
 
@@ -472,40 +475,45 @@ void HttpMessageHandler::CompleteRequest(::g::Uno::Net::Http::HttpMessageHandler
     return request;
 }
 
-// public void Dispose() [instance] :51
+// public void Dispose() [instance] :62
 void HttpMessageHandler::Dispose()
 {
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Uno::Net::Http::HttpMessageHandlerRequest*> > ret7;
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Uno::Net::Http::HttpMessageHandlerRequest*> > enum1 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_pendingRequests), &ret7), ret7);
 
-    try
     {
+        try
         {
-            while (enum1.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Uno::Net::Http::HttpMessageHandlerRequest_typeof(), NULL)))
             {
-                ::g::Uno::Net::Http::HttpMessageHandlerRequest* request = enum1.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Uno::Net::Http::HttpMessageHandlerRequest_typeof(), NULL));
+                while (enum1.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Uno::Net::Http::HttpMessageHandlerRequest_typeof(), NULL)))
+                {
+                    ::g::Uno::Net::Http::HttpMessageHandlerRequest* request = enum1.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Uno::Net::Http::HttpMessageHandlerRequest_typeof(), NULL));
 
-                if (request != NULL)
-                    uPtr(request)->Dispose();
+                    if (request != NULL)
+                        uPtr(request)->Dispose();
+                }
             }
         }
-        {
-            enum1.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Uno::Net::Http::HttpMessageHandlerRequest_typeof(), NULL));
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum1.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Uno::Net::Http::HttpMessageHandlerRequest_typeof(), NULL));
+            }
+                        throw __t;
+            goto __after_finally_0;
+        }
+
         {
             enum1.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Uno::Net::Http::HttpMessageHandlerRequest_typeof(), NULL));
         }
-                throw __t;
+        __after_finally_0:;
     }
 
     _pendingRequests = NULL;
 }
 
-// public HttpMessageHandler New() [static] :40
+// public HttpMessageHandler New() [static] :51
 HttpMessageHandler* HttpMessageHandler::New1()
 {
     HttpMessageHandler* obj3 = (HttpMessageHandler*)uNew(HttpMessageHandler_typeof());
@@ -514,7 +522,7 @@ HttpMessageHandler* HttpMessageHandler::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpMessageHandlerRequest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpMessageHandlerRequest.uno
 // --------------------------------------------------------------------------------------------------------
 
 // public sealed class HttpMessageHandlerRequest :8
@@ -669,19 +677,19 @@ void HttpMessageHandlerRequest__GetResponseHeaders_fn(HttpMessageHandlerRequest*
 }
 
 // public int GetResponseStatus() :387
-void HttpMessageHandlerRequest__GetResponseStatus_fn(HttpMessageHandlerRequest* __this, int* __retval)
+void HttpMessageHandlerRequest__GetResponseStatus_fn(HttpMessageHandlerRequest* __this, int32_t* __retval)
 {
     *__retval = __this->GetResponseStatus();
 }
 
 // public Uno.Net.Http.HttpResponseType get_HttpResponseType() :101
-void HttpMessageHandlerRequest__get_HttpResponseType_fn(HttpMessageHandlerRequest* __this, int* __retval)
+void HttpMessageHandlerRequest__get_HttpResponseType_fn(HttpMessageHandlerRequest* __this, int32_t* __retval)
 {
     *__retval = __this->HttpResponseType();
 }
 
 // public void set_HttpResponseType(Uno.Net.Http.HttpResponseType value) :102
-void HttpMessageHandlerRequest__set_HttpResponseType_fn(HttpMessageHandlerRequest* __this, int* value)
+void HttpMessageHandlerRequest__set_HttpResponseType_fn(HttpMessageHandlerRequest* __this, int32_t* value)
 {
     __this->HttpResponseType(*value);
 }
@@ -735,7 +743,7 @@ void HttpMessageHandlerRequest__OnHeadersReceived_fn(HttpMessageHandlerRequest* 
 }
 
 // internal void OnProgress(int current, int total, bool hasTotal) :257
-void HttpMessageHandlerRequest__OnProgress_fn(HttpMessageHandlerRequest* __this, int* current, int* total, bool* hasTotal)
+void HttpMessageHandlerRequest__OnProgress_fn(HttpMessageHandlerRequest* __this, int32_t* current, int32_t* total, bool* hasTotal)
 {
     __this->OnProgress(*current, *total, *hasTotal);
 }
@@ -789,25 +797,25 @@ void HttpMessageHandlerRequest__SetHeader_fn(HttpMessageHandlerRequest* __this, 
 }
 
 // public void SetResponseType(Uno.Net.Http.HttpResponseType responseType) :299
-void HttpMessageHandlerRequest__SetResponseType_fn(HttpMessageHandlerRequest* __this, int* responseType)
+void HttpMessageHandlerRequest__SetResponseType_fn(HttpMessageHandlerRequest* __this, int32_t* responseType)
 {
     __this->SetResponseType(*responseType);
 }
 
 // public void SetTimeout(int timeoutInMilliseconds) :289
-void HttpMessageHandlerRequest__SetTimeout_fn(HttpMessageHandlerRequest* __this, int* timeoutInMilliseconds)
+void HttpMessageHandlerRequest__SetTimeout_fn(HttpMessageHandlerRequest* __this, int32_t* timeoutInMilliseconds)
 {
     __this->SetTimeout(*timeoutInMilliseconds);
 }
 
 // public Uno.Net.Http.HttpRequestState get_State() :107
-void HttpMessageHandlerRequest__get_State_fn(HttpMessageHandlerRequest* __this, int* __retval)
+void HttpMessageHandlerRequest__get_State_fn(HttpMessageHandlerRequest* __this, int32_t* __retval)
 {
     *__retval = __this->State();
 }
 
 // private void set_State(Uno.Net.Http.HttpRequestState value) :108
-void HttpMessageHandlerRequest__set_State_fn(HttpMessageHandlerRequest* __this, int* value)
+void HttpMessageHandlerRequest__set_State_fn(HttpMessageHandlerRequest* __this, int32_t* value)
 {
     __this->State(*value);
 }
@@ -1003,7 +1011,7 @@ uString* HttpMessageHandlerRequest::GetResponseHeaders()
 }
 
 // public int GetResponseStatus() [instance] :387
-int HttpMessageHandlerRequest::GetResponseStatus()
+int32_t HttpMessageHandlerRequest::GetResponseStatus()
 {
     CheckDisposed();
 
@@ -1014,13 +1022,13 @@ int HttpMessageHandlerRequest::GetResponseStatus()
 }
 
 // public Uno.Net.Http.HttpResponseType get_HttpResponseType() [instance] :101
-int HttpMessageHandlerRequest::HttpResponseType()
+int32_t HttpMessageHandlerRequest::HttpResponseType()
 {
     return _responseType;
 }
 
 // public void set_HttpResponseType(Uno.Net.Http.HttpResponseType value) [instance] :102
-void HttpMessageHandlerRequest::HttpResponseType(int value)
+void HttpMessageHandlerRequest::HttpResponseType(int32_t value)
 {
     SetResponseType(value);
 }
@@ -1062,7 +1070,7 @@ void HttpMessageHandlerRequest::OnError(uString* platformspesificErrorMessage)
     uDelegate* handler = Error1;
 
     if (::g::Uno::Delegate::op_Inequality(handler, NULL))
-        ::g::Uno::Threading::IDispatcher::Invoke(uInterface(uPtr(_dispatcher), ::g::Uno::Threading::IDispatcher_typeof()), uDelegate::New(::g::Uno::Action_typeof(), (void*)HttpMessageHandlerRequest__DispatchClosure1__Run_fn, (HttpMessageHandlerRequest__DispatchClosure1__New1_fn(HttpMessageHandlerRequest__DispatchClosure1_typeof()->MakeType(::g::Uno::String_typeof(), NULL), uCRef<int>(7), handler, this, platformspesificErrorMessage, &ret4), ret4)));
+        ::g::Uno::Threading::IDispatcher::Invoke(uInterface(uPtr(_dispatcher), ::g::Uno::Threading::IDispatcher_typeof()), uDelegate::New(::g::Uno::Action_typeof(), (void*)HttpMessageHandlerRequest__DispatchClosure1__Run_fn, (HttpMessageHandlerRequest__DispatchClosure1__New1_fn(HttpMessageHandlerRequest__DispatchClosure1_typeof()->MakeType(::g::Uno::String_typeof(), NULL), uCRef<int32_t>(7), handler, this, platformspesificErrorMessage, &ret4), ret4)));
 }
 
 // internal void OnHeadersReceived() [instance] :248
@@ -1072,7 +1080,7 @@ void HttpMessageHandlerRequest::OnHeadersReceived()
 }
 
 // internal void OnProgress(int current, int total, bool hasTotal) [instance] :257
-void HttpMessageHandlerRequest::OnProgress(int current, int total, bool hasTotal)
+void HttpMessageHandlerRequest::OnProgress(int32_t current, int32_t total, bool hasTotal)
 {
     uDelegate* handler = Progress1;
 
@@ -1180,7 +1188,7 @@ void HttpMessageHandlerRequest::SetHeader(uString* name, uString* value)
 }
 
 // public void SetResponseType(Uno.Net.Http.HttpResponseType responseType) [instance] :299
-void HttpMessageHandlerRequest::SetResponseType(int responseType)
+void HttpMessageHandlerRequest::SetResponseType(int32_t responseType)
 {
     CheckDisposed();
 
@@ -1192,7 +1200,7 @@ void HttpMessageHandlerRequest::SetResponseType(int responseType)
 }
 
 // public void SetTimeout(int timeoutInMilliseconds) [instance] :289
-void HttpMessageHandlerRequest::SetTimeout(int timeoutInMilliseconds)
+void HttpMessageHandlerRequest::SetTimeout(int32_t timeoutInMilliseconds)
 {
     CheckDisposed();
 
@@ -1203,13 +1211,13 @@ void HttpMessageHandlerRequest::SetTimeout(int timeoutInMilliseconds)
 }
 
 // public Uno.Net.Http.HttpRequestState get_State() [instance] :107
-int HttpMessageHandlerRequest::State()
+int32_t HttpMessageHandlerRequest::State()
 {
     return _state;
 }
 
 // private void set_State(Uno.Net.Http.HttpRequestState value) [instance] :108
-void HttpMessageHandlerRequest::State(int value)
+void HttpMessageHandlerRequest::State(int32_t value)
 {
     if (_state == value)
         return;
@@ -1257,7 +1265,7 @@ HttpMessageHandlerRequest* HttpMessageHandlerRequest::New1(::g::Uno::Net::Http::
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpRequestState.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpRequestState.uno
 // -----------------------------------------------------------------------------------------------
 
 // public enum HttpRequestState :3
@@ -1281,7 +1289,7 @@ uEnumType* HttpRequestState_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpResponseType.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpResponseType.uno
 // -----------------------------------------------------------------------------------------------
 
 // public enum HttpResponseType :3
@@ -1298,7 +1306,7 @@ uEnumType* HttpResponseType_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpStatusReasonPhrase.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpStatusReasonPhrase.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public static class HttpStatusReasonPhrase :5
@@ -1311,11 +1319,11 @@ static void HttpStatusReasonPhrase__cctor__fn(uType* __type)
     ::g::Uno::Collections::Dictionary* collection3;
     ::g::Uno::Collections::Dictionary* collection2;
     ::g::Uno::Collections::Dictionary* collection1;
-    HttpStatusReasonPhrase::Informational_ = (uObject*)(collection5 = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<int, string>*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection5), uCRef<int>(100), ::STRINGS[2/*"Continue"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection5), uCRef<int>(101), ::STRINGS[3/*"Switching P...*/]), collection5);
-    HttpStatusReasonPhrase::Success_ = (uObject*)(collection4 = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<int, string>*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int>(200), ::STRINGS[4/*"OK"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int>(201), ::STRINGS[5/*"Created"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int>(202), ::STRINGS[6/*"Accepted"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int>(203), ::STRINGS[7/*"Non-Authori...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int>(204), ::STRINGS[8/*"No Content"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int>(205), ::STRINGS[9/*"Reset Content"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int>(206), ::STRINGS[10/*"Partial Con...*/]), collection4);
-    HttpStatusReasonPhrase::Redirection_ = (uObject*)(collection3 = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<int, string>*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int>(300), ::STRINGS[11/*"Multiple Ch...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int>(301), ::STRINGS[12/*"Moved Perma...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int>(302), ::STRINGS[13/*"Found"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int>(303), ::STRINGS[14/*"See Other"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int>(304), ::STRINGS[15/*"Not Modified"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int>(305), ::STRINGS[16/*"Use Proxy"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int>(307), ::STRINGS[17/*"Temporary R...*/]), collection3);
-    HttpStatusReasonPhrase::ClientErrors_ = (uObject*)(collection2 = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<int, string>*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(400), ::STRINGS[18/*"Bad Request"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(401), ::STRINGS[19/*"Unauthorized"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(402), ::STRINGS[20/*"Payment Req...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(403), ::STRINGS[21/*"Forbidden"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(404), ::STRINGS[22/*"Not Found"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(405), ::STRINGS[23/*"Method Not ...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(406), ::STRINGS[24/*"Not Accepta...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(407), ::STRINGS[25/*"Proxy Authe...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(408), ::STRINGS[26/*"Request Tim...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(409), ::STRINGS[27/*"Conflict"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(410), ::STRINGS[28/*"Gone"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(411), ::STRINGS[29/*"Length Requ...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(412), ::STRINGS[30/*"Preconditio...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(413), ::STRINGS[31/*"Request Ent...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(414), ::STRINGS[32/*"Request-URI...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(415), ::STRINGS[33/*"Unsupported...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(416), ::STRINGS[34/*"Requested r...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int>(417), ::STRINGS[35/*"Expectation...*/]), collection2);
-    HttpStatusReasonPhrase::ServerErrors_ = (uObject*)(collection1 = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<int, string>*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int>(500), ::STRINGS[36/*"Internal Se...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int>(501), ::STRINGS[37/*"Not Impleme...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int>(502), ::STRINGS[38/*"Bad Gateway"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int>(503), ::STRINGS[39/*"Service Una...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int>(504), ::STRINGS[40/*"Gateway Tim...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int>(505), ::STRINGS[41/*"HTTP Versio...*/]), collection1);
+    HttpStatusReasonPhrase::Informational_ = (uObject*)(collection5 = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<int, string>*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection5), uCRef<int32_t>(100), ::STRINGS[2/*"Continue"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection5), uCRef<int32_t>(101), ::STRINGS[3/*"Switching P...*/]), collection5);
+    HttpStatusReasonPhrase::Success_ = (uObject*)(collection4 = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<int, string>*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int32_t>(200), ::STRINGS[4/*"OK"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int32_t>(201), ::STRINGS[5/*"Created"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int32_t>(202), ::STRINGS[6/*"Accepted"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int32_t>(203), ::STRINGS[7/*"Non-Authori...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int32_t>(204), ::STRINGS[8/*"No Content"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int32_t>(205), ::STRINGS[9/*"Reset Content"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection4), uCRef<int32_t>(206), ::STRINGS[10/*"Partial Con...*/]), collection4);
+    HttpStatusReasonPhrase::Redirection_ = (uObject*)(collection3 = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<int, string>*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int32_t>(300), ::STRINGS[11/*"Multiple Ch...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int32_t>(301), ::STRINGS[12/*"Moved Perma...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int32_t>(302), ::STRINGS[13/*"Found"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int32_t>(303), ::STRINGS[14/*"See Other"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int32_t>(304), ::STRINGS[15/*"Not Modified"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int32_t>(305), ::STRINGS[16/*"Use Proxy"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection3), uCRef<int32_t>(307), ::STRINGS[17/*"Temporary R...*/]), collection3);
+    HttpStatusReasonPhrase::ClientErrors_ = (uObject*)(collection2 = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<int, string>*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(400), ::STRINGS[18/*"Bad Request"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(401), ::STRINGS[19/*"Unauthorized"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(402), ::STRINGS[20/*"Payment Req...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(403), ::STRINGS[21/*"Forbidden"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(404), ::STRINGS[22/*"Not Found"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(405), ::STRINGS[23/*"Method Not ...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(406), ::STRINGS[24/*"Not Accepta...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(407), ::STRINGS[25/*"Proxy Authe...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(408), ::STRINGS[26/*"Request Tim...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(409), ::STRINGS[27/*"Conflict"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(410), ::STRINGS[28/*"Gone"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(411), ::STRINGS[29/*"Length Requ...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(412), ::STRINGS[30/*"Preconditio...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(413), ::STRINGS[31/*"Request Ent...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(414), ::STRINGS[32/*"Request-URI...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(415), ::STRINGS[33/*"Unsupported...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(416), ::STRINGS[34/*"Requested r...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection2), uCRef<int32_t>(417), ::STRINGS[35/*"Expectation...*/]), collection2);
+    HttpStatusReasonPhrase::ServerErrors_ = (uObject*)(collection1 = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[1/*Uno.Collections.Dictionary<int, string>*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int32_t>(500), ::STRINGS[36/*"Internal Se...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int32_t>(501), ::STRINGS[37/*"Not Impleme...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int32_t>(502), ::STRINGS[38/*"Bad Gateway"*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int32_t>(503), ::STRINGS[39/*"Service Una...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int32_t>(504), ::STRINGS[40/*"Gateway Tim...*/]), ::g::Uno::Collections::Dictionary__Add_fn(uPtr(collection1), uCRef<int32_t>(505), ::STRINGS[41/*"HTTP Versio...*/]), collection1);
 }
 
 static void HttpStatusReasonPhrase_build(uType* type)
@@ -1385,7 +1393,7 @@ uClassType* HttpStatusReasonPhrase_typeof()
 }
 
 // public static string GetFromStatusCode(int statusCode) :72
-void HttpStatusReasonPhrase__GetFromStatusCode_fn(int* statusCode, uString** __retval)
+void HttpStatusReasonPhrase__GetFromStatusCode_fn(int32_t* statusCode, uString** __retval)
 {
     *__retval = HttpStatusReasonPhrase::GetFromStatusCode(*statusCode);
 }
@@ -1397,8 +1405,9 @@ uSStrong<uObject*> HttpStatusReasonPhrase::ClientErrors_;
 uSStrong<uObject*> HttpStatusReasonPhrase::ServerErrors_;
 
 // public static string GetFromStatusCode(int statusCode) [static] :72
-uString* HttpStatusReasonPhrase::GetFromStatusCode(int statusCode)
+uString* HttpStatusReasonPhrase::GetFromStatusCode(int32_t statusCode)
 {
+    HttpStatusReasonPhrase_typeof()->Init();
     bool ret6;
     bool ret7;
     bool ret8;
@@ -1406,26 +1415,26 @@ uString* HttpStatusReasonPhrase::GetFromStatusCode(int statusCode)
     bool ret10;
     uString* description;
 
-    if ((::g::Uno::Collections::IDictionary::TryGetValue_ex(uInterface(uPtr(HttpStatusReasonPhrase::Informational_), ::TYPES[2/*Uno.Collections.IDictionary<int, string>*/]), uCRef<int>(statusCode), (void**)(&description), &ret6), ret6))
+    if ((::g::Uno::Collections::IDictionary::TryGetValue_ex(uInterface(uPtr(HttpStatusReasonPhrase::Informational_), ::TYPES[2/*Uno.Collections.IDictionary<int, string>*/]), uCRef<int32_t>(statusCode), (void**)(&description), &ret6), ret6))
         return description;
 
-    if ((::g::Uno::Collections::IDictionary::TryGetValue_ex(uInterface(uPtr(HttpStatusReasonPhrase::Success_), ::TYPES[2/*Uno.Collections.IDictionary<int, string>*/]), uCRef<int>(statusCode), (void**)(&description), &ret7), ret7))
+    if ((::g::Uno::Collections::IDictionary::TryGetValue_ex(uInterface(uPtr(HttpStatusReasonPhrase::Success_), ::TYPES[2/*Uno.Collections.IDictionary<int, string>*/]), uCRef<int32_t>(statusCode), (void**)(&description), &ret7), ret7))
         return description;
 
-    if ((::g::Uno::Collections::IDictionary::TryGetValue_ex(uInterface(uPtr(HttpStatusReasonPhrase::Redirection_), ::TYPES[2/*Uno.Collections.IDictionary<int, string>*/]), uCRef<int>(statusCode), (void**)(&description), &ret8), ret8))
+    if ((::g::Uno::Collections::IDictionary::TryGetValue_ex(uInterface(uPtr(HttpStatusReasonPhrase::Redirection_), ::TYPES[2/*Uno.Collections.IDictionary<int, string>*/]), uCRef<int32_t>(statusCode), (void**)(&description), &ret8), ret8))
         return description;
 
-    if ((::g::Uno::Collections::IDictionary::TryGetValue_ex(uInterface(uPtr(HttpStatusReasonPhrase::ClientErrors_), ::TYPES[2/*Uno.Collections.IDictionary<int, string>*/]), uCRef<int>(statusCode), (void**)(&description), &ret9), ret9))
+    if ((::g::Uno::Collections::IDictionary::TryGetValue_ex(uInterface(uPtr(HttpStatusReasonPhrase::ClientErrors_), ::TYPES[2/*Uno.Collections.IDictionary<int, string>*/]), uCRef<int32_t>(statusCode), (void**)(&description), &ret9), ret9))
         return description;
 
-    if ((::g::Uno::Collections::IDictionary::TryGetValue_ex(uInterface(uPtr(HttpStatusReasonPhrase::ServerErrors_), ::TYPES[2/*Uno.Collections.IDictionary<int, string>*/]), uCRef<int>(statusCode), (void**)(&description), &ret10), ret10))
+    if ((::g::Uno::Collections::IDictionary::TryGetValue_ex(uInterface(uPtr(HttpStatusReasonPhrase::ServerErrors_), ::TYPES[2/*Uno.Collections.IDictionary<int, string>*/]), uCRef<int32_t>(statusCode), (void**)(&description), &ret10), ret10))
         return description;
 
     return NULL;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpMessageHandlerRequest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpMessageHandlerRequest.uno
 // --------------------------------------------------------------------------------------------------------
 
 // public sealed class InvalidResponseTypeException :496
@@ -1479,7 +1488,7 @@ InvalidResponseTypeException* InvalidResponseTypeException::New4()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpMessageHandlerRequest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpMessageHandlerRequest.uno
 // --------------------------------------------------------------------------------------------------------
 
 // public sealed class InvalidStateException :502
@@ -1533,7 +1542,7 @@ InvalidStateException* InvalidStateException::New4()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpMessageHandlerRequest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpMessageHandlerRequest.uno
 // --------------------------------------------------------------------------------------------------------
 
 // private sealed class HttpMessageHandlerRequest.ProgressClosure :186
@@ -1564,13 +1573,13 @@ uType* HttpMessageHandlerRequest__ProgressClosure_typeof()
 }
 
 // public ProgressClosure(Uno.Net.Http.HttpRequestState state, Uno.Action<Uno.Net.Http.HttpMessageHandlerRequest, int, int, bool> action, Uno.Net.Http.HttpMessageHandlerRequest request, int current, int total, bool hasTotal) :195
-void HttpMessageHandlerRequest__ProgressClosure__ctor__fn(HttpMessageHandlerRequest__ProgressClosure* __this, int* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* request, int* current, int* total, bool* hasTotal)
+void HttpMessageHandlerRequest__ProgressClosure__ctor__fn(HttpMessageHandlerRequest__ProgressClosure* __this, int32_t* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* request, int32_t* current, int32_t* total, bool* hasTotal)
 {
     __this->ctor_(*state, action, request, *current, *total, *hasTotal);
 }
 
 // public ProgressClosure New(Uno.Net.Http.HttpRequestState state, Uno.Action<Uno.Net.Http.HttpMessageHandlerRequest, int, int, bool> action, Uno.Net.Http.HttpMessageHandlerRequest request, int current, int total, bool hasTotal) :195
-void HttpMessageHandlerRequest__ProgressClosure__New1_fn(int* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* request, int* current, int* total, bool* hasTotal, HttpMessageHandlerRequest__ProgressClosure** __retval)
+void HttpMessageHandlerRequest__ProgressClosure__New1_fn(int32_t* state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* request, int32_t* current, int32_t* total, bool* hasTotal, HttpMessageHandlerRequest__ProgressClosure** __retval)
 {
     *__retval = HttpMessageHandlerRequest__ProgressClosure::New1(*state, action, request, *current, *total, *hasTotal);
 }
@@ -1582,7 +1591,7 @@ void HttpMessageHandlerRequest__ProgressClosure__Run_fn(HttpMessageHandlerReques
 }
 
 // public ProgressClosure(Uno.Net.Http.HttpRequestState state, Uno.Action<Uno.Net.Http.HttpMessageHandlerRequest, int, int, bool> action, Uno.Net.Http.HttpMessageHandlerRequest request, int current, int total, bool hasTotal) [instance] :195
-void HttpMessageHandlerRequest__ProgressClosure::ctor_(int state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* request, int current, int total, bool hasTotal)
+void HttpMessageHandlerRequest__ProgressClosure::ctor_(int32_t state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* request, int32_t current, int32_t total, bool hasTotal)
 {
     _action = action;
     _request = request;
@@ -1599,11 +1608,11 @@ void HttpMessageHandlerRequest__ProgressClosure::Run()
         return;
 
     uPtr(_request)->State(_state);
-    uPtr(_action)->Invoke(4, (::g::Uno::Net::Http::HttpMessageHandlerRequest*)_request, uCRef<int>(_current), uCRef<int>(_total), uCRef(_hasTotal));
+    uPtr(_action)->Invoke(4, (::g::Uno::Net::Http::HttpMessageHandlerRequest*)_request, uCRef<int32_t>(_current), uCRef<int32_t>(_total), uCRef(_hasTotal));
 }
 
 // public ProgressClosure New(Uno.Net.Http.HttpRequestState state, Uno.Action<Uno.Net.Http.HttpMessageHandlerRequest, int, int, bool> action, Uno.Net.Http.HttpMessageHandlerRequest request, int current, int total, bool hasTotal) [static] :195
-HttpMessageHandlerRequest__ProgressClosure* HttpMessageHandlerRequest__ProgressClosure::New1(int state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* request, int current, int total, bool hasTotal)
+HttpMessageHandlerRequest__ProgressClosure* HttpMessageHandlerRequest__ProgressClosure::New1(int32_t state, uDelegate* action, ::g::Uno::Net::Http::HttpMessageHandlerRequest* request, int32_t current, int32_t total, bool hasTotal)
 {
     HttpMessageHandlerRequest__ProgressClosure* obj1 = (HttpMessageHandlerRequest__ProgressClosure*)uNew(HttpMessageHandlerRequest__ProgressClosure_typeof());
     obj1->ctor_(state, action, request, current, total, hasTotal);
@@ -1611,13 +1620,21 @@ HttpMessageHandlerRequest__ProgressClosure* HttpMessageHandlerRequest__ProgressC
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\HttpMessageHandler.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\HttpMessageHandler.uno
 // -------------------------------------------------------------------------------------------------
 
 // internal static class HttpMessageHandler.StaticData :10
 // {
+// static generated StaticData() :10
+static void HttpMessageHandler__StaticData__cctor__fn(uType* __type)
+{
+    HttpMessageHandler__StaticData::_syncLock_ = ::g::Uno::Object::New();
+}
+
 static void HttpMessageHandler__StaticData_build(uType* type)
 {
+    type->SetFields(0,
+        uObject_typeof(), (uintptr_t)&HttpMessageHandler__StaticData::_syncLock_, uFieldFlagsStatic);
 }
 
 uClassType* HttpMessageHandler__StaticData_typeof()
@@ -1626,32 +1643,38 @@ uClassType* HttpMessageHandler__StaticData_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
+    options.FieldCount = 1;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Uno.Net.Http.HttpMessageHandler.StaticData", options);
     type->fp_build_ = HttpMessageHandler__StaticData_build;
+    type->fp_cctor_ = HttpMessageHandler__StaticData__cctor__fn;
     return type;
 }
 
-// internal static void DecrementPendingRequests() :21
+// internal static void DecrementPendingRequests() :27
 void HttpMessageHandler__StaticData__DecrementPendingRequests_fn()
 {
     HttpMessageHandler__StaticData::DecrementPendingRequests();
 }
 
-// internal static void IncrementPendingRequests() :14
+// internal static void IncrementPendingRequests() :15
 void HttpMessageHandler__StaticData__IncrementPendingRequests_fn()
 {
     HttpMessageHandler__StaticData::IncrementPendingRequests();
 }
 
-// internal static void DecrementPendingRequests() [static] :21
+uSStrong<uObject*> HttpMessageHandler__StaticData::_syncLock_;
+
+// internal static void DecrementPendingRequests() [static] :27
 void HttpMessageHandler__StaticData::DecrementPendingRequests()
 {
+    HttpMessageHandler__StaticData_typeof()->Init();
 }
 
-// internal static void IncrementPendingRequests() [static] :14
+// internal static void IncrementPendingRequests() [static] :15
 void HttpMessageHandler__StaticData::IncrementPendingRequests()
 {
+    HttpMessageHandler__StaticData_typeof()->Init();
 }
 // }
 

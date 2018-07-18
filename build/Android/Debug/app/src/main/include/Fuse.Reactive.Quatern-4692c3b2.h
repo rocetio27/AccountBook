@@ -1,9 +1,11 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Expressions/1.4.2/QuaternaryOperator.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Expressions/1.9.0/QuaternaryOperator.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
-#include <Fuse.Reactive.Expression.h>
+#include <Fuse.ISourceLocation.h>
+#include <Fuse.Reactive.Compute-2d5dc615.h>
 #include <Fuse.Reactive.IExpression.h>
+namespace g{namespace Fuse{namespace Reactive{struct Expression__Argument;}}}
 namespace g{namespace Fuse{namespace Reactive{struct QuaternaryOperator;}}}
 
 namespace g{
@@ -12,46 +14,24 @@ namespace Reactive{
 
 // public abstract class QuaternaryOperator :8
 // {
-struct QuaternaryOperator_type : ::g::Fuse::Reactive::Expression_type
-{
-    void(*fp_Compute)(::g::Fuse::Reactive::QuaternaryOperator*, uObject*, uObject*, uObject*, uObject*, uObject**);
-};
-
-QuaternaryOperator_type* QuaternaryOperator_typeof();
-void QuaternaryOperator__get_First_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval);
-void QuaternaryOperator__set_First_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression* value);
-void QuaternaryOperator__get_Fourth_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval);
-void QuaternaryOperator__set_Fourth_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression* value);
+::g::Fuse::Reactive::ComputeExpression_type* QuaternaryOperator_typeof();
+void QuaternaryOperator__Compute_fn(QuaternaryOperator* __this, uObject* first, uObject* second, uObject* third, uObject* fourth, uObject** __retval);
+void QuaternaryOperator__GetFlags_fn(QuaternaryOperator* __this, int32_t* __retval);
 void QuaternaryOperator__get_IsFirstOptional_fn(QuaternaryOperator* __this, bool* __retval);
 void QuaternaryOperator__get_IsFourthOptional_fn(QuaternaryOperator* __this, bool* __retval);
 void QuaternaryOperator__get_IsSecondOptional_fn(QuaternaryOperator* __this, bool* __retval);
 void QuaternaryOperator__get_IsThirdOptional_fn(QuaternaryOperator* __this, bool* __retval);
-void QuaternaryOperator__get_Second_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval);
-void QuaternaryOperator__set_Second_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression* value);
-void QuaternaryOperator__Subscribe_fn(QuaternaryOperator* __this, uObject* context, uObject* listener, uObject** __retval);
-void QuaternaryOperator__get_Third_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression** __retval);
-void QuaternaryOperator__set_Third_fn(QuaternaryOperator* __this, ::g::Fuse::Reactive::Expression* value);
+void QuaternaryOperator__TryCompute_fn(QuaternaryOperator* __this, uArray* args, uObject** result, bool* __retval);
+void QuaternaryOperator__TryCompute1_fn(QuaternaryOperator* __this, uObject* first, uObject* second, uObject* third, uObject* fourth, uObject** result, bool* __retval);
 
-struct QuaternaryOperator : ::g::Fuse::Reactive::Expression
+struct QuaternaryOperator : ::g::Fuse::Reactive::ComputeExpression
 {
-    uStrong< ::g::Fuse::Reactive::Expression*> _First;
-    uStrong< ::g::Fuse::Reactive::Expression*> _Fourth;
-    uStrong< ::g::Fuse::Reactive::Expression*> _Second;
-    uStrong< ::g::Fuse::Reactive::Expression*> _Third;
-
-    uObject* Compute(uObject* first, uObject* second, uObject* third, uObject* fourth) { uObject* __retval; return (((QuaternaryOperator_type*)__type)->fp_Compute)(this, first, second, third, fourth, &__retval), __retval; }
-    ::g::Fuse::Reactive::Expression* First();
-    void First(::g::Fuse::Reactive::Expression* value);
-    ::g::Fuse::Reactive::Expression* Fourth();
-    void Fourth(::g::Fuse::Reactive::Expression* value);
+    uObject* Compute(uObject* first, uObject* second, uObject* third, uObject* fourth);
     bool IsFirstOptional();
     bool IsFourthOptional();
     bool IsSecondOptional();
     bool IsThirdOptional();
-    ::g::Fuse::Reactive::Expression* Second();
-    void Second(::g::Fuse::Reactive::Expression* value);
-    ::g::Fuse::Reactive::Expression* Third();
-    void Third(::g::Fuse::Reactive::Expression* value);
+    bool TryCompute1(uObject* first, uObject* second, uObject* third, uObject* fourth, uObject** result);
 };
 // }
 

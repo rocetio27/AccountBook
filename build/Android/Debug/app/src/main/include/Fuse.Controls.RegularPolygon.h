@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/Shapes/RegularPolygon.Surface.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/Shapes/RegularPolygon.Surface.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -10,6 +10,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -33,15 +34,15 @@ namespace Controls{
 // {
 ::g::Fuse::Controls::Shape_type* RegularPolygon_typeof();
 void RegularPolygon__CreateSurfacePath_fn(RegularPolygon* __this, ::g::Fuse::Drawing::Surface* surface, ::g::Fuse::Drawing::SurfacePath** __retval);
-void RegularPolygon__get_Sides_fn(RegularPolygon* __this, int* __retval);
-void RegularPolygon__set_Sides_fn(RegularPolygon* __this, int* value);
+void RegularPolygon__get_Sides_fn(RegularPolygon* __this, int32_t* __retval);
+void RegularPolygon__set_Sides_fn(RegularPolygon* __this, int32_t* value);
 
 struct RegularPolygon : ::g::Fuse::Controls::Shape
 {
-    int _sides;
+    int32_t _sides;
 
-    int Sides();
-    void Sides(int value);
+    int32_t Sides();
+    void Sides(int32_t value);
 };
 // }
 

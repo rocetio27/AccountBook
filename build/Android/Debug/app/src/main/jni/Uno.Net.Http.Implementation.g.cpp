@@ -27,7 +27,7 @@ namespace Net{
 namespace Http{
 namespace Implementation{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\Implementation\Android\AndroidHttpRequest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\Implementation\Android\AndroidHttpRequest.uno
 // ------------------------------------------------------------------------------------------------------------------------
 
 // internal sealed extern class AndroidHttpRequest :11
@@ -39,10 +39,6 @@ static void AndroidHttpRequest_build(uType* type)
     ::TYPES[2] = ::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::TYPES[1/*byte[]*/], NULL);
     ::TYPES[3] = ::g::Uno::Array_typeof()->MakeMethod(0/*Copy<byte>*/, ::g::Uno::Byte_typeof(), NULL);
     ::TYPES[4] = ::g::Android::Base::Wrappers::IJWrapper_typeof();
-    type->SetDependencies(
-        ::g::Android::Base::JNI_typeof(),
-        ::g::Android::Base::Wrappers::JWrapper_typeof(),
-        ::g::Android::Base::Types::String_typeof());
     type->SetInterfaces(
         ::TYPES[4/*Android.Base.Wrappers.IJWrapper*/], offsetof(AndroidHttpRequest_type, interface0),
         ::g::Uno::IDisposable_typeof(), offsetof(AndroidHttpRequest_type, interface1),
@@ -63,26 +59,25 @@ AndroidHttpRequest_type* AndroidHttpRequest_typeof()
     options.BaseDefinition = ::g::Android::com::fuse::ExperimentalHttp::HttpRequest_typeof();
     options.FieldCount = 8;
     options.InterfaceCount = 3;
-    options.DependencyCount = 3;
     options.ObjectSize = sizeof(AndroidHttpRequest);
     options.TypeSize = sizeof(AndroidHttpRequest_type);
     type = (AndroidHttpRequest_type*)uClassType::New("Uno.Net.Http.Implementation.AndroidHttpRequest", options);
     type->fp_build_ = AndroidHttpRequest_build;
     type->fp_OnAborted = (void(*)(::g::Android::com::fuse::ExperimentalHttp::HttpRequest*))AndroidHttpRequest__OnAborted_fn;
-    type->fp_OnDataReceived = (void(*)(::g::Android::com::fuse::ExperimentalHttp::HttpRequest*, uObject*, int*))AndroidHttpRequest__OnDataReceived_fn;
+    type->fp_OnDataReceived = (void(*)(::g::Android::com::fuse::ExperimentalHttp::HttpRequest*, uObject*, int32_t*))AndroidHttpRequest__OnDataReceived_fn;
     type->fp_OnDone = (void(*)(::g::Android::com::fuse::ExperimentalHttp::HttpRequest*))AndroidHttpRequest__OnDone_fn;
     type->fp_OnError = (void(*)(::g::Android::com::fuse::ExperimentalHttp::HttpRequest*, uObject*))AndroidHttpRequest__OnError_fn;
     type->fp_OnHeadersReceived = (void(*)(::g::Android::com::fuse::ExperimentalHttp::HttpRequest*))AndroidHttpRequest__OnHeadersReceived_fn;
-    type->fp_OnProgress = (void(*)(::g::Android::com::fuse::ExperimentalHttp::HttpRequest*, int*, int*, bool*))AndroidHttpRequest__OnProgress_fn;
+    type->fp_OnProgress = (void(*)(::g::Android::com::fuse::ExperimentalHttp::HttpRequest*, int32_t*, int32_t*, bool*))AndroidHttpRequest__OnProgress_fn;
     type->fp_OnTimeout = (void(*)(::g::Android::com::fuse::ExperimentalHttp::HttpRequest*))AndroidHttpRequest__OnTimeout_fn;
     type->interface2.fp_EnableCache = (void(*)(uObject*, bool*))AndroidHttpRequest__EnableCache_fn;
     type->interface2.fp_SetHeader = (void(*)(uObject*, uString*, uString*))AndroidHttpRequest__SetHeader1_fn;
-    type->interface2.fp_SetTimeout = (void(*)(uObject*, int*))::g::Android::com::fuse::ExperimentalHttp::HttpRequest__SetTimeout_fn;
+    type->interface2.fp_SetTimeout = (void(*)(uObject*, int32_t*))::g::Android::com::fuse::ExperimentalHttp::HttpRequest__SetTimeout_fn;
     type->interface2.fp_SendAsync1 = (void(*)(uObject*, uArray*))AndroidHttpRequest__SendAsync1_fn;
     type->interface2.fp_SendAsync2 = (void(*)(uObject*, uString*))AndroidHttpRequest__SendAsync2_fn;
     type->interface2.fp_SendAsync = (void(*)(uObject*))::g::Android::com::fuse::ExperimentalHttp::HttpRequest__SendAsync_fn;
     type->interface2.fp_Abort = (void(*)(uObject*))::g::Android::com::fuse::ExperimentalHttp::HttpRequest__Abort_fn;
-    type->interface2.fp_GetResponseStatus = (void(*)(uObject*, int*))::g::Android::com::fuse::ExperimentalHttp::HttpRequest__GetResponseStatus_fn;
+    type->interface2.fp_GetResponseStatus = (void(*)(uObject*, int32_t*))::g::Android::com::fuse::ExperimentalHttp::HttpRequest__GetResponseStatus_fn;
     type->interface2.fp_GetResponseHeader = (void(*)(uObject*, uString*, uString**))AndroidHttpRequest__GetResponseHeader1_fn;
     type->interface2.fp_GetResponseHeaders = (void(*)(uObject*, uString**))AndroidHttpRequest__GetResponseHeaders1_fn;
     type->interface2.fp_GetResponseContentString = (void(*)(uObject*, uString**))AndroidHttpRequest__GetResponseContentString_fn;
@@ -148,9 +143,9 @@ void AndroidHttpRequest__OnAborted_fn(AndroidHttpRequest* __this)
 }
 
 // public override sealed void OnDataReceived(Android.Base.Wrappers.IJWrapper arg0, int arg1) :109
-void AndroidHttpRequest__OnDataReceived_fn(AndroidHttpRequest* __this, uObject* arg0, int* arg1)
+void AndroidHttpRequest__OnDataReceived_fn(AndroidHttpRequest* __this, uObject* arg0, int32_t* arg1)
 {
-    int arg1_ = *arg1;
+    int32_t arg1_ = *arg1;
     ::g::Uno::Collections::List__Enumerator<uStrong<uArray*> > ret4;
 
     if (arg1_ == -1)
@@ -159,31 +154,36 @@ void AndroidHttpRequest__OnDataReceived_fn(AndroidHttpRequest* __this, uObject* 
             return;
 
         __this->_result = uArray::New(::TYPES[1/*byte[]*/], __this->_responseLength);
-        int pos = 0;
+        int32_t pos = 0;
         ::g::Uno::Collections::List__Enumerator<uStrong<uArray*> > enum1 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(__this->_responseData), &ret4), ret4);
 
-        try
         {
+            try
             {
-                while (enum1.MoveNext(::TYPES[2/*Uno.Collections.List<byte[]>.Enumerator*/]))
                 {
-                    uArray* chunk = enum1.Current(::TYPES[2/*Uno.Collections.List<byte[]>.Enumerator*/]);
-                    int chunkLength = uPtr(chunk)->Length();
-                    ::g::Uno::Array::Copy(::TYPES[3/*Uno.Array.Copy<byte>*/], chunk, 0, __this->_result, pos, chunkLength);
-                    pos = pos + chunkLength;
+                    while (enum1.MoveNext(::TYPES[2/*Uno.Collections.List<byte[]>.Enumerator*/]))
+                    {
+                        uArray* chunk = enum1.Current(::TYPES[2/*Uno.Collections.List<byte[]>.Enumerator*/]);
+                        int32_t chunkLength = uPtr(chunk)->Length();
+                        ::g::Uno::Array::Copy(::TYPES[3/*Uno.Array.Copy<byte>*/], chunk, 0, __this->_result, pos, chunkLength);
+                        pos = pos + chunkLength;
+                    }
                 }
             }
-            {
-                enum1.Dispose(::TYPES[2/*Uno.Collections.List<byte[]>.Enumerator*/]);
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
+            {
+                {
+                    enum1.Dispose(::TYPES[2/*Uno.Collections.List<byte[]>.Enumerator*/]);
+                }
+                                throw __t;
+                goto __after_finally_0;
+            }
+
             {
                 enum1.Dispose(::TYPES[2/*Uno.Collections.List<byte[]>.Enumerator*/]);
             }
-                        throw __t;
+            __after_finally_0:;
         }
     }
     else
@@ -212,10 +212,10 @@ void AndroidHttpRequest__OnHeadersReceived_fn(AndroidHttpRequest* __this)
 }
 
 // public override sealed void OnProgress(int current, int total, bool hasTotal) :104
-void AndroidHttpRequest__OnProgress_fn(AndroidHttpRequest* __this, int* current, int* total, bool* hasTotal)
+void AndroidHttpRequest__OnProgress_fn(AndroidHttpRequest* __this, int32_t* current, int32_t* total, bool* hasTotal)
 {
-    int current_ = *current;
-    int total_ = *total;
+    int32_t current_ = *current;
+    int32_t total_ = *total;
     bool hasTotal_ = *hasTotal;
     uPtr(__this->_request)->OnProgress(current_, total_, hasTotal_);
 }
@@ -245,7 +245,7 @@ void AndroidHttpRequest__SetHeader1_fn(AndroidHttpRequest* __this, uString* name
 }
 
 // internal void SetResponseType(Uno.Net.Http.HttpResponseType responseType) :46
-void AndroidHttpRequest__SetResponseType1_fn(AndroidHttpRequest* __this, int* responseType)
+void AndroidHttpRequest__SetResponseType1_fn(AndroidHttpRequest* __this, int32_t* responseType)
 {
     __this->SetResponseType1(*responseType);
 }
@@ -320,7 +320,7 @@ void AndroidHttpRequest::SetHeader1(uString* name, uString* value)
 }
 
 // internal void SetResponseType(Uno.Net.Http.HttpResponseType responseType) [instance] :46
-void AndroidHttpRequest::SetResponseType1(int responseType)
+void AndroidHttpRequest::SetResponseType1(int32_t responseType)
 {
     SetResponseType(responseType);
 }
@@ -334,7 +334,7 @@ AndroidHttpRequest* AndroidHttpRequest::New3(::g::Uno::Net::Http::HttpMessageHan
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.4.3\Implementation\IHttpRequest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Net.Http\1.9.0\Implementation\IHttpRequest.uno
 // ----------------------------------------------------------------------------------------------------------
 
 // public abstract interface IHttpRequest :7

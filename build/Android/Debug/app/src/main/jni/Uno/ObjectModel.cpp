@@ -1,11 +1,12 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Backends/CPlusPlus/Uno/ObjectModel.cpp.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Backends/CPlusPlus/Uno/ObjectModel.cpp.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <Uno/_internal.h>
-#include <Uno/Support.h>
-#include <uBase/HashMap.h>
-#include <uBase/Thread.h>
-#include <uBase/Unicode.h>
+#include <ConvertUTF.h>
+#include <algorithm>
+#include <cstdio>
+#include <mutex>
+#include <string>
 #include <Uno.Bool.h>
 #include <Uno.Byte.h>
 #include <Uno.Char.h>
@@ -17,18 +18,26 @@
 #include <Uno.String.h>
 #include <Uno.UShort.h>
 #include <Uno.Array.h>
+#include <Uno.ArgumentNullException.h>
+#include <Uno.ArgumentOutOfRang-6803b39e.h>
 #include <Uno.Delegate.h>
 #include <Uno.IndexOutOfRangeException.h>
 #include <Uno.InvalidCastException.h>
 #include <Uno.InvalidOperationException.h>
 #include <Uno.NullReferenceException.h>
+#include <Uno.TypeInitializatio-3e1d0e85.h>
 #include <Uno.Type.h>
 
-static uBase::Mutex* _Mutex;
-static uBase::HashMap<uBase::String, uString*>* _StringConsts;
-static uBase::HashMap<uTypeKey, uType*>* _TypeMap;
-static uBase::Array<uGenericType*>* _GenericTypes;
-static uBase::Array<uType*>* _RuntimeTypes;
+#ifdef DEBUG_GENERICS
+#include <sstream>
+static std::atomic_int _IndentCount;
+#endif
+
+static std::recursive_mutex _Mutex;
+static std::unordered_map<std::string, uString*>* _StringConsts;
+static std::unordered_map<uTypeKey, uType*, uTypeKeyHash>* _TypeMap;
+static std::vector<uGenericType*>* _GenericTypes;
+static std::vector<uType*>* _RuntimeTypes;
 static uType* _ObjectTypePtr;
 static uType* _VoidTypePtr;
 static uType* _ByteTypePtr;
@@ -38,15 +47,11 @@ static uType* _ShortTypePtr;
 static uType* _UShortTypePtr;
 static uType* _CharTypePtr;
 static uType* _FloatTypePtr;
+static size_t _BuildIndex;
 static bool _IsBuilding;
-static int _BuildIndex;
 
-#ifdef DEBUG_GENERICS
-#include <uBase/Console.h>
-#include <uBase/StringBuilder.h>
-static int _Indent;
-#endif
-
+static void uInitOperators();
+static void uBuildOperators(uType* type);
 static uType* uGetGenericType(size_t index);
 uType* uSwapThreadType(uType* type);
 
@@ -59,11 +64,12 @@ void uBuildMemory(uType* type);
 
 void uInitObjectModel()
 {
-    _Mutex = uBase::CreateMutex();
-    _GenericTypes = new uBase::Array<uGenericType*>();
-    _RuntimeTypes = new uBase::Array<uType*>();
-    _StringConsts = new uBase::HashMap<uBase::String, uString*>();
-    _TypeMap = new uBase::HashMap<uTypeKey, uType*>();
+    uInitOperators();
+
+    _GenericTypes = new std::vector<uGenericType*>();
+    _RuntimeTypes = new std::vector<uType*>();
+    _StringConsts = new std::unordered_map<std::string, uString*>();
+    _TypeMap = new std::unordered_map<uTypeKey, uType*, uTypeKeyHash>();
 
     // Create Uno.Object and Uno.Void type objects
     _ObjectTypePtr = (uType*)calloc(1, sizeof(uType));
@@ -106,7 +112,6 @@ void uFreeObjectModel()
     delete _TypeMap;
     free(_ObjectTypePtr);
     free(_VoidTypePtr);
-    uBase::DeleteMutex(_Mutex);
 }
 
 uType* uObject_typeof()
@@ -178,7 +183,7 @@ static uType* uNewType(uint32_t type, const char* name, const uTypeOptions& opti
             key.Arguments[i] =
                 result->Generics[i] =
                     uGetGenericType(i);
-        _TypeMap->Add(key, result);
+        (*_TypeMap)[key] = result;
         uRetain(result);
     }
 
@@ -190,44 +195,41 @@ static uType* uNewType(uint32_t type, const char* name, const uTypeOptions& opti
         result->Base = base;
     }
     
-    _RuntimeTypes->Add(result);
+    _RuntimeTypes->push_back(result);
     return result;
 }
 
 static uType* uGetGenericType(size_t index)
 {
-    for (size_t i = _GenericTypes->Length(); i <= index; i++)
+    for (size_t i = _GenericTypes->size(); i <= index; i++)
     {
+        char* name = (char*)malloc(8); // Leak
+        snprintf(name, 8, "T%u", (unsigned int) index);
+
         uTypeOptions options;
         options.TypeSize = sizeof(uGenericType);
-        uGenericType* type =
-            (uGenericType*)uNewType(
-                uTypeTypeGeneric,
-                (uBase::String("T") + (int)index).CopyPtr(), // Leak
-                options,
-                false);
+        uGenericType* type = (uGenericType*)uNewType(uTypeTypeGeneric, name, options, false);
         type->GenericIndex = index;
-        _GenericTypes->Add(type);
+        _GenericTypes->push_back(type);
         uRetain(type);
     }
 
-    return (*_GenericTypes)[(int)index];
+    return (*_GenericTypes)[index];
 }
 
 uType* uType::NewMethodType(size_t genericCount, size_t precalcCount, size_t dependencyCount, bool isDefinition)
 {
+    size_t len = strlen(FullName) + 8;
+    char* name = (char*)malloc(len); // Leak
+    snprintf(name, len, "%s``%u", FullName, (unsigned int) genericCount);
+
     uTypeOptions options;
     options.GenericCount = GenericCount + genericCount;
     options.DependencyCount = dependencyCount;
     options.PrecalcCount = precalcCount;
     options.ObjectSize = 0;
     options.TypeSize = sizeof(uGenericType);
-    uGenericType* type =
-        (uGenericType*)uNewType(
-            uTypeTypeGeneric,
-            (uBase::String(FullName) + "``" + (int)genericCount).CopyPtr(), // Leak
-            options,
-            isDefinition);
+    uGenericType* type = (uGenericType*)uNewType(uTypeTypeGeneric, name, options, isDefinition);
     type->Base = this;
     type->GenericIndex = GenericCount;
     uRetain(type);
@@ -327,18 +329,18 @@ uArrayType* uType::Array()
     if (_array)
         return _array;
 
-    uBase::MutexLock lock(_Mutex);
+    size_t len = strlen(FullName) + 3;
+    char* name = (char*)malloc(len); // Leak
+    snprintf(name, len, "%s[]", FullName);
+
+    std::lock_guard<std::recursive_mutex> lock(_Mutex);
     uTypeOptions options;
     options.TypeSize = sizeof(uArrayType);
     options.ObjectSize = sizeof(uArray);
     options.ValueSize = sizeof(uArray*);
     options.Alignment = alignof(uArray*);
     options.BaseDefinition = ::g::Uno::Array_typeof();
-    uArrayType* type =
-        (uArrayType*)uNewType(
-            uTypeTypeArray,
-            (uBase::String(FullName) + "[]").CopyPtr(), // Leak
-            options);
+    uArrayType* type = (uArrayType*)uNewType(uTypeTypeArray, name, options);
     type->Definition = type;
     type->ElementType = this;
 
@@ -351,17 +353,17 @@ uByRefType* uType::ByRef()
     if (_byRef)
         return _byRef;
 
-    uBase::MutexLock lock(_Mutex);
+    size_t len = strlen(FullName) + 2;
+    char* name = (char*)malloc(len); // Leak
+    snprintf(name, len, "%s&", FullName);
+
+    std::lock_guard<std::recursive_mutex> lock(_Mutex);
     uTypeOptions options;
     options.TypeSize = sizeof(uByRefType);
     options.ObjectSize = sizeof(uObject);
     options.ValueSize = sizeof(void*);
     options.Alignment = alignof(void*);
-    uByRefType* type =
-        (uByRefType*)uNewType(
-            uTypeTypeByRef,
-            (uBase::String(FullName) + "&").CopyPtr(), // Leak
-            options);
+    uByRefType* type = (uByRefType*)uNewType(uTypeTypeByRef, name, options);
     type->Definition = _ObjectTypePtr;
     type->ValueType = this;
 
@@ -376,54 +378,51 @@ static void uBuildTypes()
 
     _IsBuilding = true;
 
-    while (_BuildIndex < _RuntimeTypes->Length())
+    while (_BuildIndex < _RuntimeTypes->size())
         (*_RuntimeTypes)[_BuildIndex++]->Build();
 
     _IsBuilding = false;
 }
 
 #ifdef DEBUG_GENERICS
-static uBase::String uTypeString(uType* type)
+static std::string uTypeString(uType* type, bool includeAddress = true)
 {
-    uBase::StringBuilder sb;
-    sb += type->FullName;
+    if (!type)
+        return "(null)";
+
+    std::stringstream sb;
+    sb << type->FullName;
 
     if (type->GenericCount)
     {
-        sb += "<";
+        sb << "<";
 
         for (size_t i = 0; i < type->GenericCount; i++)
         {
             if (i > 0)
-                sb += ", ";
-            sb += type->Generics[i]
-                ? uTypeString(type->Generics[i])
-                : "(null)";
+                sb << ", ";
+            sb << uTypeString(type->Generics[i], false);
         }
 
-        sb += ">";
+        sb << ">";
     }
 
-    sb += " ";
-    sb += uBase::Default::ToString((void*)type);
-    return sb.ToString();
-}
-
-static uBase::String uIndentString(int indent)
-{
-    uBase::String str = uBase::String::Create(indent * 2);
-    for (int i = 0; i < str.Length(); i++)
-        str.Ptr()[i] = ' ';
-    return str;
+    if (includeAddress)
+        sb << " 0x" << type;
+    
+    return sb.str();
 }
 #endif
 
 static uType* uGetParameterization(const uTypeKey& key)
 {
-    uBase::MutexLock lock(_Mutex);
+    std::lock_guard<std::recursive_mutex> lock(_Mutex);
 
     uType* result;
-    if (!_TypeMap->TryGetValue(key, result))
+    auto it = _TypeMap->find(key);
+    if (it != _TypeMap->end())
+        result = it->second;
+    else
     {
         uTypeOptions options;
         uType* def = key.Definition;
@@ -451,7 +450,7 @@ static uType* uGetParameterization(const uTypeKey& key)
         for (size_t i = 0; i < result->MethodTypeCount; i++)
             result->MethodTypes[i] = result->NewMethodType(def->MethodTypes[i]);
 
-        _TypeMap->Add(key, result);
+        (*_TypeMap)[key] = result;
         uRetain(result);
 
         if (def->State)
@@ -468,10 +467,10 @@ uType* uGetParameterized(uType* type, uType* root)
         return type;
 
 #ifdef DEBUG_GENERICS
-    uBase::String indent = uIndentString(_Indent++);
-    U_LOG("%suGetParameterized(\n    %s%s,\n    %s%s)", indent.Ptr(),
-          indent.Ptr(), uTypeString(type).Ptr(),
-          indent.Ptr(), uTypeString(root).Ptr());
+    std::string indent(2 * _IndentCount++, ' ');
+    U_LOG("%suGetParameterized(\n    %s%s,\n    %s%s)", indent.c_str(),
+          indent.c_str(), uTypeString(type).c_str(),
+          indent.c_str(), uTypeString(root).c_str());
 #endif
     uType* result;
     if (type->GenericCount)
@@ -481,6 +480,7 @@ uType* uGetParameterized(uType* type, uType* root)
             key.Arguments[i] = uGetParameterized(type->Generics[i], root);
 
         result = uGetParameterization(key);
+        U_ASSERT(result && result->Definition == type->Definition);
     }
     else switch (type->Type)
     {
@@ -498,11 +498,9 @@ uType* uGetParameterized(uType* type, uType* root)
         break;
     }
 
-    U_ASSERT(result && (result->Definition == type->Definition ||
-        type->Type == uTypeTypeGeneric && type->GenericCount == 0));
 #ifdef DEBUG_GENERICS
-    U_LOG("%s => %s", indent.Ptr(), uTypeString(result).Ptr());
-    --_Indent;
+    U_LOG("%s => %s", indent.c_str(), uTypeString(result).c_str());
+    --_IndentCount;
 #endif
     return result;
 }
@@ -609,20 +607,25 @@ static void uBuildParameterization(uType* type)
     }
 }
 
-struct uInterfaceCompararer
-{
-    static bool Compare(const uInterfaceInfo& a, const uInterfaceInfo& b) {
-        return a.Type < b.Type;
-    }
-};
-
 static void uVerifyBuild(uType* type)
 {
-    if (type->Type == uTypeTypeStruct && type->Refs.StrongCount)
-        type->Flags |= uTypeFlagsRetainStruct;
-
     // Sort interfaces by address for O(log n) look up.
-    uBase::ShellSort<uInterfaceInfo, uInterfaceCompararer>(type->Interfaces, 0, (int)type->InterfaceCount);
+    if (type->InterfaceCount)
+    {
+        struct {
+            bool operator ()(const uInterfaceInfo& a, const uInterfaceInfo& b) 
+            {
+                return a.Type < b.Type;
+            }
+        } interfaceComparer;
+        std::sort(type->Interfaces, type->Interfaces + type->InterfaceCount, interfaceComparer);
+
+#ifdef DEBUG_UNSAFE
+        for (size_t i = 1; i < type->InterfaceCount; i++)
+            U_ASSERT(type->Interfaces[i].Type >= type->Interfaces[i - 1].Type);
+#endif
+    }
+        
 
 // TODO: Gives false positives on empty interfaces
 /*
@@ -642,6 +645,13 @@ static void uVerifyBuild(uType* type)
                 type->Flags |= uTypeFlagsAbstract;
 #endif
 */
+
+    // Check that operators are set
+    U_ASSERT(type->Operators);
+    U_ASSERT(type->Operators->fp_StorePtr);
+    U_ASSERT(type->Operators->fp_StoreValue);
+    U_ASSERT(type->Operators->fp_StoreStrong);
+    U_ASSERT(type->Operators->fp_StoreValue);
 }
 
 uType* uType::GetBase(uType* def)
@@ -747,6 +757,7 @@ void uType::Build()
 
         uBuildParameterization(this);
         uBuildMemory(this);
+        uBuildOperators(this);
 //#if #(REFLECTION:Defined)
 //        uBuildReflection(this);
 //#endif
@@ -758,61 +769,73 @@ void uType::Build()
 
 void uType::Init()
 {
-    switch (State)
-    {
-    case uTypeStateInitialized:
+    if (State == uTypeStateInitialized)
         return;
-    case uTypeStateInitializing:
-    {
-        uBase::MutexLock lock(_Mutex);
-        // TODO: throw TypeInitializationException instead
-        if (State != uTypeStateInitialized && uSwapThreadType(this) != this)
-            U_THROW(::g::Uno::Exception::New2(uString::Const(FullName)));
-        break;
-    }
-    default:
-    {
-        uBase::MutexLock lock(_Mutex);
 
-        if (Base && Base->State < uTypeStateInitializing)
-        {
+    std::lock_guard<std::recursive_mutex> lock(_Mutex);
+
+    Build();
+
+    // Already initialized by another thread, or this thread is in the middle
+    // of initializing the type
+    if (State >= uTypeStateInitializing)
+        return;
+
+    auto prevState = State;
+    State = uTypeStateInitializing;
+
+    try
+    {
+        if (Base)
             Base->Init();
-            if (State == uTypeStateInitialized)
-                return;
+
+        // Note: If Base is the same as this, it won't start initializing again due
+        // to the above early return, so we don't need to check the state again here
+
+        for (size_t i = 0; i < PrecalcCount; i++)
+            PrecalcTypes[i]->Init();
+
+        try
+        {
+            if (fp_cctor_)
+                (*fp_cctor_)(this);
+        }
+        catch (const uThrowable& t)
+        {
+            U_THROW(::g::Uno::TypeInitializationException::New4(uString::Utf8(FullName), t.Exception));
         }
 
-        Build();
-        State = uTypeStateInitializing;
-        uType* last = uSwapThreadType(this);
-
         for (size_t i = 0; i < DependencyCount; i++)
-            if (DependencyTypes[i]->State < uTypeStateInitializing)
-                DependencyTypes[i]->Init();
-        
-        for (size_t i = 0; i < PrecalcCount; i++)
-            if (PrecalcTypes[i]->State < uTypeStateInitializing)
-                PrecalcTypes[i]->Init();
-
-        if (fp_cctor_)
-            (*fp_cctor_)(this);
-
-        State = uTypeStateInitialized;
-        uSwapThreadType(last);
-        break;
+            DependencyTypes[i]->Init();
     }
+    catch (...)
+    {
+        State = prevState;
+        throw;
     }
+
+    State = uTypeStateInitialized;
 }
 
 void uInitRtti(uType*(*factories[])())
 {
     // 1. Fill _RuntimeTypes
+
+    // Disable building while filling _RuntimeTypes
+    U_ASSERT(!_IsBuilding);
+    _IsBuilding = true;
+
     for (size_t i = 0; factories[i]; i++)
         (*factories[i])();
+
+    _IsBuilding = false;
 
     // 2. ARC/RTTI calculations
     uBuildTypes();
 
     // Init char & string
+    _VoidTypePtr->Init();
+    _ObjectTypePtr->Init();
     ::g::Uno::Char_typeof()->Init();
     ::g::Uno::String_typeof()->Init();
 }
@@ -928,10 +951,10 @@ uClassType* uClassType::New(const char* name, uTypeOptions& options)
 
 uString* uString::Ansi(const char* cstr, size_t length)
 {
-    uString* string = New((int)length);
+    uString* string = New((int32_t)length);
 
     for (size_t i = 0; i < length; i++)
-        string->_ptr[i] = (uChar)cstr[i];
+        string->_ptr[i] = (char16_t)cstr[i];
 
     return string;
 }
@@ -945,9 +968,62 @@ uString* uString::Ansi(const char* cstr)
 
 uString* uString::Utf8(const char* mutf8, size_t length)
 {
-    uBase::StringU16 utf16 = uBase::Unicode::Utf8To16(mutf8, (int)length, uBase::UnicodeFlagsModifiedUtf8 | uBase::UnicodeFlagsIgnoreError);
-    uString* string = New(utf16.Length());
-    memcpy(string->_ptr, utf16.Ptr(), sizeof(uChar) * utf16.Length());
+	if (!length)
+        return New(0);
+
+    char* src = const_cast<char*>(mutf8);
+    size_t null_count = 0;
+    
+    // Check for modified UTF-8
+    for (size_t i = 0; i < length - 1; i++)
+    {
+        if (src[i + 0] == (char)(unsigned char)0xC0 &&
+            src[i + 1] == (char)(unsigned char)0x80)
+        {
+            null_count++;
+            i++;
+        }
+    }
+
+    // Decode C0 80 -> 0 (modified UTF-8)
+    if (null_count)
+    {
+        char* utf8 = (char*)malloc(length - null_count);
+        char* utf8_p = utf8;
+
+        for (size_t i = 0; i < length; i++)
+        {
+            if (src[i + 0] == (char)(unsigned char)0xC0 && i < length - 1 &&
+                src[i + 1] == (char)(unsigned char)0x80)
+            {
+                *utf8_p++ = 0;
+                i++;
+            }
+            else
+                *utf8_p++ = src[i];
+        }
+
+        length -= null_count;
+        src = utf8;
+    }
+
+    // Convert UTF-8 to UTF-16
+    uString* string = New((int32_t) length);
+    const UTF8* src_p = (const UTF8*)src;
+    UTF16* dst_p = (UTF16*)string->_ptr;
+
+    if (ConvertUTF8toUTF16(&src_p, src_p + length, &dst_p, dst_p + length, lenientConversion) != conversionOK)
+    {
+        if (src != mutf8)
+            free(src);
+        U_THROW_IOE("Invalid UTF-8 string");
+    }
+
+    if (src != mutf8)
+        free(src);
+
+    string->_length = (int32_t)(dst_p - (UTF16*)string->_ptr);
+    string->_ptr[string->_length] = 0;
     return string;
 }
 
@@ -958,18 +1034,18 @@ uString* uString::Utf8(const char* mutf8)
         : NULL;
 }
 
-uString* uString::Utf16(const uChar* utf16, size_t length)
+uString* uString::Utf16(const char16_t* utf16, size_t length)
 {
-    uString* string = New((int)length);
-    memcpy(string->_ptr, utf16, sizeof(uChar) * length);
+    uString* string = New((int32_t)length);
+    memcpy(string->_ptr, utf16, sizeof(char16_t) * length);
     return string;
 }
 
-uString* uString::Utf16(const uChar* nullTerminatedUtf16)
+uString* uString::Utf16(const char16_t* nullTerminatedUtf16)
 {
     if (nullTerminatedUtf16)
     {
-        const uChar* end = nullTerminatedUtf16;
+        const char16_t* end = nullTerminatedUtf16;
         while (*end)
             ++end;
         ptrdiff_t length = end - nullTerminatedUtf16;
@@ -982,41 +1058,59 @@ uString* uString::Utf16(const uChar* nullTerminatedUtf16)
 uString* uString::CharArray(const uArray* array)
 {
     if (!array)
-        U_THROW_NRE();
-    if (array->GetType() != ::g::Uno::Char_typeof()->Array())
-        U_THROW_ICE();
+        return New(0);
+
+    U_ASSERT(array->GetType() == ::g::Uno::Char_typeof()->Array());
 
     uString* string = New(array->Length());
-    memcpy(string->_ptr, array->Ptr(), sizeof(uChar) * array->Length());
+    memcpy(string->_ptr, array->Ptr(), sizeof(char16_t) * array->Length());
+    return string;
+}
+
+uString* uString::CharArrayRange(const uArray* array, int32_t startIndex, int32_t length)
+{
+    if (!array)
+        throw uThrowable(::g::Uno::ArgumentNullException::New6(uString::Utf8("array")), __FILE__, __LINE__);
+
+    if (startIndex < 0 || startIndex > array->Length())
+        throw uThrowable(::g::Uno::ArgumentOutOfRangeException::New6(uString::Utf8("startIndex")), __FILE__, __LINE__);
+
+    if (length < 0 || startIndex + length > array->Length())
+        throw uThrowable(::g::Uno::ArgumentOutOfRangeException::New6(uString::Utf8("length")), __FILE__, __LINE__);
+
+    U_ASSERT(array->GetType() == ::g::Uno::Char_typeof()->Array());
+
+    uString* string = New(length);
+    memcpy(string->_ptr, (char16_t*)array->Ptr() + startIndex, sizeof(char16_t) * length);
     return string;
 }
 
 uString* uString::Const(const char* mutf8)
 {
-    uString* string;
-    uBase::String key(mutf8);
-    uBase::MutexLock lock(_Mutex);
-    if (!_StringConsts->TryGetValue(key, string))
-    {
-        uRetain(string = Utf8(key.Ptr(), (size_t)key.Length()));
-        (*_StringConsts)[key] = string;
-    }
+    std::string key(mutf8);
+    std::lock_guard<std::recursive_mutex> lock(_Mutex);
+    auto it = _StringConsts->find(key);
+    if (it != _StringConsts->end())
+        return it->second;
 
+    uString* string = Utf8(key.c_str(), key.size());
+    (*_StringConsts)[key] = string;
+    uRetain(string);
     return string;
 }
 
-static bool uCompareCharStrings(const uChar* a, const uChar* b, int length, bool ignoreCase)
+static bool uCompareCharStrings(const char16_t* a, const char16_t* b, int32_t length, bool ignoreCase)
 {
     if (ignoreCase)
     {
-        for (int i = 0; i < length; i++)
-            if (a[i] != b[i] && uBase::Unicode::ToUpper(a[i]) != uBase::Unicode::ToUpper(b[i]))
+        for (int32_t i = 0; i < length; i++)
+            if (a[i] != b[i] && ::g::Uno::Char::ToUpper(a[i]) != ::g::Uno::Char::ToUpper(b[i]))
                 return false;
 
         return true;
     }
 
-    return memcmp(a, b, sizeof(uChar) * length) == 0;
+    return memcmp(a, b, sizeof(char16_t) * length) == 0;
 }
 
 bool uString::Equals(const uString* a, const uString* b, bool ignoreCase)
@@ -1024,9 +1118,65 @@ bool uString::Equals(const uString* a, const uString* b, bool ignoreCase)
     return a == b || (a && b && a->Length() == b->Length() && uCompareCharStrings(a->Ptr(), b->Ptr(), a->Length(), ignoreCase));
 }
 
-const char* uAllocCStr(const uString* string)
+char* uAllocCStr(const uString* string, size_t* length)
 {
-    return string ? uBase::Unicode::Utf16To8(string->Ptr(), string->Length()).SwapPtr() : NULL;
+    if (!string)
+    {
+        if (length)
+            *length = 0;
+        return NULL;
+    }
+
+    // Convert UTF-16 to UTF-8
+    size_t src_len = string->_length;
+    const UTF16* src_p = (const UTF16*)string->_ptr;
+
+    size_t dst_len = src_len * 4;
+    char* dst = (char*)malloc(dst_len + 1);
+    UTF8* dst_p = (UTF8*)dst;
+
+    if (ConvertUTF16toUTF8(&src_p, src_p + src_len, &dst_p, dst_p + dst_len, lenientConversion) != conversionOK)
+    {
+        free(dst);
+        U_THROW_IOE("Invalid UTF-16 string");
+    }
+
+    dst_len = (size_t)(dst_p - (UTF8*)dst);
+    size_t null_count = 0;
+
+    // Check for modified UTF-8
+    for (size_t i = 0; i < dst_len; i++)
+        if (!dst[i])
+            null_count++;
+
+    // Encode 0 -> C0 80 (modified UTF-8)
+    if (null_count)
+    {
+        char* mutf8 = (char*)malloc(dst_len + null_count + 1);
+        char* mutf8_p = mutf8;
+
+        for (size_t i = 0; i < dst_len; i++)
+        {
+            char c = dst[i];
+            if (c)
+                *mutf8_p++ = c;
+            else
+            {
+                *mutf8_p++ = (char)(unsigned char)0xC0;
+                *mutf8_p++ = (char)(unsigned char)0x80;
+            }
+        }
+
+        free(dst);
+        dst_len += null_count;
+        dst = mutf8;
+    }
+
+    if (length)
+        *length = dst_len;
+
+    dst[dst_len] = 0;
+    return dst;
 }
 
 void uFreeCStr(const char* cstr)
@@ -1076,7 +1226,7 @@ void uEnumType::SetLiterals(const char* name, int64_t value, ...)
 static int64_t uLoadEnum(uEnumType* type, void* value)
 {
     // See if value is unsigned (Uno.Byte|Uno.U*)
-    uChar fifth = type->Base->FullName[4];
+    char16_t fifth = type->Base->FullName[4];
     bool isUnsigned = fifth == 'B' || fifth == 'U';
 
     switch (type->ValueSize)
@@ -1101,7 +1251,7 @@ static int64_t uLoadEnum(uEnumType* type, void* value)
 static bool uStoreEnum(uEnumType* type, int64_t value, void* result)
 {
     // See if value is unsigned (Uno.Byte|Uno.U*)
-    uChar fifth = type->Base->FullName[4];
+    char16_t fifth = type->Base->FullName[4];
     bool isUnsigned = fifth == 'B' || fifth == 'U';
 
     switch (type->ValueSize)
@@ -1163,7 +1313,7 @@ uString* uEnum::GetString(uType* type, void* value)
     return (*base->fp_ToString_struct)(value, base, &result), result;
 }
 
-static void uStruct_GetHashCode(uObject* object, int* result)
+static void uStruct_GetHashCode(uObject* object, int32_t* result)
 {
     U_ASSERT(object);
     uStructType* type = (uStructType*)object->__type;
@@ -1225,46 +1375,6 @@ uStructType* uStructType::New(const char* name, uTypeOptions& options)
         memcpy(DST, SRC, SIZE); \
         break; \
     }
-
-void uCopy(uType* type, const void* src, void* dst, uint8_t flags)
-{
-    U_ASSERT(type && dst && (
-        U_IS_OBJECT(type) &&
-            flags & uCopyFlagsValue ||
-        src
-    ));
-
-    if (U_IS_OBJECT(type))
-    {
-        switch (flags)
-        {
-        case 0:
-            *(uObject**)dst = *(uObject**)src;
-            break;
-        case uCopyFlagsValue:
-            *(uObject**)dst = (uObject*)src;
-            break;
-        case uCopyFlagsStrong:
-            *(uStrong<uObject*>*)dst = *(uObject**)src;
-            break;
-        case uCopyFlagsStrongValue:
-            *(uStrong<uObject*>*)dst = (uObject*)src;
-            break;
-        default:
-            U_FATAL();
-        }
-
-        U_ASSERT(!*(uObject**)dst || uIs(*(uObject**)dst, type));
-    }
-    else if (type->Flags & uTypeFlagsRetainStruct)
-    {
-        uAutoReleaseStruct(type, dst);
-        memcpy(dst, src, type->ValueSize);
-        uRetainStruct(type, dst);
-    }
-    else
-        INLINE_MEMCPY(dst, src, type->ValueSize);
-}
 
 uObject* uBoxPtr(uType* type, const void* src, void* stack, bool ref)
 {
@@ -1603,7 +1713,7 @@ uDelegate* uDelegate::New(uType* type, const uInterface& iface, size_t offset, u
     return New(type, iface._object, (size_t)((uint8_t*)iface._vtable - (uint8_t*)iface._object->__type) + offset, generic);
 }
 
-void uArray::MarshalPtr(int index, const void* value, size_t size)
+void uArray::MarshalPtr(int32_t index, const void* value, size_t size)
 {
     uType* type = ((uArrayType*)__type)->ElementType;
     void* item = (uint8_t*)_ptr + type->ValueSize * index;
@@ -1640,7 +1750,7 @@ void uArray::MarshalPtr(int index, const void* value, size_t size)
                 else if (type == _UShortTypePtr)
                     return *(uint16_t*)item = (uint16_t)*(int*)value, void();
                 else if (type == _CharTypePtr)
-                    return *(uChar*)item = (uChar)*(int*)value, void();
+                    return *(char16_t*)item = (char16_t)*(int*)value, void();
                 break;
             }
 
@@ -1654,29 +1764,23 @@ void uArray::MarshalPtr(int index, const void* value, size_t size)
     }
 }
 
-uArray* uArray::InitT(uType* type, int length, ...)
+uArray* uArray::InitT(uType* type, int32_t length, ...)
 {
     va_list ap;
     va_start(ap, length);
     uArray* array = New(type, length);
-    uType* elementType = ((uArrayType*)array->__type)->ElementType;
-    size_t size = elementType->ValueSize;
-    uint8_t* dst = (uint8_t*)array->_ptr;
 
-    for (int i = 0; i < length; i++)
+    for (int32_t i = 0; i < length; i++)
     {
         const void* src = va_arg(ap, const void*);
-        INLINE_MEMCPY(dst, src, size);
-        if (U_IS_OBJECT(elementType))
-            uRetain(*(uObject**)dst);
-        dst += size;
+        array->TUnsafe(i) = src;
     }
 
     va_end(ap);
     return array;
 }
 
-uArray* uArray::New(uType* type, int length, const void* optionalData)
+uArray* uArray::New(uType* type, int32_t length, const void* optionalData)
 {
     U_ASSERT(type && type->Type == uTypeTypeArray);
     uArrayType* arrayType = (uArrayType*)type;
@@ -1691,10 +1795,10 @@ uArray* uArray::New(uType* type, int length, const void* optionalData)
         memcpy(array->Ptr(), optionalData, elementSize * length);
 
         if (U_IS_OBJECT(elementType))
-            for (int i = 0; i < length; i++)
+            for (int32_t i = 0; i < length; i++)
                 uRetain(((uObject**)array->Ptr())[i]);
         else if (elementType->Flags & uTypeFlagsRetainStruct)
-            for (int i = 0; i < length; i++)
+            for (int32_t i = 0; i < length; i++)
                 uRetainStruct(elementType, (uint8_t*)array->Ptr() + elementType->ValueSize * i);
     }
 
@@ -1724,7 +1828,7 @@ uThrowable::~uThrowable() throw()
 
 const char* uThrowable::what() const throw()
 {
-    return "Uno.Exception";
+    return Exception->__type->FullName;
 }
 
 void uThrowable::ThrowNullReference(const char* file, int line)
@@ -1739,18 +1843,152 @@ void uThrowable::ThrowInvalidCast(const char* file, int line)
 
 void uThrowable::ThrowInvalidCast(const uType* from, const uType* to, const char* file, int line)
 {
-    const char* fromName = from ? from->FullName : "<Unknown type>";
-    const char* toName = to ? to->FullName : "<Unknown type>";
-    uString* message = uStringFromXliString(uBase::String::Format("Unable to cast object of type '%s' to type '%s'.", fromName, toName));
-    throw uThrowable(::g::Uno::InvalidCastException::New5(message), file, line);
+    std::string fromType = from ? from->FullName : "<Unknown type>";
+    std::string toType = to ? to->FullName : "<Unknown type>";
+    std::string message = "Unable to cast object of type '" + fromType + "' to type '" + toType + "'.";
+    throw uThrowable(::g::Uno::InvalidCastException::New5(uString::Utf8(message.c_str(), message.length())), file, line);
 }
 
-void uThrowable::ThrowInvalidOperation(const char* file, int line)
+void uThrowable::ThrowInvalidOperation(const char* message, const char* file, int line)
 {
-    throw uThrowable(::g::Uno::InvalidOperationException::New4(), file, line);
+    throw uThrowable(::g::Uno::InvalidOperationException::New5(uString::Utf8(message)), file, line);
 }
 
 void uThrowable::ThrowIndexOutOfRange(const char* file, int line)
 {
     throw uThrowable(::g::Uno::IndexOutOfRangeException::New4(), file, line);
+}
+
+// Type specific operators
+
+static void uObject_StorePtr(uType* type, const void* src, void* dst)
+{
+    U_ASSERT(dst && src);
+    *(uObject**)dst = *(uObject**)src;
+    U_ASSERT(!*(uObject**)dst || uIs(*(uObject**)dst, type));
+}
+
+static void uObject_StoreValue(uType* type, const void* src, void* dst)
+{
+    U_ASSERT(dst);
+    *(uObject**)dst = (uObject*)src;
+    U_ASSERT(!*(uObject**)dst || uIs(*(uObject**)dst, type));
+}
+
+static void uObject_StoreStrong(uType* type, const void* src, void* dst)
+{
+    U_ASSERT(dst && src);
+    *(uStrong<uObject*>*)dst = *(uObject**)src;
+    U_ASSERT(!*(uObject**)dst || uIs(*(uObject**)dst, type));
+}
+
+static void uObject_StoreStrongValue(uType* type, const void* src, void* dst)
+{
+    U_ASSERT(dst);
+    *(uStrong<uObject*>*)dst = (uObject*)src;
+    U_ASSERT(!*(uObject**)dst || uIs(*(uObject**)dst, type));
+}
+
+static void uStruct_StoreN(uType* type, const void* src, void* dst)
+{
+    U_ASSERT(dst && src && type);
+    memcpy(dst, src, type->ValueSize);
+}
+
+static void uStruct_StoreStrong(uType* type, const void* src, void* dst)
+{
+    U_ASSERT(dst && src && type);
+    uAutoReleaseStruct(type, dst);
+    memcpy(dst, src, type->ValueSize);
+    uRetainStruct(type, dst);
+}
+
+template<int size>
+static void uStruct_Store(uType* type, const void* src, void* dst)
+{
+    U_ASSERT(dst && src && type && type->ValueSize == size);
+    memcpy(dst, src, size);
+}
+
+template<int size>
+uOperatorTable* uCreateFixedSizeOperators()
+{
+    uOperatorTable* result = new uOperatorTable;
+    result->fp_StorePtr = uStruct_Store<size>;
+    result->fp_StoreValue = uStruct_Store<size>;
+    result->fp_StoreStrong = uStruct_Store<size>;
+    result->fp_StoreStrongValue = uStruct_Store<size>;
+    return result;
+}
+
+static uOperatorTable* _Object_Operators;
+static uOperatorTable* _Struct_Operators1;
+static uOperatorTable* _Struct_Operators2;
+static uOperatorTable* _Struct_Operators4;
+static uOperatorTable* _Struct_Operators8;
+static uOperatorTable* _Struct_Operators12;
+static uOperatorTable* _Struct_Operators16;
+static uOperatorTable* _Struct_OperatorsN;
+static uOperatorTable* _Struct_OperatorsStrong;
+
+static void uInitOperators()
+{
+    _Object_Operators = new uOperatorTable;
+    _Object_Operators->fp_StorePtr = uObject_StorePtr;
+    _Object_Operators->fp_StoreValue = uObject_StoreValue;
+    _Object_Operators->fp_StoreStrong = uObject_StoreStrong;
+    _Object_Operators->fp_StoreStrongValue = uObject_StoreStrongValue;
+
+    _Struct_Operators1 = uCreateFixedSizeOperators<1>();
+    _Struct_Operators2 = uCreateFixedSizeOperators<2>();
+    _Struct_Operators4 = uCreateFixedSizeOperators<4>();
+    _Struct_Operators8 = uCreateFixedSizeOperators<8>();
+    _Struct_Operators12 = uCreateFixedSizeOperators<12>();
+    _Struct_Operators16 = uCreateFixedSizeOperators<16>();
+
+    _Struct_OperatorsN = new uOperatorTable;
+    _Struct_OperatorsN->fp_StorePtr = uStruct_StoreN;
+    _Struct_OperatorsN->fp_StoreValue = uStruct_StoreN;
+    _Struct_OperatorsN->fp_StoreStrong = uStruct_StoreN;
+    _Struct_OperatorsN->fp_StoreStrongValue = uStruct_StoreN;
+
+    _Struct_OperatorsStrong = new uOperatorTable;
+    _Struct_OperatorsStrong->fp_StorePtr = uStruct_StoreStrong;
+    _Struct_OperatorsStrong->fp_StoreValue = uStruct_StoreStrong;
+    _Struct_OperatorsStrong->fp_StoreStrong = uStruct_StoreStrong;
+    _Struct_OperatorsStrong->fp_StoreStrongValue = uStruct_StoreStrong;
+}
+
+static uOperatorTable* uGetOperators(uType* type)
+{
+    if (U_IS_OBJECT(type))
+        return _Object_Operators;
+    if (type->Flags & uTypeFlagsRetainStruct)
+        return _Struct_OperatorsStrong;
+
+    switch (type->ValueSize)
+    {
+    case 1:
+        return _Struct_Operators1;
+    case 2:
+        return _Struct_Operators2;
+    case 4:
+        return _Struct_Operators4;
+    case 8:
+        return _Struct_Operators8;
+    case 12:
+        return _Struct_Operators12;
+    case 16:
+        return _Struct_Operators16;
+    default:
+        return _Struct_OperatorsN;
+    }
+}
+
+static void uBuildOperators(uType* type)
+{
+    if (type->Type == uTypeTypeStruct && type->Refs.StrongCount)
+        type->Flags |= uTypeFlagsRetainStruct;
+
+    type->Operators = uGetOperators(type);
 }

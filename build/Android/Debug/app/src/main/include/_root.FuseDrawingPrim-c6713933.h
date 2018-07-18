@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing.Primitives/1.4.2/.uno/package.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing.Primitives/1.9.0/.uno/package.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

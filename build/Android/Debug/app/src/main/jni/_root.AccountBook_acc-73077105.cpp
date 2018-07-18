@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_acc-73077105.h>
@@ -21,9 +21,8 @@ namespace g{
 // static generated AccountBook_accessor_EditButton_fontsize() :101
 static void AccountBook_accessor_EditButton_fontsize__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     AccountBook_accessor_EditButton_fontsize::Singleton_ = AccountBook_accessor_EditButton_fontsize::New1();
-    AccountBook_accessor_EditButton_fontsize::_name_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"fontsize"*/]);
+    AccountBook_accessor_EditButton_fontsize::_name_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"fontsize"*/]);
 }
 
 static void AccountBook_accessor_EditButton_fontsize_build(uType* type)
@@ -67,7 +66,7 @@ void AccountBook_accessor_EditButton_fontsize__ctor_1_fn(AccountBook_accessor_Ed
 // public override sealed object GetAsObject(Uno.UX.PropertyObject obj) :107
 void AccountBook_accessor_EditButton_fontsize__GetAsObject_fn(AccountBook_accessor_EditButton_fontsize* __this, ::g::Uno::UX::PropertyObject* obj, uObject** __retval)
 {
-    return *__retval = uBox<int>(::g::Uno::Int_typeof(), uPtr(uCast< ::g::EditButton*>(obj, ::TYPES[0/*EditButton*/]))->fontsize()), void();
+    return *__retval = uBox<int32_t>(::g::Uno::Int_typeof(), uPtr(uCast< ::g::EditButton*>(obj, ::TYPES[0/*EditButton*/]))->fontsize()), void();
 }
 
 // public override sealed Uno.UX.Selector get_Name() :104
@@ -91,7 +90,7 @@ void AccountBook_accessor_EditButton_fontsize__get_PropertyType_fn(AccountBook_a
 // public override sealed void SetAsObject(Uno.UX.PropertyObject obj, object v, Uno.UX.IPropertyListener origin) :108
 void AccountBook_accessor_EditButton_fontsize__SetAsObject_fn(AccountBook_accessor_EditButton_fontsize* __this, ::g::Uno::UX::PropertyObject* obj, uObject* v, uObject* origin)
 {
-    uPtr(uCast< ::g::EditButton*>(obj, ::TYPES[0/*EditButton*/]))->Setfontsize(uUnbox<int>(::g::Uno::Int_typeof(), v), origin);
+    uPtr(uCast< ::g::EditButton*>(obj, ::TYPES[0/*EditButton*/]))->Setfontsize(uUnbox<int32_t>(::g::Uno::Int_typeof(), v), origin);
 }
 
 // public override sealed bool get_SupportsOriginSetter() :109

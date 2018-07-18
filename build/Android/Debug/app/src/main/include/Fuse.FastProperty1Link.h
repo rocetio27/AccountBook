@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/Visual.FastProperties1.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/Visual.FastProperties1.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -11,14 +11,14 @@ namespace Fuse{
 // internal class FastProperty1Link :46
 // {
 uType* FastProperty1Link_typeof();
-void FastProperty1Link__ctor__fn(FastProperty1Link* __this, int* p);
+void FastProperty1Link__ctor__fn(FastProperty1Link* __this, int32_t* p);
 
 struct FastProperty1Link : uObject
 {
-    int Property;
+    int32_t Property;
     uStrong<FastProperty1Link*> Next;
 
-    void ctor_(int p);
+    void ctor_(int32_t p);
 };
 // }
 

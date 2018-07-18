@@ -1,28 +1,32 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/ListPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/ListPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.ListPage.h>
 #include <_root.ListPage.Template3.h>
 #include <Fuse.Controls.Panel.h>
 #include <Fuse.Elements.Element.h>
+#include <Fuse.Node.h>
 #include <Uno.Bool.h>
 #include <Uno.Float.h>
+#include <Uno.Int.h>
 #include <Uno.Object.h>
 #include <Uno.String.h>
 #include <Uno.UX.Size.h>
 #include <Uno.UX.Unit.h>
+static uString* STRINGS[1];
 
 namespace g{
 
-// public partial sealed class ListPage.Template3 :464
+// public partial sealed class ListPage.Template3 :561
 // {
-// static Template3() :473
+// static Template3() :570
 static void ListPage__Template3__cctor__fn(uType* __type)
 {
 }
 
 static void ListPage__Template3_build(uType* type)
 {
+    ::STRINGS[0] = uString::Const("ListPage.ux");
     type->SetFields(2,
         ::g::ListPage_typeof(), offsetof(ListPage__Template3, __parent1), uFieldFlagsWeak,
         ::g::ListPage_typeof(), offsetof(ListPage__Template3, __parentInstance1), uFieldFlagsWeak);
@@ -45,27 +49,29 @@ static void ListPage__Template3_build(uType* type)
     return type;
 }
 
-// public Template3(ListPage parent, ListPage parentInstance) :468
+// public Template3(ListPage parent, ListPage parentInstance) :565
 void ListPage__Template3__ctor_1_fn(ListPage__Template3* __this, ::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :476
+// public override sealed object New() :573
 void ListPage__Template3__New1_fn(ListPage__Template3* __this, uObject** __retval)
 {
     ::g::Fuse::Controls::Panel* __self1 = ::g::Fuse::Controls::Panel::New3();
     __self1->Height(::g::Uno::UX::Size__New1(5.0f, 1));
+    __self1->SourceLineNumber(121);
+    __self1->SourceFileName(::STRINGS[0/*"ListPage.ux"*/]);
     return *__retval = __self1, void();
 }
 
-// public Template3 New(ListPage parent, ListPage parentInstance) :468
+// public Template3 New(ListPage parent, ListPage parentInstance) :565
 void ListPage__Template3__New2_fn(::g::ListPage* parent, ::g::ListPage* parentInstance, ListPage__Template3** __retval)
 {
     *__retval = ListPage__Template3::New2(parent, parentInstance);
 }
 
-// public Template3(ListPage parent, ListPage parentInstance) [instance] :468
+// public Template3(ListPage parent, ListPage parentInstance) [instance] :565
 void ListPage__Template3::ctor_1(::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     ctor_(NULL, false);
@@ -73,7 +79,7 @@ void ListPage__Template3::ctor_1(::g::ListPage* parent, ::g::ListPage* parentIns
     __parentInstance1 = parentInstance;
 }
 
-// public Template3 New(ListPage parent, ListPage parentInstance) [static] :468
+// public Template3 New(ListPage parent, ListPage parentInstance) [static] :565
 ListPage__Template3* ListPage__Template3::New2(::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     ListPage__Template3* obj1 = (ListPage__Template3*)uNew(ListPage__Template3_typeof());

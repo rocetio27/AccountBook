@@ -22,7 +22,7 @@ namespace Fuse{
 namespace Reactive{
 namespace Internal{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Internal\PatchList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Internal\PatchList.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // private struct SimpleAlgorithm<T>.Location :121
@@ -55,11 +55,11 @@ uStructType* SimpleAlgorithm__Location_typeof()
 // public override sealed string ToString() :125
 void SimpleAlgorithm__Location__ToString_fn(SimpleAlgorithm__Location* __this, uType* __type, uString** __retval)
 {
-    return *__retval = ::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition(uBox<int>(::g::Uno::Int_typeof(), __this->From), ::STRINGS[0/*","*/]), uBox<int>(::g::Uno::Int_typeof(), __this->To)), void();
+    return *__retval = ::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition(uBox<int32_t>(::g::Uno::Int_typeof(), __this->From), ::STRINGS[0/*","*/]), uBox<int32_t>(::g::Uno::Int_typeof(), __this->To)), void();
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Internal\PatchList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Internal\PatchList.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // internal enum PatchAlgorithm :23
@@ -75,7 +75,7 @@ uEnumType* PatchAlgorithm_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Internal\PatchList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Internal\PatchList.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // internal struct PatchItem :16
@@ -104,7 +104,7 @@ uStructType* PatchItem_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Internal\PatchList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Internal\PatchList.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // internal sealed class PatchList :38
@@ -138,13 +138,13 @@ uType* PatchList_typeof()
 }
 
 // public static Uno.Collections.List<Fuse.Reactive.Internal.PatchItem> Patch<T>(Uno.Collections.IList<T> from, Uno.Collections.IList<T> to, Fuse.Reactive.Internal.PatchAlgorithm algo, T emptyKey) :40
-void PatchList__Patch_fn(uType* __type, uObject* from, uObject* to, int* algo, void* emptyKey, ::g::Uno::Collections::List** __retval)
+void PatchList__Patch_fn(uType* __type, uObject* from, uObject* to, int32_t* algo, void* emptyKey, ::g::Uno::Collections::List** __retval)
 {
     uType* __types[] = {
         __type->Precalced(0/*Fuse.Reactive.Internal.PatchList.PatchRemoveAll<T>*/),
         __type->Precalced(1/*Fuse.Reactive.Internal.SimpleAlgorithm<T>*/),
     };
-    int algo_ = *algo;
+    int32_t algo_ = *algo;
     ::g::Fuse::Reactive::Internal::SimpleAlgorithm* ret3;
 
     switch (algo_)
@@ -174,17 +174,17 @@ void PatchList__PatchRemoveAll_fn(uType* __type, uObject* from, uObject* to, ::g
     ::g::Fuse::Reactive::Internal::PatchItem collection2;
     ::g::Uno::Collections::List* ops = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[1/*Uno.Collections.List<Fuse.Reactive.Internal.PatchItem>*/]);
 
-    for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(from), __types[0])); ++i)
+    for (int32_t i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(from), __types[0])); ++i)
         ::g::Uno::Collections::List__Add_fn(uPtr(ops), uCRef((collection1 = uDefault< ::g::Fuse::Reactive::Internal::PatchItem>(), collection1.Op = 0, collection1.A = 0, collection1)));
 
-    for (int i1 = 0; i1 < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(to), __types[0])); ++i1)
+    for (int32_t i1 = 0; i1 < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(to), __types[0])); ++i1)
         ::g::Uno::Collections::List__Add_fn(uPtr(ops), uCRef((collection2 = uDefault< ::g::Fuse::Reactive::Internal::PatchItem>(), collection2.Op = 1, collection2.A = i1, collection2.Data = i1, collection2)));
 
     return ops;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Internal\PatchList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Internal\PatchList.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // internal enum PatchOp :6
@@ -201,7 +201,7 @@ uEnumType* PatchOp_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.4.2\Internal\PatchList.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Reactive.Bindings\1.9.0\Internal\PatchList.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // internal sealed class SimpleAlgorithm<T> :98
@@ -249,14 +249,14 @@ void SimpleAlgorithm__ctor__fn(SimpleAlgorithm* __this, uObject* from, uObject* 
     __this->_toIndex = __this->Index(to);
     __this->_toUsed = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New2(::g::Uno::Collections::List_typeof()->MakeType(::g::Uno::Bool_typeof(), NULL), ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(to), __types[0]))));
 
-    for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(to, __types[0])); ++i)
+    for (int32_t i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(to, __types[0])); ++i)
         ::g::Uno::Collections::List__Add_fn(uPtr(__this->_toUsed), uCRef(false));
 
     __this->_ops = ((::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[1/*Uno.Collections.List<Fuse.Reactive.Internal.PatchItem>*/]));
 }
 
 // private void AppendRemainingTo(int oPos) :185
-void SimpleAlgorithm__AppendRemainingTo_fn(SimpleAlgorithm* __this, int* oPos)
+void SimpleAlgorithm__AppendRemainingTo_fn(SimpleAlgorithm* __this, int32_t* oPos)
 {
     __this->AppendRemainingTo(*oPos);
 }
@@ -268,7 +268,7 @@ void SimpleAlgorithm__Calc_fn(SimpleAlgorithm* __this, ::g::Uno::Collections::Li
 }
 
 // private Fuse.Reactive.Internal.SimpleAlgorithm<T>.Location FindNextAnchor(int fromAt) :199
-void SimpleAlgorithm__FindNextAnchor_fn(SimpleAlgorithm* __this, int* fromAt, SimpleAlgorithm__Location* __retval)
+void SimpleAlgorithm__FindNextAnchor_fn(SimpleAlgorithm* __this, int32_t* fromAt, SimpleAlgorithm__Location* __retval)
 {
     *__retval = __this->FindNextAnchor(*fromAt);
 }
@@ -288,7 +288,7 @@ void SimpleAlgorithm__New1_fn(uType* __type, uObject* from, uObject* to, void* e
 }
 
 // private void AppendRemainingTo(int oPos) [instance] :185
-void SimpleAlgorithm::AppendRemainingTo(int oPos)
+void SimpleAlgorithm::AppendRemainingTo(int32_t oPos)
 {
     uType* __types[] = {
         __type->Precalced(1/*Uno.Collections.ICollection<T>*/),
@@ -296,13 +296,13 @@ void SimpleAlgorithm::AppendRemainingTo(int oPos)
     ::g::Fuse::Reactive::Internal::PatchItem collection5;
     bool ret2;
 
-    for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(_to), __types[0])); ++i)
+    for (int32_t i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(_to), __types[0])); ++i)
     {
-        if ((::g::Uno::Collections::List__get_Item_fn(uPtr(_toUsed), uCRef<int>(i), &ret2), ret2))
+        if ((::g::Uno::Collections::List__get_Item_fn(uPtr(_toUsed), uCRef<int32_t>(i), &ret2), ret2))
             continue;
 
         ::g::Uno::Collections::List__Add_fn(uPtr(_ops), uCRef((collection5 = uDefault< ::g::Fuse::Reactive::Internal::PatchItem>(), collection5.Op = 1, collection5.A = oPos, collection5.Data = i, collection5)));
-        ::g::Uno::Collections::List__set_Item_fn(uPtr(_toUsed), uCRef<int>(i), uCRef(true));
+        ::g::Uno::Collections::List__set_Item_fn(uPtr(_toUsed), uCRef<int32_t>(i), uCRef(true));
         oPos++;
     }
 }
@@ -318,8 +318,8 @@ void SimpleAlgorithm::AppendRemainingTo(int oPos)
     ::g::Fuse::Reactive::Internal::PatchItem collection3;
     ::g::Fuse::Reactive::Internal::PatchItem collection4;
     bool ret3;
-    int fromAt = 0;
-    int oPos = 0;
+    int32_t fromAt = 0;
+    int32_t oPos = 0;
 
     while (fromAt < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(_from), __types[0])))
     {
@@ -337,16 +337,16 @@ void SimpleAlgorithm::AppendRemainingTo(int oPos)
             break;
         }
 
-        int rem = fromAt + oPos;
+        int32_t rem = fromAt + oPos;
 
-        for (int i = 0; i < anchor.To; ++i)
+        for (int32_t i = 0; i < anchor.To; ++i)
         {
-            if ((::g::Uno::Collections::List__get_Item_fn(uPtr(_toUsed), uCRef<int>(i), &ret3), ret3))
+            if ((::g::Uno::Collections::List__get_Item_fn(uPtr(_toUsed), uCRef<int32_t>(i), &ret3), ret3))
                 continue;
 
             ::g::Uno::Collections::List__Add_fn(uPtr(_ops), uCRef((collection2 = uDefault< ::g::Fuse::Reactive::Internal::PatchItem>(), collection2.Op = 1, collection2.A = (oPos + anchor.From), collection2.Data = i, collection2)));
             oPos++;
-            ::g::Uno::Collections::List__set_Item_fn(uPtr(_toUsed), uCRef<int>(i), uCRef(true));
+            ::g::Uno::Collections::List__set_Item_fn(uPtr(_toUsed), uCRef<int32_t>(i), uCRef(true));
         }
 
         while (fromAt < anchor.From)
@@ -357,7 +357,7 @@ void SimpleAlgorithm::AppendRemainingTo(int oPos)
         }
 
         ::g::Uno::Collections::List__Add_fn(uPtr(_ops), uCRef((collection4 = uDefault< ::g::Fuse::Reactive::Internal::PatchItem>(), collection4.Op = 2, collection4.A = (fromAt + oPos), collection4.Data = anchor.To, collection4)));
-        ::g::Uno::Collections::List__set_Item_fn(uPtr(_toUsed), uCRef<int>(anchor.To), uCRef(true));
+        ::g::Uno::Collections::List__set_Item_fn(uPtr(_toUsed), uCRef<int32_t>(anchor.To), uCRef(true));
         fromAt++;
     }
 
@@ -366,7 +366,7 @@ void SimpleAlgorithm::AppendRemainingTo(int oPos)
 }
 
 // private Fuse.Reactive.Internal.SimpleAlgorithm<T>.Location FindNextAnchor(int fromAt) [instance] :199
-SimpleAlgorithm__Location SimpleAlgorithm::FindNextAnchor(int fromAt)
+SimpleAlgorithm__Location SimpleAlgorithm::FindNextAnchor(int32_t fromAt)
 {
     uType* __types[] = {
         __type->Precalced(1/*Uno.Collections.ICollection<T>*/),
@@ -381,9 +381,9 @@ SimpleAlgorithm__Location SimpleAlgorithm::FindNextAnchor(int fromAt)
 
     while (fromAt < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(_from), __types[0])))
     {
-        int faLoc = -1;
+        int32_t faLoc = -1;
 
-        if ((::g::Uno::Object::Equals1(uBoxPtr(__type->T(0), (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(_from), __types[1]), uCRef<int>(fromAt), &ret4), ret4)), uBoxPtr(__type->T(0), _emptyKey())) || !(::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(_toIndex), (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(_from), __types[1]), uCRef<int>(fromAt), &ret6), ret6), &faLoc, &ret5), ret5)) || (::g::Uno::Collections::List__get_Item_fn(uPtr(_toUsed), uCRef<int>(faLoc), &ret7), ret7))
+        if ((::g::Uno::Object::Equals1(uBoxPtr(__type->T(0), (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(_from), __types[1]), uCRef<int32_t>(fromAt), &ret4), ret4)), uBoxPtr(__type->T(0), _emptyKey())) || !(::g::Uno::Collections::Dictionary__TryGetValue_fn(uPtr(_toIndex), (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(_from), __types[1]), uCRef<int32_t>(fromAt), &ret6), ret6), &faLoc, &ret5), ret5)) || (::g::Uno::Collections::List__get_Item_fn(uPtr(_toUsed), uCRef<int32_t>(faLoc), &ret7), ret7))
         {
             fromAt++;
             continue;
@@ -413,9 +413,9 @@ SimpleAlgorithm__Location SimpleAlgorithm::FindNextAnchor(int fromAt)
     uT ret9(__type->T(0), U_ALLOCA(__type->T(0)->ValueSize));
     ::g::Uno::Collections::Dictionary* d = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(__types[0]);
 
-    for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(to), __types[1])); ++i)
-        if (!::g::Uno::Object::Equals1(uBoxPtr(__type->T(0), (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(to), __types[2]), uCRef<int>(i), &ret8), ret8)), uBoxPtr(__type->T(0), _emptyKey())))
-            ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(d), (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(to), __types[2]), uCRef<int>(i), &ret9), ret9), uCRef<int>(i));
+    for (int32_t i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(to), __types[1])); ++i)
+        if (!::g::Uno::Object::Equals1(uBoxPtr(__type->T(0), (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(to), __types[2]), uCRef<int32_t>(i), &ret8), ret8)), uBoxPtr(__type->T(0), _emptyKey())))
+            ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(d), (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(to), __types[2]), uCRef<int32_t>(i), &ret9), ret9), uCRef<int32_t>(i));
 
     return d;
 }

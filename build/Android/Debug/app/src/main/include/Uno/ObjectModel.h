@@ -1,17 +1,18 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Backends/CPlusPlus/Uno/ObjectModel.h.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Backends/CPlusPlus/Uno/ObjectModel.h.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
+#include <atomic>
 #include <cstdarg>
 #include <cstdlib>
 #include <exception>
-#include <Uno/Memory.h>
 //#if #(REFLECTION:Defined)
 //#include <Uno/Reflection.h>
+//#else
+#include <Uno/Memory.h>
 //#endif
 namespace g{namespace Uno{struct Exception;}}
-namespace uBase{struct Mutex;}
-namespace uBase{struct Cond;}
+struct uObjectMonitor;
 
 /**
     \addtogroup ObjectModel
@@ -21,16 +22,15 @@ struct uObject
 {
     uType* __type;
     uWeakObject* __weakptr;
-    uBase::Cond* __condptr;
-    uBase::Mutex* __lockptr;
+    uObjectMonitor* __monitor;
 #ifdef DEBUG_ARC
     size_t __size;
     size_t __id;
 #endif
-    int __retains;
+    std::atomic_int __retains;
 
     uType* GetType() const;
-    int GetHashCode();
+    int32_t GetHashCode();
     bool Equals(uObject* object);
     uString* ToString();
 
@@ -93,6 +93,14 @@ struct uInterfaceInfo
 {
     uType* Type;
     size_t Offset;
+};
+
+struct uOperatorTable
+{
+    void(*fp_StorePtr)(uType*, const void*, void*);
+    void(*fp_StoreValue)(uType*, const void*, void*);
+    void(*fp_StoreStrong)(uType*, const void*, void*);
+    void(*fp_StoreStrongValue)(uType*, const void*, void*);
 };
 
 struct uType : uObject
@@ -171,6 +179,9 @@ struct uType : uObject
     uByRefType* _byRef;
     uByRefType* ByRef();
 
+    // Operators
+    uOperatorTable* Operators;
+
     // ARC
     uObjectRefs Refs;
 
@@ -187,7 +198,7 @@ struct uType : uObject
     const void* fp_ctor_;
     void(*fp_cctor_)(uType*);
     void(*fp_Finalize)(uObject*);
-    void(*fp_GetHashCode)(uObject*, int*);
+    void(*fp_GetHashCode)(uObject*, int32_t*);
     void(*fp_Equals)(uObject*, uObject*, bool*);
     void(*fp_ToString)(uObject*, uString**);
 };
@@ -214,8 +225,8 @@ struct uTypeOptions
 inline uType* uObject::GetType() const {
     return __type;
 }
-inline int uObject::GetHashCode() {
-    int result;
+inline int32_t uObject::GetHashCode() {
+    int32_t result;
     return (*__type->fp_GetHashCode)(this, &result), result;
 }
 inline bool uObject::Equals(uObject* object) {
@@ -255,7 +266,7 @@ struct uThrowable : public std::exception
     static U_NORETURN void ThrowIndexOutOfRange(const char* func, int line);
     static U_NORETURN void ThrowInvalidCast(const char* func, int line);
     static U_NORETURN void ThrowInvalidCast(const uType* from, const uType* to, const char* func, int line);
-    static U_NORETURN void ThrowInvalidOperation(const char* func, int line);
+    static U_NORETURN void ThrowInvalidOperation(const char* message, const char* func, int line);
     static U_NORETURN void ThrowNullReference(const char* func, int line);
 
 private:
@@ -266,7 +277,7 @@ private:
 #define U_THROW(exception) throw uThrowable((exception), U_FUNCTION, __LINE__)
 #define U_THROW_ICE() uThrowable::ThrowInvalidCast(U_FUNCTION, __LINE__)
 #define U_THROW_ICE2(from, to) uThrowable::ThrowInvalidCast(from, to, U_FUNCTION, __LINE__)
-#define U_THROW_IOE() uThrowable::ThrowInvalidOperation(U_FUNCTION, __LINE__)
+#define U_THROW_IOE(message) uThrowable::ThrowInvalidOperation(message, U_FUNCTION, __LINE__)
 #define U_THROW_IOORE() uThrowable::ThrowIndexOutOfRange(U_FUNCTION, __LINE__)
 #define U_THROW_NRE() uThrowable::ThrowNullReference(U_FUNCTION, __LINE__)
 
@@ -401,19 +412,11 @@ struct uStructType : uType
     static uStructType* New(const char* name, uTypeOptions& options);
 
     // Value adapters (usable w/o boxing)
-    void(*fp_GetHashCode_struct)(void*, uType*, int*);
+    void(*fp_GetHashCode_struct)(void*, uType*, int32_t*);
     void(*fp_Equals_struct)(void*, uType*, uObject*, bool*);
     void(*fp_ToString_struct)(void*, uType*, uString**);
 };
 
-enum uCopyFlags
-{
-    uCopyFlagsStrong = 1 << 0,
-    uCopyFlagsValue = 1 << 1,
-    uCopyFlagsStrongValue = uCopyFlagsStrong | uCopyFlagsValue
-};
-
-void uCopy(uType* type, const void* src, void* dst, uint8_t flags = 0);
 uObject* uBoxPtr(uType* type, const void* src, void* stack = NULL, bool ref = false);
 void uUnboxPtr(uType* type, uObject* object, void* dst);
 
@@ -477,52 +480,52 @@ struct uArrayType : uType
 struct uArray : uObject
 {
     void* _ptr;
-    int _length;
+    int32_t _length;
 
-    int Length() const { return _length; }
+    int32_t Length() const { return _length; }
     const void* Ptr() const { return _ptr; }
     void* Ptr() { return _ptr; }
 
-    void MarshalPtr(int index, const void* value, size_t size);
-    uTField TItem(int index);
-    uTField TUnsafe(int index);
+    void MarshalPtr(int32_t index, const void* value, size_t size);
+    uTField TItem(int32_t index);
+    uTField TUnsafe(int32_t index);
 
     template<class T>
-    T& Item(int index) {
+    T& Item(int32_t index) {
         U_ASSERT(sizeof(T) == ((uArrayType*)__type)->ElementType->ValueSize);
         if (index < 0 || index >= _length)
             U_THROW_IOORE();
         return ((T*)_ptr)[index];
     }
     template<class T>
-    uStrong<T>& Strong(int index) {
+    uStrong<T>& Strong(int32_t index) {
         U_ASSERT(sizeof(T) == ((uArrayType*)__type)->ElementType->ValueSize);
         if (index < 0 || index >= _length)
             U_THROW_IOORE();
         return ((uStrong<T>*)_ptr)[index];
     }
     template<class T>
-    T& Unsafe(int index) {
+    T& Unsafe(int32_t index) {
         U_ASSERT(sizeof(T) == ((uArrayType*)__type)->ElementType->ValueSize &&
                  index >= 0 && index < _length);
         return ((T*)_ptr)[index];
     }
     template<class T>
-    uStrong<T>& UnsafeStrong(int index) {
+    uStrong<T>& UnsafeStrong(int32_t index) {
         U_ASSERT(sizeof(T) == ((uArrayType*)__type)->ElementType->ValueSize &&
                  index >= 0 && index < _length);
         return ((uStrong<T>*)_ptr)[index];
     }
 
-    static uArray* New(uType* type, int length, const void* optionalData = NULL);
-    static uArray* InitT(uType* type, int length, ...);
+    static uArray* New(uType* type, int32_t length, const void* optionalData = NULL);
+    static uArray* InitT(uType* type, int32_t length, ...);
 
     template<class T>
-    static uArray* Init(uType* type, int length, ...) {
+    static uArray* Init(uType* type, int32_t length, ...) {
         va_list ap;
         va_start(ap, length);
         uArray* array = New(type, length);
-        for (int i = 0; i < length; i++) {
+        for (int32_t i = 0; i < length; i++) {
             T item = va_arg(ap, T);
             array->MarshalPtr(i, &item, sizeof(T));
         }
@@ -538,35 +541,54 @@ struct uArray : uObject
 */
 struct uString : uObject
 {
-    uChar* _ptr;
-    int _length;
+    char16_t* _ptr;
+    int32_t _length;
 
-    int Length() const { return _length; }
-    const uChar* Ptr() const { return _ptr; }
+    int32_t Length() const { return _length; }
+    const char16_t* Ptr() const { return _ptr; }
 
-    const uChar& Item(int index) const {
+    const char16_t& Item(int32_t index) const {
         if (index < 0 || index >= _length)
             U_THROW_IOORE();
         return _ptr[index];
     }
-    const uChar& Unsafe(int index) const {
+    const char16_t& Unsafe(int32_t index) const {
         return _ptr[index];
     }
 
-    static uString* New(int length);
+    static uString* New(int32_t length);
     static uString* Ansi(const char* cstr);
     static uString* Ansi(const char* cstr, size_t length);
     static uString* Utf8(const char* mutf8);
     static uString* Utf8(const char* mutf8, size_t length);
-    static uString* Utf16(const uChar* nullTerminatedUtf16);
-    static uString* Utf16(const uChar* utf16, size_t length);
+    static uString* Utf16(const char16_t* nullTerminatedUtf16);
+    static uString* Utf16(const char16_t* utf16, size_t length);
     static uString* Const(const char* mutf8);
     static uString* CharArray(const uArray* chars);
+    static uString* CharArrayRange(const uArray* chars, int32_t startIndex, int32_t length);
     static bool Equals(const uString* left, const uString* right, bool ignoreCase = false);
 };
 
-const char* uAllocCStr(const uString* string);
-void uFreeCStr(const char* cstr);
+// Leak warning: The returned string must be deleted using free()
+char* uAllocCStr(const uString* string, size_t* length = NULL);
+// Deprecated: Use free() instead - the parameter type shouldn't be const
+void DEPRECATED("Use free() instead") uFreeCStr(const char* cstr);
+
+struct uCString
+{
+    char* Ptr;
+    size_t Length;
+
+    uCString(const uString* string) {
+        Ptr = uAllocCStr(string, &Length);
+    }
+    uCString(const uSStrong<uString*>& string){
+        Ptr = uAllocCStr(string._object, &Length);
+    }
+    ~uCString() {
+        free(Ptr);
+    }
+};
 /** @} */
 
 /**
@@ -629,11 +651,11 @@ struct uTRef
         return uTBase(type, _address);
     }
     uTRef& Store(uType* type, const void* value) {
-        uCopy(type, value, _address, uCopyFlagsValue);
+        (*type->Operators->fp_StoreValue)(type, value, _address);
         return *this;
     }
     uTRef& Store(const uTBase& value) {
-        uCopy(value._type, value._address, _address);
+        (*value._type->Operators->fp_StorePtr)(value._type, value._address, _address);
         return *this;
     }
 
@@ -688,15 +710,15 @@ struct uTField : uTBase
         return *(T*)_address;
     }
     uTField& operator =(const uTField& value) {
-        uCopy(_type, value._address, _address, uCopyFlagsStrong);
+        (*_type->Operators->fp_StoreStrong)(_type, value._address, _address);
         return *this;
     }
     uTField& operator =(const uTBase& value) {
-        uCopy(_type, value._address, _address, uCopyFlagsStrong);
+        (*_type->Operators->fp_StoreStrong)(_type, value._address, _address);
         return *this;
     }
     uTField& operator =(const void* value) {
-        uCopy(_type, value, _address, uCopyFlagsStrongValue);
+        (*_type->Operators->fp_StoreStrongValue)(_type, value, _address);
         return *this;
     }
     uTField operator [](size_t index) {
@@ -730,15 +752,15 @@ struct uT : uTBase
         return *this;
     }
     uT& operator =(const uT& value) {
-        uCopy(_type, value._address, _address);
+        (*_type->Operators->fp_StorePtr)(_type, value._address, _address);
         return *this;
     }
     uT& operator =(const uTBase& value) {
-        uCopy(_type, value._address, _address);
+        (*_type->Operators->fp_StorePtr)(_type, value._address, _address);
         return *this;
     }
     uT& operator =(const void* value) {
-        uCopy(_type, value, _address, uCopyFlagsValue);
+        (*_type->Operators->fp_StoreValue)(_type, value, _address);
         return *this;
     }
     uTField operator [](size_t index) {
@@ -791,12 +813,12 @@ inline uTPtr uUnboxAny(const uType* type, uObject* object) {
         ? (uint8_t*)uPtr(object) + sizeof(uObject)
         : (void*)object;
 }
-inline uTField uArray::TItem(int index) {
+inline uTField uArray::TItem(int32_t index) {
     if (index < 0 || index >= _length) U_THROW_IOORE();
     uType* type = ((uArrayType*)__type)->ElementType;
     return uTField(type, (uint8_t*)_ptr + type->ValueSize * index);
 }
-inline uTField uArray::TUnsafe(int index) {
+inline uTField uArray::TUnsafe(int32_t index) {
     uType* type = ((uArrayType*)__type)->ElementType;
     return uTField(type, (uint8_t*)_ptr + type->ValueSize * index);
 }

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-676d1d1f.h>
@@ -10,7 +10,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_FuseElementsElement_Margin_Property :375
+// internal sealed class AccountBook_FuseElementsElement_Margin_Property :403
 // {
 static void AccountBook_FuseElementsElement_Margin_Property_build(uType* type)
 {
@@ -38,45 +38,45 @@ static void AccountBook_FuseElementsElement_Margin_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_FuseElementsElement_Margin_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) :378
+// public AccountBook_FuseElementsElement_Margin_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) :406
 void AccountBook_FuseElementsElement_Margin_Property__ctor_3_fn(AccountBook_FuseElementsElement_Margin_Property* __this, ::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed float4 Get(Uno.UX.PropertyObject obj) :380
+// public override sealed float4 Get(Uno.UX.PropertyObject obj) :408
 void AccountBook_FuseElementsElement_Margin_Property__Get1_fn(AccountBook_FuseElementsElement_Margin_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* __retval)
 {
     return *__retval = uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[0/*Fuse.Elements.Element*/]))->Margin(), void();
 }
 
-// public AccountBook_FuseElementsElement_Margin_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) :378
+// public AccountBook_FuseElementsElement_Margin_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) :406
 void AccountBook_FuseElementsElement_Margin_Property__New1_fn(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector* name, AccountBook_FuseElementsElement_Margin_Property** __retval)
 {
     *__retval = AccountBook_FuseElementsElement_Margin_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :379
+// public override sealed Uno.UX.PropertyObject get_Object() :407
 void AccountBook_FuseElementsElement_Margin_Property__get_Object_fn(AccountBook_FuseElementsElement_Margin_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, float4 v, Uno.UX.IPropertyListener origin) :381
+// public override sealed void Set(Uno.UX.PropertyObject obj, float4 v, Uno.UX.IPropertyListener origin) :409
 void AccountBook_FuseElementsElement_Margin_Property__Set1_fn(AccountBook_FuseElementsElement_Margin_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* v, uObject* origin)
 {
     ::g::Uno::Float4 v_ = *v;
     uPtr(uCast< ::g::Fuse::Elements::Element*>(obj, ::TYPES[0/*Fuse.Elements.Element*/]))->Margin(v_);
 }
 
-// public AccountBook_FuseElementsElement_Margin_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) [instance] :378
+// public AccountBook_FuseElementsElement_Margin_Property(Fuse.Elements.Element obj, Uno.UX.Selector name) [instance] :406
 void AccountBook_FuseElementsElement_Margin_Property::ctor_3(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_FuseElementsElement_Margin_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) [static] :378
+// public AccountBook_FuseElementsElement_Margin_Property New(Fuse.Elements.Element obj, Uno.UX.Selector name) [static] :406
 AccountBook_FuseElementsElement_Margin_Property* AccountBook_FuseElementsElement_Margin_Property::New1(::g::Fuse::Elements::Element* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_FuseElementsElement_Margin_Property* obj1 = (AccountBook_FuseElementsElement_Margin_Property*)uNew(AccountBook_FuseElementsElement_Margin_Property_typeof());

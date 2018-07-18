@@ -32,6 +32,7 @@
 #include <Fuse.Visual.h>
 #include <Uno.Bool.h>
 #include <Uno.Buffer.h>
+#include <Uno.Byte.h>
 #include <Uno.Double.h>
 #include <Uno.Exception.h>
 #include <Uno.Float.h>
@@ -65,7 +66,7 @@ namespace Fuse{
 namespace Drawing{
 namespace Primitives{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Circle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Circle.uno
 // ------------------------------------------------------------------------------------------------
 
 // public sealed class Circle :20
@@ -87,6 +88,9 @@ static void Circle_build(uType* type)
     ::TYPES[6] = ::g::Fuse::Drawing::LinearGradient_typeof();
     ::TYPES[7] = ::g::Fuse::Drawing::StaticSolidColor_typeof();
     ::TYPES[8] = ::g::Fuse::Drawing::Primitives::FillCoverage_typeof();
+    type->SetDependencies(
+        ::g::FuseDrawingPrimitives_bundle_typeof(),
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Fuse::Drawing::Primitives::LimitCoverage_typeof(), offsetof(Circle, _oneLimitCoverage), 0,
         ::TYPES[0/*Fuse.Drawing.Primitives.StrokeCoverage*/], offsetof(Circle, _strokeCoverage), 0,
@@ -127,6 +131,7 @@ uType* Circle_typeof()
 
     uTypeOptions options;
     options.FieldCount = 30;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(Circle);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Drawing.Primitives.Circle", options);
@@ -995,12 +1000,12 @@ void Circle::InitBuffers()
 {
     _bufferVertex = ::g::Fuse::Drawing::Internal::Float2Buffer::New3();
     _bufferIndex = ::g::Fuse::Drawing::Internal::UShortBuffer::New3();
-    int numSegments = 16;
+    int32_t numSegments = 16;
     float theta = 1.57079637f - (6.28318548f / (float)numSegments);
     float len = 1.0f / ::g::Uno::Math::Sin1(theta);
     uPtr(_bufferVertex)->Append(0.0, 0.0);
 
-    for (int i = 0; i < numSegments; ++i)
+    for (int32_t i = 0; i < numSegments; ++i)
     {
         float r = (((float)i / (float)numSegments) * 3.14159274f) * 2.0f;
         uPtr(_bufferVertex)->Append((double)(::g::Uno::Math::Cos1(r) * len), (double)(::g::Uno::Math::Sin1(r) * len));
@@ -1033,7 +1038,7 @@ Circle* Circle::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Wedge.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Wedge.uno
 // -----------------------------------------------------------------------------------------------
 
 // internal sealed class ConcaveWedgeCoverage :46
@@ -1086,7 +1091,7 @@ ConcaveWedgeCoverage* ConcaveWedgeCoverage::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Wedge.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Wedge.uno
 // -----------------------------------------------------------------------------------------------
 
 // internal sealed class ConvexWedgeCoverage :41
@@ -1139,7 +1144,7 @@ ConvexWedgeCoverage* ConvexWedgeCoverage::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Rectangle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Rectangle.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal abstract class Coverage :36
@@ -1173,7 +1178,7 @@ void Coverage::ctor_()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Rectangle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Rectangle.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal class Falloff :55
@@ -1222,7 +1227,7 @@ Falloff* Falloff::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Rectangle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Rectangle.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal sealed class FillCoverage :40
@@ -1273,7 +1278,7 @@ FillCoverage* FillCoverage::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Circle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Circle.uno
 // ------------------------------------------------------------------------------------------------
 
 // internal abstract class LimitCoverage :11
@@ -1307,7 +1312,7 @@ void LimitCoverage::ctor_()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Circle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Circle.uno
 // ------------------------------------------------------------------------------------------------
 
 // internal sealed class OneLimitCoverage :15
@@ -1358,7 +1363,7 @@ OneLimitCoverage* OneLimitCoverage::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Rectangle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Rectangle.uno
 // ---------------------------------------------------------------------------------------------------
 
 // public sealed class Rectangle :67
@@ -1384,6 +1389,9 @@ static void Rectangle_build(uType* type)
     ::TYPES[12] = ::TYPES[9/*float[]*/]->Array();
     ::TYPES[13] = ::g::Uno::Float2_typeof()->Array();
     ::TYPES[14] = ::g::Uno::Int_typeof()->Array();
+    type->SetDependencies(
+        ::g::FuseDrawingPrimitives_bundle_typeof(),
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::TYPES[0/*Fuse.Drawing.Primitives.StrokeCoverage*/], offsetof(Rectangle, _strokeCoverage), 0,
         ::TYPES[8/*Fuse.Drawing.Primitives.FillCoverage*/], offsetof(Rectangle, _fillCoverage), 0,
@@ -1418,6 +1426,7 @@ uType* Rectangle_typeof()
 
     uTypeOptions options;
     options.FieldCount = 24;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(Rectangle);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Drawing.Primitives.Rectangle", options);
@@ -1510,7 +1519,7 @@ uArray* Rectangle::add(uArray* a, uArray* b)
 {
     uArray* r = uArray::New(::TYPES[9/*float[]*/], uPtr(a)->Length());
 
-    for (int i = 0; i < a->Length(); i++)
+    for (int32_t i = 0; i < a->Length(); i++)
         uPtr(r)->Item<float>(i) = uPtr(a)->Item<float>(i) + uPtr(b)->Item<float>(i);
 
     return r;
@@ -1545,7 +1554,7 @@ void Rectangle::Draw(::g::Fuse::DrawContext* dc, ::g::Fuse::Visual* visual, ::g:
 
     float mn = ::g::Uno::Math::Min1(Size.X / 2.0f, Size.Y / 2.0f);
 
-    for (int i = 0; i < 4; ++i)
+    for (int32_t i = 0; i < 4; ++i)
         CornerRadius.Item(i, ::g::Uno::Math::Clamp1(CornerRadius.Item(i), 0.0f, mn));
 
     uPtr(_uniforms)->Item<float>(0) = 0.0f;
@@ -2096,12 +2105,12 @@ void Rectangle::InitBuffers()
     uArray* vr = uArray::Init<uArray*>(::TYPES[12/*float[][]*/], 56, CornerRadius0, (uArray*)add(SizeY, ExtendY), (uArray*)sub(SizeX, CornerRadius1), (uArray*)add(SizeY, ExtendY), (uArray*)neg(ExtendX), (uArray*)sub(SizeY, CornerRadius0), CornerRadius0, (uArray*)sub(SizeY, CornerRadius0), (uArray*)sub(SizeX, CornerRadius1), (uArray*)sub(SizeY, CornerRadius1), (uArray*)add(SizeX, ExtendX), (uArray*)sub(SizeY, CornerRadius1), Mn, (uArray*)sub(SizeY, Mn), (uArray*)sub(SizeX, Mn), (uArray*)sub(SizeY, Mn), Mn, Mn, (uArray*)sub(SizeX, Mn), Mn, (uArray*)neg(ExtendX), CornerRadius3, CornerRadius3, CornerRadius3, (uArray*)sub(SizeX, CornerRadius2), CornerRadius2, (uArray*)add(SizeX, ExtendX), CornerRadius2, CornerRadius3, (uArray*)neg(ExtendY), (uArray*)sub(SizeX, CornerRadius2), (uArray*)neg(ExtendY), (uArray*)neg(ExtendX), (uArray*)add(SizeY, ExtendY), (uArray*)add(SizeX, ExtendX), (uArray*)add(SizeY, ExtendY), (uArray*)neg(ExtendX), (uArray*)neg(ExtendY), (uArray*)add(SizeX, ExtendX), (uArray*)neg(ExtendY), Mn, (uArray*)sub(SizeY, CornerRadius0), (uArray*)sub(SizeX, Mn), (uArray*)sub(SizeY, CornerRadius1), Mn, CornerRadius3, (uArray*)sub(SizeX, Mn), CornerRadius2, CornerRadius0, (uArray*)sub(SizeY, Mn), (uArray*)sub(SizeX, CornerRadius1), (uArray*)sub(SizeY, Mn), CornerRadius3, Mn, (uArray*)sub(SizeX, CornerRadius2), Mn);
     uArray* offsets = uArray::New(::TYPES[13/*float2[]*/], vr->Length());
 
-    for (int i = 0; i < vr->Length(); ++i)
+    for (int32_t i = 0; i < vr->Length(); ++i)
     {
         ::g::Uno::Int2 offset = ::g::Uno::Int2__New2(0, 0);
         uArray* v = uPtr(vr)->Strong<uArray*>(i);
 
-        for (int j = 0; j < uPtr(v)->Length(); ++j)
+        for (int32_t j = 0; j < uPtr(v)->Length(); ++j)
         {
             float f = uPtr(v)->Item<float>(j);
 
@@ -2110,17 +2119,17 @@ void Rectangle::InitBuffers()
                 if (offset.Y != 0)
                     U_THROW(::g::Uno::Exception::New2(::STRINGS[0/*"more than t...*/]));
 
-                int o = 1 + j;
+                int32_t o = 1 + j;
                 offset = ::g::Uno::Int2__New2((f < 0.0f) ? -o : o, offset.X);
             }
         }
 
-        uPtr(offsets)->Item< ::g::Uno::Float2>(i) = ::g::Uno::Float2__op_Implicit1(offset);
+        uPtr(offsets)->Item< ::g::Uno::Float2>(i) = ::g::Uno::Float2__op_Implicit2(offset);
     }
 
-    uArray* vsr = uArray::Init<int>(::TYPES[14/*int[]*/], 72, 10, 8, 11, 10, 6, 8, 10, 2, 6, 2, 3, 6, 14, 11, 8, 14, 8, 15, 8, 9, 15, 9, 12, 15, 3, 0, 6, 0, 1, 6, 6, 1, 4, 6, 4, 7, 7, 4, 5, 7, 5, 9, 9, 5, 13, 9, 13, 12, 2, 16, 3, 3, 16, 0, 1, 17, 4, 4, 17, 5, 15, 12, 19, 12, 
+    uArray* vsr = uArray::Init<int32_t>(::TYPES[14/*int[]*/], 72, 10, 8, 11, 10, 6, 8, 10, 2, 6, 2, 3, 6, 14, 11, 8, 14, 8, 15, 8, 9, 15, 9, 12, 15, 3, 0, 6, 0, 1, 6, 6, 1, 4, 6, 4, 7, 7, 4, 5, 7, 5, 9, 9, 5, 13, 9, 13, 12, 2, 16, 3, 3, 16, 0, 1, 17, 4, 4, 17, 5, 15, 12, 19, 12, 
         13, 19, 11, 18, 10, 14, 18, 11);
-    uArray* ptr = uArray::Init<int>(::TYPES[14/*int[]*/], 72, 22, 8, 22, 22, 6, 8, 22, 20, 6, 20, 20, 6, 26, 26, 8, 26, 8, 27, 8, 9, 27, 9, 27, 27, 24, 24, 6, 24, 25, 6, 6, 25, 25, 6, 25, 7, 7, 21, 21, 7, 21, 9, 9, 21, 23, 9, 23, 23, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 12, 12, 12, 12, 
+    uArray* ptr = uArray::Init<int32_t>(::TYPES[14/*int[]*/], 72, 22, 8, 22, 22, 6, 8, 22, 20, 6, 20, 20, 6, 26, 26, 8, 26, 8, 27, 8, 9, 27, 9, 27, 27, 24, 24, 6, 24, 25, 6, 6, 25, 25, 6, 25, 7, 7, 21, 21, 7, 21, 9, 9, 21, 23, 9, 23, 23, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 12, 12, 12, 12, 
         12, 12, 11, 11, 11, 11, 11, 11);
     ::g::Uno::Buffer* bufferVertex = ::g::Uno::Buffer::New4(vsr->Length() * 16);
     ::g::Uno::Buffer* bufferEdge = ::g::Uno::Buffer::New4(vsr->Length() * 16);
@@ -2128,22 +2137,22 @@ void Rectangle::InitBuffers()
     _vertexInfo.BufferOffset = 0;
     _vertexInfo.BufferStride = 16;
     _vertexInfo.Type = 4;
-    _vertexInfo.Buffer = ::g::Uno::Graphics::VertexBuffer::New3(0);
+    _vertexInfo.Buffer = ::g::Uno::Graphics::VertexBuffer::New4(0);
     _edgeInfo = uDefault< ::g::Uno::Graphics::VertexAttributeInfo>();
     _edgeInfo.BufferOffset = 0;
     _edgeInfo.BufferStride = 16;
     _edgeInfo.Type = 4;
-    _edgeInfo.Buffer = ::g::Uno::Graphics::VertexBuffer::New3(0);
+    _edgeInfo.Buffer = ::g::Uno::Graphics::VertexBuffer::New4(0);
 
-    for (int i1 = 0; i1 < vsr->Length(); ++i1)
+    for (int32_t i1 = 0; i1 < vsr->Length(); ++i1)
     {
-        uPtr(bufferVertex)->Set8(i1 * _vertexInfo.BufferStride, ::g::Uno::Float4__New7(uPtr(offsets)->Item< ::g::Uno::Float2>(uPtr(vsr)->Item<int>(i1) * 2), uPtr(offsets)->Item< ::g::Uno::Float2>((uPtr(vsr)->Item<int>(i1) * 2) + 1)), true);
-        uPtr(bufferEdge)->Set8(i1 * _edgeInfo.BufferStride, ::g::Uno::Float4__New7(offsets->Item< ::g::Uno::Float2>(uPtr(ptr)->Item<int>(i1) * 2), offsets->Item< ::g::Uno::Float2>((uPtr(ptr)->Item<int>(i1) * 2) + 1)), true);
+        uPtr(bufferVertex)->Set8(i1 * _vertexInfo.BufferStride, ::g::Uno::Float4__New7(uPtr(offsets)->Item< ::g::Uno::Float2>(uPtr(vsr)->Item<int32_t>(i1) * 2), uPtr(offsets)->Item< ::g::Uno::Float2>((uPtr(vsr)->Item<int32_t>(i1) * 2) + 1)), true);
+        uPtr(bufferEdge)->Set8(i1 * _edgeInfo.BufferStride, ::g::Uno::Float4__New7(offsets->Item< ::g::Uno::Float2>(uPtr(ptr)->Item<int32_t>(i1) * 2), offsets->Item< ::g::Uno::Float2>((uPtr(ptr)->Item<int32_t>(i1) * 2) + 1)), true);
         uPtr(_bufferDistance)->Append1((float)(uint16_t)(1 + ((i1 < 48) ? 8 : (i1 < 54) ? 0 : (i1 < 60) ? 1 : (i1 < 66) ? 2 : 3)));
     }
 
-    uPtr(_vertexInfo.Buffer)->Update(bufferVertex);
-    uPtr(_edgeInfo.Buffer)->Update(bufferEdge);
+    uPtr(_vertexInfo.Buffer)->Update(bufferVertex->GetBytes());
+    uPtr(_edgeInfo.Buffer)->Update(bufferEdge->GetBytes());
     uPtr(_bufferDistance)->InitDeviceVertex(0);
 }
 
@@ -2152,7 +2161,7 @@ uArray* Rectangle::neg(uArray* a)
 {
     uArray* r = uArray::New(::TYPES[9/*float[]*/], uPtr(a)->Length());
 
-    for (int i = 0; i < a->Length(); i++)
+    for (int32_t i = 0; i < a->Length(); i++)
         uPtr(r)->Item<float>(i) = -uPtr(a)->Item<float>(i);
 
     return r;
@@ -2180,7 +2189,7 @@ uArray* Rectangle::sub(uArray* a, uArray* b)
 {
     uArray* r = uArray::New(::TYPES[9/*float[]*/], uPtr(a)->Length());
 
-    for (int i = 0; i < a->Length(); i++)
+    for (int32_t i = 0; i < a->Length(); i++)
         uPtr(r)->Item<float>(i) = uPtr(a)->Item<float>(i) - uPtr(b)->Item<float>(i);
 
     return r;
@@ -2195,7 +2204,7 @@ Rectangle* Rectangle::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Rectangle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Rectangle.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal sealed class ShadowFalloff :60
@@ -2246,7 +2255,7 @@ ShadowFalloff* ShadowFalloff::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Rectangle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Rectangle.uno
 // ---------------------------------------------------------------------------------------------------
 
 // internal sealed class StrokeCoverage :46
@@ -2303,7 +2312,7 @@ StrokeCoverage* StrokeCoverage::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Wedge.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Wedge.uno
 // -----------------------------------------------------------------------------------------------
 
 // public sealed class Wedge :51
@@ -2317,7 +2326,8 @@ static void Wedge__cctor__fn(uType* __type)
 static void Wedge_build(uType* type)
 {
     type->SetDependencies(
-        ::g::Fuse::Drawing::Primitives::Circle_typeof());
+        ::g::Fuse::Drawing::Primitives::Circle_typeof(),
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Fuse::Drawing::Primitives::ConvexWedgeCoverage_typeof(), offsetof(Wedge, _convexWedgeCoverage), 0,
         ::g::Fuse::Drawing::Primitives::ConcaveWedgeCoverage_typeof(), offsetof(Wedge, _concaveWedgeCoverage), 0,
@@ -2333,7 +2343,7 @@ uType* Wedge_typeof()
 
     uTypeOptions options;
     options.FieldCount = 5;
-    options.DependencyCount = 1;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(Wedge);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Drawing.Primitives.Wedge", options);
@@ -2388,7 +2398,7 @@ void Wedge::ctor_()
 void Wedge::Fill(::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::Element* node, float radius, ::g::Fuse::Drawing::Brush* brush, ::g::Uno::Float2 center, float startAngle, float endAngle, float smoothness)
 {
     ::g::Fuse::Drawing::Primitives::WedgeCoverage* wc = SetupWedgeCoverage(startAngle, endAngle);
-    uPtr(::g::Fuse::Drawing::Primitives::Circle::Singleton_)->Draw(dc, node, radius, brush, _fillCoverage, wc, smoothness, center, smoothness);
+    uPtr(::g::Fuse::Drawing::Primitives::Circle::Singleton())->Draw(dc, node, radius, brush, _fillCoverage, wc, smoothness, center, smoothness);
 }
 
 // private Fuse.Drawing.Primitives.WedgeCoverage SetupWedgeCoverage(float startAngle, float endAngle) [instance] :58
@@ -2419,7 +2429,7 @@ void Wedge::Stroke(::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::Element* nod
     sc->Center = r.Item(1);
     float extend = ::g::Uno::Math::Max1(0.0f, r.Item(0) + r.Item(1)) + smoothness;
     ::g::Fuse::Drawing::Primitives::WedgeCoverage* wc = SetupWedgeCoverage(startAngle, endAngle);
-    uPtr(::g::Fuse::Drawing::Primitives::Circle::Singleton_)->Draw(dc, node, radius, stroke->Brush(), sc, wc, extend, center, smoothness);
+    uPtr(::g::Fuse::Drawing::Primitives::Circle::Singleton())->Draw(dc, node, radius, stroke->Brush(), sc, wc, extend, center, smoothness);
 }
 
 // public generated Wedge New() [static] :51
@@ -2431,7 +2441,7 @@ Wedge* Wedge::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.4.2\Wedge.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Drawing.Primitives\1.9.0\Wedge.uno
 // -----------------------------------------------------------------------------------------------
 
 // internal abstract class WedgeCoverage :10

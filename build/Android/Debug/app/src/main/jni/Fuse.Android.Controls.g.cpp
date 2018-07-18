@@ -9,7 +9,7 @@
 #include <Fuse.Navigation.Histo-b65f239b.h>
 #include <Java.Object.h>
 #include <Uno.Action.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.Bool.h>
 #include <Uno.Delegate.h>
 #include <Uno.Double.h>
@@ -31,7 +31,7 @@ namespace Fuse{
 namespace Android{
 namespace Controls{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\Android\WebView.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\Android\WebView.uno
 // -------------------------------------------------------------------------------------------------------
 
 // public sealed extern class WebView :14
@@ -287,7 +287,7 @@ void WebView__OnPageLoaded_fn(WebView* __this)
 }
 
 // private void OnProgressChanged(int newProgress) :191
-void WebView__OnProgressChanged_fn(WebView* __this, int* newProgress)
+void WebView__OnProgressChanged_fn(WebView* __this, int32_t* newProgress)
 {
     __this->OnProgressChanged(*newProgress);
 }
@@ -523,23 +523,28 @@ void WebView::LoadFile(::g::Uno::UX::FileSource* file)
 {
     uString* data = ::STRINGS[0/*""*/];
 
-    try
     {
+        try
         {
-            data = uPtr(file)->ReadAllText();
+            {
+                data = uPtr(file)->ReadAllText();
+            }
         }
-        {
-            LoadHtml(data);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                LoadHtml(data);
+            }
+            ::g::Uno::Exception* e = __t.Exception;
+            data = uPtr(e)->ToString();
+            goto __after_finally_0;
+        }
+
         {
             LoadHtml(data);
         }
-        ::g::Uno::Exception* e = __t.Exception;
-        data = uPtr(e)->ToString();
+        __after_finally_0:;
     }
 }
 
@@ -565,8 +570,8 @@ void WebView::LoadHtml1(uString* html, uString* baseUrl)
 void WebView::LoadUrl(uString* url)
 {
     uArray* array1;
-    int index2;
-    int length3;
+    int32_t index2;
+    int32_t length3;
 
     if (::g::Uno::String::op_Equality(url, NULL) || ::g::Uno::String::op_Equality(url, ::STRINGS[0/*""*/]))
         url = ::STRINGS[1/*"about:blank"*/];
@@ -577,7 +582,7 @@ void WebView::LoadUrl(uString* url)
         {
             uString* uri = uPtr(array1)->Strong<uString*>(index2);
 
-            if (::g::Uno::String::IndexOf1(uPtr(url), uri, 0) == 0)
+            if (::g::Uno::String::IndexOf3(uPtr(url), uri, 0) == 0)
             {
                 OnCustomURI(url);
                 return;
@@ -592,7 +597,7 @@ void WebView::LoadUrl(uString* url)
 void WebView::OnBeginloading()
 {
     if (::g::Uno::Delegate::op_Inequality(BeginLoading1, NULL))
-        uPtr(BeginLoading1)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty_);
+        uPtr(BeginLoading1)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty());
 }
 
 // private void OnCustomURI(string url) [instance] :64
@@ -613,11 +618,11 @@ void WebView::OnHistoryChanged()
 void WebView::OnPageLoaded()
 {
     if (::g::Uno::Delegate::op_Inequality(PageLoaded1, NULL))
-        uPtr(PageLoaded1)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty_);
+        uPtr(PageLoaded1)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty());
 }
 
 // private void OnProgressChanged(int newProgress) [instance] :191
-void WebView::OnProgressChanged(int newProgress)
+void WebView::OnProgressChanged(int32_t newProgress)
 {
     ::g::Uno::UX::ValueChangedArgs* ret6;
 
@@ -629,7 +634,7 @@ void WebView::OnProgressChanged(int newProgress)
 void WebView::OnUrlChanged()
 {
     if (::g::Uno::Delegate::op_Inequality(UrlChanged1, NULL))
-        uPtr(UrlChanged1)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty_);
+        uPtr(UrlChanged1)->Invoke(2, this, (::g::Uno::EventArgs*)::g::Uno::EventArgs::Empty());
 }
 
 // public generated void add_PageLoaded(Uno.EventHandler value) [instance] :25

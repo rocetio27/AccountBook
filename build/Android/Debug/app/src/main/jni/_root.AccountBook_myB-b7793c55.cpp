@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_myB-b7793c55.h>
@@ -11,7 +11,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_myButton_textcolor_Property :391
+// internal sealed class AccountBook_myButton_textcolor_Property :413
 // {
 static void AccountBook_myButton_textcolor_Property_build(uType* type)
 {
@@ -40,51 +40,51 @@ static void AccountBook_myButton_textcolor_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_myButton_textcolor_Property(myButton obj, Uno.UX.Selector name) :394
+// public AccountBook_myButton_textcolor_Property(myButton obj, Uno.UX.Selector name) :416
 void AccountBook_myButton_textcolor_Property__ctor_3_fn(AccountBook_myButton_textcolor_Property* __this, ::g::myButton* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed float4 Get(Uno.UX.PropertyObject obj) :396
+// public override sealed float4 Get(Uno.UX.PropertyObject obj) :418
 void AccountBook_myButton_textcolor_Property__Get1_fn(AccountBook_myButton_textcolor_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* __retval)
 {
     return *__retval = uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->textcolor(), void();
 }
 
-// public AccountBook_myButton_textcolor_Property New(myButton obj, Uno.UX.Selector name) :394
+// public AccountBook_myButton_textcolor_Property New(myButton obj, Uno.UX.Selector name) :416
 void AccountBook_myButton_textcolor_Property__New1_fn(::g::myButton* obj, ::g::Uno::UX::Selector* name, AccountBook_myButton_textcolor_Property** __retval)
 {
     *__retval = AccountBook_myButton_textcolor_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :395
+// public override sealed Uno.UX.PropertyObject get_Object() :417
 void AccountBook_myButton_textcolor_Property__get_Object_fn(AccountBook_myButton_textcolor_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, float4 v, Uno.UX.IPropertyListener origin) :397
+// public override sealed void Set(Uno.UX.PropertyObject obj, float4 v, Uno.UX.IPropertyListener origin) :419
 void AccountBook_myButton_textcolor_Property__Set1_fn(AccountBook_myButton_textcolor_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* v, uObject* origin)
 {
     ::g::Uno::Float4 v_ = *v;
     uPtr(uCast< ::g::myButton*>(obj, ::TYPES[0/*myButton*/]))->Settextcolor(v_, origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :398
+// public override sealed bool get_SupportsOriginSetter() :420
 void AccountBook_myButton_textcolor_Property__get_SupportsOriginSetter_fn(AccountBook_myButton_textcolor_Property* __this, bool* __retval)
 {
     return *__retval = true, void();
 }
 
-// public AccountBook_myButton_textcolor_Property(myButton obj, Uno.UX.Selector name) [instance] :394
+// public AccountBook_myButton_textcolor_Property(myButton obj, Uno.UX.Selector name) [instance] :416
 void AccountBook_myButton_textcolor_Property::ctor_3(::g::myButton* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_myButton_textcolor_Property New(myButton obj, Uno.UX.Selector name) [static] :394
+// public AccountBook_myButton_textcolor_Property New(myButton obj, Uno.UX.Selector name) [static] :416
 AccountBook_myButton_textcolor_Property* AccountBook_myButton_textcolor_Property::New1(::g::myButton* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_myButton_textcolor_Property* obj1 = (AccountBook_myButton_textcolor_Property*)uNew(AccountBook_myButton_textcolor_Property_typeof());

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/IO/BinaryReader.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/IO/BinaryReader.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -24,7 +24,7 @@ void BinaryReader__Dispose_fn(BinaryReader* __this);
 void BinaryReader__get_LittleEndian_fn(BinaryReader* __this, bool* __retval);
 void BinaryReader__set_LittleEndian_fn(BinaryReader* __this, bool* value);
 void BinaryReader__New1_fn(::g::Uno::IO::Stream* stream, BinaryReader** __retval);
-void BinaryReader__ReadBytes_fn(BinaryReader* __this, int* byteCount, uArray** __retval);
+void BinaryReader__ReadBytes_fn(BinaryReader* __this, int32_t* byteCount, uArray** __retval);
 
 struct BinaryReader : uObject
 {
@@ -36,7 +36,7 @@ struct BinaryReader : uObject
     void Dispose();
     bool LittleEndian();
     void LittleEndian(bool value);
-    uArray* ReadBytes(int byteCount);
+    uArray* ReadBytes(int32_t byteCount);
     static BinaryReader* New1(::g::Uno::IO::Stream* stream);
 };
 // }

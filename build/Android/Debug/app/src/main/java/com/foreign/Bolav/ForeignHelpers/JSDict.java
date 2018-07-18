@@ -31,7 +31,7 @@ public class JSDict
         android.util.Log.d("AccountBook", (message==null ? "null" : message.toString()));
     }
 
-    public static void FromJava395(final UnoObject _this, final Object dict)
+    public static void FromJava389(final UnoObject _this, final Object dict)
     {
         java.util.HashMap map = (java.util.HashMap)dict;
         
@@ -42,17 +42,17 @@ public class JSDict
         
         	if (value instanceof String) {
         
-        		ExternedBlockHost.callUno_Bolav_ForeignHelpers_JSDict_SetKeyVal396((UnoObject)_this,(String)key_s,(String)value.toString());
+        		ExternedBlockHost.callUno_Bolav_ForeignHelpers_JSDict_SetKeyVal390((UnoObject)_this,(String)key_s,(String)value.toString());
         	}
         	else if (value instanceof Map) {
         	
-        		UnoObject ddict = ExternedBlockHost.callUno_Bolav_ForeignHelpers_JSDict_AddDictForKey397((UnoObject)_this,(String)key);
-            	com.foreign.Bolav.ForeignHelpers.JSDict.FromJava395(ddict, value);
+        		UnoObject ddict = ExternedBlockHost.callUno_Bolav_ForeignHelpers_JSDict_AddDictForKey391((UnoObject)_this,(String)key);
+            	com.foreign.Bolav.ForeignHelpers.JSDict.FromJava389(ddict, value);
         	}
         	else if( value instanceof List) {
         
-            		UnoObject array = ExternedBlockHost.callUno_Bolav_ForeignHelpers_JSDict_AddListForKey398((UnoObject)_this,(String)key);
-            	com.foreign.Bolav.ForeignHelpers.JSList.FromJava399(array, value);
+            		UnoObject array = ExternedBlockHost.callUno_Bolav_ForeignHelpers_JSDict_AddListForKey392((UnoObject)_this,(String)key);
+            	com.foreign.Bolav.ForeignHelpers.JSList.FromJava393(array, value);
         	}			
             else {
         

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/MainView.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/MainView.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-3cda4468.h>
@@ -23,6 +23,7 @@
 #include <Fuse.Reactive.Data.h>
 #include <Fuse.Reactive.DataBinding.h>
 #include <Fuse.Reactive.EventBinding.h>
+#include <Fuse.Reactive.Expression.h>
 #include <Fuse.Reactive.IExpression.h>
 #include <Fuse.Triggers.Actions.Set-1.h>
 #include <Fuse.Triggers.Actions-fcab7e57.h>
@@ -37,33 +38,32 @@
 #include <Uno.Object.h>
 #include <Uno.String.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Selector.h>
 #include <Uno.UX.Size.h>
 #include <Uno.UX.Unit.h>
-static uString* STRINGS[20];
+static uString* STRINGS[21];
 static uType* TYPES[5];
 
 namespace g{
 
-// public partial sealed class MainView.Template1 :129
+// public partial sealed class MainView.Template1 :177
 // {
-// static Template1() :160
+// static Template1() :208
 static void MainView__Template1__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    MainView__Template1::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"Text"*/]);
-    MainView__Template1::__selector1_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[1/*"Value"*/]);
-    MainView__Template1::__selector2_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[2/*"Visibility"*/]);
-    MainView__Template1::__selector3_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[3/*"aBtn"*/]);
-    MainView__Template1::__selector4_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[4/*"bTBox"*/]);
-    MainView__Template1::__selector5_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[5/*"aEdit"*/]);
-    MainView__Template1::__selector6_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[6/*"bGrid"*/]);
-    MainView__Template1::__selector7_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[7/*"bDel"*/]);
-    MainView__Template1::__selector8_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[8/*"bComp"*/]);
-    MainView__Template1::__selector9_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[9/*"cGrid"*/]);
-    MainView__Template1::__selector10_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[10/*"cCancel"*/]);
-    MainView__Template1::__selector11_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[11/*"cDel"*/]);
+    MainView__Template1::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"Text"*/]);
+    MainView__Template1::__selector1_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[1/*"Value"*/]);
+    MainView__Template1::__selector2_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[2/*"Visibility"*/]);
+    MainView__Template1::__selector3_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[3/*"aBtn"*/]);
+    MainView__Template1::__selector4_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[4/*"bTBox"*/]);
+    MainView__Template1::__selector5_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[5/*"aEdit"*/]);
+    MainView__Template1::__selector6_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[6/*"bGrid"*/]);
+    MainView__Template1::__selector7_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[7/*"bDel"*/]);
+    MainView__Template1::__selector8_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[8/*"bComp"*/]);
+    MainView__Template1::__selector9_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[9/*"cGrid"*/]);
+    MainView__Template1::__selector10_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[10/*"cCancel"*/]);
+    MainView__Template1::__selector11_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[11/*"cDel"*/]);
 }
 
 static void MainView__Template1_build(uType* type)
@@ -84,17 +84,16 @@ static void MainView__Template1_build(uType* type)
     ::STRINGS[13] = uString::Const("title");
     ::STRINGS[14] = uString::Const("editTitle");
     ::STRINGS[15] = uString::Const("DeleteAccount");
-    ::STRINGS[16] = uString::Const("EDIT");
-    ::STRINGS[17] = uString::Const("DELETE");
-    ::STRINGS[18] = uString::Const("OK");
-    ::STRINGS[19] = uString::Const("CANCEL");
+    ::STRINGS[16] = uString::Const("MainView.ux");
+    ::STRINGS[17] = uString::Const("EDIT");
+    ::STRINGS[18] = uString::Const("DELETE");
+    ::STRINGS[19] = uString::Const("OK");
+    ::STRINGS[20] = uString::Const("CANCEL");
     ::TYPES[0] = ::g::Fuse::Triggers::Actions::Set_typeof()->MakeType(::g::Fuse::Elements::Visibility_typeof(), NULL);
     ::TYPES[1] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL);
     ::TYPES[2] = ::g::Fuse::Gestures::ClickedHandler_typeof();
     ::TYPES[3] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL);
     ::TYPES[4] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::TriggerAction_typeof(), NULL);
-    type->SetDependencies(
-        ::g::Fuse::Controls::Grid_typeof());
     type->SetFields(2,
         ::g::MainView_typeof(), offsetof(MainView__Template1, __parent1), uFieldFlagsWeak,
         ::g::MainView_typeof(), offsetof(MainView__Template1, __parentInstance1), uFieldFlagsWeak,
@@ -142,7 +141,6 @@ static void MainView__Template1_build(uType* type)
     uTypeOptions options;
     options.BaseDefinition = ::g::Uno::UX::Template_typeof();
     options.FieldCount = 38;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(MainView__Template1);
     options.TypeSize = sizeof(::g::Uno::UX::Template_type);
     type = (::g::Uno::UX::Template_type*)uClassType::New("MainView.Template1", options);
@@ -152,13 +150,13 @@ static void MainView__Template1_build(uType* type)
     return type;
 }
 
-// public Template1(MainView parent, MainView parentInstance) :133
+// public Template1(MainView parent, MainView parentInstance) :181
 void MainView__Template1__ctor_1_fn(MainView__Template1* __this, ::g::MainView* parent, ::g::MainView* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :163
+// public override sealed object New() :211
 void MainView__Template1__New1_fn(MainView__Template1* __this, uObject** __retval)
 {
     ::g::Fuse::Controls::Grid* __self1 = ::g::Fuse::Controls::Grid::New4();
@@ -247,10 +245,16 @@ void MainView__Template1__New1_fn(MainView__Template1* __this, uObject** __retva
     __this->temp_eb44 = ::g::Fuse::Reactive::EventBinding::New1((uObject*)temp4);
     __self1->ColumnCount(10);
     __self1->Height(::g::Uno::UX::Size__New1(50.0f, 1));
+    __self1->SourceLineNumber(126);
+    __self1->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    temp5->SourceLineNumber(127);
+    temp5->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Fuse::Controls::Grid::SetColumnSpan(temp5, 8);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp5->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->aBtn);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp5->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->bTBox);
     uPtr(__this->aBtn)->Name(MainView__Template1::__selector3_);
+    uPtr(__this->aBtn)->SourceLineNumber(128);
+    uPtr(__this->aBtn)->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Fuse::Gestures::Clicked::AddHandler(__this->aBtn, uDelegate::New(::TYPES[2/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb42)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->aBtn)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp6);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->aBtn)->Bindings()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Binding>*/]), __this->temp_eb42);
@@ -260,16 +264,30 @@ void MainView__Template1__New1_fn(MainView__Template1* __this, uObject** __retva
     temp6->Distance(1.0f);
     temp6->Spread(0.2f);
     temp6->Color(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 0.3764706f));
+    temp6->SourceLineNumber(129);
+    temp6->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    temp->SourceLineNumber(128);
+    temp->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    temp1->SourceLineNumber(128);
+    temp1->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     uPtr(__this->bTBox)->Height(::g::Uno::UX::Size__New1(50.0f, 1));
     uPtr(__this->bTBox)->Visibility(2);
     uPtr(__this->bTBox)->Name(MainView__Template1::__selector4_);
+    uPtr(__this->bTBox)->SourceLineNumber(131);
+    uPtr(__this->bTBox)->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->bTBox)->Bindings()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Binding>*/]), temp8);
+    temp2->SourceLineNumber(131);
+    temp2->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    temp9->SourceLineNumber(134);
+    temp9->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Fuse::Controls::Grid::SetColumnSpan(temp9, 2);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->aEdit);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->bGrid);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp9->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->cGrid);
-    uPtr(__this->aEdit)->Text(::STRINGS[16/*"EDIT"*/]);
+    uPtr(__this->aEdit)->Text(::STRINGS[17/*"EDIT"*/]);
     uPtr(__this->aEdit)->Name(MainView__Template1::__selector5_);
+    uPtr(__this->aEdit)->SourceLineNumber(135);
+    uPtr(__this->aEdit)->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->aEdit)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp10);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->aEdit)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp11);
     temp10->Size(2.0f);
@@ -277,6 +295,10 @@ void MainView__Template1__New1_fn(MainView__Template1* __this, uObject** __retva
     temp10->Distance(1.0f);
     temp10->Spread(0.2f);
     temp10->Color(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 0.3764706f));
+    temp10->SourceLineNumber(136);
+    temp10->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    temp11->SourceLineNumber(137);
+    temp11->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp11->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp12);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp11->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp13);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp11->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp14);
@@ -286,24 +308,48 @@ void MainView__Template1__New1_fn(MainView__Template1* __this, uObject** __retva
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp11->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp18);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp11->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp19);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp11->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp20);
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp12, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp13, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp14, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp15, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp16, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp17, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp18, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp19, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp20, uCRef<int>(2));
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp12, uCRef<int32_t>(2));
+    temp12->SourceLineNumber(138);
+    temp12->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp13, uCRef<int32_t>(2));
+    temp13->SourceLineNumber(139);
+    temp13->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp14, uCRef<int32_t>(0));
+    temp14->SourceLineNumber(141);
+    temp14->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp15, uCRef<int32_t>(0));
+    temp15->SourceLineNumber(142);
+    temp15->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp16, uCRef<int32_t>(0));
+    temp16->SourceLineNumber(143);
+    temp16->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp17, uCRef<int32_t>(0));
+    temp17->SourceLineNumber(144);
+    temp17->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp18, uCRef<int32_t>(2));
+    temp18->SourceLineNumber(146);
+    temp18->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp19, uCRef<int32_t>(2));
+    temp19->SourceLineNumber(147);
+    temp19->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp20, uCRef<int32_t>(2));
+    temp20->SourceLineNumber(148);
+    temp20->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     uPtr(__this->bGrid)->RowCount(2);
     uPtr(__this->bGrid)->Visibility(2);
     uPtr(__this->bGrid)->Name(MainView__Template1::__selector6_);
+    uPtr(__this->bGrid)->SourceLineNumber(151);
+    uPtr(__this->bGrid)->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->bGrid)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->bDel);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->bGrid)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->bComp);
-    uPtr(__this->bDel)->Text(::STRINGS[17/*"DELETE"*/]);
-    uPtr(__this->bDel)->Name(MainView__Template1::__selector7_);
     uPtr(__this->bDel)->TextCol(::g::Uno::Float4__New2(0.9333333f, 0.0f, 0.0f, 1.0f));
+    uPtr(__this->bDel)->Text(::STRINGS[18/*"DELETE"*/]);
+    uPtr(__this->bDel)->Name(MainView__Template1::__selector7_);
+    uPtr(__this->bDel)->SourceLineNumber(152);
+    uPtr(__this->bDel)->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->bDel)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp21);
+    temp21->SourceLineNumber(153);
+    temp21->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp21->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp22);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp21->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp23);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp21->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp24);
@@ -313,20 +359,42 @@ void MainView__Template1__New1_fn(MainView__Template1* __this, uObject** __retva
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp21->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp28);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp21->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp29);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp21->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp30);
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp22, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp23, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp24, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp25, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp26, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp27, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp28, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp29, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp30, uCRef<int>(0));
-    uPtr(__this->bComp)->Text(::STRINGS[18/*"OK"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp22, uCRef<int32_t>(2));
+    temp22->SourceLineNumber(154);
+    temp22->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp23, uCRef<int32_t>(2));
+    temp23->SourceLineNumber(155);
+    temp23->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp24, uCRef<int32_t>(2));
+    temp24->SourceLineNumber(157);
+    temp24->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp25, uCRef<int32_t>(0));
+    temp25->SourceLineNumber(158);
+    temp25->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp26, uCRef<int32_t>(2));
+    temp26->SourceLineNumber(159);
+    temp26->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp27, uCRef<int32_t>(2));
+    temp27->SourceLineNumber(160);
+    temp27->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp28, uCRef<int32_t>(0));
+    temp28->SourceLineNumber(162);
+    temp28->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp29, uCRef<int32_t>(0));
+    temp29->SourceLineNumber(163);
+    temp29->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp30, uCRef<int32_t>(0));
+    temp30->SourceLineNumber(164);
+    temp30->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    uPtr(__this->bComp)->Text(::STRINGS[19/*"OK"*/]);
     uPtr(__this->bComp)->Name(MainView__Template1::__selector8_);
+    uPtr(__this->bComp)->SourceLineNumber(167);
+    uPtr(__this->bComp)->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Fuse::Gestures::Clicked::AddHandler(__this->bComp, uDelegate::New(::TYPES[2/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb43)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->bComp)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp31);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->bComp)->Bindings()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Binding>*/]), __this->temp_eb43);
+    temp31->SourceLineNumber(168);
+    temp31->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp31->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp32);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp31->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp33);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp31->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp34);
@@ -336,23 +404,49 @@ void MainView__Template1__New1_fn(MainView__Template1* __this, uObject** __retva
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp31->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp38);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp31->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp39);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp31->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp40);
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp32, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp33, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp34, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp35, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp36, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp37, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp38, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp39, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp40, uCRef<int>(2));
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp32, uCRef<int32_t>(0));
+    temp32->SourceLineNumber(169);
+    temp32->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp33, uCRef<int32_t>(0));
+    temp33->SourceLineNumber(170);
+    temp33->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp34, uCRef<int32_t>(2));
+    temp34->SourceLineNumber(172);
+    temp34->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp35, uCRef<int32_t>(2));
+    temp35->SourceLineNumber(173);
+    temp35->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp36, uCRef<int32_t>(2));
+    temp36->SourceLineNumber(174);
+    temp36->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp37, uCRef<int32_t>(2));
+    temp37->SourceLineNumber(175);
+    temp37->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp38, uCRef<int32_t>(2));
+    temp38->SourceLineNumber(177);
+    temp38->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp39, uCRef<int32_t>(2));
+    temp39->SourceLineNumber(178);
+    temp39->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp40, uCRef<int32_t>(2));
+    temp40->SourceLineNumber(179);
+    temp40->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    temp3->SourceLineNumber(167);
+    temp3->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     uPtr(__this->cGrid)->RowCount(2);
     uPtr(__this->cGrid)->Visibility(2);
     uPtr(__this->cGrid)->Name(MainView__Template1::__selector9_);
+    uPtr(__this->cGrid)->SourceLineNumber(183);
+    uPtr(__this->cGrid)->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->cGrid)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->cCancel);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->cGrid)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), __this->cDel);
-    uPtr(__this->cCancel)->Text(::STRINGS[19/*"CANCEL"*/]);
+    uPtr(__this->cCancel)->Text(::STRINGS[20/*"CANCEL"*/]);
     uPtr(__this->cCancel)->Name(MainView__Template1::__selector10_);
+    uPtr(__this->cCancel)->SourceLineNumber(184);
+    uPtr(__this->cCancel)->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->cCancel)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp41);
+    temp41->SourceLineNumber(185);
+    temp41->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp41->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp42);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp41->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp43);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp41->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp44);
@@ -362,21 +456,43 @@ void MainView__Template1__New1_fn(MainView__Template1* __this, uObject** __retva
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp41->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp48);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp41->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp49);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp41->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp50);
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp42, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp43, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp44, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp45, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp46, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp47, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp48, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp49, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp50, uCRef<int>(2));
-    uPtr(__this->cDel)->Text(::STRINGS[17/*"DELETE"*/]);
-    uPtr(__this->cDel)->Name(MainView__Template1::__selector11_);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp42, uCRef<int32_t>(0));
+    temp42->SourceLineNumber(186);
+    temp42->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp43, uCRef<int32_t>(0));
+    temp43->SourceLineNumber(187);
+    temp43->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp44, uCRef<int32_t>(2));
+    temp44->SourceLineNumber(189);
+    temp44->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp45, uCRef<int32_t>(2));
+    temp45->SourceLineNumber(190);
+    temp45->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp46, uCRef<int32_t>(2));
+    temp46->SourceLineNumber(191);
+    temp46->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp47, uCRef<int32_t>(2));
+    temp47->SourceLineNumber(192);
+    temp47->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp48, uCRef<int32_t>(2));
+    temp48->SourceLineNumber(194);
+    temp48->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp49, uCRef<int32_t>(2));
+    temp49->SourceLineNumber(195);
+    temp49->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp50, uCRef<int32_t>(2));
+    temp50->SourceLineNumber(196);
+    temp50->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     uPtr(__this->cDel)->TextCol(::g::Uno::Float4__New2(0.9333333f, 0.0f, 0.0f, 1.0f));
+    uPtr(__this->cDel)->Text(::STRINGS[18/*"DELETE"*/]);
+    uPtr(__this->cDel)->Name(MainView__Template1::__selector11_);
+    uPtr(__this->cDel)->SourceLineNumber(199);
+    uPtr(__this->cDel)->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Fuse::Gestures::Clicked::AddHandler(__this->cDel, uDelegate::New(::TYPES[2/*Fuse.Gestures.ClickedHandler*/], (void*)::g::Fuse::Reactive::EventBinding__OnEvent_fn, uPtr(__this->temp_eb44)));
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->cDel)->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp51);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(uPtr(__this->cDel)->Bindings()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Binding>*/]), __this->temp_eb44);
+    temp51->SourceLineNumber(200);
+    temp51->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp51->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp52);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp51->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp53);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp51->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp54);
@@ -386,21 +502,41 @@ void MainView__Template1__New1_fn(MainView__Template1* __this, uObject** __retva
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp51->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp58);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp51->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp59);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp51->Actions()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp60);
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp52, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp53, uCRef<int>(0));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp54, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp55, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp56, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp57, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp58, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp59, uCRef<int>(2));
-    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp60, uCRef<int>(2));
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp52, uCRef<int32_t>(0));
+    temp52->SourceLineNumber(201);
+    temp52->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp53, uCRef<int32_t>(0));
+    temp53->SourceLineNumber(202);
+    temp53->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp54, uCRef<int32_t>(2));
+    temp54->SourceLineNumber(204);
+    temp54->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp55, uCRef<int32_t>(2));
+    temp55->SourceLineNumber(205);
+    temp55->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp56, uCRef<int32_t>(2));
+    temp56->SourceLineNumber(206);
+    temp56->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp57, uCRef<int32_t>(2));
+    temp57->SourceLineNumber(207);
+    temp57->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp58, uCRef<int32_t>(2));
+    temp58->SourceLineNumber(209);
+    temp58->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp59, uCRef<int32_t>(2));
+    temp59->SourceLineNumber(210);
+    temp59->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp60, uCRef<int32_t>(2));
+    temp60->SourceLineNumber(211);
+    temp60->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
+    temp4->SourceLineNumber(199);
+    temp4->SourceFileName(::STRINGS[16/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp5);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[1/*Uno.Collections.ICollection<Fuse.Node>*/]), temp9);
     return *__retval = __self1, void();
 }
 
-// public Template1 New(MainView parent, MainView parentInstance) :133
+// public Template1 New(MainView parent, MainView parentInstance) :181
 void MainView__Template1__New2_fn(::g::MainView* parent, ::g::MainView* parentInstance, MainView__Template1** __retval)
 {
     *__retval = MainView__Template1::New2(parent, parentInstance);
@@ -419,7 +555,7 @@ void MainView__Template1__New2_fn(::g::MainView* parent, ::g::MainView* parentIn
 ::g::Uno::UX::Selector MainView__Template1::__selector10_;
 ::g::Uno::UX::Selector MainView__Template1::__selector11_;
 
-// public Template1(MainView parent, MainView parentInstance) [instance] :133
+// public Template1(MainView parent, MainView parentInstance) [instance] :181
 void MainView__Template1::ctor_1(::g::MainView* parent, ::g::MainView* parentInstance)
 {
     ctor_(NULL, false);
@@ -427,7 +563,7 @@ void MainView__Template1::ctor_1(::g::MainView* parent, ::g::MainView* parentIns
     __parentInstance1 = parentInstance;
 }
 
-// public Template1 New(MainView parent, MainView parentInstance) [static] :133
+// public Template1 New(MainView parent, MainView parentInstance) [static] :181
 MainView__Template1* MainView__Template1::New2(::g::MainView* parent, ::g::MainView* parentInstance)
 {
     MainView__Template1* obj1 = (MainView__Template1*)uNew(MainView__Template1_typeof());

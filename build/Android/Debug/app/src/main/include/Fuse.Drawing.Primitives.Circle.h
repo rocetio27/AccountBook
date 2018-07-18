@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing.Primitives/1.4.2/Circle.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Drawing.Primitives/1.9.0/Circle.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -36,7 +36,7 @@ void Circle__Stroke_fn(Circle* __this, ::g::Fuse::DrawContext* dc, ::g::Fuse::El
 struct Circle : uObject
 {
     static uSStrong<Circle*> Singleton_;
-    static uSStrong<Circle*>& Singleton() { return Singleton_; }
+    static uSStrong<Circle*>& Singleton() { return Circle_typeof()->Init(), Singleton_; }
     uStrong< ::g::Fuse::Drawing::Primitives::LimitCoverage*> _oneLimitCoverage;
     uStrong< ::g::Fuse::Drawing::Primitives::StrokeCoverage*> _strokeCoverage;
     uStrong< ::g::Fuse::Drawing::Primitives::FillCoverage*> _fillCoverage;

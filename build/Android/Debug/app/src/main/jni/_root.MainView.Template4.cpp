@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/MainView.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/MainView.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.MainView.h>
@@ -9,6 +9,7 @@
 #include <Fuse.Animations.TrackAnimator.h>
 #include <Fuse.Animations.Trans-997c8373.h>
 #include <Fuse.ITranslationMode.h>
+#include <Fuse.Node.h>
 #include <Fuse.Translation.h>
 #include <Fuse.TranslationModes.h>
 #include <Fuse.Triggers.Removin-3934475f.h>
@@ -18,21 +19,24 @@
 #include <Uno.Collections.IList-1.h>
 #include <Uno.Double.h>
 #include <Uno.Float.h>
+#include <Uno.Int.h>
 #include <Uno.Object.h>
 #include <Uno.String.h>
+static uString* STRINGS[1];
 static uType* TYPES[1];
 
 namespace g{
 
-// public partial sealed class MainView.Template4 :467
+// public partial sealed class MainView.Template4 :657
 // {
-// static Template4() :476
+// static Template4() :666
 static void MainView__Template4__cctor__fn(uType* __type)
 {
 }
 
 static void MainView__Template4_build(uType* type)
 {
+    ::STRINGS[0] = uString::Const("MainView.ux");
     ::TYPES[0] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Animations::Animator_typeof(), NULL);
     type->SetDependencies(
         ::g::Fuse::Animations::Easing_typeof(),
@@ -60,32 +64,34 @@ static void MainView__Template4_build(uType* type)
     return type;
 }
 
-// public Template4(MainView parent, MainView parentInstance) :471
+// public Template4(MainView parent, MainView parentInstance) :661
 void MainView__Template4__ctor_1_fn(MainView__Template4* __this, ::g::MainView* parent, ::g::MainView* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :479
+// public override sealed object New() :669
 void MainView__Template4__New1_fn(MainView__Template4* __this, uObject** __retval)
 {
     ::g::Fuse::Triggers::RemovingAnimation* __self1 = ::g::Fuse::Triggers::RemovingAnimation::New2();
     ::g::Fuse::Animations::Move* temp = ::g::Fuse::Animations::Move::New2();
+    __self1->SourceLineNumber(226);
+    __self1->SourceFileName(::STRINGS[0/*"MainView.ux"*/]);
     temp->X(-1.0f);
     temp->Duration(0.4);
-    temp->RelativeTo(::g::Fuse::TranslationModes::Size_);
-    temp->Easing(::g::Fuse::Animations::Easing::CircularOut_);
+    temp->RelativeTo(::g::Fuse::TranslationModes::Size());
+    temp->Easing(::g::Fuse::Animations::Easing::CircularOut());
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Animators()), ::TYPES[0/*Uno.Collections.ICollection<Fuse.Animations.Animator>*/]), temp);
     return *__retval = __self1, void();
 }
 
-// public Template4 New(MainView parent, MainView parentInstance) :471
+// public Template4 New(MainView parent, MainView parentInstance) :661
 void MainView__Template4__New2_fn(::g::MainView* parent, ::g::MainView* parentInstance, MainView__Template4** __retval)
 {
     *__retval = MainView__Template4::New2(parent, parentInstance);
 }
 
-// public Template4(MainView parent, MainView parentInstance) [instance] :471
+// public Template4(MainView parent, MainView parentInstance) [instance] :661
 void MainView__Template4::ctor_1(::g::MainView* parent, ::g::MainView* parentInstance)
 {
     ctor_(NULL, false);
@@ -93,7 +99,7 @@ void MainView__Template4::ctor_1(::g::MainView* parent, ::g::MainView* parentIns
     __parentInstance1 = parentInstance;
 }
 
-// public Template4 New(MainView parent, MainView parentInstance) [static] :471
+// public Template4 New(MainView parent, MainView parentInstance) [static] :661
 MainView__Template4* MainView__Template4::New2(::g::MainView* parent, ::g::MainView* parentInstance)
 {
     MainView__Template4* obj1 = (MainView__Template4*)uNew(MainView__Template4_typeof());

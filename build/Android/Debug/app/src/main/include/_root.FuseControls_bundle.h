@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls/1.4.2/.uno/package.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls/1.9.0/.uno/package.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -20,8 +20,6 @@ struct FuseControls_bundle : uObject
     static uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>& SolidRectangle7463714b() { return FuseControls_bundle_typeof()->Init(), SolidRectangle7463714b_; }
     static uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> SolidRectangled1bbfcb0_;
     static uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>& SolidRectangled1bbfcb0() { return FuseControls_bundle_typeof()->Init(), SolidRectangled1bbfcb0_; }
-    static uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*> Viewportd3ce851b_;
-    static uSStrong< ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLProgram*>& Viewportd3ce851b() { return FuseControls_bundle_typeof()->Init(), Viewportd3ce851b_; }
 };
 // }
 

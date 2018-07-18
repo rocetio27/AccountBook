@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Bindings/1.4.2/MatchCase.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Reactive.Bindings/1.9.0/MatchCase.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -6,6 +6,7 @@
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Reactive.IObserver.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
@@ -25,7 +26,7 @@ namespace Reactive{
 // {
 struct Match_type : ::g::Fuse::Node_type
 {
-    ::g::Fuse::Reactive::IObserver interface6;
+    ::g::Fuse::Reactive::IObserver interface7;
 };
 
 Match_type* Match_typeof();
@@ -35,10 +36,10 @@ void Match__get_Cases_fn(Match* __this, uObject** __retval);
 void Match__FuseReactiveIObserverOnAdd_fn(Match* __this, uObject* addedValue);
 void Match__FuseReactiveIObserverOnClear_fn(Match* __this);
 void Match__FuseReactiveIObserverOnFailed_fn(Match* __this, uString* message);
-void Match__FuseReactiveIObserverOnInsertAt_fn(Match* __this, int* index, uObject* value);
+void Match__FuseReactiveIObserverOnInsertAt_fn(Match* __this, int32_t* index, uObject* value);
 void Match__FuseReactiveIObserverOnNewAll_fn(Match* __this, uObject* values);
-void Match__FuseReactiveIObserverOnNewAt_fn(Match* __this, int* index, uObject* value);
-void Match__FuseReactiveIObserverOnRemoveAt_fn(Match* __this, int* index);
+void Match__FuseReactiveIObserverOnNewAt_fn(Match* __this, int32_t* index, uObject* value);
+void Match__FuseReactiveIObserverOnRemoveAt_fn(Match* __this, int32_t* index);
 void Match__FuseReactiveIObserverOnSet_fn(Match* __this, uObject* newValue);
 void Match__GetLastNodeInGroup_fn(Match* __this, ::g::Fuse::Node** __retval);
 void Match__Invalidate_fn(Match* __this);

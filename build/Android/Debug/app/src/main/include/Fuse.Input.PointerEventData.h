@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/Input/PointerEventArgs.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/Input/PointerEventArgs.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -18,10 +18,10 @@ void PointerEventData__New1_fn(PointerEventData** __retval);
 
 struct PointerEventData : uObject
 {
-    int PointIndex;
+    int32_t PointIndex;
     ::g::Uno::Float2 WindowPoint;
     bool IsPrimary;
-    int PointerType;
+    int32_t PointerType;
     double Timestamp;
 
     void ctor_();

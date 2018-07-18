@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Delegate.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Delegate.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -13,7 +13,7 @@ uType* Delegate_typeof();
 void Delegate__Combine_fn(uDelegate* source, uDelegate* value, uDelegate** __retval);
 void Delegate__Equals_fn(uDelegate* __this, uObject* other, bool* __retval);
 void Delegate__EqualsImpl_fn(uDelegate* left, uDelegate* right, bool* __retval);
-void Delegate__GetHashCode_fn(uDelegate* __this, int* __retval);
+void Delegate__GetHashCode_fn(uDelegate* __this, int32_t* __retval);
 void Delegate__op_Equality_fn(uDelegate* left, uDelegate* right, bool* __retval);
 void Delegate__op_Inequality_fn(uDelegate* left, uDelegate* right, bool* __retval);
 void Delegate__Remove_fn(uDelegate* source, uDelegate* value, uDelegate** __retval);

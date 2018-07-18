@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-3a22a8bb.h>
@@ -11,7 +11,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_FuseControlsTextControl_Value_Property :161
+// internal sealed class AccountBook_FuseControlsTextControl_Value_Property :181
 // {
 static void AccountBook_FuseControlsTextControl_Value_Property_build(uType* type)
 {
@@ -40,50 +40,50 @@ static void AccountBook_FuseControlsTextControl_Value_Property_build(uType* type
     return type;
 }
 
-// public AccountBook_FuseControlsTextControl_Value_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :164
+// public AccountBook_FuseControlsTextControl_Value_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :184
 void AccountBook_FuseControlsTextControl_Value_Property__ctor_3_fn(AccountBook_FuseControlsTextControl_Value_Property* __this, ::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed string Get(Uno.UX.PropertyObject obj) :166
+// public override sealed string Get(Uno.UX.PropertyObject obj) :186
 void AccountBook_FuseControlsTextControl_Value_Property__Get1_fn(AccountBook_FuseControlsTextControl_Value_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString** __retval)
 {
     return *__retval = uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[0/*Fuse.Controls.TextControl*/]))->Value(), void();
 }
 
-// public AccountBook_FuseControlsTextControl_Value_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :164
+// public AccountBook_FuseControlsTextControl_Value_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :184
 void AccountBook_FuseControlsTextControl_Value_Property__New1_fn(::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector* name, AccountBook_FuseControlsTextControl_Value_Property** __retval)
 {
     *__retval = AccountBook_FuseControlsTextControl_Value_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :165
+// public override sealed Uno.UX.PropertyObject get_Object() :185
 void AccountBook_FuseControlsTextControl_Value_Property__get_Object_fn(AccountBook_FuseControlsTextControl_Value_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :167
+// public override sealed void Set(Uno.UX.PropertyObject obj, string v, Uno.UX.IPropertyListener origin) :187
 void AccountBook_FuseControlsTextControl_Value_Property__Set1_fn(AccountBook_FuseControlsTextControl_Value_Property* __this, ::g::Uno::UX::PropertyObject* obj, uString* v, uObject* origin)
 {
     uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[0/*Fuse.Controls.TextControl*/]))->SetValue(v, origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :168
+// public override sealed bool get_SupportsOriginSetter() :188
 void AccountBook_FuseControlsTextControl_Value_Property__get_SupportsOriginSetter_fn(AccountBook_FuseControlsTextControl_Value_Property* __this, bool* __retval)
 {
     return *__retval = true, void();
 }
 
-// public AccountBook_FuseControlsTextControl_Value_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [instance] :164
+// public AccountBook_FuseControlsTextControl_Value_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [instance] :184
 void AccountBook_FuseControlsTextControl_Value_Property::ctor_3(::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_FuseControlsTextControl_Value_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [static] :164
+// public AccountBook_FuseControlsTextControl_Value_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [static] :184
 AccountBook_FuseControlsTextControl_Value_Property* AccountBook_FuseControlsTextControl_Value_Property::New1(::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_FuseControlsTextControl_Value_Property* obj1 = (AccountBook_FuseControlsTextControl_Value_Property*)uNew(AccountBook_FuseControlsTextControl_Value_Property_typeof());

@@ -1,20 +1,22 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/ListPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/ListPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.ListPage.h>
 #include <_root.ListPage.Template.h>
 #include <Fuse.Controls.Text.h>
 #include <Fuse.Controls.TextControl.h>
+#include <Fuse.Node.h>
 #include <Uno.Bool.h>
+#include <Uno.Int.h>
 #include <Uno.Object.h>
 #include <Uno.String.h>
-static uString* STRINGS[1];
+static uString* STRINGS[2];
 
 namespace g{
 
-// public partial sealed class ListPage.Template :6
+// public partial sealed class ListPage.Template :5
 // {
-// static Template() :15
+// static Template() :14
 static void ListPage__Template__cctor__fn(uType* __type)
 {
 }
@@ -22,6 +24,7 @@ static void ListPage__Template__cctor__fn(uType* __type)
 static void ListPage__Template_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("Group : uniting lists to unit list");
+    ::STRINGS[1] = uString::Const("ListPage.ux");
     type->SetFields(2,
         ::g::ListPage_typeof(), offsetof(ListPage__Template, __parent1), uFieldFlagsWeak,
         ::g::ListPage_typeof(), offsetof(ListPage__Template, __parentInstance1), uFieldFlagsWeak);
@@ -44,27 +47,29 @@ static void ListPage__Template_build(uType* type)
     return type;
 }
 
-// public Template(ListPage parent, ListPage parentInstance) :10
+// public Template(ListPage parent, ListPage parentInstance) :9
 void ListPage__Template__ctor_1_fn(ListPage__Template* __this, ::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :18
+// public override sealed object New() :17
 void ListPage__Template__New1_fn(ListPage__Template* __this, uObject** __retval)
 {
     ::g::Fuse::Controls::Text* __self1 = ::g::Fuse::Controls::Text::New3();
     __self1->Value(::STRINGS[0/*"Group : uni...*/]);
+    __self1->SourceLineNumber(75);
+    __self1->SourceFileName(::STRINGS[1/*"ListPage.ux"*/]);
     return *__retval = __self1, void();
 }
 
-// public Template New(ListPage parent, ListPage parentInstance) :10
+// public Template New(ListPage parent, ListPage parentInstance) :9
 void ListPage__Template__New2_fn(::g::ListPage* parent, ::g::ListPage* parentInstance, ListPage__Template** __retval)
 {
     *__retval = ListPage__Template::New2(parent, parentInstance);
 }
 
-// public Template(ListPage parent, ListPage parentInstance) [instance] :10
+// public Template(ListPage parent, ListPage parentInstance) [instance] :9
 void ListPage__Template::ctor_1(::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     ctor_(NULL, false);
@@ -72,7 +77,7 @@ void ListPage__Template::ctor_1(::g::ListPage* parent, ::g::ListPage* parentInst
     __parentInstance1 = parentInstance;
 }
 
-// public Template New(ListPage parent, ListPage parentInstance) [static] :10
+// public Template New(ListPage parent, ListPage parentInstance) [static] :9
 ListPage__Template* ListPage__Template::New2(::g::ListPage* parent, ::g::ListPage* parentInstance)
 {
     ListPage__Template* obj1 = (ListPage__Template*)uNew(ListPage__Template_typeof());

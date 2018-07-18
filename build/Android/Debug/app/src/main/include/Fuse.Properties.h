@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Common/1.4.2/Properties.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Common/1.9.0/Properties.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -32,7 +32,7 @@ struct Properties : uObject
     uStrong< ::g::Fuse::PropertyHandle*> _handle;
     uStrong<uObject*> _value;
     static uSStrong<uObject*> NoValue_;
-    static uSStrong<uObject*>& NoValue() { return NoValue_; }
+    static uSStrong<uObject*>& NoValue() { return Properties_typeof()->Init(), NoValue_; }
 
     void ctor_();
     void AddToList(::g::Fuse::PropertyHandle* handle, uObject* val);

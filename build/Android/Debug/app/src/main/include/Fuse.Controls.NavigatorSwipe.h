@@ -1,10 +1,11 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Navigation/1.4.2/NavigatorSwipe.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Navigation/1.9.0/NavigatorSwipe.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.NodeGroupBase.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Uno.Collections.ICollection-1.h>
@@ -26,13 +27,11 @@ namespace Controls{
 // {
 ::g::Fuse::Node_type* NavigatorSwipe_typeof();
 void NavigatorSwipe__ctor_4_fn(NavigatorSwipe* __this);
-void NavigatorSwipe__get_Bookmark_fn(NavigatorSwipe* __this, uString** __retval);
-void NavigatorSwipe__set_Bookmark_fn(NavigatorSwipe* __this, uString* value);
-void NavigatorSwipe__get_Direction_fn(NavigatorSwipe* __this, int* __retval);
-void NavigatorSwipe__set_Direction_fn(NavigatorSwipe* __this, int* value);
-void NavigatorSwipe__get_GestureSwipeDirection_fn(NavigatorSwipe* __this, int* __retval);
-void NavigatorSwipe__get_How_fn(NavigatorSwipe* __this, int* __retval);
-void NavigatorSwipe__set_How_fn(NavigatorSwipe* __this, int* value);
+void NavigatorSwipe__get_Direction_fn(NavigatorSwipe* __this, int32_t* __retval);
+void NavigatorSwipe__set_Direction_fn(NavigatorSwipe* __this, int32_t* value);
+void NavigatorSwipe__get_GestureSwipeDirection_fn(NavigatorSwipe* __this, int32_t* __retval);
+void NavigatorSwipe__get_How_fn(NavigatorSwipe* __this, int32_t* __retval);
+void NavigatorSwipe__set_How_fn(NavigatorSwipe* __this, int32_t* value);
 void NavigatorSwipe__get_IsEnabled_fn(NavigatorSwipe* __this, bool* __retval);
 void NavigatorSwipe__set_IsEnabled_fn(NavigatorSwipe* __this, bool* value);
 void NavigatorSwipe__New2_fn(NavigatorSwipe** __retval);
@@ -41,8 +40,8 @@ void NavigatorSwipe__OnUnrooted_fn(NavigatorSwipe* __this);
 
 struct NavigatorSwipe : ::g::Fuse::NodeGroupBase
 {
-    int _direction;
-    int _how;
+    int32_t _direction;
+    int32_t _how;
     uStrong< ::g::Fuse::Gestures::SwipeGesture*> _swipeGesture;
     uStrong< ::g::Fuse::Gestures::SwipingAnimation*> _swipeAnim;
     uStrong< ::g::Fuse::Gestures::Swiped*> _swipedCompleted;
@@ -52,13 +51,11 @@ struct NavigatorSwipe : ::g::Fuse::NodeGroupBase
     uStrong< ::g::Fuse::Animations::Animator*> _prepareAnim;
 
     void ctor_4();
-    uString* Bookmark();
-    void Bookmark(uString* value);
-    int Direction();
-    void Direction(int value);
-    int GestureSwipeDirection();
-    int How();
-    void How(int value);
+    int32_t Direction();
+    void Direction(int32_t value);
+    int32_t GestureSwipeDirection();
+    int32_t How();
+    void How(int32_t value);
     bool IsEnabled();
     void IsEnabled(bool value);
     static NavigatorSwipe* New2();

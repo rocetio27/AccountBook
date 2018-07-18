@@ -1,10 +1,11 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/InteractiveTransform.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/InteractiveTransform.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Fuse.Binding.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Scripting.IScriptObject.h>
 #include <Fuse.Transform.h>
 #include <Uno.Collections.ICollection-1.h>
@@ -39,13 +40,13 @@ struct InteractiveTransform : ::g::Fuse::Transform
 {
     float _zoomFactor;
     static ::g::Uno::UX::Selector _zoomFactorName_;
-    static ::g::Uno::UX::Selector& _zoomFactorName() { return _zoomFactorName_; }
+    static ::g::Uno::UX::Selector& _zoomFactorName() { return InteractiveTransform_typeof()->Init(), _zoomFactorName_; }
     float _rotation;
     static ::g::Uno::UX::Selector _rotationName_;
-    static ::g::Uno::UX::Selector& _rotationName() { return _rotationName_; }
+    static ::g::Uno::UX::Selector& _rotationName() { return InteractiveTransform_typeof()->Init(), _rotationName_; }
     ::g::Uno::Float2 _translation;
     static ::g::Uno::UX::Selector _translationName_;
-    static ::g::Uno::UX::Selector& _translationName() { return _translationName_; }
+    static ::g::Uno::UX::Selector& _translationName() { return InteractiveTransform_typeof()->Init(), _translationName_; }
 
     float Rotation();
     void Rotation(float value);

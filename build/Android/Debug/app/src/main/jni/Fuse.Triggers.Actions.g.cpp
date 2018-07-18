@@ -73,19 +73,20 @@
 #include <Fuse.VisualEventHandler.h>
 #include <Fuse.VisualEventMode.h>
 #include <Uno.Action.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.ArgumentNullException.h>
 #include <Uno.Bool.h>
 #include <Uno.Collections.Dictionary-2.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IEnumerable-1.h>
 #include <Uno.Collections.IEnumerator.h>
-#include <Uno.Collections.IEnumerator-1.h>
+#include <Uno.Collections.IEnumerator1-1.h>
 #include <Uno.Collections.IList-1.h>
 #include <Uno.Collections.List-1.h>
 #include <Uno.Collections.List--251bdc7d.h>
 #include <Uno.Delegate.h>
 #include <Uno.Diagnostics.Debug.h>
+#include <Uno.Diagnostics.Debug-5d778620.h>
 #include <Uno.Double.h>
 #include <Uno.Exception.h>
 #include <Uno.Float.h>
@@ -99,7 +100,7 @@
 #include <Uno.String.h>
 #include <Uno.UX.Expression-1.h>
 #include <Uno.UX.IPropertyListener.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 static uString* STRINGS[21];
 static uType* TYPES[31];
 
@@ -108,7 +109,7 @@ namespace Fuse{
 namespace Triggers{
 namespace Actions{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Triggers\Actions\BringIntoView.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Triggers\Actions\BringIntoView.uno
 // --------------------------------------------------------------------------------------------------------------
 
 // public sealed class BringIntoView :39
@@ -117,7 +118,9 @@ static void BringIntoView_build(uType* type)
 {
     ::TYPES[0] = ::g::Fuse::Elements::Element_typeof();
     ::TYPES[1] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Visual>*/, ::g::Fuse::Visual_typeof(), NULL);
-    type->SetFields(8);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10);
 }
 
 ::g::Fuse::Triggers::Actions::TriggerAction_type* BringIntoView_typeof()
@@ -127,12 +130,16 @@ static void BringIntoView_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 8;
+    options.FieldCount = 10;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(BringIntoView);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.BringIntoView", options);
     type->fp_build_ = BringIntoView_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))BringIntoView__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -146,7 +153,7 @@ void BringIntoView__Perform_fn(BringIntoView* __this, ::g::Fuse::Node* target)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls\1.4.2\Triggers\BringToFront.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls\1.9.0\Triggers\BringToFront.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public sealed class BringToFront :37
@@ -155,7 +162,9 @@ static void BringToFront_build(uType* type)
 {
     ::TYPES[1] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Visual>*/, ::g::Fuse::Visual_typeof(), NULL);
     ::TYPES[2] = ::g::Fuse::Visual_typeof();
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::TYPES[2/*Fuse.Visual*/], offsetof(BringToFront, _Target), 0);
 }
 
@@ -166,12 +175,16 @@ static void BringToFront_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(BringToFront);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.BringToFront", options);
     type->fp_build_ = BringToFront_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))BringToFront__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -216,7 +229,7 @@ void BringToFront::Target(::g::Fuse::Visual* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Callback.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Callback.uno
 // ------------------------------------------------------------------------------------------------
 
 // public sealed class Callback :25
@@ -225,7 +238,9 @@ static void Callback_build(uType* type)
 {
     ::TYPES[1] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Visual>*/, ::g::Fuse::Visual_typeof(), NULL);
     ::TYPES[3] = ::g::Fuse::VisualEventHandler_typeof();
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Uno::Action_typeof(), offsetof(Callback, _Action), 0,
         ::TYPES[3/*Fuse.VisualEventHandler*/], offsetof(Callback, Handler1), 0);
 }
@@ -237,12 +252,16 @@ static void Callback_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 10;
+    options.FieldCount = 12;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Callback);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.Callback", options);
     type->fp_build_ = Callback_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))Callback__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -308,7 +327,7 @@ void Callback::remove_Handler(uDelegate* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\CancelInteractions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\CancelInteractions.uno
 // ----------------------------------------------------------------------------------------------------------
 
 // public sealed class CancelInteractions :8
@@ -316,7 +335,9 @@ void Callback::remove_Handler(uDelegate* value)
 static void CancelInteractions_build(uType* type)
 {
     ::TYPES[1] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Visual>*/, ::g::Fuse::Visual_typeof(), NULL);
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Fuse::Visual_typeof(), offsetof(CancelInteractions, _Target), 0);
 }
 
@@ -327,12 +348,16 @@ static void CancelInteractions_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(CancelInteractions);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.CancelInteractions", options);
     type->fp_build_ = CancelInteractions_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))CancelInteractions__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -372,7 +397,7 @@ void CancelInteractions::Target(::g::Fuse::Visual* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Visibility.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Visibility.uno
 // --------------------------------------------------------------------------------------------------
 
 // public sealed class Collapse :102
@@ -380,13 +405,13 @@ void CancelInteractions::Target(::g::Fuse::Visual* value)
 static void Collapse_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("Cannot find an Element/ICollapse");
-    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.4.2\\Actions\\Visibility.uno");
+    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.9.0\\Actions\\Visibility.uno");
     ::STRINGS[2] = uString::Const("Perform");
     ::TYPES[4] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Triggers.Actions.ICollapse>*/, ::g::Fuse::Triggers::Actions::ICollapse_typeof(), NULL);
     ::TYPES[5] = ::g::Fuse::Triggers::Actions::ICollapse_typeof();
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
-    type->SetFields(8);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10);
 }
 
 ::g::Fuse::Triggers::Actions::TriggerAction_type* Collapse_typeof()
@@ -396,13 +421,16 @@ static void Collapse_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 8;
-    options.DependencyCount = 1;
+    options.FieldCount = 10;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Collapse);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.Collapse", options);
     type->fp_build_ = Collapse_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))Collapse__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -418,7 +446,7 @@ void Collapse__Perform_fn(Collapse* __this, ::g::Fuse::Node* target)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\DebugAction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\DebugAction.uno
 // ---------------------------------------------------------------------------------------------------
 
 // public sealed class DebugAction :20
@@ -430,7 +458,9 @@ static void DebugAction_build(uType* type)
     ::TYPES[7] = ::g::Fuse::Triggers::Actions::ITaggedDebugProperty_typeof();
     type->SetDependencies(
         ::g::Uno::Diagnostics::Debug_typeof());
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Uno::Collections::List_typeof()->MakeType(::TYPES[7/*Fuse.Triggers.Actions.ITaggedDebugProperty*/], NULL), offsetof(DebugAction, _props), 0,
         ::g::Uno::String_typeof(), offsetof(DebugAction, _Message), 0);
 }
@@ -442,13 +472,17 @@ static void DebugAction_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 10;
+    options.FieldCount = 12;
+    options.InterfaceCount = 1;
     options.DependencyCount = 1;
     options.ObjectSize = sizeof(DebugAction);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.DebugAction", options);
     type->fp_build_ = DebugAction_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))DebugAction__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -470,32 +504,37 @@ void DebugAction__Perform_fn(DebugAction* __this, ::g::Fuse::Node* target)
     ::g::Uno::Collections::List__Enumerator<uStrong<uObject*> > ret3;
 
     if (::g::Uno::String::op_Inequality(__this->Message(), NULL))
-        ::g::Uno::Diagnostics::Debug::Log3(__this->Message());
+        ::g::Uno::Diagnostics::Debug::Log2(__this->Message(), 0);
 
     if (__this->_props != NULL)
     {
         ::g::Uno::Collections::List__Enumerator<uStrong<uObject*> > enum1 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(__this->_props), &ret3), ret3);
 
-        try
         {
+            try
             {
-                while (enum1.MoveNext(::TYPES[6/*Uno.Collections.List<Fuse.Triggers.Actions.ITaggedDebugProperty>.Enumerator*/]))
                 {
-                    uObject* prop = enum1.Current(::TYPES[6/*Uno.Collections.List<Fuse.Triggers.Actions.ITaggedDebugProperty>.Enumerator*/]);
-                    ::g::Uno::Diagnostics::Debug::Log3(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Fuse::Triggers::Actions::ITaggedDebugProperty::GetTag(uInterface(uPtr(prop), ::TYPES[7/*Fuse.Triggers.Actions.ITaggedDebugProperty*/])), ::STRINGS[3/*" = "*/]), ::g::Fuse::Triggers::Actions::ITaggedDebugProperty::GetStringValue(uInterface(uPtr(prop), ::TYPES[7/*Fuse.Triggers.Actions.ITaggedDebugProperty*/]))));
+                    while (enum1.MoveNext(::TYPES[6/*Uno.Collections.List<Fuse.Triggers.Actions.ITaggedDebugProperty>.Enumerator*/]))
+                    {
+                        uObject* prop = enum1.Current(::TYPES[6/*Uno.Collections.List<Fuse.Triggers.Actions.ITaggedDebugProperty>.Enumerator*/]);
+                        ::g::Uno::Diagnostics::Debug::Log2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Fuse::Triggers::Actions::ITaggedDebugProperty::GetTag(uInterface(uPtr(prop), ::TYPES[7/*Fuse.Triggers.Actions.ITaggedDebugProperty*/])), ::STRINGS[3/*" = "*/]), ::g::Fuse::Triggers::Actions::ITaggedDebugProperty::GetStringValue(uInterface(uPtr(prop), ::TYPES[7/*Fuse.Triggers.Actions.ITaggedDebugProperty*/]))), 0);
+                    }
                 }
             }
-            {
-                enum1.Dispose(::TYPES[6/*Uno.Collections.List<Fuse.Triggers.Actions.ITaggedDebugProperty>.Enumerator*/]);
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
+            {
+                {
+                    enum1.Dispose(::TYPES[6/*Uno.Collections.List<Fuse.Triggers.Actions.ITaggedDebugProperty>.Enumerator*/]);
+                }
+                                throw __t;
+                goto __after_finally_0;
+            }
+
             {
                 enum1.Dispose(::TYPES[6/*Uno.Collections.List<Fuse.Triggers.Actions.ITaggedDebugProperty>.Enumerator*/]);
             }
-                        throw __t;
+            __after_finally_0:;
         }
     }
 }
@@ -513,7 +552,7 @@ void DebugAction::Message(uString* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\DebugProperty.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\DebugProperty.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public sealed class DebugProperty<T> :12
@@ -620,7 +659,7 @@ void DebugProperty::Value(::g::Uno::UX::Property1* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\EvaluateJS.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\EvaluateJS.uno
 // --------------------------------------------------------------------------------------------------
 
 // public sealed class EvaluateJS :104
@@ -631,7 +670,9 @@ static void EvaluateJS_build(uType* type)
     ::TYPES[9] = ::g::Uno::Action1_typeof()->MakeType(::g::Uno::String_typeof(), NULL);
     ::TYPES[10] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Controls.IWebView>*/, ::TYPES[8/*Fuse.Controls.IWebView*/], NULL);
     ::TYPES[11] = ::g::Fuse::Triggers::Actions::JSEventHandler_typeof();
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Uno::String_typeof(), offsetof(EvaluateJS, _rawSource), 0,
         ::g::Uno::String_typeof(), offsetof(EvaluateJS, _processedSource), 0,
         ::TYPES[8/*Fuse.Controls.IWebView*/], offsetof(EvaluateJS, _target), 0,
@@ -645,12 +686,16 @@ static void EvaluateJS_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 12;
+    options.FieldCount = 14;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(EvaluateJS);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.EvaluateJS", options);
     type->fp_build_ = EvaluateJS_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))EvaluateJS__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -715,7 +760,7 @@ void EvaluateJS::ResultHandler(uString* result)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Focus.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Focus.uno
 // ---------------------------------------------------------------------------------------------
 
 // public sealed class GiveFocus :25
@@ -731,7 +776,9 @@ static void GiveFocus_build(uType* type)
     ::TYPES[2] = ::g::Fuse::Visual_typeof();
     type->SetDependencies(
         ::g::Fuse::Input::Focus_typeof());
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::TYPES[2/*Fuse.Visual*/], offsetof(GiveFocus, _Target), 0,
         ::g::Fuse::Triggers::Actions::TriggerAction_typeof(), (uintptr_t)&GiveFocus::Singleton_, uFieldFlagsStatic);
 }
@@ -743,7 +790,8 @@ static void GiveFocus_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 10;
+    options.FieldCount = 12;
+    options.InterfaceCount = 1;
     options.DependencyCount = 1;
     options.ObjectSize = sizeof(GiveFocus);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
@@ -752,6 +800,9 @@ static void GiveFocus_build(uType* type)
     type->fp_ctor_ = (void*)GiveFocus__New2_fn;
     type->fp_cctor_ = GiveFocus__cctor__fn;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))GiveFocus__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -815,7 +866,7 @@ GiveFocus* GiveFocus::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Visibility.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Visibility.uno
 // --------------------------------------------------------------------------------------------------
 
 // public sealed class Hide :66
@@ -823,13 +874,13 @@ GiveFocus* GiveFocus::New2()
 static void Hide_build(uType* type)
 {
     ::STRINGS[5] = uString::Const("Cannot find an Element/IHide");
-    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.4.2\\Actions\\Visibility.uno");
+    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.9.0\\Actions\\Visibility.uno");
     ::STRINGS[2] = uString::Const("Perform");
     ::TYPES[12] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Triggers.Actions.IHide>*/, ::g::Fuse::Triggers::Actions::IHide_typeof(), NULL);
     ::TYPES[13] = ::g::Fuse::Triggers::Actions::IHide_typeof();
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
-    type->SetFields(8);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10);
 }
 
 ::g::Fuse::Triggers::Actions::TriggerAction_type* Hide_typeof()
@@ -839,13 +890,16 @@ static void Hide_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 8;
-    options.DependencyCount = 1;
+    options.FieldCount = 10;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Hide);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.Hide", options);
     type->fp_build_ = Hide_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))Hide__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -861,7 +915,7 @@ void Hide__Perform_fn(Hide* __this, ::g::Fuse::Node* target)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Visibility.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Visibility.uno
 // --------------------------------------------------------------------------------------------------
 
 // public abstract interface ICollapse :78
@@ -876,7 +930,7 @@ uInterfaceType* ICollapse_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Visibility.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Visibility.uno
 // --------------------------------------------------------------------------------------------------
 
 // public abstract interface IHide :42
@@ -891,7 +945,7 @@ uInterfaceType* IHide_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Visibility.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Visibility.uno
 // --------------------------------------------------------------------------------------------------
 
 // public abstract interface IShow :5
@@ -906,7 +960,7 @@ uInterfaceType* IShow_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\DebugProperty.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\DebugProperty.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public abstract interface ITaggedDebugProperty :6
@@ -921,7 +975,7 @@ uInterfaceType* ITaggedDebugProperty_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Toggle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Toggle.uno
 // ----------------------------------------------------------------------------------------------
 
 // public abstract interface IToggleable :5
@@ -936,7 +990,7 @@ uInterfaceType* IToggleable_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\EvaluateJS.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\EvaluateJS.uno
 // --------------------------------------------------------------------------------------------------
 
 // public sealed class JSEventArgs :9
@@ -1002,7 +1056,7 @@ JSEventArgs* JSEventArgs::New2(uString* resultJson)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\EvaluateJS.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\EvaluateJS.uno
 // --------------------------------------------------------------------------------------------------
 
 // public delegate void JSEventHandler(object sender, Fuse.Triggers.Actions.JSEventArgs args) :23
@@ -1018,7 +1072,7 @@ uDelegateType* JSEventHandler_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\WebViewNavActions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\WebViewNavActions.uno
 // ---------------------------------------------------------------------------------------------------------
 
 // public sealed class LoadHtml :94
@@ -1027,8 +1081,9 @@ static void LoadHtml_build(uType* type)
 {
     ::STRINGS[4] = uString::Const("");
     type->SetInterfaces(
-        ::g::Fuse::Controls::ISourceReceiver_typeof(), offsetof(LoadHtml_type, interface0));
-    type->SetFields(8,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(LoadHtml_type, interface0),
+        ::g::Fuse::Controls::ISourceReceiver_typeof(), offsetof(LoadHtml_type, interface1));
+    type->SetFields(10,
         ::g::Uno::String_typeof(), offsetof(LoadHtml, _BaseUrl), 0,
         ::g::Uno::String_typeof(), offsetof(LoadHtml, _Source), 0);
 }
@@ -1040,15 +1095,18 @@ LoadHtml_type* LoadHtml_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::WebViewNavAction_typeof();
-    options.FieldCount = 10;
-    options.InterfaceCount = 1;
+    options.FieldCount = 12;
+    options.InterfaceCount = 2;
     options.ObjectSize = sizeof(LoadHtml);
     options.TypeSize = sizeof(LoadHtml_type);
     type = (LoadHtml_type*)uClassType::New("Fuse.Triggers.Actions.LoadHtml", options);
     type->fp_build_ = LoadHtml_build;
     type->fp_Execute = (void(*)(::g::Fuse::Triggers::Actions::WebViewNavAction*, ::g::Fuse::Controls::WebView*))LoadHtml__Execute_fn;
-    type->interface0.fp_get_Source = (void(*)(uObject*, uString**))LoadHtml__get_Source_fn;
-    type->interface0.fp_set_Source = (void(*)(uObject*, uString*))LoadHtml__set_Source_fn;
+    type->interface1.fp_get_Source = (void(*)(uObject*, uString**))LoadHtml__get_Source_fn;
+    type->interface1.fp_set_Source = (void(*)(uObject*, uString*))LoadHtml__set_Source_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1108,7 +1166,7 @@ void LoadHtml::Source(uString* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\WebViewNavActions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\WebViewNavActions.uno
 // ---------------------------------------------------------------------------------------------------------
 
 // public sealed class LoadUrl :52
@@ -1116,7 +1174,9 @@ void LoadHtml::Source(uString* value)
 static void LoadUrl_build(uType* type)
 {
     ::STRINGS[4] = uString::Const("");
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::WebViewNavAction_type, interface0));
+    type->SetFields(10,
         ::g::Uno::String_typeof(), offsetof(LoadUrl, _Url), 0);
 }
 
@@ -1127,12 +1187,16 @@ static void LoadUrl_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::WebViewNavAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(LoadUrl);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::WebViewNavAction_type);
     type = (::g::Fuse::Triggers::Actions::WebViewNavAction_type*)uClassType::New("Fuse.Triggers.Actions.LoadUrl", options);
     type->fp_build_ = LoadUrl_build;
     type->fp_Execute = (void(*)(::g::Fuse::Triggers::Actions::WebViewNavAction*, ::g::Fuse::Controls::WebView*))LoadUrl__Execute_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1168,7 +1232,7 @@ void LoadUrl::Url(uString* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Playback.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Playback.uno
 // ------------------------------------------------------------------------------------------------
 
 // public sealed class Pause :144
@@ -1177,7 +1241,9 @@ static void Pause_build(uType* type)
 {
     ::TYPES[15] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Triggers.IPlayback>*/, ::g::Fuse::Triggers::IPlayback_typeof(), NULL);
     ::TYPES[16] = ::g::Fuse::Triggers::IPlayback_typeof();
-    type->SetFields(9);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(11);
 }
 
 ::g::Fuse::Triggers::Actions::TriggerAction_type* Pause_typeof()
@@ -1187,12 +1253,16 @@ static void Pause_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::PlaybackAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Pause);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.Pause", options);
     type->fp_build_ = Pause_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))Pause__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1208,7 +1278,7 @@ void Pause__Perform_fn(Pause* __this, ::g::Fuse::Node* target)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Playback.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Playback.uno
 // ------------------------------------------------------------------------------------------------
 
 // public sealed class Play :213
@@ -1217,7 +1287,9 @@ static void Play_build(uType* type)
 {
     ::TYPES[15] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Triggers.IPlayback>*/, ::g::Fuse::Triggers::IPlayback_typeof(), NULL);
     ::TYPES[16] = ::g::Fuse::Triggers::IPlayback_typeof();
-    type->SetFields(9);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(11);
 }
 
 ::g::Fuse::Triggers::Actions::TriggerAction_type* Play_typeof()
@@ -1227,12 +1299,16 @@ static void Play_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::PlaybackAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Play);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.Play", options);
     type->fp_build_ = Play_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))Play__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1248,14 +1324,16 @@ void Play__Perform_fn(Play* __this, ::g::Fuse::Node* target)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Playback.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Playback.uno
 // ------------------------------------------------------------------------------------------------
 
 // public abstract class PlaybackAction :41
 // {
 static void PlaybackAction_build(uType* type)
 {
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Fuse::Triggers::IPlayback_typeof(), offsetof(PlaybackAction, _Target), 0);
 }
 
@@ -1266,11 +1344,15 @@ static void PlaybackAction_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(PlaybackAction);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.PlaybackAction", options);
     type->fp_build_ = PlaybackAction_build;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1299,7 +1381,7 @@ void PlaybackAction::Target(uObject* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Playback.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Playback.uno
 // ------------------------------------------------------------------------------------------------
 
 // public sealed class PlayTo :281
@@ -1308,7 +1390,9 @@ static void PlayTo_build(uType* type)
 {
     ::TYPES[15] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Triggers.IPlayback>*/, ::g::Fuse::Triggers::IPlayback_typeof(), NULL);
     ::TYPES[16] = ::g::Fuse::Triggers::IPlayback_typeof();
-    type->SetFields(9,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(11,
         ::g::Uno::Double_typeof(), offsetof(PlayTo, _Progress), 0);
 }
 
@@ -1319,12 +1403,16 @@ static void PlayTo_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::PlaybackAction_typeof();
-    options.FieldCount = 10;
+    options.FieldCount = 12;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(PlayTo);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.PlayTo", options);
     type->fp_build_ = PlayTo_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))PlayTo__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1364,7 +1452,7 @@ void PlayTo::Progress(double value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Pulse.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Pulse.uno
 // ---------------------------------------------------------------------------------------------
 
 // public sealed class Pulse :21
@@ -1372,7 +1460,9 @@ void PlayTo::Progress(double value)
 static void Pulse_build(uType* type)
 {
     ::TYPES[17] = ::g::Fuse::Triggers::IPulseTrigger_typeof();
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::TYPES[17/*Fuse.Triggers.IPulseTrigger*/], offsetof(Pulse, _Target), 0);
 }
 
@@ -1383,12 +1473,16 @@ static void Pulse_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Pulse);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.Pulse", options);
     type->fp_build_ = Pulse_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))Pulse__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1426,14 +1520,16 @@ void Pulse::Target(uObject* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Pulse.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Pulse.uno
 // ---------------------------------------------------------------------------------------------
 
 // public sealed class PulseBackward :36
 // {
 static void PulseBackward_build(uType* type)
 {
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Fuse::Triggers::Timeline_typeof(), offsetof(PulseBackward, _Target), 0);
 }
 
@@ -1444,12 +1540,16 @@ static void PulseBackward_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(PulseBackward);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.PulseBackward", options);
     type->fp_build_ = PulseBackward_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))PulseBackward__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1487,14 +1587,16 @@ void PulseBackward::Target(::g::Fuse::Triggers::Timeline* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Pulse.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Pulse.uno
 // ---------------------------------------------------------------------------------------------
 
 // public sealed class PulseForward :51
 // {
 static void PulseForward_build(uType* type)
 {
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Fuse::Triggers::Timeline_typeof(), offsetof(PulseForward, _Target), 0);
 }
 
@@ -1505,12 +1607,16 @@ static void PulseForward_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(PulseForward);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.PulseForward", options);
     type->fp_build_ = PulseForward_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))PulseForward__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1548,7 +1654,7 @@ void PulseForward::Target(::g::Fuse::Triggers::Timeline* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.UserEvents\1.4.2\RaiseUserEvent.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.UserEvents\1.9.0\RaiseUserEvent.uno
 // ------------------------------------------------------------------------------------------------
 
 // public sealed class RaiseUserEvent :40
@@ -1556,7 +1662,7 @@ void PulseForward::Target(::g::Fuse::Triggers::Timeline* value)
 static void RaiseUserEvent_build(uType* type)
 {
     ::STRINGS[7] = uString::Const("no UserEvent found: ");
-    ::STRINGS[8] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.UserEvents\\1.4.2\\RaiseUserEvent.uno");
+    ::STRINGS[8] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.UserEvents\\1.9.0\\RaiseUserEvent.uno");
     ::STRINGS[2] = uString::Const("Perform");
     ::TYPES[18] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Triggers::Actions::UserEventArg_typeof(), NULL);
     ::TYPES[19] = ::g::Uno::Collections::Dictionary_typeof()->MakeType(::g::Uno::String_typeof(), uObject_typeof(), NULL);
@@ -1565,9 +1671,10 @@ static void RaiseUserEvent_build(uType* type)
     ::TYPES[22] = ::g::Uno::Collections::IEnumerator1_typeof()->MakeType(::g::Fuse::Triggers::Actions::UserEventArg_typeof(), NULL);
     ::TYPES[23] = ::g::Uno::IDisposable_typeof();
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Uno::UX::Selector_typeof());
-    type->SetFields(8,
+        ::g::Fuse::UserEvent_typeof());
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Uno::UX::Selector_typeof(), offsetof(RaiseUserEvent, _eventName), 0,
         ::g::Fuse::Node_typeof(), offsetof(RaiseUserEvent, _eventTarget), 0,
         ::g::Fuse::UserEvent_typeof(), offsetof(RaiseUserEvent, _event), 0,
@@ -1581,13 +1688,17 @@ static void RaiseUserEvent_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 12;
-    options.DependencyCount = 2;
+    options.FieldCount = 14;
+    options.InterfaceCount = 1;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(RaiseUserEvent);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.RaiseUserEvent", options);
     type->fp_build_ = RaiseUserEvent_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))RaiseUserEvent__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1620,7 +1731,7 @@ void RaiseUserEvent__Perform_fn(RaiseUserEvent* __this, ::g::Fuse::Node* target)
     }
 
     if (__this->_event == NULL)
-        ::g::Fuse::Diagnostics::UserError(::g::Uno::String::op_Addition2(::STRINGS[7/*"no UserEven...*/], ::g::Uno::UX::Selector__op_Implicit1(__this->EventName())), __this, ::STRINGS[8/*"C:\\Users\\...*/], 86, ::STRINGS[2/*"Perform"*/], NULL);
+        ::g::Fuse::Diagnostics::UserError(::g::Uno::String::op_Addition2(::STRINGS[7/*"no UserEven...*/], ::g::Uno::UX::Selector__op_Implicit2(__this->EventName())), __this, ::STRINGS[8/*"C:\\Users\\...*/], 86, ::STRINGS[2/*"Perform"*/], NULL);
     else
         uPtr(__this->_event)->Raise(__this->ConvertArgs());
 }
@@ -1636,26 +1747,31 @@ void RaiseUserEvent__Perform_fn(RaiseUserEvent* __this, ::g::Fuse::Node* target)
     ::g::Uno::Collections::Dictionary* d = (::g::Uno::Collections::Dictionary*)::g::Uno::Collections::Dictionary::New1(::TYPES[19/*Uno.Collections.Dictionary<string, object>*/]);
     uObject* enum1 = (uObject*)::g::Uno::Collections::IEnumerable::GetEnumerator(uInterface(uPtr(_args), ::TYPES[20/*Uno.Collections.IEnumerable<Fuse.Triggers.Actions.UserEventArg>*/]));
 
-    try
     {
+        try
         {
-            while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum1), ::TYPES[21/*Uno.Collections.IEnumerator*/])))
             {
-                ::g::Fuse::Triggers::Actions::UserEventArg* arg = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum1), ::TYPES[22/*Uno.Collections.IEnumerator<Fuse.Triggers.Actions.UserEventArg>*/]), &ret3), ret3);
-                ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(d), uPtr(arg)->Name(), uPtr(arg)->Value());
+                while (::g::Uno::Collections::IEnumerator::MoveNext(uInterface(uPtr(enum1), ::TYPES[21/*Uno.Collections.IEnumerator*/])))
+                {
+                    ::g::Fuse::Triggers::Actions::UserEventArg* arg = (::g::Uno::Collections::IEnumerator1::get_Current_ex(uInterface(uPtr(enum1), ::TYPES[22/*Uno.Collections.IEnumerator<Fuse.Triggers.Actions.UserEventArg>*/]), &ret3), ret3);
+                    ::g::Uno::Collections::Dictionary__set_Item_fn(uPtr(d), uPtr(arg)->Name(), uPtr(arg)->Value());
+                }
             }
         }
-        {
-            ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[23/*Uno.IDisposable*/]));
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[23/*Uno.IDisposable*/]));
+            }
+                        throw __t;
+            goto __after_finally_1;
+        }
+
         {
             ::g::Uno::IDisposable::Dispose(uInterface(uPtr(enum1), ::TYPES[23/*Uno.IDisposable*/]));
         }
-                throw __t;
+        __after_finally_1:;
     }
 
     return d;
@@ -1675,7 +1791,7 @@ void RaiseUserEvent::EventName(::g::Uno::UX::Selector value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Focus.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Focus.uno
 // ---------------------------------------------------------------------------------------------
 
 // public sealed class ReleaseFocus :49
@@ -1684,7 +1800,9 @@ static void ReleaseFocus_build(uType* type)
 {
     type->SetDependencies(
         ::g::Fuse::Input::Focus_typeof());
-    type->SetFields(8);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10);
 }
 
 ::g::Fuse::Triggers::Actions::TriggerAction_type* ReleaseFocus_typeof()
@@ -1694,13 +1812,17 @@ static void ReleaseFocus_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 8;
+    options.FieldCount = 10;
+    options.InterfaceCount = 1;
     options.DependencyCount = 1;
     options.ObjectSize = sizeof(ReleaseFocus);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.ReleaseFocus", options);
     type->fp_build_ = ReleaseFocus_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))ReleaseFocus__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1711,7 +1833,7 @@ void ReleaseFocus__Perform_fn(ReleaseFocus* __this, ::g::Fuse::Node* target)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Navigation\1.4.2\NavigationActions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.Navigation\1.9.0\NavigationActions.uno
 // ------------------------------------------------------------------------------------------------------------
 
 // public sealed class ReleasePage :16
@@ -1719,14 +1841,16 @@ void ReleaseFocus__Perform_fn(ReleaseFocus* __this, ::g::Fuse::Node* target)
 static void ReleasePage_build(uType* type)
 {
     ::STRINGS[9] = uString::Const("Requires a Visual and Navigator parent");
-    ::STRINGS[10] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.Navigation\\1.4.2\\NavigationActions.uno");
+    ::STRINGS[10] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.Navigation\\1.9.0\\NavigationActions.uno");
     ::STRINGS[2] = uString::Const("Perform");
     ::TYPES[1] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Visual>*/, ::g::Fuse::Visual_typeof(), NULL);
     ::TYPES[24] = ::g::Fuse::Controls::Navigator_typeof();
     ::TYPES[25] = ::g::Uno::Action_typeof();
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
-    type->SetFields(8,
+        ::g::Fuse::UpdateManager_typeof());
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Fuse::Visual_typeof(), offsetof(ReleasePage, _pendVisual), 0,
         ::TYPES[24/*Fuse.Controls.Navigator*/], offsetof(ReleasePage, _pendNavigator), 0);
 }
@@ -1738,7 +1862,8 @@ static void ReleasePage_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 10;
+    options.FieldCount = 12;
+    options.InterfaceCount = 1;
     options.DependencyCount = 1;
     options.ObjectSize = sizeof(ReleasePage);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
@@ -1746,6 +1871,9 @@ static void ReleasePage_build(uType* type)
     type->fp_build_ = ReleasePage_build;
     type->fp_ctor_ = (void*)ReleasePage__New2_fn;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))ReleasePage__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1808,14 +1936,16 @@ ReleasePage* ReleasePage::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\WebViewNavActions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\WebViewNavActions.uno
 // ---------------------------------------------------------------------------------------------------------
 
 // public sealed class Reload :28
 // {
 static void Reload_build(uType* type)
 {
-    type->SetFields(8);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::WebViewNavAction_type, interface0));
+    type->SetFields(10);
 }
 
 ::g::Fuse::Triggers::Actions::WebViewNavAction_type* Reload_typeof()
@@ -1825,12 +1955,16 @@ static void Reload_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::WebViewNavAction_typeof();
-    options.FieldCount = 8;
+    options.FieldCount = 10;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Reload);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::WebViewNavAction_type);
     type = (::g::Fuse::Triggers::Actions::WebViewNavAction_type*)uClassType::New("Fuse.Triggers.Actions.Reload", options);
     type->fp_build_ = Reload_build;
     type->fp_Execute = (void(*)(::g::Fuse::Triggers::Actions::WebViewNavAction*, ::g::Fuse::Controls::WebView*))Reload__Execute_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1841,7 +1975,7 @@ void Reload__Execute_fn(Reload* __this, ::g::Fuse::Controls::WebView* webview)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls\1.4.2\Triggers\BringToFront.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls\1.9.0\Triggers\BringToFront.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public sealed class SendToBack :82
@@ -1850,7 +1984,9 @@ static void SendToBack_build(uType* type)
 {
     ::TYPES[1] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Visual>*/, ::g::Fuse::Visual_typeof(), NULL);
     ::TYPES[2] = ::g::Fuse::Visual_typeof();
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::TYPES[2/*Fuse.Visual*/], offsetof(SendToBack, _Target), 0);
 }
 
@@ -1861,12 +1997,16 @@ static void SendToBack_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(SendToBack);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.SendToBack", options);
     type->fp_build_ = SendToBack_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))SendToBack__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1911,7 +2051,7 @@ void SendToBack::Target(::g::Fuse::Visual* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Set.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Set.uno
 // -------------------------------------------------------------------------------------------
 
 // public sealed class Set<T> :35
@@ -1919,7 +2059,9 @@ void SendToBack::Target(::g::Fuse::Visual* value)
 static void Set_build(uType* type)
 {
     ::STRINGS[11] = uString::Const("target");
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         type->T(0), (uintptr_t)0, uFieldFlagsConstrained,
         ::g::Uno::Bool_typeof(), offsetof(Set, _hasIncrement), 0,
         ::g::Fuse::Internal::Blender_typeof()->MakeType(type->T(0), NULL), offsetof(Set, _blender), 0,
@@ -1935,13 +2077,17 @@ static void Set_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 14;
+    options.FieldCount = 16;
     options.GenericCount = 1;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Set);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.Set`1", options);
     type->fp_build_ = Set_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))Set__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -1969,7 +2115,7 @@ void Set__New2_fn(uType* __type, ::g::Uno::UX::Property1* target, Set** __retval
     *__retval = Set::New2(__type, target);
 }
 
-// protected override sealed void Perform(Fuse.Node target) :72
+// protected override sealed void Perform(Fuse.Node target) :73
 void Set__Perform_fn(Set* __this, ::g::Fuse::Node* target)
 {
     uT ret2(__this->__type->T(0), U_ALLOCA(__this->__type->T(0)->ValueSize));
@@ -1997,7 +2143,7 @@ void Set__set_Target_fn(Set* __this, ::g::Uno::UX::Property1* value)
     __this->Target(value);
 }
 
-// private void Update(T value) :67
+// private void Update(T value) :68
 void Set__Update_fn(Set* __this, void* value)
 {
     ::g::Uno::UX::Property1__Set_fn(uPtr(__this->Target()), value, NULL);
@@ -2059,7 +2205,7 @@ Set* Set::New2(uType* __type, ::g::Uno::UX::Property1* target)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Visibility.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Visibility.uno
 // --------------------------------------------------------------------------------------------------
 
 // public sealed class Show :30
@@ -2067,13 +2213,13 @@ Set* Set::New2(uType* __type, ::g::Uno::UX::Property1* target)
 static void Show_build(uType* type)
 {
     ::STRINGS[12] = uString::Const("Cannot find an Element/IShow");
-    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.4.2\\Actions\\Visibility.uno");
+    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.9.0\\Actions\\Visibility.uno");
     ::STRINGS[2] = uString::Const("Perform");
     ::TYPES[26] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Triggers.Actions.IShow>*/, ::g::Fuse::Triggers::Actions::IShow_typeof(), NULL);
     ::TYPES[27] = ::g::Fuse::Triggers::Actions::IShow_typeof();
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
-    type->SetFields(8);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10);
 }
 
 ::g::Fuse::Triggers::Actions::TriggerAction_type* Show_typeof()
@@ -2083,13 +2229,16 @@ static void Show_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 8;
-    options.DependencyCount = 1;
+    options.FieldCount = 10;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Show);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.Show", options);
     type->fp_build_ = Show_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))Show__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -2105,7 +2254,7 @@ void Show__Perform_fn(Show* __this, ::g::Fuse::Node* target)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Playback.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Playback.uno
 // ------------------------------------------------------------------------------------------------
 
 // public sealed class Stop :112
@@ -2114,7 +2263,9 @@ static void Stop_build(uType* type)
 {
     ::TYPES[15] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Triggers.IPlayback>*/, ::g::Fuse::Triggers::IPlayback_typeof(), NULL);
     ::TYPES[16] = ::g::Fuse::Triggers::IPlayback_typeof();
-    type->SetFields(9);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(11);
 }
 
 ::g::Fuse::Triggers::Actions::TriggerAction_type* Stop_typeof()
@@ -2124,12 +2275,16 @@ static void Stop_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::PlaybackAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Stop);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.Stop", options);
     type->fp_build_ = Stop_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))Stop__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -2145,14 +2300,16 @@ void Stop__Perform_fn(Stop* __this, ::g::Fuse::Node* target)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\WebViewNavActions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\WebViewNavActions.uno
 // ---------------------------------------------------------------------------------------------------------
 
 // public sealed class StopLoading :40
 // {
 static void StopLoading_build(uType* type)
 {
-    type->SetFields(8);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::WebViewNavAction_type, interface0));
+    type->SetFields(10);
 }
 
 ::g::Fuse::Triggers::Actions::WebViewNavAction_type* StopLoading_typeof()
@@ -2162,12 +2319,16 @@ static void StopLoading_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::WebViewNavAction_typeof();
-    options.FieldCount = 8;
+    options.FieldCount = 10;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(StopLoading);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::WebViewNavAction_type);
     type = (::g::Fuse::Triggers::Actions::WebViewNavAction_type*)uClassType::New("Fuse.Triggers.Actions.StopLoading", options);
     type->fp_build_ = StopLoading_build;
     type->fp_Execute = (void(*)(::g::Fuse::Triggers::Actions::WebViewNavAction*, ::g::Fuse::Controls::WebView*))StopLoading__Execute_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -2178,7 +2339,7 @@ void StopLoading__Execute_fn(StopLoading* __this, ::g::Fuse::Controls::WebView* 
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\TimelineAction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\TimelineAction.uno
 // ------------------------------------------------------------------------------------------------------
 
 // public sealed class TimelineAction :32
@@ -2186,11 +2347,11 @@ void StopLoading__Execute_fn(StopLoading* __this, ::g::Fuse::Controls::WebView* 
 static void TimelineAction_build(uType* type)
 {
     ::STRINGS[13] = uString::Const("`TimelineAction` called without a `Timeline` `Target`");
-    ::STRINGS[14] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.4.2\\Actions\\TimelineAction.uno");
+    ::STRINGS[14] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.9.0\\Actions\\TimelineAction.uno");
     ::STRINGS[2] = uString::Const("Perform");
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Fuse::Triggers::Actions::TimelineActionHow_typeof(), offsetof(TimelineAction, _How), 0,
         ::g::Uno::Double_typeof(), offsetof(TimelineAction, _Progress), 0,
         ::g::Fuse::Triggers::Timeline_typeof(), offsetof(TimelineAction, _Target), 0);
@@ -2203,24 +2364,27 @@ static void TimelineAction_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 11;
-    options.DependencyCount = 1;
+    options.FieldCount = 13;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(TimelineAction);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.TimelineAction", options);
     type->fp_build_ = TimelineAction_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))TimelineAction__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
 // public generated Fuse.Triggers.Actions.TimelineActionHow get_How() :36
-void TimelineAction__get_How_fn(TimelineAction* __this, int* __retval)
+void TimelineAction__get_How_fn(TimelineAction* __this, int32_t* __retval)
 {
     *__retval = __this->How();
 }
 
 // public generated void set_How(Fuse.Triggers.Actions.TimelineActionHow value) :36
-void TimelineAction__set_How_fn(TimelineAction* __this, int* value)
+void TimelineAction__set_How_fn(TimelineAction* __this, int32_t* value)
 {
     __this->How(*value);
 }
@@ -2307,13 +2471,13 @@ void TimelineAction__set_Target_fn(TimelineAction* __this, ::g::Fuse::Triggers::
 }
 
 // public generated Fuse.Triggers.Actions.TimelineActionHow get_How() [instance] :36
-int TimelineAction::How()
+int32_t TimelineAction::How()
 {
     return _How;
 }
 
 // public generated void set_How(Fuse.Triggers.Actions.TimelineActionHow value) [instance] :36
-void TimelineAction::How(int value)
+void TimelineAction::How(int32_t value)
 {
     _How = value;
 }
@@ -2343,7 +2507,7 @@ void TimelineAction::Target(::g::Fuse::Triggers::Timeline* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\TimelineAction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\TimelineAction.uno
 // ------------------------------------------------------------------------------------------------------
 
 // public enum TimelineActionHow :5
@@ -2366,7 +2530,7 @@ uEnumType* TimelineActionHow_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\Toggle.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\Toggle.uno
 // ----------------------------------------------------------------------------------------------
 
 // public sealed class Toggle :29
@@ -2374,13 +2538,13 @@ uEnumType* TimelineActionHow_typeof()
 static void Toggle_build(uType* type)
 {
     ::STRINGS[15] = uString::Const("Could not find `IToggleable` target");
-    ::STRINGS[16] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.4.2\\Actions\\Toggle.uno");
+    ::STRINGS[16] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.9.0\\Actions\\Toggle.uno");
     ::STRINGS[2] = uString::Const("Perform");
     ::TYPES[28] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Triggers.Actions.IToggleable>*/, ::g::Fuse::Triggers::Actions::IToggleable_typeof(), NULL);
     ::TYPES[29] = ::g::Fuse::Triggers::Actions::IToggleable_typeof();
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::TYPES[29/*Fuse.Triggers.Actions.IToggleable*/], offsetof(Toggle, _Target), 0);
 }
 
@@ -2391,13 +2555,16 @@ static void Toggle_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 9;
-    options.DependencyCount = 1;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(Toggle);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.Toggle", options);
     type->fp_build_ = Toggle_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))Toggle__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -2442,7 +2609,7 @@ void Toggle::Target(uObject* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Triggers\LayoutAnimation.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Triggers\LayoutAnimation.uno
 // --------------------------------------------------------------------------------------------------------
 
 // public sealed class TransitionLayout :342
@@ -2450,15 +2617,17 @@ void Toggle::Target(uObject* value)
 static void TransitionLayout_build(uType* type)
 {
     ::STRINGS[17] = uString::Const("Missing `From` or cannot find `Element` target");
-    ::STRINGS[18] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.4.2\\Triggers\\LayoutAnimation.uno");
+    ::STRINGS[18] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.9.0\\Triggers\\LayoutAnimation.uno");
     ::STRINGS[2] = uString::Const("Perform");
     ::TYPES[0] = ::g::Fuse::Elements::Element_typeof();
     ::TYPES[1] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Visual>*/, ::g::Fuse::Visual_typeof(), NULL);
     ::TYPES[25] = ::g::Uno::Action_typeof();
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Fuse::Triggers::LayoutTransition_typeof());
-    type->SetFields(8,
+        ::g::Fuse::Triggers::LayoutTransition_typeof(),
+        ::g::Fuse::UpdateManager_typeof());
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::TYPES[0/*Fuse.Elements.Element*/], offsetof(TransitionLayout, _perform), 0,
         ::TYPES[0/*Fuse.Elements.Element*/], offsetof(TransitionLayout, _From), 0,
         ::TYPES[0/*Fuse.Elements.Element*/], offsetof(TransitionLayout, _Target), 0);
@@ -2471,13 +2640,17 @@ static void TransitionLayout_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 11;
+    options.FieldCount = 13;
+    options.InterfaceCount = 1;
     options.DependencyCount = 2;
     options.ObjectSize = sizeof(TransitionLayout);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.TransitionLayout", options);
     type->fp_build_ = TransitionLayout_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))TransitionLayout__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -2566,7 +2739,7 @@ void TransitionLayout::Transition()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\StateTransition.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\StateTransition.uno
 // -------------------------------------------------------------------------------------------------------
 
 // public sealed class TransitionState :13
@@ -2574,11 +2747,11 @@ void TransitionLayout::Transition()
 static void TransitionState_build(uType* type)
 {
     ::STRINGS[19] = uString::Const("Missing `Target`");
-    ::STRINGS[20] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.4.2\\Actions\\StateTransition.uno");
+    ::STRINGS[20] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Triggers\\1.9.0\\Actions\\StateTransition.uno");
     ::STRINGS[2] = uString::Const("Perform");
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Fuse::Triggers::StateGroup_typeof(), offsetof(TransitionState, _Target), 0,
         ::g::Fuse::Triggers::Actions::TransitionStateType_typeof(), offsetof(TransitionState, _Type), 0);
 }
@@ -2590,13 +2763,16 @@ static void TransitionState_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 10;
-    options.DependencyCount = 1;
+    options.FieldCount = 12;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(TransitionState);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.TransitionState", options);
     type->fp_build_ = TransitionState_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))TransitionState__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -2634,13 +2810,13 @@ void TransitionState__set_Target_fn(TransitionState* __this, ::g::Fuse::Triggers
 }
 
 // public generated Fuse.Triggers.Actions.TransitionStateType get_Type() :17
-void TransitionState__get_Type_fn(TransitionState* __this, int* __retval)
+void TransitionState__get_Type_fn(TransitionState* __this, int32_t* __retval)
 {
     *__retval = __this->Type();
 }
 
 // public generated void set_Type(Fuse.Triggers.Actions.TransitionStateType value) :17
-void TransitionState__set_Type_fn(TransitionState* __this, int* value)
+void TransitionState__set_Type_fn(TransitionState* __this, int32_t* value)
 {
     __this->Type(*value);
 }
@@ -2658,19 +2834,19 @@ void TransitionState::Target(::g::Fuse::Triggers::StateGroup* value)
 }
 
 // public generated Fuse.Triggers.Actions.TransitionStateType get_Type() [instance] :17
-int TransitionState::Type()
+int32_t TransitionState::Type()
 {
     return _Type;
 }
 
 // public generated void set_Type(Fuse.Triggers.Actions.TransitionStateType value) [instance] :17
-void TransitionState::Type(int value)
+void TransitionState::Type(int32_t value)
 {
     _Type = value;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\StateTransition.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\StateTransition.uno
 // -------------------------------------------------------------------------------------------------------
 
 // public enum TransitionStateType :5
@@ -2685,13 +2861,15 @@ uEnumType* TransitionStateType_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\TriggerAction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\TriggerAction.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public abstract class TriggerAction :30
 // {
 static void TriggerAction_build(uType* type)
 {
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(TriggerAction_type, interface0));
     type->SetFields(1,
         ::g::Fuse::Triggers::Actions::TriggerWhen_typeof(), offsetof(TriggerAction, _when), 0,
         ::g::Uno::Float_typeof(), offsetof(TriggerAction, _progress), 0,
@@ -2699,6 +2877,8 @@ static void TriggerAction_build(uType* type)
         ::g::Uno::Float_typeof(), offsetof(TriggerAction, _delay), 0,
         ::g::Uno::Bool_typeof(), offsetof(TriggerAction, _hasDelay), 0,
         ::g::Uno::Bool_typeof(), offsetof(TriggerAction, _isActive), 0,
+        ::g::Uno::String_typeof(), offsetof(TriggerAction, _SourceFileName), 0,
+        ::g::Uno::Int_typeof(), offsetof(TriggerAction, _SourceLineNumber), 0,
         ::g::Fuse::Node_typeof(), offsetof(TriggerAction, _TargetNode), 0);
 }
 
@@ -2709,12 +2889,16 @@ TriggerAction_type* TriggerAction_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Uno::UX::PropertyObject_typeof();
-    options.FieldCount = 8;
+    options.FieldCount = 10;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(TriggerAction);
     options.TypeSize = sizeof(TriggerAction_type);
     type = (TriggerAction_type*)uClassType::New("Fuse.Triggers.Actions.TriggerAction", options);
     type->fp_build_ = TriggerAction_build;
     type->fp_OnUnrooted = TriggerAction__OnUnrooted_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
@@ -2746,6 +2930,12 @@ void TriggerAction__get_Delay_fn(TriggerAction* __this, float* __retval)
 void TriggerAction__set_Delay_fn(TriggerAction* __this, float* value)
 {
     __this->Delay(*value);
+}
+
+// private Fuse.ISourceLocation Fuse.ISourceLocation.get_SourceNearest() :141
+void TriggerAction__FuseISourceLocationget_SourceNearest_fn(TriggerAction* __this, uObject** __retval)
+{
+    return *__retval = (uObject*)__this, void();
 }
 
 // public bool get_IsActive() :96
@@ -2783,6 +2973,30 @@ void TriggerAction__ProgressWhen_fn(TriggerAction* __this, float* totalDuration,
     *__retval = __this->ProgressWhen(*totalDuration);
 }
 
+// public generated string get_SourceFileName() :137
+void TriggerAction__get_SourceFileName_fn(TriggerAction* __this, uString** __retval)
+{
+    *__retval = __this->SourceFileName();
+}
+
+// public generated void set_SourceFileName(string value) :137
+void TriggerAction__set_SourceFileName_fn(TriggerAction* __this, uString* value)
+{
+    __this->SourceFileName(value);
+}
+
+// public generated int get_SourceLineNumber() :134
+void TriggerAction__get_SourceLineNumber_fn(TriggerAction* __this, int32_t* __retval)
+{
+    *__retval = __this->SourceLineNumber();
+}
+
+// public generated void set_SourceLineNumber(int value) :134
+void TriggerAction__set_SourceLineNumber_fn(TriggerAction* __this, int32_t* value)
+{
+    __this->SourceLineNumber(*value);
+}
+
 // public generated Fuse.Node get_TargetNode() :56
 void TriggerAction__get_TargetNode_fn(TriggerAction* __this, ::g::Fuse::Node** __retval)
 {
@@ -2802,13 +3016,13 @@ void TriggerAction__Unroot_fn(TriggerAction* __this)
 }
 
 // public Fuse.Triggers.Actions.TriggerWhen get_When() :35
-void TriggerAction__get_When_fn(TriggerAction* __this, int* __retval)
+void TriggerAction__get_When_fn(TriggerAction* __this, int32_t* __retval)
 {
     *__retval = __this->When();
 }
 
 // public void set_When(Fuse.Triggers.Actions.TriggerWhen value) :36
-void TriggerAction__set_When_fn(TriggerAction* __this, int* value)
+void TriggerAction__set_When_fn(TriggerAction* __this, int32_t* value)
 {
     __this->When(*value);
 }
@@ -2885,6 +3099,30 @@ float TriggerAction::ProgressWhen(float totalDuration)
     return 0.0f;
 }
 
+// public generated string get_SourceFileName() [instance] :137
+uString* TriggerAction::SourceFileName()
+{
+    return _SourceFileName;
+}
+
+// public generated void set_SourceFileName(string value) [instance] :137
+void TriggerAction::SourceFileName(uString* value)
+{
+    _SourceFileName = value;
+}
+
+// public generated int get_SourceLineNumber() [instance] :134
+int32_t TriggerAction::SourceLineNumber()
+{
+    return _SourceLineNumber;
+}
+
+// public generated void set_SourceLineNumber(int value) [instance] :134
+void TriggerAction::SourceLineNumber(int32_t value)
+{
+    _SourceLineNumber = value;
+}
+
 // public generated Fuse.Node get_TargetNode() [instance] :56
 ::g::Fuse::Node* TriggerAction::TargetNode()
 {
@@ -2904,19 +3142,19 @@ void TriggerAction::Unroot()
 }
 
 // public Fuse.Triggers.Actions.TriggerWhen get_When() [instance] :35
-int TriggerAction::When()
+int32_t TriggerAction::When()
 {
     return _when;
 }
 
 // public void set_When(Fuse.Triggers.Actions.TriggerWhen value) [instance] :36
-void TriggerAction::When(int value)
+void TriggerAction::When(int32_t value)
 {
     _when = value;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.4.2\Actions\TriggerAction.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Triggers\1.9.0\Actions\TriggerAction.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public enum TriggerWhen :6
@@ -2936,7 +3174,7 @@ uEnumType* TriggerWhen_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.UserEvents\1.4.2\RaiseUserEvent.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.UserEvents\1.9.0\RaiseUserEvent.uno
 // ------------------------------------------------------------------------------------------------
 
 // public sealed class UserEventArg :132
@@ -3012,7 +3250,7 @@ void UserEventArg::Value(uObject* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.4.2\WebViewNavActions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.WebView\1.9.0\WebViewNavActions.uno
 // ---------------------------------------------------------------------------------------------------------
 
 // public abstract class WebViewNavAction :9
@@ -3020,7 +3258,9 @@ void UserEventArg::Value(uObject* value)
 static void WebViewNavAction_build(uType* type)
 {
     ::TYPES[30] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Controls.WebView>*/, ::g::Fuse::Controls::WebView_typeof(), NULL);
-    type->SetFields(8);
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(WebViewNavAction_type, interface0));
+    type->SetFields(10);
 }
 
 WebViewNavAction_type* WebViewNavAction_typeof()
@@ -3030,12 +3270,16 @@ WebViewNavAction_type* WebViewNavAction_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 8;
+    options.FieldCount = 10;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(WebViewNavAction);
     options.TypeSize = sizeof(WebViewNavAction_type);
     type = (WebViewNavAction_type*)uClassType::New("Fuse.Triggers.Actions.WebViewNavAction", options);
     type->fp_build_ = WebViewNavAction_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))WebViewNavAction__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 

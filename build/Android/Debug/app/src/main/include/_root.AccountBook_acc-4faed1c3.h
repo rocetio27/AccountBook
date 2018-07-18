@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -23,9 +23,9 @@ void AccountBook_accessor_ccButton_textcolor__get_SupportsOriginSetter_fn(Accoun
 struct AccountBook_accessor_ccButton_textcolor : ::g::Uno::UX::PropertyAccessor
 {
     static uSStrong< ::g::Uno::UX::PropertyAccessor*> Singleton_;
-    static uSStrong< ::g::Uno::UX::PropertyAccessor*>& Singleton() { return Singleton_; }
+    static uSStrong< ::g::Uno::UX::PropertyAccessor*>& Singleton() { return AccountBook_accessor_ccButton_textcolor_typeof()->Init(), Singleton_; }
     static ::g::Uno::UX::Selector _name_;
-    static ::g::Uno::UX::Selector& _name() { return _name_; }
+    static ::g::Uno::UX::Selector& _name() { return AccountBook_accessor_ccButton_textcolor_typeof()->Init(), _name_; }
 
     void ctor_1();
     static AccountBook_accessor_ccButton_textcolor* New1();

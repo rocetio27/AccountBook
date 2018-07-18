@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Marshal/1.4.2/Computer.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Marshal/1.9.0/Computer.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -12,13 +12,7 @@ namespace Fuse{
 // {
 struct Computer_type : uType
 {
-    void(*fp_Add)(::g::Fuse::Computer*, uObject*, uObject*, uObject**);
-    void(*fp_Divide)(::g::Fuse::Computer*, uObject*, uObject*, uObject**);
-    void(*fp_EqualTo)(::g::Fuse::Computer*, uObject*, uObject*, bool*);
-    void(*fp_GreaterThan)(::g::Fuse::Computer*, uObject*, uObject*, bool*);
-    void(*fp_LessThan)(::g::Fuse::Computer*, uObject*, uObject*, bool*);
-    void(*fp_Multiply)(::g::Fuse::Computer*, uObject*, uObject*, uObject**);
-    void(*fp_Subtract)(::g::Fuse::Computer*, uObject*, uObject*, uObject**);
+    void(*fp_TryOp1)(::g::Fuse::Computer*, int32_t*, uObject*, uObject*, uObject**, bool*);
 };
 
 Computer_type* Computer_typeof();
@@ -27,13 +21,7 @@ void Computer__ctor__fn(Computer* __this);
 struct Computer : uObject
 {
     void ctor_();
-    uObject* Add(uObject* a, uObject* b) { uObject* __retval; return (((Computer_type*)__type)->fp_Add)(this, a, b, &__retval), __retval; }
-    uObject* Divide(uObject* a, uObject* b) { uObject* __retval; return (((Computer_type*)__type)->fp_Divide)(this, a, b, &__retval), __retval; }
-    bool EqualTo(uObject* a, uObject* b) { bool __retval; return (((Computer_type*)__type)->fp_EqualTo)(this, a, b, &__retval), __retval; }
-    bool GreaterThan(uObject* a, uObject* b) { bool __retval; return (((Computer_type*)__type)->fp_GreaterThan)(this, a, b, &__retval), __retval; }
-    bool LessThan(uObject* a, uObject* b) { bool __retval; return (((Computer_type*)__type)->fp_LessThan)(this, a, b, &__retval), __retval; }
-    uObject* Multiply(uObject* a, uObject* b) { uObject* __retval; return (((Computer_type*)__type)->fp_Multiply)(this, a, b, &__retval), __retval; }
-    uObject* Subtract(uObject* a, uObject* b) { uObject* __retval; return (((Computer_type*)__type)->fp_Subtract)(this, a, b, &__retval), __retval; }
+    bool TryOp1(int32_t op, uObject* a, uObject* b, uObject** result) { bool __retval; return (((Computer_type*)__type)->fp_TryOp1)(this, &op, a, b, result, &__retval), __retval; }
 };
 // }
 

@@ -4,6 +4,7 @@
 #include <_root.FuseElements_bundle.h>
 #include <Fuse.Animations.IResizeMode.h>
 #include <Fuse.CacheFramebuffer.h>
+#include <Fuse.Common.Blitter.h>
 #include <Fuse.Diagnostics.h>
 #include <Fuse.DrawContext.h>
 #include <Fuse.Drawing.Brush.h>
@@ -28,20 +29,21 @@
 #include <Fuse.Elements.ElementBatch.h>
 #include <Fuse.Elements.ElementBatcher.h>
 #include <Fuse.Elements.Element-bc8d2ebe.h>
-#include <Fuse.Elements.Element-bd497d56.h>
 #include <Fuse.Elements.Element-e8906a44.h>
 #include <Fuse.Elements.Element-fe817708.h>
 #include <Fuse.Elements.FillAsp-a553d320.h>
+#include <Fuse.Elements.HeightFunction.h>
 #include <Fuse.Elements.HitTestMode.h>
 #include <Fuse.Elements.IElemen-894a094d.h>
 #include <Fuse.Elements.Interac-8b35c528.h>
 #include <Fuse.Elements.ITransformOrigin.h>
 #include <Fuse.Elements.ITreeRenderer.h>
+#include <Fuse.Elements.LayoutF-73173981.h>
+#include <Fuse.Elements.LayoutFunction.h>
 #include <Fuse.Elements.LayoutM-516f33ff.h>
 #include <Fuse.Elements.LayoutM-76ecc3eb.h>
 #include <Fuse.Elements.LayoutMasterMode.h>
 #include <Fuse.Elements.LimitBoxSizing.h>
-#include <Fuse.Elements.NoImpli-72cd78f3.h>
 #include <Fuse.Elements.Optiona-b611048b.h>
 #include <Fuse.Elements.Preplac-74864b4.h>
 #include <Fuse.Elements.PreplacementArgs.h>
@@ -64,6 +66,9 @@
 #include <Fuse.Elements.Transla-e4a67fe3.h>
 #include <Fuse.Elements.TranslationModes.h>
 #include <Fuse.Elements.Visibility.h>
+#include <Fuse.Elements.WidthFunction.h>
+#include <Fuse.Elements.XFunction.h>
+#include <Fuse.Elements.YFunction.h>
 #include <Fuse.FastMatrix.h>
 #include <Fuse.FastProperty1.h>
 #include <Fuse.FixedViewport.h>
@@ -81,6 +86,8 @@
 #include <Fuse.LayoutDependent.h>
 #include <Fuse.LayoutParams.h>
 #include <Fuse.LayoutPriority.h>
+#include <Fuse.LostMarginBoxArgs.h>
+#include <Fuse.LostMarginBoxHandler.h>
 #include <Fuse.Node.h>
 #include <Fuse.OrthographicFrustum.h>
 #include <Fuse.PlacedArgs.h>
@@ -88,6 +95,10 @@
 #include <Fuse.Platform.SystemUI.h>
 #include <Fuse.Properties.h>
 #include <Fuse.PropertyHandle.h>
+#include <Fuse.Reactive.Expression.h>
+#include <Fuse.Reactive.IContext.h>
+#include <Fuse.Reactive.IExpression.h>
+#include <Fuse.Reactive.IListener.h>
 #include <Fuse.RelativeTransform-1.h>
 #include <Fuse.Resources.DisposalManager.h>
 #include <Fuse.RootViewport.h>
@@ -99,11 +110,12 @@
 #include <Fuse.VisualBounds.h>
 #include <Fuse.VisualBounds.Type.h>
 #include <Uno.Action.h>
-#include <Uno.Action-1.h>
+#include <Uno.Action1-1.h>
 #include <Uno.Bool.h>
 #include <Uno.Buffer.h>
+#include <Uno.Byte.h>
 #include <Uno.Collections.Enume-8ddd045.h>
-#include <Uno.Collections.IEnumerator-1.h>
+#include <Uno.Collections.IEnumerator1-1.h>
 #include <Uno.Collections.Linke-712f9f5e.h>
 #include <Uno.Collections.LinkedList-1.h>
 #include <Uno.Collections.List-1.h>
@@ -120,7 +132,7 @@
 #include <Uno.Float3.h>
 #include <Uno.Float4.h>
 #include <Uno.Float4x4.h>
-#include <Uno.Func-2.h>
+#include <Uno.Func1-2.h>
 #include <Uno.Graphics.BlendOperand.h>
 #include <Uno.Graphics.BufferUsage.h>
 #include <Uno.Graphics.DeviceBuffer.h>
@@ -135,6 +147,7 @@
 #include <Uno.Graphics.Texture2D.h>
 #include <Uno.Graphics.VertexAt-4a875e1d.h>
 #include <Uno.Graphics.VertexBuffer.h>
+#include <Uno.IDisposable.h>
 #include <Uno.Int.h>
 #include <Uno.Int2.h>
 #include <Uno.Math.h>
@@ -143,7 +156,6 @@
 #include <Uno.Rect.h>
 #include <Uno.Recti.h>
 #include <Uno.Runtime.Implement-6e9df330.h>
-#include <Uno.Runtime.Implement-81e7ab4c.h>
 #include <Uno.String.h>
 #include <Uno.UShort.h>
 #include <Uno.UX.IPropertyListener.h>
@@ -154,14 +166,14 @@
 #include <Uno.UX.Unit.h>
 #include <Uno.Vector.h>
 #include <Uno/Graphics/GLHelper.h>
-static uString* STRINGS[15];
-static uType* TYPES[28];
+static uString* STRINGS[19];
+static uType* TYPES[31];
 
 namespace g{
 namespace Fuse{
 namespace Elements{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Enums.uno
 // -------------------------------------------------------------------------------------
 
 // public enum Alignment :25
@@ -191,7 +203,7 @@ uEnumType* Alignment_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Enums.uno
 // -------------------------------------------------------------------------------------
 
 // public static class AlignmentHelpers :76
@@ -213,67 +225,67 @@ uClassType* AlignmentHelpers_typeof()
 }
 
 // public static float2 GetAnchor(Fuse.Elements.Alignment a) :87
-void AlignmentHelpers__GetAnchor_fn(int* a, ::g::Uno::Float2* __retval)
+void AlignmentHelpers__GetAnchor_fn(int32_t* a, ::g::Uno::Float2* __retval)
 {
     *__retval = AlignmentHelpers::GetAnchor(*a);
 }
 
 // public static Fuse.Elements.Alignment GetHorizontalAlign(Fuse.Elements.Alignment a) :82
-void AlignmentHelpers__GetHorizontalAlign_fn(int* a, int* __retval)
+void AlignmentHelpers__GetHorizontalAlign_fn(int32_t* a, int32_t* __retval)
 {
     *__retval = AlignmentHelpers::GetHorizontalAlign(*a);
 }
 
 // internal static Fuse.Elements.SimpleAlignment GetHorizontalSimpleAlign(Fuse.Elements.Alignment a) :110
-void AlignmentHelpers__GetHorizontalSimpleAlign_fn(int* a, int* __retval)
+void AlignmentHelpers__GetHorizontalSimpleAlign_fn(int32_t* a, int32_t* __retval)
 {
     *__retval = AlignmentHelpers::GetHorizontalSimpleAlign(*a);
 }
 
 // internal static Fuse.Elements.OptionalSimpleAlignment GetHorizontalSimpleAlignOptional(Fuse.Elements.Alignment a) :132
-void AlignmentHelpers__GetHorizontalSimpleAlignOptional_fn(int* a, int* __retval)
+void AlignmentHelpers__GetHorizontalSimpleAlignOptional_fn(int32_t* a, int32_t* __retval)
 {
     *__retval = AlignmentHelpers::GetHorizontalSimpleAlignOptional(*a);
 }
 
 // public static Fuse.Elements.Alignment GetVerticalAlign(Fuse.Elements.Alignment a) :78
-void AlignmentHelpers__GetVerticalAlign_fn(int* a, int* __retval)
+void AlignmentHelpers__GetVerticalAlign_fn(int32_t* a, int32_t* __retval)
 {
     *__retval = AlignmentHelpers::GetVerticalAlign(*a);
 }
 
 // internal static Fuse.Elements.SimpleAlignment GetVerticalSimpleAlign(Fuse.Elements.Alignment a) :100
-void AlignmentHelpers__GetVerticalSimpleAlign_fn(int* a, int* __retval)
+void AlignmentHelpers__GetVerticalSimpleAlign_fn(int32_t* a, int32_t* __retval)
 {
     *__retval = AlignmentHelpers::GetVerticalSimpleAlign(*a);
 }
 
 // internal static Fuse.Elements.OptionalSimpleAlignment GetVerticalSimpleAlignOptional(Fuse.Elements.Alignment a) :120
-void AlignmentHelpers__GetVerticalSimpleAlignOptional_fn(int* a, int* __retval)
+void AlignmentHelpers__GetVerticalSimpleAlignOptional_fn(int32_t* a, int32_t* __retval)
 {
     *__retval = AlignmentHelpers::GetVerticalSimpleAlignOptional(*a);
 }
 
 // public static float2 GetAnchor(Fuse.Elements.Alignment a) [static] :87
-::g::Uno::Float2 AlignmentHelpers::GetAnchor(int a)
+::g::Uno::Float2 AlignmentHelpers::GetAnchor(int32_t a)
 {
-    int h = AlignmentHelpers::GetHorizontalAlign(a);
+    int32_t h = AlignmentHelpers::GetHorizontalAlign(a);
     float x = (h == 1) ? 0.0f : (h == 3) ? 1.0f : 0.5f;
-    int v = AlignmentHelpers::GetVerticalAlign(a);
+    int32_t v = AlignmentHelpers::GetVerticalAlign(a);
     float y = (v == 4) ? 0.0f : (v == 12) ? 1.0f : 0.5f;
     return ::g::Uno::Float2__New2(x, y);
 }
 
 // public static Fuse.Elements.Alignment GetHorizontalAlign(Fuse.Elements.Alignment a) [static] :82
-int AlignmentHelpers::GetHorizontalAlign(int a)
+int32_t AlignmentHelpers::GetHorizontalAlign(int32_t a)
 {
     return a & 3;
 }
 
 // internal static Fuse.Elements.SimpleAlignment GetHorizontalSimpleAlign(Fuse.Elements.Alignment a) [static] :110
-int AlignmentHelpers::GetHorizontalSimpleAlign(int a)
+int32_t AlignmentHelpers::GetHorizontalSimpleAlign(int32_t a)
 {
-    int raw = AlignmentHelpers::GetHorizontalAlign(a);
+    int32_t raw = AlignmentHelpers::GetHorizontalAlign(a);
 
     if (raw == 3)
         return 2;
@@ -285,9 +297,9 @@ int AlignmentHelpers::GetHorizontalSimpleAlign(int a)
 }
 
 // internal static Fuse.Elements.OptionalSimpleAlignment GetHorizontalSimpleAlignOptional(Fuse.Elements.Alignment a) [static] :132
-int AlignmentHelpers::GetHorizontalSimpleAlignOptional(int a)
+int32_t AlignmentHelpers::GetHorizontalSimpleAlignOptional(int32_t a)
 {
-    int raw = AlignmentHelpers::GetHorizontalAlign(a);
+    int32_t raw = AlignmentHelpers::GetHorizontalAlign(a);
 
     if (raw == 1)
         return 1;
@@ -302,15 +314,15 @@ int AlignmentHelpers::GetHorizontalSimpleAlignOptional(int a)
 }
 
 // public static Fuse.Elements.Alignment GetVerticalAlign(Fuse.Elements.Alignment a) [static] :78
-int AlignmentHelpers::GetVerticalAlign(int a)
+int32_t AlignmentHelpers::GetVerticalAlign(int32_t a)
 {
     return a & 12;
 }
 
 // internal static Fuse.Elements.SimpleAlignment GetVerticalSimpleAlign(Fuse.Elements.Alignment a) [static] :100
-int AlignmentHelpers::GetVerticalSimpleAlign(int a)
+int32_t AlignmentHelpers::GetVerticalSimpleAlign(int32_t a)
 {
-    int raw = AlignmentHelpers::GetVerticalAlign(a);
+    int32_t raw = AlignmentHelpers::GetVerticalAlign(a);
 
     if (raw == 12)
         return 2;
@@ -322,9 +334,9 @@ int AlignmentHelpers::GetVerticalSimpleAlign(int a)
 }
 
 // internal static Fuse.Elements.OptionalSimpleAlignment GetVerticalSimpleAlignOptional(Fuse.Elements.Alignment a) [static] :120
-int AlignmentHelpers::GetVerticalSimpleAlignOptional(int a)
+int32_t AlignmentHelpers::GetVerticalSimpleAlignOptional(int32_t a)
 {
-    int raw = AlignmentHelpers::GetVerticalAlign(a);
+    int32_t raw = AlignmentHelpers::GetVerticalAlign(a);
 
     if (raw == 4)
         return 1;
@@ -339,7 +351,7 @@ int AlignmentHelpers::GetVerticalSimpleAlignOptional(int a)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.Transform.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.Transform.uno
 // -------------------------------------------------------------------------------------------------
 
 // private sealed class TransformOrigins.AnchorOrigin :58
@@ -404,7 +416,7 @@ TransformOrigins__AnchorOrigin* TransformOrigins__AnchorOrigin::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\AspectBoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\AspectBoxSizing.uno
 // -----------------------------------------------------------------------------------------------
 
 // public enum AspectConstraint :7
@@ -422,7 +434,7 @@ uEnumType* AspectConstraint_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.Transform.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.Transform.uno
 // -------------------------------------------------------------------------------------------------
 
 // private sealed class TransformOrigins.BoxCenter :63
@@ -492,7 +504,7 @@ TransformOrigins__BoxCenter* TransformOrigins__BoxCenter::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\BoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\BoxSizing.uno
 // -----------------------------------------------------------------------------------------
 
 // public struct BoxPlacement :9
@@ -595,7 +607,7 @@ bool BoxPlacement::SanityConstrain()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\BoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\BoxSizing.uno
 // -----------------------------------------------------------------------------------------
 
 // internal abstract class BoxSizing :65
@@ -626,31 +638,31 @@ void BoxSizing__ctor__fn(BoxSizing* __this)
 }
 
 // protected void EffectiveAnchor(Fuse.Elements.Element element, Fuse.Elements.SimpleAlignment halign, Fuse.Elements.SimpleAlignment valign, Uno.UX.Size2& anchor) :152
-void BoxSizing__EffectiveAnchor_fn(BoxSizing* __this, ::g::Fuse::Elements::Element* element, int* halign, int* valign, ::g::Uno::UX::Size2* anchor)
+void BoxSizing__EffectiveAnchor_fn(BoxSizing* __this, ::g::Fuse::Elements::Element* element, int32_t* halign, int32_t* valign, ::g::Uno::UX::Size2* anchor)
 {
     __this->EffectiveAnchor(element, *halign, *valign, anchor);
 }
 
 // protected Fuse.Elements.SimpleAlignment EffectiveHorizontalAlignment(Fuse.Elements.Element element) :109
-void BoxSizing__EffectiveHorizontalAlignment_fn(BoxSizing* __this, ::g::Fuse::Elements::Element* element, int* __retval)
+void BoxSizing__EffectiveHorizontalAlignment_fn(BoxSizing* __this, ::g::Fuse::Elements::Element* element, int32_t* __retval)
 {
     *__retval = __this->EffectiveHorizontalAlignment(element);
 }
 
 // protected Fuse.Elements.SimpleAlignment EffectiveVerticalAlignment(Fuse.Elements.Element element) :126
-void BoxSizing__EffectiveVerticalAlignment_fn(BoxSizing* __this, ::g::Fuse::Elements::Element* element, int* __retval)
+void BoxSizing__EffectiveVerticalAlignment_fn(BoxSizing* __this, ::g::Fuse::Elements::Element* element, int32_t* __retval)
 {
     *__retval = __this->EffectiveVerticalAlignment(element);
 }
 
 // protected Fuse.LayoutParams GetConstraints(Fuse.Elements.Element element, Fuse.LayoutParams lp, [Fuse.Elements.BoxSizing.ConstraintFlags flags]) :170
-void BoxSizing__GetConstraints_fn(BoxSizing* __this, ::g::Fuse::Elements::Element* element, ::g::Fuse::LayoutParams* lp, int* flags, ::g::Fuse::LayoutParams* __retval)
+void BoxSizing__GetConstraints_fn(BoxSizing* __this, ::g::Fuse::Elements::Element* element, ::g::Fuse::LayoutParams* lp, int32_t* flags, ::g::Fuse::LayoutParams* __retval)
 {
     *__retval = __this->GetConstraints(element, *lp, *flags);
 }
 
 // public virtual Fuse.LayoutDependent IsContentRelativeSize(Fuse.Elements.Element element) :83
-void BoxSizing__IsContentRelativeSize_fn(BoxSizing* __this, ::g::Fuse::Elements::Element* element, int* __retval)
+void BoxSizing__IsContentRelativeSize_fn(BoxSizing* __this, ::g::Fuse::Elements::Element* element, int32_t* __retval)
 {
     return *__retval = 4, void();
 }
@@ -661,7 +673,7 @@ void BoxSizing__RequestLayout_fn(BoxSizing* __this, ::g::Fuse::Elements::Element
 }
 
 // protected float SimpleToAnchor(Fuse.Elements.SimpleAlignment align) :143
-void BoxSizing__SimpleToAnchor_fn(BoxSizing* __this, int* align, float* __retval)
+void BoxSizing__SimpleToAnchor_fn(BoxSizing* __this, int32_t* align, float* __retval)
 {
     *__retval = __this->SimpleToAnchor(*align);
 }
@@ -678,7 +690,7 @@ void BoxSizing::ctor_()
 }
 
 // protected void EffectiveAnchor(Fuse.Elements.Element element, Fuse.Elements.SimpleAlignment halign, Fuse.Elements.SimpleAlignment valign, Uno.UX.Size2& anchor) [instance] :152
-void BoxSizing::EffectiveAnchor(::g::Fuse::Elements::Element* element, int halign, int valign, ::g::Uno::UX::Size2* anchor)
+void BoxSizing::EffectiveAnchor(::g::Fuse::Elements::Element* element, int32_t halign, int32_t valign, ::g::Uno::UX::Size2* anchor)
 {
     if (uPtr(element)->HasBit(4096))
     {
@@ -690,9 +702,9 @@ void BoxSizing::EffectiveAnchor(::g::Fuse::Elements::Element* element, int halig
 }
 
 // protected Fuse.Elements.SimpleAlignment EffectiveHorizontalAlignment(Fuse.Elements.Element element) [instance] :109
-int BoxSizing::EffectiveHorizontalAlignment(::g::Fuse::Elements::Element* element)
+int32_t BoxSizing::EffectiveHorizontalAlignment(::g::Fuse::Elements::Element* element)
 {
-    int raw = ::g::Fuse::Elements::AlignmentHelpers::GetHorizontalAlign(uPtr(element)->Alignment());
+    int32_t raw = ::g::Fuse::Elements::AlignmentHelpers::GetHorizontalAlign(uPtr(element)->Alignment());
 
     if (raw == 1)
         return 0;
@@ -710,9 +722,9 @@ int BoxSizing::EffectiveHorizontalAlignment(::g::Fuse::Elements::Element* elemen
 }
 
 // protected Fuse.Elements.SimpleAlignment EffectiveVerticalAlignment(Fuse.Elements.Element element) [instance] :126
-int BoxSizing::EffectiveVerticalAlignment(::g::Fuse::Elements::Element* element)
+int32_t BoxSizing::EffectiveVerticalAlignment(::g::Fuse::Elements::Element* element)
 {
-    int raw = ::g::Fuse::Elements::AlignmentHelpers::GetVerticalAlign(uPtr(element)->Alignment());
+    int32_t raw = ::g::Fuse::Elements::AlignmentHelpers::GetVerticalAlign(uPtr(element)->Alignment());
 
     if (raw == 4)
         return 0;
@@ -730,7 +742,7 @@ int BoxSizing::EffectiveVerticalAlignment(::g::Fuse::Elements::Element* element)
 }
 
 // protected Fuse.LayoutParams GetConstraints(Fuse.Elements.Element element, Fuse.LayoutParams lp, [Fuse.Elements.BoxSizing.ConstraintFlags flags]) [instance] :170
-::g::Fuse::LayoutParams BoxSizing::GetConstraints(::g::Fuse::Elements::Element* element, ::g::Fuse::LayoutParams lp, int flags)
+::g::Fuse::LayoutParams BoxSizing::GetConstraints(::g::Fuse::Elements::Element* element, ::g::Fuse::LayoutParams lp, int32_t flags)
 {
     ::g::Fuse::LayoutParams c = ::g::Fuse::LayoutParams__CreateEmpty();
     bool known = false;
@@ -756,7 +768,7 @@ int BoxSizing::EffectiveVerticalAlignment(::g::Fuse::Elements::Element* element)
         c.SetY(lp.Y());
 
     known = false;
-    ::g::Uno::UX::Size limit = ::g::Uno::UX::Size__op_Implicit1(0);
+    ::g::Uno::UX::Size limit = ::g::Uno::UX::Size__op_Implicit2(0);
 
     if (uPtr(element)->HasBit(256))
     {
@@ -765,7 +777,7 @@ int BoxSizing::EffectiveVerticalAlignment(::g::Fuse::Elements::Element* element)
     }
     else if (((flags & 2) == 2) && uPtr(element)->Width().IsAuto())
     {
-        limit = ::g::Uno::UX::Size__op_Implicit(lp.X());
+        limit = ::g::Uno::UX::Size__op_Implicit1(lp.X());
         known = lp.HasX();
     }
 
@@ -786,7 +798,7 @@ int BoxSizing::EffectiveVerticalAlignment(::g::Fuse::Elements::Element* element)
     }
     else if (((flags & 2) == 2) && uPtr(element)->Height().IsAuto())
     {
-        limit = ::g::Uno::UX::Size__op_Implicit(lp.Y());
+        limit = ::g::Uno::UX::Size__op_Implicit1(lp.Y());
         known = lp.HasY();
     }
 
@@ -818,7 +830,7 @@ int BoxSizing::EffectiveVerticalAlignment(::g::Fuse::Elements::Element* element)
 }
 
 // protected float SimpleToAnchor(Fuse.Elements.SimpleAlignment align) [instance] :143
-float BoxSizing::SimpleToAnchor(int align)
+float BoxSizing::SimpleToAnchor(int32_t align)
 {
     if (align == 0)
         return 0.0f;
@@ -833,7 +845,7 @@ float BoxSizing::SimpleToAnchor(int align)
 float BoxSizing::UnitSize(::g::Fuse::Elements::Element* element, ::g::Uno::UX::Size value, float relative, bool hasRelative, bool* known)
 {
     *known = true;
-    int u = value.DetermineUnit();
+    int32_t u = value.DetermineUnit();
 
     if (u == 2)
         return value.Value;
@@ -849,26 +861,7 @@ float BoxSizing::UnitSize(::g::Fuse::Elements::Element* element, ::g::Uno::UX::S
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.Layout.uno
-// ----------------------------------------------------------------------------------------------
-
-// public enum Element.BoxSizingMode :155
-uEnumType* Element__BoxSizingMode_typeof()
-{
-    static uSStrong<uEnumType*> type;
-    if (type != NULL) return type;
-
-    type = uEnumType::New("Fuse.Elements.Element.BoxSizingMode", ::g::Uno::Int_typeof(), 5);
-    type->SetLiterals(
-        "Standard", 0LL,
-        "NoImplicitMax", 1LL,
-        "Limit", 2LL,
-        "LayoutMaster", 3LL,
-        "FillAspect", 4LL);
-    return type;
-}
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\Cache.Heuristic.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\Cache.Heuristic.uno
 // -------------------------------------------------------------------------------------------------------
 
 // internal partial sealed class Cache :8
@@ -883,8 +876,9 @@ static void Cache_build(uType* type)
 {
     ::TYPES[0] = ::g::Fuse::RootViewport_typeof();
     ::TYPES[1] = ::g::Fuse::Elements::CacheTile_typeof()->Array();
+    ::TYPES[2] = ::g::Uno::Exception_typeof();
     type->SetDependencies(
-        ::g::Uno::Graphics::Texture2D_typeof());
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Uno::Bool_typeof(), offsetof(Cache, _isValid), 0,
         ::g::Fuse::Elements::Element_typeof(), offsetof(Cache, _element), uFieldFlagsWeak,
@@ -909,43 +903,43 @@ uType* Cache_typeof()
     return type;
 }
 
-// public Cache(Fuse.Elements.Element elm) :42
+// public Cache(Fuse.Elements.Element elm) :43
 void Cache__ctor__fn(Cache* __this, ::g::Fuse::Elements::Element* elm)
 {
     __this->ctor_(elm);
 }
 
-// private void Blit(Fuse.DrawContext dc, float opacity) :206
+// private void Blit(Fuse.DrawContext dc, float opacity) :229
 void Cache__Blit_fn(Cache* __this, ::g::Fuse::DrawContext* dc, float* opacity)
 {
     __this->Blit(dc, *opacity);
 }
 
-// public Fuse.Elements.CacheTile[] get_CacheTiles() :40
+// public Fuse.Elements.CacheTile[] get_CacheTiles() :41
 void Cache__get_CacheTiles_fn(Cache* __this, uArray** __retval)
 {
     *__retval = __this->CacheTiles();
 }
 
-// internal float4x4 CalculateCompositMatrix(Fuse.DrawContext dc, Uno.Recti cachingRect) :109
+// internal float4x4 CalculateCompositMatrix(Fuse.DrawContext dc, Uno.Recti cachingRect) :118
 void Cache__CalculateCompositMatrix_fn(Cache* __this, ::g::Fuse::DrawContext* dc, ::g::Uno::Recti* cachingRect, ::g::Uno::Float4x4* __retval)
 {
     *__retval = __this->CalculateCompositMatrix(dc, *cachingRect);
 }
 
-// internal static Uno.Recti ConservativelySnapToCoveringIntegers(Uno.Rect r) :78
+// internal static Uno.Recti ConservativelySnapToCoveringIntegers(Uno.Rect r) :87
 void Cache__ConservativelySnapToCoveringIntegers_fn(::g::Uno::Rect* r, ::g::Uno::Recti* __retval)
 {
     *__retval = Cache::ConservativelySnapToCoveringIntegers(*r);
 }
 
-// internal bool DrawCached(Fuse.DrawContext dc) :53
+// internal bool DrawCached(Fuse.DrawContext dc) :54
 void Cache__DrawCached_fn(Cache* __this, ::g::Fuse::DrawContext* dc, bool* __retval)
 {
     *__retval = __this->DrawCached(dc);
 }
 
-// internal void DrawHeuristically(Fuse.DrawContext dc) :66
+// internal void DrawHeuristically(Fuse.DrawContext dc) :75
 void Cache__DrawHeuristically_fn(Cache* __this, ::g::Fuse::DrawContext* dc)
 {
     __this->DrawHeuristically(dc);
@@ -963,57 +957,57 @@ void Cache__GetCachePreferenceCore_fn(Cache* __this, ::g::Fuse::DrawContext* dc,
     *__retval = __this->GetCachePreferenceCore(dc);
 }
 
-// private bool GetCachingRect(Fuse.DrawContext dc, Uno.Recti& rect) :90
+// private bool GetCachingRect(Fuse.DrawContext dc, Uno.Recti& rect) :99
 void Cache__GetCachingRect_fn(Cache* __this, ::g::Fuse::DrawContext* dc, ::g::Uno::Recti* rect, bool* __retval)
 {
     *__retval = __this->GetCachingRect(dc, rect);
 }
 
-// private static bool GetCachingRect(Fuse.Elements.Element elm, Uno.Recti& rect) :95
+// private static bool GetCachingRect(Fuse.Elements.Element elm, Uno.Recti& rect) :104
 void Cache__GetCachingRect1_fn(::g::Fuse::Elements::Element* elm, ::g::Uno::Recti* rect, bool* __retval)
 {
     *__retval = Cache::GetCachingRect1(elm, rect);
 }
 
-// internal void Invalidate() :48
+// internal void Invalidate() :49
 void Cache__Invalidate_fn(Cache* __this)
 {
     __this->Invalidate();
 }
 
-// internal int get_MaxTileSize() :115
-void Cache__get_MaxTileSize_fn(Cache* __this, int* __retval)
+// internal int get_MaxTileSize() :124
+void Cache__get_MaxTileSize_fn(Cache* __this, int32_t* __retval)
 {
     *__retval = __this->MaxTileSize();
 }
 
-// public Cache New(Fuse.Elements.Element elm) :42
+// public Cache New(Fuse.Elements.Element elm) :43
 void Cache__New1_fn(::g::Fuse::Elements::Element* elm, Cache** __retval)
 {
     *__retval = Cache::New1(elm);
 }
 
-// private bool PinAndValidate(Fuse.DrawContext dc) :117
+// private bool PinAndValidate(Fuse.DrawContext dc) :126
 void Cache__PinAndValidate_fn(Cache* __this, ::g::Fuse::DrawContext* dc, bool* __retval)
 {
     *__retval = __this->PinAndValidate(dc);
 }
 
-// private void Repaint(Fuse.DrawContext dc, Fuse.Elements.CacheTile tile) :173
+// private void Repaint(Fuse.DrawContext dc, Fuse.Elements.CacheTile tile) :196
 void Cache__Repaint_fn(Cache* __this, ::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::CacheTile* tile)
 {
     __this->Repaint(dc, *tile);
 }
 
-// private void Unpin() :165
-void Cache__Unpin_fn(Cache* __this)
+// private void Unpin(bool validate) :188
+void Cache__Unpin_fn(Cache* __this, bool* validate)
 {
-    __this->Unpin();
+    __this->Unpin(*validate);
 }
 
 uSStrong< ::g::Fuse::Elements::CacheHelper*> Cache::cacheHelper_;
 
-// public Cache(Fuse.Elements.Element elm) [instance] :42
+// public Cache(Fuse.Elements.Element elm) [instance] :43
 void Cache::ctor_(::g::Fuse::Elements::Element* elm)
 {
     _element = elm;
@@ -1022,37 +1016,61 @@ void Cache::ctor_(::g::Fuse::Elements::Element* elm)
         U_THROW(::g::Uno::Exception::New1());
 }
 
-// private void Blit(Fuse.DrawContext dc, float opacity) [instance] :206
+// private void Blit(Fuse.DrawContext dc, float opacity) [instance] :229
 void Cache::Blit(::g::Fuse::DrawContext* dc, float opacity)
 {
     uPtr(Cache::cacheHelper_)->Blit(dc, this, opacity);
 }
 
-// public Fuse.Elements.CacheTile[] get_CacheTiles() [instance] :40
+// public Fuse.Elements.CacheTile[] get_CacheTiles() [instance] :41
 uArray* Cache::CacheTiles()
 {
     return _cacheTiles;
 }
 
-// internal float4x4 CalculateCompositMatrix(Fuse.DrawContext dc, Uno.Recti cachingRect) [instance] :109
+// internal float4x4 CalculateCompositMatrix(Fuse.DrawContext dc, Uno.Recti cachingRect) [instance] :118
 ::g::Uno::Float4x4 Cache::CalculateCompositMatrix(::g::Fuse::DrawContext* dc, ::g::Uno::Recti cachingRect)
 {
     ::g::Uno::Float4x4 translation = ::g::Uno::Matrix::Translation((float)cachingRect.Left / uPtr(_element)->AbsoluteZoom(), (float)cachingRect.Top / uPtr(_element)->AbsoluteZoom(), 0.0f);
     return ::g::Uno::Matrix::Mul8(translation, uPtr(_element)->WorldTransform());
 }
 
-// internal bool DrawCached(Fuse.DrawContext dc) [instance] :53
+// internal bool DrawCached(Fuse.DrawContext dc) [instance] :54
 bool Cache::DrawCached(::g::Fuse::DrawContext* dc)
 {
     if (!PinAndValidate(dc))
         return false;
 
-    Blit(dc, uPtr(_element)->Opacity());
-    Unpin();
-    return true;
+    bool validated = false;
+
+    {
+        try
+        {
+            {
+                Blit(dc, uPtr(_element)->Opacity());
+                validated = true;
+            }
+        }
+
+        catch (const uThrowable& __t)
+        {
+            {
+                Unpin(validated);
+            }
+                        throw __t;
+            goto __after_finally_0;
+        }
+
+        {
+            Unpin(validated);
+        }
+        __after_finally_0:;
+    }
+
+    return validated;
 }
 
-// internal void DrawHeuristically(Fuse.DrawContext dc) [instance] :66
+// internal void DrawHeuristically(Fuse.DrawContext dc) [instance] :75
 void Cache::DrawHeuristically(::g::Fuse::DrawContext* dc)
 {
     if (GetCachePreference(dc))
@@ -1111,25 +1129,25 @@ bool Cache::GetCachePreferenceCore(::g::Fuse::DrawContext* dc)
     return false;
 }
 
-// private bool GetCachingRect(Fuse.DrawContext dc, Uno.Recti& rect) [instance] :90
+// private bool GetCachingRect(Fuse.DrawContext dc, Uno.Recti& rect) [instance] :99
 bool Cache::GetCachingRect(::g::Fuse::DrawContext* dc, ::g::Uno::Recti* rect)
 {
     return Cache::GetCachingRect1(_element, rect);
 }
 
-// internal void Invalidate() [instance] :48
+// internal void Invalidate() [instance] :49
 void Cache::Invalidate()
 {
     _isValid = false;
 }
 
-// internal int get_MaxTileSize() [instance] :115
-int Cache::MaxTileSize()
+// internal int get_MaxTileSize() [instance] :124
+int32_t Cache::MaxTileSize()
 {
     return ::g::Uno::Graphics::Texture2D::MaxSize();
 }
 
-// private bool PinAndValidate(Fuse.DrawContext dc) [instance] :117
+// private bool PinAndValidate(Fuse.DrawContext dc) [instance] :126
 bool Cache::PinAndValidate(::g::Fuse::DrawContext* dc)
 {
     ::g::Uno::Recti cacheRect;
@@ -1139,38 +1157,54 @@ bool Cache::PinAndValidate(::g::Fuse::DrawContext* dc)
 
     if (!::g::Uno::Recti__Equals2(cacheRect, _cacheRect))
     {
-        int numTilesX = ((cacheRect.Size().X + MaxTileSize()) - 1) / MaxTileSize();
-        int numTilesY = ((cacheRect.Size().Y + MaxTileSize()) - 1) / MaxTileSize();
-        int numTiles = numTilesX * numTilesY;
+        int32_t numTilesX = ((cacheRect.Size().X + MaxTileSize()) - 1) / MaxTileSize();
+        int32_t numTilesY = ((cacheRect.Size().Y + MaxTileSize()) - 1) / MaxTileSize();
+        int32_t numTiles = numTilesX * numTilesY;
 
         if ((_cacheTiles == NULL) || (numTiles != uPtr(_cacheTiles)->Length()))
             _cacheTiles = uArray::New(::TYPES[1/*Fuse.Elements.CacheTile[]*/], numTiles);
 
-        for (int y = 0; y < numTilesY; ++y)
+        for (int32_t y = 0; y < numTilesY; ++y)
 
-            for (int x = 0; x < numTilesX; ++x)
+            for (int32_t x = 0; x < numTilesX; ++x)
             {
-                int tile = x + (y * numTilesX);
+                int32_t tile = x + (y * numTilesX);
                 ::g::Uno::Int2 Position = ::g::Uno::Int2__New2(x * MaxTileSize(), y * MaxTileSize());
                 uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(tile)._rect = ::g::Uno::Recti__New1(cacheRect.Left + Position.X, cacheRect.Top + Position.Y, (cacheRect.Left + Position.X) + ::g::Uno::Math::Min8(cacheRect.Size().X - Position.X, MaxTileSize()), (cacheRect.Top + Position.Y) + ::g::Uno::Math::Min8(cacheRect.Size().Y - Position.Y, MaxTileSize()));
             }
     }
 
-    for (int i = 0; i < uPtr(_cacheTiles)->Length(); ++i)
+    try
     {
-        uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i).EnsureHasFramebuffer();
-        uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i)._compositMatrix = CalculateCompositMatrix(dc, uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i)._rect);
-        uPtr(uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i)._framebuffer)->Pin();
+        {
+            for (int32_t i = 0; i < uPtr(_cacheTiles)->Length(); ++i)
+            {
+                uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i).EnsureHasFramebuffer();
+                uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i)._compositMatrix = CalculateCompositMatrix(dc, uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i)._rect);
+                uPtr(uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i)._framebuffer)->Pin();
 
-        if (!uPtr(uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i)._framebuffer)->IsContentValid() || !_isValid)
-            Repaint(dc, uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i));
+                if (!uPtr(uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i)._framebuffer)->IsContentValid() || !_isValid)
+                    Repaint(dc, uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i));
+            }
+        }
+    }
+
+    catch (const uThrowable& __t)
+    {
+        ::g::Uno::Exception* e = __t.Exception;
+
+        for (int32_t i1 = 0; i1 < uPtr(_cacheTiles)->Length(); ++i1)
+            if (uPtr(uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i1)._framebuffer)->IsPinned())
+                uPtr(uPtr(_cacheTiles)->Item< ::g::Fuse::Elements::CacheTile>(i1)._framebuffer)->Unpin(false);
+
+        throw __t;
     }
 
     _isValid = true;
     return true;
 }
 
-// private void Repaint(Fuse.DrawContext dc, Fuse.Elements.CacheTile tile) [instance] :173
+// private void Repaint(Fuse.DrawContext dc, Fuse.Elements.CacheTile tile) [instance] :196
 void Cache::Repaint(::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::CacheTile tile)
 {
     ::g::Fuse::OrthographicFrustum* collection4;
@@ -1192,53 +1226,60 @@ void Cache::Repaint(::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::CacheTile t
     dc->IsCaching(true);
     dc->PushRenderTargetFrustum(uPtr(tile._framebuffer)->Framebuffer(), (uObject*)cc);
 
-    try
     {
+        try
         {
-            uPtr(dc)->Clear(::g::Uno::Float4__New1(0.0f), 1.0f);
-            uPtr(_element)->CompositEffects(dc);
+            {
+                uPtr(dc)->Clear(::g::Uno::Float4__New1(0.0f), 1.0f);
+                uPtr(_element)->CompositEffects(dc);
+            }
         }
-        {
-            uPtr(dc)->PopRenderTargetFrustum();
-            dc->IsCaching(oldIsCaching);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                uPtr(dc)->PopRenderTargetFrustum();
+                dc->IsCaching(oldIsCaching);
+            }
+                        throw __t;
+            goto __after_finally_1;
+        }
+
         {
             uPtr(dc)->PopRenderTargetFrustum();
             dc->IsCaching(oldIsCaching);
         }
-                throw __t;
+        __after_finally_1:;
     }
 }
 
-// private void Unpin() [instance] :165
-void Cache::Unpin()
+// private void Unpin(bool validate) [instance] :188
+void Cache::Unpin(bool validate)
 {
     uArray* array1;
-    int index2;
-    int length3;
+    int32_t index2;
+    int32_t length3;
 
     for (array1 = _cacheTiles, index2 = 0, length3 = uPtr(array1)->Length(); index2 < length3; ++index2)
     {
         ::g::Fuse::Elements::CacheTile tile = uPtr(array1)->Item< ::g::Fuse::Elements::CacheTile>(index2);
-        uPtr(tile._framebuffer)->Unpin(true);
+        uPtr(tile._framebuffer)->Unpin(validate);
     }
 }
 
-// internal static Uno.Recti ConservativelySnapToCoveringIntegers(Uno.Rect r) [static] :78
+// internal static Uno.Recti ConservativelySnapToCoveringIntegers(Uno.Rect r) [static] :87
 ::g::Uno::Recti Cache::ConservativelySnapToCoveringIntegers(::g::Uno::Rect r)
 {
+    Cache_typeof()->Init();
     ::g::Uno::Int2 origin = ::g::Uno::Int2__op_Explicit1(::g::Uno::Math::Floor2(r.LeftTop()));
     ::g::Uno::Int2 size = ::g::Uno::Int2__op_Explicit1(::g::Uno::Math::Ceil2(::g::Uno::Float2__op_Addition1(::g::Uno::Float2__op_Subtraction2(r.RightBottom(), r.LeftTop()), 0.01f)));
     return ::g::Uno::Recti__New1(origin.X, origin.Y, (origin.X + size.X) + 1, (origin.Y + size.Y) + 1);
 }
 
-// private static bool GetCachingRect(Fuse.Elements.Element elm, Uno.Recti& rect) [static] :95
+// private static bool GetCachingRect(Fuse.Elements.Element elm, Uno.Recti& rect) [static] :104
 bool Cache::GetCachingRect1(::g::Fuse::Elements::Element* elm, ::g::Uno::Recti* rect)
 {
+    Cache_typeof()->Init();
     ::g::Fuse::VisualBounds* bounds = uPtr(elm)->RenderBoundsWithEffects();
 
     if (uPtr(bounds)->IsInfinite() || uPtr(bounds)->IsEmpty())
@@ -1251,7 +1292,7 @@ bool Cache::GetCachingRect1(::g::Fuse::Elements::Element* elm, ::g::Uno::Recti* 
     return true;
 }
 
-// public Cache New(Fuse.Elements.Element elm) [static] :42
+// public Cache New(Fuse.Elements.Element elm) [static] :43
 Cache* Cache::New1(::g::Fuse::Elements::Element* elm)
 {
     Cache* obj8 = (Cache*)uNew(Cache_typeof());
@@ -1260,19 +1301,16 @@ Cache* Cache::New1(::g::Fuse::Elements::Element* elm)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\Cache.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\Cache.uno
 // ---------------------------------------------------------------------------------------------
 
-// internal sealed class CacheHelper :212
+// internal sealed class CacheHelper :235
 // {
 static void CacheHelper_build(uType* type)
 {
-    ::TYPES[2] = ::g::Fuse::IRenderViewport_typeof();
-    ::TYPES[3] = ::g::Uno::Float2_typeof()->Array();
-    type->SetFields(0,
-        ::g::Uno::Graphics::VertexBuffer_typeof(), offsetof(CacheHelper, Blit_Coord_be52273c_1_1_1), 0,
-        ::TYPES[3/*float2[]*/], offsetof(CacheHelper, Blit_Vertices_be52273c_1_0_7), 0,
-        ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall_typeof(), offsetof(CacheHelper, _draw_be52273c), 0);
+    ::TYPES[3] = ::g::Fuse::IRenderViewport_typeof();
+    type->SetDependencies(
+        ::g::Fuse::Common::Blitter_typeof());
 }
 
 uType* CacheHelper_typeof()
@@ -1281,7 +1319,7 @@ uType* CacheHelper_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.FieldCount = 3;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(CacheHelper);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Elements.CacheHelper", options);
@@ -1290,72 +1328,46 @@ uType* CacheHelper_typeof()
     return type;
 }
 
-// public generated CacheHelper() :212
+// public generated CacheHelper() :235
 void CacheHelper__ctor__fn(CacheHelper* __this)
 {
     __this->ctor_();
 }
 
-// public void Blit(Fuse.DrawContext dc, Fuse.Elements.Cache cache, float opacity) :214
+// public void Blit(Fuse.DrawContext dc, Fuse.Elements.Cache cache, float opacity) :237
 void CacheHelper__Blit_fn(CacheHelper* __this, ::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::Cache* cache, float* opacity)
 {
     __this->Blit(dc, cache, *opacity);
 }
 
-// private generated void init_DrawCalls() :212
-void CacheHelper__init_DrawCalls_fn(CacheHelper* __this)
-{
-    __this->init_DrawCalls();
-}
-
-// public generated CacheHelper New() :212
+// public generated CacheHelper New() :235
 void CacheHelper__New1_fn(CacheHelper** __retval)
 {
     *__retval = CacheHelper::New1();
 }
 
-// public generated CacheHelper() [instance] :212
+// public generated CacheHelper() [instance] :235
 void CacheHelper::ctor_()
 {
-    init_DrawCalls();
 }
 
-// public void Blit(Fuse.DrawContext dc, Fuse.Elements.Cache cache, float opacity) [instance] :214
+// public void Blit(Fuse.DrawContext dc, Fuse.Elements.Cache cache, float opacity) [instance] :237
 void CacheHelper::Blit(::g::Fuse::DrawContext* dc, ::g::Fuse::Elements::Cache* cache, float opacity)
 {
     uArray* array1;
-    int index2;
-    int length3;
+    int32_t index2;
+    int32_t length3;
 
     for (array1 = uPtr(cache)->CacheTiles(), index2 = 0, length3 = uPtr(array1)->Length(); index2 < length3; ++index2)
     {
         ::g::Fuse::Elements::CacheTile tile = uPtr(array1)->Item< ::g::Fuse::Elements::CacheTile>(index2);
-        _draw_be52273c.BlendEnabled(true);
-        _draw_be52273c.DepthTestEnabled(false);
-        _draw_be52273c.CullFace(uPtr(dc)->CullFace());
-        _draw_be52273c.BlendSrcAlpha(7);
-        _draw_be52273c.BlendDstRgb(3);
-        _draw_be52273c.Use();
-        _draw_be52273c.Attrib1(0, 2, Blit_Coord_be52273c_1_1_1, 8, 0);
-        _draw_be52273c.Uniform2(1, ::g::Uno::Float2__op_Division1(::g::Uno::Float2__New2((float)uPtr(tile.Texture())->Size().X, (float)uPtr(tile.Texture())->Size().Y), dc->ViewportPixelsPerPoint()));
-        _draw_be52273c.Uniform12(2, tile._compositMatrix);
-        _draw_be52273c.Uniform12(3, ::g::Fuse::IRenderViewport::ViewProjectionTransform(uInterface(uPtr(dc->Viewport()), ::TYPES[2/*Fuse.IRenderViewport*/])));
-        _draw_be52273c.Uniform(4, opacity);
-        _draw_be52273c.Sampler3(5, tile.Texture(), ::g::Uno::Graphics::SamplerState__LinearClamp());
-        _draw_be52273c.DrawArrays(uPtr(Blit_Vertices_be52273c_1_0_7)->Length());
+        ::g::Uno::Float2 size = ::g::Uno::Float2__op_Division1(::g::Uno::Float2__New2((float)uPtr(tile.Texture())->Size().X, (float)uPtr(tile.Texture())->Size().Y), uPtr(dc)->ViewportPixelsPerPoint());
+        ::g::Uno::Float4x4 localToClipTransform = ::g::Uno::Matrix::Mul8(tile._compositMatrix, ::g::Fuse::IRenderViewport::ViewProjectionTransform(uInterface(uPtr(dc->Viewport()), ::TYPES[3/*Fuse.IRenderViewport*/])));
+        uPtr(::g::Fuse::Common::Blitter::Singleton())->Blit1(tile.Texture(), ::g::Uno::Rect__New2(::g::Uno::Float2__New1(0.0f), size), localToClipTransform, opacity, true, dc->CullFace());
     }
 }
 
-// private generated void init_DrawCalls() [instance] :212
-void CacheHelper::init_DrawCalls()
-{
-    uArray* Vertices_be52273c_1_0_0 = uArray::Init< ::g::Uno::Float2>(::TYPES[3/*float2[]*/], 6, ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(0.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(0.0f, 0.0f), ::g::Uno::Float2__New2(1.0f, 1.0f), ::g::Uno::Float2__New2(1.0f, 0.0f));
-    Blit_Coord_be52273c_1_1_1 = ::g::Uno::Graphics::VertexBuffer::New2(::g::Uno::Runtime::Implementation::Internal::BufferConverters::ToBuffer3(Vertices_be52273c_1_0_0), 0);
-    Blit_Vertices_be52273c_1_0_7 = Vertices_be52273c_1_0_0;
-    _draw_be52273c = ::g::Uno::Runtime::Implementation::ShaderBackends::OpenGL::GLDrawCall__New1(::g::FuseElements_bundle::CacheHelper230c69b7());
-}
-
-// public generated CacheHelper New() [static] :212
+// public generated CacheHelper New() [static] :235
 CacheHelper* CacheHelper::New1()
 {
     CacheHelper* obj4 = (CacheHelper*)uNew(CacheHelper_typeof());
@@ -1364,10 +1376,10 @@ CacheHelper* CacheHelper::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\Cache.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\Cache.uno
 // ---------------------------------------------------------------------------------------------
 
-// internal struct CacheTile :10
+// internal struct CacheTile :11
 // {
 static void CacheTile_build(uType* type)
 {
@@ -1392,19 +1404,19 @@ uStructType* CacheTile_typeof()
     return type;
 }
 
-// public void EnsureHasFramebuffer() :18
+// public void EnsureHasFramebuffer() :19
 void CacheTile__EnsureHasFramebuffer_fn(CacheTile* __this)
 {
     __this->EnsureHasFramebuffer();
 }
 
-// public texture2D get_Texture() :16
+// public texture2D get_Texture() :17
 void CacheTile__get_Texture_fn(CacheTile* __this, ::g::Uno::Graphics::Texture2D** __retval)
 {
     *__retval = __this->Texture();
 }
 
-// public void EnsureHasFramebuffer() [instance] :18
+// public void EnsureHasFramebuffer() [instance] :19
 void CacheTile::EnsureHasFramebuffer()
 {
     if (((_framebuffer == NULL) || (uPtr(_framebuffer)->Width() != _rect.Size().X)) || (uPtr(_framebuffer)->Height() != _rect.Size().Y))
@@ -1416,14 +1428,14 @@ void CacheTile::EnsureHasFramebuffer()
     }
 }
 
-// public texture2D get_Texture() [instance] :16
+// public texture2D get_Texture() [instance] :17
 ::g::Uno::Graphics::Texture2D* CacheTile::Texture()
 {
     return uPtr(uPtr(_framebuffer)->Framebuffer())->ColorBuffer();
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Enums.uno
 // -------------------------------------------------------------------------------------
 
 // public enum CachingMode :160
@@ -1440,7 +1452,7 @@ uEnumType* CachingMode_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.Transform.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.Transform.uno
 // -------------------------------------------------------------------------------------------------
 
 // private sealed class TransformOrigins.CenterOrigin :53
@@ -1505,7 +1517,7 @@ TransformOrigins__CenterOrigin* TransformOrigins__CenterOrigin::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\BoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\BoxSizing.uno
 // -----------------------------------------------------------------------------------------
 
 // protected enum BoxSizing.ConstraintFlags :165
@@ -1521,7 +1533,7 @@ uEnumType* BoxSizing__ConstraintFlags_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementAtlasPool.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementAtlasPool.uno
 // --------------------------------------------------------------------------------------------------------
 
 // internal static class DisplayHelpers :89
@@ -1558,7 +1570,7 @@ void DisplayHelpers__get_DisplaySizeHint_fn(::g::Uno::Int2* __retval)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\AspectBoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\AspectBoxSizing.uno
 // -----------------------------------------------------------------------------------------------
 
 // public interfacemodifiers class Element :102
@@ -1566,48 +1578,43 @@ void DisplayHelpers__get_DisplaySizeHint_fn(::g::Uno::Int2* __retval)
 // static Element() :10
 static void Element__cctor_2_fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
     ::g::Fuse::Elements::TransformOrigins_typeof()->Init();
-    Element::_hitTestModeName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("HitTestMode"));
-    Element::_visibilityName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Visibility"));
-    Element::_clipToBoundsName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("ClipToBounds"));
-    Element::_opacityName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("Opacity"));
-    Element::DefaultTransformOrigin_ = ::g::Fuse::Elements::TransformOrigins::Center_;
-    Element::ExplicitTransformOriginName_ = ::g::Uno::UX::Selector__op_Implicit(uString::Const("ExplicitTransformOrigin"));
+    Element::_hitTestModeName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("HitTestMode"));
+    Element::_visibilityName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Visibility"));
+    Element::_clipToBoundsName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("ClipToBounds"));
+    Element::_opacityName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("Opacity"));
+    Element::DefaultTransformOrigin_ = ::g::Fuse::Elements::TransformOrigins::Center();
+    Element::ExplicitTransformOriginName_ = ::g::Uno::UX::Selector__op_Implicit1(uString::Const("ExplicitTransformOrigin"));
 }
 
 static void Element_build(uType* type)
 {
     type->SetDependencies(
         ::g::Uno::Diagnostics::Debug_typeof(),
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Fuse::Elements::ElementBatcher_typeof(),
-        ::g::Fuse::Elements::FillAspectBoxSizing_typeof(),
-        ::g::Fuse::Elements::LayoutMasterBoxSizing_typeof(),
-        ::g::Fuse::Elements::LimitBoxSizing_typeof(),
-        ::g::Fuse::Elements::NoImplicitMaxBoxSizing_typeof(),
+        ::g::Uno::Math_typeof(),
         ::g::Fuse::Elements::StandardBoxSizing_typeof(),
-        ::g::Uno::Graphics::Texture2D_typeof(),
+        ::g::Fuse::UpdateManager_typeof(),
         ::g::Fuse::VisualBounds_typeof());
     type->SetInterfaces(
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Element_type, interface0),
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(Element_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(Element_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(Element_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Element_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Element_type, interface5),
-        ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(Element_type, interface6),
-        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(Element_type, interface7),
-        ::g::Fuse::ITemplateSource_typeof(), offsetof(Element_type, interface8),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Visual_typeof(), NULL), offsetof(Element_type, interface9),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(Element_type, interface10),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(Element_type, interface11),
-        ::g::Fuse::Triggers::Actions::IShow_typeof(), offsetof(Element_type, interface12),
-        ::g::Fuse::Triggers::Actions::IHide_typeof(), offsetof(Element_type, interface13),
-        ::g::Fuse::Triggers::Actions::ICollapse_typeof(), offsetof(Element_type, interface14),
-        ::g::Fuse::IActualPlacement_typeof(), offsetof(Element_type, interface15),
-        ::g::Fuse::Animations::IResize_typeof(), offsetof(Element_type, interface16));
-    type->SetFields(65,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(Element_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Element_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Element_type, interface6),
+        ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(Element_type, interface7),
+        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(Element_type, interface8),
+        ::g::Fuse::ITemplateSource_typeof(), offsetof(Element_type, interface9),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Visual_typeof(), NULL), offsetof(Element_type, interface10),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(Element_type, interface11),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Node_typeof(), NULL), offsetof(Element_type, interface12),
+        ::g::Fuse::Triggers::Actions::IShow_typeof(), offsetof(Element_type, interface13),
+        ::g::Fuse::Triggers::Actions::IHide_typeof(), offsetof(Element_type, interface14),
+        ::g::Fuse::Triggers::Actions::ICollapse_typeof(), offsetof(Element_type, interface15),
+        ::g::Fuse::IActualPlacement_typeof(), offsetof(Element_type, interface16),
+        ::g::Fuse::Animations::IResize_typeof(), offsetof(Element_type, interface17));
+    type->SetFields(68,
         ::g::Fuse::Elements::ElementBatcher_typeof(), offsetof(Element, _elementBatcher), 0,
         ::g::Uno::Bool_typeof(), offsetof(Element, _elementBatchValid), 0,
         ::g::Fuse::VisualBounds_typeof(), offsetof(Element, _renderBoundsWithEffects), 0,
@@ -1632,13 +1639,13 @@ static void Element_build(uType* type)
         ::g::Uno::Int_typeof(), offsetof(Element, _gmsAt), 0,
         Element__GMSCacheItem_typeof()->Array(), offsetof(Element, _gmsCache), 0,
         ::g::Fuse::Elements::BoxSizing_typeof(), offsetof(Element, _boxSizing), 0,
-        Element__BoxSizingMode_typeof(), offsetof(Element, _boxSizingMode), 0,
         ::g::Uno::Float2_typeof(), offsetof(Element, _actualAnchor), 0,
         ::g::Fuse::Node_typeof(), offsetof(Element, _placedBefore), uFieldFlagsWeak,
         ::g::Uno::Float2_typeof(), offsetof(Element, _ppPrevSize), 0,
         ::g::Uno::Float2_typeof(), offsetof(Element, _ppPrevPosition), 0,
         ::g::Uno::Bool_typeof(), offsetof(Element, ignoreTempArrange), 0,
         ::g::Uno::Bool_typeof(), offsetof(Element, _pendingDispatchPlacement), 0,
+        ::g::Uno::Bool_typeof(), offsetof(Element, _hasNotifiedRenderBoundsChanged), 0,
         ::g::Fuse::Elements::ElementBatchEntry_typeof(), offsetof(Element, _ElementBatchEntry), 0,
         ::g::Fuse::PlacedHandler_typeof(), offsetof(Element, Placed1), 0,
         ::g::Fuse::Elements::PreplacementHandler_typeof(), offsetof(Element, Preplacement1), 0,
@@ -1658,9 +1665,9 @@ Element_type* Element_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Visual_typeof();
-    options.FieldCount = 106;
-    options.InterfaceCount = 17;
-    options.DependencyCount = 10;
+    options.FieldCount = 109;
+    options.InterfaceCount = 18;
+    options.DependencyCount = 5;
     options.ObjectSize = sizeof(Element);
     options.TypeSize = sizeof(Element_type);
     type = (Element_type*)uClassType::New("Fuse.Elements.Element", options);
@@ -1671,7 +1678,6 @@ Element_type* Element_typeof()
     type->fp_CalcRenderBounds = Element__CalcRenderBounds_fn;
     type->fp_get_CanAdjustMarginBox = (void(*)(::g::Fuse::Visual*, bool*))Element__get_CanAdjustMarginBox_fn;
     type->fp_Draw = (void(*)(::g::Fuse::Visual*, ::g::Fuse::DrawContext*))Element__Draw_fn;
-    type->fp_DrawSelection = (void(*)(::g::Fuse::Visual*, ::g::Fuse::DrawContext*))Element__DrawSelection_fn;
     type->fp_DrawWithChildren = Element__DrawWithChildren_fn;
     type->fp_FastTrackDrawWithOpacity = Element__FastTrackDrawWithOpacity_fn;
     type->fp_GetContentSize = Element__GetContentSize_fn;
@@ -1681,7 +1687,7 @@ Element_type* Element_typeof()
     type->fp_get_HitTestLocalVisualBounds = Element__get_HitTestLocalVisualBounds_fn;
     type->fp_InvalidateLocalTransform = (void(*)(::g::Fuse::Visual*))Element__InvalidateLocalTransform_fn;
     type->fp_get_IsLocalVisible = (void(*)(::g::Fuse::Visual*, bool*))Element__get_IsLocalVisible_fn;
-    type->fp_IsMarginBoxDependent = (void(*)(::g::Fuse::Visual*, ::g::Fuse::Visual*, int*))Element__IsMarginBoxDependent_fn;
+    type->fp_IsMarginBoxDependent = (void(*)(::g::Fuse::Visual*, ::g::Fuse::Visual*, int32_t*))Element__IsMarginBoxDependent_fn;
     type->fp_get_LocalRenderBounds = (void(*)(::g::Fuse::Visual*, ::g::Fuse::VisualBounds**))Element__get_LocalRenderBounds_fn;
     type->fp_OnAdjustMarginBoxPosition = (void(*)(::g::Fuse::Visual*, ::g::Uno::Float2*))Element__OnAdjustMarginBoxPosition_fn;
     type->fp_OnArrangeMarginBox = (void(*)(::g::Fuse::Visual*, ::g::Uno::Float2*, ::g::Fuse::LayoutParams*, ::g::Uno::Float2*))Element__OnArrangeMarginBox_fn;
@@ -1704,40 +1710,43 @@ Element_type* Element_typeof()
     type->fp_PrependInverseTransformOrigin = (void(*)(::g::Fuse::Visual*, ::g::Fuse::FastMatrix*))Element__PrependInverseTransformOrigin_fn;
     type->fp_PrependTransformOrigin = (void(*)(::g::Fuse::Visual*, ::g::Fuse::FastMatrix*))Element__PrependTransformOrigin_fn;
     type->fp_get_TreeRenderer = Element__get_TreeRenderer_fn;
-    type->interface12.fp_Show = (void(*)(uObject*))Element__FuseTriggersActionsIShowShow_fn;
-    type->interface14.fp_Collapse = (void(*)(uObject*))Element__FuseTriggersActionsICollapseCollapse_fn;
-    type->interface13.fp_Hide = (void(*)(uObject*))Element__FuseTriggersActionsIHideHide_fn;
-    type->interface16.fp_SetSize = (void(*)(uObject*, ::g::Uno::Float2*))Element__FuseAnimationsIResizeSetSize_fn;
-    type->interface15.fp_get_ActualSize = (void(*)(uObject*, ::g::Uno::Float3*))Element__FuseIActualPlacementget_ActualSize_fn;
-    type->interface15.fp_add_Placed = (void(*)(uObject*, uDelegate*))Element__add_Placed_fn;
-    type->interface15.fp_remove_Placed = (void(*)(uObject*, uDelegate*))Element__remove_Placed_fn;
-    type->interface9.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Visual__UnoCollectionsIEnumerableFuseVisualGetEnumerator_fn;
-    type->interface10.fp_Clear = (void(*)(uObject*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeClear_fn;
-    type->interface10.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeContains_fn;
-    type->interface6.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Visual__UnoCollectionsIListFuseNodeRemoveAt_fn;
-    type->interface11.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Visual__UnoCollectionsIEnumerableFuseNodeGetEnumerator_fn;
-    type->interface10.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeget_Count_fn;
-    type->interface6.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Visual__UnoCollectionsIListFuseNodeget_Item_fn;
-    type->interface6.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Visual__Insert1_fn;
-    type->interface7.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))::g::Fuse::Visual__OnPropertyChanged2_fn;
-    type->interface8.fp_FindTemplate = (void(*)(uObject*, uString*, ::g::Uno::UX::Template**))::g::Fuse::Visual__FindTemplate_fn;
-    type->interface10.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Visual__Add1_fn;
-    type->interface10.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Visual__Remove1_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface13.fp_Show = (void(*)(uObject*))Element__FuseTriggersActionsIShowShow_fn;
+    type->interface15.fp_Collapse = (void(*)(uObject*))Element__FuseTriggersActionsICollapseCollapse_fn;
+    type->interface14.fp_Hide = (void(*)(uObject*))Element__FuseTriggersActionsIHideHide_fn;
+    type->interface17.fp_SetSize = (void(*)(uObject*, ::g::Uno::Float2*))Element__FuseAnimationsIResizeSetSize_fn;
+    type->interface16.fp_get_ActualSize = (void(*)(uObject*, ::g::Uno::Float3*))Element__FuseIActualPlacementget_ActualSize_fn;
+    type->interface16.fp_add_Placed = (void(*)(uObject*, uDelegate*))Element__add_Placed_fn;
+    type->interface16.fp_remove_Placed = (void(*)(uObject*, uDelegate*))Element__remove_Placed_fn;
+    type->interface10.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Visual__UnoCollectionsIEnumerableFuseVisualGetEnumerator_fn;
+    type->interface11.fp_Clear = (void(*)(uObject*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeClear_fn;
+    type->interface11.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeContains_fn;
+    type->interface7.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Visual__UnoCollectionsIListFuseNodeRemoveAt_fn;
+    type->interface12.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Visual__UnoCollectionsIEnumerableFuseNodeGetEnumerator_fn;
+    type->interface11.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Visual__UnoCollectionsICollectionFuseNodeget_Count_fn;
+    type->interface7.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Visual__UnoCollectionsIListFuseNodeget_Item_fn;
+    type->interface7.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Visual__Insert1_fn;
+    type->interface8.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))::g::Fuse::Visual__OnPropertyChanged2_fn;
+    type->interface9.fp_FindTemplate = (void(*)(uObject*, uString*, ::g::Uno::UX::Template**))::g::Fuse::Visual__FindTemplate_fn;
+    type->interface11.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Visual__Add1_fn;
+    type->interface11.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Visual__Remove1_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -1780,14 +1789,14 @@ void Element__get_ActualSize_fn(Element* __this, ::g::Uno::Float2* __retval)
     *__retval = __this->ActualSize();
 }
 
-// public Fuse.Elements.Alignment get_Alignment() :147
-void Element__get_Alignment_fn(Element* __this, int* __retval)
+// public Fuse.Elements.Alignment get_Alignment() :163
+void Element__get_Alignment_fn(Element* __this, int32_t* __retval)
 {
     *__retval = __this->Alignment();
 }
 
-// public void set_Alignment(Fuse.Elements.Alignment value) :148
-void Element__set_Alignment_fn(Element* __this, int* value)
+// public void set_Alignment(Fuse.Elements.Alignment value) :164
+void Element__set_Alignment_fn(Element* __this, int32_t* value)
 {
     __this->Alignment(*value);
 }
@@ -1798,13 +1807,13 @@ void Element__get_AncestorElement_fn(Element* __this, Element** __retval)
     *__retval = __this->AncestorElement();
 }
 
-// public Uno.UX.Size2 get_Anchor() :298
+// public Uno.UX.Size2 get_Anchor() :314
 void Element__get_Anchor_fn(Element* __this, ::g::Uno::UX::Size2* __retval)
 {
     *__retval = __this->Anchor();
 }
 
-// public void set_Anchor(Uno.UX.Size2 value) :299
+// public void set_Anchor(Uno.UX.Size2 value) :315
 void Element__set_Anchor_fn(Element* __this, ::g::Uno::UX::Size2* value)
 {
     __this->Anchor(*value);
@@ -1828,27 +1837,15 @@ void Element__set_Aspect_fn(Element* __this, float* value)
 }
 
 // public Fuse.Elements.AspectConstraint get_AspectConstraint() :135
-void Element__get_AspectConstraint_fn(Element* __this, int* __retval)
+void Element__get_AspectConstraint_fn(Element* __this, int32_t* __retval)
 {
     *__retval = __this->AspectConstraint();
 }
 
 // public void set_AspectConstraint(Fuse.Elements.AspectConstraint value) :136
-void Element__set_AspectConstraint_fn(Element* __this, int* value)
+void Element__set_AspectConstraint_fn(Element* __this, int32_t* value)
 {
     __this->AspectConstraint(*value);
-}
-
-// public Fuse.Elements.Element.BoxSizingMode get_BoxSizing() :173
-void Element__get_BoxSizing_fn(Element* __this, int* __retval)
-{
-    *__retval = __this->BoxSizing();
-}
-
-// public void set_BoxSizing(Fuse.Elements.Element.BoxSizingMode value) :174
-void Element__set_BoxSizing_fn(Element* __this, int* value)
-{
-    __this->BoxSizing(*value);
 }
 
 // internal Fuse.Elements.BoxSizing get_BoxSizingObject() :195
@@ -1864,13 +1861,13 @@ void Element__get_Cache_fn(Element* __this, ::g::Fuse::Elements::Cache** __retva
 }
 
 // public Fuse.Elements.CachingMode get_CachingMode() :20
-void Element__get_CachingMode_fn(Element* __this, int* __retval)
+void Element__get_CachingMode_fn(Element* __this, int32_t* __retval)
 {
     *__retval = __this->CachingMode();
 }
 
 // public void set_CachingMode(Fuse.Elements.CachingMode value) :21
-void Element__set_CachingMode_fn(Element* __this, int* value)
+void Element__set_CachingMode_fn(Element* __this, int32_t* value)
 {
     __this->CachingMode(*value);
 }
@@ -1899,19 +1896,19 @@ void Element__CaptureRegion_fn(Element* __this, ::g::Fuse::DrawContext* dc, ::g:
     *__retval = __this->CaptureRegion(dc, *region, *padding);
 }
 
-// private void CleanupBatching() :97
+// private void CleanupBatching() :100
 void Element__CleanupBatching_fn(Element* __this)
 {
     __this->CleanupBatching();
 }
 
-// public bool get_ClipToBounds() :349
+// public bool get_ClipToBounds() :379
 void Element__get_ClipToBounds_fn(Element* __this, bool* __retval)
 {
     *__retval = __this->ClipToBounds();
 }
 
-// public void set_ClipToBounds(bool value) :350
+// public void set_ClipToBounds(bool value) :380
 void Element__set_ClipToBounds_fn(Element* __this, bool* value)
 {
     __this->ClipToBounds(*value);
@@ -1939,7 +1936,7 @@ void Element__DispatchPlacement_fn(Element* __this)
 void Element__Draw_fn(Element* __this, ::g::Fuse::DrawContext* dc)
 {
     if (!__this->IsRootingCompleted())
-        ::g::Fuse::Diagnostics::InternalError(uString::Const("Draw called on a non-rooted node"), __this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.4.2\\Element.Drawing.uno"), 67, uString::Const("Draw"));
+        ::g::Fuse::Diagnostics::InternalError(uString::Const("Draw called on a non-rooted node"), __this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.9.0\\Element.Drawing.uno"), 67, uString::Const("Draw"));
 
     if (__this->Visibility() != 0)
         return;
@@ -1968,19 +1965,13 @@ void Element__DrawNonUnderlayChildren_fn(Element* __this, ::g::Fuse::DrawContext
     __this->DrawNonUnderlayChildren(dc);
 }
 
-// public override sealed void DrawSelection(Fuse.DrawContext dc) :120
-void Element__DrawSelection_fn(Element* __this, ::g::Fuse::DrawContext* dc)
-{
-    __this->DrawLocalSelectionRect(dc, ::g::Uno::Rect__New2(::g::Uno::Float2__New2(0.0f, 0.0f), __this->ActualSize()));
-}
-
 // protected void DrawUnderlayChildren(Fuse.DrawContext dc) :46
 void Element__DrawUnderlayChildren_fn(Element* __this, ::g::Fuse::DrawContext* dc)
 {
     __this->DrawUnderlayChildren(dc);
 }
 
-// protected virtual void DrawWithChildren(Fuse.DrawContext dc) :106
+// protected virtual void DrawWithChildren(Fuse.DrawContext dc) :109
 void Element__DrawWithChildren_fn(Element* __this, ::g::Fuse::DrawContext* dc)
 {
     __this->DrawUnderlayChildren(dc);
@@ -2012,7 +2003,7 @@ void Element__FastTrackDrawWithOpacity_fn(Element* __this, ::g::Fuse::DrawContex
     return *__retval = false, void();
 }
 
-// private void Fuse.Animations.IResize.SetSize(float2 size) :10
+// private void Fuse.Animations.IResize.SetSize(float2 size) :9
 void Element__FuseAnimationsIResizeSetSize_fn(Element* __this, ::g::Uno::Float2* size)
 {
     ::g::Uno::Float2 size_ = *size;
@@ -2065,7 +2056,7 @@ void Element__GetMarginSize_fn(Element* __this, ::g::Fuse::LayoutParams* lp, ::g
     Element__GMSCacheItem collection6;
     ::g::Fuse::LayoutParams lp_ = *lp;
 
-    for (int i = 0; i < __this->_gmsCount; ++i)
+    for (int32_t i = 0; i < __this->_gmsCount; ++i)
     {
         Element__GMSCacheItem g = uPtr(__this->_gmsCache)->Item<Element__GMSCacheItem>(i);
 
@@ -2074,9 +2065,9 @@ void Element__GetMarginSize_fn(Element* __this, ::g::Fuse::LayoutParams* lp, ::g
     }
 
     ::g::Uno::Float2 sz = uPtr(__this->_boxSizing)->CalcMarginSize(__this, lp_);
-    int n = (__this->_gmsAt++) % 2;
+    int32_t n = (__this->_gmsAt++) % 2;
     __this->_gmsCount = ::g::Uno::Math::Min8(2, __this->_gmsCount + 1);
-    uPtr(__this->_gmsCache)->Item<Element__GMSCacheItem>(n) = (collection6 = uDefault<Element__GMSCacheItem>(), collection6.layoutParams = lp_.CloneAndDerive(), collection6.result = sz, collection6);
+    uPtr(__this->_gmsCache)->Item<Element__GMSCacheItem>(n) = (collection6 = uDefault<Element__GMSCacheItem>(), collection6.layoutParams = lp_.Clone(), collection6.result = sz, collection6);
     return *__retval = sz, void();
 }
 
@@ -2128,7 +2119,7 @@ void Element__set_Height_fn(Element* __this, ::g::Uno::UX::Size* value)
     __this->Height(*value);
 }
 
-// protected override sealed Fuse.VisualBounds get_HitTestChildrenBounds() :110
+// protected override sealed Fuse.VisualBounds get_HitTestChildrenBounds() :109
 void Element__get_HitTestChildrenBounds_fn(Element* __this, ::g::Fuse::VisualBounds** __retval)
 {
     ::g::Fuse::VisualBounds* ret21;
@@ -2139,7 +2130,7 @@ void Element__get_HitTestChildrenBounds_fn(Element* __this, ::g::Fuse::VisualBou
     return *__retval = ::g::Fuse::VisualBounds::Empty(), void();
 }
 
-// protected override sealed Fuse.VisualBounds get_HitTestLocalBounds() :88
+// protected override sealed Fuse.VisualBounds get_HitTestLocalBounds() :87
 void Element__get_HitTestLocalBounds_fn(Element* __this, ::g::Fuse::VisualBounds** __retval)
 {
     ::g::Fuse::VisualBounds* n = ::g::Fuse::VisualBounds::Empty();
@@ -2153,20 +2144,20 @@ void Element__get_HitTestLocalBounds_fn(Element* __this, ::g::Fuse::VisualBounds
     return *__retval = n, void();
 }
 
-// protected virtual Fuse.VisualBounds get_HitTestLocalVisualBounds() :102
+// protected virtual Fuse.VisualBounds get_HitTestLocalVisualBounds() :101
 void Element__get_HitTestLocalVisualBounds_fn(Element* __this, ::g::Fuse::VisualBounds** __retval)
 {
     return *__retval = ::g::Fuse::VisualBounds::Empty(), void();
 }
 
-// public Fuse.Elements.HitTestMode get_HitTestMode() :43
-void Element__get_HitTestMode_fn(Element* __this, int* __retval)
+// public Fuse.Elements.HitTestMode get_HitTestMode() :42
+void Element__get_HitTestMode_fn(Element* __this, int32_t* __retval)
 {
     *__retval = __this->HitTestMode();
 }
 
-// public void set_HitTestMode(Fuse.Elements.HitTestMode value) :44
-void Element__set_HitTestMode_fn(Element* __this, int* value)
+// public void set_HitTestMode(Fuse.Elements.HitTestMode value) :43
+void Element__set_HitTestMode_fn(Element* __this, int32_t* value)
 {
     __this->HitTestMode(*value);
 }
@@ -2211,25 +2202,25 @@ void Element__InvalidateLocalTransform_fn(Element* __this)
     __this->NotifyTreeRendererTransformChanged();
 }
 
-// public void InvalidateRenderBoundsWithEffects() :60
+// public void InvalidateRenderBoundsWithEffects() :75
 void Element__InvalidateRenderBoundsWithEffects_fn(Element* __this)
 {
     __this->InvalidateRenderBoundsWithEffects();
 }
 
-// public override sealed bool get_IsLocalVisible() :61
+// public override sealed bool get_IsLocalVisible() :60
 void Element__get_IsLocalVisible_fn(Element* __this, bool* __retval)
 {
     return *__retval = __this->Visibility() == 0, void();
 }
 
 // protected override Fuse.LayoutDependent IsMarginBoxDependent(Fuse.Visual child) :31
-void Element__IsMarginBoxDependent_fn(Element* __this, ::g::Fuse::Visual* child, int* __retval)
+void Element__IsMarginBoxDependent_fn(Element* __this, ::g::Fuse::Visual* child, int32_t* __retval)
 {
     return *__retval = uPtr(__this->_boxSizing)->IsContentRelativeSize(__this), void();
 }
 
-// public bool IsPointInside(float2 localPoint) :30
+// public bool IsPointInside(float2 localPoint) :29
 void Element__IsPointInside_fn(Element* __this, ::g::Uno::Float2* localPoint, bool* __retval)
 {
     *__retval = __this->IsPointInside(*localPoint);
@@ -2265,61 +2256,61 @@ void Element__get_LocalRenderBounds_fn(Element* __this, ::g::Fuse::VisualBounds*
     return *__retval = __this->RenderBoundsWithEffects(), void();
 }
 
-// public float4 get_Margin() :228
+// public float4 get_Margin() :244
 void Element__get_Margin_fn(Element* __this, ::g::Uno::Float4* __retval)
 {
     *__retval = __this->Margin();
 }
 
-// public void set_Margin(float4 value) :229
+// public void set_Margin(float4 value) :245
 void Element__set_Margin_fn(Element* __this, ::g::Uno::Float4* value)
 {
     __this->Margin(*value);
 }
 
-// public Uno.UX.Size get_MaxHeight() :127
+// public Uno.UX.Size get_MaxHeight() :143
 void Element__get_MaxHeight_fn(Element* __this, ::g::Uno::UX::Size* __retval)
 {
     *__retval = __this->MaxHeight();
 }
 
-// public void set_MaxHeight(Uno.UX.Size value) :128
+// public void set_MaxHeight(Uno.UX.Size value) :144
 void Element__set_MaxHeight_fn(Element* __this, ::g::Uno::UX::Size* value)
 {
     __this->MaxHeight(*value);
 }
 
-// public Uno.UX.Size get_MaxWidth() :106
+// public Uno.UX.Size get_MaxWidth() :122
 void Element__get_MaxWidth_fn(Element* __this, ::g::Uno::UX::Size* __retval)
 {
     *__retval = __this->MaxWidth();
 }
 
-// public void set_MaxWidth(Uno.UX.Size value) :107
+// public void set_MaxWidth(Uno.UX.Size value) :123
 void Element__set_MaxWidth_fn(Element* __this, ::g::Uno::UX::Size* value)
 {
     __this->MaxWidth(*value);
 }
 
-// public Uno.UX.Size get_MinHeight() :85
+// public Uno.UX.Size get_MinHeight() :101
 void Element__get_MinHeight_fn(Element* __this, ::g::Uno::UX::Size* __retval)
 {
     *__retval = __this->MinHeight();
 }
 
-// public void set_MinHeight(Uno.UX.Size value) :86
+// public void set_MinHeight(Uno.UX.Size value) :102
 void Element__set_MinHeight_fn(Element* __this, ::g::Uno::UX::Size* value)
 {
     __this->MinHeight(*value);
 }
 
-// public Uno.UX.Size get_MinWidth() :64
+// public Uno.UX.Size get_MinWidth() :80
 void Element__get_MinWidth_fn(Element* __this, ::g::Uno::UX::Size* __retval)
 {
     *__retval = __this->MinWidth();
 }
 
-// public void set_MinWidth(Uno.UX.Size value) :65
+// public void set_MinWidth(Uno.UX.Size value) :81
 void Element__set_MinWidth_fn(Element* __this, ::g::Uno::UX::Size* value)
 {
     __this->MinWidth(*value);
@@ -2331,13 +2322,19 @@ void Element__get_NeedsClipping_fn(Element* __this, bool* __retval)
     *__retval = __this->NeedsClipping();
 }
 
-// private void NotifyTreeRedererOpacityChanged() :96
+// private void NotifyRenderBoundsChanged() :58
+void Element__NotifyRenderBoundsChanged_fn(Element* __this)
+{
+    __this->NotifyRenderBoundsChanged();
+}
+
+// private void NotifyTreeRedererOpacityChanged() :97
 void Element__NotifyTreeRedererOpacityChanged_fn(Element* __this)
 {
     __this->NotifyTreeRedererOpacityChanged();
 }
 
-// private void NotifyTreeRendererHitTestModeChanged() :86
+// private void NotifyTreeRendererHitTestModeChanged() :87
 void Element__NotifyTreeRendererHitTestModeChanged_fn(Element* __this)
 {
     __this->NotifyTreeRendererHitTestModeChanged();
@@ -2349,43 +2346,43 @@ void Element__NotifyTreeRendererPlaced_fn(Element* __this)
     __this->NotifyTreeRendererPlaced();
 }
 
-// private void NotifyTreeRendererRooted() :130
+// private void NotifyTreeRendererRooted() :131
 void Element__NotifyTreeRendererRooted_fn(Element* __this)
 {
     __this->NotifyTreeRendererRooted();
 }
 
-// private void NotifyTreeRendererRootingStarted() :123
+// private void NotifyTreeRendererRootingStarted() :124
 void Element__NotifyTreeRendererRootingStarted_fn(Element* __this)
 {
     __this->NotifyTreeRendererRootingStarted();
 }
 
-// private void NotifyTreeRendererTransformChanged() :66
+// private void NotifyTreeRendererTransformChanged() :67
 void Element__NotifyTreeRendererTransformChanged_fn(Element* __this)
 {
     __this->NotifyTreeRendererTransformChanged();
 }
 
-// private void NotifyTreeRendererUnrooted() :146
+// private void NotifyTreeRendererUnrooted() :147
 void Element__NotifyTreeRendererUnrooted_fn(Element* __this)
 {
     __this->NotifyTreeRendererUnrooted();
 }
 
-// private void NotifyTreeRendererZOrderChanged() :45
+// private void NotifyTreeRendererZOrderChanged() :46
 void Element__NotifyTreeRendererZOrderChanged_fn(Element* __this)
 {
     __this->NotifyTreeRendererZOrderChanged();
 }
 
-// public Uno.UX.Size2 get_Offset() :275
+// public Uno.UX.Size2 get_Offset() :291
 void Element__get_Offset_fn(Element* __this, ::g::Uno::UX::Size2* __retval)
 {
     *__retval = __this->Offset();
 }
 
-// public void set_Offset(Uno.UX.Size2 value) :276
+// public void set_Offset(Uno.UX.Size2 value) :292
 void Element__set_Offset_fn(Element* __this, ::g::Uno::UX::Size2* value)
 {
     __this->Offset(*value);
@@ -2408,7 +2405,7 @@ void Element__OnArrangeMarginBox_fn(Element* __this, ::g::Uno::Float2* position,
     if (bp.SanityConstrain())
     {
         if (!Element::_invalidValuesWarn_)
-            ::g::Fuse::Diagnostics::InternalError(uString::Const("Invalid values in ArrangeMarginBox"), __this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.4.2\\Element.Layout.uno"), 262, uString::Const("OnArrangeMarginBox"));
+            ::g::Fuse::Diagnostics::InternalError(uString::Const("Invalid values in ArrangeMarginBox"), __this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.9.0\\Element.Layout.uno"), 262, uString::Const("OnArrangeMarginBox"));
 
         Element::_invalidValuesWarn_ = true;
     }
@@ -2453,7 +2450,7 @@ void Element__OnChildRemoved_fn(Element* __this, ::g::Fuse::Node* node)
     ::g::Fuse::Visual__OnChildRemoved_fn(__this, node);
 }
 
-// protected virtual void OnDraw(Fuse.DrawContext dc) :113
+// protected virtual void OnDraw(Fuse.DrawContext dc) :116
 void Element__OnDraw_fn(Element* __this, ::g::Fuse::DrawContext* dc)
 {
 }
@@ -2482,7 +2479,7 @@ void Element__OnEffectRenderingChanged_fn(Element* __this, ::g::Fuse::Effects::E
     __this->OnEffectRenderingChanged(e);
 }
 
-// protected override sealed void OnHitTest(Fuse.HitTestContext htc) :55
+// protected override sealed void OnHitTest(Fuse.HitTestContext htc) :54
 void Element__OnHitTest_fn(Element* __this, ::g::Fuse::HitTestContext* htc)
 {
     if (__this->ClipToBounds() && !__this->IsPointInside(uPtr(htc)->LocalPoint()))
@@ -2501,13 +2498,13 @@ void Element__OnHitTest_fn(Element* __this, ::g::Fuse::HitTestContext* htc)
     }
 }
 
-// private void OnHitTestChildren(Fuse.HitTestContext htc) :71
+// private void OnHitTestChildren(Fuse.HitTestContext htc) :70
 void Element__OnHitTestChildren_fn(Element* __this, ::g::Fuse::HitTestContext* htc)
 {
     __this->OnHitTestChildren(htc);
 }
 
-// protected virtual void OnHitTestLocalVisual(Fuse.HitTestContext htc) :81
+// protected virtual void OnHitTestLocalVisual(Fuse.HitTestContext htc) :80
 void Element__OnHitTestLocalVisual_fn(Element* __this, ::g::Fuse::HitTestContext* htc)
 {
 }
@@ -2531,10 +2528,16 @@ void Element__OnInvalidateRenderBounds_fn(Element* __this, bool* __retval)
     if (__this->ElementBatchEntry() != NULL)
         uPtr(__this->ElementBatchEntry())->InvalidateRenderBounds();
 
+    if (!__this->_hasNotifiedRenderBoundsChanged)
+    {
+        ::g::Fuse::UpdateManager::AddDeferredAction2(uDelegate::New(::TYPES[23/*Uno.Action*/], (void*)Element__NotifyRenderBoundsChanged_fn, __this), 1, 5);
+        __this->_hasNotifiedRenderBoundsChanged = true;
+    }
+
     return *__retval = false, void();
 }
 
-// private void OnInvalidateRenderBoundsWithEffects() :51
+// private void OnInvalidateRenderBoundsWithEffects() :66
 void Element__OnInvalidateRenderBoundsWithEffects_fn(Element* __this)
 {
     __this->OnInvalidateRenderBoundsWithEffects();
@@ -2561,7 +2564,7 @@ void Element__OnInvalidateVisualComposition_fn(Element* __this)
         uPtr(__this->ElementBatchEntry())->InvalidateVisualComposition();
 }
 
-// protected override sealed void OnIsContextEnabledChanged() :106
+// protected override sealed void OnIsContextEnabledChanged() :107
 void Element__OnIsContextEnabledChanged_fn(Element* __this)
 {
     ::g::Fuse::Visual__OnIsContextEnabledChanged_fn(__this);
@@ -2575,7 +2578,7 @@ void Element__OnIsContextEnabledChanged_fn(Element* __this)
     }
 }
 
-// protected override sealed void OnIsVisibleChanged() :33
+// protected override sealed void OnIsVisibleChanged() :34
 void Element__OnIsVisibleChanged_fn(Element* __this)
 {
     ::g::Fuse::Visual__OnIsVisibleChanged_fn(__this);
@@ -2601,7 +2604,7 @@ void Element__OnPreplacement_fn(Element* __this)
     __this->OnPreplacement();
 }
 
-// protected override void OnRooted() :28
+// protected override void OnRooted() :27
 void Element__OnRooted_fn(Element* __this)
 {
     ::g::Fuse::Visual__OnRooted_fn(__this);
@@ -2610,14 +2613,14 @@ void Element__OnRooted_fn(Element* __this)
     __this->_placedBefore = NULL;
 }
 
-// protected override void OnRootedPreChildren() :117
+// protected override void OnRootedPreChildren() :118
 void Element__OnRootedPreChildren_fn(Element* __this)
 {
     __this->NotifyTreeRendererRootingStarted();
     ::g::Fuse::Visual__OnRootedPreChildren_fn(__this);
 }
 
-// protected override void OnUnrooted() :45
+// protected override void OnUnrooted() :44
 void Element__OnUnrooted_fn(Element* __this)
 {
     __this->InvalidateVisualComposition();
@@ -2626,13 +2629,13 @@ void Element__OnUnrooted_fn(Element* __this)
     __this->CleanupBatching();
 }
 
-// private void OnVisibilityChanged(Fuse.Elements.Visibility oldVisibility, Uno.UX.IPropertyListener origin) :198
-void Element__OnVisibilityChanged_fn(Element* __this, int* oldVisibility, uObject* origin)
+// private void OnVisibilityChanged(Fuse.Elements.Visibility oldVisibility, Uno.UX.IPropertyListener origin) :214
+void Element__OnVisibilityChanged_fn(Element* __this, int32_t* oldVisibility, uObject* origin)
 {
     __this->OnVisibilityChanged(*oldVisibility, origin);
 }
 
-// private void OnZOrderChanged() :54
+// private void OnZOrderChanged() :55
 void Element__OnZOrderChanged_fn(Element* __this)
 {
     __this->OnZOrderChanged();
@@ -2657,13 +2660,13 @@ void Element__set_Opacity_fn(Element* __this, float* value)
     __this->Opacity(*value);
 }
 
-// public float4 get_Padding() :258
+// public float4 get_Padding() :274
 void Element__get_Padding_fn(Element* __this, ::g::Uno::Float4* __retval)
 {
     *__retval = __this->Padding();
 }
 
-// public void set_Padding(float4 value) :259
+// public void set_Padding(float4 value) :275
 void Element__set_Padding_fn(Element* __this, ::g::Uno::Float4* value)
 {
     __this->Padding(*value);
@@ -2699,14 +2702,14 @@ void Element__PrependImplicitTransform_fn(Element* __this, ::g::Fuse::FastMatrix
 // protected override sealed void PrependInverseTransformOrigin(Fuse.FastMatrix m) :175
 void Element__PrependInverseTransformOrigin_fn(Element* __this, ::g::Fuse::FastMatrix* m)
 {
-    ::g::Uno::Float3 off = ::g::Fuse::Elements::ITransformOrigin::GetOffset(uInterface(uPtr(__this->TransformOrigin()), ::TYPES[27/*Fuse.Elements.ITransformOrigin*/]), __this);
+    ::g::Uno::Float3 off = ::g::Fuse::Elements::ITransformOrigin::GetOffset(uInterface(uPtr(__this->TransformOrigin()), ::TYPES[30/*Fuse.Elements.ITransformOrigin*/]), __this);
     uPtr(m)->PrependTranslation1(::g::Uno::Float3__op_UnaryNegation(off));
 }
 
 // protected override sealed void PrependTransformOrigin(Fuse.FastMatrix m) :169
 void Element__PrependTransformOrigin_fn(Element* __this, ::g::Fuse::FastMatrix* m)
 {
-    ::g::Uno::Float3 off = ::g::Fuse::Elements::ITransformOrigin::GetOffset(uInterface(uPtr(__this->TransformOrigin()), ::TYPES[27/*Fuse.Elements.ITransformOrigin*/]), __this);
+    ::g::Uno::Float3 off = ::g::Fuse::Elements::ITransformOrigin::GetOffset(uInterface(uPtr(__this->TransformOrigin()), ::TYPES[30/*Fuse.Elements.ITransformOrigin*/]), __this);
     uPtr(m)->PrependTranslation1(off);
 }
 
@@ -2746,13 +2749,13 @@ void Element__RequestLayout_fn(Element* __this)
     __this->RequestLayout();
 }
 
-// public void SetHitTestMode(Fuse.Elements.HitTestMode value, Uno.UX.IPropertyListener origin) :47
-void Element__SetHitTestMode_fn(Element* __this, int* value, uObject* origin)
+// public void SetHitTestMode(Fuse.Elements.HitTestMode value, Uno.UX.IPropertyListener origin) :46
+void Element__SetHitTestMode_fn(Element* __this, int32_t* value, uObject* origin)
 {
     __this->SetHitTestMode(*value, origin);
 }
 
-// private void SetNewTransform() :75
+// private void SetNewTransform() :76
 void Element__SetNewTransform_fn(Element* __this)
 {
     __this->SetNewTransform();
@@ -2764,8 +2767,8 @@ void Element__SetOpacity_fn(Element* __this, float* value, uObject* origin)
     __this->SetOpacity(*value, origin);
 }
 
-// public void SetVisibility(Fuse.Elements.Visibility value, Uno.UX.IPropertyListener origin) :190
-void Element__SetVisibility_fn(Element* __this, int* value, uObject* origin)
+// public void SetVisibility(Fuse.Elements.Visibility value, Uno.UX.IPropertyListener origin) :206
+void Element__SetVisibility_fn(Element* __this, int32_t* value, uObject* origin)
 {
     __this->SetVisibility(*value, origin);
 }
@@ -2788,20 +2791,20 @@ void Element__set_TransformOrigin_fn(Element* __this, uObject* value)
     __this->TransformOrigin(value);
 }
 
-// public virtual Fuse.Elements.ITreeRenderer get_TreeRenderer() :30
+// public virtual Fuse.Elements.ITreeRenderer get_TreeRenderer() :31
 void Element__get_TreeRenderer_fn(Element* __this, uObject** __retval)
 {
     return *__retval = uIs((::g::Fuse::Visual*)__this->Parent(), Element_typeof()) ? (uObject*)uPtr(uCast<Element*>(__this->Parent(), Element_typeof()))->TreeRenderer() : NULL, void();
 }
 
-// public Fuse.Elements.Visibility get_Visibility() :186
-void Element__get_Visibility_fn(Element* __this, int* __retval)
+// public Fuse.Elements.Visibility get_Visibility() :202
+void Element__get_Visibility_fn(Element* __this, int32_t* __retval)
 {
     *__retval = __this->Visibility();
 }
 
-// public void set_Visibility(Fuse.Elements.Visibility value) :187
-void Element__set_Visibility_fn(Element* __this, int* value)
+// public void set_Visibility(Fuse.Elements.Visibility value) :203
+void Element__set_Visibility_fn(Element* __this, int32_t* value)
 {
     __this->Visibility(*value);
 }
@@ -2818,25 +2821,25 @@ void Element__set_Width_fn(Element* __this, ::g::Uno::UX::Size* value)
     __this->Width(*value);
 }
 
-// public Uno.UX.Size get_X() :315
+// public Uno.UX.Size get_X() :331
 void Element__get_X_fn(Element* __this, ::g::Uno::UX::Size* __retval)
 {
     *__retval = __this->X();
 }
 
-// public void set_X(Uno.UX.Size value) :316
+// public void set_X(Uno.UX.Size value) :332
 void Element__set_X_fn(Element* __this, ::g::Uno::UX::Size* value)
 {
     __this->X(*value);
 }
 
-// public Uno.UX.Size get_Y() :332
+// public Uno.UX.Size get_Y() :348
 void Element__get_Y_fn(Element* __this, ::g::Uno::UX::Size* __retval)
 {
     *__retval = __this->Y();
 }
 
-// public void set_Y(Uno.UX.Size value) :333
+// public void set_Y(Uno.UX.Size value) :349
 void Element__set_Y_fn(Element* __this, ::g::Uno::UX::Size* value)
 {
     __this->Y(*value);
@@ -2856,7 +2859,7 @@ void Element::ctor_3()
     _width = ::g::Uno::UX::Size__Auto();
     _height = ::g::Uno::UX::Size__Auto();
     _gmsCache = uArray::New(Element__GMSCacheItem_typeof()->Array(), 2);
-    _boxSizing = ::g::Fuse::Elements::StandardBoxSizing::Singleton_;
+    _boxSizing = ::g::Fuse::Elements::StandardBoxSizing::Singleton();
     ctor_2();
 }
 
@@ -2900,14 +2903,14 @@ void Element::ActualAnchor(::g::Uno::Float2 value)
     return _actualSize;
 }
 
-// public Fuse.Elements.Alignment get_Alignment() [instance] :147
-int Element::Alignment()
+// public Fuse.Elements.Alignment get_Alignment() [instance] :163
+int32_t Element::Alignment()
 {
     return _alignment;
 }
 
-// public void set_Alignment(Fuse.Elements.Alignment value) [instance] :148
-void Element::Alignment(int value)
+// public void set_Alignment(Fuse.Elements.Alignment value) [instance] :164
+void Element::Alignment(int32_t value)
 {
     if (_alignment != value)
     {
@@ -2934,19 +2937,19 @@ Element* Element::AncestorElement()
     return NULL;
 }
 
-// public Uno.UX.Size2 get_Anchor() [instance] :298
+// public Uno.UX.Size2 get_Anchor() [instance] :314
 ::g::Uno::UX::Size2 Element::Anchor()
 {
     ::g::Uno::UX::Size2 ret16;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size2>*/, ::g::Uno::UX::Size2_typeof(), NULL), uCRef<int>(4096), uCRef(::g::Uno::UX::Size2__Auto()), &ret16), ret16);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size2>*/, ::g::Uno::UX::Size2_typeof(), NULL), uCRef<int32_t>(4096), uCRef(::g::Uno::UX::Size2__Auto()), &ret16), ret16);
 }
 
-// public void set_Anchor(Uno.UX.Size2 value) [instance] :299
+// public void set_Anchor(Uno.UX.Size2 value) [instance] :315
 void Element::Anchor(::g::Uno::UX::Size2 value)
 {
     if (::g::Uno::UX::Size2__op_Inequality(Anchor(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size2>*/, ::g::Uno::UX::Size2_typeof(), NULL), uCRef<int>(4096), uCRef(value), uCRef(::g::Uno::UX::Size2__Auto()));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size2>*/, ::g::Uno::UX::Size2_typeof(), NULL), uCRef<int32_t>(4096), uCRef(value), uCRef(::g::Uno::UX::Size2__Auto()));
         InvalidateLayout(2);
     }
 }
@@ -2955,7 +2958,7 @@ void Element::Anchor(::g::Uno::UX::Size2 value)
 float Element::Aspect()
 {
     float ret17;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<float>*/, ::g::Uno::Float_typeof(), NULL), uCRef<int>(65536), uCRef(1.0f), &ret17), ret17);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<float>*/, ::g::Uno::Float_typeof(), NULL), uCRef<int32_t>(65536), uCRef(1.0f), &ret17), ret17);
 }
 
 // public void set_Aspect(float value) [instance] :116
@@ -2963,72 +2966,26 @@ void Element::Aspect(float value)
 {
     if (Aspect() != value)
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<float>*/, ::g::Uno::Float_typeof(), NULL), uCRef<int>(65536), uCRef(value), uCRef(1.0f));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<float>*/, ::g::Uno::Float_typeof(), NULL), uCRef<int32_t>(65536), uCRef(value), uCRef(1.0f));
         InvalidateLayout(2);
     }
 }
 
 // public Fuse.Elements.AspectConstraint get_AspectConstraint() [instance] :135
-int Element::AspectConstraint()
+int32_t Element::AspectConstraint()
 {
-    int ret18;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Fuse.Elements.AspectConstraint>*/, ::g::Fuse::Elements::AspectConstraint_typeof(), NULL), uCRef<int>(131072), uCRef<int>(3), &ret18), ret18);
+    int32_t ret18;
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Fuse.Elements.AspectConstraint>*/, ::g::Fuse::Elements::AspectConstraint_typeof(), NULL), uCRef<int32_t>(131072), uCRef<int32_t>(3), &ret18), ret18);
 }
 
 // public void set_AspectConstraint(Fuse.Elements.AspectConstraint value) [instance] :136
-void Element::AspectConstraint(int value)
+void Element::AspectConstraint(int32_t value)
 {
     if (AspectConstraint() != value)
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Fuse.Elements.AspectConstraint>*/, ::g::Fuse::Elements::AspectConstraint_typeof(), NULL), uCRef<int>(131072), uCRef<int>(value), uCRef<int>(3));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Fuse.Elements.AspectConstraint>*/, ::g::Fuse::Elements::AspectConstraint_typeof(), NULL), uCRef<int32_t>(131072), uCRef<int32_t>(value), uCRef<int32_t>(3));
         InvalidateLayout(2);
     }
-}
-
-// public Fuse.Elements.Element.BoxSizingMode get_BoxSizing() [instance] :173
-int Element::BoxSizing()
-{
-    return _boxSizingMode;
-}
-
-// public void set_BoxSizing(Fuse.Elements.Element.BoxSizingMode value) [instance] :174
-void Element::BoxSizing(int value)
-{
-    if (value == _boxSizingMode)
-        return;
-
-    _boxSizingMode = value;
-
-    switch (_boxSizingMode)
-    {
-        case 0:
-        {
-            _boxSizing = ::g::Fuse::Elements::StandardBoxSizing::Singleton_;
-            break;
-        }
-        case 1:
-        {
-            _boxSizing = ::g::Fuse::Elements::NoImplicitMaxBoxSizing::Singleton1_;
-            break;
-        }
-        case 2:
-        {
-            _boxSizing = ::g::Fuse::Elements::LimitBoxSizing::Singleton_;
-            break;
-        }
-        case 3:
-        {
-            _boxSizing = ::g::Fuse::Elements::LayoutMasterBoxSizing::Singleton_;
-            break;
-        }
-        case 4:
-        {
-            _boxSizing = ::g::Fuse::Elements::FillAspectBoxSizing::Singleton_;
-            break;
-        }
-    }
-
-    InvalidateLayout(2);
 }
 
 // internal Fuse.Elements.BoxSizing get_BoxSizingObject() [instance] :195
@@ -3046,18 +3003,18 @@ void Element::BoxSizing(int value)
 }
 
 // public Fuse.Elements.CachingMode get_CachingMode() [instance] :20
-int Element::CachingMode()
+int32_t Element::CachingMode()
 {
-    int ret19;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Fuse.Elements.CachingMode>*/, ::g::Fuse::Elements::CachingMode_typeof(), NULL), uCRef<int>(262144), uCRef<int>(0), &ret19), ret19);
+    int32_t ret19;
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Fuse.Elements.CachingMode>*/, ::g::Fuse::Elements::CachingMode_typeof(), NULL), uCRef<int32_t>(262144), uCRef<int32_t>(0), &ret19), ret19);
 }
 
 // public void set_CachingMode(Fuse.Elements.CachingMode value) [instance] :21
-void Element::CachingMode(int value)
+void Element::CachingMode(int32_t value)
 {
     if (CachingMode() != value)
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Fuse.Elements.CachingMode>*/, ::g::Fuse::Elements::CachingMode_typeof(), NULL), uCRef<int>(262144), uCRef<int>(value), uCRef<int>(0));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Fuse.Elements.CachingMode>*/, ::g::Fuse::Elements::CachingMode_typeof(), NULL), uCRef<int32_t>(262144), uCRef<int32_t>(value), uCRef<int32_t>(0));
         InvalidateVisual();
     }
 }
@@ -3070,9 +3027,9 @@ void Element::CachingMode(int value)
 
     if (HasActiveEffects())
 
-        for (int i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Effects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL))); i++)
+        for (int32_t i = 0; i < ::g::Uno::Collections::ICollection::Count(uInterface(uPtr(Effects()), ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL))); i++)
         {
-            ::g::Fuse::Effects::Effect* e = (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(Effects()), ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL)), uCRef<int>(i), &ret10), ret10);
+            ::g::Fuse::Effects::Effect* e = (::g::Uno::Collections::IList::get_Item_ex(uInterface(uPtr(Effects()), ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL)), uCRef<int32_t>(i), &ret10), ret10);
 
             if (uPtr(e)->Active())
                 r = uPtr(e)->ModifyRenderBounds(r);
@@ -3089,11 +3046,11 @@ void Element::CachingMode(int value)
     ::g::Uno::Float4x4 ind8;
     ::g::Uno::Float2 sz = ::g::Uno::Float2__op_Addition2(region.Size(), ::g::Uno::Float2__op_Multiply1(padding, 2.0f));
     ::g::Uno::Float2 pixelSize = ::g::Uno::Math::Ceil2(::g::Uno::Float2__op_Multiply1(sz, AbsoluteZoom()));
-    ::g::Uno::Int2 fsz = ::g::Uno::Int2__New2((int)pixelSize.X, (int)pixelSize.Y);
+    ::g::Uno::Int2 fsz = ::g::Uno::Int2__New2((int32_t)pixelSize.X, (int32_t)pixelSize.Y);
 
     if ((fsz.X > ::g::Uno::Graphics::Texture2D::MaxSize()) || (fsz.Y > ::g::Uno::Graphics::Texture2D::MaxSize()))
     {
-        ::g::Uno::Diagnostics::Debug::Log5(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(uString::Const("CaptureRegion bigger than maximum texture size, dropping rendering (size: "), uBox(::g::Uno::Int2_typeof(), fsz)), uString::Const(", max-size: ")), uBox<int>(::g::Uno::Int_typeof(), ::g::Uno::Graphics::Texture2D::MaxSize())), 0, uString::Const("C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/Element.Drawing.uno"), 40);
+        ::g::Uno::Diagnostics::Debug::Log3(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(uString::Const("CaptureRegion bigger than maximum texture size, dropping rendering (size: "), uBox(::g::Uno::Int2_typeof(), fsz)), uString::Const(", max-size: ")), uBox<int32_t>(::g::Uno::Int_typeof(), ::g::Uno::Graphics::Texture2D::MaxSize())), 0, uString::Const("C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/Element.Drawing.uno"), 40);
         return NULL;
     }
 
@@ -3115,7 +3072,7 @@ void Element::CachingMode(int value)
     return fb;
 }
 
-// private void CleanupBatching() [instance] :97
+// private void CleanupBatching() [instance] :100
 void Element::CleanupBatching()
 {
     if (_elementBatcher != NULL)
@@ -3125,13 +3082,13 @@ void Element::CleanupBatching()
     }
 }
 
-// public bool get_ClipToBounds() [instance] :349
+// public bool get_ClipToBounds() [instance] :379
 bool Element::ClipToBounds()
 {
     return HasBit(1048576);
 }
 
-// public void set_ClipToBounds(bool value) [instance] :350
+// public void set_ClipToBounds(bool value) [instance] :380
 void Element::ClipToBounds(bool value)
 {
     if (ClipToBounds() != value)
@@ -3167,7 +3124,7 @@ void Element::Composit(::g::Fuse::DrawContext* dc)
     if (!flat && !_warnOpacityFlat)
     {
         _warnOpacityFlat = true;
-        ::g::Fuse::Diagnostics::UserWarning(uString::Const("This element has a partial opacity and is not flat. This will not render correctly. Put the opacity on a flat child panel instead."), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.4.2\\Element.Effects.uno"), 117, uString::Const("Composit"));
+        ::g::Fuse::Diagnostics::UserWarning(uString::Const("This element has a partial opacity and is not flat. This will not render correctly. Put the opacity on a flat child panel instead."), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.9.0\\Element.Effects.uno"), 117, uString::Const("Composit"));
     }
 
     bool r = uPtr(Cache())->DrawCached(dc);
@@ -3175,7 +3132,7 @@ void Element::Composit(::g::Fuse::DrawContext* dc)
     if (!r && !_warnNoCacheDraw)
     {
         _warnNoCacheDraw = true;
-        ::g::Fuse::Diagnostics::InternalError(uString::Const("This element can not be drawn."), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.4.2\\Element.Effects.uno"), 125, uString::Const("Composit"));
+        ::g::Fuse::Diagnostics::InternalError(uString::Const("This element can not be drawn."), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.9.0\\Element.Effects.uno"), 125, uString::Const("Composit"));
     }
 }
 
@@ -3191,31 +3148,36 @@ void Element::CompositEffects(::g::Fuse::DrawContext* dc)
     {
         ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Effects::Effect*> > enum3 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_effects), &ret11), ret11);
 
-        try
         {
+            try
             {
-                while (enum3.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL)))
                 {
-                    ::g::Fuse::Effects::Effect* e = enum3.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
-
-                    if ((uPtr(e)->Type() == 0) && uPtr(e)->Active())
+                    while (enum3.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL)))
                     {
-                        double t;
-                        uPtr(e)->Render(dc);
+                        ::g::Fuse::Effects::Effect* e = enum3.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
+
+                        if ((uPtr(e)->Type() == 0) && uPtr(e)->Active())
+                        {
+                            double t;
+                            uPtr(e)->Render(dc);
+                        }
                     }
                 }
             }
-            {
-                enum3.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
+            {
+                {
+                    enum3.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
+                }
+                                throw __t;
+                goto __after_finally_2;
+            }
+
             {
                 enum3.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
             }
-                        throw __t;
+            __after_finally_2:;
         }
     }
 
@@ -3223,31 +3185,36 @@ void Element::CompositEffects(::g::Fuse::DrawContext* dc)
     {
         ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Effects::Effect*> > enum4 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_effects), &ret12), ret12);
 
-        try
         {
+            try
             {
-                while (enum4.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL)))
                 {
-                    ::g::Fuse::Effects::Effect* e1 = enum4.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
-
-                    if ((uPtr(e1)->Type() == 1) && uPtr(e1)->Active())
+                    while (enum4.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL)))
                     {
-                        double t1;
-                        uPtr(e1)->Render(dc);
+                        ::g::Fuse::Effects::Effect* e1 = enum4.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
+
+                        if ((uPtr(e1)->Type() == 1) && uPtr(e1)->Active())
+                        {
+                            double t1;
+                            uPtr(e1)->Render(dc);
+                        }
                     }
                 }
             }
-            {
-                enum4.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
+            {
+                {
+                    enum4.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
+                }
+                                throw __t;
+                goto __after_finally_3;
+            }
+
             {
                 enum4.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
             }
-                        throw __t;
+            __after_finally_3:;
         }
     }
     else
@@ -3257,31 +3224,36 @@ void Element::CompositEffects(::g::Fuse::DrawContext* dc)
     {
         ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Effects::Effect*> > enum5 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_effects), &ret13), ret13);
 
-        try
         {
+            try
             {
-                while (enum5.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL)))
                 {
-                    ::g::Fuse::Effects::Effect* e2 = enum5.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
-
-                    if ((uPtr(e2)->Type() == 2) && uPtr(e2)->Active())
+                    while (enum5.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL)))
                     {
-                        double t2;
-                        uPtr(e2)->Render(dc);
+                        ::g::Fuse::Effects::Effect* e2 = enum5.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
+
+                        if ((uPtr(e2)->Type() == 2) && uPtr(e2)->Active())
+                        {
+                            double t2;
+                            uPtr(e2)->Render(dc);
+                        }
                     }
                 }
             }
-            {
-                enum5.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
+            {
+                {
+                    enum5.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
+                }
+                                throw __t;
+                goto __after_finally_4;
+            }
+
             {
                 enum5.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
             }
-                        throw __t;
+            __after_finally_4:;
         }
     }
 }
@@ -3311,9 +3283,12 @@ void Element::DrawNonUnderlayChildren(::g::Fuse::DrawContext* dc)
     if (!ShouldBatch())
     {
         if (_elementBatcher != NULL)
+        {
+            uPtr(_elementBatcher)->Dispose();
             _elementBatcher = NULL;
+        }
 
-        for (int i = 0; i < uPtr(zOrder)->Length(); i++)
+        for (int32_t i = 0; i < uPtr(zOrder)->Length(); i++)
         {
             ::g::Fuse::Visual* v = uPtr(zOrder)->Strong< ::g::Fuse::Visual*>(i);
 
@@ -3332,7 +3307,7 @@ void Element::DrawNonUnderlayChildren(::g::Fuse::DrawContext* dc)
             else
                 uPtr(_elementBatcher)->RemoveAllElements();
 
-            for (int i1 = 0; i1 < uPtr(zOrder)->Length(); i1++)
+            for (int32_t i1 = 0; i1 < uPtr(zOrder)->Length(); i1++)
             {
                 ::g::Fuse::Visual* v1 = uPtr(zOrder)->Strong< ::g::Fuse::Visual*>(i1);
 
@@ -3354,7 +3329,7 @@ void Element::DrawUnderlayChildren(::g::Fuse::DrawContext* dc)
 {
     uArray* zOrder = GetCachedZOrder();
 
-    for (int i = 0; i < uPtr(zOrder)->Length(); i++)
+    for (int32_t i = 0; i < uPtr(zOrder)->Length(); i++)
     {
         ::g::Fuse::Visual* v = uPtr(zOrder)->Strong< ::g::Fuse::Visual*>(i);
 
@@ -3397,9 +3372,9 @@ void Element::ElementBatchEntry(::g::Fuse::Elements::ElementBatchEntry* value)
 {
     ::g::Uno::Float4x4 transformMatrix = uPtr(dc)->GetLocalToClipTransform(this);
     ::g::Uno::Rect esr = ::g::Uno::Rect__Transform(localRegion, transformMatrix);
-    ::g::Uno::Float2 low = ::g::Uno::Math::Floor2(::g::Uno::Float2__op_Addition(0.005f, ::g::Uno::Float2__op_Multiply2(::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Addition1(::g::Uno::Math::Min3(esr.Minimum(), esr.Maximum()), 1.0f), 2.0f), ::g::Uno::Float2__op_Implicit1(dc->GLViewportPixelSize()))));
-    ::g::Uno::Float2 high = ::g::Uno::Math::Ceil2(::g::Uno::Float2__op_Subtraction1(::g::Uno::Float2__op_Multiply2(::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Addition1(::g::Uno::Math::Max3(esr.Minimum(), esr.Maximum()), 1.0f), 2.0f), ::g::Uno::Float2__op_Implicit1(dc->GLViewportPixelSize())), 0.005f));
-    ::g::Uno::Recti r = ::g::Uno::Recti__New1((int)low.X, (int)((float)dc->GLViewportPixelSize().Y - high.Y), (int)high.X, (int)((float)dc->GLViewportPixelSize().Y - low.Y));
+    ::g::Uno::Float2 low = ::g::Uno::Math::Floor2(::g::Uno::Float2__op_Addition(0.005f, ::g::Uno::Float2__op_Multiply2(::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Addition1(::g::Uno::Math::Min3(esr.Minimum(), esr.Maximum()), 1.0f), 2.0f), ::g::Uno::Float2__op_Implicit2(dc->GLViewportPixelSize()))));
+    ::g::Uno::Float2 high = ::g::Uno::Math::Ceil2(::g::Uno::Float2__op_Subtraction1(::g::Uno::Float2__op_Multiply2(::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Addition1(::g::Uno::Math::Max3(esr.Minimum(), esr.Maximum()), 1.0f), 2.0f), ::g::Uno::Float2__op_Implicit2(dc->GLViewportPixelSize())), 0.005f));
+    ::g::Uno::Recti r = ::g::Uno::Recti__New1((int32_t)low.X, (int32_t)((float)dc->GLViewportPixelSize().Y - high.Y), (int32_t)high.X, (int32_t)((float)dc->GLViewportPixelSize().Y - low.Y));
     return r;
 }
 
@@ -3438,32 +3413,37 @@ bool Element::HasActiveEffects()
     {
         ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Effects::Effect*> > enum2 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_effects), &ret20), ret20);
 
-        try
         {
+            try
             {
-                while (enum2.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL)))
                 {
-                    ::g::Fuse::Effects::Effect* e = enum2.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
-
-                    if (uPtr(e)->Active())
+                    while (enum2.MoveNext(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL)))
                     {
-                        bool __uno_retval = true;
-                        enum2.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
-                        return __uno_retval;
+                        ::g::Fuse::Effects::Effect* e = enum2.Current(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
+
+                        if (uPtr(e)->Active())
+                        {
+                            bool __uno_retval = true;
+                            enum2.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
+                            return __uno_retval;
+                        }
                     }
                 }
             }
-            {
-                enum2.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
+            {
+                {
+                    enum2.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
+                }
+                                throw __t;
+                goto __after_finally_5;
+            }
+
             {
                 enum2.Dispose(::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Effects::Effect_typeof(), NULL));
             }
-                        throw __t;
+            __after_finally_5:;
         }
     }
 
@@ -3498,15 +3478,15 @@ void Element::Height(::g::Uno::UX::Size value)
     }
 }
 
-// public Fuse.Elements.HitTestMode get_HitTestMode() [instance] :43
-int Element::HitTestMode()
+// public Fuse.Elements.HitTestMode get_HitTestMode() [instance] :42
+int32_t Element::HitTestMode()
 {
-    int ret22;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Fuse.Elements.HitTestMode>*/, ::g::Fuse::Elements::HitTestMode_typeof(), NULL), uCRef<int>(524288), uCRef<int>(5), &ret22), ret22);
+    int32_t ret22;
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Fuse.Elements.HitTestMode>*/, ::g::Fuse::Elements::HitTestMode_typeof(), NULL), uCRef<int32_t>(524288), uCRef<int32_t>(5), &ret22), ret22);
 }
 
-// public void set_HitTestMode(Fuse.Elements.HitTestMode value) [instance] :44
-void Element::HitTestMode(int value)
+// public void set_HitTestMode(Fuse.Elements.HitTestMode value) [instance] :43
+void Element::HitTestMode(int32_t value)
 {
     SetHitTestMode(value, (uObject*)this);
 }
@@ -3535,7 +3515,7 @@ void Element::InternArrangePaddingBox(::g::Fuse::LayoutParams lp)
     return GetContentSize(lp);
 }
 
-// public void InvalidateRenderBoundsWithEffects() [instance] :60
+// public void InvalidateRenderBoundsWithEffects() [instance] :75
 void Element::InvalidateRenderBoundsWithEffects()
 {
     OnInvalidateRenderBoundsWithEffects();
@@ -3544,7 +3524,7 @@ void Element::InvalidateRenderBoundsWithEffects()
         uPtr(Parent())->InvalidateRenderBounds();
 }
 
-// public bool IsPointInside(float2 localPoint) [instance] :30
+// public bool IsPointInside(float2 localPoint) [instance] :29
 bool Element::IsPointInside(::g::Uno::Float2 localPoint)
 {
     return !((((localPoint.X < 0.0f) || (localPoint.Y < 0.0f)) || (localPoint.X > ActualSize().X)) || (localPoint.Y > ActualSize().Y));
@@ -3554,7 +3534,7 @@ bool Element::IsPointInside(::g::Uno::Float2 localPoint)
 ::g::Uno::UX::Size Element::LimitHeight()
 {
     ::g::Uno::UX::Size ret23;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(16777216), uCRef(::g::Uno::UX::Size__Auto()), &ret23), ret23);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(16777216), uCRef(::g::Uno::UX::Size__Auto()), &ret23), ret23);
 }
 
 // public void set_LimitHeight(Uno.UX.Size value) [instance] :67
@@ -3562,7 +3542,7 @@ void Element::LimitHeight(::g::Uno::UX::Size value)
 {
     if (::g::Uno::UX::Size__op_Inequality(LimitHeight(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(16777216), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(16777216), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
         InvalidateLayout(2);
     }
 }
@@ -3571,7 +3551,7 @@ void Element::LimitHeight(::g::Uno::UX::Size value)
 ::g::Uno::UX::Size Element::LimitWidth()
 {
     ::g::Uno::UX::Size ret24;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(8388608), uCRef(::g::Uno::UX::Size__Auto()), &ret24), ret24);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(8388608), uCRef(::g::Uno::UX::Size__Auto()), &ret24), ret24);
 }
 
 // public void set_LimitWidth(Uno.UX.Size value) [instance] :85
@@ -3579,92 +3559,92 @@ void Element::LimitWidth(::g::Uno::UX::Size value)
 {
     if (::g::Uno::UX::Size__op_Inequality(LimitWidth(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(8388608), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(8388608), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
         InvalidateLayout(2);
     }
 }
 
-// public float4 get_Margin() [instance] :228
+// public float4 get_Margin() [instance] :244
 ::g::Uno::Float4 Element::Margin()
 {
     ::g::Uno::Float4 ret25;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<float4>*/, ::g::Uno::Float4_typeof(), NULL), uCRef<int>(1024), uCRef(::g::Uno::Float4__New1(0.0f)), &ret25), ret25);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<float4>*/, ::g::Uno::Float4_typeof(), NULL), uCRef<int32_t>(1024), uCRef(::g::Uno::Float4__New1(0.0f)), &ret25), ret25);
 }
 
-// public void set_Margin(float4 value) [instance] :229
+// public void set_Margin(float4 value) [instance] :245
 void Element::Margin(::g::Uno::Float4 value)
 {
     if (::g::Uno::Float4__op_Inequality(Margin(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<float4>*/, ::g::Uno::Float4_typeof(), NULL), uCRef<int>(1024), uCRef(value), uCRef(::g::Uno::Float4__New1(0.0f)));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<float4>*/, ::g::Uno::Float4_typeof(), NULL), uCRef<int32_t>(1024), uCRef(value), uCRef(::g::Uno::Float4__New1(0.0f)));
         InvalidateLayout(2);
     }
 }
 
-// public Uno.UX.Size get_MaxHeight() [instance] :127
+// public Uno.UX.Size get_MaxHeight() [instance] :143
 ::g::Uno::UX::Size Element::MaxHeight()
 {
     ::g::Uno::UX::Size ret26;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(512), uCRef(::g::Uno::UX::Size__Auto()), &ret26), ret26);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(512), uCRef(::g::Uno::UX::Size__Auto()), &ret26), ret26);
 }
 
-// public void set_MaxHeight(Uno.UX.Size value) [instance] :128
+// public void set_MaxHeight(Uno.UX.Size value) [instance] :144
 void Element::MaxHeight(::g::Uno::UX::Size value)
 {
     if (::g::Uno::UX::Size__op_Inequality(MaxHeight(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(512), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(512), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
         InvalidateLayout(2);
     }
 }
 
-// public Uno.UX.Size get_MaxWidth() [instance] :106
+// public Uno.UX.Size get_MaxWidth() [instance] :122
 ::g::Uno::UX::Size Element::MaxWidth()
 {
     ::g::Uno::UX::Size ret27;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(256), uCRef(::g::Uno::UX::Size__Auto()), &ret27), ret27);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(256), uCRef(::g::Uno::UX::Size__Auto()), &ret27), ret27);
 }
 
-// public void set_MaxWidth(Uno.UX.Size value) [instance] :107
+// public void set_MaxWidth(Uno.UX.Size value) [instance] :123
 void Element::MaxWidth(::g::Uno::UX::Size value)
 {
     if (::g::Uno::UX::Size__op_Inequality(MaxWidth(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(256), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(256), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
         InvalidateLayout(2);
     }
 }
 
-// public Uno.UX.Size get_MinHeight() [instance] :85
+// public Uno.UX.Size get_MinHeight() [instance] :101
 ::g::Uno::UX::Size Element::MinHeight()
 {
     ::g::Uno::UX::Size ret28;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(128), uCRef(::g::Uno::UX::Size__Auto()), &ret28), ret28);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(128), uCRef(::g::Uno::UX::Size__Auto()), &ret28), ret28);
 }
 
-// public void set_MinHeight(Uno.UX.Size value) [instance] :86
+// public void set_MinHeight(Uno.UX.Size value) [instance] :102
 void Element::MinHeight(::g::Uno::UX::Size value)
 {
     if (::g::Uno::UX::Size__op_Inequality(MinHeight(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(128), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(128), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
         InvalidateLayout(2);
     }
 }
 
-// public Uno.UX.Size get_MinWidth() [instance] :64
+// public Uno.UX.Size get_MinWidth() [instance] :80
 ::g::Uno::UX::Size Element::MinWidth()
 {
     ::g::Uno::UX::Size ret29;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(64), uCRef(::g::Uno::UX::Size__Auto()), &ret29), ret29);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(64), uCRef(::g::Uno::UX::Size__Auto()), &ret29), ret29);
 }
 
-// public void set_MinWidth(Uno.UX.Size value) [instance] :65
+// public void set_MinWidth(Uno.UX.Size value) [instance] :81
 void Element::MinWidth(::g::Uno::UX::Size value)
 {
     if (::g::Uno::UX::Size__op_Inequality(MinWidth(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(64), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(64), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
         InvalidateLayout(2);
     }
 }
@@ -3675,7 +3655,18 @@ bool Element::NeedsClipping()
     return ClipToBounds();
 }
 
-// private void NotifyTreeRedererOpacityChanged() [instance] :96
+// private void NotifyRenderBoundsChanged() [instance] :58
+void Element::NotifyRenderBoundsChanged()
+{
+    uObject* t = TreeRenderer();
+
+    if (t != NULL)
+        ::g::Fuse::Elements::ITreeRenderer::RenderBoundsChanged(uInterface(uPtr(t), ::g::Fuse::Elements::ITreeRenderer_typeof()), this);
+
+    _hasNotifiedRenderBoundsChanged = false;
+}
+
+// private void NotifyTreeRedererOpacityChanged() [instance] :97
 void Element::NotifyTreeRedererOpacityChanged()
 {
     if (IsRootingCompleted())
@@ -3687,7 +3678,7 @@ void Element::NotifyTreeRedererOpacityChanged()
     }
 }
 
-// private void NotifyTreeRendererHitTestModeChanged() [instance] :86
+// private void NotifyTreeRendererHitTestModeChanged() [instance] :87
 void Element::NotifyTreeRendererHitTestModeChanged()
 {
     if (IsRootingCompleted())
@@ -3708,7 +3699,7 @@ void Element::NotifyTreeRendererPlaced()
         ::g::Fuse::Elements::ITreeRenderer::Placed(uInterface(uPtr(t), ::g::Fuse::Elements::ITreeRenderer_typeof()), this);
 }
 
-// private void NotifyTreeRendererRooted() [instance] :130
+// private void NotifyTreeRendererRooted() [instance] :131
 void Element::NotifyTreeRendererRooted()
 {
     uObject* t = TreeRenderer();
@@ -3727,7 +3718,7 @@ void Element::NotifyTreeRendererRooted()
     }
 }
 
-// private void NotifyTreeRendererRootingStarted() [instance] :123
+// private void NotifyTreeRendererRootingStarted() [instance] :124
 void Element::NotifyTreeRendererRootingStarted()
 {
     uObject* t = TreeRenderer();
@@ -3736,7 +3727,7 @@ void Element::NotifyTreeRendererRootingStarted()
         ::g::Fuse::Elements::ITreeRenderer::RootingStarted(uInterface(uPtr(t), ::g::Fuse::Elements::ITreeRenderer_typeof()), this);
 }
 
-// private void NotifyTreeRendererTransformChanged() [instance] :66
+// private void NotifyTreeRendererTransformChanged() [instance] :67
 void Element::NotifyTreeRendererTransformChanged()
 {
     if (!_transformChanged)
@@ -3746,7 +3737,7 @@ void Element::NotifyTreeRendererTransformChanged()
     }
 }
 
-// private void NotifyTreeRendererUnrooted() [instance] :146
+// private void NotifyTreeRendererUnrooted() [instance] :147
 void Element::NotifyTreeRendererUnrooted()
 {
     uObject* t = TreeRenderer();
@@ -3755,7 +3746,7 @@ void Element::NotifyTreeRendererUnrooted()
         ::g::Fuse::Elements::ITreeRenderer::Unrooted(uInterface(uPtr(TreeRenderer()), ::g::Fuse::Elements::ITreeRenderer_typeof()), this);
 }
 
-// private void NotifyTreeRendererZOrderChanged() [instance] :45
+// private void NotifyTreeRendererZOrderChanged() [instance] :46
 void Element::NotifyTreeRendererZOrderChanged()
 {
     if (HasChildren() && !_dispatchedZOrderChanged)
@@ -3765,19 +3756,19 @@ void Element::NotifyTreeRendererZOrderChanged()
     }
 }
 
-// public Uno.UX.Size2 get_Offset() [instance] :275
+// public Uno.UX.Size2 get_Offset() [instance] :291
 ::g::Uno::UX::Size2 Element::Offset()
 {
     ::g::Uno::UX::Size2 ret30;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size2>*/, ::g::Uno::UX::Size2_typeof(), NULL), uCRef<int>(8192), uCRef(::g::Uno::UX::Size2__Auto()), &ret30), ret30);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size2>*/, ::g::Uno::UX::Size2_typeof(), NULL), uCRef<int32_t>(8192), uCRef(::g::Uno::UX::Size2__Auto()), &ret30), ret30);
 }
 
-// public void set_Offset(Uno.UX.Size2 value) [instance] :276
+// public void set_Offset(Uno.UX.Size2 value) [instance] :292
 void Element::Offset(::g::Uno::UX::Size2 value)
 {
     if (::g::Uno::UX::Size2__op_Inequality(Offset(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size2>*/, ::g::Uno::UX::Size2_typeof(), NULL), uCRef<int>(8192), uCRef(value), uCRef(::g::Uno::UX::Size2__Auto()));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size2>*/, ::g::Uno::UX::Size2_typeof(), NULL), uCRef<int32_t>(8192), uCRef(value), uCRef(::g::Uno::UX::Size2__Auto()));
         InvalidateLayout(2);
     }
 }
@@ -3820,19 +3811,19 @@ void Element::OnEffectRenderingChanged(::g::Fuse::Effects::Effect* e)
     InvalidateVisual();
 }
 
-// private void OnHitTestChildren(Fuse.HitTestContext htc) [instance] :71
+// private void OnHitTestChildren(Fuse.HitTestContext htc) [instance] :70
 void Element::OnHitTestChildren(::g::Fuse::HitTestContext* htc)
 {
     if (HasVisualChildren())
     {
         uArray* zOrder = GetCachedZOrder();
 
-        for (int i = uPtr(zOrder)->Length() - 1; i >= 0; i--)
+        for (int32_t i = uPtr(zOrder)->Length() - 1; i >= 0; i--)
             uPtr(uPtr(zOrder)->Strong< ::g::Fuse::Visual*>(i))->HitTest(htc);
     }
 }
 
-// private void OnInvalidateRenderBoundsWithEffects() [instance] :51
+// private void OnInvalidateRenderBoundsWithEffects() [instance] :66
 void Element::OnInvalidateRenderBoundsWithEffects()
 {
     if (ElementBatchEntry() != NULL)
@@ -3856,8 +3847,8 @@ void Element::OnPreplacement()
         uPtr(Preplacement1)->Invoke(2, this, (::g::Fuse::Elements::PreplacementArgs*)::g::Fuse::Elements::PreplacementArgs::New2(_placedBefore != NULL));
 }
 
-// private void OnVisibilityChanged(Fuse.Elements.Visibility oldVisibility, Uno.UX.IPropertyListener origin) [instance] :198
-void Element::OnVisibilityChanged(int oldVisibility, uObject* origin)
+// private void OnVisibilityChanged(Fuse.Elements.Visibility oldVisibility, Uno.UX.IPropertyListener origin) [instance] :214
+void Element::OnVisibilityChanged(int32_t oldVisibility, uObject* origin)
 {
     OnPropertyChanged1(Element::_visibilityName_, origin);
     OnLocalVisibleChanged();
@@ -3868,7 +3859,7 @@ void Element::OnVisibilityChanged(int oldVisibility, uObject* origin)
     InvalidateVisualComposition();
 }
 
-// private void OnZOrderChanged() [instance] :54
+// private void OnZOrderChanged() [instance] :55
 void Element::OnZOrderChanged()
 {
     _dispatchedZOrderChanged = false;
@@ -3886,7 +3877,7 @@ void Element::OnZOrderChanged()
 float Element::Opacity()
 {
     float ret31;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<float>*/, ::g::Uno::Float_typeof(), NULL), uCRef<int>(4194304), uCRef(1.0f), &ret31), ret31);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<float>*/, ::g::Uno::Float_typeof(), NULL), uCRef<int32_t>(4194304), uCRef(1.0f), &ret31), ret31);
 }
 
 // public void set_Opacity(float value) [instance] :38
@@ -3895,19 +3886,19 @@ void Element::Opacity(float value)
     SetOpacity(value, (uObject*)this);
 }
 
-// public float4 get_Padding() [instance] :258
+// public float4 get_Padding() [instance] :274
 ::g::Uno::Float4 Element::Padding()
 {
     ::g::Uno::Float4 ret32;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<float4>*/, ::g::Uno::Float4_typeof(), NULL), uCRef<int>(2048), uCRef(::g::Uno::Float4__New1(0.0f)), &ret32), ret32);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<float4>*/, ::g::Uno::Float4_typeof(), NULL), uCRef<int32_t>(2048), uCRef(::g::Uno::Float4__New1(0.0f)), &ret32), ret32);
 }
 
-// public void set_Padding(float4 value) [instance] :259
+// public void set_Padding(float4 value) [instance] :275
 void Element::Padding(::g::Uno::Float4 value)
 {
     if (::g::Uno::Float4__op_Inequality(Padding(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<float4>*/, ::g::Uno::Float4_typeof(), NULL), uCRef<int>(2048), uCRef(value), uCRef(::g::Uno::Float4__New1(0.0f)));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<float4>*/, ::g::Uno::Float4_typeof(), NULL), uCRef<int32_t>(2048), uCRef(value), uCRef(::g::Uno::Float4__New1(0.0f)));
         InvalidateLayout(2);
     }
 }
@@ -4033,16 +4024,16 @@ void Element::RequestLayout()
     uPtr(_boxSizing)->RequestLayout(this);
 }
 
-// public void SetHitTestMode(Fuse.Elements.HitTestMode value, Uno.UX.IPropertyListener origin) [instance] :47
-void Element::SetHitTestMode(int value, uObject* origin)
+// public void SetHitTestMode(Fuse.Elements.HitTestMode value, Uno.UX.IPropertyListener origin) [instance] :46
+void Element::SetHitTestMode(int32_t value, uObject* origin)
 {
-    ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Fuse.Elements.HitTestMode>*/, ::g::Fuse::Elements::HitTestMode_typeof(), NULL), uCRef<int>(524288), uCRef<int>(value), uCRef<int>(5));
+    ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Fuse.Elements.HitTestMode>*/, ::g::Fuse::Elements::HitTestMode_typeof(), NULL), uCRef<int32_t>(524288), uCRef<int32_t>(value), uCRef<int32_t>(5));
     InvalidateHitTestBounds();
     OnPropertyChanged1(Element::_hitTestModeName_, origin);
     NotifyTreeRendererHitTestModeChanged();
 }
 
-// private void SetNewTransform() [instance] :75
+// private void SetNewTransform() [instance] :76
 void Element::SetNewTransform()
 {
     if (IsRootingCompleted())
@@ -4061,15 +4052,15 @@ void Element::SetOpacity(float value, uObject* origin)
 {
     if (Opacity() != value)
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<float>*/, ::g::Uno::Float_typeof(), NULL), uCRef<int>(4194304), uCRef(value), uCRef(1.0f));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<float>*/, ::g::Uno::Float_typeof(), NULL), uCRef<int32_t>(4194304), uCRef(value), uCRef(1.0f));
         OnOpacityChanged(origin);
     }
 }
 
-// public void SetVisibility(Fuse.Elements.Visibility value, Uno.UX.IPropertyListener origin) [instance] :190
-void Element::SetVisibility(int value, uObject* origin)
+// public void SetVisibility(Fuse.Elements.Visibility value, Uno.UX.IPropertyListener origin) [instance] :206
+void Element::SetVisibility(int32_t value, uObject* origin)
 {
-    int old = _visibility;
+    int32_t old = _visibility;
     _visibility = value;
     OnVisibilityChanged(old, origin);
 }
@@ -4080,7 +4071,7 @@ bool Element::ShouldBatch()
     if (VisualChildCount() < 10)
         return false;
 
-    int batchable = 0;
+    int32_t batchable = 0;
 
     for (::g::Fuse::Visual* v = (::g::Fuse::Visual*)FirstChild(::g::Fuse::Visual_typeof()->MakeMethod(2/*FirstChild<Fuse.Visual>*/, ::g::Fuse::Visual_typeof(), NULL)); v != NULL; v = (::g::Fuse::Visual*)uPtr(v)->NextSibling(::g::Fuse::Node_typeof()->MakeMethod(3/*NextSibling<Fuse.Visual>*/, ::g::Fuse::Visual_typeof(), NULL)))
         if (::g::Fuse::Elements::ElementBatcher::ShouldBatchElement(v))
@@ -4093,7 +4084,7 @@ bool Element::ShouldBatch()
 uObject* Element::TransformOrigin()
 {
     uObject* ret33;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Fuse.Elements.ITransformOrigin>*/, ::TYPES[27/*Fuse.Elements.ITransformOrigin*/], NULL), uCRef<int>(2097152), Element::DefaultTransformOrigin_, &ret33), ret33);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Fuse.Elements.ITransformOrigin>*/, ::TYPES[30/*Fuse.Elements.ITransformOrigin*/], NULL), uCRef<int32_t>(2097152), Element::DefaultTransformOrigin_, &ret33), ret33);
 }
 
 // public void set_TransformOrigin(Fuse.Elements.ITransformOrigin value) [instance] :109
@@ -4101,19 +4092,19 @@ void Element::TransformOrigin(uObject* value)
 {
     if (TransformOrigin() != value)
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Fuse.Elements.ITransformOrigin>*/, ::TYPES[27/*Fuse.Elements.ITransformOrigin*/], NULL), uCRef<int>(2097152), value, Element::DefaultTransformOrigin_);
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Fuse.Elements.ITransformOrigin>*/, ::TYPES[30/*Fuse.Elements.ITransformOrigin*/], NULL), uCRef<int32_t>(2097152), value, Element::DefaultTransformOrigin_);
         InvalidateLocalTransform();
     }
 }
 
-// public Fuse.Elements.Visibility get_Visibility() [instance] :186
-int Element::Visibility()
+// public Fuse.Elements.Visibility get_Visibility() [instance] :202
+int32_t Element::Visibility()
 {
     return _visibility;
 }
 
-// public void set_Visibility(Fuse.Elements.Visibility value) [instance] :187
-void Element::Visibility(int value)
+// public void set_Visibility(Fuse.Elements.Visibility value) [instance] :203
+void Element::Visibility(int32_t value)
 {
     SetVisibility(value, (uObject*)this);
 }
@@ -4134,42 +4125,42 @@ void Element::Width(::g::Uno::UX::Size value)
     }
 }
 
-// public Uno.UX.Size get_X() [instance] :315
+// public Uno.UX.Size get_X() [instance] :331
 ::g::Uno::UX::Size Element::X()
 {
     ::g::Uno::UX::Size ret34;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(16384), uCRef(::g::Uno::UX::Size__Auto()), &ret34), ret34);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(16384), uCRef(::g::Uno::UX::Size__Auto()), &ret34), ret34);
 }
 
-// public void set_X(Uno.UX.Size value) [instance] :316
+// public void set_X(Uno.UX.Size value) [instance] :332
 void Element::X(::g::Uno::UX::Size value)
 {
     if (::g::Uno::UX::Size__op_Inequality(X(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(16384), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(16384), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
         InvalidateLayout(2);
     }
 }
 
-// public Uno.UX.Size get_Y() [instance] :332
+// public Uno.UX.Size get_Y() [instance] :348
 ::g::Uno::UX::Size Element::Y()
 {
     ::g::Uno::UX::Size ret35;
-    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(32768), uCRef(::g::Uno::UX::Size__Auto()), &ret35), ret35);
+    return (::g::Fuse::Visual__Get_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(3/*Get<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(32768), uCRef(::g::Uno::UX::Size__Auto()), &ret35), ret35);
 }
 
-// public void set_Y(Uno.UX.Size value) [instance] :333
+// public void set_Y(Uno.UX.Size value) [instance] :349
 void Element::Y(::g::Uno::UX::Size value)
 {
     if (::g::Uno::UX::Size__op_Inequality(Y(), value))
     {
-        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int>(32768), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
+        ::g::Fuse::Visual__Set_fn(this, ::g::Fuse::Visual_typeof()->MakeMethod(9/*Set<Uno.UX.Size>*/, ::g::Uno::UX::Size_typeof(), NULL), uCRef<int32_t>(32768), uCRef(value), uCRef(::g::Uno::UX::Size__Auto()));
         InvalidateLayout(2);
     }
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementAtlas.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementAtlas.uno
 // ----------------------------------------------------------------------------------------------------
 
 // internal sealed class ElementAtlas :8
@@ -4182,9 +4173,7 @@ static void ElementAtlas_build(uType* type)
     ::TYPES[4] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Elements::Element_typeof(), NULL);
     ::TYPES[5] = ::g::Uno::EventHandler_typeof();
     ::TYPES[6] = ::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Elements::Element_typeof(), NULL);
-    type->SetDependencies(
-        ::g::Fuse::Elements::ElementAtlasFramebuffer_typeof(),
-        ::g::Fuse::Elements::ElementBatch_typeof());
+    ::TYPES[2] = ::g::Uno::Exception_typeof();
     type->SetFields(0,
         ::g::Fuse::Internal::RectPacker_typeof(), offsetof(ElementAtlas, _rectPacker), 0,
         ::g::Fuse::Elements::ElementAtlasFramebuffer_typeof(), offsetof(ElementAtlas, _framebuffer), 0,
@@ -4200,7 +4189,6 @@ uType* ElementAtlas_typeof()
 
     uTypeOptions options;
     options.FieldCount = 5;
-    options.DependencyCount = 2;
     options.ObjectSize = sizeof(ElementAtlas);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Elements.ElementAtlas", options);
@@ -4227,7 +4215,7 @@ void ElementAtlas__Dispose_fn(ElementAtlas* __this)
     __this->Dispose();
 }
 
-// private void FillFramebuffer(Fuse.DrawContext dc, framebuffer fb, bool drawAll, Uno.Rect scissorRectInClipSpace) :156
+// private void FillFramebuffer(Fuse.DrawContext dc, framebuffer fb, bool drawAll, Uno.Rect scissorRectInClipSpace) :163
 void ElementAtlas__FillFramebuffer_fn(ElementAtlas* __this, ::g::Fuse::DrawContext* dc, ::g::Uno::Graphics::Framebuffer* fb, bool* drawAll, ::g::Uno::Rect* scissorRectInClipSpace)
 {
     __this->FillFramebuffer(dc, fb, *drawAll, *scissorRectInClipSpace);
@@ -4281,7 +4269,7 @@ void ElementAtlas__get_SpilledRatio_fn(ElementAtlas* __this, float* __retval)
     *__retval = __this->SpilledRatio();
 }
 
-// public void Unpin() :151
+// public void Unpin() :158
 void ElementAtlas__Unpin_fn(ElementAtlas* __this)
 {
     __this->Unpin();
@@ -4340,7 +4328,7 @@ void ElementAtlas::Dispose()
     uPtr(_framebuffer)->Dispose();
 }
 
-// private void FillFramebuffer(Fuse.DrawContext dc, framebuffer fb, bool drawAll, Uno.Rect scissorRectInClipSpace) [instance] :156
+// private void FillFramebuffer(Fuse.DrawContext dc, framebuffer fb, bool drawAll, Uno.Rect scissorRectInClipSpace) [instance] :163
 void ElementAtlas::FillFramebuffer(::g::Fuse::DrawContext* dc, ::g::Uno::Graphics::Framebuffer* fb, bool drawAll, ::g::Uno::Rect scissorRectInClipSpace)
 {
     ::g::Fuse::OrthographicFrustum* collection3;
@@ -4349,82 +4337,87 @@ void ElementAtlas::FillFramebuffer(::g::Fuse::DrawContext* dc, ::g::Uno::Graphic
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::Element*> > ret7;
     bool framebufferPushed = false;
     float density = uPtr(dc)->ViewportPixelsPerPoint();
-    ::g::Uno::Float2 viewport = ::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Implicit1(uPtr(_rectPacker)->Size()), density);
+    ::g::Uno::Float2 viewport = ::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Implicit2(uPtr(_rectPacker)->Size()), density);
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::Element*> > enum2 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_elements), &ret7), ret7);
 
-    try
     {
+        try
         {
-            while (enum2.MoveNext(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]))
             {
-                ::g::Fuse::Elements::Element* elm = enum2.Current(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]);
-                ::g::Fuse::Elements::ElementBatchEntry* entry = uPtr(elm)->ElementBatchEntry();
-
-                if (!uPtr(entry)->IsValid || drawAll)
+                while (enum2.MoveNext(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]))
                 {
-                    ::g::Uno::Float4x4 localToClipTransform = uPtr(dc)->GetLocalToClipTransform(elm);
-                    ::g::Uno::Rect visibleRect = ::g::Uno::Rect__Transform(uPtr(uPtr(elm)->RenderBoundsWithEffects())->FlatRect(), localToClipTransform);
+                    ::g::Fuse::Elements::Element* elm = enum2.Current(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]);
+                    ::g::Fuse::Elements::ElementBatchEntry* entry = uPtr(elm)->ElementBatchEntry();
 
-                    if (!scissorRectInClipSpace.Intersects(visibleRect))
-                        continue;
-
-                    ::g::Uno::Recti cachingRect = ::g::Fuse::Elements::ElementBatch::GetCachingRect(elm);
-                    ::g::Uno::Float2 offset = ::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Implicit1(::g::Uno::Int2__op_Subtraction1(uPtr(entry)->AtlasRect.Minimum(), cachingRect.Minimum())), density);
-                    ::g::Uno::Float4x4 translation = ::g::Uno::Matrix::Translation(offset.X, offset.Y, 0.0f);
-                    collection3 = ::g::Fuse::OrthographicFrustum::New1();
-                    ind4 = ::g::Uno::Float2__New2(0.0f, 0.0f);
-                    uPtr(collection3)->Origin(ind4);
-                    ind4;
-                    uPtr(collection3)->Size(viewport);
-                    viewport;
-                    ind5 = ::g::Uno::Matrix::Mul8(elm->WorldTransformInverse(), translation);
-                    uPtr(collection3)->LocalFromWorld(ind5);
-                    ind5;
-                    ::g::Fuse::OrthographicFrustum* cc = collection3;
-
-                    if (!framebufferPushed)
+                    if (!uPtr(entry)->IsValid || drawAll)
                     {
-                        uPtr(dc)->PushRenderTarget(fb);
+                        ::g::Uno::Float4x4 localToClipTransform = uPtr(dc)->GetLocalToClipTransform(elm);
+                        ::g::Uno::Rect visibleRect = ::g::Uno::Rect__Transform(uPtr(uPtr(elm)->RenderBoundsWithEffects())->FlatRect(), localToClipTransform);
 
-                        if (drawAll)
+                        if (!scissorRectInClipSpace.Intersects(visibleRect))
+                            continue;
+
+                        ::g::Uno::Recti cachingRect = ::g::Fuse::Elements::ElementBatch::GetCachingRect(elm);
+                        ::g::Uno::Float2 offset = ::g::Uno::Float2__op_Division1(::g::Uno::Float2__op_Implicit2(::g::Uno::Int2__op_Subtraction1(uPtr(entry)->AtlasRect.Minimum(), cachingRect.Minimum())), density);
+                        ::g::Uno::Float4x4 translation = ::g::Uno::Matrix::Translation(offset.X, offset.Y, 0.0f);
+                        collection3 = ::g::Fuse::OrthographicFrustum::New1();
+                        ind4 = ::g::Uno::Float2__New2(0.0f, 0.0f);
+                        uPtr(collection3)->Origin(ind4);
+                        ind4;
+                        uPtr(collection3)->Size(viewport);
+                        viewport;
+                        ind5 = ::g::Uno::Matrix::Mul8(elm->WorldTransformInverse(), translation);
+                        uPtr(collection3)->LocalFromWorld(ind5);
+                        ind5;
+                        ::g::Fuse::OrthographicFrustum* cc = collection3;
+
+                        if (!framebufferPushed)
+                        {
+                            uPtr(dc)->PushRenderTarget(fb);
+
+                            if (drawAll)
+                                uPtr(dc)->Clear(::g::Uno::Float4__New1(0.0f), 1.0f);
+
+                            framebufferPushed = true;
+                        }
+
+                        dc->PushViewport((uObject*)::g::Fuse::FixedViewport::New1(uPtr(_rectPacker)->Size(), density, (uObject*)cc));
+                        ::g::Uno::Recti scissor = entry->AtlasRect;
+
+                        if (elm->ClipToBounds())
+                            scissor = uPtr(elm)->GetVisibleViewportInvertPixelRect(dc, uPtr(elm)->RenderBoundsWithEffects());
+
+                        dc->PushScissor(scissor);
+
+                        if (!drawAll)
                             uPtr(dc)->Clear(::g::Uno::Float4__New1(0.0f), 1.0f);
 
-                        framebufferPushed = true;
+                        elm->CompositEffects(dc);
+                        dc->PopScissor();
+                        dc->PopViewport();
+
+                        if (!entry->IsValid)
+                            _invalidElements--;
+
+                        entry->IsValid = true;
                     }
-
-                    dc->PushViewport((uObject*)::g::Fuse::FixedViewport::New1(uPtr(_rectPacker)->Size(), density, (uObject*)cc));
-                    ::g::Uno::Recti scissor = entry->AtlasRect;
-
-                    if (elm->ClipToBounds())
-                        scissor = uPtr(elm)->GetVisibleViewportInvertPixelRect(dc, uPtr(elm)->RenderBoundsWithEffects());
-
-                    dc->PushScissor(scissor);
-
-                    if (!drawAll)
-                        uPtr(dc)->Clear(::g::Uno::Float4__New1(0.0f), 1.0f);
-
-                    elm->CompositEffects(dc);
-                    dc->PopScissor();
-                    dc->PopViewport();
-
-                    if (!entry->IsValid)
-                        _invalidElements--;
-
-                    entry->IsValid = true;
                 }
             }
         }
-        {
-            enum2.Dispose(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum2.Dispose(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_6;
+        }
+
         {
             enum2.Dispose(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]);
         }
-                throw __t;
+        __after_finally_6:;
     }
 
     if (framebufferPushed)
@@ -4452,26 +4445,31 @@ void ElementAtlas::OnFramebufferCollected(uObject* sender, ::g::Uno::EventArgs* 
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::Element*> > ret8;
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::Element*> > enum1 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_elements), &ret8), ret8);
 
-    try
     {
+        try
         {
-            while (enum1.MoveNext(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]))
             {
-                ::g::Fuse::Elements::Element* elm = enum1.Current(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]);
-                InvalidateElement(elm);
+                while (enum1.MoveNext(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]))
+                {
+                    ::g::Fuse::Elements::Element* elm = enum1.Current(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]);
+                    InvalidateElement(elm);
+                }
             }
         }
-        {
-            enum1.Dispose(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum1.Dispose(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_7;
+        }
+
         {
             enum1.Dispose(::TYPES[6/*Uno.Collections.List<Fuse.Elements.Element>.Enumerator*/]);
         }
-                throw __t;
+        __after_finally_7:;
     }
 }
 
@@ -4480,14 +4478,26 @@ void ElementAtlas::OnFramebufferCollected(uObject* sender, ::g::Uno::EventArgs* 
 {
     ::g::Uno::Graphics::Framebuffer* fb = uPtr(_framebuffer)->Pin();
 
-    if (_invalidElements > 0)
+    try
     {
-        ::g::Uno::Rect scissorRectInClipSpace = ElementAtlas::GetScissorRectInClipSpace(dc);
-        bool drawAll = _invalidElements == uPtr(_elements)->Count();
-        FillFramebuffer(dc, fb, drawAll, scissorRectInClipSpace);
+        {
+            if (_invalidElements > 0)
+            {
+                ::g::Uno::Rect scissorRectInClipSpace = ElementAtlas::GetScissorRectInClipSpace(dc);
+                bool drawAll = _invalidElements == uPtr(_elements)->Count();
+                FillFramebuffer(dc, fb, drawAll, scissorRectInClipSpace);
+            }
+
+            return fb;
+        }
     }
 
-    return fb;
+    catch (const uThrowable& __t)
+    {
+        ::g::Uno::Exception* e = __t.Exception;
+        uPtr(_framebuffer)->Unpin();
+        throw __t;
+    }
 }
 
 // public bool ReinsertElement(Fuse.Elements.Element elm, Uno.Recti cacheRect) [instance] :93
@@ -4542,7 +4552,7 @@ float ElementAtlas::SpilledRatio()
     return (float)_spilledPixels / (float)(uPtr(_rectPacker)->Size().X * uPtr(_rectPacker)->Size().Y);
 }
 
-// public void Unpin() [instance] :151
+// public void Unpin() [instance] :158
 void ElementAtlas::Unpin()
 {
     uPtr(_framebuffer)->Unpin();
@@ -4551,7 +4561,7 @@ void ElementAtlas::Unpin()
 // public static Uno.Rect GetScissorRectInClipSpace(Fuse.DrawContext dc) [static] :132
 ::g::Uno::Rect ElementAtlas::GetScissorRectInClipSpace(::g::Fuse::DrawContext* dc)
 {
-    return ElementAtlas::WindowRectToClipSpace(::g::Uno::Rect__op_Implicit(uPtr(dc)->Scissor()), uPtr(dc)->GLViewportPixelSize());
+    return ElementAtlas::WindowRectToClipSpace(::g::Uno::Rect__op_Implicit1(uPtr(dc)->Scissor()), uPtr(dc)->GLViewportPixelSize());
 }
 
 // public ElementAtlas New() [static] :20
@@ -4565,7 +4575,7 @@ ElementAtlas* ElementAtlas::New1()
 // private static float2 WindowCoordToClipSpace(float2 input, int2 viewportSize) [static] :118
 ::g::Uno::Float2 ElementAtlas::WindowCoordToClipSpace(::g::Uno::Float2 input, ::g::Uno::Int2 viewportSize)
 {
-    return ::g::Uno::Float2__op_Subtraction1(::g::Uno::Float2__op_Multiply1(::g::Uno::Float2__op_Division2(input, ::g::Uno::Float2__op_Implicit1(viewportSize)), 2.0f), 1.0f);
+    return ::g::Uno::Float2__op_Subtraction1(::g::Uno::Float2__op_Multiply1(::g::Uno::Float2__op_Division2(input, ::g::Uno::Float2__op_Implicit2(viewportSize)), 2.0f), 1.0f);
 }
 
 // private static Uno.Rect WindowRectToClipSpace(Uno.Rect input, int2 viewportSize) [static] :123
@@ -4577,7 +4587,7 @@ ElementAtlas* ElementAtlas::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementAtlasPool.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementAtlasPool.uno
 // --------------------------------------------------------------------------------------------------------
 
 // internal sealed class ElementAtlasFramebuffer :9
@@ -4588,8 +4598,6 @@ static void ElementAtlasFramebuffer_build(uType* type)
     ::STRINGS[4] = uString::Const("ElementAtlasFramebuffer already pinned");
     ::STRINGS[5] = uString::Const("ElementAtlasFramebuffer not already pinned");
     ::TYPES[5] = ::g::Uno::EventHandler_typeof();
-    type->SetDependencies(
-        ::g::Fuse::Elements::ElementAtlasFramebufferPool_typeof());
     type->SetFields(0,
         ::g::Uno::Collections::LinkedListNode_typeof()->MakeType(::g::Fuse::Elements::ElementAtlasFramebufferPoolEntry_typeof(), NULL), offsetof(ElementAtlasFramebuffer, _fb), 0,
         ::g::Uno::Bool_typeof(), offsetof(ElementAtlasFramebuffer, _Pinned), 0,
@@ -4603,7 +4611,6 @@ uType* ElementAtlasFramebuffer_typeof()
 
     uTypeOptions options;
     options.FieldCount = 3;
-    options.DependencyCount = 1;
     options.ObjectSize = sizeof(ElementAtlasFramebuffer);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Elements.ElementAtlasFramebuffer", options);
@@ -4783,18 +4790,18 @@ ElementAtlasFramebuffer* ElementAtlasFramebuffer::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementAtlasPool.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementAtlasPool.uno
 // --------------------------------------------------------------------------------------------------------
 
-// internal static class ElementAtlasFramebufferPool :107
+// internal static class ElementAtlasFramebufferPool :103
 // {
 static void ElementAtlasFramebufferPool_build(uType* type)
 {
+    ::STRINGS[6] = uString::Const("zero-sized Texture2D.MaxSize");
     ::TYPES[5] = ::g::Uno::EventHandler_typeof();
     type->SetDependencies(
-        ::g::Fuse::Elements::DisplayHelpers_typeof(),
-        ::g::Fuse::Platform::SystemUI_typeof(),
-        ::g::Uno::Graphics::Texture2D_typeof());
+        ::g::Uno::Math_typeof(),
+        ::g::Fuse::Platform::SystemUI_typeof());
     type->SetFields(0,
         ::g::Uno::Bool_typeof(), (uintptr_t)&ElementAtlasFramebufferPool::_isInitialized_, uFieldFlagsStatic,
         ::g::Uno::Int2_typeof(), (uintptr_t)&ElementAtlasFramebufferPool::_elementAtlasSize_, uFieldFlagsStatic,
@@ -4809,62 +4816,62 @@ uClassType* ElementAtlasFramebufferPool_typeof()
 
     uTypeOptions options;
     options.FieldCount = 4;
-    options.DependencyCount = 3;
+    options.DependencyCount = 2;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Fuse.Elements.ElementAtlasFramebufferPool", options);
     type->fp_build_ = ElementAtlasFramebufferPool_build;
     return type;
 }
 
-// public static generated void add_AtlasSizeChanged(Uno.EventHandler value) :125
+// public static generated void add_AtlasSizeChanged(Uno.EventHandler value) :121
 void ElementAtlasFramebufferPool__add_AtlasSizeChanged_fn(uDelegate* value)
 {
     ElementAtlasFramebufferPool::add_AtlasSizeChanged(value);
 }
 
-// public static generated void remove_AtlasSizeChanged(Uno.EventHandler value) :125
+// public static generated void remove_AtlasSizeChanged(Uno.EventHandler value) :121
 void ElementAtlasFramebufferPool__remove_AtlasSizeChanged_fn(uDelegate* value)
 {
     ElementAtlasFramebufferPool::remove_AtlasSizeChanged(value);
 }
 
-// public static int2 get_ElementAtlasSize() :142
+// public static int2 get_ElementAtlasSize() :147
 void ElementAtlasFramebufferPool__get_ElementAtlasSize_fn(::g::Uno::Int2* __retval)
 {
     *__retval = ElementAtlasFramebufferPool::ElementAtlasSize();
 }
 
-// private static void set_ElementAtlasSize(int2 value) :147
+// private static void set_ElementAtlasSize(int2 value) :152
 void ElementAtlasFramebufferPool__set_ElementAtlasSize_fn(::g::Uno::Int2* value)
 {
     ElementAtlasFramebufferPool::ElementAtlasSize(*value);
 }
 
-// private static void EnsurePool() :161
+// private static void EnsurePool() :166
 void ElementAtlasFramebufferPool__EnsurePool_fn()
 {
     ElementAtlasFramebufferPool::EnsurePool();
 }
 
-// public static Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> FindFramebuffer() :172
+// public static Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> FindFramebuffer() :177
 void ElementAtlasFramebufferPool__FindFramebuffer_fn(::g::Uno::Collections::LinkedListNode** __retval)
 {
     *__retval = ElementAtlasFramebufferPool::FindFramebuffer();
 }
 
-// public static void Initialize() :110
+// public static void Initialize() :106
 void ElementAtlasFramebufferPool__Initialize_fn()
 {
     ElementAtlasFramebufferPool::Initialize();
 }
 
-// private static void OnResized(object sender, Uno.EventArgs args) :135
+// private static void OnResized(object sender, Uno.EventArgs args) :140
 void ElementAtlasFramebufferPool__OnResized_fn(uObject* sender, ::g::Uno::EventArgs* args)
 {
     ElementAtlasFramebufferPool::OnResized(sender, args);
 }
 
-// private static void UpdateElementAtlasSize() :127
+// private static void UpdateElementAtlasSize() :123
 void ElementAtlasFramebufferPool__UpdateElementAtlasSize_fn()
 {
     ElementAtlasFramebufferPool::UpdateElementAtlasSize();
@@ -4875,7 +4882,7 @@ bool ElementAtlasFramebufferPool::_isInitialized_;
 uSStrong< ::g::Fuse::Elements::ElementAtlasFramebufferPoolImpl*> ElementAtlasFramebufferPool::_poolImpl_;
 uSStrong<uDelegate*> ElementAtlasFramebufferPool::AtlasSizeChanged1_;
 
-// private static void EnsurePool() [static] :161
+// private static void EnsurePool() [static] :166
 void ElementAtlasFramebufferPool::EnsurePool()
 {
     if (ElementAtlasFramebufferPool::_poolImpl_ != NULL)
@@ -4885,14 +4892,14 @@ void ElementAtlasFramebufferPool::EnsurePool()
     ElementAtlasFramebufferPool::_poolImpl_ = ::g::Fuse::Elements::ElementAtlasFramebufferPoolImpl::New1();
 }
 
-// public static Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> FindFramebuffer() [static] :172
+// public static Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> FindFramebuffer() [static] :177
 ::g::Uno::Collections::LinkedListNode* ElementAtlasFramebufferPool::FindFramebuffer()
 {
     ElementAtlasFramebufferPool::EnsurePool();
     return uPtr(ElementAtlasFramebufferPool::_poolImpl_)->FindFramebuffer();
 }
 
-// public static void Initialize() [static] :110
+// public static void Initialize() [static] :106
 void ElementAtlasFramebufferPool::Initialize()
 {
     if (ElementAtlasFramebufferPool::_isInitialized_)
@@ -4903,27 +4910,36 @@ void ElementAtlasFramebufferPool::Initialize()
     ElementAtlasFramebufferPool::_isInitialized_ = true;
 }
 
-// private static void OnResized(object sender, Uno.EventArgs args) [static] :135
+// private static void OnResized(object sender, Uno.EventArgs args) [static] :140
 void ElementAtlasFramebufferPool::OnResized(uObject* sender, ::g::Uno::EventArgs* args)
 {
     ElementAtlasFramebufferPool::UpdateElementAtlasSize();
 }
 
-// private static void UpdateElementAtlasSize() [static] :127
+// private static void UpdateElementAtlasSize() [static] :123
 void ElementAtlasFramebufferPool::UpdateElementAtlasSize()
 {
-    ::g::Uno::Int2 clientSize = ::g::Fuse::Elements::DisplayHelpers::DisplaySizeHint();
-    ElementAtlasFramebufferPool::ElementAtlasSize(::g::Uno::Int2__New2(::g::Uno::Math::Min8((clientSize.X * 3) / 2, ::g::Uno::Graphics::Texture2D::MaxSize()), ::g::Uno::Math::Min8(clientSize.Y / 2, ::g::Uno::Graphics::Texture2D::MaxSize())));
+    int32_t maxTextureSize = ::g::Uno::Graphics::Texture2D::MaxSize();
+
+    if (maxTextureSize < 1)
+        U_THROW(::g::Uno::Exception::New2(::STRINGS[6/*"zero-sized ...*/]));
+
+    ::g::Uno::Int2 displaySizeHint = ::g::Fuse::Elements::DisplayHelpers::DisplaySizeHint();
+
+    if ((displaySizeHint.X < 1) || (displaySizeHint.Y < 1))
+        displaySizeHint = ::g::Uno::Int2__New1(2048);
+
+    ElementAtlasFramebufferPool::ElementAtlasSize(::g::Uno::Int2__New2(::g::Uno::Math::Min8((displaySizeHint.X * 3) / 2, maxTextureSize), ::g::Uno::Math::Min8(displaySizeHint.Y / 2, maxTextureSize)));
 }
 
-// public static int2 get_ElementAtlasSize() [static] :142
+// public static int2 get_ElementAtlasSize() [static] :147
 ::g::Uno::Int2 ElementAtlasFramebufferPool::ElementAtlasSize()
 {
     ElementAtlasFramebufferPool::Initialize();
     return ElementAtlasFramebufferPool::_elementAtlasSize_;
 }
 
-// private static void set_ElementAtlasSize(int2 value) [static] :147
+// private static void set_ElementAtlasSize(int2 value) [static] :152
 void ElementAtlasFramebufferPool::ElementAtlasSize(::g::Uno::Int2 value)
 {
     if (::g::Uno::Int2__op_Inequality(ElementAtlasFramebufferPool::_elementAtlasSize_, value))
@@ -4935,20 +4951,20 @@ void ElementAtlasFramebufferPool::ElementAtlasSize(::g::Uno::Int2 value)
     }
 }
 
-// public static generated void add_AtlasSizeChanged(Uno.EventHandler value) [static] :125
+// public static generated void add_AtlasSizeChanged(Uno.EventHandler value) [static] :121
 void ElementAtlasFramebufferPool::add_AtlasSizeChanged(uDelegate* value)
 {
     ElementAtlasFramebufferPool::AtlasSizeChanged1_ = uCast<uDelegate*>(::g::Uno::Delegate::Combine(ElementAtlasFramebufferPool::AtlasSizeChanged1_, value), ::TYPES[5/*Uno.EventHandler*/]);
 }
 
-// public static generated void remove_AtlasSizeChanged(Uno.EventHandler value) [static] :125
+// public static generated void remove_AtlasSizeChanged(Uno.EventHandler value) [static] :121
 void ElementAtlasFramebufferPool::remove_AtlasSizeChanged(uDelegate* value)
 {
     ElementAtlasFramebufferPool::AtlasSizeChanged1_ = uCast<uDelegate*>(::g::Uno::Delegate::Remove(ElementAtlasFramebufferPool::AtlasSizeChanged1_, value), ::TYPES[5/*Uno.EventHandler*/]);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementAtlasPool.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementAtlasPool.uno
 // --------------------------------------------------------------------------------------------------------
 
 // internal sealed class ElementAtlasFramebufferPoolEntry :67
@@ -5031,18 +5047,17 @@ ElementAtlasFramebufferPoolEntry* ElementAtlasFramebufferPoolEntry::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementAtlasPool.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementAtlasPool.uno
 // --------------------------------------------------------------------------------------------------------
 
-// internal sealed class ElementAtlasFramebufferPoolImpl :179
+// internal sealed class ElementAtlasFramebufferPoolImpl :184
 // {
 static void ElementAtlasFramebufferPoolImpl_build(uType* type)
 {
     ::TYPES[5] = ::g::Uno::EventHandler_typeof();
     ::TYPES[7] = ::g::Uno::Collections::LinkedList_typeof()->MakeType(::g::Fuse::Elements::ElementAtlasFramebufferPoolEntry_typeof(), NULL);
     type->SetDependencies(
-        ::g::Fuse::Resources::DisposalManager_typeof(),
-        ::g::Fuse::Elements::ElementAtlasFramebufferPool_typeof());
+        ::g::Fuse::Resources::DisposalManager_typeof());
     type->SetInterfaces(
         ::g::Fuse::Resources::ISoftDisposable_typeof(), offsetof(ElementAtlasFramebufferPoolImpl_type, interface0));
     type->SetFields(0,
@@ -5057,7 +5072,7 @@ ElementAtlasFramebufferPoolImpl_type* ElementAtlasFramebufferPoolImpl_typeof()
     uTypeOptions options;
     options.FieldCount = 1;
     options.InterfaceCount = 1;
-    options.DependencyCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(ElementAtlasFramebufferPoolImpl);
     options.TypeSize = sizeof(ElementAtlasFramebufferPoolImpl_type);
     type = (ElementAtlasFramebufferPoolImpl_type*)uClassType::New("Fuse.Elements.ElementAtlasFramebufferPoolImpl", options);
@@ -5067,68 +5082,68 @@ ElementAtlasFramebufferPoolImpl_type* ElementAtlasFramebufferPoolImpl_typeof()
     return type;
 }
 
-// internal ElementAtlasFramebufferPoolImpl() :183
+// internal ElementAtlasFramebufferPoolImpl() :188
 void ElementAtlasFramebufferPoolImpl__ctor__fn(ElementAtlasFramebufferPoolImpl* __this)
 {
     __this->ctor_();
 }
 
-// private Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> AddEntry() :256
+// private Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> AddEntry() :261
 void ElementAtlasFramebufferPoolImpl__AddEntry_fn(ElementAtlasFramebufferPoolImpl* __this, ::g::Uno::Collections::LinkedListNode** __retval)
 {
     *__retval = __this->AddEntry();
 }
 
-// private extern void DiscardPool() :191
+// private extern void DiscardPool() :196
 void ElementAtlasFramebufferPoolImpl__DiscardPool_fn(ElementAtlasFramebufferPoolImpl* __this)
 {
     __this->DiscardPool();
 }
 
-// private void EnsurePool() :246
+// private void EnsurePool() :251
 void ElementAtlasFramebufferPoolImpl__EnsurePool_fn(ElementAtlasFramebufferPoolImpl* __this)
 {
     __this->EnsurePool();
 }
 
-// internal Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> FindFramebuffer() :264
+// internal Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> FindFramebuffer() :269
 void ElementAtlasFramebufferPoolImpl__FindFramebuffer_fn(ElementAtlasFramebufferPoolImpl* __this, ::g::Uno::Collections::LinkedListNode** __retval)
 {
     *__retval = __this->FindFramebuffer();
 }
 
-// private void Fuse.Resources.ISoftDisposable.SoftDispose() :241
+// private void Fuse.Resources.ISoftDisposable.SoftDispose() :246
 void ElementAtlasFramebufferPoolImpl__FuseResourcesISoftDisposableSoftDispose_fn(ElementAtlasFramebufferPoolImpl* __this)
 {
     __this->DiscardPool();
 }
 
-// internal ElementAtlasFramebufferPoolImpl New() :183
+// internal ElementAtlasFramebufferPoolImpl New() :188
 void ElementAtlasFramebufferPoolImpl__New1_fn(ElementAtlasFramebufferPoolImpl** __retval)
 {
     *__retval = ElementAtlasFramebufferPoolImpl::New1();
 }
 
-// private void OnAtlasSizeChanged(object sender, Uno.EventArgs eventArgs) :236
+// private void OnAtlasSizeChanged(object sender, Uno.EventArgs eventArgs) :241
 void ElementAtlasFramebufferPoolImpl__OnAtlasSizeChanged_fn(ElementAtlasFramebufferPoolImpl* __this, uObject* sender, ::g::Uno::EventArgs* eventArgs)
 {
     __this->OnAtlasSizeChanged(sender, eventArgs);
 }
 
-// internal void UpdateUsage(Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> fb) :280
+// internal void UpdateUsage(Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> fb) :285
 void ElementAtlasFramebufferPoolImpl__UpdateUsage_fn(ElementAtlasFramebufferPoolImpl* __this, ::g::Uno::Collections::LinkedListNode* fb)
 {
     __this->UpdateUsage(fb);
 }
 
-// internal ElementAtlasFramebufferPoolImpl() [instance] :183
+// internal ElementAtlasFramebufferPoolImpl() [instance] :188
 void ElementAtlasFramebufferPoolImpl::ctor_()
 {
     ::g::Fuse::Resources::DisposalManager::Add1((uObject*)this);
     ::g::Fuse::Elements::ElementAtlasFramebufferPool::add_AtlasSizeChanged(uDelegate::New(::TYPES[5/*Uno.EventHandler*/], (void*)ElementAtlasFramebufferPoolImpl__OnAtlasSizeChanged_fn, this));
 }
 
-// private Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> AddEntry() [instance] :256
+// private Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> AddEntry() [instance] :261
 ::g::Uno::Collections::LinkedListNode* ElementAtlasFramebufferPoolImpl::AddEntry()
 {
     ::g::Uno::Collections::LinkedListNode* ret2;
@@ -5138,7 +5153,7 @@ void ElementAtlasFramebufferPoolImpl::ctor_()
     return (::g::Uno::Collections::LinkedList__AddLast_fn(uPtr(_framebufferPool), entry, &ret2), ret2);
 }
 
-// private extern void DiscardPool() [instance] :191
+// private extern void DiscardPool() [instance] :196
 void ElementAtlasFramebufferPoolImpl::DiscardPool()
 {
     ::g::Fuse::Elements::ElementAtlasFramebufferPoolEntry* ret3;
@@ -5162,7 +5177,7 @@ void ElementAtlasFramebufferPoolImpl::DiscardPool()
     _framebufferPool = NULL;
 }
 
-// private void EnsurePool() [instance] :246
+// private void EnsurePool() [instance] :251
 void ElementAtlasFramebufferPoolImpl::EnsurePool()
 {
     if (_framebufferPool != NULL)
@@ -5170,11 +5185,11 @@ void ElementAtlasFramebufferPoolImpl::EnsurePool()
 
     _framebufferPool = ((::g::Uno::Collections::LinkedList*)::g::Uno::Collections::LinkedList::New1(::TYPES[7/*Uno.Collections.LinkedList<Fuse.Elements.ElementAtlasFramebufferPoolEntry>*/]));
 
-    for (int i = 0; i < 20; ++i)
+    for (int32_t i = 0; i < 20; ++i)
         AddEntry();
 }
 
-// internal Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> FindFramebuffer() [instance] :264
+// internal Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> FindFramebuffer() [instance] :269
 ::g::Uno::Collections::LinkedListNode* ElementAtlasFramebufferPoolImpl::FindFramebuffer()
 {
     ::g::Fuse::Elements::ElementAtlasFramebufferPoolEntry* ret4;
@@ -5192,20 +5207,20 @@ void ElementAtlasFramebufferPoolImpl::EnsurePool()
     return fb;
 }
 
-// private void OnAtlasSizeChanged(object sender, Uno.EventArgs eventArgs) [instance] :236
+// private void OnAtlasSizeChanged(object sender, Uno.EventArgs eventArgs) [instance] :241
 void ElementAtlasFramebufferPoolImpl::OnAtlasSizeChanged(uObject* sender, ::g::Uno::EventArgs* eventArgs)
 {
     DiscardPool();
 }
 
-// internal void UpdateUsage(Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> fb) [instance] :280
+// internal void UpdateUsage(Uno.Collections.LinkedListNode<Fuse.Elements.ElementAtlasFramebufferPoolEntry> fb) [instance] :285
 void ElementAtlasFramebufferPoolImpl::UpdateUsage(::g::Uno::Collections::LinkedListNode* fb)
 {
     uPtr(_framebufferPool)->Remove1(fb);
     uPtr(_framebufferPool)->AddFirst1(fb);
 }
 
-// internal ElementAtlasFramebufferPoolImpl New() [static] :183
+// internal ElementAtlasFramebufferPoolImpl New() [static] :188
 ElementAtlasFramebufferPoolImpl* ElementAtlasFramebufferPoolImpl::New1()
 {
     ElementAtlasFramebufferPoolImpl* obj1 = (ElementAtlasFramebufferPoolImpl*)uNew(ElementAtlasFramebufferPoolImpl_typeof());
@@ -5214,22 +5229,24 @@ ElementAtlasFramebufferPoolImpl* ElementAtlasFramebufferPoolImpl::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementBatch.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementBatch.uno
 // ----------------------------------------------------------------------------------------------------
 
 // internal sealed class ElementBatch :72
 // {
 static void ElementBatch_build(uType* type)
 {
-    ::STRINGS[6] = uString::Const("wrong atlas, stupid!");
-    ::STRINGS[7] = uString::Const("element has no caching rect");
-    ::STRINGS[8] = uString::Const("wrong batch, stupid!");
+    ::STRINGS[7] = uString::Const("wrong atlas, stupid!");
+    ::STRINGS[8] = uString::Const("element has no caching rect");
+    ::STRINGS[9] = uString::Const("wrong batch, stupid!");
     ::TYPES[8] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Elements::ElementBatchEntry_typeof(), NULL);
     ::TYPES[9] = ::g::Uno::Collections::List__Enumerator_typeof()->MakeType(::g::Fuse::Elements::ElementBatchEntry_typeof(), NULL);
     ::TYPES[10] = ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Visual_typeof(), NULL);
-    ::TYPES[11] = ::g::Uno::Collections::EnumerableExtensions_typeof()->MakeMethod(4/*Select<Fuse.Elements.ElementBatchEntry, Fuse.Visual>*/, ::g::Fuse::Elements::ElementBatchEntry_typeof(), ::g::Fuse::Visual_typeof(), NULL);
+    ::TYPES[11] = ::g::Uno::Collections::EnumerableExtensions_typeof()->MakeMethod(3/*Select<Fuse.Elements.ElementBatchEntry, Fuse.Visual>*/, ::g::Fuse::Elements::ElementBatchEntry_typeof(), ::g::Fuse::Visual_typeof(), NULL);
     ::TYPES[12] = ::g::Uno::Func1_typeof()->MakeType(::g::Fuse::Elements::ElementBatchEntry_typeof(), ::g::Fuse::Visual_typeof(), NULL);
     type->SetDependencies(
+        ::g::FuseElements_bundle_typeof(),
+        ::g::Uno::Math_typeof(),
         ::g::Fuse::VisualBounds_typeof());
     type->SetInterfaces(
         ::g::Fuse::Elements::IElementBatchDrawable_typeof(), offsetof(ElementBatch_type, interface0),
@@ -5258,7 +5275,7 @@ ElementBatch_type* ElementBatch_typeof()
     uTypeOptions options;
     options.FieldCount = 13;
     options.InterfaceCount = 2;
-    options.DependencyCount = 1;
+    options.DependencyCount = 3;
     options.ObjectSize = sizeof(ElementBatch);
     options.TypeSize = sizeof(ElementBatch_type);
     type = (ElementBatch_type*)uClassType::New("Fuse.Elements.ElementBatch", options);
@@ -5298,19 +5315,19 @@ void ElementBatch__Draw_fn(ElementBatch* __this, ::g::Fuse::DrawContext* dc, ::g
     __this->Draw(dc, *localToClipTransform, *scissorRectInClipSpace);
 }
 
-// private void FillIndexBuffer() :284
+// private void FillIndexBuffer() :290
 void ElementBatch__FillIndexBuffer_fn(ElementBatch* __this)
 {
     __this->FillIndexBuffer();
 }
 
-// private void FillVertexPositionBuffer(Fuse.DrawContext dc) :324
+// private void FillVertexPositionBuffer(Fuse.DrawContext dc) :330
 void ElementBatch__FillVertexPositionBuffer_fn(ElementBatch* __this, ::g::Fuse::DrawContext* dc)
 {
     __this->FillVertexPositionBuffer(dc);
 }
 
-// private void FillVertexTexCoordBuffer() :305
+// private void FillVertexTexCoordBuffer() :311
 void ElementBatch__FillVertexTexCoordBuffer_fn(ElementBatch* __this)
 {
     __this->FillVertexTexCoordBuffer();
@@ -5352,7 +5369,7 @@ void ElementBatch__InvalidateTransform_fn(ElementBatch* __this, ::g::Fuse::Eleme
     __this->InvalidateTransform(elm);
 }
 
-// public bool IsFull() :279
+// public bool IsFull() :285
 void ElementBatch__IsFull_fn(ElementBatch* __this, bool* __retval)
 {
     *__retval = __this->IsFull();
@@ -5398,12 +5415,12 @@ void ElementBatch::ctor_(::g::Fuse::Elements::ElementBatcher* elementBatcher, ::
     _positionInfo.BufferOffset = 0;
     _positionInfo.BufferStride = 12;
     _positionInfo.Type = 3;
-    _positionInfo.Buffer = ::g::Uno::Graphics::VertexBuffer::New3(1);
+    _positionInfo.Buffer = ::g::Uno::Graphics::VertexBuffer::New4(1);
     _texCoordInfo = uDefault< ::g::Uno::Graphics::VertexAttributeInfo>();
     _texCoordInfo.BufferOffset = 0;
     _texCoordInfo.BufferStride = 8;
     _texCoordInfo.Type = 2;
-    _texCoordInfo.Buffer = ::g::Uno::Graphics::VertexBuffer::New3(0);
+    _texCoordInfo.Buffer = ::g::Uno::Graphics::VertexBuffer::New4(0);
     init_DrawCalls();
 }
 
@@ -5411,7 +5428,7 @@ void ElementBatch::ctor_(::g::Fuse::Elements::ElementBatcher* elementBatcher, ::
 void ElementBatch::AddElement(::g::Fuse::Elements::Element* elm)
 {
     if (uPtr(uPtr(elm)->ElementBatchEntry())->_atlas != _elementAtlas)
-        U_THROW(::g::Uno::Exception::New2(::STRINGS[6/*"wrong atlas...*/]));
+        U_THROW(::g::Uno::Exception::New2(::STRINGS[7/*"wrong atlas...*/]));
 
     ::g::Fuse::Elements::ElementBatchEntry* entry = uPtr(elm)->ElementBatchEntry();
     uPtr(entry)->_batch = this;
@@ -5432,26 +5449,31 @@ void ElementBatch::Dispose()
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementBatchEntry*> > ret8;
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementBatchEntry*> > enum1 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_elements), &ret8), ret8);
 
-    try
     {
+        try
         {
-            while (enum1.MoveNext(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]))
             {
-                ::g::Fuse::Elements::ElementBatchEntry* elm = enum1.Current(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]);
-                uPtr(elm)->_batch = NULL;
+                while (enum1.MoveNext(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]))
+                {
+                    ::g::Fuse::Elements::ElementBatchEntry* elm = enum1.Current(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]);
+                    uPtr(elm)->_batch = NULL;
+                }
             }
         }
-        {
-            enum1.Dispose(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum1.Dispose(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_8;
+        }
+
         {
             enum1.Dispose(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]);
         }
-                throw __t;
+        __after_finally_8:;
     }
 
     if (_positionInfo.Buffer != NULL)
@@ -5475,55 +5497,76 @@ void ElementBatch::Draw(::g::Fuse::DrawContext* dc, ::g::Uno::Float4x4 localToCl
 
     ::g::Uno::Graphics::Framebuffer* fb = uPtr(_elementAtlas)->PinAndValidateFramebuffer(dc);
 
-    if (_prevElementCount != uPtr(_elements)->Count())
     {
-        _indexBufferValid = false;
-        _vertexPositionBufferValid = false;
-        _vertexTexCoordBufferValid = false;
-        _tempBuffer = ::g::Uno::Buffer::New4((uPtr(_elements)->Count() * 4) * 12);
+        try
+        {
+            {
+                if (_prevElementCount != uPtr(_elements)->Count())
+                {
+                    _indexBufferValid = false;
+                    _vertexPositionBufferValid = false;
+                    _vertexTexCoordBufferValid = false;
+                    _tempBuffer = ::g::Uno::Buffer::New4((uPtr(_elements)->Count() * 4) * 12);
+                }
+
+                if (!_indexBufferValid)
+                {
+                    FillIndexBuffer();
+                    _indexBufferValid = true;
+                }
+
+                if (!_vertexPositionBufferValid)
+                {
+                    FillVertexPositionBuffer(dc);
+                    _vertexPositionBufferValid = true;
+                }
+
+                if (!_vertexTexCoordBufferValid)
+                {
+                    FillVertexTexCoordBuffer();
+                    _vertexTexCoordBufferValid = true;
+                }
+
+                ::g::Uno::Graphics::Texture2D* tex = uPtr(fb)->ColorBuffer();
+                ::g::Uno::Float4x4 transform = uPtr(dc)->GetLocalToClipTransform(uPtr(uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_elements), uCRef<int32_t>(0), &ret9), ret9))->_elm)->Parent());
+                _draw_f8c70145.BlendEnabled(true);
+                _draw_f8c70145.DepthTestEnabled(false);
+                _draw_f8c70145.CullFace(uPtr(dc)->CullFace());
+                _draw_f8c70145.BlendSrcAlpha(7);
+                _draw_f8c70145.BlendDstRgb(3);
+                _draw_f8c70145.Use();
+                _draw_f8c70145.Attrib1(0, _positionInfo.Type, _positionInfo.Buffer, _positionInfo.BufferStride, _positionInfo.BufferOffset);
+                _draw_f8c70145.Attrib1(1, _texCoordInfo.Type, _texCoordInfo.Buffer, _texCoordInfo.BufferStride, _texCoordInfo.BufferOffset);
+                _draw_f8c70145.Uniform12(2, transform);
+                _draw_f8c70145.Sampler3(3, tex, ::g::Uno::Graphics::SamplerState__LinearClamp());
+                _draw_f8c70145.Draw(uPtr(_elements)->Count() * 6, 2, _indexBuffer);
+            }
+        }
+
+        catch (const uThrowable& __t)
+        {
+            {
+                uPtr(_elementAtlas)->Unpin();
+            }
+                        throw __t;
+            goto __after_finally_9;
+        }
+
+        {
+            uPtr(_elementAtlas)->Unpin();
+        }
+        __after_finally_9:;
     }
 
-    if (!_indexBufferValid)
-    {
-        FillIndexBuffer();
-        _indexBufferValid = true;
-    }
-
-    if (!_vertexPositionBufferValid)
-    {
-        FillVertexPositionBuffer(dc);
-        _vertexPositionBufferValid = true;
-    }
-
-    if (!_vertexTexCoordBufferValid)
-    {
-        FillVertexTexCoordBuffer();
-        _vertexTexCoordBufferValid = true;
-    }
-
-    ::g::Uno::Graphics::Texture2D* tex = uPtr(fb)->ColorBuffer();
-    ::g::Uno::Float4x4 transform = uPtr(dc)->GetLocalToClipTransform(uPtr(uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_elements), uCRef<int>(0), &ret9), ret9))->_elm)->Parent());
-    _draw_f8c70145.BlendEnabled(true);
-    _draw_f8c70145.DepthTestEnabled(false);
-    _draw_f8c70145.CullFace(uPtr(dc)->CullFace());
-    _draw_f8c70145.BlendSrcAlpha(7);
-    _draw_f8c70145.BlendDstRgb(3);
-    _draw_f8c70145.Use();
-    _draw_f8c70145.Attrib1(0, _positionInfo.Type, _positionInfo.Buffer, _positionInfo.BufferStride, _positionInfo.BufferOffset);
-    _draw_f8c70145.Attrib1(1, _texCoordInfo.Type, _texCoordInfo.Buffer, _texCoordInfo.BufferStride, _texCoordInfo.BufferOffset);
-    _draw_f8c70145.Uniform12(2, transform);
-    _draw_f8c70145.Sampler3(3, tex, ::g::Uno::Graphics::SamplerState__LinearClamp());
-    _draw_f8c70145.Draw(uPtr(_elements)->Count() * 6, 2, _indexBuffer);
-    uPtr(_elementAtlas)->Unpin();
     _prevElementCount = uPtr(_elements)->Count();
 }
 
-// private void FillIndexBuffer() [instance] :284
+// private void FillIndexBuffer() [instance] :290
 void ElementBatch::FillIndexBuffer()
 {
     ::g::Uno::Buffer* indices = ::g::Uno::Buffer::New4((uPtr(_elements)->Count() * 6) * 2);
 
-    for (int i = 0; i < uPtr(_elements)->Count(); ++i)
+    for (int32_t i = 0; i < uPtr(_elements)->Count(); ++i)
     {
         uPtr(indices)->Set23((i * 6) * 2, (uint16_t)(i * 4), true);
         indices->Set23(((i * 6) + 1) * 2, (uint16_t)((i * 4) + 2), true);
@@ -5536,10 +5579,10 @@ void ElementBatch::FillIndexBuffer()
     if (_indexBuffer != NULL)
         uPtr(_indexBuffer)->Dispose();
 
-    _indexBuffer = ::g::Uno::Graphics::IndexBuffer::New2(indices, 0);
+    _indexBuffer = ::g::Uno::Graphics::IndexBuffer::New1(indices->GetBytes(), 0);
 }
 
-// private void FillVertexPositionBuffer(Fuse.DrawContext dc) [instance] :324
+// private void FillVertexPositionBuffer(Fuse.DrawContext dc) [instance] :330
 void ElementBatch::FillVertexPositionBuffer(::g::Fuse::DrawContext* dc)
 {
     ::g::Uno::Float4 ind2;
@@ -5548,19 +5591,19 @@ void ElementBatch::FillVertexPositionBuffer(::g::Fuse::DrawContext* dc)
     ::g::Uno::Float4 ind5;
     ::g::Uno::Float4 ind6;
     ::g::Fuse::Elements::ElementBatchEntry* ret10;
-    int elementCount = uPtr(_elements)->Count();
+    int32_t elementCount = uPtr(_elements)->Count();
     ::g::Uno::Buffer* vertexPositions = _tempBuffer;
     float densityScale = 1.0f / uPtr(dc)->ViewportPixelsPerPoint();
 
-    for (int i = 0; i < elementCount; ++i)
+    for (int32_t i = 0; i < elementCount; ++i)
     {
-        ::g::Fuse::Elements::ElementBatchEntry* entry = (::g::Uno::Collections::List__get_Item_fn(uPtr(_elements), uCRef<int>(i), &ret10), ret10);
+        ::g::Fuse::Elements::ElementBatchEntry* entry = (::g::Uno::Collections::List__get_Item_fn(uPtr(_elements), uCRef<int32_t>(i), &ret10), ret10);
         ::g::Uno::Recti cachingRect = ElementBatch::GetCachingRect(uPtr(entry)->_elm);
         float opacity = entry->_opacity;
         ::g::Uno::Float4x4 transform = uPtr(entry->_elm)->LocalTransform();
-        ::g::Uno::Float2 localOrigin = ::g::Uno::Float2__op_Multiply1(::g::Uno::Float2__op_Addition1(::g::Uno::Float2__op_Implicit1(cachingRect.Minimum()), 0.5f), densityScale);
+        ::g::Uno::Float2 localOrigin = ::g::Uno::Float2__op_Multiply1(::g::Uno::Float2__op_Addition1(::g::Uno::Float2__op_Implicit2(cachingRect.Minimum()), 0.5f), densityScale);
         ::g::Uno::Float2 positionOrigin = ::g::Uno::Float2__op_Addition2(::g::Uno::Float2__op_Addition2((ind2 = transform.Item(3), ::g::Uno::Float2__New2(ind2.X, ind2.Y)), ::g::Uno::Float2__op_Multiply(localOrigin.X, (ind3 = transform.Item(0), ::g::Uno::Float2__New2(ind3.X, ind3.Y)))), ::g::Uno::Float2__op_Multiply(localOrigin.Y, (ind4 = transform.Item(1), ::g::Uno::Float2__New2(ind4.X, ind4.Y))));
-        ::g::Uno::Float2 size = ::g::Uno::Float2__op_Multiply1(::g::Uno::Float2__op_Subtraction1(::g::Uno::Float2__op_Implicit1(entry->AtlasRect.Size()), 1.0f), densityScale);
+        ::g::Uno::Float2 size = ::g::Uno::Float2__op_Multiply1(::g::Uno::Float2__op_Subtraction1(::g::Uno::Float2__op_Implicit2(entry->AtlasRect.Size()), 1.0f), densityScale);
         ::g::Uno::Float2 right = ::g::Uno::Float2__op_Multiply1((ind5 = transform.Item(0), ::g::Uno::Float2__New2(ind5.X, ind5.Y)), size.X);
         ::g::Uno::Float2 up = ::g::Uno::Float2__op_Multiply1((ind6 = transform.Item(1), ::g::Uno::Float2__New2(ind6.X, ind6.Y)), size.Y);
         uPtr(vertexPositions)->Set6(((i * 4) * _positionInfo.BufferStride) + _positionInfo.BufferOffset, ::g::Uno::Float3__New4(positionOrigin, opacity), true);
@@ -5569,28 +5612,28 @@ void ElementBatch::FillVertexPositionBuffer(::g::Fuse::DrawContext* dc)
         vertexPositions->Set6((((i * 4) + 3) * _positionInfo.BufferStride) + _positionInfo.BufferOffset, ::g::Uno::Float3__New4(::g::Uno::Float2__op_Addition2(positionOrigin, up), opacity), true);
     }
 
-    uPtr(_positionInfo.Buffer)->Update(vertexPositions);
+    uPtr(_positionInfo.Buffer)->Update(uPtr(vertexPositions)->GetBytes());
 }
 
-// private void FillVertexTexCoordBuffer() [instance] :305
+// private void FillVertexTexCoordBuffer() [instance] :311
 void ElementBatch::FillVertexTexCoordBuffer()
 {
     ::g::Fuse::Elements::ElementBatchEntry* ret11;
-    int elementCount = uPtr(_elements)->Count();
+    int32_t elementCount = uPtr(_elements)->Count();
     ::g::Uno::Buffer* vertexTexCoords = _tempBuffer;
 
-    for (int i = 0; i < elementCount; ++i)
+    for (int32_t i = 0; i < elementCount; ++i)
     {
-        ::g::Fuse::Elements::ElementBatchEntry* entry = (::g::Uno::Collections::List__get_Item_fn(uPtr(_elements), uCRef<int>(i), &ret11), ret11);
-        ::g::Uno::Float2 texCoordOrigin = ::g::Uno::Float2__op_Division2(::g::Uno::Float2__op_Addition1(::g::Uno::Float2__op_Implicit1(uPtr(entry)->AtlasRect.Minimum()), 0.5f), ::g::Uno::Float2__op_Implicit1(uPtr(uPtr(_elementAtlas)->_rectPacker)->Size()));
-        ::g::Uno::Float2 size = ::g::Uno::Float2__op_Division2(::g::Uno::Float2__op_Subtraction1(::g::Uno::Float2__op_Implicit1(entry->AtlasRect.Size()), 1.0f), ::g::Uno::Float2__op_Implicit1(uPtr(uPtr(_elementAtlas)->_rectPacker)->Size()));
+        ::g::Fuse::Elements::ElementBatchEntry* entry = (::g::Uno::Collections::List__get_Item_fn(uPtr(_elements), uCRef<int32_t>(i), &ret11), ret11);
+        ::g::Uno::Float2 texCoordOrigin = ::g::Uno::Float2__op_Division2(::g::Uno::Float2__op_Addition1(::g::Uno::Float2__op_Implicit2(uPtr(entry)->AtlasRect.Minimum()), 0.5f), ::g::Uno::Float2__op_Implicit2(uPtr(uPtr(_elementAtlas)->_rectPacker)->Size()));
+        ::g::Uno::Float2 size = ::g::Uno::Float2__op_Division2(::g::Uno::Float2__op_Subtraction1(::g::Uno::Float2__op_Implicit2(entry->AtlasRect.Size()), 1.0f), ::g::Uno::Float2__op_Implicit2(uPtr(uPtr(_elementAtlas)->_rectPacker)->Size()));
         uPtr(vertexTexCoords)->Set5(((i * 4) * _texCoordInfo.BufferStride) + _texCoordInfo.BufferOffset, texCoordOrigin, true);
         vertexTexCoords->Set5((((i * 4) + 1) * _texCoordInfo.BufferStride) + _texCoordInfo.BufferOffset, ::g::Uno::Float2__op_Addition2(texCoordOrigin, ::g::Uno::Float2__New2(size.X, 0.0f)), true);
         vertexTexCoords->Set5((((i * 4) + 2) * _texCoordInfo.BufferStride) + _texCoordInfo.BufferOffset, ::g::Uno::Float2__op_Addition2(texCoordOrigin, size), true);
         vertexTexCoords->Set5((((i * 4) + 3) * _texCoordInfo.BufferStride) + _texCoordInfo.BufferOffset, ::g::Uno::Float2__op_Addition2(texCoordOrigin, ::g::Uno::Float2__New2(0.0f, size.Y)), true);
     }
 
-    uPtr(_texCoordInfo.Buffer)->Update(vertexTexCoords);
+    uPtr(_texCoordInfo.Buffer)->Update(uPtr(vertexTexCoords)->GetBytes());
 }
 
 // public Uno.Collections.IEnumerator<Fuse.Visual> GetEnumerator() [instance] :167
@@ -5626,7 +5669,7 @@ void ElementBatch::InvalidateTransform(::g::Fuse::Elements::Element* elm)
     _renderBounds = NULL;
 }
 
-// public bool IsFull() [instance] :279
+// public bool IsFull() [instance] :285
 bool ElementBatch::IsFull()
 {
     return (uPtr(_elements)->Count() * 6) >= 65535;
@@ -5638,7 +5681,7 @@ void ElementBatch::RemoveElement(::g::Fuse::Elements::Element* elm)
     bool ret12;
 
     if (uPtr(uPtr(elm)->ElementBatchEntry())->_batch != this)
-        U_THROW(::g::Uno::Exception::New2(::STRINGS[8/*"wrong batch...*/]));
+        U_THROW(::g::Uno::Exception::New2(::STRINGS[9/*"wrong batch...*/]));
 
     ::g::Fuse::Elements::ElementBatchEntry* entry = uPtr(elm)->ElementBatchEntry();
     uPtr(entry)->_batch = NULL;
@@ -5671,7 +5714,7 @@ void ElementBatch::RemoveElement(::g::Fuse::Elements::Element* elm)
     ::g::Uno::Recti cachingRect;
 
     if (!ElementBatch::TryGetCachingRect(elm, &cachingRect))
-        U_THROW(::g::Uno::Exception::New2(::STRINGS[7/*"element has...*/]));
+        U_THROW(::g::Uno::Exception::New2(::STRINGS[8/*"element has...*/]));
 
     return cachingRect;
 }
@@ -5701,13 +5744,13 @@ bool ElementBatch::TryGetCachingRect(::g::Fuse::Elements::Element* elm, ::g::Uno
         return false;
     }
 
-    int cachingRectPadding = 1;
+    int32_t cachingRectPadding = 1;
     *cachingRect = ::g::Uno::Recti__Inflate(ElementBatch::ConservativelySnapToCoveringIntegers(::g::Uno::Rect__Scale(uPtr(bounds)->FlatRect(), elm->AbsoluteZoom())), 1);
     return true;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementBatch.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementBatch.uno
 // ----------------------------------------------------------------------------------------------------
 
 // internal sealed class ElementBatchEntry :7
@@ -5857,16 +5900,16 @@ ElementBatchEntry* ElementBatchEntry::New1(::g::Fuse::Elements::Element* elm)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementBatcher.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementBatcher.uno
 // ------------------------------------------------------------------------------------------------------
 
 // internal sealed class ElementBatcher :27
 // {
 static void ElementBatcher_build(uType* type)
 {
-    ::STRINGS[9] = uString::Const("Trying to batch nothing!");
-    ::STRINGS[10] = uString::Const("BUG: atlas-insertion failed, but should not!");
-    ::STRINGS[11] = uString::Const("C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.4.2/Caching/ElementBatcher.uno");
+    ::STRINGS[10] = uString::Const("Trying to batch nothing!");
+    ::STRINGS[11] = uString::Const("BUG: atlas-insertion failed, but should not!");
+    ::STRINGS[12] = uString::Const("C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Elements/1.9.0/Caching/ElementBatcher.uno");
     ::TYPES[13] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Visual_typeof(), NULL);
     ::TYPES[14] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Elements::ElementAtlas_typeof(), NULL);
     ::TYPES[15] = ::g::Uno::Collections::List_typeof()->MakeType(::g::Fuse::Elements::ElementBatch_typeof(), NULL);
@@ -5882,12 +5925,8 @@ static void ElementBatcher_build(uType* type)
     ::TYPES[22] = ::g::Fuse::Elements::IElementBatchDrawable_typeof();
     type->SetDependencies(
         ::g::Uno::Diagnostics::Debug_typeof(),
-        ::g::Fuse::Elements::DisplayHelpers_typeof(),
         ::g::Fuse::Resources::DisposalManager_typeof(),
-        ::g::Fuse::Elements::ElementAtlas_typeof(),
-        ::g::Fuse::Elements::ElementAtlasFramebuffer_typeof(),
-        ::g::Fuse::Elements::ElementAtlasFramebufferPool_typeof(),
-        ::g::Fuse::Elements::ElementBatch_typeof());
+        ::g::Uno::Math_typeof());
     type->SetInterfaces(
         ::g::Fuse::Resources::ISoftDisposable_typeof(), offsetof(ElementBatcher_type, interface0),
         ::g::Uno::IDisposable_typeof(), offsetof(ElementBatcher_type, interface1));
@@ -5909,7 +5948,7 @@ ElementBatcher_type* ElementBatcher_typeof()
     uTypeOptions options;
     options.FieldCount = 7;
     options.InterfaceCount = 2;
-    options.DependencyCount = 7;
+    options.DependencyCount = 3;
     options.ObjectSize = sizeof(ElementBatcher);
     options.TypeSize = sizeof(ElementBatcher_type);
     type = (ElementBatcher_type*)uClassType::New("Fuse.Elements.ElementBatcher", options);
@@ -5975,7 +6014,7 @@ void ElementBatcher__FuseResourcesISoftDisposableSoftDispose_fn(ElementBatcher* 
 }
 
 // private static int get_MaxElementPixels() :123
-void ElementBatcher__get_MaxElementPixels_fn(int* __retval)
+void ElementBatcher__get_MaxElementPixels_fn(int32_t* __retval)
 {
     *__retval = ElementBatcher::MaxElementPixels();
 }
@@ -6017,7 +6056,7 @@ void ElementBatcher__ShouldBatchElement_fn(::g::Fuse::Visual* node, bool* __retv
 }
 
 // public static bool ShouldBatchElementWithCachingMode(Fuse.Elements.CachingMode mode) :133
-void ElementBatcher__ShouldBatchElementWithCachingMode_fn(int* mode, bool* __retval)
+void ElementBatcher__ShouldBatchElementWithCachingMode_fn(int32_t* mode, bool* __retval)
 {
     *__retval = ElementBatcher::ShouldBatchElementWithCachingMode(*mode);
 }
@@ -6076,54 +6115,64 @@ void ElementBatcher::DiscardAtlasing()
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Visual*> > ret15;
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementAtlas*> > enum1 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_atlasPool), &ret14), ret14);
 
-    try
     {
+        try
         {
-            while (enum1.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
             {
-                ::g::Fuse::Elements::ElementAtlas* atlas = enum1.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-                uPtr(atlas)->Dispose();
+                while (enum1.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
+                {
+                    ::g::Fuse::Elements::ElementAtlas* atlas = enum1.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                    uPtr(atlas)->Dispose();
+                }
             }
         }
-        {
-            enum1.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum1.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_10;
+        }
+
         {
             enum1.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
         }
-                throw __t;
+        __after_finally_10:;
     }
 
     uPtr(_atlasPool)->Clear();
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Visual*> > enum2 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_elements), &ret15), ret15);
 
-    try
     {
+        try
         {
-            while (enum2.MoveNext(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]))
             {
-                ::g::Fuse::Visual* node = enum2.Current(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
-                ::g::Fuse::Elements::Element* elm = uAs< ::g::Fuse::Elements::Element*>(node, ::TYPES[19/*Fuse.Elements.Element*/]);
+                while (enum2.MoveNext(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]))
+                {
+                    ::g::Fuse::Visual* node = enum2.Current(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
+                    ::g::Fuse::Elements::Element* elm = uAs< ::g::Fuse::Elements::Element*>(node, ::TYPES[19/*Fuse.Elements.Element*/]);
 
-                if (elm != NULL)
-                    uPtr(elm)->ElementBatchEntry(NULL);
+                    if (elm != NULL)
+                        uPtr(elm)->ElementBatchEntry(NULL);
+                }
             }
         }
-        {
-            enum2.Dispose(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum2.Dispose(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_11;
+        }
+
         {
             enum2.Dispose(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
         }
-                throw __t;
+        __after_finally_11:;
     }
 
     uPtr(_drawList)->Clear();
@@ -6136,26 +6185,31 @@ void ElementBatcher::DiscardBatching()
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementBatch*> > ret16;
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementBatch*> > enum3 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_batchPool), &ret16), ret16);
 
-    try
     {
+        try
         {
-            while (enum3.MoveNext(::TYPES[20/*Uno.Collections.List<Fuse.Elements.ElementBatch>.Enumerator*/]))
             {
-                ::g::Fuse::Elements::ElementBatch* batch = enum3.Current(::TYPES[20/*Uno.Collections.List<Fuse.Elements.ElementBatch>.Enumerator*/]);
-                uPtr(batch)->Dispose();
+                while (enum3.MoveNext(::TYPES[20/*Uno.Collections.List<Fuse.Elements.ElementBatch>.Enumerator*/]))
+                {
+                    ::g::Fuse::Elements::ElementBatch* batch = enum3.Current(::TYPES[20/*Uno.Collections.List<Fuse.Elements.ElementBatch>.Enumerator*/]);
+                    uPtr(batch)->Dispose();
+                }
             }
         }
-        {
-            enum3.Dispose(::TYPES[20/*Uno.Collections.List<Fuse.Elements.ElementBatch>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum3.Dispose(::TYPES[20/*Uno.Collections.List<Fuse.Elements.ElementBatch>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_12;
+        }
+
         {
             enum3.Dispose(::TYPES[20/*Uno.Collections.List<Fuse.Elements.ElementBatch>.Enumerator*/]);
         }
-                throw __t;
+        __after_finally_12:;
     }
 
     uPtr(_batchPool)->Clear();
@@ -6183,113 +6237,133 @@ void ElementBatcher::Draw(::g::Fuse::DrawContext* dc)
     ::g::Uno::Collections::List__Enumerator<uStrong<uObject*> > ret24;
 
     if (uPtr(_elements)->Count() < 1)
-        U_THROW(::g::Uno::Exception::New2(::STRINGS[9/*"Trying to b...*/]));
+        U_THROW(::g::Uno::Exception::New2(::STRINGS[10/*"Trying to b...*/]));
 
     if ((double)MaxSpilledRatio > 0.5)
     {
         ::g::Uno::Collections::List* removeList = (::g::Uno::Collections::List*)::g::Uno::Collections::List::New1(::TYPES[14/*Uno.Collections.List<Fuse.Elements.ElementAtlas>*/]);
         ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementAtlas*> > enum7 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_atlasPool), &ret17), ret17);
 
-        try
         {
+            try
             {
-                while (enum7.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
                 {
-                    ::g::Fuse::Elements::ElementAtlas* a = enum7.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                    while (enum7.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
+                    {
+                        ::g::Fuse::Elements::ElementAtlas* a = enum7.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
 
-                    if ((double)uPtr(a)->SpilledRatio() > 0.5)
-                        ::g::Uno::Collections::List__Add_fn(uPtr(removeList), a);
+                        if ((double)uPtr(a)->SpilledRatio() > 0.5)
+                            ::g::Uno::Collections::List__Add_fn(uPtr(removeList), a);
+                    }
                 }
             }
-            {
-                enum7.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
+            {
+                {
+                    enum7.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                }
+                                throw __t;
+                goto __after_finally_13;
+            }
+
             {
                 enum7.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
             }
-                        throw __t;
+            __after_finally_13:;
         }
 
         ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Visual*> > enum8 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_elements), &ret18), ret18);
 
-        try
         {
+            try
             {
-                while (enum8.MoveNext(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]))
                 {
-                    ::g::Fuse::Visual* node = enum8.Current(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
-                    ::g::Fuse::Elements::Element* elm = uAs< ::g::Fuse::Elements::Element*>(node, ::TYPES[19/*Fuse.Elements.Element*/]);
-
-                    if (elm == NULL)
-                        continue;
-
-                    ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementAtlas*> > enum9 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(removeList), &ret19), ret19);
-
-                    try
+                    while (enum8.MoveNext(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]))
                     {
+                        ::g::Fuse::Visual* node = enum8.Current(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
+                        ::g::Fuse::Elements::Element* elm = uAs< ::g::Fuse::Elements::Element*>(node, ::TYPES[19/*Fuse.Elements.Element*/]);
+
+                        if (elm == NULL)
+                            continue;
+
+                        ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementAtlas*> > enum9 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(removeList), &ret19), ret19);
+
                         {
-                            while (enum9.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
+                            try
                             {
-                                ::g::Fuse::Elements::ElementAtlas* a1 = enum9.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                                {
+                                    while (enum9.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
+                                    {
+                                        ::g::Fuse::Elements::ElementAtlas* a1 = enum9.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
 
-                                if ((uPtr(elm)->ElementBatchEntry() != NULL) && (uPtr(uPtr(elm)->ElementBatchEntry())->_atlas == a1))
-                                    uPtr(elm)->ElementBatchEntry(NULL);
+                                        if ((uPtr(elm)->ElementBatchEntry() != NULL) && (uPtr(uPtr(elm)->ElementBatchEntry())->_atlas == a1))
+                                            uPtr(elm)->ElementBatchEntry(NULL);
+                                    }
+                                }
                             }
-                        }
-                        {
-                            enum9.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-                        }
-                    }
 
-                    catch (const uThrowable& __t)
-                    {
-                        {
-                            enum9.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                            catch (const uThrowable& __t)
+                            {
+                                {
+                                    enum9.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                                }
+                                                                throw __t;
+                                goto __after_finally_14;
+                            }
+
+                            {
+                                enum9.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                            }
+                            __after_finally_14:;
                         }
-                                                throw __t;
                     }
                 }
             }
-            {
-                enum8.Dispose(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
+            {
+                {
+                    enum8.Dispose(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
+                }
+                                throw __t;
+                goto __after_finally_15;
+            }
+
             {
                 enum8.Dispose(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
             }
-                        throw __t;
+            __after_finally_15:;
         }
 
         ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementAtlas*> > enum10 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(removeList), &ret20), ret20);
 
-        try
         {
+            try
             {
-                while (enum10.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
                 {
-                    ::g::Fuse::Elements::ElementAtlas* a2 = enum10.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-                    ::g::Uno::Collections::List__Remove_fn(uPtr(_atlasPool), a2, &ret21);
-                    uPtr(a2)->Dispose();
+                    while (enum10.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
+                    {
+                        ::g::Fuse::Elements::ElementAtlas* a2 = enum10.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                        ::g::Uno::Collections::List__Remove_fn(uPtr(_atlasPool), a2, &ret21);
+                        uPtr(a2)->Dispose();
+                    }
                 }
             }
-            {
-                enum10.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-            }
-        }
 
-        catch (const uThrowable& __t)
-        {
+            catch (const uThrowable& __t)
+            {
+                {
+                    enum10.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                }
+                                throw __t;
+                goto __after_finally_16;
+            }
+
             {
                 enum10.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
             }
-                        throw __t;
+            __after_finally_16:;
         }
 
         DrawListValid = false;
@@ -6297,42 +6371,47 @@ void ElementBatcher::Draw(::g::Fuse::DrawContext* dc)
 
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementBatchEntry*> > enum11 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_reinsertCheckList), &ret22), ret22);
 
-    try
     {
+        try
         {
-            while (enum11.MoveNext(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]))
             {
-                ::g::Fuse::Elements::ElementBatchEntry* e = enum11.Current(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]);
-                ::g::Fuse::Elements::Element* elm1 = uPtr(e)->_elm;
-                ::g::Fuse::Elements::ElementAtlas* atlas = e->_atlas;
-
-                if (((elm1 == NULL) || (uPtr(elm1)->ElementBatchEntry() == NULL)) || (atlas == NULL))
-                    continue;
-
-                ::g::Uno::Recti cachingRect;
-
-                if (::g::Fuse::Elements::ElementBatch::TryGetCachingRect(elm1, &cachingRect))
+                while (enum11.MoveNext(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]))
                 {
-                    if (((cachingRect.Size().X <= uPtr(e)->AtlasRect.Size().X) && (cachingRect.Size().Y <= uPtr(e)->AtlasRect.Size().Y)) || uPtr(atlas)->ReinsertElement(elm1, cachingRect))
-                        continue;
-                }
+                    ::g::Fuse::Elements::ElementBatchEntry* e = enum11.Current(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]);
+                    ::g::Fuse::Elements::Element* elm1 = uPtr(e)->_elm;
+                    ::g::Fuse::Elements::ElementAtlas* atlas = e->_atlas;
 
-                uPtr(atlas)->RemoveElement(elm1);
-                uPtr(elm1)->ElementBatchEntry(NULL);
-                DrawListValid = false;
+                    if (((elm1 == NULL) || (uPtr(elm1)->ElementBatchEntry() == NULL)) || (atlas == NULL))
+                        continue;
+
+                    ::g::Uno::Recti cachingRect;
+
+                    if (::g::Fuse::Elements::ElementBatch::TryGetCachingRect(elm1, &cachingRect))
+                    {
+                        if (((cachingRect.Size().X <= uPtr(e)->AtlasRect.Size().X) && (cachingRect.Size().Y <= uPtr(e)->AtlasRect.Size().Y)) || uPtr(atlas)->ReinsertElement(elm1, cachingRect))
+                            continue;
+                    }
+
+                    uPtr(atlas)->RemoveElement(elm1);
+                    uPtr(elm1)->ElementBatchEntry(NULL);
+                    DrawListValid = false;
+                }
             }
         }
-        {
-            enum11.Dispose(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum11.Dispose(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_17;
+        }
+
         {
             enum11.Dispose(::TYPES[9/*Uno.Collections.List<Fuse.Elements.ElementBatchEntry>.Enumerator*/]);
         }
-                throw __t;
+        __after_finally_17:;
     }
 
     uPtr(_reinsertCheckList)->Clear();
@@ -6343,31 +6422,36 @@ void ElementBatcher::Draw(::g::Fuse::DrawContext* dc)
         DrawListValid = true;
     }
 
-    ::g::Fuse::Visual* parent = uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_elements), uCRef<int>(0), &ret23), ret23))->Parent();
+    ::g::Fuse::Visual* parent = uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_elements), uCRef<int32_t>(0), &ret23), ret23))->Parent();
     ::g::Uno::Float4x4 localToClipTransform = uPtr(dc)->GetLocalToClipTransform(parent);
     ::g::Uno::Rect scissorRectInClipSpace = ::g::Fuse::Elements::ElementAtlas::GetScissorRectInClipSpace(dc);
     ::g::Uno::Collections::List__Enumerator<uStrong<uObject*> > enum12 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_drawList), &ret24), ret24);
 
-    try
     {
+        try
         {
-            while (enum12.MoveNext(::TYPES[21/*Uno.Collections.List<Fuse.Elements.IElementBatchDrawable>.Enumerator*/]))
             {
-                uObject* d = enum12.Current(::TYPES[21/*Uno.Collections.List<Fuse.Elements.IElementBatchDrawable>.Enumerator*/]);
-                ::g::Fuse::Elements::IElementBatchDrawable::Draw(uInterface(uPtr(d), ::TYPES[22/*Fuse.Elements.IElementBatchDrawable*/]), dc, localToClipTransform, scissorRectInClipSpace);
+                while (enum12.MoveNext(::TYPES[21/*Uno.Collections.List<Fuse.Elements.IElementBatchDrawable>.Enumerator*/]))
+                {
+                    uObject* d = enum12.Current(::TYPES[21/*Uno.Collections.List<Fuse.Elements.IElementBatchDrawable>.Enumerator*/]);
+                    ::g::Fuse::Elements::IElementBatchDrawable::Draw(uInterface(uPtr(d), ::TYPES[22/*Fuse.Elements.IElementBatchDrawable*/]), dc, localToClipTransform, scissorRectInClipSpace);
+                }
             }
         }
-        {
-            enum12.Dispose(::TYPES[21/*Uno.Collections.List<Fuse.Elements.IElementBatchDrawable>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum12.Dispose(::TYPES[21/*Uno.Collections.List<Fuse.Elements.IElementBatchDrawable>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_18;
+        }
+
         {
             enum12.Dispose(::TYPES[21/*Uno.Collections.List<Fuse.Elements.IElementBatchDrawable>.Enumerator*/]);
         }
-                throw __t;
+        __after_finally_18:;
     }
 }
 
@@ -6384,8 +6468,8 @@ void ElementBatcher::Remove(::g::Fuse::Elements::Element* elm)
     ::g::Fuse::Elements::ElementBatchEntry* ret26;
     ::g::Uno::Collections::List__Remove_fn(uPtr(_elements), elm, &ret25);
 
-    for (int i = uPtr(_reinsertCheckList)->Count() - 1; i >= 0; --i)
-        if (uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_reinsertCheckList), uCRef<int>(i), &ret26), ret26))->_elm == elm)
+    for (int32_t i = uPtr(_reinsertCheckList)->Count() - 1; i >= 0; --i)
+        if (uPtr((::g::Uno::Collections::List__get_Item_fn(uPtr(_reinsertCheckList), uCRef<int32_t>(i), &ret26), ret26))->_elm == elm)
             uPtr(_reinsertCheckList)->RemoveAt(i);
 
     DrawListValid = false;
@@ -6410,148 +6494,163 @@ void ElementBatcher::UpdateDrawList()
     ::g::Fuse::Elements::ElementBatch* batch = NULL;
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Visual*> > enum4 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_elements), &ret27), ret27);
 
-    try
     {
+        try
         {
-            while (enum4.MoveNext(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]))
             {
-                ::g::Fuse::Visual* node = enum4.Current(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
-
-                if (!ElementBatcher::ShouldBatchElement(node))
+                while (enum4.MoveNext(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]))
                 {
-                    ::g::Uno::Collections::List__Add_fn(uPtr(_drawList), (uObject*)::g::Fuse::Elements::SingleVisualDrawable::New1(node));
-                    batch = NULL;
-                    continue;
-                }
+                    ::g::Fuse::Visual* node = enum4.Current(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
 
-                ::g::Fuse::Elements::Element* elm = uCast< ::g::Fuse::Elements::Element*>(node, ::TYPES[19/*Fuse.Elements.Element*/]);
-                bool emitNewBatch = false;
-                ::g::Fuse::Elements::ElementAtlas* atlas = NULL;
-
-                if (batch == NULL)
-                {
-                    emitNewBatch = true;
-
-                    if (uPtr(elm)->ElementBatchEntry() != NULL)
-                        atlas = uPtr(uPtr(elm)->ElementBatchEntry())->_atlas;
-                }
-                else
-                {
-                    if ((uPtr(elm)->ElementBatchEntry() == NULL) || (uPtr(uPtr(elm)->ElementBatchEntry())->_atlas == NULL))
+                    if (!ElementBatcher::ShouldBatchElement(node))
                     {
-                        atlas = uPtr(batch)->_elementAtlas;
-
-                        if (!uPtr(atlas)->AddElement(elm))
-                            atlas = NULL;
-                    }
-                    else
-                    {
-                        if (uPtr(uPtr(elm)->ElementBatchEntry())->_atlas != uPtr(batch)->_elementAtlas)
-                            emitNewBatch = true;
-
-                        atlas = uPtr(uPtr(elm)->ElementBatchEntry())->_atlas;
-                    }
-                }
-
-                if ((batch != NULL) && !emitNewBatch)
-                {
-                    ::g::Fuse::VisualBounds* batchRenderBounds = uPtr(batch)->RenderBounds();
-                    ::g::Fuse::VisualBounds* elmRenderBounds = uPtr(elm)->CalcRenderBoundsInParentSpace();
-                    ::g::Fuse::VisualBounds* newRenderBounds = uPtr(batchRenderBounds)->Merge(elmRenderBounds, NULL);
-
-                    if (((uPtr(newRenderBounds)->Size().X > (float)maxBatchRenderBounds.X) || (uPtr(newRenderBounds)->Size().Y > (float)maxBatchRenderBounds.Y)) || batch->IsFull())
-                        emitNewBatch = true;
-                }
-
-                if (emitNewBatch || (atlas == NULL))
-                {
-                    if (atlas == NULL)
-                    {
-                        ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementAtlas*> > enum5 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_atlasPool), &ret28), ret28);
-
-                        try
-                        {
-                            {
-                                while (enum5.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
-                                {
-                                    ::g::Fuse::Elements::ElementAtlas* a = enum5.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-
-                                    if (uPtr(a)->AddElement(elm))
-                                    {
-                                        atlas = a;
-                                        break;
-                                    }
-                                }
-                            }
-                            {
-                                enum5.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-                            }
-                        }
-
-                        catch (const uThrowable& __t)
-                        {
-                            {
-                                enum5.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-                            }
-                                                        throw __t;
-                        }
-
-                        if (atlas == NULL)
-                            atlas = allocAtlas();
-                    }
-
-                    batch = allocBatch(atlas);
-
-                    if (((uPtr(elm)->ElementBatchEntry() == NULL) || (uPtr(uPtr(elm)->ElementBatchEntry())->_atlas != atlas)) && !uPtr(atlas)->AddElement(elm))
-                    {
-                        ::g::Uno::Diagnostics::Debug::Log5(::STRINGS[10/*"BUG: atlas-...*/], 0, ::STRINGS[11/*"C:/Users/Sp...*/], 253);
-                        ::g::Uno::Collections::List__Add_fn(uPtr(_drawList), (uObject*)::g::Fuse::Elements::SingleVisualDrawable::New1(elm));
+                        ::g::Uno::Collections::List__Add_fn(uPtr(_drawList), (uObject*)::g::Fuse::Elements::SingleVisualDrawable::New1(node));
                         batch = NULL;
                         continue;
                     }
 
-                    ::g::Uno::Collections::List__Add_fn(uPtr(_drawList), (uObject*)batch);
-                }
+                    ::g::Fuse::Elements::Element* elm = uCast< ::g::Fuse::Elements::Element*>(node, ::TYPES[19/*Fuse.Elements.Element*/]);
+                    bool emitNewBatch = false;
+                    ::g::Fuse::Elements::ElementAtlas* atlas = NULL;
 
-                uPtr(batch)->AddElement(elm);
+                    if (batch == NULL)
+                    {
+                        emitNewBatch = true;
+
+                        if (uPtr(elm)->ElementBatchEntry() != NULL)
+                            atlas = uPtr(uPtr(elm)->ElementBatchEntry())->_atlas;
+                    }
+                    else
+                    {
+                        if ((uPtr(elm)->ElementBatchEntry() == NULL) || (uPtr(uPtr(elm)->ElementBatchEntry())->_atlas == NULL))
+                        {
+                            atlas = uPtr(batch)->_elementAtlas;
+
+                            if (!uPtr(atlas)->AddElement(elm))
+                                atlas = NULL;
+                        }
+                        else
+                        {
+                            if (uPtr(uPtr(elm)->ElementBatchEntry())->_atlas != uPtr(batch)->_elementAtlas)
+                                emitNewBatch = true;
+
+                            atlas = uPtr(uPtr(elm)->ElementBatchEntry())->_atlas;
+                        }
+                    }
+
+                    if ((batch != NULL) && !emitNewBatch)
+                    {
+                        ::g::Fuse::VisualBounds* batchRenderBounds = uPtr(batch)->RenderBounds();
+                        ::g::Fuse::VisualBounds* elmRenderBounds = uPtr(elm)->CalcRenderBoundsInParentSpace();
+                        ::g::Fuse::VisualBounds* newRenderBounds = uPtr(batchRenderBounds)->Merge(elmRenderBounds, NULL);
+
+                        if (((uPtr(newRenderBounds)->Size().X > (float)maxBatchRenderBounds.X) || (uPtr(newRenderBounds)->Size().Y > (float)maxBatchRenderBounds.Y)) || batch->IsFull())
+                            emitNewBatch = true;
+                    }
+
+                    if (emitNewBatch || (atlas == NULL))
+                    {
+                        if (atlas == NULL)
+                        {
+                            ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementAtlas*> > enum5 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_atlasPool), &ret28), ret28);
+
+                            {
+                                try
+                                {
+                                    {
+                                        while (enum5.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
+                                        {
+                                            ::g::Fuse::Elements::ElementAtlas* a = enum5.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+
+                                            if (uPtr(a)->AddElement(elm))
+                                            {
+                                                atlas = a;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                catch (const uThrowable& __t)
+                                {
+                                    {
+                                        enum5.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                                    }
+                                                                        throw __t;
+                                    goto __after_finally_19;
+                                }
+
+                                {
+                                    enum5.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                                }
+                                __after_finally_19:;
+                            }
+
+                            if (atlas == NULL)
+                                atlas = allocAtlas();
+                        }
+
+                        batch = allocBatch(atlas);
+
+                        if (((uPtr(elm)->ElementBatchEntry() == NULL) || (uPtr(uPtr(elm)->ElementBatchEntry())->_atlas != atlas)) && !uPtr(atlas)->AddElement(elm))
+                        {
+                            ::g::Uno::Diagnostics::Debug::Log3(::STRINGS[11/*"BUG: atlas-...*/], 0, ::STRINGS[12/*"C:/Users/Sp...*/], 253);
+                            ::g::Uno::Collections::List__Add_fn(uPtr(_drawList), (uObject*)::g::Fuse::Elements::SingleVisualDrawable::New1(elm));
+                            batch = NULL;
+                            continue;
+                        }
+
+                        ::g::Uno::Collections::List__Add_fn(uPtr(_drawList), (uObject*)batch);
+                    }
+
+                    uPtr(batch)->AddElement(elm);
+                }
             }
         }
-        {
-            enum4.Dispose(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum4.Dispose(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_20;
+        }
+
         {
             enum4.Dispose(::TYPES[18/*Uno.Collections.List<Fuse.Visual>.Enumerator*/]);
         }
-                throw __t;
+        __after_finally_20:;
     }
 
     MaxSpilledRatio = 0.0f;
     ::g::Uno::Collections::List__Enumerator<uStrong< ::g::Fuse::Elements::ElementAtlas*> > enum6 = (::g::Uno::Collections::List__GetEnumerator_fn(uPtr(_atlasPool), &ret29), ret29);
 
-    try
     {
+        try
         {
-            while (enum6.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
             {
-                ::g::Fuse::Elements::ElementAtlas* a1 = enum6.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-                MaxSpilledRatio = ::g::Uno::Math::Max1(MaxSpilledRatio, uPtr(a1)->SpilledRatio());
+                while (enum6.MoveNext(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]))
+                {
+                    ::g::Fuse::Elements::ElementAtlas* a1 = enum6.Current(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+                    MaxSpilledRatio = ::g::Uno::Math::Max1(MaxSpilledRatio, uPtr(a1)->SpilledRatio());
+                }
             }
         }
-        {
-            enum6.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
-        }
-    }
 
-    catch (const uThrowable& __t)
-    {
+        catch (const uThrowable& __t)
+        {
+            {
+                enum6.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
+            }
+                        throw __t;
+            goto __after_finally_21;
+        }
+
         {
             enum6.Dispose(::TYPES[17/*Uno.Collections.List<Fuse.Elements.ElementAtlas>.Enumerator*/]);
         }
-                throw __t;
+        __after_finally_21:;
     }
 }
 
@@ -6588,7 +6687,7 @@ bool ElementBatcher::ShouldBatchElement(::g::Fuse::Visual* node)
 }
 
 // public static bool ShouldBatchElementWithCachingMode(Fuse.Elements.CachingMode mode) [static] :133
-bool ElementBatcher::ShouldBatchElementWithCachingMode(int mode)
+bool ElementBatcher::ShouldBatchElementWithCachingMode(int32_t mode)
 {
     return mode != 2;
 }
@@ -6601,7 +6700,7 @@ bool ElementBatcher::ShouldBatchElementWithSize(::g::Uno::Int2 size)
 }
 
 // private static int get_MaxElementPixels() [static] :123
-int ElementBatcher::MaxElementPixels()
+int32_t ElementBatcher::MaxElementPixels()
 {
     return (ElementBatcher::MaxElementSize().X * ElementBatcher::MaxElementSize().Y) / 2;
 }
@@ -6613,7 +6712,7 @@ int ElementBatcher::MaxElementPixels()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\AspectBoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\AspectBoxSizing.uno
 // -----------------------------------------------------------------------------------------------
 
 // internal sealed class FillAspectBoxSizing :19
@@ -6676,7 +6775,7 @@ void FillAspectBoxSizing__CalcArrangePaddingSize_fn(FillAspectBoxSizing* __this,
     else if (c.HasY())
         sz = ::g::Uno::Float2__New2(c.Y() * aspect, c.Y());
 
-    int ac = element->AspectConstraint();
+    int32_t ac = element->AspectConstraint();
 
     if ((ac & 1) == 1)
     {
@@ -6717,14 +6816,14 @@ void FillAspectBoxSizing__CalcBoxPlacement_fn(FillAspectBoxSizing* __this, ::g::
 {
     ::g::Uno::Float2 position_ = *position;
     ::g::Fuse::LayoutParams lp_ = *lp;
-    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton_)->CalcBoxPlacement(element, position_, lp_), void();
+    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton())->CalcBoxPlacement(element, position_, lp_), void();
 }
 
 // public override sealed float2 CalcMarginSize(Fuse.Elements.Element element, Fuse.LayoutParams lp) :28
 void FillAspectBoxSizing__CalcMarginSize_fn(FillAspectBoxSizing* __this, ::g::Fuse::Elements::Element* element, ::g::Fuse::LayoutParams* lp, ::g::Uno::Float2* __retval)
 {
     ::g::Fuse::LayoutParams lp_ = *lp;
-    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton_)->CalcMarginSize(element, lp_), void();
+    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton())->CalcMarginSize(element, lp_), void();
 }
 
 // private float2 Fit(float2 sz, float2 max, float aspect) :91
@@ -6785,7 +6884,7 @@ FillAspectBoxSizing* FillAspectBoxSizing::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.Layout.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.Layout.uno
 // ----------------------------------------------------------------------------------------------
 
 // private struct Element.GMSCacheItem :133
@@ -6813,7 +6912,55 @@ uStructType* Element__GMSCacheItem_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.HitTest.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\LayoutFunctions.uno
+// -----------------------------------------------------------------------------------------------
+
+// public sealed class HeightFunction :143
+// {
+static void HeightFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Elements::LayoutFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Elements::LayoutFunction_type, interface1));
+    type->SetFields(3);
+}
+
+::g::Fuse::Elements::LayoutFunction_type* HeightFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Elements::LayoutFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Elements::LayoutFunction_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(HeightFunction);
+    options.TypeSize = sizeof(::g::Fuse::Elements::LayoutFunction_type);
+    type = (::g::Fuse::Elements::LayoutFunction_type*)uClassType::New("Fuse.Elements.HeightFunction", options);
+    type->fp_build_ = HeightFunction_build;
+    type->fp_GetCurrentValue = (void(*)(::g::Fuse::Elements::LayoutFunction*, ::g::Fuse::Elements::Element*, uObject**))HeightFunction__GetCurrentValue_fn;
+    type->fp_GetValue = (void(*)(::g::Fuse::Elements::LayoutFunction*, ::g::Fuse::PlacedArgs*, uObject**))HeightFunction__GetValue_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Elements::LayoutFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed object GetCurrentValue(Fuse.Elements.Element elm) :153
+void HeightFunction__GetCurrentValue_fn(HeightFunction* __this, ::g::Fuse::Elements::Element* elm, uObject** __retval)
+{
+    return *__retval = uBox(::g::Uno::Float_typeof(), uPtr(elm)->ActualSize().Y), void();
+}
+
+// protected override sealed object GetValue(Fuse.PlacedArgs args) :148
+void HeightFunction__GetValue_fn(HeightFunction* __this, ::g::Fuse::PlacedArgs* args, uObject** __retval)
+{
+    return *__retval = uBox(::g::Uno::Float_typeof(), uPtr(args)->NewSize().Y), void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.HitTest.uno
 // -----------------------------------------------------------------------------------------------
 
 // public enum HitTestMode :10
@@ -6833,7 +6980,7 @@ uEnumType* HitTestMode_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementBatcher.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementBatcher.uno
 // ------------------------------------------------------------------------------------------------------
 
 // internal abstract interface IElementBatchDrawable :8
@@ -6848,7 +6995,7 @@ uInterfaceType* IElementBatchDrawable_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\InteractiveTransform.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\InteractiveTransform.uno
 // ----------------------------------------------------------------------------------------------------
 
 // public sealed class InteractiveTransform :6
@@ -6856,25 +7003,25 @@ uInterfaceType* IElementBatchDrawable_typeof()
 // static generated InteractiveTransform() :6
 static void InteractiveTransform__cctor_1_fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    InteractiveTransform::_zoomFactorName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[12/*"ZoomFactor"*/]);
-    InteractiveTransform::_rotationName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[13/*"Rotation"*/]);
-    InteractiveTransform::_translationName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[14/*"Translation"*/]);
+    InteractiveTransform::_zoomFactorName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[13/*"ZoomFactor"*/]);
+    InteractiveTransform::_rotationName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[14/*"Rotation"*/]);
+    InteractiveTransform::_translationName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[15/*"Translation"*/]);
 }
 
 static void InteractiveTransform_build(uType* type)
 {
-    ::STRINGS[12] = uString::Const("ZoomFactor");
-    ::STRINGS[13] = uString::Const("Rotation");
-    ::STRINGS[14] = uString::Const("Translation");
+    ::STRINGS[13] = uString::Const("ZoomFactor");
+    ::STRINGS[14] = uString::Const("Rotation");
+    ::STRINGS[15] = uString::Const("Translation");
     type->SetInterfaces(
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Transform_type, interface0),
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Transform_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Transform_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Transform_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Transform_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Transform_type, interface5));
-    type->SetFields(16,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Transform_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Transform_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Transform_type, interface6));
+    type->SetFields(18,
         ::g::Uno::Float_typeof(), offsetof(InteractiveTransform, _zoomFactor), 0,
         ::g::Uno::Float_typeof(), offsetof(InteractiveTransform, _rotation), 0,
         ::g::Uno::Float2_typeof(), offsetof(InteractiveTransform, _translation), 0,
@@ -6890,8 +7037,8 @@ static void InteractiveTransform_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Transform_typeof();
-    options.FieldCount = 22;
-    options.InterfaceCount = 6;
+    options.FieldCount = 24;
+    options.InterfaceCount = 7;
     options.ObjectSize = sizeof(InteractiveTransform);
     options.TypeSize = sizeof(::g::Fuse::Transform_type);
     type = (::g::Fuse::Transform_type*)uClassType::New("Fuse.Elements.InteractiveTransform", options);
@@ -6900,21 +7047,24 @@ static void InteractiveTransform_build(uType* type)
     type->fp_AppendTo = (void(*)(::g::Fuse::Transform*, ::g::Fuse::FastMatrix*, float*))InteractiveTransform__AppendTo_fn;
     type->fp_get_IsFlat = (void(*)(::g::Fuse::Transform*, bool*))InteractiveTransform__get_IsFlat_fn;
     type->fp_PrependTo = (void(*)(::g::Fuse::Transform*, ::g::Fuse::FastMatrix*))InteractiveTransform__PrependTo_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -7069,7 +7219,7 @@ void InteractiveTransform::ZoomFactor(float value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.Transform.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.Transform.uno
 // -------------------------------------------------------------------------------------------------
 
 // public abstract interface ITransformOrigin :8
@@ -7084,7 +7234,7 @@ uInterfaceType* ITransformOrigin_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.ITreeRenderer.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.ITreeRenderer.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public abstract interface ITreeRenderer :9
@@ -7099,7 +7249,62 @@ uInterfaceType* ITreeRenderer_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\LayoutMasterBoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\LayoutFunctions.uno
+// -----------------------------------------------------------------------------------------------
+
+// public abstract class LayoutFunction :15
+// {
+static void LayoutFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(LayoutFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(LayoutFunction_type, interface1));
+    type->SetFields(2,
+        ::g::Fuse::Reactive::Expression_typeof(), offsetof(LayoutFunction, Element), 0);
+}
+
+LayoutFunction_type* LayoutFunction_typeof()
+{
+    static uSStrong<LayoutFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::Expression_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(LayoutFunction);
+    options.TypeSize = sizeof(LayoutFunction_type);
+    type = (LayoutFunction_type*)uClassType::New("Fuse.Elements.LayoutFunction", options);
+    type->fp_build_ = LayoutFunction_build;
+    type->fp_Subscribe = (void(*)(::g::Fuse::Reactive::Expression*, uObject*, uObject*, uObject**))LayoutFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))LayoutFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// public override sealed Uno.IDisposable Subscribe(Fuse.Reactive.IContext dc, Fuse.Reactive.IListener listener) :23
+void LayoutFunction__Subscribe_fn(LayoutFunction* __this, uObject* dc, uObject* listener, uObject** __retval)
+{
+    return *__retval = (uObject*)LayoutFunction__Subscription::New1(__this, dc, listener), void();
+}
+
+// protected bool TryComputeAlternate(object value, object& result) :31
+void LayoutFunction__TryComputeAlternate_fn(LayoutFunction* __this, uObject* value, uObject** result, bool* __retval)
+{
+    *__retval = __this->TryComputeAlternate(value, result);
+}
+
+// protected bool TryComputeAlternate(object value, object& result) [instance] :31
+bool LayoutFunction::TryComputeAlternate(uObject* value, uObject** result)
+{
+    *result = NULL;
+    return false;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\LayoutMasterBoxSizing.uno
 // -----------------------------------------------------------------------------------------------------
 
 // internal sealed class LayoutMasterBoxSizing :18
@@ -7139,7 +7344,7 @@ static void LayoutMasterBoxSizing_build(uType* type)
     type->fp_CalcArrangePaddingSize = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*, ::g::Fuse::LayoutParams*, ::g::Uno::Float2*))LayoutMasterBoxSizing__CalcArrangePaddingSize_fn;
     type->fp_CalcBoxPlacement = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*, ::g::Uno::Float2*, ::g::Fuse::LayoutParams*, ::g::Fuse::Elements::BoxPlacement*))LayoutMasterBoxSizing__CalcBoxPlacement_fn;
     type->fp_CalcMarginSize = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*, ::g::Fuse::LayoutParams*, ::g::Uno::Float2*))LayoutMasterBoxSizing__CalcMarginSize_fn;
-    type->fp_IsContentRelativeSize = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*, int*))LayoutMasterBoxSizing__IsContentRelativeSize_fn;
+    type->fp_IsContentRelativeSize = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*, int32_t*))LayoutMasterBoxSizing__IsContentRelativeSize_fn;
     type->fp_RequestLayout = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*))LayoutMasterBoxSizing__RequestLayout_fn;
     return type;
 }
@@ -7154,7 +7359,7 @@ void LayoutMasterBoxSizing__ctor_1_fn(LayoutMasterBoxSizing* __this)
 void LayoutMasterBoxSizing__CalcArrangePaddingSize_fn(LayoutMasterBoxSizing* __this, ::g::Fuse::Elements::Element* element, ::g::Fuse::LayoutParams* lp, ::g::Uno::Float2* __retval)
 {
     ::g::Fuse::LayoutParams lp_ = *lp;
-    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton_)->CalcArrangePaddingSize(element, lp_), void();
+    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton())->CalcArrangePaddingSize(element, lp_), void();
 }
 
 // public override sealed Fuse.Elements.BoxPlacement CalcBoxPlacement(Fuse.Elements.Element element, float2 position, Fuse.LayoutParams lp) :22
@@ -7173,7 +7378,7 @@ void LayoutMasterBoxSizing__CalcBoxPlacement_fn(LayoutMasterBoxSizing* __this, :
         return *__retval = bp, void();
     }
 
-    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton_)->CalcBoxPlacement(element, position_, lp_), void();
+    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton())->CalcBoxPlacement(element, position_, lp_), void();
 }
 
 // public override sealed float2 CalcMarginSize(Fuse.Elements.Element element, Fuse.LayoutParams lp) :44
@@ -7185,7 +7390,7 @@ void LayoutMasterBoxSizing__CalcMarginSize_fn(LayoutMasterBoxSizing* __this, ::g
     if (master == NULL)
         return *__retval = uPtr(element)->ActualSize(), void();
 
-    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton_)->CalcMarginSize(element, lp_), void();
+    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton())->CalcMarginSize(element, lp_), void();
 }
 
 // internal static Fuse.Elements.Element GetLayoutMaster(Fuse.Elements.Element elm) :165
@@ -7201,7 +7406,7 @@ void LayoutMasterBoxSizing__GetLayoutMasterData_fn(::g::Fuse::Elements::Element*
 }
 
 // public override sealed Fuse.LayoutDependent IsContentRelativeSize(Fuse.Elements.Element element) :152
-void LayoutMasterBoxSizing__IsContentRelativeSize_fn(LayoutMasterBoxSizing* __this, ::g::Fuse::Elements::Element* element, int* __retval)
+void LayoutMasterBoxSizing__IsContentRelativeSize_fn(LayoutMasterBoxSizing* __this, ::g::Fuse::Elements::Element* element, int32_t* __retval)
 {
     return *__retval = 0, void();
 }
@@ -7219,12 +7424,6 @@ void LayoutMasterBoxSizing__RequestLayout_fn(LayoutMasterBoxSizing* __this, ::g:
     uPtr(data)->ScheduleCheckLayout();
 }
 
-// internal static void SetLayoutMaster(Fuse.Elements.Element elm, Fuse.Elements.Element master) :159
-void LayoutMasterBoxSizing__SetLayoutMaster_fn(::g::Fuse::Elements::Element* elm, ::g::Fuse::Elements::Element* master)
-{
-    LayoutMasterBoxSizing::SetLayoutMaster(elm, master);
-}
-
 uSStrong<LayoutMasterBoxSizing*> LayoutMasterBoxSizing::Singleton_;
 uSStrong< ::g::Fuse::PropertyHandle*> LayoutMasterBoxSizing::_layoutMasterDataProperty_;
 
@@ -7237,12 +7436,14 @@ void LayoutMasterBoxSizing::ctor_1()
 // internal static Fuse.Elements.Element GetLayoutMaster(Fuse.Elements.Element elm) [static] :165
 ::g::Fuse::Elements::Element* LayoutMasterBoxSizing::GetLayoutMaster(::g::Fuse::Elements::Element* elm)
 {
+    LayoutMasterBoxSizing_typeof()->Init();
     return uPtr(LayoutMasterBoxSizing::GetLayoutMasterData(elm))->Master();
 }
 
 // internal static Fuse.Elements.LayoutMasterBoxSizing.LayoutMasterData GetLayoutMasterData(Fuse.Elements.Element elm) [static] :140
 LayoutMasterBoxSizing__LayoutMasterData* LayoutMasterBoxSizing::GetLayoutMasterData(::g::Fuse::Elements::Element* elm)
 {
+    LayoutMasterBoxSizing_typeof()->Init();
     uObject* v;
 
     if (uPtr(uPtr(elm)->Properties())->TryGet(LayoutMasterBoxSizing::_layoutMasterDataProperty_, &v))
@@ -7261,15 +7462,9 @@ LayoutMasterBoxSizing* LayoutMasterBoxSizing::New1()
     obj1->ctor_1();
     return obj1;
 }
-
-// internal static void SetLayoutMaster(Fuse.Elements.Element elm, Fuse.Elements.Element master) [static] :159
-void LayoutMasterBoxSizing::SetLayoutMaster(::g::Fuse::Elements::Element* elm, ::g::Fuse::Elements::Element* master)
-{
-    uPtr(LayoutMasterBoxSizing::GetLayoutMasterData(elm))->Master(master);
-}
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\LayoutMasterBoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\LayoutMasterBoxSizing.uno
 // -----------------------------------------------------------------------------------------------------
 
 // internal sealed class LayoutMasterBoxSizing.LayoutMasterData :60
@@ -7279,6 +7474,8 @@ static void LayoutMasterBoxSizing__LayoutMasterData_build(uType* type)
     ::TYPES[19] = ::g::Fuse::Elements::Element_typeof();
     ::TYPES[23] = ::g::Uno::Action_typeof();
     ::TYPES[24] = ::g::Fuse::PlacedHandler_typeof();
+    type->SetDependencies(
+        ::g::Fuse::UpdateManager_typeof());
     type->SetFields(0,
         ::TYPES[19/*Fuse.Elements.Element*/], offsetof(LayoutMasterBoxSizing__LayoutMasterData, Element), uFieldFlagsWeak,
         ::g::Fuse::Elements::LayoutMasterMode_typeof(), offsetof(LayoutMasterBoxSizing__LayoutMasterData, Mode), 0,
@@ -7293,6 +7490,7 @@ uType* LayoutMasterBoxSizing__LayoutMasterData_typeof()
 
     uTypeOptions options;
     options.FieldCount = 4;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(LayoutMasterBoxSizing__LayoutMasterData);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Elements.LayoutMasterBoxSizing.LayoutMasterData", options);
@@ -7435,7 +7633,7 @@ LayoutMasterBoxSizing__LayoutMasterData* LayoutMasterBoxSizing__LayoutMasterData
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\LayoutMasterBoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\LayoutMasterBoxSizing.uno
 // -----------------------------------------------------------------------------------------------------
 
 // public enum LayoutMasterMode :8
@@ -7452,7 +7650,7 @@ uEnumType* LayoutMasterMode_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\LimitBoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\LimitBoxSizing.uno
 // ----------------------------------------------------------------------------------------------
 
 // internal sealed class LimitBoxSizing :6
@@ -7466,6 +7664,7 @@ static void LimitBoxSizing__cctor__fn(uType* __type)
 static void LimitBoxSizing_build(uType* type)
 {
     type->SetDependencies(
+        ::g::Uno::Math_typeof(),
         ::g::Fuse::Elements::StandardBoxSizing_typeof());
     type->SetFields(0,
         type, (uintptr_t)&LimitBoxSizing::Singleton_, uFieldFlagsStatic);
@@ -7479,7 +7678,7 @@ static void LimitBoxSizing_build(uType* type)
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Elements::BoxSizing_typeof();
     options.FieldCount = 1;
-    options.DependencyCount = 1;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(LimitBoxSizing);
     options.TypeSize = sizeof(::g::Fuse::Elements::BoxSizing_type);
     type = (::g::Fuse::Elements::BoxSizing_type*)uClassType::New("Fuse.Elements.LimitBoxSizing", options);
@@ -7502,7 +7701,7 @@ void LimitBoxSizing__ctor_1_fn(LimitBoxSizing* __this)
 void LimitBoxSizing__CalcArrangePaddingSize_fn(LimitBoxSizing* __this, ::g::Fuse::Elements::Element* element, ::g::Fuse::LayoutParams* lp, ::g::Uno::Float2* __retval)
 {
     ::g::Fuse::LayoutParams lp_ = *lp;
-    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton_)->CalcArrangePaddingSize(element, lp_), void();
+    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton())->CalcArrangePaddingSize(element, lp_), void();
 }
 
 // public override sealed Fuse.Elements.BoxPlacement CalcBoxPlacement(Fuse.Elements.Element element, float2 position, Fuse.LayoutParams lp) :10
@@ -7510,7 +7709,7 @@ void LimitBoxSizing__CalcBoxPlacement_fn(LimitBoxSizing* __this, ::g::Fuse::Elem
 {
     ::g::Uno::Float2 position_ = *position;
     ::g::Fuse::LayoutParams lp_ = *lp;
-    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton_)->CalcBoxPlacement(element, position_, lp_), void();
+    return *__retval = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton())->CalcBoxPlacement(element, position_, lp_), void();
 }
 
 // public override sealed float2 CalcMarginSize(Fuse.Elements.Element element, Fuse.LayoutParams lp) :15
@@ -7519,7 +7718,7 @@ void LimitBoxSizing__CalcMarginSize_fn(LimitBoxSizing* __this, ::g::Fuse::Elemen
     ::g::Fuse::LayoutParams lp_ = *lp;
     ::g::Fuse::LayoutParams nlp = lp_.CloneAndDerive();
     nlp.RetainXY(!uPtr(element)->HasBit(8388608), !uPtr(element)->HasBit(16777216));
-    ::g::Uno::Float2 std = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton_)->CalcMarginSize(element, nlp);
+    ::g::Uno::Float2 std = uPtr(::g::Fuse::Elements::StandardBoxSizing::Singleton())->CalcMarginSize(element, nlp);
     ::g::Uno::Float2 c = __this->Limit(element, std);
     return *__retval = c, void();
 }
@@ -7578,71 +7777,7 @@ LimitBoxSizing* LimitBoxSizing::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\BoxSizing.uno
-// -----------------------------------------------------------------------------------------
-
-// internal sealed class NoImplicitMaxBoxSizing :416
-// {
-// static generated NoImplicitMaxBoxSizing() :416
-static void NoImplicitMaxBoxSizing__cctor_1_fn(uType* __type)
-{
-    NoImplicitMaxBoxSizing::Singleton1_ = NoImplicitMaxBoxSizing::New2();
-}
-
-static void NoImplicitMaxBoxSizing_build(uType* type)
-{
-    type->SetFields(2,
-        type, (uintptr_t)&NoImplicitMaxBoxSizing::Singleton1_, uFieldFlagsStatic);
-}
-
-::g::Fuse::Elements::BoxSizing_type* NoImplicitMaxBoxSizing_typeof()
-{
-    static uSStrong< ::g::Fuse::Elements::BoxSizing_type*> type;
-    if (type != NULL) return type;
-
-    uTypeOptions options;
-    options.BaseDefinition = ::g::Fuse::Elements::StandardBoxSizing_typeof();
-    options.FieldCount = 3;
-    options.ObjectSize = sizeof(NoImplicitMaxBoxSizing);
-    options.TypeSize = sizeof(::g::Fuse::Elements::BoxSizing_type);
-    type = (::g::Fuse::Elements::BoxSizing_type*)uClassType::New("Fuse.Elements.NoImplicitMaxBoxSizing", options);
-    type->fp_build_ = NoImplicitMaxBoxSizing_build;
-    type->fp_ctor_ = (void*)NoImplicitMaxBoxSizing__New2_fn;
-    type->fp_cctor_ = NoImplicitMaxBoxSizing__cctor_1_fn;
-    return type;
-}
-
-// public NoImplicitMaxBoxSizing() :420
-void NoImplicitMaxBoxSizing__ctor_2_fn(NoImplicitMaxBoxSizing* __this)
-{
-    __this->ctor_2();
-}
-
-// public NoImplicitMaxBoxSizing New() :420
-void NoImplicitMaxBoxSizing__New2_fn(NoImplicitMaxBoxSizing** __retval)
-{
-    *__retval = NoImplicitMaxBoxSizing::New2();
-}
-
-uSStrong<NoImplicitMaxBoxSizing*> NoImplicitMaxBoxSizing::Singleton1_;
-
-// public NoImplicitMaxBoxSizing() [instance] :420
-void NoImplicitMaxBoxSizing::ctor_2()
-{
-    ctor_1();
-    ImplicitMax = false;
-}
-
-// public NoImplicitMaxBoxSizing New() [static] :420
-NoImplicitMaxBoxSizing* NoImplicitMaxBoxSizing::New2()
-{
-    NoImplicitMaxBoxSizing* obj1 = (NoImplicitMaxBoxSizing*)uNew(NoImplicitMaxBoxSizing_typeof());
-    obj1->ctor_2();
-    return obj1;
-}
-// }
-
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Transforms.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Transforms.uno
 // ------------------------------------------------------------------------------------------
 
 // private class TranslationModes.OffsetMode :10
@@ -7771,7 +7906,7 @@ void TranslationModes__OffsetMode::Unsubscribe(uObject* transform, uObject* sub)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Enums.uno
 // -------------------------------------------------------------------------------------
 
 // internal enum OptionalSimpleAlignment :152
@@ -7789,7 +7924,7 @@ uEnumType* OptionalSimpleAlignment_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Transforms.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Transforms.uno
 // ------------------------------------------------------------------------------------------
 
 // private sealed class TranslationModes.PositionOffsetMode :66
@@ -7847,7 +7982,7 @@ TranslationModes__PositionOffsetMode* TranslationModes__PositionOffsetMode::New2
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.Layout.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.Layout.uno
 // ----------------------------------------------------------------------------------------------
 
 // public sealed class PreplacementArgs :19
@@ -7925,7 +8060,7 @@ PreplacementArgs* PreplacementArgs::New2(bool hasPrev)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.Layout.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.Layout.uno
 // ----------------------------------------------------------------------------------------------
 
 // public delegate void PreplacementHandler(object sender, Fuse.Elements.PreplacementArgs args) :30
@@ -7941,7 +8076,7 @@ uDelegateType* PreplacementHandler_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Transforms.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Transforms.uno
 // ------------------------------------------------------------------------------------------
 
 // private sealed class TranslationModes.RelativeResizeChangeMode :126
@@ -8018,7 +8153,7 @@ TranslationModes__RelativeResizeChangeMode* TranslationModes__RelativeResizeChan
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Enums.uno
 // -------------------------------------------------------------------------------------
 
 // internal enum SimpleAlignment :145
@@ -8035,7 +8170,7 @@ uEnumType* SimpleAlignment_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Caching\ElementBatcher.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Caching\ElementBatcher.uno
 // ------------------------------------------------------------------------------------------------------
 
 // internal sealed class SingleVisualDrawable :13
@@ -8103,7 +8238,7 @@ SingleVisualDrawable* SingleVisualDrawable::New1(::g::Fuse::Visual* elm)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Transforms.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Transforms.uno
 // ------------------------------------------------------------------------------------------
 
 // private sealed class TranslationModes.SizeFactorMode :88
@@ -8218,10 +8353,10 @@ TranslationModes__SizeFactorMode* TranslationModes__SizeFactorMode::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\BoxSizing.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\BoxSizing.uno
 // -----------------------------------------------------------------------------------------
 
-// internal class StandardBoxSizing :259
+// internal sealed class StandardBoxSizing :259
 // {
 // static generated StandardBoxSizing() :259
 static void StandardBoxSizing__cctor__fn(uType* __type)
@@ -8231,6 +8366,8 @@ static void StandardBoxSizing__cctor__fn(uType* __type)
 
 static void StandardBoxSizing_build(uType* type)
 {
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Uno::Bool_typeof(), offsetof(StandardBoxSizing, ImplicitMax), 0,
         ::g::Uno::Float_typeof(), offsetof(StandardBoxSizing, pixelEpsilon), 0,
@@ -8245,6 +8382,7 @@ static void StandardBoxSizing_build(uType* type)
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Elements::BoxSizing_typeof();
     options.FieldCount = 3;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(StandardBoxSizing);
     options.TypeSize = sizeof(::g::Fuse::Elements::BoxSizing_type);
     type = (::g::Fuse::Elements::BoxSizing_type*)uClassType::New("Fuse.Elements.StandardBoxSizing", options);
@@ -8254,7 +8392,7 @@ static void StandardBoxSizing_build(uType* type)
     type->fp_CalcArrangePaddingSize = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*, ::g::Fuse::LayoutParams*, ::g::Uno::Float2*))StandardBoxSizing__CalcArrangePaddingSize_fn;
     type->fp_CalcBoxPlacement = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*, ::g::Uno::Float2*, ::g::Fuse::LayoutParams*, ::g::Fuse::Elements::BoxPlacement*))StandardBoxSizing__CalcBoxPlacement_fn;
     type->fp_CalcMarginSize = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*, ::g::Fuse::LayoutParams*, ::g::Uno::Float2*))StandardBoxSizing__CalcMarginSize_fn;
-    type->fp_IsContentRelativeSize = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*, int*))StandardBoxSizing__IsContentRelativeSize_fn;
+    type->fp_IsContentRelativeSize = (void(*)(::g::Fuse::Elements::BoxSizing*, ::g::Fuse::Elements::Element*, int32_t*))StandardBoxSizing__IsContentRelativeSize_fn;
     return type;
 }
 
@@ -8311,12 +8449,12 @@ void StandardBoxSizing__CalcBoxPlacement_fn(StandardBoxSizing* __this, ::g::Fuse
         s = paddingBox;
 
     ::g::Uno::Float2 p = position_;
-    int halign = __this->EffectiveHorizontalAlignment(element);
+    int32_t halign = __this->EffectiveHorizontalAlignment(element);
 
     if (!lp_.HasX())
         halign = 0;
 
-    int valign = __this->EffectiveVerticalAlignment(element);
+    int32_t valign = __this->EffectiveVerticalAlignment(element);
 
     if (!lp_.HasY())
         valign = 0;
@@ -8412,7 +8550,7 @@ void StandardBoxSizing__CalcMarginSize_fn(StandardBoxSizing* __this, ::g::Fuse::
 }
 
 // public override sealed Fuse.LayoutDependent IsContentRelativeSize(Fuse.Elements.Element element) :398
-void StandardBoxSizing__IsContentRelativeSize_fn(StandardBoxSizing* __this, ::g::Fuse::Elements::Element* element, int* __retval)
+void StandardBoxSizing__IsContentRelativeSize_fn(StandardBoxSizing* __this, ::g::Fuse::Elements::Element* element, int32_t* __retval)
 {
     bool ha = ::g::Fuse::Elements::AlignmentHelpers::GetHorizontalAlign(uPtr(element)->Alignment()) != 0;
     bool w = !element->Width().IsAuto();
@@ -8466,7 +8604,7 @@ StandardBoxSizing* StandardBoxSizing::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Enums.uno
 // -------------------------------------------------------------------------------------
 
 // public enum StretchDirection :191
@@ -8483,7 +8621,7 @@ uEnumType* StretchDirection_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Enums.uno
 // -------------------------------------------------------------------------------------
 
 // public enum StretchMode :170
@@ -8504,7 +8642,7 @@ uEnumType* StretchMode_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Enums.uno
 // -------------------------------------------------------------------------------------
 
 // public enum StretchSizing :204
@@ -8520,7 +8658,177 @@ uEnumType* StretchSizing_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Transforms.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\LayoutFunctions.uno
+// -----------------------------------------------------------------------------------------------
+
+// private sealed class LayoutFunction.Subscription :37
+// {
+static void LayoutFunction__Subscription_build(uType* type)
+{
+    ::STRINGS[16] = uString::Const("Invalid value for LayoutFunction: ");
+    ::STRINGS[17] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Elements\\1.9.0\\LayoutFunctions.uno");
+    ::STRINGS[18] = uString::Const("OnNewData");
+    ::TYPES[27] = ::g::Uno::IDisposable_typeof();
+    ::TYPES[28] = ::g::Fuse::Reactive::IListener_typeof();
+    ::TYPES[19] = ::g::Fuse::Elements::Element_typeof();
+    ::TYPES[24] = ::g::Fuse::PlacedHandler_typeof();
+    ::TYPES[29] = ::g::Fuse::LostMarginBoxHandler_typeof();
+    type->SetInterfaces(
+        ::TYPES[27/*Uno.IDisposable*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface0),
+        ::TYPES[28/*Fuse.Reactive.IListener*/], offsetof(::g::Fuse::Reactive::InnerListener_type, interface1));
+    type->SetFields(2,
+        ::g::Fuse::Elements::LayoutFunction_typeof(), offsetof(LayoutFunction__Subscription, _lf), 0,
+        ::TYPES[28/*Fuse.Reactive.IListener*/], offsetof(LayoutFunction__Subscription, _listener), 0,
+        ::TYPES[27/*Uno.IDisposable*/], offsetof(LayoutFunction__Subscription, _sub), 0,
+        ::TYPES[19/*Fuse.Elements.Element*/], offsetof(LayoutFunction__Subscription, _element), 0);
+}
+
+::g::Fuse::Reactive::InnerListener_type* LayoutFunction__Subscription_typeof()
+{
+    static uSStrong< ::g::Fuse::Reactive::InnerListener_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Reactive::InnerListener_typeof();
+    options.FieldCount = 6;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(LayoutFunction__Subscription);
+    options.TypeSize = sizeof(::g::Fuse::Reactive::InnerListener_type);
+    type = (::g::Fuse::Reactive::InnerListener_type*)uClassType::New("Fuse.Elements.LayoutFunction.Subscription", options);
+    type->fp_build_ = LayoutFunction__Subscription_build;
+    type->fp_Dispose = (void(*)(::g::Fuse::Reactive::InnerListener*))LayoutFunction__Subscription__Dispose_fn;
+    type->fp_OnLostData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*))LayoutFunction__Subscription__OnLostData_fn;
+    type->fp_OnNewData = (void(*)(::g::Fuse::Reactive::InnerListener*, uObject*, uObject*))LayoutFunction__Subscription__OnNewData_fn;
+    type->interface1.fp_OnNewData = (void(*)(uObject*, uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnNewData_fn;
+    type->interface1.fp_OnLostData = (void(*)(uObject*, uObject*))::g::Fuse::Reactive::InnerListener__FuseReactiveIListenerOnLostData_fn;
+    type->interface0.fp_Dispose = (void(*)(uObject*))LayoutFunction__Subscription__Dispose_fn;
+    return type;
+}
+
+// public Subscription(Fuse.Elements.LayoutFunction lf, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :43
+void LayoutFunction__Subscription__ctor_1_fn(LayoutFunction__Subscription* __this, ::g::Fuse::Elements::LayoutFunction* lf, uObject* context, uObject* listener)
+{
+    __this->ctor_1(lf, context, listener);
+}
+
+// public override sealed void Dispose() :105
+void LayoutFunction__Subscription__Dispose_fn(LayoutFunction__Subscription* __this)
+{
+    ::g::Fuse::Reactive::InnerListener__Dispose_fn(__this);
+    __this->_lf = NULL;
+    __this->UnsubscribeElement();
+
+    if (__this->_sub != NULL)
+    {
+        ::g::Uno::IDisposable::Dispose(uInterface(uPtr(__this->_sub), ::TYPES[27/*Uno.IDisposable*/]));
+        __this->_sub = NULL;
+    }
+}
+
+// public Subscription New(Fuse.Elements.LayoutFunction lf, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) :43
+void LayoutFunction__Subscription__New1_fn(::g::Fuse::Elements::LayoutFunction* lf, uObject* context, uObject* listener, LayoutFunction__Subscription** __retval)
+{
+    *__retval = LayoutFunction__Subscription::New1(lf, context, listener);
+}
+
+// protected override sealed void OnLostData(Fuse.Reactive.IExpression source) :79
+void LayoutFunction__Subscription__OnLostData_fn(LayoutFunction__Subscription* __this, uObject* source)
+{
+    __this->UnsubscribeElement();
+    ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(__this->_listener), ::TYPES[28/*Fuse.Reactive.IListener*/]), (uObject*)__this->_lf);
+}
+
+// private void OnLostMarginBox(object sender, Fuse.LostMarginBoxArgs args) :90
+void LayoutFunction__Subscription__OnLostMarginBox_fn(LayoutFunction__Subscription* __this, uObject* sender, ::g::Fuse::LostMarginBoxArgs* args)
+{
+    __this->OnLostMarginBox(sender, args);
+}
+
+// protected override sealed void OnNewData(Fuse.Reactive.IExpression source, object elmObj) :51
+void LayoutFunction__Subscription__OnNewData_fn(LayoutFunction__Subscription* __this, uObject* source, uObject* elmObj)
+{
+    __this->UnsubscribeElement();
+    __this->_element = uAs< ::g::Fuse::Elements::Element*>(elmObj, ::TYPES[19/*Fuse.Elements.Element*/]);
+
+    if (__this->_element != NULL)
+    {
+        uPtr(__this->_element)->add_Placed(uDelegate::New(::TYPES[24/*Fuse.PlacedHandler*/], (void*)LayoutFunction__Subscription__OnPlaced_fn, __this));
+        uPtr(__this->_element)->add_LostMarginBox(uDelegate::New(::TYPES[29/*Fuse.LostMarginBoxHandler*/], (void*)LayoutFunction__Subscription__OnLostMarginBox_fn, __this));
+
+        if (uPtr(__this->_element)->HasMarginBox())
+            ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(__this->_listener), ::TYPES[28/*Fuse.Reactive.IListener*/]), (uObject*)__this->_lf, uPtr(__this->_lf)->GetCurrentValue(__this->_element));
+        else
+            ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(__this->_listener), ::TYPES[28/*Fuse.Reactive.IListener*/]), (uObject*)__this->_lf);
+
+        return;
+    }
+
+    uObject* value;
+
+    if (uPtr(__this->_lf)->TryComputeAlternate(elmObj, &value))
+    {
+        ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(__this->_listener), ::TYPES[28/*Fuse.Reactive.IListener*/]), (uObject*)__this->_lf, value);
+        return;
+    }
+
+    ::g::Fuse::Diagnostics::UserError(::g::Uno::String::op_Addition1(::STRINGS[16/*"Invalid val...*/], elmObj), __this, ::STRINGS[17/*"C:\\Users\\...*/], 75, ::STRINGS[18/*"OnNewData"*/], NULL);
+    ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(__this->_listener), ::TYPES[28/*Fuse.Reactive.IListener*/]), (uObject*)__this->_lf);
+}
+
+// private void OnPlaced(object sender, Fuse.PlacedArgs args) :85
+void LayoutFunction__Subscription__OnPlaced_fn(LayoutFunction__Subscription* __this, uObject* sender, ::g::Fuse::PlacedArgs* args)
+{
+    __this->OnPlaced(sender, args);
+}
+
+// private void UnsubscribeElement() :95
+void LayoutFunction__Subscription__UnsubscribeElement_fn(LayoutFunction__Subscription* __this)
+{
+    __this->UnsubscribeElement();
+}
+
+// public Subscription(Fuse.Elements.LayoutFunction lf, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [instance] :43
+void LayoutFunction__Subscription::ctor_1(::g::Fuse::Elements::LayoutFunction* lf, uObject* context, uObject* listener)
+{
+    ctor_();
+    _lf = lf;
+    _listener = listener;
+    _sub = uPtr(uPtr(_lf)->Element)->Subscribe(context, (uObject*)this);
+}
+
+// private void OnLostMarginBox(object sender, Fuse.LostMarginBoxArgs args) [instance] :90
+void LayoutFunction__Subscription::OnLostMarginBox(uObject* sender, ::g::Fuse::LostMarginBoxArgs* args)
+{
+    ::g::Fuse::Reactive::IListener::OnLostData(uInterface(uPtr(_listener), ::TYPES[28/*Fuse.Reactive.IListener*/]), (uObject*)_lf);
+}
+
+// private void OnPlaced(object sender, Fuse.PlacedArgs args) [instance] :85
+void LayoutFunction__Subscription::OnPlaced(uObject* sender, ::g::Fuse::PlacedArgs* args)
+{
+    ::g::Fuse::Reactive::IListener::OnNewData(uInterface(uPtr(_listener), ::TYPES[28/*Fuse.Reactive.IListener*/]), (uObject*)_lf, uPtr(_lf)->GetValue(args));
+}
+
+// private void UnsubscribeElement() [instance] :95
+void LayoutFunction__Subscription::UnsubscribeElement()
+{
+    if (_element != NULL)
+    {
+        uPtr(_element)->remove_Placed(uDelegate::New(::TYPES[24/*Fuse.PlacedHandler*/], (void*)LayoutFunction__Subscription__OnPlaced_fn, this));
+        uPtr(_element)->remove_LostMarginBox(uDelegate::New(::TYPES[29/*Fuse.LostMarginBoxHandler*/], (void*)LayoutFunction__Subscription__OnLostMarginBox_fn, this));
+        _element = NULL;
+    }
+}
+
+// public Subscription New(Fuse.Elements.LayoutFunction lf, Fuse.Reactive.IContext context, Fuse.Reactive.IListener listener) [static] :43
+LayoutFunction__Subscription* LayoutFunction__Subscription::New1(::g::Fuse::Elements::LayoutFunction* lf, uObject* context, uObject* listener)
+{
+    LayoutFunction__Subscription* obj1 = (LayoutFunction__Subscription*)uNew(LayoutFunction__Subscription_typeof());
+    obj1->ctor_1(lf, context, listener);
+    return obj1;
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Transforms.uno
 // ------------------------------------------------------------------------------------------
 
 // private sealed class TranslationModes.OffsetMode.Subscriptions :35
@@ -8574,7 +8882,7 @@ TranslationModes__OffsetMode__Subscriptions* TranslationModes__OffsetMode__Subsc
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.Transform.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.Transform.uno
 // -------------------------------------------------------------------------------------------------
 
 // private sealed class TransformOrigins.TopLeftOrigin :48
@@ -8639,14 +8947,14 @@ TransformOrigins__TopLeftOrigin* TransformOrigins__TopLeftOrigin::New1()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Transforms.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Transforms.uno
 // ------------------------------------------------------------------------------------------
 
 // private sealed class TranslationModes.TransformOriginOffsetMode :70
 // {
 static void TranslationModes__TransformOriginOffsetMode_build(uType* type)
 {
-    ::TYPES[27] = ::g::Fuse::Elements::ITransformOrigin_typeof();
+    ::TYPES[30] = ::g::Fuse::Elements::ITransformOrigin_typeof();
     type->SetInterfaces(
         ::g::Fuse::ITranslationMode_typeof(), offsetof(::g::Fuse::Elements::TranslationModes__OffsetMode_type, interface0),
         ::g::Fuse::ITransformMode_typeof(), offsetof(::g::Fuse::Elements::TranslationModes__OffsetMode_type, interface1));
@@ -8682,13 +8990,13 @@ void TranslationModes__TransformOriginOffsetMode__ctor_1_fn(TranslationModes__Tr
 // protected override sealed float3 GetDstOffset(Fuse.Elements.Element e) :72
 void TranslationModes__TransformOriginOffsetMode__GetDstOffset_fn(TranslationModes__TransformOriginOffsetMode* __this, ::g::Fuse::Elements::Element* e, ::g::Uno::Float3* __retval)
 {
-    return *__retval = ::g::Fuse::Elements::ITransformOrigin::GetOffset(uInterface(uPtr(uPtr(e)->TransformOrigin()), ::TYPES[27/*Fuse.Elements.ITransformOrigin*/]), e), void();
+    return *__retval = ::g::Fuse::Elements::ITransformOrigin::GetOffset(uInterface(uPtr(uPtr(e)->TransformOrigin()), ::TYPES[30/*Fuse.Elements.ITransformOrigin*/]), e), void();
 }
 
 // protected override sealed float3 GetSrcOffset(Fuse.Elements.Element e) :77
 void TranslationModes__TransformOriginOffsetMode__GetSrcOffset_fn(TranslationModes__TransformOriginOffsetMode* __this, ::g::Fuse::Elements::Element* e, ::g::Uno::Float3* __retval)
 {
-    return *__retval = ::g::Fuse::Elements::ITransformOrigin::GetOffset(uInterface(uPtr(uPtr(e)->TransformOrigin()), ::TYPES[27/*Fuse.Elements.ITransformOrigin*/]), e), void();
+    return *__retval = ::g::Fuse::Elements::ITransformOrigin::GetOffset(uInterface(uPtr(uPtr(e)->TransformOrigin()), ::TYPES[30/*Fuse.Elements.ITransformOrigin*/]), e), void();
 }
 
 // public generated TransformOriginOffsetMode New() :70
@@ -8712,7 +9020,7 @@ TranslationModes__TransformOriginOffsetMode* TranslationModes__TransformOriginOf
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Element.Transform.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Element.Transform.uno
 // -------------------------------------------------------------------------------------------------
 
 // public static class TransformOrigins :46
@@ -8760,7 +9068,7 @@ uSStrong<uObject*> TransformOrigins::HorizontalBoxCenter_;
 uSStrong<uObject*> TransformOrigins::VerticalBoxCenter_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Transforms.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Transforms.uno
 // ------------------------------------------------------------------------------------------
 
 // public static class TranslationModes :8
@@ -8803,7 +9111,7 @@ uSStrong<uObject*> TranslationModes::SizeFactor_;
 uSStrong<uObject*> TranslationModes::Size_;
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.4.2\Enums.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\Enums.uno
 // -------------------------------------------------------------------------------------
 
 // public enum Visibility :5
@@ -8819,5 +9127,149 @@ uEnumType* Visibility_typeof()
         "Hidden", 2LL);
     return type;
 }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\LayoutFunctions.uno
+// -----------------------------------------------------------------------------------------------
+
+// public sealed class WidthFunction :123
+// {
+static void WidthFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Elements::LayoutFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Elements::LayoutFunction_type, interface1));
+    type->SetFields(3);
+}
+
+::g::Fuse::Elements::LayoutFunction_type* WidthFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Elements::LayoutFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Elements::LayoutFunction_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(WidthFunction);
+    options.TypeSize = sizeof(::g::Fuse::Elements::LayoutFunction_type);
+    type = (::g::Fuse::Elements::LayoutFunction_type*)uClassType::New("Fuse.Elements.WidthFunction", options);
+    type->fp_build_ = WidthFunction_build;
+    type->fp_GetCurrentValue = (void(*)(::g::Fuse::Elements::LayoutFunction*, ::g::Fuse::Elements::Element*, uObject**))WidthFunction__GetCurrentValue_fn;
+    type->fp_GetValue = (void(*)(::g::Fuse::Elements::LayoutFunction*, ::g::Fuse::PlacedArgs*, uObject**))WidthFunction__GetValue_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Elements::LayoutFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed object GetCurrentValue(Fuse.Elements.Element elm) :133
+void WidthFunction__GetCurrentValue_fn(WidthFunction* __this, ::g::Fuse::Elements::Element* elm, uObject** __retval)
+{
+    return *__retval = uBox(::g::Uno::Float_typeof(), uPtr(elm)->ActualSize().X), void();
+}
+
+// protected override sealed object GetValue(Fuse.PlacedArgs args) :128
+void WidthFunction__GetValue_fn(WidthFunction* __this, ::g::Fuse::PlacedArgs* args, uObject** __retval)
+{
+    return *__retval = uBox(::g::Uno::Float_typeof(), uPtr(args)->NewSize().X), void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\LayoutFunctions.uno
+// -----------------------------------------------------------------------------------------------
+
+// public sealed class XFunction :189
+// {
+static void XFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Elements::LayoutFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Elements::LayoutFunction_type, interface1));
+    type->SetFields(3);
+}
+
+::g::Fuse::Elements::LayoutFunction_type* XFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Elements::LayoutFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Elements::LayoutFunction_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(XFunction);
+    options.TypeSize = sizeof(::g::Fuse::Elements::LayoutFunction_type);
+    type = (::g::Fuse::Elements::LayoutFunction_type*)uClassType::New("Fuse.Elements.XFunction", options);
+    type->fp_build_ = XFunction_build;
+    type->fp_GetCurrentValue = (void(*)(::g::Fuse::Elements::LayoutFunction*, ::g::Fuse::Elements::Element*, uObject**))XFunction__GetCurrentValue_fn;
+    type->fp_GetValue = (void(*)(::g::Fuse::Elements::LayoutFunction*, ::g::Fuse::PlacedArgs*, uObject**))XFunction__GetValue_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Elements::LayoutFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed object GetCurrentValue(Fuse.Elements.Element elm) :199
+void XFunction__GetCurrentValue_fn(XFunction* __this, ::g::Fuse::Elements::Element* elm, uObject** __retval)
+{
+    return *__retval = uBox(::g::Uno::Float_typeof(), uPtr(elm)->ActualPosition().X), void();
+}
+
+// protected override sealed object GetValue(Fuse.PlacedArgs args) :194
+void XFunction__GetValue_fn(XFunction* __this, ::g::Fuse::PlacedArgs* args, uObject** __retval)
+{
+    return *__retval = uBox(::g::Uno::Float_typeof(), uPtr(args)->NewPosition().X), void();
+}
+// }
+
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Elements\1.9.0\LayoutFunctions.uno
+// -----------------------------------------------------------------------------------------------
+
+// public sealed class YFunction :223
+// {
+static void YFunction_build(uType* type)
+{
+    type->SetInterfaces(
+        ::g::Fuse::Reactive::IExpression_typeof(), offsetof(::g::Fuse::Elements::LayoutFunction_type, interface0),
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Elements::LayoutFunction_type, interface1));
+    type->SetFields(3);
+}
+
+::g::Fuse::Elements::LayoutFunction_type* YFunction_typeof()
+{
+    static uSStrong< ::g::Fuse::Elements::LayoutFunction_type*> type;
+    if (type != NULL) return type;
+
+    uTypeOptions options;
+    options.BaseDefinition = ::g::Fuse::Elements::LayoutFunction_typeof();
+    options.FieldCount = 3;
+    options.InterfaceCount = 2;
+    options.ObjectSize = sizeof(YFunction);
+    options.TypeSize = sizeof(::g::Fuse::Elements::LayoutFunction_type);
+    type = (::g::Fuse::Elements::LayoutFunction_type*)uClassType::New("Fuse.Elements.YFunction", options);
+    type->fp_build_ = YFunction_build;
+    type->fp_GetCurrentValue = (void(*)(::g::Fuse::Elements::LayoutFunction*, ::g::Fuse::Elements::Element*, uObject**))YFunction__GetCurrentValue_fn;
+    type->fp_GetValue = (void(*)(::g::Fuse::Elements::LayoutFunction*, ::g::Fuse::PlacedArgs*, uObject**))YFunction__GetValue_fn;
+    type->interface1.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Reactive::Expression__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_Subscribe = (void(*)(uObject*, uObject*, uObject*, uObject**))::g::Fuse::Elements::LayoutFunction__Subscribe_fn;
+    type->interface1.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Reactive::Expression__get_SourceLineNumber_fn;
+    type->interface1.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Reactive::Expression__get_SourceFileName_fn;
+    return type;
+}
+
+// protected override sealed object GetCurrentValue(Fuse.Elements.Element elm) :233
+void YFunction__GetCurrentValue_fn(YFunction* __this, ::g::Fuse::Elements::Element* elm, uObject** __retval)
+{
+    return *__retval = uBox(::g::Uno::Float_typeof(), uPtr(elm)->ActualPosition().Y), void();
+}
+
+// protected override sealed object GetValue(Fuse.PlacedArgs args) :228
+void YFunction__GetValue_fn(YFunction* __this, ::g::Fuse::PlacedArgs* args, uObject** __retval)
+{
+    return *__retval = uBox(::g::Uno::Float_typeof(), uPtr(args)->NewPosition().Y), void();
+}
+// }
 
 }}} // ::g::Fuse::Elements

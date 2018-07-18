@@ -86,7 +86,7 @@
 #include <Fuse.Visual.h>
 #include <Fuse.VisualEvent-2.h>
 #include <Uno.Action.h>
-#include <Uno.Action-2.h>
+#include <Uno.Action2-2.h>
 #include <Uno.Bool.h>
 #include <Uno.Delegate.h>
 #include <Uno.Double.h>
@@ -111,7 +111,7 @@ namespace g{
 namespace Fuse{
 namespace Gestures{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Clicked.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Clicked.uno
 // ---------------------------------------------------------------------------------------
 
 // public sealed class Clicked :30
@@ -127,11 +127,12 @@ static void Clicked_build(uType* type)
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
-        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
-        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7));
-    type->SetFields(39,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
+        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7),
+        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface8));
+    type->SetFields(41,
         ::TYPES[3/*Fuse.Gestures.ClickedHandler*/], offsetof(Clicked, Handler1), 0);
 }
 
@@ -142,8 +143,8 @@ static void Clicked_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Gestures::ClickerTrigger_typeof();
-    options.FieldCount = 40;
-    options.InterfaceCount = 8;
+    options.FieldCount = 42;
+    options.InterfaceCount = 9;
     options.ObjectSize = sizeof(Clicked);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Trigger_type);
     type = (::g::Fuse::Triggers::Trigger_type*)uClassType::New("Fuse.Gestures.Clicked", options);
@@ -151,24 +152,27 @@ static void Clicked_build(uType* type)
     type->fp_ctor_ = (void*)Clicked__New2_fn;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))Clicked__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))Clicked__OnUnrooted_fn;
-    type->interface7.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
-    type->interface7.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
-    type->interface6.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface8.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
+    type->interface8.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
+    type->interface7.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int32_t*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -203,7 +207,7 @@ void Clicked__New2_fn(Clicked** __retval)
 }
 
 // private void OnClicked(Fuse.Input.PointerEventArgs args, int clickCount) :69
-void Clicked__OnClicked_fn(Clicked* __this, ::g::Fuse::Input::PointerEventArgs* args, int* clickCount)
+void Clicked__OnClicked_fn(Clicked* __this, ::g::Fuse::Input::PointerEventArgs* args, int32_t* clickCount)
 {
     __this->OnClicked(args, *clickCount);
 }
@@ -241,7 +245,7 @@ void Clicked::remove_Handler(uDelegate* value)
 }
 
 // private void OnClicked(Fuse.Input.PointerEventArgs args, int clickCount) [instance] :69
-void Clicked::OnClicked(::g::Fuse::Input::PointerEventArgs* args, int clickCount)
+void Clicked::OnClicked(::g::Fuse::Input::PointerEventArgs* args, int32_t clickCount)
 {
     if (!Accept(args))
         return;
@@ -275,7 +279,7 @@ Clicked* Clicked::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Clicked.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Clicked.uno
 // ---------------------------------------------------------------------------------------
 
 // public sealed class ClickedArgs :7
@@ -331,7 +335,7 @@ ClickedArgs* ClickedArgs::New3(::g::Fuse::Input::PointerEventArgs* args, ::g::Fu
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Clicked.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Clicked.uno
 // ---------------------------------------------------------------------------------------
 
 // public delegate void ClickedHandler(object sender, Fuse.Gestures.ClickedArgs args) :12
@@ -347,7 +351,7 @@ uDelegateType* ClickedHandler_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Clicker.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Clicker.uno
 // ------------------------------------------------------------------------------------------------
 
 // internal sealed class Clicker :101
@@ -364,7 +368,10 @@ static void Clicker_build(uType* type)
     ::TYPES[4] = ::g::Uno::Action_typeof();
     ::TYPES[2] = ::g::Fuse::Gestures::ClickerEventHandler_typeof();
     type->SetDependencies(
-        ::g::Fuse::Input::Gestures_typeof());
+        ::g::Fuse::Input::Gestures_typeof(),
+        ::g::Uno::Math_typeof(),
+        ::g::Fuse::Input::Pointer_typeof(),
+        ::g::Fuse::UpdateManager_typeof());
     type->SetInterfaces(
         ::g::Fuse::Input::IGesture_typeof(), offsetof(Clicker_type, interface0));
     type->SetFields(0,
@@ -401,16 +408,16 @@ Clicker_type* Clicker_typeof()
     uTypeOptions options;
     options.FieldCount = 23;
     options.InterfaceCount = 1;
-    options.DependencyCount = 1;
+    options.DependencyCount = 4;
     options.ObjectSize = sizeof(Clicker);
     options.TypeSize = sizeof(Clicker_type);
     type = (Clicker_type*)uClassType::New("Fuse.Gestures.Clicker", options);
     type->fp_build_ = Clicker_build;
     type->fp_cctor_ = Clicker__cctor__fn;
-    type->interface0.fp_OnPointerPressed = (void(*)(uObject*, ::g::Fuse::Input::PointerPressedArgs*, int*))Clicker__FuseInputIGestureOnPointerPressed_fn;
-    type->interface0.fp_OnCaptureChanged = (void(*)(uObject*, ::g::Fuse::Input::PointerEventArgs*, int*, int*))Clicker__FuseInputIGestureOnCaptureChanged_fn;
-    type->interface0.fp_OnPointerMoved = (void(*)(uObject*, ::g::Fuse::Input::PointerMovedArgs*, int*))Clicker__FuseInputIGestureOnPointerMoved_fn;
-    type->interface0.fp_OnPointerReleased = (void(*)(uObject*, ::g::Fuse::Input::PointerReleasedArgs*, int*))Clicker__FuseInputIGestureOnPointerReleased_fn;
+    type->interface0.fp_OnPointerPressed = (void(*)(uObject*, ::g::Fuse::Input::PointerPressedArgs*, int32_t*))Clicker__FuseInputIGestureOnPointerPressed_fn;
+    type->interface0.fp_OnCaptureChanged = (void(*)(uObject*, ::g::Fuse::Input::PointerEventArgs*, int32_t*, int32_t*))Clicker__FuseInputIGestureOnCaptureChanged_fn;
+    type->interface0.fp_OnPointerMoved = (void(*)(uObject*, ::g::Fuse::Input::PointerMovedArgs*, int32_t*))Clicker__FuseInputIGestureOnPointerMoved_fn;
+    type->interface0.fp_OnPointerReleased = (void(*)(uObject*, ::g::Fuse::Input::PointerReleasedArgs*, int32_t*))Clicker__FuseInputIGestureOnPointerReleased_fn;
     type->interface0.fp_OnLostCapture = (void(*)(uObject*, bool*))Clicker__FuseInputIGestureOnLostCapture_fn;
     type->interface0.fp_get_Priority = (void(*)(uObject*, ::g::Fuse::Input::GesturePriorityConfig*))Clicker__FuseInputIGestureget_Priority_fn;
     return type;
@@ -423,7 +430,7 @@ void Clicker__ctor__fn(Clicker* __this, ::g::Fuse::Visual* visual)
 }
 
 // public static Fuse.Gestures.Clicker AttachClicker(Fuse.Visual elm, Fuse.Input.GesturePriority priority) :123
-void Clicker__AttachClicker_fn(::g::Fuse::Visual* elm, int* priority, Clicker** __retval)
+void Clicker__AttachClicker_fn(::g::Fuse::Visual* elm, int32_t* priority, Clicker** __retval)
 {
     *__retval = Clicker::AttachClicker(elm, *priority);
 }
@@ -453,7 +460,7 @@ void Clicker__DoneCapture_fn(Clicker* __this)
 }
 
 // private void Fuse.Input.IGesture.OnCaptureChanged(Fuse.Input.PointerEventArgs args, Fuse.Input.CaptureType how, Fuse.Input.CaptureType prev) :197
-void Clicker__FuseInputIGestureOnCaptureChanged_fn(Clicker* __this, ::g::Fuse::Input::PointerEventArgs* args, int* how, int* prev)
+void Clicker__FuseInputIGestureOnCaptureChanged_fn(Clicker* __this, ::g::Fuse::Input::PointerEventArgs* args, int32_t* how, int32_t* prev)
 {
     if (::g::Uno::Delegate::op_Inequality(__this->LongPressedEvent1, NULL) && !__this->_hasUpdate)
     {
@@ -462,7 +469,7 @@ void Clicker__FuseInputIGestureOnCaptureChanged_fn(Clicker* __this, ::g::Fuse::I
     }
 
     if (::g::Uno::Delegate::op_Inequality(__this->PressingEvent1, NULL))
-        uPtr(__this->PressingEvent1)->Invoke(2, args, uCRef<int>(1));
+        uPtr(__this->PressingEvent1)->Invoke(2, args, uCRef<int32_t>(1));
 
     __this->_hovering = true;
 }
@@ -481,7 +488,7 @@ void Clicker__FuseInputIGestureOnLostCapture_fn(Clicker* __this, bool* forced)
 }
 
 // private Fuse.Input.GestureRequest Fuse.Input.IGesture.OnPointerMoved(Fuse.Input.PointerMovedArgs args) :211
-void Clicker__FuseInputIGestureOnPointerMoved_fn(Clicker* __this, ::g::Fuse::Input::PointerMovedArgs* args, int* __retval)
+void Clicker__FuseInputIGestureOnPointerMoved_fn(Clicker* __this, ::g::Fuse::Input::PointerMovedArgs* args, int32_t* __retval)
 {
     float distance = ::g::Uno::Vector::Length(::g::Uno::Float2__op_Subtraction2(uPtr(args)->WindowPoint(), __this->_startCoord));
     double deltaTime = args->Timestamp() - __this->_startTime;
@@ -497,7 +504,7 @@ void Clicker__FuseInputIGestureOnPointerMoved_fn(Clicker* __this, ::g::Fuse::Inp
     if (hoverNow != __this->_hovering)
     {
         if (::g::Uno::Delegate::op_Inequality(__this->PressingEvent1, NULL))
-            uPtr(__this->PressingEvent1)->Invoke(2, args, uCRef<int>(hoverNow ? 1 : 0));
+            uPtr(__this->PressingEvent1)->Invoke(2, args, uCRef<int32_t>(hoverNow ? 1 : 0));
 
         __this->_hovering = hoverNow;
     }
@@ -507,7 +514,7 @@ void Clicker__FuseInputIGestureOnPointerMoved_fn(Clicker* __this, ::g::Fuse::Inp
 }
 
 // private Fuse.Input.GestureRequest Fuse.Input.IGesture.OnPointerPressed(Fuse.Input.PointerPressedArgs args) :178
-void Clicker__FuseInputIGestureOnPointerPressed_fn(Clicker* __this, ::g::Fuse::Input::PointerPressedArgs* args, int* __retval)
+void Clicker__FuseInputIGestureOnPointerPressed_fn(Clicker* __this, ::g::Fuse::Input::PointerPressedArgs* args, int32_t* __retval)
 {
     __this->_lastArgs = args;
     double delta = uPtr(args)->Timestamp() - __this->_lastUpTime;
@@ -527,7 +534,7 @@ void Clicker__FuseInputIGestureOnPointerPressed_fn(Clicker* __this, ::g::Fuse::I
 }
 
 // private Fuse.Input.GestureRequest Fuse.Input.IGesture.OnPointerReleased(Fuse.Input.PointerReleasedArgs args) :242
-void Clicker__FuseInputIGestureOnPointerReleased_fn(Clicker* __this, ::g::Fuse::Input::PointerReleasedArgs* args, int* __retval)
+void Clicker__FuseInputIGestureOnPointerReleased_fn(Clicker* __this, ::g::Fuse::Input::PointerReleasedArgs* args, int32_t* __retval)
 {
     double deltaTime = uPtr(args)->Timestamp() - __this->_startTime;
 
@@ -536,7 +543,7 @@ void Clicker__FuseInputIGestureOnPointerReleased_fn(Clicker* __this, ::g::Fuse::
         __this->_tapCount++;
 
         if (::g::Uno::Delegate::op_Inequality(__this->TappedEvent1, NULL))
-            uPtr(__this->TappedEvent1)->Invoke(2, args, uCRef<int>(__this->_tapCount));
+            uPtr(__this->TappedEvent1)->Invoke(2, args, uCRef<int32_t>(__this->_tapCount));
     }
     else
         __this->_tapCount = 0;
@@ -548,13 +555,13 @@ void Clicker__FuseInputIGestureOnPointerReleased_fn(Clicker* __this, ::g::Fuse::
         __this->_clickCount++;
 
         if (::g::Uno::Delegate::op_Inequality(__this->ClickedEvent1, NULL))
-            uPtr(__this->ClickedEvent1)->Invoke(2, args, uCRef<int>(__this->_clickCount));
+            uPtr(__this->ClickedEvent1)->Invoke(2, args, uCRef<int32_t>(__this->_clickCount));
     }
     else
         __this->_clickCount = 0;
 
     if (__this->_hovering && ::g::Uno::Delegate::op_Inequality(__this->PressingEvent1, NULL))
-        uPtr(__this->PressingEvent1)->Invoke(2, args, uCRef<int>(0));
+        uPtr(__this->PressingEvent1)->Invoke(2, args, uCRef<int32_t>(0));
 
     __this->_hovering = false;
     __this->_lastUpTime = args->Timestamp();
@@ -683,7 +690,7 @@ void Clicker::DoneCapture()
     ReleaseUpdate();
 
     if (_hovering && ::g::Uno::Delegate::op_Inequality(PressingEvent1, NULL))
-        uPtr(PressingEvent1)->Invoke(2, (::g::Fuse::Input::PointerEventArgs*)_lastArgs, uCRef<int>(0));
+        uPtr(PressingEvent1)->Invoke(2, (::g::Fuse::Input::PointerEventArgs*)_lastArgs, uCRef<int32_t>(0));
 
     _hovering = false;
 }
@@ -760,15 +767,16 @@ void Clicker::Update()
 
     if (::g::Uno::Delegate::op_Inequality(LongPressedEvent1, NULL) && (elapsed > (double)_longPressTimeout))
     {
-        uPtr(LongPressedEvent1)->Invoke(2, (::g::Fuse::Input::PointerEventArgs*)_lastArgs, uCRef<int>(0));
+        uPtr(LongPressedEvent1)->Invoke(2, (::g::Fuse::Input::PointerEventArgs*)_lastArgs, uCRef<int32_t>(0));
         ::g::Fuse::Input::Pointer::ReleaseCapture(this);
         DoneCapture();
     }
 }
 
 // public static Fuse.Gestures.Clicker AttachClicker(Fuse.Visual elm, Fuse.Input.GesturePriority priority) [static] :123
-Clicker* Clicker::AttachClicker(::g::Fuse::Visual* elm, int priority)
+Clicker* Clicker::AttachClicker(::g::Fuse::Visual* elm, int32_t priority)
 {
+    Clicker_typeof()->Init();
     uObject* v;
 
     if (uPtr(uPtr(elm)->Properties())->TryGet(Clicker::_clickerProperty_, &v))
@@ -795,7 +803,7 @@ Clicker* Clicker::New1(::g::Fuse::Visual* visual)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Clicker.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Clicker.uno
 // ------------------------------------------------------------------------------------------------
 
 // internal delegate void ClickerEventHandler(Fuse.Input.PointerEventArgs args, int count) :9
@@ -811,7 +819,7 @@ uDelegateType* ClickerEventHandler_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Clicker.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Clicker.uno
 // ------------------------------------------------------------------------------------------------
 
 // public enum ClickerPointerIndex :11
@@ -827,7 +835,7 @@ uEnumType* ClickerPointerIndex_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Clicker.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Clicker.uno
 // ------------------------------------------------------------------------------------------------
 
 // public abstract class ClickerTrigger :19
@@ -841,11 +849,12 @@ static void ClickerTrigger_build(uType* type)
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
-        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
-        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7));
-    type->SetFields(36,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
+        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7),
+        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface8));
+    type->SetFields(38,
         ::g::Fuse::Gestures::Clicker_typeof(), offsetof(ClickerTrigger, Clicker), 0,
         ::g::Fuse::Gestures::ClickerPointerIndex_typeof(), offsetof(ClickerTrigger, _pointerIndex), 0,
         ::g::Fuse::Input::GesturePriority_typeof(), offsetof(ClickerTrigger, _gesturePriority), 0);
@@ -858,8 +867,8 @@ static void ClickerTrigger_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Trigger_typeof();
-    options.FieldCount = 39;
-    options.InterfaceCount = 8;
+    options.FieldCount = 41;
+    options.InterfaceCount = 9;
     options.DependencyCount = 1;
     options.ObjectSize = sizeof(ClickerTrigger);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Trigger_type);
@@ -867,24 +876,27 @@ static void ClickerTrigger_build(uType* type)
     type->fp_build_ = ClickerTrigger_build;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))ClickerTrigger__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))ClickerTrigger__OnUnrooted_fn;
-    type->interface7.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
-    type->interface7.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
-    type->interface6.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface8.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
+    type->interface8.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
+    type->interface7.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int32_t*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -901,13 +913,13 @@ void ClickerTrigger__Accept_fn(ClickerTrigger* __this, ::g::Fuse::Input::Pointer
 }
 
 // public Fuse.Input.GesturePriority get_GesturePriority() :54
-void ClickerTrigger__get_GesturePriority_fn(ClickerTrigger* __this, int* __retval)
+void ClickerTrigger__get_GesturePriority_fn(ClickerTrigger* __this, int32_t* __retval)
 {
     *__retval = __this->GesturePriority();
 }
 
 // public void set_GesturePriority(Fuse.Input.GesturePriority value) :55
-void ClickerTrigger__set_GesturePriority_fn(ClickerTrigger* __this, int* value)
+void ClickerTrigger__set_GesturePriority_fn(ClickerTrigger* __this, int32_t* value)
 {
     __this->GesturePriority(*value);
 }
@@ -928,13 +940,13 @@ void ClickerTrigger__OnUnrooted_fn(ClickerTrigger* __this)
 }
 
 // public Fuse.Gestures.ClickerPointerIndex get_PointerIndex() :38
-void ClickerTrigger__get_PointerIndex_fn(ClickerTrigger* __this, int* __retval)
+void ClickerTrigger__get_PointerIndex_fn(ClickerTrigger* __this, int32_t* __retval)
 {
     *__retval = __this->PointerIndex();
 }
 
 // public void set_PointerIndex(Fuse.Gestures.ClickerPointerIndex value) :39
-void ClickerTrigger__set_PointerIndex_fn(ClickerTrigger* __this, int* value)
+void ClickerTrigger__set_PointerIndex_fn(ClickerTrigger* __this, int32_t* value)
 {
     __this->PointerIndex(*value);
 }
@@ -959,37 +971,39 @@ bool ClickerTrigger::Accept(::g::Fuse::Input::PointerEventArgs* args)
 }
 
 // public Fuse.Input.GesturePriority get_GesturePriority() [instance] :54
-int ClickerTrigger::GesturePriority()
+int32_t ClickerTrigger::GesturePriority()
 {
     return _gesturePriority;
 }
 
 // public void set_GesturePriority(Fuse.Input.GesturePriority value) [instance] :55
-void ClickerTrigger::GesturePriority(int value)
+void ClickerTrigger::GesturePriority(int32_t value)
 {
     _gesturePriority = value;
 }
 
 // public Fuse.Gestures.ClickerPointerIndex get_PointerIndex() [instance] :38
-int ClickerTrigger::PointerIndex()
+int32_t ClickerTrigger::PointerIndex()
 {
     return _pointerIndex;
 }
 
 // public void set_PointerIndex(Fuse.Gestures.ClickerPointerIndex value) [instance] :39
-void ClickerTrigger::PointerIndex(int value)
+void ClickerTrigger::PointerIndex(int32_t value)
 {
     _pointerIndex = value;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Helpers.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Helpers.uno
 // ------------------------------------------------------------------------------------------------
 
 // internal sealed class DegreeSpan :6
 // {
 static void DegreeSpan_build(uType* type)
 {
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Uno::Float_typeof(), offsetof(DegreeSpan, _a), 0,
         ::g::Uno::Float_typeof(), offsetof(DegreeSpan, _b), 0);
@@ -1002,6 +1016,7 @@ uType* DegreeSpan_typeof()
 
     uTypeOptions options;
     options.FieldCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(DegreeSpan);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Gestures.DegreeSpan", options);
@@ -1063,7 +1078,7 @@ DegreeSpan* DegreeSpan::New1(float a, float b)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\WhileEdgeSwiped.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\WhileEdgeSwiped.uno
 // -----------------------------------------------------------------------------------------------
 
 // public enum Edge :10
@@ -1081,7 +1096,7 @@ uEnumType* Edge_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\KeepInView.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\KeepInView.uno
 // ------------------------------------------------------------------------------------------
 
 // public sealed class KeepFocusInView :106
@@ -1097,9 +1112,10 @@ static void KeepFocusInView_build(uType* type)
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Node_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Node_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Node_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Node_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Node_type, interface5));
-    type->SetFields(18);
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Node_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Node_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Node_type, interface6));
+    type->SetFields(20);
 }
 
 ::g::Fuse::Node_type* KeepFocusInView_typeof()
@@ -1109,8 +1125,8 @@ static void KeepFocusInView_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Gestures::KeepInViewCommon_typeof();
-    options.FieldCount = 18;
-    options.InterfaceCount = 6;
+    options.FieldCount = 20;
+    options.InterfaceCount = 7;
     options.DependencyCount = 1;
     options.ObjectSize = sizeof(KeepFocusInView);
     options.TypeSize = sizeof(::g::Fuse::Node_type);
@@ -1119,21 +1135,24 @@ static void KeepFocusInView_build(uType* type)
     type->fp_ctor_ = (void*)KeepFocusInView__New3_fn;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))KeepFocusInView__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))KeepFocusInView__OnUnrooted_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -1204,7 +1223,7 @@ KeepFocusInView* KeepFocusInView::New3()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\KeepInView.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\KeepInView.uno
 // ------------------------------------------------------------------------------------------
 
 // public class KeepInViewCommon :8
@@ -1218,9 +1237,10 @@ static void KeepInViewCommon_build(uType* type)
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Node_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Node_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Node_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Node_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Node_type, interface5));
-    type->SetFields(15,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Node_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Node_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Node_type, interface6));
+    type->SetFields(17,
         ::TYPES[8/*Fuse.Elements.Element*/], offsetof(KeepInViewCommon, _target), 0,
         ::g::Uno::Bool_typeof(), offsetof(KeepInViewCommon, _attached), 0,
         ::TYPES[8/*Fuse.Elements.Element*/], offsetof(KeepInViewCommon, _rootElement), 0);
@@ -1233,29 +1253,32 @@ static void KeepInViewCommon_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Behavior_typeof();
-    options.FieldCount = 18;
-    options.InterfaceCount = 6;
+    options.FieldCount = 20;
+    options.InterfaceCount = 7;
     options.ObjectSize = sizeof(KeepInViewCommon);
     options.TypeSize = sizeof(::g::Fuse::Node_type);
     type = (::g::Fuse::Node_type*)uClassType::New("Fuse.Gestures.KeepInViewCommon", options);
     type->fp_build_ = KeepInViewCommon_build;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))KeepInViewCommon__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))KeepInViewCommon__OnUnrooted_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -1389,7 +1412,7 @@ void KeepInViewCommon::Update(uObject* s, uObject* a)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\LongPress.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\LongPress.uno
 // -----------------------------------------------------------------------------------------
 
 // public sealed class LongPressed :21
@@ -1403,11 +1426,12 @@ static void LongPressed_build(uType* type)
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
-        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
-        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7));
-    type->SetFields(39,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
+        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7),
+        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface8));
+    type->SetFields(41,
         ::TYPES[9/*Fuse.Gestures.LongPressedHandler*/], offsetof(LongPressed, Handler1), 0);
 }
 
@@ -1418,8 +1442,8 @@ static void LongPressed_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Gestures::ClickerTrigger_typeof();
-    options.FieldCount = 40;
-    options.InterfaceCount = 8;
+    options.FieldCount = 42;
+    options.InterfaceCount = 9;
     options.ObjectSize = sizeof(LongPressed);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Trigger_type);
     type = (::g::Fuse::Triggers::Trigger_type*)uClassType::New("Fuse.Gestures.LongPressed", options);
@@ -1427,24 +1451,27 @@ static void LongPressed_build(uType* type)
     type->fp_ctor_ = (void*)LongPressed__New2_fn;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))LongPressed__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))LongPressed__OnUnrooted_fn;
-    type->interface7.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
-    type->interface7.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
-    type->interface6.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface8.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
+    type->interface8.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
+    type->interface7.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int32_t*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -1473,7 +1500,7 @@ void LongPressed__New2_fn(LongPressed** __retval)
 }
 
 // private void OnLongPressed(Fuse.Input.PointerEventArgs args, int count) :40
-void LongPressed__OnLongPressed_fn(LongPressed* __this, ::g::Fuse::Input::PointerEventArgs* args, int* count)
+void LongPressed__OnLongPressed_fn(LongPressed* __this, ::g::Fuse::Input::PointerEventArgs* args, int32_t* count)
 {
     __this->OnLongPressed(args, *count);
 }
@@ -1511,7 +1538,7 @@ void LongPressed::remove_Handler(uDelegate* value)
 }
 
 // private void OnLongPressed(Fuse.Input.PointerEventArgs args, int count) [instance] :40
-void LongPressed::OnLongPressed(::g::Fuse::Input::PointerEventArgs* args, int count)
+void LongPressed::OnLongPressed(::g::Fuse::Input::PointerEventArgs* args, int32_t count)
 {
     if (!Accept(args))
         return;
@@ -1531,7 +1558,7 @@ LongPressed* LongPressed::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\LongPress.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\LongPress.uno
 // -----------------------------------------------------------------------------------------
 
 // public sealed class LongPressedArgs :7
@@ -1587,7 +1614,7 @@ LongPressedArgs* LongPressedArgs::New3(::g::Fuse::Input::PointerEventArgs* args,
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\LongPress.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\LongPress.uno
 // -----------------------------------------------------------------------------------------
 
 // public delegate void LongPressedHandler(object sender, Fuse.Gestures.LongPressedArgs args) :15
@@ -1603,7 +1630,7 @@ uDelegateType* LongPressedHandler_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.4.2\Scroller.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.9.0\Scroller.uno
 // ---------------------------------------------------------------------------------------------------
 
 // private enum Scroller.MoveUserFlags :418
@@ -1620,7 +1647,7 @@ uEnumType* Scroller__MoveUserFlags_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.4.2\Scroller.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.9.0\Scroller.uno
 // ---------------------------------------------------------------------------------------------------
 
 // public sealed class Scroller :21
@@ -1635,19 +1662,21 @@ static void Scroller__cctor_1_fn(uType* __type)
 static void Scroller_build(uType* type)
 {
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
         ::g::Fuse::Input::Gestures_typeof(),
-        ::g::Uno::UX::Selector_typeof());
+        ::g::Uno::Math_typeof(),
+        ::g::Fuse::Controls::ScrollViewBase_typeof(),
+        ::g::Fuse::UpdateManager_typeof());
     type->SetInterfaces(
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Scroller_type, interface0),
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(Scroller_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(Scroller_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(Scroller_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Scroller_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Scroller_type, interface5),
-        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(Scroller_type, interface6),
-        ::g::Fuse::Input::IGesture_typeof(), offsetof(Scroller_type, interface7));
-    type->SetFields(15,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(Scroller_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Scroller_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(Scroller_type, interface6),
+        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(Scroller_type, interface7),
+        ::g::Fuse::Input::IGesture_typeof(), offsetof(Scroller_type, interface8));
+    type->SetFields(17,
         ::g::Fuse::Motion::Simulation::BoundedRegion2D_typeof(), offsetof(Scroller, _region), 0,
         ::g::Fuse::Motion::Simulation::PointerVelocity_typeof()->MakeType(::g::Uno::Float2_typeof(), NULL), offsetof(Scroller, _velocity), 0,
         ::g::Uno::Bool_typeof(), offsetof(Scroller, _delayStart), 0,
@@ -1677,9 +1706,9 @@ Scroller_type* Scroller_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Behavior_typeof();
-    options.FieldCount = 35;
-    options.InterfaceCount = 8;
-    options.DependencyCount = 3;
+    options.FieldCount = 37;
+    options.InterfaceCount = 9;
+    options.DependencyCount = 4;
     options.ObjectSize = sizeof(Scroller);
     options.TypeSize = sizeof(Scroller_type);
     type = (Scroller_type*)uClassType::New("Fuse.Gestures.Scroller", options);
@@ -1687,28 +1716,31 @@ Scroller_type* Scroller_typeof()
     type->fp_cctor_ = Scroller__cctor_1_fn;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))Scroller__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))Scroller__OnUnrooted_fn;
-    type->interface7.fp_OnPointerPressed = (void(*)(uObject*, ::g::Fuse::Input::PointerPressedArgs*, int*))Scroller__FuseInputIGestureOnPointerPressed_fn;
-    type->interface7.fp_OnCaptureChanged = (void(*)(uObject*, ::g::Fuse::Input::PointerEventArgs*, int*, int*))Scroller__FuseInputIGestureOnCaptureChanged_fn;
-    type->interface7.fp_OnLostCapture = (void(*)(uObject*, bool*))Scroller__FuseInputIGestureOnLostCapture_fn;
-    type->interface7.fp_OnPointerMoved = (void(*)(uObject*, ::g::Fuse::Input::PointerMovedArgs*, int*))Scroller__FuseInputIGestureOnPointerMoved_fn;
-    type->interface7.fp_OnPointerReleased = (void(*)(uObject*, ::g::Fuse::Input::PointerReleasedArgs*, int*))Scroller__FuseInputIGestureOnPointerReleased_fn;
-    type->interface6.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))Scroller__UnoUXIPropertyListenerOnPropertyChanged_fn;
-    type->interface7.fp_get_Priority = (void(*)(uObject*, ::g::Fuse::Input::GesturePriorityConfig*))Scroller__FuseInputIGestureget_Priority_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface8.fp_OnPointerPressed = (void(*)(uObject*, ::g::Fuse::Input::PointerPressedArgs*, int32_t*))Scroller__FuseInputIGestureOnPointerPressed_fn;
+    type->interface8.fp_OnCaptureChanged = (void(*)(uObject*, ::g::Fuse::Input::PointerEventArgs*, int32_t*, int32_t*))Scroller__FuseInputIGestureOnCaptureChanged_fn;
+    type->interface8.fp_OnLostCapture = (void(*)(uObject*, bool*))Scroller__FuseInputIGestureOnLostCapture_fn;
+    type->interface8.fp_OnPointerMoved = (void(*)(uObject*, ::g::Fuse::Input::PointerMovedArgs*, int32_t*))Scroller__FuseInputIGestureOnPointerMoved_fn;
+    type->interface8.fp_OnPointerReleased = (void(*)(uObject*, ::g::Fuse::Input::PointerReleasedArgs*, int32_t*))Scroller__FuseInputIGestureOnPointerReleased_fn;
+    type->interface7.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))Scroller__UnoUXIPropertyListenerOnPropertyChanged_fn;
+    type->interface8.fp_get_Priority = (void(*)(uObject*, ::g::Fuse::Input::GesturePriorityConfig*))Scroller__FuseInputIGestureget_Priority_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -1749,9 +1781,9 @@ void Scroller__FromWindow_fn(Scroller* __this, ::g::Uno::Float2* p, ::g::Uno::Fl
 }
 
 // private void Fuse.Input.IGesture.OnCaptureChanged(Fuse.Input.PointerEventArgs args, Fuse.Input.CaptureType how, Fuse.Input.CaptureType prev) :221
-void Scroller__FuseInputIGestureOnCaptureChanged_fn(Scroller* __this, ::g::Fuse::Input::PointerEventArgs* args, int* how, int* prev)
+void Scroller__FuseInputIGestureOnCaptureChanged_fn(Scroller* __this, ::g::Fuse::Input::PointerEventArgs* args, int32_t* how, int32_t* prev)
 {
-    int how_ = *how;
+    int32_t how_ = *how;
 
     if ((how_ & 1) == 1)
         __this->_softCaptureStart = (__this->_softCaptureCurrent = uPtr(args)->WindowPoint());
@@ -1779,7 +1811,7 @@ void Scroller__FuseInputIGestureOnLostCapture_fn(Scroller* __this, bool* forced)
 }
 
 // private Fuse.Input.GestureRequest Fuse.Input.IGesture.OnPointerMoved(Fuse.Input.PointerMovedArgs args) :262
-void Scroller__FuseInputIGestureOnPointerMoved_fn(Scroller* __this, ::g::Fuse::Input::PointerMovedArgs* args, int* __retval)
+void Scroller__FuseInputIGestureOnPointerMoved_fn(Scroller* __this, ::g::Fuse::Input::PointerMovedArgs* args, int32_t* __retval)
 {
     if (__this->_gesture == NULL)
         return *__retval = 0, void();
@@ -1812,7 +1844,7 @@ void Scroller__FuseInputIGestureOnPointerMoved_fn(Scroller* __this, ::g::Fuse::I
 }
 
 // private Fuse.Input.GestureRequest Fuse.Input.IGesture.OnPointerPressed(Fuse.Input.PointerPressedArgs args) :213
-void Scroller__FuseInputIGestureOnPointerPressed_fn(Scroller* __this, ::g::Fuse::Input::PointerPressedArgs* args, int* __retval)
+void Scroller__FuseInputIGestureOnPointerPressed_fn(Scroller* __this, ::g::Fuse::Input::PointerPressedArgs* args, int32_t* __retval)
 {
     ::g::Uno::Float2 ret3;
     __this->StartInvalidateVisual();
@@ -1821,7 +1853,7 @@ void Scroller__FuseInputIGestureOnPointerPressed_fn(Scroller* __this, ::g::Fuse:
 }
 
 // private Fuse.Input.GestureRequest Fuse.Input.IGesture.OnPointerReleased(Fuse.Input.PointerReleasedArgs args) :296
-void Scroller__FuseInputIGestureOnPointerReleased_fn(Scroller* __this, ::g::Fuse::Input::PointerReleasedArgs* args, int* __retval)
+void Scroller__FuseInputIGestureOnPointerReleased_fn(Scroller* __this, ::g::Fuse::Input::PointerReleasedArgs* args, int32_t* __retval)
 {
     ::g::Uno::Float2 ret4;
     __this->StopInvalidateVisual();
@@ -1852,7 +1884,7 @@ void Scroller__Goto_fn(Scroller* __this, ::g::Uno::Float2* position)
 }
 
 // private void MoveUser(Fuse.Gestures.Scroller.MoveUserFlags flags, double time) :425
-void Scroller__MoveUser_fn(Scroller* __this, int* flags, double* time)
+void Scroller__MoveUser_fn(Scroller* __this, int32_t* flags, double* time)
 {
     __this->MoveUser(*flags, *time);
 }
@@ -2025,7 +2057,7 @@ bool Scroller::DelayStart()
 void Scroller::DelayStart(bool value)
 {
     _delayStart = value;
-    ::g::Fuse::Diagnostics::Deprecated(uString::Const("Scroller.DelayStart is no longer supported."), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.ScrollView\\1.4.2\\Scroller.uno"), 49, uString::Const("set_DelayStart"));
+    ::g::Fuse::Diagnostics::Deprecated(uString::Const("Scroller.DelayStart is no longer supported."), this, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.ScrollView\\1.9.0\\Scroller.uno"), 49, uString::Const("set_DelayStart"));
 }
 
 // private float2 FromWindow(float2 p) [instance] :237
@@ -2055,7 +2087,7 @@ void Scroller::Goto(::g::Uno::Float2 position)
 }
 
 // private void MoveUser(Fuse.Gestures.Scroller.MoveUserFlags flags, double time) [instance] :425
-void Scroller::MoveUser(int flags, double time)
+void Scroller::MoveUser(int32_t flags, double time)
 {
     ::g::Uno::Float2 diff = ::g::Uno::Float2__op_Subtraction2(FromWindow(_prevPos), FromWindow(_pointerPos));
 
@@ -2073,7 +2105,7 @@ void Scroller::MoveUser(int flags, double time)
         OnUpdated();
     }
 
-    ::g::Fuse::Motion::Simulation::PointerVelocity__AddSample_fn(uPtr(_velocity), uCRef(FromWindow(_pointerPos)), uCRef((double)(float)elapsed), uCRef<int>((!((flags & 1) == 1) ? 1 : 0) | (((flags & 2) == 2) ? 2 : 0)));
+    ::g::Fuse::Motion::Simulation::PointerVelocity__AddSample_fn(uPtr(_velocity), uCRef(FromWindow(_pointerPos)), uCRef((double)(float)elapsed), uCRef<int32_t>((!((flags & 1) == 1) ? 1 : 0) | (((flags & 2) == 2) ? 2 : 0)));
 }
 
 // private void OnRequestBringIntoView(object sender, Fuse.RequestBringIntoViewArgs args) [instance] :325
@@ -2112,7 +2144,7 @@ void Scroller::OnUpdated()
 
     if ((_region == NULL) || (_scrollable == NULL))
     {
-        ::g::Fuse::Diagnostics::InternalError(uString::Const("Invalid scroller update"), NULL, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.ScrollView\\1.4.2\\Scroller.uno"), 384, uString::Const("OnUpdated"));
+        ::g::Fuse::Diagnostics::InternalError(uString::Const("Invalid scroller update"), NULL, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.ScrollView\\1.9.0\\Scroller.uno"), 384, uString::Const("OnUpdated"));
         return;
     }
 
@@ -2168,14 +2200,14 @@ void Scroller::UpdatePointerEvents(bool forceOff)
     if (shouldListen)
     {
         if (_gesture != NULL)
-            ::g::Fuse::Diagnostics::InternalError(uString::Const("inconsistent gesture state"), NULL, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.ScrollView\\1.4.2\\Scroller.uno"), 129, uString::Const("UpdatePointerEvents"));
+            ::g::Fuse::Diagnostics::InternalError(uString::Const("inconsistent gesture state"), NULL, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.ScrollView\\1.9.0\\Scroller.uno"), 129, uString::Const("UpdatePointerEvents"));
         else
             _gesture = ::g::Fuse::Input::Gestures::Add((uObject*)this, _scrollable, 9);
     }
     else if (_scrollable != NULL)
     {
         if (_gesture == NULL)
-            ::g::Fuse::Diagnostics::InternalError(uString::Const("inconsistent gesture state"), NULL, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.ScrollView\\1.4.2\\Scroller.uno"), 136, uString::Const("UpdatePointerEvents"));
+            ::g::Fuse::Diagnostics::InternalError(uString::Const("inconsistent gesture state"), NULL, uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.ScrollView\\1.9.0\\Scroller.uno"), 136, uString::Const("UpdatePointerEvents"));
         else
         {
             uPtr(_gesture)->Dispose();
@@ -2210,7 +2242,7 @@ Scroller* Scroller::New3(bool ignore)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.4.2\Scroller.Actions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.9.0\Scroller.Actions.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // public sealed class ScrollTo :56
@@ -2218,12 +2250,12 @@ Scroller* Scroller::New3(bool ignore)
 static void ScrollTo_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("Unabled to locate ScrollView");
-    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.ScrollView\\1.4.2\\Scroller.Actions.uno");
+    ::STRINGS[1] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Controls.ScrollView\\1.9.0\\Scroller.Actions.uno");
     ::STRINGS[2] = uString::Const("Perform");
     ::TYPES[10] = ::g::Fuse::Node_typeof()->MakeMethod(1/*FindByType<Fuse.Controls.ScrollView>*/, ::g::Fuse::Controls::ScrollView_typeof(), NULL);
-    type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof());
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Uno::Float2_typeof(), offsetof(ScrollTo, _position), 0,
         ::g::Uno::Float2_typeof(), offsetof(ScrollTo, _relativePosition), 0,
         ::g::Uno::Bool_typeof(), offsetof(ScrollTo, _hasRelativePosition), 0,
@@ -2238,24 +2270,27 @@ static void ScrollTo_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 13;
-    options.DependencyCount = 1;
+    options.FieldCount = 15;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(ScrollTo);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Gestures.ScrollTo", options);
     type->fp_build_ = ScrollTo_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))ScrollTo__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
 // public Fuse.Gestures.ScrollToHow get_How() :97
-void ScrollTo__get_How_fn(ScrollTo* __this, int* __retval)
+void ScrollTo__get_How_fn(ScrollTo* __this, int32_t* __retval)
 {
     *__retval = __this->How();
 }
 
 // public void set_How(Fuse.Gestures.ScrollToHow value) :98
-void ScrollTo__set_How_fn(ScrollTo* __this, int* value)
+void ScrollTo__set_How_fn(ScrollTo* __this, int32_t* value)
 {
     __this->How(*value);
 }
@@ -2294,13 +2329,13 @@ void ScrollTo__set_Target_fn(ScrollTo* __this, ::g::Fuse::Controls::ScrollView* 
 }
 
 // public Fuse.Gestures.ScrollToHow get_How() [instance] :97
-int ScrollTo::How()
+int32_t ScrollTo::How()
 {
     return _how;
 }
 
 // public void set_How(Fuse.Gestures.ScrollToHow value) [instance] :98
-void ScrollTo::How(int value)
+void ScrollTo::How(int32_t value)
 {
     _how = value;
 }
@@ -2318,7 +2353,7 @@ void ScrollTo::Target(::g::Fuse::Controls::ScrollView* value)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.4.2\Scroller.Actions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Controls.ScrollView\1.9.0\Scroller.Actions.uno
 // -----------------------------------------------------------------------------------------------------------
 
 // public enum ScrollToHow :9
@@ -2334,14 +2369,16 @@ uEnumType* ScrollToHow_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Swipe.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Swipe.uno
 // -------------------------------------------------------------------------------------
 
-// public sealed class SetSwipeActive :377
+// public sealed class SetSwipeActive :403
 // {
 static void SetSwipeActive_build(uType* type)
 {
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Uno::Bool_typeof(), offsetof(SetSwipeActive, _Bypass), 0,
         ::g::Fuse::Gestures::SwipeGesture_typeof(), offsetof(SetSwipeActive, _Target), 0,
         ::g::Uno::Bool_typeof(), offsetof(SetSwipeActive, _Value), 0);
@@ -2354,99 +2391,103 @@ static void SetSwipeActive_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 11;
+    options.FieldCount = 13;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(SetSwipeActive);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Gestures.SetSwipeActive", options);
     type->fp_build_ = SetSwipeActive_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))SetSwipeActive__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
-// public generated bool get_Bypass() :386
+// public generated bool get_Bypass() :412
 void SetSwipeActive__get_Bypass_fn(SetSwipeActive* __this, bool* __retval)
 {
     *__retval = __this->Bypass();
 }
 
-// public generated void set_Bypass(bool value) :386
+// public generated void set_Bypass(bool value) :412
 void SetSwipeActive__set_Bypass_fn(SetSwipeActive* __this, bool* value)
 {
     __this->Bypass(*value);
 }
 
-// protected override sealed void Perform(Fuse.Node target) :388
+// protected override sealed void Perform(Fuse.Node target) :414
 void SetSwipeActive__Perform_fn(SetSwipeActive* __this, ::g::Fuse::Node* target)
 {
     if (__this->Target() != NULL)
         uPtr(__this->Target())->SetActive(__this->Value(), NULL, __this->Bypass());
 }
 
-// public generated Fuse.Gestures.SwipeGesture get_Target() :380
+// public generated Fuse.Gestures.SwipeGesture get_Target() :406
 void SetSwipeActive__get_Target_fn(SetSwipeActive* __this, ::g::Fuse::Gestures::SwipeGesture** __retval)
 {
     *__retval = __this->Target();
 }
 
-// public generated void set_Target(Fuse.Gestures.SwipeGesture value) :380
+// public generated void set_Target(Fuse.Gestures.SwipeGesture value) :406
 void SetSwipeActive__set_Target_fn(SetSwipeActive* __this, ::g::Fuse::Gestures::SwipeGesture* value)
 {
     __this->Target(value);
 }
 
-// public generated bool get_Value() :383
+// public generated bool get_Value() :409
 void SetSwipeActive__get_Value_fn(SetSwipeActive* __this, bool* __retval)
 {
     *__retval = __this->Value();
 }
 
-// public generated void set_Value(bool value) :383
+// public generated void set_Value(bool value) :409
 void SetSwipeActive__set_Value_fn(SetSwipeActive* __this, bool* value)
 {
     __this->Value(*value);
 }
 
-// public generated bool get_Bypass() [instance] :386
+// public generated bool get_Bypass() [instance] :412
 bool SetSwipeActive::Bypass()
 {
     return _Bypass;
 }
 
-// public generated void set_Bypass(bool value) [instance] :386
+// public generated void set_Bypass(bool value) [instance] :412
 void SetSwipeActive::Bypass(bool value)
 {
     _Bypass = value;
 }
 
-// public generated Fuse.Gestures.SwipeGesture get_Target() [instance] :380
+// public generated Fuse.Gestures.SwipeGesture get_Target() [instance] :406
 ::g::Fuse::Gestures::SwipeGesture* SetSwipeActive::Target()
 {
     return _Target;
 }
 
-// public generated void set_Target(Fuse.Gestures.SwipeGesture value) [instance] :380
+// public generated void set_Target(Fuse.Gestures.SwipeGesture value) [instance] :406
 void SetSwipeActive::Target(::g::Fuse::Gestures::SwipeGesture* value)
 {
     _Target = value;
 }
 
-// public generated bool get_Value() [instance] :383
+// public generated bool get_Value() [instance] :409
 bool SetSwipeActive::Value()
 {
     return _Value;
 }
 
-// public generated void set_Value(bool value) [instance] :383
+// public generated void set_Value(bool value) [instance] :409
 void SetSwipeActive::Value(bool value)
 {
     _Value = value;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Swipe.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Swipe.uno
 // -------------------------------------------------------------------------------------
 
-// public sealed class Swiped :534
+// public sealed class Swiped :560
 // {
 static void Swiped_build(uType* type)
 {
@@ -2456,11 +2497,12 @@ static void Swiped_build(uType* type)
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
-        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
-        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7));
-    type->SetFields(36,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
+        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7),
+        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface8));
+    type->SetFields(38,
         ::g::Fuse::Gestures::SwipedHow_typeof(), offsetof(Swiped, _how), 0,
         ::g::Fuse::Gestures::Internal::SwipeRegion_typeof(), offsetof(Swiped, _region), 0,
         ::g::Fuse::Gestures::SwipeGesture_typeof(), offsetof(Swiped, _Source), 0);
@@ -2473,60 +2515,63 @@ static void Swiped_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Trigger_typeof();
-    options.FieldCount = 39;
-    options.InterfaceCount = 8;
+    options.FieldCount = 41;
+    options.InterfaceCount = 9;
     options.ObjectSize = sizeof(Swiped);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Trigger_type);
     type = (::g::Fuse::Triggers::Trigger_type*)uClassType::New("Fuse.Gestures.Swiped", options);
     type->fp_build_ = Swiped_build;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))Swiped__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))Swiped__OnUnrooted_fn;
-    type->interface7.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
-    type->interface7.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
-    type->interface6.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface8.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
+    type->interface8.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
+    type->interface7.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int32_t*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
-// public Swiped(Fuse.Gestures.SwipeGesture source) :540
+// public Swiped(Fuse.Gestures.SwipeGesture source) :566
 void Swiped__ctor_5_fn(Swiped* __this, ::g::Fuse::Gestures::SwipeGesture* source)
 {
     __this->ctor_5(source);
 }
 
-// public Fuse.Gestures.SwipedHow get_How() :553
-void Swiped__get_How_fn(Swiped* __this, int* __retval)
+// public Fuse.Gestures.SwipedHow get_How() :579
+void Swiped__get_How_fn(Swiped* __this, int32_t* __retval)
 {
     *__retval = __this->How();
 }
 
-// public void set_How(Fuse.Gestures.SwipedHow value) :554
-void Swiped__set_How_fn(Swiped* __this, int* value)
+// public void set_How(Fuse.Gestures.SwipedHow value) :580
+void Swiped__set_How_fn(Swiped* __this, int32_t* value)
 {
     __this->How(*value);
 }
 
-// public Swiped New(Fuse.Gestures.SwipeGesture source) :540
+// public Swiped New(Fuse.Gestures.SwipeGesture source) :566
 void Swiped__New2_fn(::g::Fuse::Gestures::SwipeGesture* source, Swiped** __retval)
 {
     *__retval = Swiped::New2(source);
 }
 
-// protected override sealed void OnRooted() :558
+// protected override sealed void OnRooted() :584
 void Swiped__OnRooted_fn(Swiped* __this)
 {
     ::g::Fuse::Triggers::Trigger__OnRooted_fn(__this);
@@ -2534,51 +2579,51 @@ void Swiped__OnRooted_fn(Swiped* __this)
     uPtr(__this->_region)->add_Swiped(uDelegate::New(::TYPES[11/*Uno.Action<bool, bool>*/], (void*)Swiped__OnSwiped_fn, __this));
 }
 
-// private void OnSwiped(bool v, bool cancelled) :571
+// private void OnSwiped(bool v, bool cancelled) :597
 void Swiped__OnSwiped_fn(Swiped* __this, bool* v, bool* cancelled)
 {
     __this->OnSwiped(*v, *cancelled);
 }
 
-// protected override sealed void OnUnrooted() :565
+// protected override sealed void OnUnrooted() :591
 void Swiped__OnUnrooted_fn(Swiped* __this)
 {
     uPtr(__this->_region)->remove_Swiped(uDelegate::New(::TYPES[11/*Uno.Action<bool, bool>*/], (void*)Swiped__OnSwiped_fn, __this));
     ::g::Fuse::Triggers::Trigger__OnUnrooted_fn(__this);
 }
 
-// public generated Fuse.Gestures.SwipeGesture get_Source() :537
+// public generated Fuse.Gestures.SwipeGesture get_Source() :563
 void Swiped__get_Source_fn(Swiped* __this, ::g::Fuse::Gestures::SwipeGesture** __retval)
 {
     *__retval = __this->Source();
 }
 
-// private generated void set_Source(Fuse.Gestures.SwipeGesture value) :537
+// private generated void set_Source(Fuse.Gestures.SwipeGesture value) :563
 void Swiped__set_Source_fn(Swiped* __this, ::g::Fuse::Gestures::SwipeGesture* value)
 {
     __this->Source(value);
 }
 
-// public Swiped(Fuse.Gestures.SwipeGesture source) [instance] :540
+// public Swiped(Fuse.Gestures.SwipeGesture source) [instance] :566
 void Swiped::ctor_5(::g::Fuse::Gestures::SwipeGesture* source)
 {
     ctor_4();
     Source(source);
 }
 
-// public Fuse.Gestures.SwipedHow get_How() [instance] :553
-int Swiped::How()
+// public Fuse.Gestures.SwipedHow get_How() [instance] :579
+int32_t Swiped::How()
 {
     return _how;
 }
 
-// public void set_How(Fuse.Gestures.SwipedHow value) [instance] :554
-void Swiped::How(int value)
+// public void set_How(Fuse.Gestures.SwipedHow value) [instance] :580
+void Swiped::How(int32_t value)
 {
     _how = value;
 }
 
-// private void OnSwiped(bool v, bool cancelled) [instance] :571
+// private void OnSwiped(bool v, bool cancelled) [instance] :597
 void Swiped::OnSwiped(bool v, bool cancelled)
 {
     if (cancelled)
@@ -2596,19 +2641,19 @@ void Swiped::OnSwiped(bool v, bool cancelled)
         Pulse();
 }
 
-// public generated Fuse.Gestures.SwipeGesture get_Source() [instance] :537
+// public generated Fuse.Gestures.SwipeGesture get_Source() [instance] :563
 ::g::Fuse::Gestures::SwipeGesture* Swiped::Source()
 {
     return _Source;
 }
 
-// private generated void set_Source(Fuse.Gestures.SwipeGesture value) [instance] :537
+// private generated void set_Source(Fuse.Gestures.SwipeGesture value) [instance] :563
 void Swiped::Source(::g::Fuse::Gestures::SwipeGesture* value)
 {
     _Source = value;
 }
 
-// public Swiped New(Fuse.Gestures.SwipeGesture source) [static] :540
+// public Swiped New(Fuse.Gestures.SwipeGesture source) [static] :566
 Swiped* Swiped::New2(::g::Fuse::Gestures::SwipeGesture* source)
 {
     Swiped* obj1 = (Swiped*)uNew(Swiped_typeof());
@@ -2617,10 +2662,10 @@ Swiped* Swiped::New2(::g::Fuse::Gestures::SwipeGesture* source)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Swipe.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Swipe.uno
 // -------------------------------------------------------------------------------------
 
-// public enum SwipedHow :495
+// public enum SwipedHow :521
 uEnumType* SwipedHow_typeof()
 {
     static uSStrong<uEnumType*> type;
@@ -2635,7 +2680,7 @@ uEnumType* SwipedHow_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Swipe.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Swipe.uno
 // -------------------------------------------------------------------------------------
 
 // public enum SwipeDirection :15
@@ -2653,7 +2698,7 @@ uEnumType* SwipeDirection_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Swipe.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Swipe.uno
 // -------------------------------------------------------------------------------------
 
 // public sealed class SwipeGesture :55
@@ -2661,9 +2706,8 @@ uEnumType* SwipeDirection_typeof()
 // static generated SwipeGesture() :55
 static void SwipeGesture__cctor_1_fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    SwipeGesture::GesturePriorityName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[3/*"GesturePrio...*/]);
-    SwipeGesture::_isActiveName_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[4/*"IsActive"*/]);
+    SwipeGesture::GesturePriorityName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[3/*"GesturePrio...*/]);
+    SwipeGesture::_isActiveName_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[4/*"IsActive"*/]);
 }
 
 static void SwipeGesture_build(uType* type)
@@ -2671,28 +2715,28 @@ static void SwipeGesture_build(uType* type)
     ::STRINGS[3] = uString::Const("GesturePriority");
     ::STRINGS[4] = uString::Const("IsActive");
     ::STRINGS[5] = uString::Const("Element");
-    ::STRINGS[6] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Gestures\\1.4.2\\Swipe.uno");
+    ::STRINGS[6] = uString::Const("C:\\Users\\SpaceJockey27\\AppData\\Local\\Fusetools\\Packages\\Fuse.Gestures\\1.9.0\\Swipe.uno");
     ::STRINGS[7] = uString::Const("OnRooted");
     ::TYPES[8] = ::g::Fuse::Elements::Element_typeof();
     type->SetDependencies(
-        ::g::Fuse::Diagnostics_typeof(),
-        ::g::Uno::UX::Selector_typeof(),
         ::g::Fuse::Gestures::Internal::Swiper_typeof());
     type->SetInterfaces(
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(SwipeGesture_type, interface0),
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(SwipeGesture_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(SwipeGesture_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(SwipeGesture_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(SwipeGesture_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(SwipeGesture_type, interface5),
-        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(SwipeGesture_type, interface6));
-    type->SetFields(15,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(SwipeGesture_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(SwipeGesture_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(SwipeGesture_type, interface6),
+        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(SwipeGesture_type, interface7));
+    type->SetFields(17,
         ::g::Fuse::Gestures::Internal::Swiper_typeof(), offsetof(SwipeGesture, _swiper), 0,
         ::g::Fuse::Gestures::Internal::SwipeRegion_typeof(), offsetof(SwipeGesture, _region), 0,
         ::g::Fuse::Gestures::SwipeType_typeof(), offsetof(SwipeGesture, _type), 0,
         ::g::Uno::Bool_typeof(), offsetof(SwipeGesture, _hasDirection), 0,
         ::g::Fuse::Gestures::SwipeDirection_typeof(), offsetof(SwipeGesture, _direction), 0,
         ::g::Fuse::Input::GesturePriority_typeof(), offsetof(SwipeGesture, _gesturePriority), 0,
+        ::g::Uno::Bool_typeof(), offsetof(SwipeGesture, _hasThreshold), 0,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&SwipeGesture::GesturePriorityName_, uFieldFlagsStatic,
         ::g::Uno::UX::Selector_typeof(), (uintptr_t)&SwipeGesture::_isActiveName_, uFieldFlagsStatic);
 }
@@ -2704,9 +2748,9 @@ SwipeGesture_type* SwipeGesture_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Behavior_typeof();
-    options.FieldCount = 23;
-    options.InterfaceCount = 7;
-    options.DependencyCount = 3;
+    options.FieldCount = 26;
+    options.InterfaceCount = 8;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(SwipeGesture);
     options.TypeSize = sizeof(SwipeGesture_type);
     type = (SwipeGesture_type*)uClassType::New("Fuse.Gestures.SwipeGesture", options);
@@ -2715,22 +2759,25 @@ SwipeGesture_type* SwipeGesture_typeof()
     type->fp_cctor_ = SwipeGesture__cctor_1_fn;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))SwipeGesture__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))SwipeGesture__OnUnrooted_fn;
-    type->interface6.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))SwipeGesture__UnoUXIPropertyListenerOnPropertyChanged_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface7.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))SwipeGesture__UnoUXIPropertyListenerOnPropertyChanged_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -2740,49 +2787,49 @@ void SwipeGesture__ctor_3_fn(SwipeGesture* __this)
     __this->ctor_3();
 }
 
-// public Fuse.Gestures.SwipeDirection get_Direction() :140
-void SwipeGesture__get_Direction_fn(SwipeGesture* __this, int* __retval)
+// public Fuse.Gestures.SwipeDirection get_Direction() :147
+void SwipeGesture__get_Direction_fn(SwipeGesture* __this, int32_t* __retval)
 {
     *__retval = __this->Direction();
 }
 
-// public void set_Direction(Fuse.Gestures.SwipeDirection value) :141
-void SwipeGesture__set_Direction_fn(SwipeGesture* __this, int* value)
+// public void set_Direction(Fuse.Gestures.SwipeDirection value) :148
+void SwipeGesture__set_Direction_fn(SwipeGesture* __this, int32_t* value)
 {
     __this->Direction(*value);
 }
 
-// public bool get_IsActive() :275
+// public bool get_IsActive() :301
 void SwipeGesture__get_IsActive_fn(SwipeGesture* __this, bool* __retval)
 {
     *__retval = __this->IsActive();
 }
 
-// public void set_IsActive(bool value) :276
+// public void set_IsActive(bool value) :302
 void SwipeGesture__set_IsActive_fn(SwipeGesture* __this, bool* value)
 {
     __this->IsActive(*value);
 }
 
-// public bool get_IsEnabled() :208
+// public bool get_IsEnabled() :215
 void SwipeGesture__get_IsEnabled_fn(SwipeGesture* __this, bool* __retval)
 {
     *__retval = __this->IsEnabled();
 }
 
-// public void set_IsEnabled(bool value) :209
+// public void set_IsEnabled(bool value) :216
 void SwipeGesture__set_IsEnabled_fn(SwipeGesture* __this, bool* value)
 {
     __this->IsEnabled(*value);
 }
 
-// public Fuse.Elements.Element get_LengthNode() :191
+// public Fuse.Elements.Element get_LengthNode() :198
 void SwipeGesture__get_LengthNode_fn(SwipeGesture* __this, ::g::Fuse::Elements::Element** __retval)
 {
     *__retval = __this->LengthNode();
 }
 
-// public void set_LengthNode(Fuse.Elements.Element value) :192
+// public void set_LengthNode(Fuse.Elements.Element value) :199
 void SwipeGesture__set_LengthNode_fn(SwipeGesture* __this, ::g::Fuse::Elements::Element* value)
 {
     __this->LengthNode(value);
@@ -2794,7 +2841,7 @@ void SwipeGesture__New2_fn(SwipeGesture** __retval)
     *__retval = SwipeGesture::New2();
 }
 
-// protected override sealed void OnRooted() :230
+// protected override sealed void OnRooted() :256
 void SwipeGesture__OnRooted_fn(SwipeGesture* __this)
 {
     ::g::Fuse::Node__OnRooted_fn(__this);
@@ -2802,7 +2849,7 @@ void SwipeGesture__OnRooted_fn(SwipeGesture* __this)
 
     if (element == NULL)
     {
-        ::g::Fuse::Diagnostics::UserRootError(::STRINGS[5/*"Element"*/], __this->Parent(), __this, ::STRINGS[6/*"C:\\Users\\...*/], 236, ::STRINGS[7/*"OnRooted"*/]);
+        ::g::Fuse::Diagnostics::UserRootError(::STRINGS[5/*"Element"*/], __this->Parent(), __this, ::STRINGS[6/*"C:\\Users\\...*/], 262, ::STRINGS[7/*"OnRooted"*/]);
         return;
     }
 
@@ -2812,7 +2859,7 @@ void SwipeGesture__OnRooted_fn(SwipeGesture* __this)
     uPtr(__this->_region)->AddPropertyListener((uObject*)__this);
 }
 
-// protected override sealed void OnUnrooted() :258
+// protected override sealed void OnUnrooted() :284
 void SwipeGesture__OnUnrooted_fn(SwipeGesture* __this)
 {
     uPtr(__this->_region)->RemovePropertyListener((uObject*)__this);
@@ -2827,37 +2874,37 @@ void SwipeGesture__OnUnrooted_fn(SwipeGesture* __this)
     ::g::Fuse::Node__OnUnrooted_fn(__this);
 }
 
-// internal Fuse.Gestures.Internal.SwipeRegion get_Region() :255
+// internal Fuse.Gestures.Internal.SwipeRegion get_Region() :281
 void SwipeGesture__get_Region_fn(SwipeGesture* __this, ::g::Fuse::Gestures::Internal::SwipeRegion** __retval)
 {
     *__retval = __this->Region();
 }
 
-// internal void SetActive(bool value, Uno.UX.IPropertyListener origin, [bool bypass]) :284
+// internal void SetActive(bool value, Uno.UX.IPropertyListener origin, [bool bypass]) :310
 void SwipeGesture__SetActive_fn(SwipeGesture* __this, bool* value, uObject* origin, bool* bypass)
 {
     __this->SetActive(*value, origin, *bypass);
 }
 
-// public void SetIsActive(bool value, Uno.UX.IPropertyListener origin) :279
+// public void SetIsActive(bool value, Uno.UX.IPropertyListener origin) :305
 void SwipeGesture__SetIsActive_fn(SwipeGesture* __this, bool* value, uObject* origin)
 {
     __this->SetIsActive(*value, origin);
 }
 
 // public Fuse.Gestures.SwipeType get_Type() :74
-void SwipeGesture__get_Type_fn(SwipeGesture* __this, int* __retval)
+void SwipeGesture__get_Type_fn(SwipeGesture* __this, int32_t* __retval)
 {
     *__retval = __this->Type();
 }
 
 // public void set_Type(Fuse.Gestures.SwipeType value) :75
-void SwipeGesture__set_Type_fn(SwipeGesture* __this, int* value)
+void SwipeGesture__set_Type_fn(SwipeGesture* __this, int32_t* value)
 {
     __this->Type(*value);
 }
 
-// private void Uno.UX.IPropertyListener.OnPropertyChanged(Uno.UX.PropertyObject obj, Uno.UX.Selector prop) :246
+// private void Uno.UX.IPropertyListener.OnPropertyChanged(Uno.UX.PropertyObject obj, Uno.UX.Selector prop) :272
 void SwipeGesture__UnoUXIPropertyListenerOnPropertyChanged_fn(SwipeGesture* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::UX::Selector* prop)
 {
     ::g::Uno::UX::Selector prop_ = *prop;
@@ -2879,14 +2926,14 @@ void SwipeGesture::ctor_3()
     Direction(0);
 }
 
-// public Fuse.Gestures.SwipeDirection get_Direction() [instance] :140
-int SwipeGesture::Direction()
+// public Fuse.Gestures.SwipeDirection get_Direction() [instance] :147
+int32_t SwipeGesture::Direction()
 {
     return _direction;
 }
 
-// public void set_Direction(Fuse.Gestures.SwipeDirection value) [instance] :141
-void SwipeGesture::Direction(int value)
+// public void set_Direction(Fuse.Gestures.SwipeDirection value) [instance] :148
+void SwipeGesture::Direction(int32_t value)
 {
     _direction = value;
     _hasDirection = true;
@@ -2921,49 +2968,49 @@ void SwipeGesture::Direction(int value)
     }
 }
 
-// public bool get_IsActive() [instance] :275
+// public bool get_IsActive() [instance] :301
 bool SwipeGesture::IsActive()
 {
     return uPtr(_region)->IsActive();
 }
 
-// public void set_IsActive(bool value) [instance] :276
+// public void set_IsActive(bool value) [instance] :302
 void SwipeGesture::IsActive(bool value)
 {
     SetIsActive(value, (uObject*)this);
 }
 
-// public bool get_IsEnabled() [instance] :208
+// public bool get_IsEnabled() [instance] :215
 bool SwipeGesture::IsEnabled()
 {
     return uPtr(_region)->IsEnabled();
 }
 
-// public void set_IsEnabled(bool value) [instance] :209
+// public void set_IsEnabled(bool value) [instance] :216
 void SwipeGesture::IsEnabled(bool value)
 {
     uPtr(_region)->IsEnabled(value);
 }
 
-// public Fuse.Elements.Element get_LengthNode() [instance] :191
+// public Fuse.Elements.Element get_LengthNode() [instance] :198
 ::g::Fuse::Elements::Element* SwipeGesture::LengthNode()
 {
     return uPtr(_region)->LengthElement;
 }
 
-// public void set_LengthNode(Fuse.Elements.Element value) [instance] :192
+// public void set_LengthNode(Fuse.Elements.Element value) [instance] :199
 void SwipeGesture::LengthNode(::g::Fuse::Elements::Element* value)
 {
     uPtr(_region)->LengthElement = value;
 }
 
-// internal Fuse.Gestures.Internal.SwipeRegion get_Region() [instance] :255
+// internal Fuse.Gestures.Internal.SwipeRegion get_Region() [instance] :281
 ::g::Fuse::Gestures::Internal::SwipeRegion* SwipeGesture::Region()
 {
     return _region;
 }
 
-// internal void SetActive(bool value, Uno.UX.IPropertyListener origin, [bool bypass]) [instance] :284
+// internal void SetActive(bool value, Uno.UX.IPropertyListener origin, [bool bypass]) [instance] :310
 void SwipeGesture::SetActive(bool value, uObject* origin, bool bypass)
 {
     if (_swiper == NULL)
@@ -2972,25 +3019,31 @@ void SwipeGesture::SetActive(bool value, uObject* origin, bool bypass)
         uPtr(_swiper)->SetActivation(_region, value, bypass);
 }
 
-// public void SetIsActive(bool value, Uno.UX.IPropertyListener origin) [instance] :279
+// public void SetIsActive(bool value, Uno.UX.IPropertyListener origin) [instance] :305
 void SwipeGesture::SetIsActive(bool value, uObject* origin)
 {
     SetActive(value, origin, false);
 }
 
 // public Fuse.Gestures.SwipeType get_Type() [instance] :74
-int SwipeGesture::Type()
+int32_t SwipeGesture::Type()
 {
     return _type;
 }
 
 // public void set_Type(Fuse.Gestures.SwipeType value) [instance] :75
-void SwipeGesture::Type(int value)
+void SwipeGesture::Type(int32_t value)
 {
     _type = value;
     uPtr(_region)->IsInterruptible = (Type() != 0);
     uPtr(_region)->RevertActive = (Type() != 1);
     uPtr(_region)->AutoTrigger = (Type() == 2);
+
+    if ((_type == 1) && !_hasThreshold)
+    {
+        uPtr(_region)->ActivationThreshold = 0.5f;
+        uPtr(_region)->DeactivationThreshold = 0.5f;
+    }
 }
 
 // public SwipeGesture New() [static] :57
@@ -3002,13 +3055,15 @@ SwipeGesture* SwipeGesture::New2()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Internal\Helpers.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Internal\Helpers.uno
 // ------------------------------------------------------------------------------------------------
 
 // internal sealed class SwipeGestureHelper :45
 // {
 static void SwipeGestureHelper_build(uType* type)
 {
+    type->SetDependencies(
+        ::g::Uno::Math_typeof());
     type->SetFields(0,
         ::g::Fuse::Gestures::DegreeSpan_typeof()->Array(), offsetof(SwipeGestureHelper, _spans), 0,
         ::g::Uno::Float_typeof(), offsetof(SwipeGestureHelper, _lengthThreshold), 0);
@@ -3021,6 +3076,7 @@ uType* SwipeGestureHelper_typeof()
 
     uTypeOptions options;
     options.FieldCount = 2;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(SwipeGestureHelper);
     options.TypeSize = sizeof(uType);
     type = uClassType::New("Fuse.Gestures.SwipeGestureHelper", options);
@@ -3063,7 +3119,7 @@ bool SwipeGestureHelper::IsWithinBounds(::g::Uno::Float2 vector)
 
     float angle = ::g::Uno::Math::RadiansToDegrees1(::g::Uno::Math::Atan22(vector.X, vector.Y));
 
-    for (int i = 0; i < uPtr(_spans)->Length(); i++)
+    for (int32_t i = 0; i < uPtr(_spans)->Length(); i++)
         if (uPtr(uPtr(_spans)->Strong< ::g::Fuse::Gestures::DegreeSpan*>(i))->IsWithinBounds(angle))
             return true;
 
@@ -3079,7 +3135,7 @@ SwipeGestureHelper* SwipeGestureHelper::New1(float lengthThreshold, uArray* span
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Swipe.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Swipe.uno
 // -------------------------------------------------------------------------------------
 
 // public enum SwipeType :24
@@ -3096,27 +3152,27 @@ uEnumType* SwipeType_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Swipe.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Swipe.uno
 // -------------------------------------------------------------------------------------
 
-// public sealed class SwipingAnimation :324
+// public sealed class SwipingAnimation :350
 // {
 static void SwipingAnimation_build(uType* type)
 {
     type->SetDependencies(
-        ::g::Uno::UX::Selector_typeof(),
         ::g::Fuse::Gestures::Internal::SwipeRegion_typeof());
     type->SetInterfaces(
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(SwipingAnimation_type, interface0),
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(SwipingAnimation_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(SwipingAnimation_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(SwipingAnimation_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(SwipingAnimation_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(SwipingAnimation_type, interface5),
-        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(SwipingAnimation_type, interface6),
-        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(SwipingAnimation_type, interface7),
-        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(SwipingAnimation_type, interface8));
-    type->SetFields(36,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(SwipingAnimation_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(SwipingAnimation_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(SwipingAnimation_type, interface6),
+        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(SwipingAnimation_type, interface7),
+        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(SwipingAnimation_type, interface8),
+        ::g::Uno::UX::IPropertyListener_typeof(), offsetof(SwipingAnimation_type, interface9));
+    type->SetFields(38,
         ::g::Fuse::Gestures::Internal::SwipeRegion_typeof(), offsetof(SwipingAnimation, _region), 0,
         ::g::Fuse::Gestures::SwipeGesture_typeof(), offsetof(SwipingAnimation, _Source), 0);
 }
@@ -3128,56 +3184,59 @@ SwipingAnimation_type* SwipingAnimation_typeof()
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Trigger_typeof();
-    options.FieldCount = 38;
-    options.InterfaceCount = 9;
-    options.DependencyCount = 2;
+    options.FieldCount = 40;
+    options.InterfaceCount = 10;
+    options.DependencyCount = 1;
     options.ObjectSize = sizeof(SwipingAnimation);
     options.TypeSize = sizeof(SwipingAnimation_type);
     type = (SwipingAnimation_type*)uClassType::New("Fuse.Gestures.SwipingAnimation", options);
     type->fp_build_ = SwipingAnimation_build;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))SwipingAnimation__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))SwipingAnimation__OnUnrooted_fn;
-    type->interface8.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))SwipingAnimation__UnoUXIPropertyListenerOnPropertyChanged_fn;
-    type->interface7.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
-    type->interface7.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
-    type->interface6.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface9.fp_OnPropertyChanged = (void(*)(uObject*, ::g::Uno::UX::PropertyObject*, ::g::Uno::UX::Selector*))SwipingAnimation__UnoUXIPropertyListenerOnPropertyChanged_fn;
+    type->interface8.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
+    type->interface8.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
+    type->interface7.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int32_t*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
-// public SwipingAnimation(Fuse.Gestures.SwipeGesture source) :332
+// public SwipingAnimation(Fuse.Gestures.SwipeGesture source) :358
 void SwipingAnimation__ctor_5_fn(SwipingAnimation* __this, ::g::Fuse::Gestures::SwipeGesture* source)
 {
     __this->ctor_5(source);
 }
 
-// public SwipingAnimation New(Fuse.Gestures.SwipeGesture source) :332
+// public SwipingAnimation New(Fuse.Gestures.SwipeGesture source) :358
 void SwipingAnimation__New2_fn(::g::Fuse::Gestures::SwipeGesture* source, SwipingAnimation** __retval)
 {
     *__retval = SwipingAnimation::New2(source);
 }
 
-// private void OnProgressChanged(double progress) :357
+// private void OnProgressChanged(double progress) :383
 void SwipingAnimation__OnProgressChanged1_fn(SwipingAnimation* __this, double* progress)
 {
     __this->OnProgressChanged1(*progress);
 }
 
-// protected override sealed void OnRooted() :337
+// protected override sealed void OnRooted() :363
 void SwipingAnimation__OnRooted_fn(SwipingAnimation* __this)
 {
     ::g::Fuse::Triggers::Trigger__OnRooted_fn(__this);
@@ -3186,63 +3245,63 @@ void SwipingAnimation__OnRooted_fn(SwipingAnimation* __this)
     __this->OnProgressChanged1(uPtr(uPtr(__this->Source())->Region())->Progress());
 }
 
-// protected override sealed void OnUnrooted() :345
+// protected override sealed void OnUnrooted() :371
 void SwipingAnimation__OnUnrooted_fn(SwipingAnimation* __this)
 {
     uPtr(__this->_region)->RemovePropertyListener((uObject*)__this);
     ::g::Fuse::Triggers::Trigger__OnUnrooted_fn(__this);
 }
 
-// public generated Fuse.Gestures.SwipeGesture get_Source() :327
+// public generated Fuse.Gestures.SwipeGesture get_Source() :353
 void SwipingAnimation__get_Source_fn(SwipingAnimation* __this, ::g::Fuse::Gestures::SwipeGesture** __retval)
 {
     *__retval = __this->Source();
 }
 
-// private generated void set_Source(Fuse.Gestures.SwipeGesture value) :327
+// private generated void set_Source(Fuse.Gestures.SwipeGesture value) :353
 void SwipingAnimation__set_Source_fn(SwipingAnimation* __this, ::g::Fuse::Gestures::SwipeGesture* value)
 {
     __this->Source(value);
 }
 
-// private void Uno.UX.IPropertyListener.OnPropertyChanged(Uno.UX.PropertyObject sender, Uno.UX.Selector prop) :351
+// private void Uno.UX.IPropertyListener.OnPropertyChanged(Uno.UX.PropertyObject sender, Uno.UX.Selector prop) :377
 void SwipingAnimation__UnoUXIPropertyListenerOnPropertyChanged_fn(SwipingAnimation* __this, ::g::Uno::UX::PropertyObject* sender, ::g::Uno::UX::Selector* prop)
 {
     ::g::Uno::UX::Selector prop_ = *prop;
 
-    if ((sender != __this->_region) || ::g::Uno::UX::Selector__op_Inequality(prop_, ::g::Fuse::Gestures::Internal::SwipeRegion::ProgressName_))
+    if ((sender != __this->_region) || ::g::Uno::UX::Selector__op_Inequality(prop_, ::g::Fuse::Gestures::Internal::SwipeRegion::ProgressName()))
         return;
 
     __this->OnProgressChanged1(uPtr(__this->_region)->Progress());
 }
 
-// public SwipingAnimation(Fuse.Gestures.SwipeGesture source) [instance] :332
+// public SwipingAnimation(Fuse.Gestures.SwipeGesture source) [instance] :358
 void SwipingAnimation::ctor_5(::g::Fuse::Gestures::SwipeGesture* source)
 {
     ctor_4();
     Source(source);
 }
 
-// private void OnProgressChanged(double progress) [instance] :357
+// private void OnProgressChanged(double progress) [instance] :383
 void SwipingAnimation::OnProgressChanged1(double progress)
 {
     double diff = progress - uPtr(uPtr(Source())->Region())->StableProgress();
     Seek(progress, (diff >= 0.0) ? 0 : 1);
 }
 
-// public generated Fuse.Gestures.SwipeGesture get_Source() [instance] :327
+// public generated Fuse.Gestures.SwipeGesture get_Source() [instance] :353
 ::g::Fuse::Gestures::SwipeGesture* SwipingAnimation::Source()
 {
     return _Source;
 }
 
-// private generated void set_Source(Fuse.Gestures.SwipeGesture value) [instance] :327
+// private generated void set_Source(Fuse.Gestures.SwipeGesture value) [instance] :353
 void SwipingAnimation::Source(::g::Fuse::Gestures::SwipeGesture* value)
 {
     _Source = value;
 }
 
-// public SwipingAnimation New(Fuse.Gestures.SwipeGesture source) [static] :332
+// public SwipingAnimation New(Fuse.Gestures.SwipeGesture source) [static] :358
 SwipingAnimation* SwipingAnimation::New2(::g::Fuse::Gestures::SwipeGesture* source)
 {
     SwipingAnimation* obj1 = (SwipingAnimation*)uNew(SwipingAnimation_typeof());
@@ -3251,7 +3310,7 @@ SwipingAnimation* SwipingAnimation::New2(::g::Fuse::Gestures::SwipeGesture* sour
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Tapped.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Tapped.uno
 // --------------------------------------------------------------------------------------
 
 // public sealed class Tapped :35
@@ -3265,11 +3324,12 @@ static void Tapped_build(uType* type)
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
-        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
-        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7));
-    type->SetFields(39,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
+        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7),
+        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface8));
+    type->SetFields(41,
         ::TYPES[12/*Fuse.Gestures.TappedHandler*/], offsetof(Tapped, Handler1), 0);
 }
 
@@ -3280,8 +3340,8 @@ static void Tapped_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Gestures::ClickerTrigger_typeof();
-    options.FieldCount = 40;
-    options.InterfaceCount = 8;
+    options.FieldCount = 42;
+    options.InterfaceCount = 9;
     options.ObjectSize = sizeof(Tapped);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Trigger_type);
     type = (::g::Fuse::Triggers::Trigger_type*)uClassType::New("Fuse.Gestures.Tapped", options);
@@ -3289,24 +3349,27 @@ static void Tapped_build(uType* type)
     type->fp_ctor_ = (void*)Tapped__New2_fn;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))Tapped__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))Tapped__OnUnrooted_fn;
-    type->interface7.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
-    type->interface7.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
-    type->interface6.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface8.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
+    type->interface8.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
+    type->interface7.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int32_t*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -3354,7 +3417,7 @@ void Tapped__OnRooted_fn(Tapped* __this)
 }
 
 // private void OnTapped(Fuse.Input.PointerEventArgs args, int tapCount) :80
-void Tapped__OnTapped_fn(Tapped* __this, ::g::Fuse::Input::PointerEventArgs* args, int* tapCount)
+void Tapped__OnTapped_fn(Tapped* __this, ::g::Fuse::Input::PointerEventArgs* args, int32_t* tapCount)
 {
     __this->OnTapped(args, *tapCount);
 }
@@ -3392,7 +3455,7 @@ void Tapped::remove_Handler(uDelegate* value)
 }
 
 // private void OnTapped(Fuse.Input.PointerEventArgs args, int tapCount) [instance] :80
-void Tapped::OnTapped(::g::Fuse::Input::PointerEventArgs* args, int tapCount)
+void Tapped::OnTapped(::g::Fuse::Input::PointerEventArgs* args, int32_t tapCount)
 {
     if (!Accept(args))
         return;
@@ -3420,7 +3483,7 @@ Tapped* Tapped::New3(uDelegate* handler)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Tapped.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Tapped.uno
 // --------------------------------------------------------------------------------------
 
 // public sealed class TappedArgs :9
@@ -3476,7 +3539,7 @@ TappedArgs* TappedArgs::New3(::g::Fuse::Input::PointerEventArgs* args, ::g::Fuse
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Tapped.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Tapped.uno
 // --------------------------------------------------------------------------------------
 
 // public delegate void TappedHandler(object sender, Fuse.Gestures.TappedArgs args) :17
@@ -3492,14 +3555,16 @@ uDelegateType* TappedHandler_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Swipe.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Swipe.uno
 // -------------------------------------------------------------------------------------
 
-// public sealed class ToggleSwipeActive :410
+// public sealed class ToggleSwipeActive :436
 // {
 static void ToggleSwipeActive_build(uType* type)
 {
-    type->SetFields(8,
+    type->SetInterfaces(
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Actions::TriggerAction_type, interface0));
+    type->SetFields(10,
         ::g::Fuse::Gestures::SwipeGesture_typeof(), offsetof(ToggleSwipeActive, _Target), 0);
 }
 
@@ -3510,48 +3575,52 @@ static void ToggleSwipeActive_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::Actions::TriggerAction_typeof();
-    options.FieldCount = 9;
+    options.FieldCount = 11;
+    options.InterfaceCount = 1;
     options.ObjectSize = sizeof(ToggleSwipeActive);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Actions::TriggerAction_type);
     type = (::g::Fuse::Triggers::Actions::TriggerAction_type*)uClassType::New("Fuse.Gestures.ToggleSwipeActive", options);
     type->fp_build_ = ToggleSwipeActive_build;
     type->fp_Perform = (void(*)(::g::Fuse::Triggers::Actions::TriggerAction*, ::g::Fuse::Node*))ToggleSwipeActive__Perform_fn;
+    type->interface0.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Triggers::Actions::TriggerAction__FuseISourceLocationget_SourceNearest_fn;
+    type->interface0.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceLineNumber_fn;
+    type->interface0.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Triggers::Actions::TriggerAction__get_SourceFileName_fn;
     return type;
 }
 
-// protected override sealed void Perform(Fuse.Node target) :415
+// protected override sealed void Perform(Fuse.Node target) :441
 void ToggleSwipeActive__Perform_fn(ToggleSwipeActive* __this, ::g::Fuse::Node* target)
 {
     if (__this->Target() != NULL)
         uPtr(__this->Target())->SetActive(!uPtr(__this->Target())->IsActive(), NULL, false);
 }
 
-// public generated Fuse.Gestures.SwipeGesture get_Target() :413
+// public generated Fuse.Gestures.SwipeGesture get_Target() :439
 void ToggleSwipeActive__get_Target_fn(ToggleSwipeActive* __this, ::g::Fuse::Gestures::SwipeGesture** __retval)
 {
     *__retval = __this->Target();
 }
 
-// public generated void set_Target(Fuse.Gestures.SwipeGesture value) :413
+// public generated void set_Target(Fuse.Gestures.SwipeGesture value) :439
 void ToggleSwipeActive__set_Target_fn(ToggleSwipeActive* __this, ::g::Fuse::Gestures::SwipeGesture* value)
 {
     __this->Target(value);
 }
 
-// public generated Fuse.Gestures.SwipeGesture get_Target() [instance] :413
+// public generated Fuse.Gestures.SwipeGesture get_Target() [instance] :439
 ::g::Fuse::Gestures::SwipeGesture* ToggleSwipeActive::Target()
 {
     return _Target;
 }
 
-// public generated void set_Target(Fuse.Gestures.SwipeGesture value) [instance] :413
+// public generated void set_Target(Fuse.Gestures.SwipeGesture value) [instance] :439
 void ToggleSwipeActive::Target(::g::Fuse::Gestures::SwipeGesture* value)
 {
     _Target = value;
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.4.2\Pressed.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Gestures\1.9.0\Pressed.uno
 // ---------------------------------------------------------------------------------------
 
 // public sealed class WhilePressed :49
@@ -3566,17 +3635,19 @@ static void WhilePressed_build(uType* type)
     ::TYPES[17] = ::g::Fuse::Input::PointerReleasedHandler_typeof();
     ::TYPES[18] = ::g::Uno::EventHandler_typeof();
     type->SetDependencies(
-        ::g::Fuse::Gestures::Clicker_typeof());
+        ::g::Fuse::Gestures::Clicker_typeof(),
+        ::g::Fuse::Input::Pointer_typeof());
     type->SetInterfaces(
         ::g::Uno::Collections::IList_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface0),
         ::g::Fuse::Scripting::IScriptObject_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface1),
         ::g::Fuse::IProperties_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface2),
         ::g::Fuse::INotifyUnrooted_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface3),
-        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
-        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
-        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
-        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7));
-    type->SetFields(37,
+        ::g::Fuse::ISourceLocation_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface4),
+        ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface5),
+        ::g::Uno::Collections::IEnumerable_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL), offsetof(::g::Fuse::Triggers::Trigger_type, interface6),
+        ::g::Fuse::Animations::IUnwrappedPlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface7),
+        ::g::Fuse::Animations::IBasePlayerFeedback_typeof(), offsetof(::g::Fuse::Triggers::Trigger_type, interface8));
+    type->SetFields(39,
         ::g::Uno::Float2_typeof(), offsetof(WhilePressed, _pressedPosition), 0,
         ::g::Fuse::Gestures::Clicker_typeof(), offsetof(WhilePressed, Clicker), 0,
         ::g::Uno::Platform::PointerType_typeof(), offsetof(WhilePressed, _pointerType), 0,
@@ -3591,9 +3662,9 @@ static void WhilePressed_build(uType* type)
 
     uTypeOptions options;
     options.BaseDefinition = ::g::Fuse::Triggers::WhileTrigger_typeof();
-    options.FieldCount = 42;
-    options.InterfaceCount = 8;
-    options.DependencyCount = 1;
+    options.FieldCount = 44;
+    options.InterfaceCount = 9;
+    options.DependencyCount = 2;
     options.ObjectSize = sizeof(WhilePressed);
     options.TypeSize = sizeof(::g::Fuse::Triggers::Trigger_type);
     type = (::g::Fuse::Triggers::Trigger_type*)uClassType::New("Fuse.Gestures.WhilePressed", options);
@@ -3601,24 +3672,27 @@ static void WhilePressed_build(uType* type)
     type->fp_ctor_ = (void*)WhilePressed__New2_fn;
     type->fp_OnRooted = (void(*)(::g::Fuse::Node*))WhilePressed__OnRooted_fn;
     type->fp_OnUnrooted = (void(*)(::g::Fuse::Node*))WhilePressed__OnUnrooted_fn;
-    type->interface7.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
-    type->interface7.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
-    type->interface6.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
-    type->interface4.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
-    type->interface4.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
-    type->interface0.fp_RemoveAt = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
-    type->interface5.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
+    type->interface8.fp_OnPlaybackDone = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnPlaybackDone_fn;
+    type->interface8.fp_OnStable = (void(*)(uObject*, uObject*))::g::Fuse::Triggers::Trigger__FuseAnimationsIBasePlayerFeedbackOnStable_fn;
+    type->interface7.fp_OnProgressUpdated = (void(*)(uObject*, uObject*, double*, double*, int32_t*))::g::Fuse::Triggers::Trigger__FuseAnimationsIUnwrappedPlayerFeedbackOnProgressUpdated_fn;
+    type->interface5.fp_Clear = (void(*)(uObject*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingClear_fn;
+    type->interface5.fp_Contains = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingContains_fn;
+    type->interface0.fp_RemoveAt = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsIListFuseBindingRemoveAt_fn;
+    type->interface6.fp_GetEnumerator = (void(*)(uObject*, uObject**))::g::Fuse::Node__UnoCollectionsIEnumerableFuseBindingGetEnumerator_fn;
     type->interface1.fp_SetScriptObject = (void(*)(uObject*, uObject*, ::g::Fuse::Scripting::Context*))::g::Fuse::Node__FuseScriptingIScriptObjectSetScriptObject_fn;
-    type->interface4.fp_get_Count = (void(*)(uObject*, int*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
-    type->interface0.fp_get_Item = (void(*)(uObject*, int*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
+    type->interface5.fp_get_Count = (void(*)(uObject*, int32_t*))::g::Fuse::Node__UnoCollectionsICollectionFuseBindingget_Count_fn;
+    type->interface0.fp_get_Item = (void(*)(uObject*, int32_t*, uTRef))::g::Fuse::Node__UnoCollectionsIListFuseBindingget_Item_fn;
     type->interface1.fp_get_ScriptObject = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptObject_fn;
     type->interface1.fp_get_ScriptContext = (void(*)(uObject*, ::g::Fuse::Scripting::Context**))::g::Fuse::Node__FuseScriptingIScriptObjectget_ScriptContext_fn;
+    type->interface4.fp_get_SourceNearest = (void(*)(uObject*, uObject**))::g::Fuse::Node__FuseISourceLocationget_SourceNearest_fn;
     type->interface3.fp_add_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedadd_Unrooted_fn;
     type->interface3.fp_remove_Unrooted = (void(*)(uObject*, uDelegate*))::g::Fuse::Node__FuseINotifyUnrootedremove_Unrooted_fn;
-    type->interface0.fp_Insert = (void(*)(uObject*, int*, void*))::g::Fuse::Node__Insert_fn;
+    type->interface0.fp_Insert = (void(*)(uObject*, int32_t*, void*))::g::Fuse::Node__Insert_fn;
     type->interface2.fp_get_Properties = (void(*)(uObject*, ::g::Fuse::Properties**))::g::Fuse::Node__get_Properties_fn;
-    type->interface4.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
-    type->interface4.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
+    type->interface4.fp_get_SourceLineNumber = (void(*)(uObject*, int32_t*))::g::Fuse::Node__get_SourceLineNumber_fn;
+    type->interface4.fp_get_SourceFileName = (void(*)(uObject*, uString**))::g::Fuse::Node__get_SourceFileName_fn;
+    type->interface5.fp_Add = (void(*)(uObject*, void*))::g::Fuse::Node__Add_fn;
+    type->interface5.fp_Remove = (void(*)(uObject*, void*, bool*))::g::Fuse::Node__Remove_fn;
     return type;
 }
 
@@ -3653,7 +3727,7 @@ void WhilePressed__New2_fn(WhilePressed** __retval)
 }
 
 // private void OnClickerPressing(Fuse.Input.PointerEventArgs args, int count) :134
-void WhilePressed__OnClickerPressing_fn(WhilePressed* __this, ::g::Fuse::Input::PointerEventArgs* args, int* count)
+void WhilePressed__OnClickerPressing_fn(WhilePressed* __this, ::g::Fuse::Input::PointerEventArgs* args, int32_t* count)
 {
     __this->OnClickerPressing(args, *count);
 }
@@ -3715,13 +3789,13 @@ void WhilePressed__OnUnrooted_fn(WhilePressed* __this)
 }
 
 // public Uno.Platform.PointerType get_PointerType() :88
-void WhilePressed__get_PointerType_fn(WhilePressed* __this, int* __retval)
+void WhilePressed__get_PointerType_fn(WhilePressed* __this, int32_t* __retval)
 {
     *__retval = __this->PointerType();
 }
 
 // public void set_PointerType(Uno.Platform.PointerType value) :89
-void WhilePressed__set_PointerType_fn(WhilePressed* __this, int* value)
+void WhilePressed__set_PointerType_fn(WhilePressed* __this, int32_t* value)
 {
     __this->PointerType(*value);
 }
@@ -3756,7 +3830,7 @@ void WhilePressed::CheckStatus(uObject* s, uObject* a)
 }
 
 // private void OnClickerPressing(Fuse.Input.PointerEventArgs args, int count) [instance] :134
-void WhilePressed::OnClickerPressing(::g::Fuse::Input::PointerEventArgs* args, int count)
+void WhilePressed::OnClickerPressing(::g::Fuse::Input::PointerEventArgs* args, int32_t count)
 {
     bool q = (PointerType() == 0) || (PointerType() == uPtr(args)->PointerType());
     bool on = count > 0;
@@ -3780,13 +3854,13 @@ void WhilePressed::OnPointerLeft(uObject* sender, uObject* args)
 }
 
 // public Uno.Platform.PointerType get_PointerType() [instance] :88
-int WhilePressed::PointerType()
+int32_t WhilePressed::PointerType()
 {
     return _pointerType;
 }
 
 // public void set_PointerType(Uno.Platform.PointerType value) [instance] :89
-void WhilePressed::PointerType(int value)
+void WhilePressed::PointerType(int32_t value)
 {
     _pointerType = value;
 }

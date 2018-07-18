@@ -1,8 +1,9 @@
 // This file was generated based on '(multiple files)'.
 // WARNING: Changes might be lost if you edit this file directly.
 
+#include <chrono>
+#include <sys/time.h>
 #include <time.h>
-#include <uBase/Time.h>
 #include <Uno.Bool.h>
 #include <Uno.Delegate.h>
 #include <Uno.Diagnostics.Asser-ca8bbf62.h>
@@ -21,10 +22,10 @@ namespace g{
 namespace Uno{
 namespace Diagnostics{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Diagnostics\Debug.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Diagnostics\Debug.uno
 // ------------------------------------------------------------------------------------------------------
 
-// public delegate void AssertionHandler(bool value, string expression, string filename, int line, object[] operands) :20
+// public delegate void AssertionHandler(bool value, string expression, string filename, int line, object[] operands) :21
 uDelegateType* AssertionHandler_typeof()
 {
     static uSStrong<uDelegateType*> type;
@@ -40,7 +41,7 @@ uDelegateType* AssertionHandler_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Diagnostics\Clock.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Diagnostics\Clock.uno
 // ------------------------------------------------------------------------------------------------------
 
 // public static class Clock :9
@@ -61,38 +62,42 @@ uClassType* Clock_typeof()
     return type;
 }
 
-// public static double GetSeconds() :14
+// public static double GetSeconds() :17
 void Clock__GetSeconds_fn(double* __retval)
 {
     *__retval = Clock::GetSeconds();
 }
 
-// public static long GetTicks() :30
+// public static long GetTicks() :60
 void Clock__GetTicks_fn(int64_t* __retval)
 {
     *__retval = Clock::GetTicks();
 }
 
-// public static int GetTimezoneOffset(int year, int month, int day) :46
-void Clock__GetTimezoneOffset_fn(int* year, int* month, int* day, int* __retval)
+// public static int GetTimezoneOffset(int year, int month, int day) :77
+void Clock__GetTimezoneOffset_fn(int32_t* year, int32_t* month, int32_t* day, int32_t* __retval)
 {
     *__retval = Clock::GetTimezoneOffset(*year, *month, *day);
 }
 
-// public static double GetSeconds() [static] :14
+// public static double GetSeconds() [static] :17
 double Clock::GetSeconds()
 {
-    return uBase::GetSeconds();
+    // this method is more accurate for android
+    struct timespec now;
+    clock_gettime(CLOCK_MONOTONIC, &now);
+    return ((double)now.tv_sec) + (((double)now.tv_nsec) / 1000000000.0);
 }
 
-// public static long GetTicks() [static] :30
+// public static long GetTicks() [static] :60
 int64_t Clock::GetTicks()
 {
-    return uBase::GetTicks();
+    auto start = std::chrono::system_clock::now();
+    return std::chrono::duration_cast<std::chrono::duration<int64_t, std::ratio<1, 10000000>>>(start.time_since_epoch()).count();
 }
 
-// public static int GetTimezoneOffset(int year, int month, int day) [static] :46
-int Clock::GetTimezoneOffset(int year, int month, int day)
+// public static int GetTimezoneOffset(int year, int month, int day) [static] :77
+int32_t Clock::GetTimezoneOffset(int32_t year, int32_t month, int32_t day)
 {
     struct tm stm;
     stm.tm_year = year - 1900;
@@ -123,12 +128,12 @@ int Clock::GetTimezoneOffset(int year, int month, int day)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Diagnostics\Debug.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Diagnostics\Debug.uno
 // ------------------------------------------------------------------------------------------------------
 
-// public static class Debug :26
+// public static class Debug :27
 // {
-// static generated Debug() :26
+// static generated Debug() :27
 static void Debug__cctor__fn(uType* __type)
 {
     Debug::_indentStr_ = ::STRINGS[0/*""*/];
@@ -161,84 +166,77 @@ uClassType* Debug_typeof()
     return type;
 }
 
-// public static void Assert(bool value, string expression, string filename, int line, object[] operands) :38
-void Debug__Assert_fn(bool* value, uString* expression, uString* filename, int* line, uArray* operands)
+// public static void Assert(bool value, string expression, string filename, int line, object[] operands) :39
+void Debug__Assert_fn(bool* value, uString* expression, uString* filename, int32_t* line, uArray* operands)
 {
     Debug::Assert(*value, expression, filename, *line, operands);
 }
 
-// private static void EmitLog(string message, Uno.Diagnostics.DebugMessageType type) :100
-void Debug__EmitLog_fn(uString* message, int* type)
+// private static void EmitLog(string message, Uno.Diagnostics.DebugMessageType type) :89
+void Debug__EmitLog_fn(uString* message, int32_t* type)
 {
     Debug::EmitLog(message, *type);
 }
 
-// public static void Log(string message) :77
-void Debug__Log3_fn(uString* message)
+// public static void Log(string message, [Uno.Diagnostics.DebugMessageType type]) :68
+void Debug__Log2_fn(uString* message, int32_t* type)
 {
-    Debug::Log3(message);
+    Debug::Log2(message, *type);
 }
 
-// public static void Log(string message, Uno.Diagnostics.DebugMessageType type) :67
-void Debug__Log4_fn(uString* message, int* type)
+// public static void Log(string message, Uno.Diagnostics.DebugMessageType type, string filename, int line) :58
+void Debug__Log3_fn(uString* message, int32_t* type, uString* filename, int32_t* line)
 {
-    Debug::Log4(message, *type);
-}
-
-// public static void Log(string message, Uno.Diagnostics.DebugMessageType type, string filename, int line) :57
-void Debug__Log5_fn(uString* message, int* type, uString* filename, int* line)
-{
-    Debug::Log5(message, *type, filename, *line);
+    Debug::Log3(message, *type, filename, *line);
 }
 
 uSStrong<uDelegate*> Debug::_assertionHandler_;
 uSStrong<uDelegate*> Debug::_logHandler_;
 uSStrong<uString*> Debug::_indentStr_;
 
-// public static void Assert(bool value, string expression, string filename, int line, object[] operands) [static] :38
-void Debug::Assert(bool value, uString* expression, uString* filename, int line, uArray* operands)
+// public static void Assert(bool value, string expression, string filename, int line, object[] operands) [static] :39
+void Debug::Assert(bool value, uString* expression, uString* filename, int32_t line, uArray* operands)
 {
+    Debug_typeof()->Init();
+
     if (::g::Uno::Delegate::op_Inequality(Debug::_assertionHandler_, NULL))
-        uPtr(Debug::_assertionHandler_)->Invoke(5, uCRef(value), expression, filename, uCRef<int>(line), operands);
+        uPtr(Debug::_assertionHandler_)->Invoke(5, uCRef(value), expression, filename, uCRef<int32_t>(line), operands);
 
     if (!value)
-        Debug::EmitLog(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[1/*"Assertion F...*/], expression), ::STRINGS[2/*"' in "*/]), filename), ::STRINGS[3/*"("*/]), uBox<int>(::g::Uno::Int_typeof(), line)), ::STRINGS[4/*")"*/]), 3);
+        Debug::EmitLog(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition1(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::g::Uno::String::op_Addition2(::STRINGS[1/*"Assertion F...*/], expression), ::STRINGS[2/*"' in "*/]), filename), ::STRINGS[3/*"("*/]), uBox<int32_t>(::g::Uno::Int_typeof(), line)), ::STRINGS[4/*")"*/]), 3);
 }
 
-// private static void EmitLog(string message, Uno.Diagnostics.DebugMessageType type) [static] :100
-void Debug::EmitLog(uString* message, int type)
+// private static void EmitLog(string message, Uno.Diagnostics.DebugMessageType type) [static] :89
+void Debug::EmitLog(uString* message, int32_t type)
 {
+    Debug_typeof()->Init();
+
     if (::g::Uno::Delegate::op_Inequality(Debug::_logHandler_, NULL))
-        uPtr(Debug::_logHandler_)->Invoke(2, (uString*)::g::Uno::String::op_Addition2(Debug::_indentStr_, message), uCRef<int>(type));
+        uPtr(Debug::_logHandler_)->Invoke(2, (uString*)::g::Uno::String::op_Addition2(Debug::_indentStr_, message), uCRef<int32_t>(type));
 
-    const char* cstr = uAllocCStr(message);
-    uLog(type, "%s", cstr);
-    uFreeCStr(cstr);
+    uCString cstr(message);
+    uLog(type, "%s", cstr.Ptr);
 }
 
-// public static void Log(string message) [static] :77
-void Debug::Log3(uString* message)
+// public static void Log(string message, [Uno.Diagnostics.DebugMessageType type]) [static] :68
+void Debug::Log2(uString* message, int32_t type)
 {
-    Debug::EmitLog(message, 0);
-}
-
-// public static void Log(string message, Uno.Diagnostics.DebugMessageType type) [static] :67
-void Debug::Log4(uString* message, int type)
-{
+    Debug_typeof()->Init();
     Debug::EmitLog(message, type);
 }
 
-// public static void Log(string message, Uno.Diagnostics.DebugMessageType type, string filename, int line) [static] :57
-void Debug::Log5(uString* message, int type, uString* filename, int line)
+// public static void Log(string message, Uno.Diagnostics.DebugMessageType type, string filename, int line) [static] :58
+void Debug::Log3(uString* message, int32_t type, uString* filename, int32_t line)
 {
+    Debug_typeof()->Init();
     Debug::EmitLog(message, type);
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Diagnostics\Debug.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Diagnostics\Debug.uno
 // ------------------------------------------------------------------------------------------------------
 
-// public enum DebugMessageType :7
+// public enum DebugMessageType :8
 uEnumType* DebugMessageType_typeof()
 {
     static uSStrong<uEnumType*> type;
@@ -255,10 +253,10 @@ uEnumType* DebugMessageType_typeof()
     return type;
 }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.4.3\Source\Uno\Diagnostics\Debug.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\UnoCore\1.9.0\Source\Uno\Diagnostics\Debug.uno
 // ------------------------------------------------------------------------------------------------------
 
-// public delegate void LogHandler(string message, Uno.Diagnostics.DebugMessageType type) :23
+// public delegate void LogHandler(string message, Uno.Diagnostics.DebugMessageType type) :24
 uDelegateType* LogHandler_typeof()
 {
     static uSStrong<uDelegateType*> type;

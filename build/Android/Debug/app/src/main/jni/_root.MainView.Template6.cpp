@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/MainView.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/MainView.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-676d1d1f.h>
@@ -32,24 +32,24 @@
 #include <Uno.Collections.IList-1.h>
 #include <Uno.Double.h>
 #include <Uno.Float.h>
+#include <Uno.Int.h>
 #include <Uno.Object.h>
 #include <Uno.String.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Selector.h>
-static uString* STRINGS[7];
+static uString* STRINGS[8];
 static uType* TYPES[5];
 
 namespace g{
 
-// public partial sealed class MainView.Template6 :568
+// public partial sealed class MainView.Template6 :782
 // {
-// static Template6() :582
+// static Template6() :796
 static void MainView__Template6__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    MainView__Template6::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"Element.Lay...*/]);
-    MainView__Template6::__selector1_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[1/*"Margin"*/]);
-    MainView__Template6::__selector2_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[2/*"listPanel"*/]);
+    MainView__Template6::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"Element.Lay...*/]);
+    MainView__Template6::__selector1_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[1/*"Margin"*/]);
+    MainView__Template6::__selector2_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[2/*"listPanel"*/]);
 }
 
 static void MainView__Template6_build(uType* type)
@@ -57,10 +57,11 @@ static void MainView__Template6_build(uType* type)
     ::STRINGS[0] = uString::Const("Element.LayoutMaster");
     ::STRINGS[1] = uString::Const("Margin");
     ::STRINGS[2] = uString::Const("listPanel");
-    ::STRINGS[3] = uString::Const("inputPanel");
-    ::STRINGS[4] = uString::Const("statisticPanel");
-    ::STRINGS[5] = uString::Const("statistic");
-    ::STRINGS[6] = uString::Const("input");
+    ::STRINGS[3] = uString::Const("MainView.ux");
+    ::STRINGS[4] = uString::Const("inputPanel");
+    ::STRINGS[5] = uString::Const("statisticPanel");
+    ::STRINGS[6] = uString::Const("statistic");
+    ::STRINGS[7] = uString::Const("input");
     ::TYPES[0] = ::g::Fuse::Triggers::Actions::Set_typeof()->MakeType(::g::Fuse::Elements::Element_typeof(), NULL);
     ::TYPES[1] = ::g::Fuse::Triggers::Actions::Set_typeof()->MakeType(::g::Uno::Float4_typeof(), NULL);
     ::TYPES[2] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Animations::Animator_typeof(), NULL);
@@ -99,13 +100,13 @@ static void MainView__Template6_build(uType* type)
     return type;
 }
 
-// public Template6(MainView parent, MainView parentInstance) :572
+// public Template6(MainView parent, MainView parentInstance) :786
 void MainView__Template6__ctor_1_fn(MainView__Template6* __this, ::g::MainView* parent, ::g::MainView* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :585
+// public override sealed object New() :799
 void MainView__Template6__New1_fn(MainView__Template6* __this, uObject** __retval)
 {
     ::g::ListPage* __self1 = ::g::ListPage::New4(uPtr(__this->__parent1)->router);
@@ -127,32 +128,54 @@ void MainView__Template6__New1_fn(MainView__Template6* __this, uObject** __retva
     ::g::Fuse::Triggers::Actions::Set* temp10 = (::g::Fuse::Triggers::Actions::Set*)::g::Fuse::Triggers::Actions::Set::New2(::TYPES[1/*Fuse.Triggers.Actions.Set<float4>*/], __this->StatisticTab_Margin_inst);
     ::g::Fuse::Triggers::Actions::Set* temp11 = (::g::Fuse::Triggers::Actions::Set*)::g::Fuse::Triggers::Actions::Set::New2(::TYPES[1/*Fuse.Triggers.Actions.Set<float4>*/], __this->BudgetTab_Margin_inst);
     __self1->Name(MainView__Template6::__selector2_);
-    temp->To(::STRINGS[3/*"inputPanel"*/]);
+    __self1->SourceLineNumber(310);
+    __self1->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
+    temp->To(::STRINGS[4/*"inputPanel"*/]);
+    temp->SourceLineNumber(311);
+    temp->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp->Animators()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Animations.Animator>*/]), temp1);
     temp1->X(1.0f);
     temp1->Duration(1.0);
-    temp1->RelativeTo(::g::Fuse::TranslationModes::ParentSize_);
-    temp2->From(::STRINGS[4/*"statisticPa...*/]);
+    temp1->RelativeTo(::g::Fuse::TranslationModes::ParentSize());
+    temp2->From(::STRINGS[5/*"statisticPa...*/]);
+    temp2->SourceLineNumber(314);
+    temp2->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp2->Animators()), ::TYPES[2/*Uno.Collections.ICollection<Fuse.Animations.Animator>*/]), temp3);
     temp3->X(-1.0f);
     temp3->Duration(1.0);
-    temp3->RelativeTo(::g::Fuse::TranslationModes::ParentSize_);
+    temp3->RelativeTo(::g::Fuse::TranslationModes::ParentSize());
     temp4->Direction(2);
     temp4->How(2);
-    temp4->Bookmark(::STRINGS[5/*"statistic"*/]);
+    temp4->Bookmark(::STRINGS[6/*"statistic"*/]);
+    temp4->SourceLineNumber(317);
+    temp4->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
     temp5->Direction(4);
     temp5->How(2);
-    temp5->Bookmark(::STRINGS[6/*"input"*/]);
+    temp5->Bookmark(::STRINGS[7/*"input"*/]);
+    temp5->SourceLineNumber(318);
+    temp5->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
+    temp6->SourceLineNumber(319);
+    temp6->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp6->Actions()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp7);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp6->Actions()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp8);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp6->Actions()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp9);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp6->Actions()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp10);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(temp6->Actions()), ::TYPES[3/*Uno.Collections.ICollection<Fuse.Triggers.Actions.TriggerAction>*/]), temp11);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp7, uPtr(__this->__parent1)->ListTab);
+    temp7->SourceLineNumber(320);
+    temp7->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp8, uCRef(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 0.0f)));
+    temp8->SourceLineNumber(321);
+    temp8->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp9, uCRef(::g::Uno::Float4__New2(0.0f, 5.0f, 0.0f, 0.0f)));
+    temp9->SourceLineNumber(322);
+    temp9->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp10, uCRef(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 0.0f)));
+    temp10->SourceLineNumber(323);
+    temp10->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
     ::g::Fuse::Triggers::Actions::Set__set_Value_fn(temp11, uCRef(::g::Uno::Float4__New2(0.0f, 0.0f, 0.0f, 0.0f)));
+    temp11->SourceLineNumber(324);
+    temp11->SourceFileName(::STRINGS[3/*"MainView.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Node>*/]), temp);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Node>*/]), temp2);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Children()), ::TYPES[4/*Uno.Collections.ICollection<Fuse.Node>*/]), temp4);
@@ -161,7 +184,7 @@ void MainView__Template6__New1_fn(MainView__Template6* __this, uObject** __retva
     return *__retval = __self1, void();
 }
 
-// public Template6 New(MainView parent, MainView parentInstance) :572
+// public Template6 New(MainView parent, MainView parentInstance) :786
 void MainView__Template6__New2_fn(::g::MainView* parent, ::g::MainView* parentInstance, MainView__Template6** __retval)
 {
     *__retval = MainView__Template6::New2(parent, parentInstance);
@@ -171,7 +194,7 @@ void MainView__Template6__New2_fn(::g::MainView* parent, ::g::MainView* parentIn
 ::g::Uno::UX::Selector MainView__Template6::__selector1_;
 ::g::Uno::UX::Selector MainView__Template6::__selector2_;
 
-// public Template6(MainView parent, MainView parentInstance) [instance] :572
+// public Template6(MainView parent, MainView parentInstance) [instance] :786
 void MainView__Template6::ctor_1(::g::MainView* parent, ::g::MainView* parentInstance)
 {
     ctor_(::STRINGS[2/*"listPanel"*/], false);
@@ -179,7 +202,7 @@ void MainView__Template6::ctor_1(::g::MainView* parent, ::g::MainView* parentIns
     __parentInstance1 = parentInstance;
 }
 
-// public Template6 New(MainView parent, MainView parentInstance) [static] :572
+// public Template6 New(MainView parent, MainView parentInstance) [static] :786
 MainView__Template6* MainView__Template6::New2(::g::MainView* parent, ::g::MainView* parentInstance)
 {
     MainView__Template6* obj1 = (MainView__Template6*)uNew(MainView__Template6_typeof());

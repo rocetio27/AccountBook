@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Android.TextRenderer/1.4.2/Internal/GLUtils.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Android.TextRenderer/1.9.0/Internal/GLUtils.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -14,13 +14,13 @@ namespace Android{
 // internal sealed extern class GLUtils :12
 // {
 uType* GLUtils_typeof();
-void GLUtils__TexImage2D_fn(int* target, int* level, ::g::Java::Object* bitmap, int* border);
-void GLUtils__TexImage2D1_fn(int* target, int* level, ::g::Fuse::Android::Bitmap* bitmap, int* border);
+void GLUtils__TexImage2D_fn(int32_t* target, int32_t* level, ::g::Java::Object* bitmap, int32_t* border);
+void GLUtils__TexImage2D1_fn(int32_t* target, int32_t* level, ::g::Fuse::Android::Bitmap* bitmap, int32_t* border);
 
 struct GLUtils : uObject
 {
-    static void TexImage2D(int target, int level, ::g::Java::Object* bitmap, int border);
-    static void TexImage2D1(int target, int level, ::g::Fuse::Android::Bitmap* bitmap, int border);
+    static void TexImage2D(int32_t target, int32_t level, ::g::Java::Object* bitmap, int32_t border);
+    static void TexImage2D1(int32_t target, int32_t level, ::g::Fuse::Android::Bitmap* bitmap, int32_t border);
 };
 // }
 

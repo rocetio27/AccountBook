@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Graphics/RenderTarget.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Graphics/RenderTarget.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -21,7 +21,7 @@ struct RenderTarget_type : uType
 
 RenderTarget_type* RenderTarget_typeof();
 void RenderTarget__ctor__fn(RenderTarget* __this);
-void RenderTarget__Create_fn(::g::Uno::Graphics::Texture2D* texture, int* mip, bool* depth, RenderTarget** __retval);
+void RenderTarget__Create_fn(::g::Uno::Graphics::Texture2D* texture, int32_t* mip, bool* depth, RenderTarget** __retval);
 void RenderTarget__Dispose_fn(RenderTarget* __this);
 void RenderTarget__get_GLDepthBufferHandle_fn(RenderTarget* __this, uint32_t* __retval);
 void RenderTarget__set_GLDepthBufferHandle_fn(RenderTarget* __this, uint32_t* value);
@@ -65,7 +65,7 @@ struct RenderTarget : uObject
     void OwnsGLFramebufferHandle(bool value);
     ::g::Uno::Int2 Size();
     void Size(::g::Uno::Int2 value);
-    static RenderTarget* Create(::g::Uno::Graphics::Texture2D* texture, int mip, bool depth);
+    static RenderTarget* Create(::g::Uno::Graphics::Texture2D* texture, int32_t mip, bool depth);
     static RenderTarget* New1();
 };
 // }

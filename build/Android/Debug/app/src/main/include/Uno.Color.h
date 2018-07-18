@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.4.3/Source/Uno/Color.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/UnoCore/1.9.0/Source/Uno/Color.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -14,34 +14,36 @@ namespace Uno{
 // public static class Color :9
 // {
 uClassType* Color_typeof();
-void Color__FromHex_fn(uString* hex, ::g::Uno::Float4* __retval);
 void Color__FromInt4_fn(::g::Uno::Int4* rgba, ::g::Uno::Float4* __retval);
 void Color__FromRgba_fn(uint32_t* rgba, ::g::Uno::Float4* __retval);
-void Color__ParseHexByte_fn(uChar* ch1, uChar* ch2, int* __retval);
-void Color__ParseHexNibble_fn(uChar* ch, int* __retval);
-void Color__ParseHexString_fn(uString* hex, ::g::Uno::Int4* __retval);
-void Color__ParseHexValue_fn(uChar* ch, int* __retval);
+void Color__Parse_fn(uString* str, ::g::Uno::Float4* __retval);
 void Color__ToArgb_fn(::g::Uno::Float4* rgba, uint32_t* __retval);
 void Color__ToArgb1_fn(::g::Uno::Int4* rgba, uint32_t* __retval);
 void Color__ToInt4_fn(::g::Uno::Float4* rgba, ::g::Uno::Int4* __retval);
+void Color__TryParse_fn(uString* str, ::g::Uno::Float4* color, bool* __retval);
+void Color__TryParseHexByte_fn(char16_t* ch1, char16_t* ch2, int32_t* result, bool* __retval);
+void Color__TryParseHexDigit_fn(char16_t* ch, int32_t* result, bool* __retval);
+void Color__TryParseHexNibble_fn(char16_t* ch, int32_t* result, bool* __retval);
+void Color__TryParseHexString_fn(uString* hex, ::g::Uno::Int4* result, bool* __retval);
 
 struct Color : uObject
 {
     static ::g::Uno::Float3x3 ToYCbCrMat_;
-    static ::g::Uno::Float3x3& ToYCbCrMat() { return ToYCbCrMat_; }
+    static ::g::Uno::Float3x3& ToYCbCrMat() { return Color_typeof()->Init(), ToYCbCrMat_; }
     static ::g::Uno::Float3x3 ToYCbCrMatInv_;
-    static ::g::Uno::Float3x3& ToYCbCrMatInv() { return ToYCbCrMatInv_; }
+    static ::g::Uno::Float3x3& ToYCbCrMatInv() { return Color_typeof()->Init(), ToYCbCrMatInv_; }
 
-    static ::g::Uno::Float4 FromHex(uString* hex);
     static ::g::Uno::Float4 FromInt4(::g::Uno::Int4 rgba);
     static ::g::Uno::Float4 FromRgba(uint32_t rgba);
-    static int ParseHexByte(uChar ch1, uChar ch2);
-    static int ParseHexNibble(uChar ch);
-    static ::g::Uno::Int4 ParseHexString(uString* hex);
-    static int ParseHexValue(uChar ch);
+    static ::g::Uno::Float4 Parse(uString* str);
     static uint32_t ToArgb(::g::Uno::Float4 rgba);
     static uint32_t ToArgb1(::g::Uno::Int4 rgba);
     static ::g::Uno::Int4 ToInt4(::g::Uno::Float4 rgba);
+    static bool TryParse(uString* str, ::g::Uno::Float4* color);
+    static bool TryParseHexByte(char16_t ch1, char16_t ch2, int32_t* result);
+    static bool TryParseHexDigit(char16_t ch, int32_t* result);
+    static bool TryParseHexNibble(char16_t ch, int32_t* result);
+    static bool TryParseHexString(uString* hex, ::g::Uno::Int4* result);
 };
 // }
 

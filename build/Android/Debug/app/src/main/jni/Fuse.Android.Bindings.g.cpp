@@ -19,15 +19,13 @@ namespace Fuse{
 namespace Android{
 namespace Bindings{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Android\1.4.2\AndroidInterop.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Fuse.Android\1.9.0\AndroidInterop.uno
 // ---------------------------------------------------------------------------------------------
 
 // internal static extern class AndroidDeviceInterop :16
 // {
 static void AndroidDeviceInterop_build(uType* type)
 {
-    type->SetDependencies(
-        ::g::Uno::Compiler::ExportTargetInterop::ForeignDataView_typeof());
 }
 
 uClassType* AndroidDeviceInterop_typeof()
@@ -36,7 +34,6 @@ uClassType* AndroidDeviceInterop_typeof()
     if (type != NULL) return type;
 
     uTypeOptions options;
-    options.DependencyCount = 1;
     options.TypeSize = sizeof(uClassType);
     type = uClassType::New("Fuse.Android.Bindings.AndroidDeviceInterop", options);
     type->fp_build_ = AndroidDeviceInterop_build;
@@ -92,7 +89,7 @@ void AndroidDeviceInterop__OpenAssetFileDescriptor1_fn(::g::Uno::UX::BundleFileS
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "MakeBufferInputStream1326", "(Ljava/lang/Object;)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "MakeBufferInputStream1320", "(Ljava/lang/Object;)Ljava/lang/Object;");
         ::g::Java::Object* _ubuf=buf;
         jobject _buf = (_ubuf==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ubuf, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd,_buf);
@@ -117,7 +114,7 @@ void AndroidDeviceInterop__OpenAssetFileDescriptor1_fn(::g::Uno::UX::BundleFileS
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "MakeMediaDataSource1327", "(Ljava/lang/Object;)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "MakeMediaDataSource1321", "(Ljava/lang/Object;)Ljava/lang/Object;");
         ::g::Java::Object* _ubuf=buf;
         jobject _buf = (_ubuf==NULL ? NULL : U_JNIVAR->NewLocalRef(::g::Android::Base::Wrappers::IJWrapper::_GetJavaObject(uInterface((uObject*)_ubuf, ::g::Android::Base::Wrappers::IJWrapper_typeof()))));
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd,_buf);
@@ -135,7 +132,7 @@ void AndroidDeviceInterop__OpenAssetFileDescriptor1_fn(::g::Uno::UX::BundleFileS
     {
         INIT_JNI;
         jclass __cls = JniHelper::GetNativeExternClass();
-        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "OpenAssetFileDescriptor328", "(Lcom/uno/UnoObject;)Ljava/lang/Object;");
+        WITH_STATIC_JAVA_METHOD(__mtd, __cls, "OpenAssetFileDescriptor322", "(Lcom/uno/UnoObject;)Ljava/lang/Object;");
         ::g::Uno::IO::BundleFile* _ubundle=bundle;
         jobject _bundle = ::g::Uno::Compiler::ExportTargetInterop::Foreign::Android::JavaUnoObject::Box6(_ubundle);
         jobject __jresult = U_JNIVAR->CallStaticObjectMethod(__cls,__mtd,_bundle);

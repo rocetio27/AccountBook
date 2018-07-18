@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-adda9b82.h>
@@ -10,7 +10,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_FuseControlsTextControl_FontSize_Property :306
+// internal sealed class AccountBook_FuseControlsTextControl_FontSize_Property :344
 // {
 static void AccountBook_FuseControlsTextControl_FontSize_Property_build(uType* type)
 {
@@ -38,45 +38,45 @@ static void AccountBook_FuseControlsTextControl_FontSize_Property_build(uType* t
     return type;
 }
 
-// public AccountBook_FuseControlsTextControl_FontSize_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :309
+// public AccountBook_FuseControlsTextControl_FontSize_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :347
 void AccountBook_FuseControlsTextControl_FontSize_Property__ctor_3_fn(AccountBook_FuseControlsTextControl_FontSize_Property* __this, ::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed float Get(Uno.UX.PropertyObject obj) :311
+// public override sealed float Get(Uno.UX.PropertyObject obj) :349
 void AccountBook_FuseControlsTextControl_FontSize_Property__Get1_fn(AccountBook_FuseControlsTextControl_FontSize_Property* __this, ::g::Uno::UX::PropertyObject* obj, float* __retval)
 {
     return *__retval = uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[0/*Fuse.Controls.TextControl*/]))->FontSize(), void();
 }
 
-// public AccountBook_FuseControlsTextControl_FontSize_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :309
+// public AccountBook_FuseControlsTextControl_FontSize_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) :347
 void AccountBook_FuseControlsTextControl_FontSize_Property__New1_fn(::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector* name, AccountBook_FuseControlsTextControl_FontSize_Property** __retval)
 {
     *__retval = AccountBook_FuseControlsTextControl_FontSize_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :310
+// public override sealed Uno.UX.PropertyObject get_Object() :348
 void AccountBook_FuseControlsTextControl_FontSize_Property__get_Object_fn(AccountBook_FuseControlsTextControl_FontSize_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, float v, Uno.UX.IPropertyListener origin) :312
+// public override sealed void Set(Uno.UX.PropertyObject obj, float v, Uno.UX.IPropertyListener origin) :350
 void AccountBook_FuseControlsTextControl_FontSize_Property__Set1_fn(AccountBook_FuseControlsTextControl_FontSize_Property* __this, ::g::Uno::UX::PropertyObject* obj, float* v, uObject* origin)
 {
     float v_ = *v;
     uPtr(uCast< ::g::Fuse::Controls::TextControl*>(obj, ::TYPES[0/*Fuse.Controls.TextControl*/]))->FontSize(v_);
 }
 
-// public AccountBook_FuseControlsTextControl_FontSize_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [instance] :309
+// public AccountBook_FuseControlsTextControl_FontSize_Property(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [instance] :347
 void AccountBook_FuseControlsTextControl_FontSize_Property::ctor_3(::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_FuseControlsTextControl_FontSize_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [static] :309
+// public AccountBook_FuseControlsTextControl_FontSize_Property New(Fuse.Controls.TextControl obj, Uno.UX.Selector name) [static] :347
 AccountBook_FuseControlsTextControl_FontSize_Property* AccountBook_FuseControlsTextControl_FontSize_Property::New1(::g::Fuse::Controls::TextControl* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_FuseControlsTextControl_FontSize_Property* obj1 = (AccountBook_FuseControlsTextControl_FontSize_Property*)uNew(AccountBook_FuseControlsTextControl_FontSize_Property_typeof());

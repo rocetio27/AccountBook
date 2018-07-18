@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Video/1.4.2/Android/VideoPlayer.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Video/1.9.0/Android/VideoPlayer.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

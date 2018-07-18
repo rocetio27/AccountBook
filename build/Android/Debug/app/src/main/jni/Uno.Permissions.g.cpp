@@ -19,7 +19,7 @@ namespace g{
 namespace Uno{
 namespace Permissions{
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Permissions\1.4.3\Permissions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Permissions\1.9.0\Permissions.uno
 // ---------------------------------------------------------------------------------------------
 
 // internal abstract interface IPermissionPromise :19
@@ -34,7 +34,7 @@ uInterfaceType* IPermissionPromise_typeof()
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Permissions\1.4.3\Permissions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Permissions\1.9.0\Permissions.uno
 // ---------------------------------------------------------------------------------------------
 
 // public static extern class Permissions :53
@@ -82,7 +82,7 @@ void Permissions::Succeeded(uObject* promise)
 }
 // }
 
-// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Permissions\1.4.3\Permissions.uno
+// C:\Users\SpaceJockey27\AppData\Local\Fusetools\Packages\Uno.Permissions\1.9.0\Permissions.uno
 // ---------------------------------------------------------------------------------------------
 
 // public struct PlatformPermission :9

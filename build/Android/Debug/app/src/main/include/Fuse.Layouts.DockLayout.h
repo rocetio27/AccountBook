@@ -1,7 +1,8 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Panels/1.4.2/Layouts/DockLayout.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Panels/1.9.0/Layouts/DockLayout.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.Layouts.Layout.h>
 namespace g{namespace Fuse{namespace Layouts{struct DockLayout;}}}
 namespace g{namespace Fuse{struct LayoutParams;}}
@@ -21,21 +22,21 @@ namespace Layouts{
 void DockLayout__ctor_2_fn(DockLayout* __this);
 void DockLayout__ArrangePaddingBox_fn(DockLayout* __this, ::g::Fuse::Visual* container, ::g::Uno::Float4* padding, ::g::Fuse::LayoutParams* lp);
 void DockLayout__GetContentSize_fn(DockLayout* __this, ::g::Fuse::Visual* container, ::g::Fuse::LayoutParams* lp, ::g::Uno::Float2* __retval);
-void DockLayout__GetDock_fn(::g::Fuse::Visual* elm, int* __retval);
+void DockLayout__GetDock_fn(::g::Fuse::Visual* elm, int32_t* __retval);
 void DockLayout__MeasureSubtree_fn(DockLayout* __this, ::g::Fuse::Visual* container, ::g::Fuse::Node* child, ::g::Fuse::LayoutParams* lp, ::g::Uno::Float2* __retval);
 void DockLayout__New2_fn(DockLayout** __retval);
-void DockLayout__SetDock_fn(::g::Fuse::Visual* elm, int* dock);
+void DockLayout__SetDock_fn(::g::Fuse::Visual* elm, int32_t* dock);
 
 struct DockLayout : ::g::Fuse::Layouts::Layout
 {
     static uSStrong< ::g::Fuse::PropertyHandle*> _dockProperty_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _dockProperty() { return _dockProperty_; }
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _dockProperty() { return DockLayout_typeof()->Init(), _dockProperty_; }
 
     void ctor_2();
     ::g::Uno::Float2 MeasureSubtree(::g::Fuse::Visual* container, ::g::Fuse::Node* child, ::g::Fuse::LayoutParams lp);
-    static int GetDock(::g::Fuse::Visual* elm);
+    static int32_t GetDock(::g::Fuse::Visual* elm);
     static DockLayout* New2();
-    static void SetDock(::g::Fuse::Visual* elm, int dock);
+    static void SetDock(::g::Fuse::Visual* elm, int32_t dock);
 };
 // }
 

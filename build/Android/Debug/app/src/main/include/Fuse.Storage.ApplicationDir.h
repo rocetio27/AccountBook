@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Storage/1.4.2/ApplicationDir.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Storage/1.9.0/ApplicationDir.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once

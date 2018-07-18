@@ -1,14 +1,15 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/StatisticPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/StatisticPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
 #include <Fuse.Animations.IResize.h>
 #include <Fuse.Binding.h>
-#include <Fuse.Controls.Panel.h>
+#include <Fuse.Controls.Page.h>
 #include <Fuse.Drawing.ISurfaceDrawable.h>
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -22,7 +23,7 @@
 #include <Uno.Float4.h>
 #include <Uno.UX.IPropertyListener.h>
 namespace g{namespace Fuse{namespace Controls{struct Image;}}}
-namespace g{namespace Fuse{namespace Navigation{struct Router;}}}
+namespace g{namespace Fuse{namespace Controls{struct Panel;}}}
 namespace g{namespace Fuse{namespace Reactive{struct EventBinding;}}}
 namespace g{namespace Fuse{struct AlternateRoot;}}
 namespace g{namespace Uno{namespace UX{struct NameTable;}}}
@@ -35,13 +36,12 @@ namespace g{
 // public partial sealed class StatisticPage :2
 // {
 ::g::Fuse::Controls::Panel_type* StatisticPage_typeof();
-void StatisticPage__ctor_7_fn(StatisticPage* __this, ::g::Fuse::Navigation::Router* router1);
+void StatisticPage__ctor_8_fn(StatisticPage* __this);
 void StatisticPage__InitializeUX_fn(StatisticPage* __this);
-void StatisticPage__New4_fn(::g::Fuse::Navigation::Router* router1, StatisticPage** __retval);
+void StatisticPage__New5_fn(StatisticPage** __retval);
 
-struct StatisticPage : ::g::Fuse::Controls::Panel
+struct StatisticPage : ::g::Fuse::Controls::Page
 {
-    uStrong< ::g::Fuse::Navigation::Router*> router;
     uStrong< ::g::Uno::UX::Property1*> ModalConfirm_IsEnabled_inst;
     uStrong< ::g::Uno::UX::Property1*> temp_text_inst;
     uStrong< ::g::Uno::UX::Property1*> temp1_Value_inst;
@@ -73,19 +73,19 @@ struct StatisticPage : ::g::Fuse::Controls::Panel
     uStrong< ::g::Uno::UX::Property1*> ModalConfirm2_ParentNode_inst;
     uStrong< ::g::Fuse::Controls::Panel*> FullWindo;
     uStrong< ::g::Fuse::Controls::Panel*> FullWindo2;
+    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb46;
+    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb47;
+    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb48;
+    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb49;
     uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb50;
-    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb51;
-    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb52;
-    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb53;
-    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb54;
     uStrong< ::g::Fuse::AlternateRoot*> ModalConfirm;
     uStrong< ::g::Fuse::Controls::Image*> calendar_lbutton;
-    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb55;
+    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb51;
     uStrong< ::g::Fuse::Controls::Image*> calendar_rbutton;
-    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb56;
-    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb58;
+    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb52;
+    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb54;
     uStrong< ::g::Fuse::AlternateRoot*> ModalConfirm2;
-    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb60;
+    uStrong< ::g::Fuse::Reactive::EventBinding*> temp_eb56;
     uStrong< ::g::Uno::UX::NameTable*> __g_nametable1;
     static uSStrong<uArray*> __g_static_nametable1_;
     static uSStrong<uArray*>& __g_static_nametable1() { return StatisticPage_typeof()->Init(), __g_static_nametable1_; }
@@ -118,9 +118,9 @@ struct StatisticPage : ::g::Fuse::Controls::Panel
     static ::g::Uno::UX::Selector __selector13_;
     static ::g::Uno::UX::Selector& __selector13() { return StatisticPage_typeof()->Init(), __selector13_; }
 
-    void ctor_7(::g::Fuse::Navigation::Router* router1);
+    void ctor_8();
     void InitializeUX();
-    static StatisticPage* New4(::g::Fuse::Navigation::Router* router1);
+    static StatisticPage* New5();
 };
 // }
 

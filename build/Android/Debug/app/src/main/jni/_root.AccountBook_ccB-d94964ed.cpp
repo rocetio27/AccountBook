@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/AccountBook.unoproj.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/AccountBook.unoproj.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_ccB-d94964ed.h>
@@ -11,7 +11,7 @@ static uType* TYPES[1];
 
 namespace g{
 
-// internal sealed class AccountBook_ccButton_textcolor_Property :323
+// internal sealed class AccountBook_ccButton_textcolor_Property :361
 // {
 static void AccountBook_ccButton_textcolor_Property_build(uType* type)
 {
@@ -40,51 +40,51 @@ static void AccountBook_ccButton_textcolor_Property_build(uType* type)
     return type;
 }
 
-// public AccountBook_ccButton_textcolor_Property(ccButton obj, Uno.UX.Selector name) :326
+// public AccountBook_ccButton_textcolor_Property(ccButton obj, Uno.UX.Selector name) :364
 void AccountBook_ccButton_textcolor_Property__ctor_3_fn(AccountBook_ccButton_textcolor_Property* __this, ::g::ccButton* obj, ::g::Uno::UX::Selector* name)
 {
     __this->ctor_3(obj, *name);
 }
 
-// public override sealed float4 Get(Uno.UX.PropertyObject obj) :328
+// public override sealed float4 Get(Uno.UX.PropertyObject obj) :366
 void AccountBook_ccButton_textcolor_Property__Get1_fn(AccountBook_ccButton_textcolor_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* __retval)
 {
     return *__retval = uPtr(uCast< ::g::ccButton*>(obj, ::TYPES[0/*ccButton*/]))->textcolor(), void();
 }
 
-// public AccountBook_ccButton_textcolor_Property New(ccButton obj, Uno.UX.Selector name) :326
+// public AccountBook_ccButton_textcolor_Property New(ccButton obj, Uno.UX.Selector name) :364
 void AccountBook_ccButton_textcolor_Property__New1_fn(::g::ccButton* obj, ::g::Uno::UX::Selector* name, AccountBook_ccButton_textcolor_Property** __retval)
 {
     *__retval = AccountBook_ccButton_textcolor_Property::New1(obj, *name);
 }
 
-// public override sealed Uno.UX.PropertyObject get_Object() :327
+// public override sealed Uno.UX.PropertyObject get_Object() :365
 void AccountBook_ccButton_textcolor_Property__get_Object_fn(AccountBook_ccButton_textcolor_Property* __this, ::g::Uno::UX::PropertyObject** __retval)
 {
     return *__retval = __this->_obj, void();
 }
 
-// public override sealed void Set(Uno.UX.PropertyObject obj, float4 v, Uno.UX.IPropertyListener origin) :329
+// public override sealed void Set(Uno.UX.PropertyObject obj, float4 v, Uno.UX.IPropertyListener origin) :367
 void AccountBook_ccButton_textcolor_Property__Set1_fn(AccountBook_ccButton_textcolor_Property* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::Float4* v, uObject* origin)
 {
     ::g::Uno::Float4 v_ = *v;
     uPtr(uCast< ::g::ccButton*>(obj, ::TYPES[0/*ccButton*/]))->Settextcolor(v_, origin);
 }
 
-// public override sealed bool get_SupportsOriginSetter() :330
+// public override sealed bool get_SupportsOriginSetter() :368
 void AccountBook_ccButton_textcolor_Property__get_SupportsOriginSetter_fn(AccountBook_ccButton_textcolor_Property* __this, bool* __retval)
 {
     return *__retval = true, void();
 }
 
-// public AccountBook_ccButton_textcolor_Property(ccButton obj, Uno.UX.Selector name) [instance] :326
+// public AccountBook_ccButton_textcolor_Property(ccButton obj, Uno.UX.Selector name) [instance] :364
 void AccountBook_ccButton_textcolor_Property::ctor_3(::g::ccButton* obj, ::g::Uno::UX::Selector name)
 {
     ctor_2(name);
     _obj = obj;
 }
 
-// public AccountBook_ccButton_textcolor_Property New(ccButton obj, Uno.UX.Selector name) [static] :326
+// public AccountBook_ccButton_textcolor_Property New(ccButton obj, Uno.UX.Selector name) [static] :364
 AccountBook_ccButton_textcolor_Property* AccountBook_ccButton_textcolor_Property::New1(::g::ccButton* obj, ::g::Uno::UX::Selector name)
 {
     AccountBook_ccButton_textcolor_Property* obj1 = (AccountBook_ccButton_textcolor_Property*)uNew(AccountBook_ccButton_textcolor_Property_typeof());

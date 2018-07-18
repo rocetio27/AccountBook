@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux13/ListPage.g.uno.
+// This file was generated based on C:/Users/SpaceJockey27/Documents/Fuse/AccountBook/.uno/ux15/ListPage.g.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #include <_root.AccountBook_Fus-3a22a8bb.h>
@@ -15,34 +15,36 @@
 #include <Fuse.Reactive.Data.h>
 #include <Fuse.Reactive.DataBinding.h>
 #include <Fuse.Reactive.Each.h>
+#include <Fuse.Reactive.Expression.h>
 #include <Fuse.Reactive.IExpression.h>
 #include <Uno.Bool.h>
 #include <Uno.Collections.ICollection-1.h>
 #include <Uno.Collections.IList-1.h>
 #include <Uno.Float4.h>
+#include <Uno.Int.h>
 #include <Uno.Object.h>
 #include <Uno.String.h>
 #include <Uno.UX.Property.h>
-#include <Uno.UX.Property-1.h>
+#include <Uno.UX.Property1-1.h>
 #include <Uno.UX.Selector.h>
-static uString* STRINGS[2];
+static uString* STRINGS[3];
 static uType* TYPES[1];
 
 namespace g{
 
-// public partial sealed class ListPage.Template2.Template3.Template4.Template6 :173
+// public partial sealed class ListPage.Template2.Template3.Template4.Template6 :194
 // {
-// static Template6() :183
+// static Template6() :204
 static void ListPage__Template2__Template3__Template4__Template6__cctor__fn(uType* __type)
 {
-    ::g::Uno::UX::Selector_typeof()->Init();
-    ListPage__Template2__Template3__Template4__Template6::__selector0_ = ::g::Uno::UX::Selector__op_Implicit(::STRINGS[0/*"Value"*/]);
+    ListPage__Template2__Template3__Template4__Template6::__selector0_ = ::g::Uno::UX::Selector__op_Implicit1(::STRINGS[0/*"Value"*/]);
 }
 
 static void ListPage__Template2__Template3__Template4__Template6_build(uType* type)
 {
     ::STRINGS[0] = uString::Const("Value");
     ::STRINGS[1] = uString::Const("usage");
+    ::STRINGS[2] = uString::Const("ListPage.ux");
     ::TYPES[0] = ::g::Uno::Collections::ICollection_typeof()->MakeType(::g::Fuse::Binding_typeof(), NULL);
     type->SetDependencies(
         ::g::Fuse::Drawing::Colors_typeof());
@@ -71,26 +73,30 @@ static void ListPage__Template2__Template3__Template4__Template6_build(uType* ty
     return type;
 }
 
-// public Template6(ListPage.Template2.Template3.Template4 parent, Fuse.Reactive.Each parentInstance) :177
+// public Template6(ListPage.Template2.Template3.Template4 parent, Fuse.Reactive.Each parentInstance) :198
 void ListPage__Template2__Template3__Template4__Template6__ctor_1_fn(ListPage__Template2__Template3__Template4__Template6* __this, ::g::ListPage__Template2__Template3__Template4* parent, ::g::Fuse::Reactive::Each* parentInstance)
 {
     __this->ctor_1(parent, parentInstance);
 }
 
-// public override sealed object New() :186
+// public override sealed object New() :207
 void ListPage__Template2__Template3__Template4__Template6__New1_fn(ListPage__Template2__Template3__Template4__Template6* __this, uObject** __retval)
 {
     ::g::Fuse::Controls::Text* __self1 = ::g::Fuse::Controls::Text::New3();
     __this->__self_Value_inst1 = ::g::AccountBook_FuseControlsTextControl_Value_Property::New1(__self1, ListPage__Template2__Template3__Template4__Template6::__selector0_);
     ::g::Fuse::Reactive::Data* temp = ::g::Fuse::Reactive::Data::New1(::STRINGS[1/*"usage"*/]);
     ::g::Fuse::Reactive::DataBinding* temp1 = ::g::Fuse::Reactive::DataBinding::New1(__this->__self_Value_inst1, (uObject*)temp, 3);
-    __self1->Color(::g::Fuse::Drawing::Colors::Black_);
+    __self1->Color(::g::Fuse::Drawing::Colors::Black());
     __self1->Alignment(10);
+    __self1->SourceLineNumber(107);
+    __self1->SourceFileName(::STRINGS[2/*"ListPage.ux"*/]);
+    temp->SourceLineNumber(107);
+    temp->SourceFileName(::STRINGS[2/*"ListPage.ux"*/]);
     ::g::Uno::Collections::ICollection::Add_ex(uInterface(uPtr(__self1->Bindings()), ::TYPES[0/*Uno.Collections.ICollection<Fuse.Binding>*/]), temp1);
     return *__retval = __self1, void();
 }
 
-// public Template6 New(ListPage.Template2.Template3.Template4 parent, Fuse.Reactive.Each parentInstance) :177
+// public Template6 New(ListPage.Template2.Template3.Template4 parent, Fuse.Reactive.Each parentInstance) :198
 void ListPage__Template2__Template3__Template4__Template6__New2_fn(::g::ListPage__Template2__Template3__Template4* parent, ::g::Fuse::Reactive::Each* parentInstance, ListPage__Template2__Template3__Template4__Template6** __retval)
 {
     *__retval = ListPage__Template2__Template3__Template4__Template6::New2(parent, parentInstance);
@@ -98,7 +104,7 @@ void ListPage__Template2__Template3__Template4__Template6__New2_fn(::g::ListPage
 
 ::g::Uno::UX::Selector ListPage__Template2__Template3__Template4__Template6::__selector0_;
 
-// public Template6(ListPage.Template2.Template3.Template4 parent, Fuse.Reactive.Each parentInstance) [instance] :177
+// public Template6(ListPage.Template2.Template3.Template4 parent, Fuse.Reactive.Each parentInstance) [instance] :198
 void ListPage__Template2__Template3__Template4__Template6::ctor_1(::g::ListPage__Template2__Template3__Template4* parent, ::g::Fuse::Reactive::Each* parentInstance)
 {
     ctor_(NULL, false);
@@ -106,7 +112,7 @@ void ListPage__Template2__Template3__Template4__Template6::ctor_1(::g::ListPage_
     __parentInstance1 = parentInstance;
 }
 
-// public Template6 New(ListPage.Template2.Template3.Template4 parent, Fuse.Reactive.Each parentInstance) [static] :177
+// public Template6 New(ListPage.Template2.Template3.Template4 parent, Fuse.Reactive.Each parentInstance) [static] :198
 ListPage__Template2__Template3__Template4__Template6* ListPage__Template2__Template3__Template4__Template6::New2(::g::ListPage__Template2__Template3__Template4* parent, ::g::Fuse::Reactive::Each* parentInstance)
 {
     ListPage__Template2__Template3__Template4__Template6* obj1 = (ListPage__Template2__Template3__Template4__Template6*)uNew(ListPage__Template2__Template3__Template4__Template6_typeof());

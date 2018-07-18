@@ -339,7 +339,7 @@ public partial class InputPage: Fuse.Controls.Panel
         var temp88 = new global::Fuse.Triggers.Actions.Set<bool>(ModalConfirm_IsEnabled_inst);
         var temp89 = new global::Fuse.PlaySound();
         var temp90 = new global::Fuse.Reactive.DataBinding(ModalConfirm_ParentNode_inst, temp39, Fuse.Reactive.BindingMode.Default);
-        temp40.LineNumber = 3;
+        temp40.LineNumber = 2;
         temp40.FileName = "InputPage.ux";
         temp40.File = new global::Uno.UX.BundleFileSource(import("../../Modules/InputPage.js"));
         FullWindo.Layer = Fuse.Layer.Overlay;

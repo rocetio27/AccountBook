@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.4.2/TextControls/TextInputControl.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Controls.Primitives/1.9.0/TextControls/TextInputControl.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -8,6 +8,7 @@
 #include <Fuse.IActualPlacement.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.Node.h>
 #include <Fuse.Scripting.IScriptObject.h>
@@ -37,26 +38,26 @@ namespace Controls{
 // {
 struct TextInputControl_type : ::g::Fuse::Controls::Control_type
 {
-    ::g::Fuse::Triggers::IValue interface17;
+    ::g::Fuse::Triggers::IValue interface18;
 };
 
 TextInputControl_type* TextInputControl_typeof();
 void TextInputControl__ctor_6_fn(TextInputControl* __this, ::g::Fuse::Controls::TextEdit* editor);
 void TextInputControl__get_Editor_fn(TextInputControl* __this, ::g::Fuse::Controls::TextEdit** __retval);
 void TextInputControl__FocusDelegator_fn(TextInputControl* __this, ::g::Fuse::Visual** __retval);
-void TextInputControl__get_InputHint_fn(TextInputControl* __this, int* __retval);
-void TextInputControl__set_InputHint_fn(TextInputControl* __this, int* value);
+void TextInputControl__get_InputHint_fn(TextInputControl* __this, int32_t* __retval);
+void TextInputControl__set_InputHint_fn(TextInputControl* __this, int32_t* value);
 void TextInputControl__OnPropertyChanged2_fn(TextInputControl* __this, ::g::Uno::UX::PropertyObject* obj, ::g::Uno::UX::Selector* prop);
 void TextInputControl__OnRooted_fn(TextInputControl* __this);
 void TextInputControl__OnTapped_fn(TextInputControl* __this, uObject* sender, ::g::Uno::EventArgs* args);
 void TextInputControl__OnUnrooted_fn(TextInputControl* __this);
 void TextInputControl__SetValue_fn(TextInputControl* __this, uString* v, uObject* origin);
-void TextInputControl__get_TextAlignment_fn(TextInputControl* __this, int* __retval);
-void TextInputControl__set_TextAlignment_fn(TextInputControl* __this, int* value);
+void TextInputControl__get_TextAlignment_fn(TextInputControl* __this, int32_t* __retval);
+void TextInputControl__set_TextAlignment_fn(TextInputControl* __this, int32_t* value);
 void TextInputControl__get_TextColor_fn(TextInputControl* __this, ::g::Uno::Float4* __retval);
 void TextInputControl__set_TextColor_fn(TextInputControl* __this, ::g::Uno::Float4* value);
-void TextInputControl__get_TextWrapping_fn(TextInputControl* __this, int* __retval);
-void TextInputControl__set_TextWrapping_fn(TextInputControl* __this, int* value);
+void TextInputControl__get_TextWrapping_fn(TextInputControl* __this, int32_t* __retval);
+void TextInputControl__set_TextWrapping_fn(TextInputControl* __this, int32_t* value);
 void TextInputControl__get_Value_fn(TextInputControl* __this, uString** __retval);
 void TextInputControl__set_Value_fn(TextInputControl* __this, uString* value);
 void TextInputControl__add_ValueChanged_fn(TextInputControl* __this, uDelegate* value);
@@ -70,16 +71,16 @@ struct TextInputControl : ::g::Fuse::Controls::LayoutControl
     void ctor_6(::g::Fuse::Controls::TextEdit* editor);
     ::g::Fuse::Controls::TextEdit* Editor();
     ::g::Fuse::Visual* FocusDelegator();
-    int InputHint();
-    void InputHint(int value);
+    int32_t InputHint();
+    void InputHint(int32_t value);
     void OnTapped(uObject* sender, ::g::Uno::EventArgs* args);
     void SetValue(uString* v, uObject* origin);
-    int TextAlignment();
-    void TextAlignment(int value);
+    int32_t TextAlignment();
+    void TextAlignment(int32_t value);
     ::g::Uno::Float4 TextColor();
     void TextColor(::g::Uno::Float4 value);
-    int TextWrapping();
-    void TextWrapping(int value);
+    int32_t TextWrapping();
+    void TextWrapping(int32_t value);
     uString* Value();
     void Value(uString* value);
     void add_ValueChanged(uDelegate* value);

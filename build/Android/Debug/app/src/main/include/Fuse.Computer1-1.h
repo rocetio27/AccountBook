@@ -1,0 +1,31 @@
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Marshal/1.9.0/Computer.uno.
+// WARNING: Changes might be lost if you edit this file directly.
+
+#pragma once
+#include <Fuse.Computer.h>
+namespace g{namespace Fuse{struct Computer1;}}
+
+namespace g{
+namespace Fuse{
+
+// internal abstract class Computer<T> :38
+// {
+struct Computer1_type : ::g::Fuse::Computer_type
+{
+    void(*fp_TryOpImpl1)(::g::Fuse::Computer1*, int32_t*, void*, void*, uTRef, bool*);
+};
+
+Computer1_type* Computer1_typeof();
+void Computer1__ctor_1_fn(Computer1* __this);
+void Computer1__TryOp1_fn(Computer1* __this, int32_t* op, uObject* a, uObject* b, uObject** result, bool* __retval);
+
+struct Computer1 : ::g::Fuse::Computer
+{
+    void ctor_1();
+    template<class T>
+    bool TryOpImpl1(int32_t op, T a, T b, T* result) { bool __retval; return (((Computer1_type*)__type)->fp_TryOpImpl1)(this, &op, uConstrain(__type->GetBase(Computer1_typeof())->T(0), a), uConstrain(__type->GetBase(Computer1_typeof())->T(0), b), uConstrain(__type->GetBase(Computer1_typeof())->T(0), result), &__retval), __retval; }
+    void TryOpImpl1_ex(int32_t* op, void* a, void* b, uTRef result, bool* __retval) { (((Computer1_type*)__type)->fp_TryOpImpl1)(this, op, a, b, result, __retval); }
+};
+// }
+
+}} // ::g::Fuse

@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/RootViewport.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/RootViewport.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -6,6 +6,7 @@
 #include <Fuse.ICommonViewport.h>
 #include <Fuse.INotifyUnrooted.h>
 #include <Fuse.IProperties.h>
+#include <Fuse.ISourceLocation.h>
 #include <Fuse.ITemplateSource.h>
 #include <Fuse.IViewport.h>
 #include <Fuse.Node.h>
@@ -30,9 +31,9 @@ namespace Fuse{
 // {
 struct RootViewport_type : ::g::Fuse::Visual_type
 {
-    ::g::Fuse::IViewport interface12;
-    ::g::Uno::IDisposable interface13;
-    ::g::Fuse::ICommonViewport interface14;
+    ::g::Fuse::IViewport interface13;
+    ::g::Uno::IDisposable interface14;
+    ::g::Fuse::ICommonViewport interface15;
 };
 
 RootViewport_type* RootViewport_typeof();
@@ -41,8 +42,10 @@ void RootViewport__ctor_4_fn(RootViewport* __this, uObject* frame);
 void RootViewport__Draw_fn(RootViewport* __this, ::g::Fuse::DrawContext* dc);
 void RootViewport__EstablishSize_fn(RootViewport* __this);
 void RootViewport__EstablishSizeInternals_fn(RootViewport* __this);
+void RootViewport__OnInvalidateLayout_fn(RootViewport* __this);
 void RootViewport__OnResized_fn(RootViewport* __this, uObject* s, uObject* a);
 void RootViewport__get_PixelSize_fn(RootViewport* __this, ::g::Uno::Float2* __retval);
+void RootViewport__get_PixelsPerOSPoint_fn(RootViewport* __this, float* __retval);
 void RootViewport__get_PixelsPerPoint_fn(RootViewport* __this, float* __retval);
 void RootViewport__PointToWorldRay_fn(RootViewport* __this, ::g::Uno::Float2* pixelPos, ::g::Fuse::Ray* __retval);
 void RootViewport__get_PreviewState_fn(RootViewport* __this, ::g::Fuse::PreviewState** __retval);
@@ -50,7 +53,7 @@ void RootViewport__add_Resized_fn(RootViewport* __this, uDelegate* value);
 void RootViewport__remove_Resized_fn(RootViewport* __this, uDelegate* value);
 void RootViewport__get_Size_fn(RootViewport* __this, ::g::Uno::Float2* __retval);
 void RootViewport__UnoIDisposableDispose_fn(RootViewport* __this);
-void RootViewport__get_VisualContext_fn(RootViewport* __this, int* __retval);
+void RootViewport__get_VisualContext_fn(RootViewport* __this, int32_t* __retval);
 void RootViewport__WorldToLocalRay_fn(RootViewport* __this, uObject* world, ::g::Fuse::Ray* worldRay, ::g::Fuse::Visual* where, ::g::Fuse::Ray* __retval);
 
 struct RootViewport : ::g::Fuse::Visual
@@ -72,6 +75,7 @@ struct RootViewport : ::g::Fuse::Visual
     void EstablishSizeInternals();
     void OnResized(uObject* s, uObject* a);
     ::g::Uno::Float2 PixelSize();
+    float PixelsPerOSPoint();
     float PixelsPerPoint();
     ::g::Fuse::Ray PointToWorldRay(::g::Uno::Float2 pixelPos);
     ::g::Fuse::PreviewState* PreviewState();

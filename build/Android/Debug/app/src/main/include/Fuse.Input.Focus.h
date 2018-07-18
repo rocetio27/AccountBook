@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.4.2/Input/Focus.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Nodes/1.9.0/Input/Focus.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -33,9 +33,9 @@ void Focus__HandlesFocusEvent_fn(::g::Fuse::Visual* n, bool* __retval);
 void Focus__IsFocusable_fn(::g::Fuse::Visual* n, bool* __retval);
 void Focus__IsWithin_fn(::g::Fuse::Visual* n, bool* __retval);
 void Focus__get_Lost_fn(::g::Fuse::VisualEvent** __retval);
-void Focus__Move_fn(int* direction);
+void Focus__Move_fn(int32_t* direction);
 void Focus__Obtained_fn(::g::Fuse::Visual* n);
-void Focus__Predict_fn(int* direction, ::g::Fuse::Visual** __retval);
+void Focus__Predict_fn(int32_t* direction, ::g::Fuse::Visual** __retval);
 void Focus__Release_fn();
 void Focus__ReleaseFrom_fn(::g::Fuse::Visual* n);
 void Focus__SetDelegator_fn(::g::Fuse::Visual* n, uDelegate* delegator);
@@ -44,17 +44,17 @@ void Focus__SetIsFocusable_fn(::g::Fuse::Visual* n, bool* focusable);
 struct Focus : uObject
 {
     static uSStrong< ::g::Fuse::Input::FocusGained*> _gained_;
-    static uSStrong< ::g::Fuse::Input::FocusGained*>& _gained() { return _gained_; }
+    static uSStrong< ::g::Fuse::Input::FocusGained*>& _gained() { return Focus_typeof()->Init(), _gained_; }
     static uSStrong< ::g::Fuse::Input::FocusLost*> _lost_;
-    static uSStrong< ::g::Fuse::Input::FocusLost*>& _lost() { return _lost_; }
+    static uSStrong< ::g::Fuse::Input::FocusLost*>& _lost() { return Focus_typeof()->Init(), _lost_; }
     static uSStrong< ::g::Fuse::Input::IsFocusableChangedEvent*> _isFoucsableChanged_;
-    static uSStrong< ::g::Fuse::Input::IsFocusableChangedEvent*>& _isFoucsableChanged() { return _isFoucsableChanged_; }
+    static uSStrong< ::g::Fuse::Input::IsFocusableChangedEvent*>& _isFoucsableChanged() { return Focus_typeof()->Init(), _isFoucsableChanged_; }
     static uSStrong< ::g::Fuse::Visual*> _focusedObject_;
-    static uSStrong< ::g::Fuse::Visual*>& _focusedObject() { return _focusedObject_; }
+    static uSStrong< ::g::Fuse::Visual*>& _focusedObject() { return Focus_typeof()->Init(), _focusedObject_; }
     static uSStrong< ::g::Fuse::Visual*> _lastFocusedVisual_;
-    static uSStrong< ::g::Fuse::Visual*>& _lastFocusedVisual() { return _lastFocusedVisual_; }
+    static uSStrong< ::g::Fuse::Visual*>& _lastFocusedVisual() { return Focus_typeof()->Init(), _lastFocusedVisual_; }
     static uSStrong< ::g::Fuse::PropertyHandle*> _focusDelegatorHandle_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _focusDelegatorHandle() { return _focusDelegatorHandle_; }
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _focusDelegatorHandle() { return Focus_typeof()->Init(), _focusDelegatorHandle_; }
 
     static bool CanSetFocus(::g::Fuse::Node* node);
     static void ChangeFocusedVisual(::g::Fuse::Visual* node, uString* memberName);
@@ -65,9 +65,9 @@ struct Focus : uObject
     static bool HandlesFocusEvent(::g::Fuse::Visual* n);
     static bool IsFocusable(::g::Fuse::Visual* n);
     static bool IsWithin(::g::Fuse::Visual* n);
-    static void Move(int direction);
+    static void Move(int32_t direction);
     static void Obtained(::g::Fuse::Visual* n);
-    static ::g::Fuse::Visual* Predict(int direction);
+    static ::g::Fuse::Visual* Predict(int32_t direction);
     static void Release();
     static void ReleaseFrom(::g::Fuse::Visual* n);
     static void SetDelegator(::g::Fuse::Visual* n, uDelegate* delegator);

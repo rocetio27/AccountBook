@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.4.2/PageBinding.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Navigation/1.9.0/PageBinding.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -13,7 +13,7 @@ namespace g{
 namespace Fuse{
 namespace Navigation{
 
-// public static class NavigationPageProperty :325
+// public static class NavigationPageProperty :328
 // {
 uClassType* NavigationPageProperty_typeof();
 void NavigationPageProperty__AddPageWatcher_fn(::g::Fuse::Visual* where, uObject* callback);
@@ -24,11 +24,11 @@ void NavigationPageProperty__RemovePageWatcher_fn(::g::Fuse::Visual* where, uObj
 struct NavigationPageProperty : uObject
 {
     static uSStrong< ::g::Fuse::PropertyHandle*> _pageProperty_;
-    static uSStrong< ::g::Fuse::PropertyHandle*>& _pageProperty() { return _pageProperty_; }
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _pageProperty() { return NavigationPageProperty_typeof()->Init(), _pageProperty_; }
     static uSStrong< ::g::Uno::Collections::List*> RootedBindings_;
-    static uSStrong< ::g::Uno::Collections::List*>& RootedBindings() { return RootedBindings_; }
+    static uSStrong< ::g::Uno::Collections::List*>& RootedBindings() { return NavigationPageProperty_typeof()->Init(), RootedBindings_; }
     static uSStrong< ::g::Uno::Collections::Dictionary*> _watchers_;
-    static uSStrong< ::g::Uno::Collections::Dictionary*>& _watchers() { return _watchers_; }
+    static uSStrong< ::g::Uno::Collections::Dictionary*>& _watchers() { return NavigationPageProperty_typeof()->Init(), _watchers_; }
 
     static void AddPageWatcher(::g::Fuse::Visual* where, uObject* callback);
     static ::g::Fuse::Visual* GetNavigationPage(::g::Fuse::Visual* n);

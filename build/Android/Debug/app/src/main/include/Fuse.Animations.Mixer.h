@@ -1,4 +1,4 @@
-// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.4.2/Mixer.uno.
+// This file was generated based on C:/Users/SpaceJockey27/AppData/Local/Fusetools/Packages/Fuse.Animations/1.9.0/Mixer.uno.
 // WARNING: Changes might be lost if you edit this file directly.
 
 #pragma once
@@ -18,9 +18,9 @@ void Mixer__get_DefaultDiscrete_fn(uObject** __retval);
 struct Mixer : uObject
 {
     static uSStrong<uObject*> _default_;
-    static uSStrong<uObject*>& _default() { return _default_; }
+    static uSStrong<uObject*>& _default() { return Mixer_typeof()->Init(), _default_; }
     static uSStrong<uObject*> _defaultDiscrete_;
-    static uSStrong<uObject*>& _defaultDiscrete() { return _defaultDiscrete_; }
+    static uSStrong<uObject*>& _defaultDiscrete() { return Mixer_typeof()->Init(), _defaultDiscrete_; }
 
     static uObject* Default();
     static uObject* DefaultDiscrete();

@@ -32,9 +32,9 @@
 			<Rectangle Width="100%" Alignment="TopCenter" Margin="10,0,0,10" Height="17" ColumnSpan="3" >
 				<Text TextAlignment="Center" Color="Black"  FontSize="{ReadProperty TitleFontSize}" Value="{ReadProperty Title2}"/>
 			</Rectangle>
-			<Text Alignment="Center" Value="Income" FontSize="20" Margin="0,5,0,5"/>
+			<Text Alignment="Center" Value="수입" FontSize="20" Margin="0,5,0,5"/>
 			<Text Alignment="Center" ColumnSpan="2" Color="Col_green" Value="{ReadProperty GreenText}" FontSize="20" Margin="0,5,0,5"/>
-			<Text Alignment="Center" Value="Expense" FontSize="20" Margin="0,5,0,5"/>
+			<Text Alignment="Center" Value="지출" FontSize="20" Margin="0,5,0,5"/>
 			<Text Alignment="Center" ColumnSpan="2" Color="Col_red" Value="{ReadProperty RedText}" FontSize="20" Margin="0,5,0,5"/>
 		</Grid>
 	</Rectangle>
@@ -52,7 +52,7 @@
 						<Set ModalConfirm.IsEnabled="true" />
 					</Clicked>
 				</myButton>
-				<statisticBox TitleFontSize="17" Title1="Income and Expense" Title2="for a Day" GreenText="{spcf_input_total}" RedText="{spcf_output_total}"/>
+				<statisticBox TitleFontSize="17" Title1="특정 날짜의" Title2="수입 지출" GreenText="{spcf_input_total}" RedText="{spcf_output_total}"/>
 				<!-- 특정날짜 수입지출 합산 끝 -->
 
 				<!-- 특정기간 수입지출 합산 시작 -->
@@ -68,7 +68,7 @@
 						</Clicked>
 					</myButton>
 				</Grid>
-				<statisticBox TitleFontSize="17" Title1="Income and Expense"  Title2="for a Period of Time" GreenText="{intv_tot_input_total}" RedText="{intv_tot_output_total}"/>
+				<statisticBox TitleFontSize="17" Title1="특정 기간동안의"  Title2="수입 지출" GreenText="{intv_tot_input_total}" RedText="{intv_tot_output_total}"/>
 				<!-- 특정기간 수입지출 합산 끝 -->
 				<!-- 특정 아이템에 대한 특정기간 수입지출 합산 시작 -->
 				<Grid Margin="10,10,10,0" RowCount="2" ColumnCount="2">
@@ -88,7 +88,7 @@
 						</Clicked>
 					</myButton>
 				</Grid>
-				<statisticBox TitleFontSize="17" Title1="Income and Expense" Title2="for an Item over a Period of Time" GreenText="{item_tot_input_total}" RedText="{item_tot_output_total}"/>
+				<statisticBox TitleFontSize="17" Title1="특정 기간동안의 특정 용도에 대한" Title2="수입 지출" GreenText="{item_tot_input_total}" RedText="{item_tot_output_total}"/>
 				<!-- 특정 아이템에 대한 특정기간 수입지출 합산 끝 -->
 				
 				<Rectangle Height="200" Color="AccountBook.Col_type3">
@@ -125,7 +125,7 @@
 				</StackPanel>
 				<Grid Width="220" Height="200" RowCount="7" ColumnCount="7">
 					<Each Items="{dayNameMatrix}">
-						<Text Alignment="Center" Value="{}" />
+						<Text Alignment="Center" Value="{data()}" />
 					</Each>
 					<Each Items="{calendarMatrix}">
 						<myButton Width="100%" Height="100%" text="{value}" textcolor="Black" fontsize="15" font="Bold" Clicked="{Click_calendar_number}">

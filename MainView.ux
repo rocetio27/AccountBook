@@ -275,11 +275,11 @@
 			<!-- 햄버거 아이콘 입니다. -->
 			<!-- 탭버튼들입니다. -->
 			<Grid RowSpan="8" Dock="Top" ColumnCount="3" Height="100%">
-				<PageTab ux:Name="input_tab" Label="INPUT" pageControl="pageControl" page="input">
+				<PageTab ux:Name="input_tab" Label="입력" pageControl="pageControl" page="input">
 				</PageTab>
-				<PageTab ux:Name="list_tab" Label="LIST" pageControl="pageControl" page="list">
+				<PageTab ux:Name="list_tab" Label="내역" pageControl="pageControl" page="list">
 				</PageTab>
-				<PageTab ux:Name="statistic_tab" Label="STATISTIC" pageControl="pageControl" page="statistic">
+				<PageTab ux:Name="statistic_tab" Label="통계" pageControl="pageControl" page="statistic">
 				</PageTab>
 			</Grid>
 			<!-- 탭버튼들입니다. -->

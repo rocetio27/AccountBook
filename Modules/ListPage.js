@@ -177,28 +177,31 @@ function LongClickNormal(arg){
 	}
 	pmType=item.pmType;
 	if(item.payType==1){
-		payType="CASH"
+		payType="현금"
 	}else if(item.payType==0){
-		payType="CARD"
+		payType="카드"
 	}
-	editVars.id.value=item.id
-	editVars.year.value=year;
-	editVars.month.value=month;
-	editVars.day.value=day;
-	editVars.abstract.value=abstract;
-	editVars.hour.value=hour;
-	editVars.minute.value=minute;
-	editVars.usage.value=usage;
-	editVars.amount.value=amount;
-	editVars.pmType.value=pmType;
-	editVars.payType.value=payType;
-	editVars.payTypeForEdit.value=item.payType;
-	editVars.data_time.value=data_time;
-	editVars.account_id.value=item.account_id;
-	editVars.group_id.value=item.group_id.value;
+	
+	console.log("editVars[0].pmType :: "+editVars[0].pmType)
+	console.log("editVars[0].pmType.value :: "+editVars[0].pmType.value)
+	editVars[0].id.value=item.id
+	editVars[0].year.value=year;
+	editVars[0].month.value=month;
+	editVars[0].day.value=day;
+	editVars[0].abstract.value=abstract;
+	editVars[0].hour.value=hour;
+	editVars[0].minute.value=minute;
+	editVars[0].usage.value=usage;
+	editVars[0].amount.value=amount;
+	editVars[0].pmType.value=pmType;
+	editVars[0].payType.value=payType;
+	editVars[0].payTypeForEdit.value=item.payType;
+	editVars[0].data_time.value=data_time;
+	editVars[0].account_id.value=item.account_id;
+	editVars[0].group_id.value=item.group_id.value;
 	//grouping을 위한 부분
-	firstClickedItemId=editVars.id.value;
-	firstClickedItemGroupId=editVars.group_id.value;
+	firstClickedItemId=editVars[0].id.value;
+	firstClickedItemGroupId=editVars[0].group_id.value;
 }
 
 function ClickDay(arg){
@@ -231,7 +234,7 @@ function Click_lArrow(){
 	Show.ReloadHistories();
 }
 
-var editVars = {
+var editVars = [{
 	id: Observable(),
 	amount: Observable(0),
 	account_id: Observable(),
@@ -244,84 +247,96 @@ var editVars = {
 	abstract: Observable("am"),
 	
 	usage: Observable("none"),
-	payType: Observable("CASH"),
+	payType: Observable("현금"),
 	pmType: Observable("+"),
 
 	payTypeForEdit: Observable(1),
 	data_time: Observable(),
 	group_id: Observable(),
+}]
+
+
+function EditYearHandler(arg) {
+	if(arg.value*1>9999){
+		editVars[0].year.value = 9999
+	}else if(arg.value=="00"){
+		editVars[0].year.value = 0
+	}
 }
 
 function EditMonthHandler(arg) {
 	if(arg.value*1>12){
-		editVars.month.value=editVars.month.value/10-(editVars.month.value/10)%1
+		editVars[0].month.value=editVars[0].month.value/10-(editVars[0].month.value/10)%1
 	}else if(arg.value*1<0){
-		editVars.month.value=1
+		editVars[0].month.value=1
 	}else if(arg.value=="0"){
-		editVars.month.value=1
+		editVars[0].month.value=1
 	}
-	//editVars.day.value=1; 
+	//editVars[0].day.value=1; 
 }
 
 function EditDayHandler(arg) {
-	var firstdayofyearmonth=moment(""+editVars.year.value+editVars.month.value,'YYYYM',true).format('YYYYMM01');
+	var firstdayofyearmonth=moment(""+editVars[0].year.value+editVars[0].month.value,'YYYYM',true).format('YYYYMM01');
 	var lastdayofyearmonth=moment(firstdayofyearmonth,'YYYYMMDD',true).add(1,'months').subtract(1,'day');
 	var lastday=moment(lastdayofyearmonth,'YYYYMMDD',true).format('DD');
 	if(arg.value*1>1*lastday){
-		editVars.day.value=editVars.day.value/10-(editVars.day.value/10)%1
+		editVars[0].day.value=editVars[0].day.value/10-(editVars[0].day.value/10)%1
 	}else if(arg.value*1<0){
-		editVars.day.value=1
+		editVars[0].day.value=1
 	}else if(arg.value=="0"){
-		editVars.day.value=1
+		editVars[0].day.value=1
 	}
 }
 
 function EditHourHandler(arg) {
 	if(arg.value*1>12){
-		editVars.hour.value=editVars.hour.value/10-(editVars.hour.value/10)%1
+		editVars[0].hour.value=editVars[0].hour.value/10-(editVars[0].hour.value/10)%1
 	}else if(arg.value*1<0){
-		editVars.hour.value=1
+		editVars[0].hour.value=1
 	}else if(arg.value=="0"){
-		editVars.hour.value=1
+		editVars[0].hour.value=1
 	}
 }
 
 function EditMinuteHandler(arg) {
 	if(arg.value*1>59){
-		editVars.minute.value=editVars.minute.value/10-(editVars.minute.value/10)%1
+		editVars[0].minute.value=editVars[0].minute.value/10-(editVars[0].minute.value/10)%1
 	}else if(arg.value*1<0){
-		editVars.minute.value=1
+		editVars[0].minute.value=1
+	}else if(arg.value == "00"){
+		editVars[0].minute.value = "0"
 	}
 }
 
 function ClickEditpmtypeButton(arg){
-	if(arg.data.editVars.pmType.value=="+"){
-		editVars.pmType.value="-"
-	}else if(arg.data.editVars.pmType.value=="-"){
-		editVars.pmType.value="+"
+	console.log("arg.data :"+arg.data.pmType.value)
+	if(arg.data.pmType.value=="+"){
+		arg.data.pmType.value="-"
+	}else if(arg.data.pmType.value=="-"){
+		arg.data.pmType.value="+"
 	}
 }
 
 function ClickEditpaytypeButton(arg){
-	if(arg.data.editVars.payType.value=="CASH"){
-		editVars.payType.value="CARD"
-		editVars.payTypeForEdit.value=0;
-	}else if(arg.data.editVars.payType.value=="CARD"){
-		editVars.payType.value="CASH"
-		editVars.payTypeForEdit.value=1;
+	if(arg.data.payType.value=="현금"){
+		arg.data.payType.value="카드"
+		arg.data.payTypeForEdit.value=0;
+	}else if(arg.data.payType.value=="카드"){
+		arg.data.payType.value="현금"
+		arg.data.payTypeForEdit.value=1;
 	}
 }
 
 function ClickEditabstractButton(arg){
-	if(arg.data.editVars.abstract.value=="am"){
-		arg.data.editVars.abstract.value="pm"
-	}else if(arg.data.editVars.abstract.value=="pm"){
-		arg.data.editVars.abstract.value="am"
+	if(arg.data.abstract.value=="am"){
+		arg.data.abstract.value="pm"
+	}else if(arg.data.abstract.value=="pm"){
+		arg.data.abstract.value="am"
 	}
 }
 
 function Delete(){
-	TempDB.DeleteDB_byId(editVars.id.value);
+	TempDB.DeleteDB_byId(editVars[0].id.value);
 	Show.data = TempDB.data;
 	Show.RenewInputCurrentBalance();
 	Show.ReloadHistories();
@@ -333,20 +348,20 @@ function Delete(){
 
 function EditConfirm(){
  //editVars에 저장된 값으로 after data_time을 만든다.
- 	if(editVars.year.value*1!=0&&editVars.month.value*1!=0&&editVars.day.value*1!=0&&editVars.hour.value*1!=0){
- 		year=editVars.year.value;
-		month=editVars.month.value;
-		day=editVars.day.value;
-		abstract=editVars.abstract.value;
-		hour=editVars.hour.value;
-		minute=editVars.minute.value;
+ 	if(editVars[0].year.value*1!=0&&editVars[0].month.value*1!=0&&editVars[0].day.value*1!=0&&editVars[0].hour.value*1!=0&&editVars[0].year!=""&& (editVars[0].year.value > 999) &&editVars[0].month!=""&&editVars[0].day!=""&&editVars[0].hour!=""&&editVars[0].minute!=""&&editVars[0].amount!=""){
+ 		year=editVars[0].year.value;
+		month=editVars[0].month.value;
+		day=editVars[0].day.value;
+		abstract=editVars[0].abstract.value;
+		hour=editVars[0].hour.value;
+		minute=editVars[0].minute.value;
 		preDataTime=year+" "+month+" "+day+" "+abstract+" "+hour+" "+minute;
 		data_time=moment(preDataTime,'YYYY M D a h m',true).format('YYYYMMDDHHmm');
 		//
-		if(editVars.pmType.value=="-"){
-			editVars.amount.value=editVars.amount.value*-1;
+		if(editVars[0].pmType.value=="-"){
+			editVars[0].amount.value=editVars[0].amount.value*-1;
 		}
-		TempDB.EditDB_byId(editVars.id.value,editVars.account_id.value,editVars.amount.value,data_time,editVars.usage.value,editVars.payTypeForEdit.value,editVars.pmType.value,editVars.group_id.value);
+		TempDB.EditDB_byId(editVars[0].id.value,editVars[0].account_id.value,editVars[0].amount.value,data_time,editVars[0].usage.value,editVars[0].payTypeForEdit.value,editVars[0].pmType.value,editVars[0].group_id.value);
 		Show.RenewInputCurrentBalance();
 		Show.ReloadHistories();
 		Show.CalculateSpcfTotal();
@@ -393,6 +408,7 @@ module.exports={
 	Click_lArrow: Click_lArrow,
 	Click_rArrow: Click_rArrow,
 	
+	EditYearHandler,
 	EditMonthHandler,
 	EditDayHandler,
 	EditHourHandler,

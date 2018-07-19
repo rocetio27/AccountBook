@@ -13,7 +13,7 @@ var db = sqlite.open("file.sqlite");
 	//app 실행시 db가 없으면 최초로 생성함
 	db.execute("create table if not exists INITIAL_VALUE (id integer primary key autoincrement, account_id integer, amount integer,dateTime string,usage string,payType integer,pmType string)");
 	var tvi = db.query("select * from INITIAL_VALUE")[0];
-    //table이 비어있으면, default value 입력
+    //table이 비어있으면, default value "INPUT"
     console.log("?????");
     console.log("table이 비어있나요? : "+(!tvi));
     //console.log("그렇다면 뭐가 들었죠?"+tvi.payType);

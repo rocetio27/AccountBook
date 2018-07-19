@@ -10,7 +10,7 @@
 					</Rectangle>
 				</Panel>
 				<Text RowSpan="3" Alignment="Center" Value="{cashOrCardText}" Color="#000"/>
-				<Text RowSpan="3" Alignment="Center" Value="Current Balance" Color="#000"/>
+				<Text RowSpan="3" Alignment="Center" Value="현재 잔액" Color="#000"/>
 				<Text RowSpan="7" FontSize="45" Alignment="Center" Value="{currentBalance}" Color="#000"/>
 				<Text RowSpan="2" FontSize="30" Alignment="Center" TextColor="{addingValueColor}" Value="{inputVars.pmType} {addingValue}"/>
 				<Panel RowSpan="15"/>
@@ -26,7 +26,7 @@
 		<DockPanel RowSpan="43">	
 			<Grid RowSpan="43" Alignment="Bottom" Color="{Resource AccountBook.Col_type3}" Padding="0,10,0,10" Height="100%" ux:Name="KeyboardGrid" RowCount="5" ColumnCount="5">
 				
-				<TextInput ux:Name="usageTextInput" Padding="1" ColumnSpan="5" Value="{inputVars.usage}" Height="100%" Width="100%" TextColor="#000" TextAlignment="Center">
+				<TextInput PlaceholderText="추가 될 내역의 이름을 입력해주세요." PlaceholderColor="#888" ux:Name="usageTextInput" Padding="1" ColumnSpan="5" Value="{inputVars.usage}" Height="100%" Width="100%" TextColor="#000" TextAlignment="Center">
 					<Rectangle>
 				    	<SolidColor Color="#fff"/>
 				    	<Stroke Width="1" Color="#fff"/>
@@ -34,7 +34,7 @@
 				</TextInput>
 				<wbButton Text="{payTypeText}" Clicked="{PayTypeChange}" ColumnSpan="3" />
 				<Grid ColumnCount="8" ColumnSpan="2">
-				<wbButton ux:Name="usage_button" ColumnSpan="8" Text="BOOKMARK">
+				<wbButton ux:Name="usage_button" ColumnSpan="8" Text="즐겨찾기">
 					<Clicked>
 					<Set ModalConfirm.IsEnabled="true"/>
 					</Clicked>
@@ -42,11 +42,11 @@
 				</Grid>
 				
 				<Each Items="{numSet}">
-					<wbButton Text="{}" Clicked="{BalanceAdd}" />
+					<wbButton Text="{data()}" Clicked="{BalanceAdd}" />
 				</Each>
 				<wbButton Text="<" Clicked="{Backspace}"/>
 				<pmButton ColumnSpan="2" Text="{pmTypeText}"/>
-				<wbButton Text="PUT" Clicked="{Submit}" ColumnSpan="2" />
+				<wbButton Text="입력" Clicked="{Submit}" ColumnSpan="2" />
 				
 				<WhileKeyboardVisible>
 					<Move RelativeTo="Keyboard" Y="-1" />

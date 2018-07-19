@@ -33,15 +33,15 @@
 	</Button>
 	<Grid RowCount="100">
 		<Panel RowSpan="1"/>
-		<Text Value="CurrentBalance" Alignment="Center" RowSpan="2" FontSize="12"/>
+		<Text Value="현재 잔액" Alignment="Center" RowSpan="2" FontSize="12"/>
 		<Text Alignment="Center" RowSpan="12" Value="{currentBalance}" Color="#000" FontSize="32"/>
 		<Grid Color="#fff" RowSpan="5" ColumnCount="2">
-			<ccButton Height="100%" Width="100%" Clicked="{ChangeListCashShow}" ux:Name="cash" Alignment="Center" text="CASH" textcolor="#eee" Color="{list_cash_show_color}" fontsize="18">
+			<ccButton Height="100%" Width="100%" Clicked="{ChangeListCashShow}" ux:Name="cash" Alignment="Center" text="현금" textcolor="#eee" Color="{list_cash_show_color}" fontsize="18">
 				<WhilePressed>
 					<Change cash.Color="#999" Duration="0.05" DurationBack=".2" />
 				</WhilePressed>
 			</ccButton>
-			<ccButton Height="100%" Width="100%" Clicked="{ChangeListCardShow}" ux:Name="card" Alignment="Center" text="CARD" textcolor="#eee" Color="{list_card_show_color}" fontsize="18">
+			<ccButton Height="100%" Width="100%" Clicked="{ChangeListCardShow}" ux:Name="card" Alignment="Center" text="카드" textcolor="#eee" Color="{list_card_show_color}" fontsize="18">
 				<WhilePressed>
 					<Change card.Color="#999" Duration="0.05" DurationBack=".2" />
 				</WhilePressed>
@@ -84,11 +84,9 @@
 							<dayButton Alignment="Center" Visibility="{day_visibility}" text="DAY {day}" textcolor="#444" fontsize="12" Clicked="{ClickDay}" />
 							<Each Items="{histOfTheDay}">
 								<Grid ux:Name="grid" ColumnCount="3" Height="24" Color="{vars_color}"  Visibility="{vars_visibility}" >
-									<WhilePressed>
-										<Change grid.Color="#eee" Duration="0.05" DurationBack=".2" />
-									</WhilePressed>
 									<Tapped Handler="{ClickNormal}">
 										<PlaySound File="Click.wav" />
+										<Change grid.Color="#eee" Duration="0.05" DurationBack=".2" />
 									</Tapped>
 									<LongPressed Handler="{LongClickNormal}">
 										<Set ModalConfirm.IsEnabled="true"/>
@@ -170,50 +168,55 @@
 	</Button>
 	<AlternateRoot ux:Name="ModalConfirm2" IsEnabled="false" ParentNode="{Resource FullWindow2}">
 		<Panel Layer="Overlay" Color="AccountBook.Col_type3" Padding="10">
-			<ClientPanel>
-			<Grid Width="100%" Height="70%" RowCount="11" Padding="10">
-				<Text Value="EDIT PAGE" TextColor="Black" Alignment="TopCenter" FontSize="30"/>
-				<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
-					<Stroke Width="1" Color="Black"/>
-				</Rectangle>
-				<Grid ColumnCount="3">
-					<EditTitleText Value="Year"/>
-					<EditTitleText Value="Month"/>
-					<EditTitleText Value="Day"/>
-				</Grid>
-				<Grid ColumnCount="3">
-					<EditTextBox Value="{editVars.year}" InputHint="Integer"/>
-					<EditTextBox ValueChanged="{EditMonthHandler}" Value="{editVars.month}" InputHint="Integer"/>
-					<EditTextBox ValueChanged="{EditDayHandler}" Value="{editVars.day}" InputHint="Integer"/>
-				</Grid>
-				<Grid ColumnCount="3">
+		<ClientPanel>
+			<Each Items="{editVars}">
+				<Grid Width="100%" Height="70%" RowCount="11" Padding="10">
+					<Text Value="EDIT PAGE" TextColor="Black" Alignment="TopCenter" FontSize="30"/>
+					<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
+						<Stroke Width="1" Color="Black"/>
+					</Rectangle>
+					
+					<Grid ColumnCount="3">
+						<EditTitleText Value="Year"/>
+						<EditTitleText Value="Month"/>
+						<EditTitleText Value="Day"/>
+					</Grid>
+					<Grid ColumnCount="3">
+						<EditTextBox Value="{year}" ValueChanged="{EditYearHandler}" InputHint="Integer"/>
+						<EditTextBox ValueChanged="{EditMonthHandler}" Value="{month}" InputHint="Integer"/>
+						<EditTextBox ValueChanged="{EditDayHandler}" Value="{day}" InputHint="Integer"/>
+					</Grid>
+					<Grid ColumnCount="3">
+						<Text/>
+						<EditTitleText Value="Hour"/>
+						<EditTitleText Value="Minute"/>
+					</Grid>
+					<Grid ColumnCount="3">
+						<EditButton  Clicked="{ClickEditabstractButton}" fontsize="14" textcolor="Black" text="{abstract}"/>
+						<EditTextBox ValueChanged="{EditHourHandler}" Value="{hour}" InputHint="Integer"/>
+						<EditTextBox ValueChanged="{EditMinuteHandler}" Value="{minute}" InputHint="Integer"/>
+					</Grid>
+					<Grid ColumnCount="2">
+						<EditTitleText Value="Amount"/>
+						<EditTitleText Value="Usage"/>
+					</Grid>
+					<Grid ColumnCount="8">
+						<!--  -->
+						<EditButton Clicked="{ClickEditpmtypeButton}" fontsize="16" textcolor="Black" text="{pmType}"/>
+						<EditTextBox ColumnSpan="3" Value="{amount}" InputHint="Number"/>
+						<EditTextBox ColumnSpan="4" Value="{usage}"/>
+						<!--  -->
+					</Grid>
+					<EditTitleText Value="PayType"/>
+					<EditButton  Clicked="{ClickEditpaytypeButton}" fontsize="16" textcolor="Black" text="{payType}"/>
 					<Text/>
-					<EditTitleText Value="Hour"/>
-					<EditTitleText Value="Minute"/>
+					<EditButton Clicked="{EditConfirm}" fontsize="16" textcolor="Black" text="OK">
+						<Clicked>
+							<Set ModalConfirm2.IsEnabled="false"/>
+						</Clicked>
+					</EditButton>
 				</Grid>
-				<Grid ColumnCount="3">
-					<EditButton  Clicked="{ClickEditabstractButton}" fontsize="14" textcolor="Black" text="{editVars.abstract}"/>
-					<EditTextBox ValueChanged="{EditHourHandler}" Value="{editVars.hour}" InputHint="Integer"/>
-					<EditTextBox ValueChanged="{EditMinuteHandler}" Value="{editVars.minute}" InputHint="Integer"/>
-				</Grid>
-				<Grid ColumnCount="2">
-					<EditTitleText Value="Amount"/>
-					<EditTitleText Value="Usage"/>
-				</Grid>
-				<Grid ColumnCount="8">
-					<EditButton  Clicked="{ClickEditpmtypeButton}" fontsize="16" textcolor="Black" text="{editVars.pmType}"/>
-					<EditTextBox ColumnSpan="3" Value="{editVars.amount}" InputHint="Number"/>
-					<EditTextBox ColumnSpan="4" Value="{editVars.usage}"/>
-				</Grid>
-				<EditTitleText Value="PayType"/>
-				<EditButton  Clicked="{ClickEditpaytypeButton}" fontsize="16" textcolor="Black" text="{editVars.payType}"/>
-				<Text/>
-				<EditButton Clicked="{EditConfirm}" fontsize="16" textcolor="Black" text="OK">
-					<Clicked>
-						<Set ModalConfirm2.IsEnabled="false"/>
-					</Clicked>
-				</EditButton>
-			</Grid>
+			</Each>
 		</ClientPanel>
 		</Panel>
 	</AlternateRoot>

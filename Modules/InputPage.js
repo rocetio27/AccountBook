@@ -35,28 +35,28 @@ var usageListAddInput = Observable("");
 		if (inputVars.pmType.value=="+"){
 
 			addingValueColor.value="#cc0000";
-			pmTypeText.value = "OUTPUT";
+			pmTypeText.value = "지출";
 			inputVars.pmType.value="-";
 
 		} else if ( inputVars.pmType.value=="-"){
 
 			addingValueColor.value="#006600";
-			pmTypeText.value = "INPUT";
+			pmTypeText.value = "수입";
 			inputVars.pmType.value="+";
 		}
 	}
 
 	function PayTypeChange(){
 		if (inputVars.payType.value==1){
-			payTypeText.value = "CARD";
-			cashOrCardText.value = "CARD";
+			payTypeText.value = "카드";
+			cashOrCardText.value = "카드";
 			inputVars.payType.value=0;
 			Show.input_payType.value=0;
 			Show.RenewInputCurrentBalance();
 
 		} else if ( inputVars.payType.value==0){
-			payTypeText.value = "CASH";
-			cashOrCardText.value = "CASH";
+			payTypeText.value = "현금";
+			cashOrCardText.value = "현금";
 			inputVars.payType.value=1;
 			Show.input_payType.value=1;
 			Show.RenewInputCurrentBalance();
@@ -67,29 +67,29 @@ var usageListAddInput = Observable("");
 		if (inputVars.pmType.value=="+"){
 
 			addingValueColor.value="#006600";
-			pmTypeText.value = "INPUT";
+			pmTypeText.value = "수입";
 			inputVars.pmType.value="+";
 
 		} else if ( inputVars.pmType.value=="-"){
 
 			addingValueColor.value="#cc0000";
-			pmTypeText.value = "OUTPUT";
+			pmTypeText.value = "지출";
 			inputVars.pmType.value="-";
 		}
 	}
 
 	function SetPayType(){
 		if (inputVars.payType.value==1){
-			payTypeText.value = "CASH";
-			cashOrCardText.value = "CASH";
+			payTypeText.value = "현금";
+			cashOrCardText.value = "현금";
 			inputVars.payType.value=1;
 			Show.input_payType.value=1;
 			Show.RenewInputCurrentBalance();
 
 		} else if ( inputVars.payType.value==0){
 			
-			payTypeText.value = "CARD";
-			cashOrCardText.value = "CARD";
+			payTypeText.value = "카드";
+			cashOrCardText.value = "카드";
 			inputVars.payType.value=0;
 			Show.input_payType.value=0;
 			Show.RenewInputCurrentBalance();
@@ -111,11 +111,11 @@ Show.input_payType.value=inputVars.payType.value;
 
 var addingValueColor = Observable("#006600");
 var addingValue = Observable(0);
-var pmTypeText = Observable("INPUT");
-var payTypeText = Observable("CASH");
+var pmTypeText = Observable("수입");
+var payTypeText = Observable("현금");
 Show.RenewInputCurrentBalance();
 var currentBalance = Show.i_cB;
-var cashOrCardText = Observable("CASH");
+var cashOrCardText = Observable("현금");
 console.log("돌아 왔나요?")
 SetPayType();
 SetPM_Type();

@@ -49,8 +49,8 @@
 		</Grid>
 		<Button ux:Name="yearmonth" RowSpan="7">
 			<Grid RowCount="7">
-			<Text TextAlignment="Center" Width="100%" Height="100%" Font="Bold" FontSize="12" Value="{screenYear}" Color="White" Background="#FFBD00" />
-			<StackPanel Width="100%" Height="100%" Color="#FFBD00" Alignment="Center" RowSpan="6" Orientation="Horizontal">
+			<Text TextAlignment="Center" Width="100%" Height="100%" Font="Bold" FontSize="12" Value="{screenYear}" Color="White" Background="AccountBook.background_Col_type3" />
+			<StackPanel Width="100%" Height="100%" Color="AccountBook.Col_type3" Alignment="Center" RowSpan="6" Orientation="Horizontal">
 				<ccButton Clicked="{Click_lArrow}" Alignment="Center">
 					<Image ux:Name="lbutton" Height="80%" File="images/lArrow.png"/>
 					<WhilePressed>
@@ -68,7 +68,7 @@
 			</StackPanel>
 			</Grid>
 		</Button>
-		<ScrollView Background="#FFBD00" Padding="10,10,10,0" RowSpan="75">
+		<ScrollView Background="AccountBook.background_Col_type3" Padding="10,10,10,0" RowSpan="75">
 			<StackPanel>
 				<Match Value="{grouping_activation}">
 					<Case Bool="true">
@@ -84,6 +84,9 @@
 							<dayButton Alignment="Center" Visibility="{day_visibility}" text="DAY {day}" textcolor="#444" fontsize="12" Clicked="{ClickDay}" />
 							<Each Items="{histOfTheDay}">
 								<Grid ux:Name="grid" ColumnCount="3" Height="24" Color="{vars_color}"  Visibility="{vars_visibility}" >
+									<WhilePressed>
+										<Change grid.Color="#eee" Duration="0.05" DurationBack=".2" />
+									</WhilePressed>
 									<Tapped Handler="{ClickNormal}">
 										<PlaySound File="Click.wav" />
 									</Tapped>
@@ -98,10 +101,10 @@
 									<Each Items="{normal}">
 									<Match Value="{pmType}">
 									    <Case String="+">
-											<Text Alignment="Center" Color="#006600" Value="+{amount}" />
+											<Text Alignment="Center" Color="Col_green" Value="+{amount}" />
 									    </Case>
 									    <Case String="-">
-									        <Text Alignment="Center" Color="#EE0000" Value="{amount}" />
+									        <Text Alignment="Center" Color="Col_red" Value="{amount}" />
 									    </Case>
 									</Match>
 									<Text Alignment="Center" Value="{usage}" Color="Black" />
@@ -133,7 +136,7 @@
 			</Clicked>
 			<StackPanel Width="150" Height="90" Alignment="Center" Padding="10">
 				<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
-					<Stroke Width="2" Color="{Resource Col_type3}"/>
+					<Stroke Width="2" Color="{Resource AccountBook.Col_type3}"/>
 				</Rectangle>
 				<ccButton Clicked="{PushListEditPage}" Width="100%" text="EDIT" textcolor="Black" fontsize="18">
 					<Clicked>
@@ -166,7 +169,7 @@
 		</Text>
 	</Button>
 	<AlternateRoot ux:Name="ModalConfirm2" IsEnabled="false" ParentNode="{Resource FullWindow2}">
-		<Panel Layer="Overlay" Color="#ffbd00" Padding="10">
+		<Panel Layer="Overlay" Color="AccountBook.Col_type3" Padding="10">
 			<ClientPanel>
 			<Grid Width="100%" Height="70%" RowCount="11" Padding="10">
 				<Text Value="EDIT PAGE" TextColor="Black" Alignment="TopCenter" FontSize="30"/>
@@ -215,9 +218,9 @@
 		</Panel>
 	</AlternateRoot>
 	<AlternateRoot ux:Name="ModalConfirm3" IsEnabled="false" ParentNode="{Resource FullWindow2}">
-		<Panel Height="20%" Width="50%" Layer="Overlay" Color="#ffbd00" Padding="10">
+		<Panel Height="20%" Width="50%" Layer="Overlay" Color="AccountBook.Col_type3" Padding="10">
 				<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
-					<Stroke Width="2" Color="#ffbd00"/>
+					<Stroke Width="2" Color="AccountBook.Col_type3"/>
 				</Rectangle>
 				<Grid Height="100%" Width="100%" RowCount="4">
 					<Text Value="EDIT PAGE" TextColor="Black" Alignment="TopCenter" FontSize="20"/>

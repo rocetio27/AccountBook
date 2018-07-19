@@ -2,10 +2,13 @@
 	<SQLite ux:Global="SQLite" />
 	<JavaScript File="Modules/MainView.js"/>
 
-	<float4 ux:Key="Col_type1" ux:Value="#f4d300" />
-	<float4 ux:Key="Col_type2" ux:Value="#FFF3A6" />
-	<float4 ux:Key="Col_type3" ux:Value="#FFBD00" />
-	<float4 ux:Key="Col_type4" ux:Value="#FFFFEE" />
+	<float4 ux:Global="Col_type1" ux:Value="#f4d300" />
+	<float4 ux:Global="Col_type2" ux:Value="#FFF3A6" />
+	<float4 ux:Global="AccountBook.Col_type3" ux:Value="#FFBD00" />
+	<SolidColor ux:Global="AccountBook.background_Col_type3" Color="#FFBD00" />
+	<float4 ux:Global="Col_type4" ux:Value="#FFFFEE" />
+	<float4 ux:Global="Col_red" ux:Value="#cc0000" />
+	<float4 ux:Global="Col_green" ux:Value="#006600" />
 
 <!-- Button Design  -->
 	<Button Height="100%" Width="100%" Padding="1" ux:Class="wbButton" TextCol="#000">
@@ -55,14 +58,14 @@
 	<Panel ux:Class="Banner">
 		<DockPanel>
 			<Text Alignment="Center" Value="{currentTitle}" Color="Black"/>
-			<Rectangle Color="{Resource Col_type3}" Height="100%">
+			<Rectangle Color="{Resource AccountBook.Col_type3}" Height="100%">
 				<DropShadow Angle="0" Distance="1" Spread="0.2" Size="2" Color="#00000060" />
 			</Rectangle>
 		</DockPanel>
 	</Panel>
 <!-- Banner Templete End -->
 <!-- PageTab Templete 페이지텝버튼 디자인입니다.-->
-	<Panel ux:Class="PageTab" Color="{Resource Col_type3}" HitTestMode="LocalBoundsAndChildren">
+	<Panel ux:Class="PageTab" Color="{Resource AccountBook.Col_type3}" HitTestMode="LocalBoundsAndChildren">
 		<string ux:Property="Label"   />
 		<PageControl ux:Dependency="pageControl" />
 		<Page ux:Dependency="page" />
@@ -76,6 +79,13 @@
 		</WhilePressed>
 	</Panel>
 <!-- PageTab Templete End -->
+<!-- 인디케이터 디자인 시작-->
+	<Rectangle ux:Name="indicator" LayoutMaster="input_tab" Alignment="Bottom" Height="4" Color="#ffffff">
+        <LayoutAnimation>
+            <Move RelativeTo="WorldPositionChange" X="1" Duration="0.4" Easing="BackIn"/>
+        </LayoutAnimation>
+    </Rectangle>
+<!-- 인디케이터 디자인 끝 -->
 
 <EdgeNavigator >	
 	<!-- EdgePage Start -->
@@ -149,7 +159,7 @@
 							</Clicked>
 						</wbButton>
 						<Grid ux:Name="bGrid" Visibility="Hidden" RowCount="2">
-							<wbButton ux:Name="bDel" Text="DELETE" TextCol="#EE0000">
+							<wbButton ux:Name="bDel" Text="DELETE" TextCol="Col_red">
 								<Clicked>
 								<Set aEdit.Visibility="Hidden"/>
 								<Set aBtn.Visibility="Hidden"/>
@@ -196,7 +206,7 @@
 								<Set cCancel.Visibility="Hidden"/>
 								</Clicked>
 							</wbButton>
-							<wbButton Clicked="{DeleteAccount}" ux:Name="cDel" Text="DELETE" TextCol="#EE0000">
+							<wbButton Clicked="{DeleteAccount}" ux:Name="cDel" Text="DELETE" TextCol="Col_red">
 								<Clicked>
 								<Set aEdit.Visibility="Visible"/>
 								<Set aBtn.Visibility="Visible"/>
@@ -249,13 +259,13 @@
 						<NavigateToggle Target="sidebar" />
 					</Clicked>
 					<Grid Padding="4" ux:Name="Hamburger" RowCount="7">
-						<Rectangle Color="#ffbd00" />
-						<Rectangle CornerRadius="4" Color="#fff"/>
-						<Rectangle Color="#ffbd00"/>
-						<Rectangle CornerRadius="4" Color="#fff"/>
-						<Rectangle Color="#ffbd00"/>
-						<Rectangle CornerRadius="4" Color="#fff"/>
-						<Rectangle Color="#ffbd00"/>
+						<Rectangle Color="AccountBook.Col_type3" />
+						<Rectangle CornerRadius="2" Color="#fff"/>
+						<Rectangle Color="AccountBook.Col_type3"/>
+						<Rectangle CornerRadius="2" Color="#fff"/>
+						<Rectangle Color="AccountBook.Col_type3"/>
+						<Rectangle CornerRadius="2" Color="#fff"/>
+						<Rectangle Color="AccountBook.Col_type3"/>
 					</Grid>
 					<WhilePressed>
 						<Change Hamburger.Color="#888" Duration="0.05" DurationBack=".2"/>
@@ -264,11 +274,13 @@
 			</Banner>
 			<!-- 햄버거 아이콘 입니다. -->
 			<!-- 탭버튼들입니다. -->
-			<Grid RowSpan="8" Dock="Top" ColumnCount="4" Height="100%">
-				<PageTab ux:Name="input_tab" Label="INPUT" pageControl="pageControl" page="input"/>
-				<PageTab ux:Name="list_tab" Label="LIST" pageControl="pageControl" page="list"/>
-				<PageTab ux:Name="statistic_tab" Label="STATISTIC" pageControl="pageControl" page="statistic"/>
-				<PageTab ux:Name="budget_tab" Label="BUDGET" pageControl="pageControl" page="budget"/>
+			<Grid RowSpan="8" Dock="Top" ColumnCount="3" Height="100%">
+				<PageTab ux:Name="input_tab" Label="INPUT" pageControl="pageControl" page="input">
+				</PageTab>
+				<PageTab ux:Name="list_tab" Label="LIST" pageControl="pageControl" page="list">
+				</PageTab>
+				<PageTab ux:Name="statistic_tab" Label="STATISTIC" pageControl="pageControl" page="statistic">
+				</PageTab>
 			</Grid>
 			<!-- 탭버튼들입니다. -->
 		</Grid>
@@ -278,10 +290,21 @@
 		<Page>
 			<Router ux:Name="router_pages"/>
 			<PageControl ux:Name="pageControl">
-				<InputPage ux:Name="input" />
-				<ListPage ux:Name="list" />
-				<StatisticPage ux:Name="statistic" />
-				<BudgetPage ux:Name="budget"  />
+				<InputPage ux:Name="input">
+					<WhileActive Threshold="0.5">
+                    	<Set indicator.LayoutMaster="input_tab" />
+                	</WhileActive>
+				</InputPage>
+				<ListPage ux:Name="list">
+					<WhileActive Threshold="0.5">
+                    	<Set indicator.LayoutMaster="list_tab" />
+                	</WhileActive>
+				</ListPage>
+				<StatisticPage ux:Name="statistic">
+					<WhileActive Threshold="0.5">
+                    	<Set indicator.LayoutMaster="statistic_tab" />
+                	</WhileActive>
+				</StatisticPage>
 			</PageControl>
 		</Page>
 		<!-- 페이지 네비게이터입니다. -->

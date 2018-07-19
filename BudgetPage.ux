@@ -1,4 +1,4 @@
-<Page Color="#ffbd00" Width="100%" Height="86%" Alignment="BottomCenter" ux:Class="BudgetPage">
+<Page Color="AccountBook.Col_type3" Width="100%" Height="86%" Alignment="BottomCenter" ux:Class="BudgetPage">
 	<Panel ux:Name="FullWindo" Layer="Overlay" />
 	<TextInput ux:Class="wbTextInput" TextAlignment="Center" Margin="1">
 		<Rectangle Color="#ffffff" CornerRadius="5">
@@ -53,7 +53,7 @@
 					<Text Value="GOAL" ColumnSpan="3" Color="Black" Alignment="Center"/>
 				<Match Value="{goal_output_entrymode}">
 					<Case Bool="false">
-						<wbButtonB ColumnSpan="3" textcolor="#ee0000" Text="{goal_output}" Clicked="{ChangeGoalOutputEntryMode}"/>
+						<wbButtonB ColumnSpan="3" textcolor="AccountBook.Col_type3" Text="{goal_output}" Clicked="{ChangeGoalOutputEntryMode}"/>
 					</Case>
 					<Case Bool="true">
 						<Grid ColumnSpan="3" ColumnCount="6">
@@ -79,15 +79,15 @@
 						<Grid RowCount="4">
 							<Rectangle Color="#fff" CornerRadius="5">
 								<Text Color="Black" Value="day" Alignment="Center"/>
-								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="AccountBook.Col_type3"/>
 							</Rectangle>
 							<Rectangle Color="#fff" CornerRadius="5">
 								<Text Color="Black" Value="week" Alignment="Center"/>
-								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="AccountBook.Col_type3"/>
 							</Rectangle>
 							<Rectangle Color="#fff" CornerRadius="5">
 								<Text Color="Black" Value="month" Alignment="Center"/>
-								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="AccountBook.Col_type3"/>
 							</Rectangle>
 							<Text Color="Black" Value="year" Alignment="Center"/>
 						</Grid>
@@ -98,15 +98,15 @@
 						<Grid RowCount="4">
 							<Rectangle Color="#fff" CornerRadius="5">
 								<Text Color="Black" Value="{now_to_right}" Alignment="Center"/>
-								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="AccountBook.Col_type3"/>
 							</Rectangle>
 							<Rectangle Color="#fff" CornerRadius="5">
 								<Text Color="Black" Value="{week_left}" Alignment="Center"/>
-								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="AccountBook.Col_type3"/>
 							</Rectangle>
 							<Rectangle Color="#fff" CornerRadius="5">
 								<Text Color="Black" Value="{month_left}" Alignment="Center"/>
-								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="AccountBook.Col_type3"/>
 							</Rectangle>
 							<Text Color="Black" Value="{year_left}" Alignment="Center"/>
 						</Grid>
@@ -117,18 +117,18 @@
 					<Rectangle Color="#fff" CornerRadius="5">
 						<Grid RowCount="4">
 							<Rectangle Color="#fff" CornerRadius="5">
-								<Text Color="#ee0000" Value="{day_out_limit}" Alignment="Center"/>
-								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+								<Text Color="AccountBook.Col_type3" Value="{day_out_limit}" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="AccountBook.Col_type3"/>
 							</Rectangle>
 							<Rectangle Color="#fff" CornerRadius="5">
-								<Text Color="#ee0000" Value="{week_out_limit}" Alignment="Center"/>
-								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+								<Text Color="AccountBook.Col_type3" Value="{week_out_limit}" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="AccountBook.Col_type3"/>
 							</Rectangle>
 							<Rectangle Color="#fff" CornerRadius="5">
-								<Text Color="#ee0000" Value="{month_out_limit}" Alignment="Center"/>
-								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="#ffbd00"/>
+								<Text Color="AccountBook.Col_type3" Value="{month_out_limit}" Alignment="Center"/>
+								<Rectangle Alignment="BottomCenter" Height="2" Width="100%" Color="AccountBook.Col_type3"/>
 							</Rectangle>
-							<Text Color="#ee0000" Value="{year_out_limit}" Alignment="Center"/>
+							<Text Color="AccountBook.Col_type3" Value="{year_out_limit}" Alignment="Center"/>
 						</Grid>
 					</Rectangle>
 				</Panel>
@@ -142,7 +142,7 @@
 		<Panel Layer="Overlay" Color="1,1,1,0">
 			<StackPanel Alignment="Center" Padding="10">
 				<Rectangle Width="250" Height="300" CornerRadius="10" Layer="Background"  Color="#fff">
-					<Stroke Width="2" Color="{Resource Col_type3}"/>
+					<Stroke Width="2" Color="{Resource AccountBook.Col_type3}"/>
 				</Rectangle>
 				<StackPanel Alignment="Center" Height="20" Orientation="Horizontal">
 					<ccButton Margin="2,0,2,0" Clicked="{Click_calendar_lArrow}" Alignment="Center">
@@ -166,17 +166,17 @@
 						<Text Alignment="Center" Value="{}" />
 					</Each>
 					<Each Items="{calendarMatrix}">
-						<myButton Visibility="{visibility}" Width="100%" Height="100%" text="{value}" textcolor="Black" fontsize="15" font="Bold" Clicked="{Click_calendar_number}">
+						<!-- <myButton Visibility="{visibility}" Width="100%" Height="100%" text="{value}" textcolor="Black" fontsize="15" font="Bold" Clicked="{Click_calendar_number}">
 							<Rectangle Color="White" CornerRadius="5">
 
 							</Rectangle>
-						</myButton>
+						</myButton> -->
 					</Each>
 				</Grid>
 				<Button Clicked="{Ok_click}">
 					<Text Value="OK" Color="#000" Alignment="Center" TextAlignment="Center"/>
 					<Rectangle CornerRadius="5">
-						<Stroke Width="2" Color="{Resource Col_type3}"/>
+						<Stroke Width="2" Color="{Resource AccountBook.Col_type3}"/>
 					</Rectangle>
 					<Clicked>
 						<Set ModalConfirm.IsEnabled="false"/>

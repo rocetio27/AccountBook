@@ -15,7 +15,7 @@
 				<Text RowSpan="2" FontSize="30" Alignment="Center" TextColor="{addingValueColor}" Value="{inputVars.pmType} {addingValue}"/>
 				<Panel RowSpan="15"/>
 				<Panel RowSpan="3">
-					<Rectangle Color="{Resource Col_type3}">
+					<Rectangle Color="{Resource AccountBook.Col_type3}">
 					</Rectangle>
 				</Panel>
 			</Grid>
@@ -24,7 +24,7 @@
 			</WhileKeyboardVisible>
 		</DockPanel>
 		<DockPanel RowSpan="43">	
-			<Grid RowSpan="43" Alignment="Bottom" Color="{Resource Col_type3}" Padding="0,10,0,10" Height="100%" ux:Name="KeyboardGrid" RowCount="5" ColumnCount="5">
+			<Grid RowSpan="43" Alignment="Bottom" Color="{Resource AccountBook.Col_type3}" Padding="0,10,0,10" Height="100%" ux:Name="KeyboardGrid" RowCount="5" ColumnCount="5">
 				
 				<TextInput ux:Name="usageTextInput" Padding="1" ColumnSpan="5" Value="{inputVars.usage}" Height="100%" Width="100%" TextColor="#000" TextAlignment="Center">
 					<Rectangle>
@@ -59,11 +59,11 @@
 		<Panel Layer="Overlay" Color="1,1,1,0">
 			<StackPanel Alignment="Center" Padding="10">
 				<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
-					<Stroke Width="2" Color="{Resource Col_type3}"/>
+					<Stroke Width="2" Color="{Resource AccountBook.Col_type3}"/>
 				</Rectangle>
 
 				<ScrollView>
-					<Rectangle CornerRadius="8" Color="{Resource Col_type3}">
+					<Rectangle CornerRadius="8" Color="{Resource AccountBook.Col_type3}">
 						<Grid ColumnCount="8">
 							<TextInput ux:Name="popup_input" TextColor="#000" TextAlignment="Center" Height="30" PlaceholderText="add your usage" Value="{usageListAddInput}" ColumnSpan="6"/>
 							<wbButton Text="ADD" ColumnSpan="2" Clicked="{AddToTempUsageList}" >
@@ -103,11 +103,14 @@
 					</ScrollView>
 				</DockPanel>
 
-				<Button>
+				<Button ux:Name="ok_button">
 					<Text Value="OK" Color="#000" Alignment="Center" TextAlignment="Center"/>
 					<Rectangle CornerRadius="5">
-						<Stroke Width="2" Color="{Resource Col_type3}"/>
+						<Stroke Width="2" Color="{Resource AccountBook.Col_type3}"/>
 					</Rectangle>
+					<WhilePressed>
+						<Change ok_button.Color="{Resource AccountBook.Col_type3}" Duration="0.05" DurationBack=".2" />
+					</WhilePressed>
 					<Clicked>
 						<Set ModalConfirm.IsEnabled="false"/>
 						<PlaySound File="Click.wav" />

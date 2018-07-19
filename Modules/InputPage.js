@@ -34,7 +34,7 @@ var usageListAddInput = Observable("");
 	function PM_TypeChange(){
 		if (inputVars.pmType.value=="+"){
 
-			addingValueColor.value="#EE0000";
+			addingValueColor.value="#cc0000";
 			pmTypeText.value = "OUTPUT";
 			inputVars.pmType.value="-";
 
@@ -72,7 +72,7 @@ var usageListAddInput = Observable("");
 
 		} else if ( inputVars.pmType.value=="-"){
 
-			addingValueColor.value="#EE0000";
+			addingValueColor.value="#cc0000";
 			pmTypeText.value = "OUTPUT";
 			inputVars.pmType.value="-";
 		}

@@ -47,8 +47,8 @@ var list_once = Observable(false);
 
 var list_card_show = Observable(true);
 var list_cash_show = Observable(true);
-var list_cash_show_color = Observable("#FFBD00");
-var list_card_show_color = Observable("#FFBD00");
+var list_cash_show_color = Observable("AccountBook.AccountBook.Col_type3");
+var list_card_show_color = Observable("AccountBook.AccountBook.Col_type3");
 //AccountList.currentAccountId
 var screenDateTime = Observable(moment().format('YYYYMMDDHHmm'));
 var screenYear = Observable(moment(screenDateTime.value,'YYYYMMDDHHmm',true).format('YYYY'));

@@ -102,11 +102,11 @@ var inputVars = {
 	account_id: Observable(temp_initial_value.value.account_id),
 	amount: Observable(temp_initial_value.value.amount),
 	dateTime: Observable(temp_initial_value.value.dateTime),
-	usage: Observable(UsagePopup.selected.value),
+	usage: Observable(""),
 	payType: Observable(temp_initial_value.value.payType),
 	pmType: Observable(temp_initial_value.value.pmType) // 음수 : "" 양수 : "+"
 };
-console.log("inputVars 에 뭐가 들었는지 볼까요? : "+inputVars.payType.value)
+console.log("inputVars 에 뭐가 들었는지 볼까요? : "+inputVars.usage.value)
 Show.input_payType.value=inputVars.payType.value;
 
 var addingValueColor = Observable("#006600");

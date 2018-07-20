@@ -1,18 +1,18 @@
 <Page ux:Class="StatisticPage">
 	<Panel ux:Name="FullWindo" Layer="Overlay" />
 	<Panel ux:Name="FullWindo2" Layer="Overlay" />
-	<JavaScript File="Modules/StatisticPage.js"/>
+	<JavaScript File="Modules/StatisticPage.js" />
 	<!--  -->
 	<!--  -->
 	<Button ux:InnerClass="myButton">
-		<Rectangle CornerRadius="5" Color="White">
-			<Text TextAlignment="Center" Alignment="Center" Font="{ReadProperty font}" FontSize="{ReadProperty fontsize}" Color="{ReadProperty textcolor}" Value="{ReadProperty text}"/>
+		<Rectangle CornerRadius="5" Color="White" Opacity="1" TransformOrigin="Center">
+			<Text TextAlignment="Center" Alignment="Center" Font="{ReadProperty font}" FontSize="{ReadProperty fontsize}" Color="{ReadProperty textcolor}" Value="{ReadProperty text}" />
+			<Stroke Color="#eee" Width="2"/>
 		</Rectangle>
-		<DropShadow Angle="90" Distance="0.5" Spread="0.2" Size="2" Color="#00000060"/>
-		<string ux:Property="text"/>
-		<Font ux:Property="font"/>
-		<float4 ux:Property="textcolor"/>
-		<int ux:Property="fontsize"/>
+		<string ux:Property="text" />
+		<Font ux:Property="font" />
+		<float4 ux:Property="textcolor" />
+		<int ux:Property="fontsize" />
 		<WhilePressed>
 			<Change this.textcolor="#888" Duration="0.05" DurationBack="1" />
 		</WhilePressed>
@@ -20,28 +20,28 @@
 	<!--  -->
 	<!--  -->
 	<Rectangle ux:InnerClass="statisticBox" Padding="10,0,10,10" Margin="10,0,10,10" CornerRadius="5" Color="White">
-		<string ux:Property="Title1"/>
-		<string ux:Property="Title2"/>
-		<string ux:Property="GreenText"/>
-		<string ux:Property="RedText"/>
-		<int ux:Property="TitleFontSize"/>
+		<string ux:Property="Title1" />
+		<string ux:Property="Title2" />
+		<string ux:Property="GreenText" />
+		<string ux:Property="RedText" />
+		<int ux:Property="TitleFontSize" />
 		<Grid RowCount="4" ColumnCount="3">
-			<Rectangle Width="100%" Alignment="BottomCenter" Margin="10,0,0,10" Height="17" ColumnSpan="3" >
-				<Text TextAlignment="Center" Color="Black"  FontSize="{ReadProperty TitleFontSize}" Value="{ReadProperty Title1}"/>
+			<Rectangle Width="100%" Alignment="BottomCenter" Margin="10,0,0,10" Height="17" ColumnSpan="3">
+				<Text TextAlignment="Center" Color="Black" FontSize="{ReadProperty TitleFontSize}" Value="{ReadProperty Title1}" />
 			</Rectangle>
-			<Rectangle Width="100%" Alignment="TopCenter" Margin="10,0,0,10" Height="17" ColumnSpan="3" >
-				<Text TextAlignment="Center" Color="Black"  FontSize="{ReadProperty TitleFontSize}" Value="{ReadProperty Title2}"/>
+			<Rectangle Width="100%" Alignment="TopCenter" Margin="10,0,0,10" Height="17" ColumnSpan="3">
+				<Text TextAlignment="Center" Color="Black" FontSize="{ReadProperty TitleFontSize}" Value="{ReadProperty Title2}" />
 			</Rectangle>
-			<Text Alignment="Center" Value="수입" FontSize="20" Margin="0,5,0,5"/>
-			<Text Alignment="Center" ColumnSpan="2" Color="Col_green" Value="{ReadProperty GreenText}" FontSize="20" Margin="0,5,0,5"/>
-			<Text Alignment="Center" Value="지출" FontSize="20" Margin="0,5,0,5"/>
-			<Text Alignment="Center" ColumnSpan="2" Color="Col_red" Value="{ReadProperty RedText}" FontSize="20" Margin="0,5,0,5"/>
+			<Text Alignment="Center" Value="수입" FontSize="20" Margin="0,5,0,5" />
+			<Text Alignment="Center" ColumnSpan="2" Color="Col_green" Value="{ReadProperty GreenText}" FontSize="20" Margin="0,5,0,5" />
+			<Text Alignment="Center" Value="지출" FontSize="20" Margin="0,5,0,5" />
+			<Text Alignment="Center" ColumnSpan="2" Color="Col_red" Value="{ReadProperty RedText}" FontSize="20" Margin="0,5,0,5" />
 		</Grid>
 	</Rectangle>
 	<!--  -->
 	<!--  -->
 	<Grid RowCount="100">
-		<Rectangle RowSpan="14"/>
+		<Rectangle RowSpan="14" />
 		<ScrollView RowSpan="86">
 			<!-- 
 			 -->
@@ -52,7 +52,7 @@
 						<Set ModalConfirm.IsEnabled="true" />
 					</Clicked>
 				</myButton>
-				<statisticBox TitleFontSize="17" Title1="특정 날짜의" Title2="수입 지출" GreenText="{spcf_input_total}" RedText="{spcf_output_total}"/>
+				<statisticBox TitleFontSize="17" Title1="특정 날짜의" Title2="수입 지출" GreenText="{spcf_input_total}" RedText="{spcf_output_total}" />
 				<!-- 특정날짜 수입지출 합산 끝 -->
 
 				<!-- 특정기간 수입지출 합산 시작 -->
@@ -68,27 +68,27 @@
 						</Clicked>
 					</myButton>
 				</Grid>
-				<statisticBox TitleFontSize="17" Title1="특정 기간동안의"  Title2="수입 지출" GreenText="{intv_tot_input_total}" RedText="{intv_tot_output_total}"/>
+				<statisticBox TitleFontSize="17" Title1="특정 기간동안의" Title2="수입 지출" GreenText="{intv_tot_input_total}" RedText="{intv_tot_output_total}" />
 				<!-- 특정기간 수입지출 합산 끝 -->
 				<!-- 특정 아이템에 대한 특정기간 수입지출 합산 시작 -->
 				<Grid Margin="10,10,10,0" RowCount="2" ColumnCount="2">
-					<myButton Width="100%" Clicked="{Click_item_tot_date_left}" text="{screen_item_tot_datetime_left_string}" fontsize="15" font="Bold" textcolor="#000000" >
+					<myButton Width="100%" Clicked="{Click_item_tot_date_left}" text="{screen_item_tot_datetime_left_string}" fontsize="15" font="Bold" textcolor="#000000">
 						<Clicked>
 							<Set ModalConfirm.IsEnabled="true" />
 						</Clicked>
 					</myButton>
-					<myButton Width="100%" Clicked="{Click_item_tot_date_right}" text="{screen_item_tot_datetime_right_string}" fontsize="15" font="Bold" textcolor="#000000" >
+					<myButton Width="100%" Clicked="{Click_item_tot_date_right}" text="{screen_item_tot_datetime_right_string}" fontsize="15" font="Bold" textcolor="#000000">
 						<Clicked>
 							<Set ModalConfirm.IsEnabled="true" />
 						</Clicked>
 					</myButton>
-					<myButton Margin="0,1,0,0" Width="100%" ColumnSpan="2" Clicked="{Click_intv_tot_date_right}" text="{selected_item}" fontsize="17" textcolor="#000000">
+					<myButton Margin="0" Width="100%" ColumnSpan="2" Clicked="{Click_intv_tot_date_right}" text="{selected_item}" fontsize="17" textcolor="#000000">
 						<Clicked>
 							<Set ModalConfirm2.IsEnabled="true" />
 						</Clicked>
 					</myButton>
 				</Grid>
-				<statisticBox TitleFontSize="17" Title1="특정 기간동안의 특정 용도에 대한" Title2="수입 지출" GreenText="{item_tot_input_total}" RedText="{item_tot_output_total}"/>
+				<statisticBox TitleFontSize="17" Title1="특정 기간동안의 특정 용도에 대한" Title2="수입 지출" GreenText="{item_tot_input_total}" RedText="{item_tot_output_total}" />
 				<!-- 특정 아이템에 대한 특정기간 수입지출 합산 끝 -->
 				
 				<Rectangle Height="200" Color="AccountBook.Col_type3">
@@ -98,29 +98,29 @@
 	</Grid>
 	<!--  -->
 	<!--  -->
-	<ResourceObject Key="FullWindow" Value="FullWindo"/>
-	<ResourceObject Key="FullWindow2" Value="FullWindo2"/>
+	<ResourceObject Key="FullWindow" Value="FullWindo" />
+	<ResourceObject Key="FullWindow2" Value="FullWindo2" />
 	<AlternateRoot ux:Name="ModalConfirm" IsEnabled="false" ParentNode="{Resource FullWindow}">
 		<Panel Layer="Overlay" Color="1,1,1,0">
 			<StackPanel Alignment="Center" Padding="10">
-				<Rectangle Width="250" Height="300" CornerRadius="10" Layer="Background"  Color="#fff">
-					<Stroke Width="2" Color="{Resource AccountBook.Col_type3}"/>
+				<Rectangle Width="250" Height="300" CornerRadius="10" Layer="Background" Color="#fff">
+					<Stroke Width="2" Color="{Resource AccountBook.Col_type3}" />
 				</Rectangle>
 				<StackPanel Alignment="Center" Height="20" Orientation="Horizontal">
 					<ccButton Margin="2,0,2,0" Clicked="{Click_calendar_lArrow}" Alignment="Center">
-						<Image ux:Name="calendar_lbutton" Height="100%" File="images/lArrow.png"/>
+						<Image ux:Name="calendar_lbutton" Height="100%" File="images/lArrow.png" />
 						<WhilePressed>
 							<Change calendar_lbutton.Color="#999" Duration="0.05" DurationBack=".2" />
 						</WhilePressed>
-						<DropShadow Color="Black" Distance="0.02"/>
+						<DropShadow Color="Black" Distance="0.02" />
 					</ccButton> 
-					<Text Alignment="Center" Value="{calendarDateTime}"/>
-					<ccButton Margin="2,0,2,0"  Clicked="{Click_calendar_rArrow}" Alignment="Center">
-						<Image ux:Name="calendar_rbutton" Height="100%" File="images/rArrow.png"/>
+					<Text Alignment="Center" Value="{calendarDateTime}" />
+					<ccButton Margin="2,0,2,0" Clicked="{Click_calendar_rArrow}" Alignment="Center">
+						<Image ux:Name="calendar_rbutton" Height="100%" File="images/rArrow.png" />
 						<WhilePressed>
 							<Change calendar_rbutton.Color="#999" Duration="0.05" DurationBack=".2" />
 						</WhilePressed>
-						<DropShadow Color="Black" Distance="0.02"/>
+						<DropShadow Color="Black" Distance="0.02" />
 					</ccButton>
 				</StackPanel>
 				<Grid Width="220" Height="200" RowCount="7" ColumnCount="7">
@@ -136,15 +136,15 @@
 					</Each>
 				</Grid>
 				<Button ux:Name="ok_button" Clicked="{Ok_click}">
-					<Text Value="OK" Color="#000" Alignment="Center" TextAlignment="Center"/>
+					<Text Value="OK" Color="#000" Alignment="Center" TextAlignment="Center" />
 					<Rectangle CornerRadius="5">
-						<Stroke Width="2" Color="{Resource AccountBook.Col_type3}"/>
+						<Stroke Width="2" Color="{Resource AccountBook.Col_type3}" />
 					</Rectangle>
 					<WhilePressed>
 						<Change ok_button.Color="{Resource AccountBook.Col_type3}" Duration="0.05" DurationBack=".2" />
 					</WhilePressed>
 					<Clicked>
-						<Set ModalConfirm.IsEnabled="false"/>
+						<Set ModalConfirm.IsEnabled="false" />
 						<PlaySound File="Click.wav" />
 					</Clicked>
 				</Button>
@@ -154,12 +154,12 @@
 	<AlternateRoot ux:Name="ModalConfirm2" IsEnabled="false" ParentNode="{Resource FullWindow2}">
 		<Panel Layer="Overlay" Color="1,1,1,0">
 			<StackPanel Alignment="Center" Padding="10">
-				<Rectangle CornerRadius="10" Layer="Background"  Color="#fff">
-					<Stroke Width="2" Color="{Resource AccountBook.Col_type3}"/>
+				<Rectangle CornerRadius="10" Layer="Background" Color="#fff">
+					<Stroke Width="2" Color="{Resource AccountBook.Col_type3}" />
 				</Rectangle>
 				<ScrollView Height="200" Width="200">
 					<StackPanel>
-						<Text Value="{selected_item}"/>
+						<Text Value="{selected_item}" />
 						<Each Items="{tempUsageList}" Offset="{offset}" Limit="{limit}">
 							<ScrollView AllowedScrollDirections="Horizontal">
 								<wbButton_Left Clicked="{SelectUsage}" Text="{name}">
@@ -172,15 +172,15 @@
 					</StackPanel>
 				</ScrollView>
 				<Button ux:Name="ok_button2" Clicked="{CalculateIntervalItemTotal}">
-					<Text Value="OK" Color="#000" Alignment="Center" TextAlignment="Center"/>
+					<Text Value="OK" Color="#000" Alignment="Center" TextAlignment="Center" />
 					<Rectangle CornerRadius="5">
-						<Stroke Width="2" Color="{Resource AccountBook.Col_type3}"/>
+						<Stroke Width="2" Color="{Resource AccountBook.Col_type3}" />
 					</Rectangle>
 					<WhilePressed>
 						<Change ok_button2.Color="{Resource AccountBook.Col_type3}" Duration="0.05" DurationBack=".2" />
 					</WhilePressed>
 					<Clicked>
-						<Set ModalConfirm2.IsEnabled="false"/>
+						<Set ModalConfirm2.IsEnabled="false" />
 						<PlaySound File="Click.wav" />
 					</Clicked>
 				</Button>

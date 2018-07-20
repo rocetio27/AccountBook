@@ -1,21 +1,20 @@
 <Page ux:Class="InputPage" >
 	<JavaScript File="Modules/InputPage.js"/>
 	<Panel ux:Name="FullWindo" Layer="Overlay" />
-	<Grid RowCount="100">
-		<DockPanel RowSpan="57">
-			<Grid ux:Name="ScreenGrid" RowCount="57">
-				<Panel RowSpan="21"/> 
-				<Panel RowSpan="3">
-					<Rectangle Color="#fff">
-					</Rectangle>
-				</Panel>
-				<Text RowSpan="3" Alignment="Center" Value="{cashOrCardText}" Color="#000"/>
-				<Text RowSpan="3" Alignment="Center" Value="현재 잔액" Color="#000"/>
-				<Text RowSpan="7" FontSize="45" Alignment="Center" Value="{currentBalance}" Color="#000"/>
-				<Text RowSpan="2" FontSize="30" Alignment="Center" TextColor="{addingValueColor}" Value="{inputVars.pmType} {addingValue}"/>
-				<Panel RowSpan="15"/>
-				<Panel RowSpan="3">
-					<Rectangle Color="{Resource AccountBook.Col_type3}">
+	<Grid Padding="5,0,5,0" RowCount="100" Color="{#ffbd00}">
+		<DockPanel RowSpan="55">
+			<Grid ux:Name="ScreenGrid" Padding="5,10,5,5" RowCount="57">
+				<Panel RowSpan="12"/>
+				<Panel RowSpan="44">
+					<Rectangle CornerRadius="2" Color="{#fff}">
+					<Grid RowCount="43">
+						<Panel RowSpan="12"/> 
+						<Text RowSpan="3" Alignment="Center" Value="{cashOrCardText}" Color="#333"/>
+						<Text RowSpan="3" Alignment="Center" Value="현재 잔액" Color="#333"/>
+						<Text RowSpan="7" FontSize="45" Alignment="Center" Value="{currentBalance}" Color="#333"/>
+						<Text Font="Bold" RowSpan="2" FontSize="30" Alignment="Center" TextColor="{addingValueColor}" Value="{inputVars.pmType} {addingValue}"/>
+						<Panel RowSpan="16"/>
+					</Grid>
 					</Rectangle>
 				</Panel>
 			</Grid>
@@ -23,13 +22,16 @@
 				<Change Target="ScreenGrid.Opacity" Value="0" Duration="0.3" />
 			</WhileKeyboardVisible>
 		</DockPanel>
-		<DockPanel RowSpan="43">	
-			<Grid RowSpan="43" Alignment="Bottom" Color="{Resource AccountBook.Col_type3}" Padding="0,10,0,10" Height="100%" ux:Name="KeyboardGrid" RowCount="5" ColumnCount="5">
+		<DockPanel RowSpan="45">
+			<Panel Padding="5,0,5,15">
+				<Rectangle CornerRadius="3" Padding="3" Color="{#eee}">
+				<Grid RowSpan="43" Alignment="Bottom" Height="100%" ux:Name="KeyboardGrid" RowCount="5" ColumnCount="5">
 				
-				<TextInput PlaceholderText="추가 될 내역의 이름을 입력해주세요." PlaceholderColor="#888" ux:Name="usageTextInput" Padding="1" ColumnSpan="5" Value="{inputVars.usage}" Height="100%" Width="100%" TextColor="#000" TextAlignment="Center">
-					<Rectangle>
-				    	<SolidColor Color="#fff"/>
-				    	<Stroke Width="1" Color="#fff"/>
+				<TextInput PlaceholderText="추가 될 내역의 이름을 입력해주세요." PlaceholderColor="#888" ux:Name="usageTextInput" Padding="1" ColumnSpan="5" Value="{inputVars.usage}" Height="100%" Width="100%" Font="Bold" TextColor="#333" TextAlignment="Center">
+					<Rectangle Color="{#fff}" CornerRadius="2">
+					<SolidColor ux:Name="wbRecCol" Color="{#fff}"/>
+			    	<Stroke Width="2" Color="#eee" >
+			    	</Stroke>
 					</Rectangle>
 				</TextInput>
 				<wbButton Text="{payTypeText}" Clicked="{PayTypeChange}" ColumnSpan="3" />
@@ -51,7 +53,9 @@
 				<WhileKeyboardVisible>
 					<Move RelativeTo="Keyboard" Y="-1" />
 				</WhileKeyboardVisible>
-			</Grid>
+				</Grid>
+				</Rectangle>
+			</Panel>
 		</DockPanel>
 	</Grid>
 	<ResourceObject Key="FullWindow" Value="FullWindo"/>

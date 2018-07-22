@@ -102,7 +102,7 @@ var inputVars = {
 	account_id: Observable(temp_initial_value.value.account_id),
 	amount: Observable(temp_initial_value.value.amount),
 	dateTime: Observable(temp_initial_value.value.dateTime),
-	usage: Observable(""),
+	usage: Observable(),
 	payType: Observable(temp_initial_value.value.payType),
 	pmType: Observable(temp_initial_value.value.pmType) // 음수 : "" 양수 : "+"
 };

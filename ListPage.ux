@@ -109,7 +109,7 @@
 											        <Text Alignment="Center" Color="Col_red" Value="{amount}" />
 											    </Case>
 											</Match>
-											<Text Alignment="Center" Value="{usage}" Color="Black" TextAlignment="Center" />
+											<Text Width="100%" Alignment="Center" Value="{usage}" Color="Black" TextAlignment="Center" />
 											<Text Alignment="Center" Value="{data_time}" Color="Black" />
 											</Grid>
 										</Panel>

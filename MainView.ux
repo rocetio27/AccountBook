@@ -11,9 +11,10 @@
 	<float4 ux:Global="Col_green" ux:Value="#006600" />
 
 <!-- Button Design  -->
-	<Button Height="100%" Width="100%" Padding="1" ux:Class="wbButton" TextCol="#333">
+	<Button Height="100%" Width="100%" Padding="1" ux:Class="wbButton" TextCol="#333" font="Bold">
+		<string ux:Property="font"/>
 		<float4 ux:Property="TextCol" />
-		<Text Font="Bold" Color="{ReadProperty TextCol}" Value="{ReadProperty Text}" Alignment="Center" />
+		<Text Font="{ReadProperty font}" Color="{ReadProperty TextCol}" Value="{ReadProperty Text}" Alignment="Center" />
 		    <Rectangle CornerRadius="2">
 		    	<SolidColor ux:Name="wbRecCol" Color="{#fff}" />
 		    	<Stroke Width="2" Color="#eee">
@@ -87,28 +88,23 @@
     </Rectangle>
 <!-- 인디케이터 디자인 끝 -->
 
-<EdgeNavigator Alignment="Default" Opacity="1">	
+<EdgeNavigator Alignment="Default" Layer="Overlay">	
 	<!-- EdgePage Start -->
 	<Grid RowCount="100" ux:Name="sidebar" Edge="Left" Height="100%" Width="80%" Background="#fff">
-		<Shadow ux:Name="shadow" Angle="180" Distance="8" Size="16" Color="#0000" />
-		<ActivatingAnimation>
-			<Change shadow.Color="#0004" />
-		</ActivatingAnimation> 
-
+		<Shadow ux:Name="shadow" Angle="180" Distance="8" Size="16" Color="#0004" />
 		<Text Alignment="Center" RowSpan="18" FontSize="45" Value="Book List" /> <!-- 18 -->
-		<Text Value="Selected : {currentTitle}" /> <!-- 19 -->
+		<Text Margin="10,0,0,0" Value="현재 가계부 : {currentTitle}" /> <!-- 19 -->
 		<Rectangle RowSpan="5" /><!-- 24 -->
 
 		<Each Items="{tempList}" Limit="1">
-			<Grid RowSpan="8" Height="50" ColumnCount="10"><!-- 32 -->
+			<Grid Margin="10,0,10,0" RowSpan="8" Height="50" ColumnCount="10"><!-- 32 -->
 				<DockPanel ColumnSpan="8">
 					<wbButton Clicked="{SelectAccount}" ux:Name="aBtn" Text="{title}">
-						<DropShadow Angle="0" Distance="1" Spread="0.2" Size="2" Color="#00000060" />
 					</wbButton>
 					<TextBox ux:Name="bTBox" Visibility="Hidden" Value="{title}" />
 				</DockPanel>
 				<DockPanel ColumnSpan="2">
-					<wbButton ux:Name="bEdit" Text="EDIT">
+					<wbButton ux:Name="bEdit" Text="수정">
 						<Clicked>
 							<Set bTBox.Visibility="Visible" />
 							<Set bEdit.Visibility="Hidden" />
@@ -118,7 +114,7 @@
 					</wbButton> 
 					<Grid RowCount="2">
 					<Panel />
-					<wbButton Clicked="{editTitle}" ux:Name="OK" TextCol="#000" Text="OK" Height="100%">
+					<wbButton Clicked="{editTitle}" ux:Name="OK" TextCol="#000" Text="확인" Height="100%">
 						<Clicked>
 							<Set OK.Visibility="Visible" />
 							<Set bTBox.Visibility="Hidden" />
@@ -130,20 +126,18 @@
 				</DockPanel>
 			</Grid>
 		</Each>
-		<ScrollView RowSpan="41"><!-- 73 -->
+		<ScrollView Margin="10,0,10,0" RowSpan="41"><!-- 73 -->
 			<Grid ColumnCount="1">
 				<Each Items="{tempList}" Offset="1" Limit="10000">
 					<Grid Height="50" ColumnCount="10">
 					<DockPanel ColumnSpan="8">
-						<wbButton Clicked="{SelectAccount}" ux:Name="aBtn" Text="{title}">
-								<DropShadow Angle="0" Distance="1" Spread="0.2" Size="2" Color="#00000060" />	
+						<wbButton ux:Name="aBtn" font="thin" Clicked="{SelectAccount}" Text="{title}">
 						</wbButton>
 						<TextBox ux:Name="bTBox" Visibility="Hidden" Height="50" Value="{title}" />
 					</DockPanel>
 
 					<DockPanel ColumnSpan="2">
-						<wbButton ux:Name="aEdit" Text="EDIT">
-							<DropShadow Angle="0" Distance="1" Spread="0.2" Size="2" Color="#00000060" />
+						<wbButton ux:Name="aEdit" Text="수정">
 							<Clicked>
 								<Set aEdit.Visibility="Hidden" />
 								<Set aBtn.Visibility="Hidden" />
@@ -159,7 +153,7 @@
 							</Clicked>
 						</wbButton>
 						<Grid ux:Name="bGrid" Visibility="Hidden" RowCount="2">
-							<wbButton ux:Name="bDel" Text="DELETE" TextCol="Col_red">
+							<wbButton ux:Name="bDel" Text="삭제" TextCol="Col_red">
 								<Clicked>
 								<Set aEdit.Visibility="Hidden" />
 								<Set aBtn.Visibility="Hidden" />
@@ -174,7 +168,7 @@
 								<Set cCancel.Visibility="Visible" />
 								</Clicked>
 							</wbButton>
-							<wbButton Clicked="{editTitle}" ux:Name="bComp" Text="OK">
+							<wbButton Clicked="{editTitle}" ux:Name="bComp" Text="확인">
 								<Clicked>
 								<Set aEdit.Visibility="Visible" />
 								<Set aBtn.Visibility="Visible" />
@@ -191,7 +185,7 @@
 							</wbButton>
 						</Grid>
 						<Grid ux:Name="cGrid" Visibility="Hidden" RowCount="2">
-							<wbButton ux:Name="cCancel" Text="CANCEL">
+							<wbButton ux:Name="cCancel" Text="취소">
 								<Clicked>
 								<Set aEdit.Visibility="Visible" />
 								<Set aBtn.Visibility="Visible" />
@@ -206,7 +200,7 @@
 								<Set cCancel.Visibility="Hidden" />
 								</Clicked>
 							</wbButton>
-							<wbButton Clicked="{DeleteAccount}" ux:Name="cDel" Text="DELETE" TextCol="Col_red">
+							<wbButton Clicked="{DeleteAccount}" ux:Name="cDel" Text="삭제" TextCol="Col_red">
 								<Clicked>
 								<Set aEdit.Visibility="Visible" />
 								<Set aBtn.Visibility="Visible" />
@@ -230,7 +224,6 @@
                     </LayoutAnimation>
 
                     <AddingAnimation>
-                        <Move RelativeTo="Size" X="1" Duration="0.3" Easing="CircularIn" />
                     </AddingAnimation>
 
                     <RemovingAnimation>
@@ -239,7 +232,7 @@
 				</Each>	
 			</Grid>
 		</ScrollView>
-		<wbButton RowSpan="8" Row="74" Clicked="{tempListAdd}" Text="ADD" Height="50">
+		<wbButton Margin="10,0,10,0" RowSpan="8" Row="90" Clicked="{tempListAdd}" Text="추가" Height="50">
 		</wbButton>
 	</Grid>
 	<!-- EdgePage End -->
